@@ -76,24 +76,39 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
       _loginResult = null;
     });
 
-    final bool success = await context
-        .read<UserManagementProvider>()
-        .loginWithKeycloak(context.read<LocalDatabase>());
+    try {
+      final bool success = await context
+          .read<UserManagementProvider>()
+          .loginWithKeycloak(context.read<LocalDatabase>());
 
-    if (!context.mounted) {
-      return;
-    }
-    setState(() => _runningQuery = false);
+      if (!context.mounted) {
+        return;
+      }
+      setState(() => _runningQuery = false);
 
-    if (!success) {
-      return;
-    }
+      if (!success) {
+        return;
+      }
 
-    AnalyticsHelper.trackEvent(AnalyticsEvent.loginAction);
-    if (!context.mounted) {
-      return;
+      AnalyticsHelper.trackEvent(AnalyticsEvent.loginAction);
+      if (!context.mounted) {
+        return;
+      }
+      Navigator.pop(context);
+    } catch (e) {
+      // e.g. Keycloak rejecting the request (unknown client, bad scopes):
+      // stop spinning and show the error instead of hanging.
+      if (!context.mounted) {
+        return;
+      }
+      setState(() {
+        _runningQuery = false;
+        _loginResult = LoginResult(
+          LoginResultType.exception,
+          text: e.toString(),
+        );
+      });
     }
-    Navigator.pop(context);
   }
 
   @override
