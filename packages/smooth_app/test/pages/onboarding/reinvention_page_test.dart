@@ -18,7 +18,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../tests_utils/mocks.dart';
 
-/// Keeps the sun animation on its loading state: rive needs a native lib.
+// rive needs a native lib: never completes, so the sun stays loading.
 class _NoRiveFile implements FileLoader {
   @override
   Future<File> file() => Completer<File>().future;
@@ -54,20 +54,19 @@ void main() {
     await openSans.load();
   });
 
-  // OnePlus 8 Pro from the bug report: 1080x2376 px at 3.0.
-  // A paragraph clipped by its parent keeps didExceedMaxLines false: compare
-  // the height its text needs with the height it got instead.
+  // A clipped paragraph keeps didExceedMaxLines false: compare needed vs given.
   const Size phone = Size(360, 792);
+  const double dpr = 3.0;
 
   for (final double scale in <double>[1.0, 1.3, 2.0]) {
     testWidgets('German welcome text is not cut at text scale $scale', (
       WidgetTester tester,
     ) async {
-      tester.view.physicalSize = phone * 3.0;
-      tester.view.devicePixelRatio = 3.0;
+      tester.view.physicalSize = phone * dpr;
+      tester.view.devicePixelRatio = dpr;
       tester.view.viewPadding = const FakeViewPadding(
-        top: 24 * 3,
-        bottom: 48 * 3,
+        top: 24 * dpr,
+        bottom: 48 * dpr,
       );
       tester.view.padding = tester.view.viewPadding;
       tester.platformDispatcher.textScaleFactorTestValue = scale;
@@ -107,29 +106,22 @@ void main() {
           reason: label,
         );
 
-        // Painted inside its own slot, not over the sun or the hills.
-        final Rect slot = tester.getRect(
-          find
-              .ancestor(
-                of: find.byWidget(text.widget),
-                matching: find.byType(Expanded),
-              )
-              .first,
-        );
+        final Rect slot = tester
+            .getRect(
+              find
+                  .ancestor(
+                    of: find.byWidget(text.widget),
+                    matching: find.byType(Expanded),
+                  )
+                  .first,
+            )
+            .inflate(0.5);
         final Rect painted = MatrixUtils.transformRect(
           paragraph.getTransformTo(null),
           Offset.zero & paragraph.size,
         );
-        expect(
-          slot.inflate(0.5).contains(painted.topLeft),
-          isTrue,
-          reason: label,
-        );
-        expect(
-          slot.inflate(0.5).contains(painted.bottomRight),
-          isTrue,
-          reason: label,
-        );
+        expect(slot.contains(painted.topLeft), isTrue, reason: label);
+        expect(slot.contains(painted.bottomRight), isTrue, reason: label);
       }
     });
   }
