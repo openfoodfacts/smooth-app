@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/background/background_task_language_refresh.dart';
@@ -246,6 +247,28 @@ class DevModeRoot extends PreferencesRoot {
           newServer,
         );
         ProductQuery.setQueryType(userPreferences);
+        // Changing the ProductOpener endpoint is an auth boundary for
+        // Keycloak SSO: tokens from a different backend/issuer won't work.
+        if (await KeycloakAuthService.instance.syncEnvironment(
+          userPreferences,
+        )) {
+          if (context.mounted) {
+            await context
+                .read<UserManagementProvider>()
+                .clearKeycloakManagedUser();
+          }
+        } else if (context.mounted) {
+          // Even if the Keycloak env keys didn't change, the backend changed.
+          // If a Keycloak SSO session exists, clear it to avoid 401s.
+          final UserManagementProvider provider = context
+              .read<UserManagementProvider>();
+          if (OpenFoodAPIConfiguration.globalUser?.comment ==
+              KeycloakAuthService.managedUserMarker) {
+            await provider.clearKeycloakManagedUser();
+          } else if (await KeycloakAuthService.instance.hasStoredSession()) {
+            await KeycloakAuthService.instance.purgeTokens();
+          }
+        }
       },
     );
   }
