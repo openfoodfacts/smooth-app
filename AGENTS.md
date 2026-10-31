@@ -73,6 +73,9 @@ The app supports different barcode scanner implementations. Choose one:
 # Enable ZXing scanner (open source alternative)  
 ./ci/dependencies/scanner/enable_zxing_dependency.sh
 
+# Enable Tapirscan scanner (Android comparison builds, see packages/scanner/tapirscan/README.md)
+./ci/dependencies/scanner/enable_tapirscan_dependency.sh
+
 # ALWAYS run flutter pub get after changing scanner dependencies
 cd packages/smooth_app && fvm flutter pub get .
 ```
@@ -160,7 +163,7 @@ If you encounter build issues:
 ### Main Directories
 
 - `packages/smooth_app/` - Main Flutter application
-- `packages/scanner/` - Barcode scanning implementations (ML Kit, ZXing, shared)
+- `packages/scanner/` - Barcode scanning implementations (ML Kit, ZXing, Tapirscan, shared)
 - `packages/app_store/` - App store specific implementations (Google Play, Apple, URI)
 - `ci/` - Continuous integration scripts and utilities
 - `.github/workflows/` - GitHub Actions CI/CD pipeline
