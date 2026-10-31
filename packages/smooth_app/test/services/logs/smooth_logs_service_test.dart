@@ -10,13 +10,12 @@ class FakeAppLogService implements AppLogService {
   Future<void> init() async {}
 
   @override
-  void log(
-    LogLevel level,
-    String message, {
-    dynamic ex,
-    StackTrace? stacktrace,
-    String? tag,
-  }) {
+  void log(LogLevel level,
+      String message, {
+        dynamic ex,
+        StackTrace? stacktrace,
+        String? tag,
+      }) {
     lastLevel = level;
     lastMessage = message;
   }
@@ -37,7 +36,7 @@ class FakeAppLogService implements AppLogService {
   void w(String message, {dynamic ex, StackTrace? stacktrace, String? tag}) {}
 
   @override
-  List<String> get logFilesPaths => [];
+  List<String> get logFilesPaths => <String>[];
 }
 
 void main() {
