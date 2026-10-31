@@ -5369,6 +5369,48 @@ abstract class AppLocalizations {
   /// **'Shop'**
   String get prices_location_subtitle;
 
+  /// No description provided for @prices_favorite_stores.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite stores'**
+  String get prices_favorite_stores;
+
+  /// No description provided for @prices_favorite_stores_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your favorite stores for Open Prices'**
+  String get prices_favorite_stores_subtitle;
+
+  /// No description provided for @prices_favorite_stores_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'No favorite stores yet. Search for a store to add it to your favorites.'**
+  String get prices_favorite_stores_empty;
+
+  /// No description provided for @prices_favorite_stores_add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a store'**
+  String get prices_favorite_stores_add;
+
+  /// No description provided for @prices_favorite_stores_remove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favorites'**
+  String get prices_favorite_stores_remove;
+
+  /// No description provided for @prices_favorite_stores_unknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown store'**
+  String get prices_favorite_stores_unknown;
+
+  /// No description provided for @prices_favorite_stores_unavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Store details are unavailable. Search for the store again to restore them.'**
+  String get prices_favorite_stores_unavailable;
+
   /// No description provided for @prices_location_find.
   ///
   /// In en, this message translates to:
