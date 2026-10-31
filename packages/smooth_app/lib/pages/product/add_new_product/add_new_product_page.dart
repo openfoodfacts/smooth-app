@@ -4,6 +4,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
@@ -360,7 +361,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     if (_alreadyPushedToHistory) {
       return;
     }
-    if (_isPopulated) {
+    if (_isPopulated &&
+        context.read<UserPreferences>().trackScannedAndViewedProducts) {
       upToDateProduct.productName = upToDateProduct.productName?.trim();
       upToDateProduct.brands = upToDateProduct.brands?.trim();
       await _daoProductList.push(_history, barcode);
