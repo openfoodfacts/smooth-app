@@ -621,14 +621,17 @@ class UserPreferences extends ChangeNotifier {
   String? getDevModeString(final String tag) =>
       _sharedPreferences.getString(tag);
 
-  Future<void> setActiveAttributeGroup(final String value) async {
-    await _sharedPreferences.setString(_TAG_ACTIVE_ATTRIBUTE_GROUP, value);
+  Future<void> setActiveAttributeGroup(final String? value) async {
+    if (value == null) {
+      await _sharedPreferences.remove(_TAG_ACTIVE_ATTRIBUTE_GROUP);
+    } else {
+      await _sharedPreferences.setString(_TAG_ACTIVE_ATTRIBUTE_GROUP, value);
+    }
     notifyListeners();
   }
 
-  String get activeAttributeGroup =>
-      _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP) ??
-      AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY;
+  String? get activeAttributeGroup =>
+      _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP);
 
   UserPictureSource get userPictureSource => UserPictureSource.fromString(
     _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
