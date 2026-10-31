@@ -33,38 +33,82 @@ void main() {
       'the new categories and events are appended last, with their tags',
       () {
         const List<AnalyticsCategory> categories = AnalyticsCategory.values;
-        expect(categories[categories.length - 3], AnalyticsCategory.lifecycle);
-        expect(categories[categories.length - 2], AnalyticsCategory.onboarding);
-        expect(categories.last, AnalyticsCategory.knowledgePanel);
-        expect(AnalyticsCategory.lifecycle.tag, 'lifecycle');
-        expect(AnalyticsCategory.onboarding.tag, 'onboarding');
-        expect(AnalyticsCategory.knowledgePanel.tag, 'knowledge panel');
+        expect(categories.sublist(categories.length - 5), <AnalyticsCategory>[
+          AnalyticsCategory.lifecycle,
+          AnalyticsCategory.onboarding,
+          AnalyticsCategory.knowledgePanel,
+          AnalyticsCategory.navigation,
+          AnalyticsCategory.foodPreferences,
+        ]);
+        expect(AnalyticsCategory.navigation.tag, 'navigation');
+        expect(AnalyticsCategory.foodPreferences.tag, 'food preferences');
 
         const List<AnalyticsEvent> events = AnalyticsEvent.values;
-        expect(events[events.length - 4], AnalyticsEvent.appFirstOpen);
-        expect(events[events.length - 3], AnalyticsEvent.onboardingPageVisited);
-        expect(events[events.length - 2], AnalyticsEvent.knowledgePanelOpen);
-        expect(events.last, AnalyticsEvent.appOpen);
-        expect(AnalyticsEvent.appOpen.tag, 'app open');
-        expect(AnalyticsEvent.appOpen.category, AnalyticsCategory.lifecycle);
-        expect(AnalyticsEvent.appFirstOpen.tag, 'app first open');
-        expect(
-          AnalyticsEvent.appFirstOpen.category,
-          AnalyticsCategory.lifecycle,
-        );
-        expect(
-          AnalyticsEvent.onboardingPageVisited.tag,
-          'onboarding page visited',
-        );
-        expect(
-          AnalyticsEvent.onboardingPageVisited.category,
-          AnalyticsCategory.onboarding,
-        );
-        expect(AnalyticsEvent.knowledgePanelOpen.tag, 'knowledge panel open');
-        expect(
-          AnalyticsEvent.knowledgePanelOpen.category,
-          AnalyticsCategory.knowledgePanel,
-        );
+        expect(events.sublist(events.length - 11), <AnalyticsEvent>[
+          AnalyticsEvent.appFirstOpen,
+          AnalyticsEvent.onboardingPageVisited,
+          AnalyticsEvent.knowledgePanelOpen,
+          AnalyticsEvent.appOpen,
+          AnalyticsEvent.productPageTabSelected,
+          AnalyticsEvent.bottomTabSelected,
+          AnalyticsEvent.foodPreferenceSaved,
+          AnalyticsEvent.questionAnswered,
+          AnalyticsEvent.cameraPermissionRefused,
+          AnalyticsEvent.userListCreated,
+          AnalyticsEvent.userListProductAdded,
+        ]);
+
+        final Map<AnalyticsEvent, (String, AnalyticsCategory)> expected =
+            <AnalyticsEvent, (String, AnalyticsCategory)>{
+              AnalyticsEvent.appOpen: ('app open', AnalyticsCategory.lifecycle),
+              AnalyticsEvent.appFirstOpen: (
+                'app first open',
+                AnalyticsCategory.lifecycle,
+              ),
+              AnalyticsEvent.onboardingPageVisited: (
+                'onboarding page visited',
+                AnalyticsCategory.onboarding,
+              ),
+              AnalyticsEvent.knowledgePanelOpen: (
+                'knowledge panel open',
+                AnalyticsCategory.knowledgePanel,
+              ),
+              AnalyticsEvent.productPageTabSelected: (
+                'product page tab selected',
+                AnalyticsCategory.navigation,
+              ),
+              AnalyticsEvent.bottomTabSelected: (
+                'bottom tab selected',
+                AnalyticsCategory.navigation,
+              ),
+              AnalyticsEvent.foodPreferenceSaved: (
+                'food preference saved',
+                AnalyticsCategory.foodPreferences,
+              ),
+              AnalyticsEvent.questionAnswered: (
+                'question answered',
+                AnalyticsCategory.hungerGame,
+              ),
+              AnalyticsEvent.cameraPermissionRefused: (
+                'camera permission refused',
+                AnalyticsCategory.scanning,
+              ),
+              AnalyticsEvent.userListCreated: (
+                'user list created',
+                AnalyticsCategory.list,
+              ),
+              AnalyticsEvent.userListProductAdded: (
+                'product added to user list',
+                AnalyticsCategory.list,
+              ),
+            };
+        expected.forEach((
+          AnalyticsEvent event,
+          (String, AnalyticsCategory) tagAndCategory,
+        ) {
+          expect(event.tag, tagAndCategory.$1, reason: event.name);
+          expect(event.category, tagAndCategory.$2, reason: event.name);
+        });
       },
     );
   });

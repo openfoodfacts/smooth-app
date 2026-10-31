@@ -9,6 +9,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
@@ -584,7 +585,18 @@ class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
 
     _fakeStateChange(listId, selected);
 
-    return dao.set(ProductList.user(listId), barcode, selected);
+    final bool changed = await dao.set(
+      ProductList.user(listId),
+      barcode,
+      selected,
+    );
+    if (changed && selected) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.userListProductAdded,
+        eventValue: 1,
+      );
+    }
+    return changed;
   }
 
   /// Create a new user list and add the product to it
@@ -594,11 +606,19 @@ class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
 
     final ProductList userList = ProductList.user(listId);
     await dao.put(userList);
+    AnalyticsHelper.trackEvent(AnalyticsEvent.userListCreated);
     return addAProductToAList(listId);
   }
 
-  Future<bool> addAProductToAList(String listId) {
-    return dao.set(ProductList.user(listId), barcode, true);
+  Future<bool> addAProductToAList(String listId) async {
+    final bool added = await dao.set(ProductList.user(listId), barcode, true);
+    if (added) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.userListProductAdded,
+        eventValue: 1,
+      );
+    }
+    return added;
   }
 
   /// Force reload the UI.

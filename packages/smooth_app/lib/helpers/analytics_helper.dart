@@ -28,7 +28,9 @@ enum AnalyticsCategory {
   donation(tag: 'donation'),
   lifecycle(tag: 'lifecycle'),
   onboarding(tag: 'onboarding'),
-  knowledgePanel(tag: 'knowledge panel');
+  knowledgePanel(tag: 'knowledge panel'),
+  navigation(tag: 'navigation'),
+  foodPreferences(tag: 'food preferences');
 
   const AnalyticsCategory({required this.tag});
 
@@ -215,7 +217,32 @@ enum AnalyticsEvent {
     tag: 'knowledge panel open',
     category: AnalyticsCategory.knowledgePanel,
   ),
-  appOpen(tag: 'app open', category: AnalyticsCategory.lifecycle);
+  appOpen(tag: 'app open', category: AnalyticsCategory.lifecycle),
+  productPageTabSelected(
+    tag: 'product page tab selected',
+    category: AnalyticsCategory.navigation,
+  ),
+  bottomTabSelected(
+    tag: 'bottom tab selected',
+    category: AnalyticsCategory.navigation,
+  ),
+  foodPreferenceSaved(
+    tag: 'food preference saved',
+    category: AnalyticsCategory.foodPreferences,
+  ),
+  questionAnswered(
+    tag: 'question answered',
+    category: AnalyticsCategory.hungerGame,
+  ),
+  cameraPermissionRefused(
+    tag: 'camera permission refused',
+    category: AnalyticsCategory.scanning,
+  ),
+  userListCreated(tag: 'user list created', category: AnalyticsCategory.list),
+  userListProductAdded(
+    tag: 'product added to user list',
+    category: AnalyticsCategory.list,
+  );
 
   const AnalyticsEvent({required this.tag, required this.category});
 

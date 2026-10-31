@@ -5,6 +5,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
@@ -78,6 +79,7 @@ class ProductListUserDialogHelper {
 
     final ProductList productList = ProductList.user(title);
     await daoProductList.put(productList);
+    AnalyticsHelper.trackEvent(AnalyticsEvent.userListCreated);
     daoProductList.localDatabase.notifyListeners();
     return productList;
   }
@@ -235,6 +237,10 @@ class ProductListUserDialogHelper {
               await daoProductList.bulkSet(
                 ProductList.user(list),
                 barcodes.toList(),
+              );
+              AnalyticsHelper.trackEvent(
+                AnalyticsEvent.userListProductAdded,
+                eventValue: barcodes.length,
               );
             }
 
