@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:sliver_tools/sliver_tools.dart';
@@ -73,6 +74,9 @@ abstract class PreferencesRoot extends StatefulWidget {
 
   final String? title;
   final Widget? customAppBar;
+
+  /// The screen view reported when this root is opened.
+  String? get actionName => null;
 
   List<PreferenceCard> getCards(BuildContext context);
 
@@ -169,10 +173,10 @@ abstract class PreferencesRoot extends StatefulWidget {
   SmoothPopupMenuButton<dynamic>? actions(BuildContext context) => null;
 
   @override
-  State<PreferencesRoot> createState() => _PreferencesRootState();
+  State<PreferencesRoot> createState() => _TracedPreferencesRootState();
 }
 
-class _PreferencesRootState extends State<PreferencesRoot> {
+class PreferencesRootState extends State<PreferencesRoot> {
   final ScrollController _scrollController = ScrollController();
   final FocusNode _focusNode = FocusNode();
 
@@ -258,4 +262,10 @@ class _PreferencesRootState extends State<PreferencesRoot> {
     _focusNode.dispose();
     super.dispose();
   }
+}
+
+class _TracedPreferencesRootState extends PreferencesRootState
+    with TraceableClientMixin<PreferencesRoot> {
+  @override
+  String get actionName => widget.actionName!;
 }

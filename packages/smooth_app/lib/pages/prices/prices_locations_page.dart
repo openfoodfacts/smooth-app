@@ -27,6 +27,9 @@ class PricesLocationsPage extends StatefulWidget {
 
 class _PricesLocationsPageState extends State<PricesLocationsPage>
     with TraceableClientMixin {
+  @override
+  String get actionName => 'Opened prices_locations_page';
+
   final _InfiniteScrollLocationManager _locationManager =
       _InfiniteScrollLocationManager();
 

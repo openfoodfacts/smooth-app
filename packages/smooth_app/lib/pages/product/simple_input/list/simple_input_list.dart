@@ -120,7 +120,9 @@ class SimpleInputList extends StatelessWidget {
       editable: helper.editable,
       position: position,
       onChanged: (int position, String term) {
+        localTerms[position] = term;
         helper.replaceItem(position, term);
+        setState(() {});
       },
       onRemoveItem: (String term, Widget child) =>
           _onRemoveItem(localTerms, term, child),

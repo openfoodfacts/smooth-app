@@ -17,6 +17,9 @@ class AboutAppRoot extends PreferencesRoot {
   const AboutAppRoot({required super.title});
 
   @override
+  String get actionName => 'Opened about_app_page';
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 

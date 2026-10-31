@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
@@ -47,20 +46,17 @@ class _HomePageCameraViewState extends State<HomePageCameraView> {
       child: Stack(
         children: <Widget>[
           Positioned.fill(
-            child: MobileScanner(
-              overlayBuilder: (_, _) =>
-                  HomePageCameraOverlay(barcodes: _barcodeStream.stream),
-              controller: widget.controller.controller,
-              placeholderBuilder: (_) =>
-                  const SizedBox.expand(child: ColoredBox(color: Colors.black)),
-              onDetect: (BarcodeCapture capture) {
+            child: widget.controller.buildCameraView(
+              onScan: (String barcode) {
                 // Only pass if the camera is fully visible and the sheet is not visible and/or scrolled
                 if (HomePage.of(context).isCameraFullyVisible) {
-                  final String barcode = capture.barcodes.first.rawValue!;
                   context.read<ContinuousScanModel>().onScan(barcode);
                 }
               },
             ),
+          ),
+          Positioned.fill(
+            child: HomePageCameraOverlay(barcodes: _barcodeStream.stream),
           ),
           PositionedDirectional(
             top: 0.0,

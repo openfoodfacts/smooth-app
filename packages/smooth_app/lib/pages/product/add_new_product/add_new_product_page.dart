@@ -44,6 +44,7 @@ class AddNewProductPage extends StatefulWidget {
       events = const <EditProductAction, AnalyticsEvent>{
         EditProductAction.openPage: AnalyticsEvent.openNewProductPage,
         EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyNewProductPage,
+        EditProductAction.leave: AnalyticsEvent.closeNewProductPage,
         EditProductAction.ingredients: AnalyticsEvent.ingredientsNewProductPage,
         EditProductAction.category: AnalyticsEvent.categoriesNewProductPage,
         EditProductAction.nutritionFacts:
@@ -62,6 +63,7 @@ class AddNewProductPage extends StatefulWidget {
              AnalyticsEvent.openFastTrackProductEditPage,
          EditProductAction.leaveEmpty:
              AnalyticsEvent.closeEmptyFastTrackProductPage,
+         EditProductAction.leave: AnalyticsEvent.closeFastTrackProductPage,
          EditProductAction.ingredients:
              AnalyticsEvent.ingredientsFastTrackProductPage,
          EditProductAction.category:
@@ -134,6 +136,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   bool _alreadyPushedToHistory = false;
 
+  final DateTime _openedAt = DateTime.now();
+  int _lastPageNumber = 0;
+
   bool _environmentalScoreExpanded = false;
 
   int get _pageNumber =>
@@ -189,6 +194,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   }
 
   void _onPageChanged() {
+    _lastPageNumber = _pageNumber;
     if (widget.displayProductType &&
         _inputProductType != null &&
         _pageController.page != null &&
@@ -326,6 +332,11 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   @override
   void dispose() {
+    AnalyticsHelper.trackEvent(
+      widget.events[EditProductAction.leave]!,
+      action: '${_lastPageNumber + 1}/$_totalPages',
+      eventValue: DateTime.now().difference(_openedAt).inSeconds,
+    );
     _pageController.dispose();
     super.dispose();
   }

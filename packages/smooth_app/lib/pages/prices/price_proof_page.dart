@@ -162,14 +162,14 @@ class _PriceProofPageState extends State<PriceProofPage> {
                 if (!context.mounted) {
                   return;
                 }
+                final PriceModel model = PriceModel.proof(
+                  proof: widget.proof,
+                  existingPrices: _existingPrices,
+                );
                 await Navigator.of(context, rootNavigator: true).push(
                   MaterialPageRoute<void>(
-                    builder: (BuildContext context) => ProductPriceAddPage(
-                      PriceModel.proof(
-                        proof: widget.proof,
-                        existingPrices: _existingPrices,
-                      ),
-                    ),
+                    builder: (BuildContext context) =>
+                        ProductPriceAddPage(model),
                   ),
                 );
               },

@@ -15,6 +15,9 @@ class ContributeRoot extends PreferencesRoot {
   const ContributeRoot({required super.title});
 
   @override
+  String get actionName => 'Opened contribute_page';
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final OpenFoodFactsCountry country = ProductQuery.getCountry();

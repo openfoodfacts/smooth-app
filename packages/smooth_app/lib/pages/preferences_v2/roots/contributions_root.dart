@@ -22,6 +22,9 @@ class ContributionsRoot extends PreferencesRoot {
   const ContributionsRoot({required super.title});
 
   @override
+  String get actionName => 'Opened contributions_page';
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
