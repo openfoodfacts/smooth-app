@@ -18,6 +18,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_interactive_viewer.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Full page display of a proof.
@@ -67,10 +68,33 @@ class _PriceProofPageState extends State<PriceProofPage> {
           ],
         ),
         actions: <Widget>[
-          IconButton(
-            tooltip: appLocalizations.prices_website_button,
-            icon: const icons.ExternalLink(size: 20.0),
-            onPressed: () async => LaunchUrlHelper.launchURL(url),
+          SmoothPopupMenuButton<int>(
+            onSelected: (final int action) async {
+              switch (action) {
+                case 0:
+                  return LaunchUrlHelper.launchURL(url);
+                case 1:
+                  return LaunchUrlHelper.launchURL(
+                    'https://prices.openfoodfacts.org/'
+                    'experiments/'
+                    'receipt-assistant?proof_ids=${widget.proof.id}',
+                  );
+                default:
+                  throw Exception('Unknown action $action');
+              }
+            },
+            itemBuilder: (_) => <SmoothPopupMenuItem<int>>[
+              SmoothPopupMenuItem<int>(
+                value: 0,
+                icon: const icons.ExternalLink(size: 20.0),
+                label: appLocalizations.proof_action_open_external,
+              ),
+              SmoothPopupMenuItem<int>(
+                value: 1,
+                icon: const icons.MagicWand(size: 20.0),
+                label: appLocalizations.proof_action_experimental_assistant,
+              ),
+            ],
           ),
         ],
       ),
