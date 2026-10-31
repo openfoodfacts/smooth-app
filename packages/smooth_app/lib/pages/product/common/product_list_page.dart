@@ -536,8 +536,14 @@ class _ProductListPageState extends State<ProductListPage>
               ).showCreateUserListDialog(context),
             ),
           ),
-          bodyBuilder: (BuildContext context) =>
-              AllProductsListModal(currentList: productList),
+          bodyBuilder: (BuildContext context) => AllProductsListModal(
+            currentList: productList,
+            onHistoriesCleared: () {
+              if (mounted) {
+                setState(() {});
+              }
+            },
+          ),
           initHeight: _computeModalInitHeight(context),
         );
 

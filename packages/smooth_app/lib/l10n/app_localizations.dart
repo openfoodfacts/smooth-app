@@ -3116,6 +3116,18 @@ abstract class AppLocalizations {
   /// **'Empty the list'**
   String get clear_long;
 
+  /// Action to clear the products from the built-in product lists
+  ///
+  /// In en, this message translates to:
+  /// **'Clear default list histories'**
+  String get clear_default_list_histories;
+
+  /// Confirmation explaining that clearing default histories does not affect custom lists
+  ///
+  /// In en, this message translates to:
+  /// **'This will remove products from the three default lists. Custom lists won\'t be affected. Continue?'**
+  String get confirm_clear_default_list_histories;
+
   /// No description provided for @really_clear.
   ///
   /// In en, this message translates to:
