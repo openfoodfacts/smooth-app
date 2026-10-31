@@ -9,6 +9,7 @@ class PriceHeaderContainer extends StatelessWidget {
     required this.line1,
     required this.semanticsLabel,
     this.imageProvider,
+    this.placeholder,
     this.line2,
     this.line3,
     this.count,
@@ -17,6 +18,7 @@ class PriceHeaderContainer extends StatelessWidget {
   });
 
   final ImageProvider? imageProvider;
+  final Widget? placeholder;
   final String line1;
   final String? line2;
   final String? line3;
@@ -44,6 +46,7 @@ class PriceHeaderContainer extends StatelessWidget {
               PriceImageContainer(
                 size: const Size.square(80.0),
                 imageProvider: imageProvider,
+                placeholder: placeholder,
                 count: count,
               ),
               const SizedBox(width: SMALL_SPACE),
@@ -83,7 +86,12 @@ class PriceHeaderContainer extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
-                    if (line3 != null) Text(line3!),
+                    if (line3 != null)
+                      Text(
+                        line3!,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                   ],
                 ),
               ),
