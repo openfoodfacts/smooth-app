@@ -10084,6 +10084,18 @@ abstract class AppLocalizations {
   /// **'Products'**
   String get preferences_app_settings_products;
 
+  /// Title for the setting to save a city or postcode on the device
+  ///
+  /// In en, this message translates to:
+  /// **'Your city or postcode'**
+  String get preferences_city_or_postcode_title;
+
+  /// Privacy explanation for the locally saved city or postcode
+  ///
+  /// In en, this message translates to:
+  /// **'Saved on this device only. Not synced or shared with Open Food Facts.'**
+  String get preferences_city_or_postcode_privacy;
+
   /// Title for the app settings products card
   ///
   /// In en, this message translates to:

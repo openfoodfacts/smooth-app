@@ -12,6 +12,7 @@ const String _tagStripHiddenUntil = 'donationStripHiddenUntil';
 const String _tagProductsLookedUp = 'productsLookedUpSinceAsk';
 const String _tagLastCountedBarcode = 'lastCountedBarcode';
 const String _tagLastReminderShownAt = 'lastReminderShownAt';
+const String _tagUserCityOrPostcode = 'userCityOrPostcode';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +33,39 @@ void main() {
     await sharedPreferences.remove(_tagProductsLookedUp);
     await sharedPreferences.remove(_tagLastCountedBarcode);
     await sharedPreferences.remove(_tagLastReminderShownAt);
+    await sharedPreferences.remove(_tagUserCityOrPostcode);
+  });
+
+  group('userCityOrPostcode', () {
+    test('is unset by default', () {
+      expect(userPreferences.userCityOrPostcode, isNull);
+    });
+
+    test('trims and stores the city or postcode on the device', () async {
+      await userPreferences.setUserCityOrPostcode('  Paris  ');
+
+      expect(userPreferences.userCityOrPostcode, 'Paris');
+      expect(sharedPreferences.getString(_tagUserCityOrPostcode), 'Paris');
+    });
+
+    test('clears the saved city or postcode when the input is blank', () async {
+      await userPreferences.setUserCityOrPostcode('Paris');
+      await userPreferences.setUserCityOrPostcode('  ');
+
+      expect(userPreferences.userCityOrPostcode, isNull);
+      expect(sharedPreferences.containsKey(_tagUserCityOrPostcode), isFalse);
+    });
+
+    test('notifies listeners when the saved value changes', () async {
+      int notified = 0;
+      void onChanged() => notified++;
+      userPreferences.addListener(onChanged);
+      addTearDown(() => userPreferences.removeListener(onChanged));
+
+      await userPreferences.setUserCityOrPostcode('Paris');
+
+      expect(notified, 1);
+    });
   });
 
   group('donationAsksMuted', () {
