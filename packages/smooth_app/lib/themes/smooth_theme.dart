@@ -50,7 +50,7 @@ class SmoothTheme {
 
     return ThemeData(
       fontFamily: 'OpenSans',
-      primaryColor: DARK_BROWN_COLOR,
+      primaryColor: smoothExtension.primaryBlack,
       extensions: <ThemeExtension<dynamic>>[smoothExtension],
       colorScheme: myColorScheme,
       canvasColor: themeProvider.currentTheme == THEME_AMOLED

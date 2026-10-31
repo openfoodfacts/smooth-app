@@ -164,7 +164,7 @@ class ProductPageTabsGenerator {
         ProductPageTab(
           id: id,
           labelBuilder: (_) => knowledgePanelTitle.title,
-          prefix: _extractPrefix(product, knowledgePanelTitle),
+          prefix: _extractPrefix(context, product, knowledgePanelTitle),
           builder: (_, _) => ListView.builder(
             padding: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
             itemCount: children.length,
@@ -277,7 +277,11 @@ class ProductPageTabsGenerator {
     return tags.length;
   }
 
-  Widget? _extractPrefix(Product product, KnowledgePanelTitle title) {
+  Widget? _extractPrefix(
+    BuildContext context,
+    Product product,
+    KnowledgePanelTitle title,
+  ) {
     final String? attribute = switch (title.topics?.firstOrNull) {
       'health' => Attribute.ATTRIBUTE_NUTRISCORE,
       'environment' => Attribute.ATTRIBUTE_ECOSCORE,
@@ -300,7 +304,10 @@ class ProductPageTabsGenerator {
       attributes.first,
     );
 
-    return SmoothCircle.indicator(color: eval.textColor, size: 15.0);
+    return SmoothCircle.indicator(
+      color: eval.textColor(context.extension<SmoothColorsThemeExtension>()),
+      size: 15.0,
+    );
   }
 }
 
