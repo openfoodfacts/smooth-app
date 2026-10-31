@@ -116,7 +116,7 @@ class ContinuousScanModel with ChangeNotifier {
       return false;
     }
 
-    final String barcode = normalizeScannedBarcode(code).key;
+    final String barcode = normalizeScannedBarcode(code);
     if (barcode.length < 4) {
       return false;
     }
@@ -136,7 +136,7 @@ class ContinuousScanModel with ChangeNotifier {
     if (barcode == null) {
       return false;
     }
-    final String normalized = normalizeScannedBarcode(barcode).key;
+    final String normalized = normalizeScannedBarcode(barcode);
     if (normalized.length < 4) {
       return false;
     }

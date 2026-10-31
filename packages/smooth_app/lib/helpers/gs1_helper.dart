@@ -109,14 +109,62 @@ final GS1BarcodeParser _gs1Parser = GS1BarcodeParser.defaultParser();
 ///
 /// Parsing must never break the scanning flow: any failure (invalid input,
 /// unknown AI, ...) simply returns null.
-GS1Barcode? tryParseGs1Barcode(final String input) {
+GS1Barcode? tryParseGs1Barcode(final String input) =>
+    _tryParseGs1WithCleanedInput(input)?.barcode;
+
+/// Digits-only EAN-13 / EAN-8 guards.
+///
+/// `int.tryParse` accepts hex (`0x`), `+` and whitespace, and `int.parse`
+/// on single characters below would then throw out of
+/// [normalizeScannedBarcode]. A strict regex keeps validation total.
+final RegExp _ean13RegExp = RegExp(r'^\d{13}$');
+final RegExp _ean8RegExp = RegExp(r'^\d{8}$');
+
+/// Normalizes a scanned barcode into a local key.
+///
+/// For GS1 barcodes it's the normalized GTIN (AI 01), so that barcodes
+/// encoding the same product with different Application Identifiers are
+/// deduplicated. For "traditional" barcodes it's the fixed barcode.
+/// A GS1 barcode without a GTIN (e.g. a logistics label) falls back to the
+/// cleaned value, so that different formatting of the same label still
+/// deduplicates.
+String normalizeScannedBarcode(final String code) {
+  final String traditionalBarcode = fixTraditionalBarcode(code);
+  if (_traditionalLengthRegExp.hasMatch(traditionalBarcode) &&
+      _isValidEan13(traditionalBarcode.padLeft(13, '0'))) {
+    return traditionalBarcode;
+  }
+  final _Gs1ParseResult? parsed = _tryParseGs1WithCleanedInput(code);
+  if (parsed != null) {
+    final String? gtin = parsed.barcode.normalizedGtin;
+    if (gtin != null) {
+      return gtin;
+    }
+    return parsed.cleanedInput;
+  }
+  return traditionalBarcode;
+}
+
+/// Result of parsing a GS1 barcode along with its cleaned input.
+class _Gs1ParseResult {
+  const _Gs1ParseResult({required this.barcode, required this.cleanedInput});
+
+  final GS1Barcode barcode;
+  final String cleanedInput;
+}
+
+/// Tries to parse [input] as a GS1 barcode, returning both the parsed barcode
+/// and the cleaned input used for parsing. Returns null when [input] isn't a
+/// GS1 barcode.
+_Gs1ParseResult? _tryParseGs1WithCleanedInput(final String input) {
   final String? normalized = _cleanGs1Input(input);
   if (normalized == null) {
     return null;
   }
 
   try {
-    return _gs1Parser.parse(normalized);
+    final GS1Barcode barcode = _gs1Parser.parse(normalized);
+    return _Gs1ParseResult(barcode: barcode, cleanedInput: normalized);
   } on GS1Exception catch (_) {
     // The parser throws GS1Exception subclasses (GS1ParseException,
     // GS1DataException) for invalid data.
@@ -133,54 +181,13 @@ GS1Barcode? tryParseGs1Barcode(final String input) {
   }
 }
 
-/// The result of normalizing a scanned barcode into a local key.
-class NormalizedBarcode {
-  const NormalizedBarcode({required this.key, this.gs1Barcode});
-
-  /// Barcode used as key: session deduplication, scan lists and
-  /// local database lookups, as well as API queries.
-  ///
-  /// For GS1 barcodes it's the normalized GTIN (AI 01), so that barcodes
-  /// encoding the same product with different Application Identifiers are
-  /// deduplicated. For "traditional" barcodes it's the fixed barcode.
-  final String key;
-
-  /// The parsed GS1 barcode, when the scanned value was a GS1 barcode.
-  final GS1Barcode? gs1Barcode;
-}
-
-/// Bare numeric lengths that may select a traditional UPC-A, EAN-8 or EAN-13
-/// barcode over GS1 parsing when the check digit is valid.
-///
-/// The scanner callback supplies no symbology metadata. For ambiguous bare
+/// Tries to parse [input] as a GS1 barcode, returning null when it isn't one.
 /// numeric input, a UPC-A, EAN-8 or EAN-13 with a valid check digit takes
 /// precedence over GS1 parsing. Explicit GS1 formatting (e.g. `(21)`, `]C1`
 /// or FNC1) bypasses this rule. Length alone never selects a traditional code.
 final RegExp _traditionalLengthRegExp = RegExp(
   r'^(?:[0-9]{8}|[0-9]{12}|[0-9]{13})$',
 );
-
-NormalizedBarcode normalizeScannedBarcode(final String code) {
-  final String traditionalBarcode = fixTraditionalBarcode(code);
-  if (_traditionalLengthRegExp.hasMatch(traditionalBarcode) &&
-      _isValidEan13(traditionalBarcode.padLeft(13, '0'))) {
-    return NormalizedBarcode(key: traditionalBarcode);
-  }
-  final GS1Barcode? gs1Barcode = tryParseGs1Barcode(code);
-  if (gs1Barcode != null) {
-    final String? gtin = gs1Barcode.normalizedGtin;
-    if (gtin != null) {
-      return NormalizedBarcode(key: gtin, gs1Barcode: gs1Barcode);
-    }
-    // A GS1 barcode without a GTIN (e.g. a logistics label): the cleaned
-    // value is used as key, so that different formatting of the same label
-    // still deduplicates.
-    final String cleaned = _cleanGs1Input(code) ?? code;
-    return NormalizedBarcode(key: cleaned, gs1Barcode: gs1Barcode);
-  }
-  final String key = fixTraditionalBarcode(code);
-  return NormalizedBarcode(key: key);
-}
 
 /// Fixes a "traditional" numeric barcode.
 ///
@@ -203,18 +210,23 @@ extension GS1BarcodeHelper on GS1Barcode {
   ///
   /// The server normalizes GS1 barcodes: a GTIN-14 starting with `0` (i.e. an
   /// EAN-13/UPC-A wrapped in a GTIN-14) is returned without the leading zero,
-  /// for example `0104260392550101` becomes `4260392550101`. The leading zero
-  /// is only stripped when the remainder is a valid EAN-13, so that malformed
-  /// values keep working as keys.
+  /// for example `0104260392550101` becomes `4260392550101`. Likewise a
+  /// GTIN-14 starting with `000000` (i.e. an EAN-8 wrapped in a GTIN-14) is
+  /// returned as the EAN-8, for example `00000021000003` becomes `21000003`.
+  /// Leading zeros are only stripped when the remainder is a valid EAN-13
+  /// resp. EAN-8, so that malformed values keep working as keys.
   String? get normalizedGtin {
     final String? value = gtin;
     if (value == null) {
       return null;
     }
-    if (value.length == 14 &&
-        value.startsWith('0') &&
-        _isValidEan13(value.substring(1))) {
-      return value.substring(1);
+    if (value.length == 14) {
+      if (value.startsWith('000000') && _isValidEan8(value.substring(6))) {
+        return value.substring(6);
+      }
+      if (value.startsWith('0') && _isValidEan13(value.substring(1))) {
+        return value.substring(1);
+      }
     }
     return value;
   }
@@ -222,7 +234,7 @@ extension GS1BarcodeHelper on GS1Barcode {
 
 /// Whether [code] is a valid EAN-13 (13 digits with a correct check digit).
 bool _isValidEan13(final String code) {
-  if (code.length != 13 || int.tryParse(code) == null) {
+  if (!_ean13RegExp.hasMatch(code)) {
     return false;
   }
   int sum = 0;
@@ -231,4 +243,17 @@ bool _isValidEan13(final String code) {
     sum += i.isEven ? digit : digit * 3;
   }
   return (10 - (sum % 10)) % 10 == int.parse(code[12]);
+}
+
+/// Whether [code] is a valid EAN-8 (8 digits with a correct check digit).
+bool _isValidEan8(final String code) {
+  if (!_ean8RegExp.hasMatch(code)) {
+    return false;
+  }
+  int sum = 0;
+  for (int i = 0; i < 7; i++) {
+    final int digit = int.parse(code[i]);
+    sum += i.isEven ? digit * 3 : digit;
+  }
+  return (10 - (sum % 10)) % 10 == int.parse(code[7]);
 }

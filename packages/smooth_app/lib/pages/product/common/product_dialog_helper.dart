@@ -25,7 +25,7 @@ class ProductDialogHelper {
     required String barcode,
     required this.context,
     required this.localDatabase,
-  }) : barcode = normalizeScannedBarcode(barcode).key;
+  }) : barcode = normalizeScannedBarcode(barcode);
 
   static const String unknownSvgNutriscore =
       'https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown.svg';
@@ -42,8 +42,7 @@ class ProductDialogHelper {
   final LocalDatabase localDatabase;
 
   Future<FetchedProduct> openBestChoice() async {
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final Product? product = await daoProduct.get(barcode);
+    final Product? product = await DaoProduct(localDatabase).get(barcode);
     if (product != null) {
       return FetchedProduct.found(product);
     }

@@ -256,6 +256,29 @@ void main() {
       () => expect('https://12345678'.isBarcode, isFalse),
     );
 
+    test('Short search words are not barcodes', () {
+      for (final String query in <String>[
+        '100g',
+        '10kg',
+        '21st',
+        '1000',
+        'null',
+        'true',
+      ]) {
+        expect(query.isBarcode, isFalse, reason: query);
+      }
+    });
+
+    test('GS1 without GTIN is not a barcode', () {
+      for (final String query in <String>[
+        '10ABC123',
+        '(10)ABC123',
+        '(21)SERIAL',
+      ]) {
+        expect(query.isBarcode, isFalse, reason: query);
+      }
+    });
+
     test(
       'Very long numeric barcode',
       () => expect(('1' * 100).isBarcode, isTrue),

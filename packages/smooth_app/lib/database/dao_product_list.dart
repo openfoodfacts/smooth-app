@@ -7,7 +7,6 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/helpers/gs1_helper.dart';
 
 /// "Total size" fake value for lists that are not partial/paged.
 const int _uselessTotalSizeValue = 0;
@@ -150,13 +149,6 @@ class DaoProductList extends AbstractDao {
   }
 
   /// Loads the barcode list.
-  ///
-  /// Lists persisted before GS1 normalization may hold raw scanner values
-  /// (e.g. full GS1 element strings). They are migrated to normalized keys
-  /// on load and written back, so that re-scanning the same product
-  /// deduplicates instead of creating a second entry. The migration is local
-  /// (GS1 parsing, no network), therefore it works for known and unknown
-  /// products alike.
   Future<void> get(final ProductList productList) async {
     final _BarcodeList? list = await _get(productList);
     final List<String> barcodes = <String>[];
@@ -165,40 +157,7 @@ class DaoProductList extends AbstractDao {
       productList.set(barcodes);
       return;
     }
-    final List<String>? migrated = _migratedBarcodes(list.barcodes);
-    if (migrated == null) {
-      productList.set(list.barcodes);
-      return;
-    }
-    await _put(
-      getKey(productList),
-      _BarcodeList(list.timestamp, migrated, list.totalSize),
-    );
-    productList.set(migrated);
-  }
-
-  /// Returns the normalized form of [barcodes], or null when every barcode
-  /// is already normalized.
-  ///
-  /// Normalization may also collapse entries: a raw GS1 element string and
-  /// its GTIN stored side by side become a single key. First-seen order is
-  /// preserved.
-  static List<String>? _migratedBarcodes(final List<String> barcodes) {
-    bool changed = false;
-    final Set<String> seen = <String>{};
-    final List<String> result = <String>[];
-    for (final String barcode in barcodes) {
-      final String normalized = normalizeScannedBarcode(barcode).key;
-      if (normalized != barcode) {
-        changed = true;
-      }
-      if (seen.add(normalized)) {
-        result.add(normalized);
-      } else {
-        changed = true;
-      }
-    }
-    return changed ? result : null;
+    productList.set(list.barcodes);
   }
 
   /// Checks if a list exists in the database.
@@ -206,17 +165,12 @@ class DaoProductList extends AbstractDao {
       _getBox().containsKey(getKey(productList));
 
   /// Returns the number of barcodes quickly but without product check.
-  ///
-  /// Reports the post-migration count, so a raw GS1 key and its GTIN that
-  /// are about to collapse on the next [get] are not double-counted.
-  /// Persisting the migration is left to [get], keeping this a read-only
-  /// fast path.
   Future<int> getLength(final ProductList productList) async {
     final _BarcodeList? list = await _get(productList);
     if (list == null || list.barcodes.isEmpty) {
       return 0;
     }
-    return _migratedBarcodes(list.barcodes)?.length ?? list.barcodes.length;
+    return list.barcodes.length;
   }
 
   /// Moves a barcode to the end of the list.

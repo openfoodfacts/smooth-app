@@ -114,6 +114,12 @@ void main() {
       expect(barcode, isNotNull);
       expect(barcode!.normalizedGtin, '04260392550102');
     });
+
+    test('GTIN-14 wrapping an EAN-8 is normalized to EAN-8', () {
+      final GS1Barcode? barcode = tryParseGs1Barcode('(01)00000021000003');
+      expect(barcode, isNotNull);
+      expect(barcode!.normalizedGtin, '21000003');
+    });
   });
 
   group('tryParseGs1Barcode - bracketed AI format', () {
@@ -199,11 +205,8 @@ void main() {
         // Each value is also a valid GS1 serial number, so parsing alone
         // cannot distinguish its symbology.
         expect(tryParseGs1Barcode(code)!.getAIRawData('21'), code.substring(2));
-        final NormalizedBarcode normalized = normalizeScannedBarcode(
-          '  $code  ',
-        );
-        expect(normalized.key, code == '210000000010' ? '0210000000010' : code);
-        expect(normalized.gs1Barcode, isNull);
+        final String normalized = normalizeScannedBarcode('  $code  ');
+        expect(normalized, code == '210000000010' ? '0210000000010' : code);
       });
 
       for (final String explicitGs1 in <String>[
@@ -214,12 +217,12 @@ void main() {
         '\u241D$code',
       ]) {
         test('Explicit GS1 $explicitGs1 overrides UPC/EAN ambiguity', () {
-          final NormalizedBarcode normalized = normalizeScannedBarcode(
-            explicitGs1,
-          );
-          expect(normalized.gs1Barcode, isNotNull);
-          expect(normalized.gs1Barcode!.gtin, isNull);
-          expect(normalized.gs1Barcode!.getAIRawData('21'), code.substring(2));
+          final GS1Barcode? parsed = tryParseGs1Barcode(explicitGs1);
+          expect(parsed, isNotNull);
+          expect(parsed!.gtin, isNull);
+          expect(parsed.getAIRawData('21'), code.substring(2));
+          // Without a GTIN the cleaned value is used as key.
+          expect(normalizeScannedBarcode(explicitGs1), isNotEmpty);
         });
       }
     }
@@ -230,81 +233,71 @@ void main() {
       '2112345678901',
     ]) {
       test('Numeric GS1 $code without AI 01 keeps its value', () {
-        final NormalizedBarcode normalized = normalizeScannedBarcode(code);
-        expect(normalized.key, code);
-        expect(normalized.gs1Barcode, isNotNull);
-        expect(normalized.gs1Barcode!.gtin, isNull);
-        expect(
-          normalized.gs1Barcode!.getAIRawData(code.substring(0, 2)),
-          code.substring(2),
-        );
+        expect(normalizeScannedBarcode(code), code);
+        final GS1Barcode? parsed = tryParseGs1Barcode(code);
+        expect(parsed, isNotNull);
+        expect(parsed!.gtin, isNull);
+        expect(parsed.getAIRawData(code.substring(0, 2)), code.substring(2));
       });
     }
 
     test('GS1 barcode is keyed by normalized GTIN', () {
-      final NormalizedBarcode normalized = normalizeScannedBarcode(
-        '010426039255010117270101',
+      expect(
+        normalizeScannedBarcode('010426039255010117270101'),
+        '4260392550101',
       );
-      expect(normalized.key, '4260392550101');
-      expect(normalized.gs1Barcode, isNotNull);
+    });
+
+    test('EAN-8 wrapped in GTIN-14 is keyed by EAN-8', () {
+      expect(normalizeScannedBarcode('(01)00000021000003'), '21000003');
+      expect(normalizeScannedBarcode('21000003'), '21000003');
     });
 
     test('Traditional barcode is used as-is', () {
-      final NormalizedBarcode normalized = normalizeScannedBarcode(
-        '7622210631111',
-      );
-      expect(normalized.key, '7622210631111');
-      expect(normalized.gs1Barcode, isNull);
+      expect(normalizeScannedBarcode('7622210631111'), '7622210631111');
     });
 
     test('Traditional barcode with dashes is fixed', () {
-      final NormalizedBarcode normalized = normalizeScannedBarcode(
-        '762220-123456',
-      );
-      expect(normalized.key, '0762220123456');
+      expect(normalizeScannedBarcode('762220-123456'), '0762220123456');
     });
 
     test('UPC-A barcode is padded to EAN-13', () {
-      final NormalizedBarcode normalized = normalizeScannedBarcode(
-        '762220123456',
-      );
-      expect(normalized.key, '0762220123456');
+      expect(normalizeScannedBarcode('762220123456'), '0762220123456');
     });
 
     test('Barcode with surrounding spaces is trimmed', () {
-      final NormalizedBarcode normalized = normalizeScannedBarcode(
-        '  7622210631111  ',
-      );
-      expect(normalized.key, '7622210631111');
+      expect(normalizeScannedBarcode('  7622210631111  '), '7622210631111');
     });
 
     test('GS1 barcode without GTIN keeps the raw value', () {
-      final NormalizedBarcode normalized = normalizeScannedBarcode('10ABC123');
-      expect(normalized.key, '10ABC123');
-      expect(normalized.gs1Barcode, isNotNull);
+      expect(normalizeScannedBarcode('10ABC123'), '10ABC123');
     });
 
     test('Bracketed GS1 barcode is keyed by normalized GTIN', () {
-      final NormalizedBarcode normalized = normalizeScannedBarcode(
-        '(01)04260392550101(17)270101',
+      expect(
+        normalizeScannedBarcode('(01)04260392550101(17)270101'),
+        '4260392550101',
       );
-      expect(normalized.key, '4260392550101');
-      expect(normalized.gs1Barcode, isNotNull);
     });
 
     test('GS1 barcode with FNC1 markers and spaces is normalized', () {
-      final NormalizedBarcode normalized = normalizeScannedBarcode(
-        '  ^010426039255010117270101  ',
+      expect(
+        normalizeScannedBarcode('  ^010426039255010117270101  '),
+        '4260392550101',
       );
-      expect(normalized.key, '4260392550101');
     });
 
     test('GS1 barcode without GTIN uses the cleaned value as key', () {
-      final NormalizedBarcode normalized = normalizeScannedBarcode(
-        '(10)ABC123',
+      expect(normalizeScannedBarcode('(10)ABC123'), '10ABC123');
+    });
+
+    test('Non-digit GTIN input never throws', () {
+      expect(
+        normalizeScannedBarcode('https://x.y/01/00x12345678901'),
+        isNotEmpty,
       );
-      expect(normalized.key, '10ABC123');
-      expect(normalized.gs1Barcode, isNotNull);
+      expect(normalizeScannedBarcode('+123456789012'), '+123456789012');
+      expect(normalizeScannedBarcode('0x12345678901'), '0x12345678901');
     });
   });
 
