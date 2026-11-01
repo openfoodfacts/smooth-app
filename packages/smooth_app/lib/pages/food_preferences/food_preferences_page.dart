@@ -258,10 +258,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
 
   Future<void> _onFinish() async {
     await _pendingPreferences.saveAll();
-    AnalyticsHelper.trackEvent(
-      AnalyticsEvent.foodPreferenceSaved,
-      action: widget.project.projectKey,
-    );
+    AnalyticsHelper.trackEvent(AnalyticsEvent.foodPreferenceSaved);
     if (mounted) {
       Navigator.of(context).pop();
     }

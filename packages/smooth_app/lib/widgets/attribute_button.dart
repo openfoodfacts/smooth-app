@@ -93,10 +93,7 @@ class _AttributeButtonState extends State<AttributeButton> {
             onTap: () async {
               setState(() => editMode = !editMode);
               if (importanceId != currentImportanceId) {
-                AnalyticsHelper.trackEvent(
-                  AnalyticsEvent.foodPreferenceSaved,
-                  action: widget.attribute.id,
-                );
+                AnalyticsHelper.trackEvent(AnalyticsEvent.foodPreferenceSaved);
               }
               widget.productPreferences.setImportance(
                 widget.attribute.id!,

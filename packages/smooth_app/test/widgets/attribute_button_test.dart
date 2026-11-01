@@ -68,7 +68,7 @@ void main() {
     await tester.pump();
   }
 
-  testWidgets('choosing another importance sends the attribute id', (
+  testWidgets('choosing another importance sends no attribute', (
     WidgetTester tester,
   ) async {
     final Attribute attribute = Attribute(
@@ -88,7 +88,7 @@ void main() {
     final Map<String, String> event = MatomoTracker.instance.queue.single;
     expect(event['e_n'], 'foodPreferenceSaved');
     expect(event['e_c'], 'food preferences');
-    expect(event['e_a'], Attribute.ATTRIBUTE_VEGAN);
+    expect(event['e_a'], 'foodPreferenceSaved');
   });
 
   testWidgets('choosing the current importance sends nothing', (
