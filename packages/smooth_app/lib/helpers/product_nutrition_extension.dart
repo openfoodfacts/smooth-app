@@ -13,19 +13,30 @@ extension ProductNutritionExtension on Product {
     return NutritionContainerHelper.convertWeightToG(value.toDouble(), unit);
   }
 
-  bool get hasNutritionData => _asSoldValues.isNotEmpty;
+  /// Input sets are checked too, as local changes don't update the aggregate.
+  bool get hasNutritionData =>
+      _asSoldValues.isNotEmpty ||
+      (NutritionHelper().getInputSets(this) ?? <NutritionSet>[]).any(
+        (final NutritionSet set) =>
+            set.key.preparation == NutritionSetKey.preparationAsSold &&
+            set.key.source != NutritionSetKey.sourceEstimate &&
+            set.nutritionValues?.isNotEmpty == true,
+      );
 
   /// Same rule as the server for the former `nutriments`: values of the
-  /// aggregated set, but only as sold and without estimates (except sugars).
+  /// aggregated set, but only as sold, per 100g or 100ml, and without
+  /// estimates (except sugars).
   Map<Nutrient, NutritionValue> get _asSoldValues {
     final NutritionSet? aggregatedSet = NutritionHelper().getAggregatedSet(
       this,
     );
     final Map<Nutrient, NutritionValue> result = <Nutrient, NutritionValue>{};
-    if (aggregatedSet?.key.preparation != NutritionSetKey.preparationAsSold) {
+    if (aggregatedSet?.key.preparation != NutritionSetKey.preparationAsSold ||
+        (aggregatedSet!.key.perSize != PerSize.oneHundredGrams &&
+            aggregatedSet.key.perSize != PerSize.oneHundredMilliliters)) {
       return result;
     }
-    aggregatedSet!.nutritionValues?.forEach((
+    aggregatedSet.nutritionValues?.forEach((
       final Nutrient nutrient,
       final NutritionValue value,
     ) {

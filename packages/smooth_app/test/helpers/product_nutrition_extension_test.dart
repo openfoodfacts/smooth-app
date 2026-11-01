@@ -5,10 +5,11 @@ import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 Product _product(
   final Map<String, Map<String, dynamic>> nutrients, {
   final String preparation = 'as_sold',
+  final String per = '100g',
 }) => Product()
   ..nutrition = <String, dynamic>{
     'aggregated_set': <String, dynamic>{
-      'per': '100g',
+      'per': per,
       'preparation': preparation,
       'nutrients': nutrients,
     },
@@ -63,6 +64,34 @@ void main() {
       }, preparation: 'prepared');
       expect(product.getNutrientValuePer100(Nutrient.fat), isNull);
       expect(product.hasNutritionData, isFalse);
+    });
+
+    test('ignores a per 1kg aggregate', () {
+      final Product product = _product(<String, Map<String, dynamic>>{
+        'fat': _value('packaging', 'g', 10),
+      }, per: '1kg');
+      expect(product.getNutrientValuePer100(Nutrient.fat), isNull);
+    });
+
+    test('has data with as sold input values only', () {
+      Product withInputSet(final String source, final String preparation) =>
+          Product()
+            ..nutrition = <String, dynamic>{
+              'input_sets': <Map<String, dynamic>>[
+                <String, dynamic>{
+                  'source': source,
+                  'preparation': preparation,
+                  'per': 'serving',
+                  'nutrients': <String, dynamic>{
+                    'fat': <String, dynamic>{'unit': 'g', 'value_string': '8'},
+                  },
+                },
+              ],
+            };
+      expect(withInputSet('packaging', 'as_sold').hasNutritionData, isTrue);
+      expect(withInputSet('manufacturer', 'as_sold').hasNutritionData, isTrue);
+      expect(withInputSet('estimate', 'as_sold').hasNutritionData, isFalse);
+      expect(withInputSet('packaging', 'prepared').hasNutritionData, isFalse);
     });
 
     test('has no data without nutrition', () {
