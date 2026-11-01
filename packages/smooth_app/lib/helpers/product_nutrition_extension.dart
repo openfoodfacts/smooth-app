@@ -4,7 +4,7 @@ import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_contai
 extension ProductNutritionExtension on Product {
   /// Returns the value of [nutrient] per 100g (weights in grams), or null.
   double? getNutrientValuePer100(final Nutrient nutrient) {
-    final NutritionValue? nutritionValue = _asSoldValues[nutrient];
+    final NutritionValue? nutritionValue = _getAsSoldValues()[nutrient];
     final num? value = nutritionValue?.value;
     final Unit? unit = nutritionValue?.unit;
     if (value == null || unit == null) {
@@ -15,7 +15,7 @@ extension ProductNutritionExtension on Product {
 
   /// Input sets are checked too, as local changes don't update the aggregate.
   bool get hasNutritionData =>
-      _asSoldValues.isNotEmpty ||
+      _getAsSoldValues().isNotEmpty ||
       (NutritionHelper().getInputSets(this) ?? <NutritionSet>[]).any(
         (final NutritionSet set) =>
             set.key.preparation == NutritionSetKey.preparationAsSold &&
@@ -26,13 +26,14 @@ extension ProductNutritionExtension on Product {
   /// Same rule as the server for the former `nutriments`: values of the
   /// aggregated set, but only as sold, per 100g or 100ml, and without
   /// estimates (except sugars).
-  Map<Nutrient, NutritionValue> get _asSoldValues {
+  Map<Nutrient, NutritionValue> _getAsSoldValues() {
     final NutritionSet? aggregatedSet = NutritionHelper().getAggregatedSet(
       this,
     );
     final Map<Nutrient, NutritionValue> result = <Nutrient, NutritionValue>{};
-    if (aggregatedSet?.key.preparation != NutritionSetKey.preparationAsSold ||
-        (aggregatedSet!.key.perSize != PerSize.oneHundredGrams &&
+    if (aggregatedSet == null ||
+        aggregatedSet.key.preparation != NutritionSetKey.preparationAsSold ||
+        (aggregatedSet.key.perSize != PerSize.oneHundredGrams &&
             aggregatedSet.key.perSize != PerSize.oneHundredMilliliters)) {
       return result;
     }
