@@ -23,22 +23,35 @@ Map<String, dynamic> _value(
 
 void main() {
   group('ProductNutritionExtension', () {
-    test('reads weights in grams, whatever the stored unit', () {
-      final Product product = _product(<String, Map<String, dynamic>>{
-        'fat': _value('packaging', 'g', 12.5),
-        'iron': _value('manufacturer', 'mg', 5),
-        'vitamin-b9': _value('packaging', 'µg', 30),
-        'energy-kj': _value('packaging', 'kJ', 1200),
-      });
+    final Product product = _product(<String, Map<String, dynamic>>{
+      'fat': _value('packaging', 'g', 12.5),
+      'iron': _value('manufacturer', 'mg', 5),
+      'vitamin-b9': _value('packaging', 'µg', 30),
+      'energy-kj': _value('packaging', 'kJ', 1200),
+    });
+
+    test('reads grams as they are', () {
       expect(product.getNutrientValuePer100(Nutrient.fat), 12.5);
+      expect(product.hasNutritionData, isTrue);
+    });
+
+    test('converts milligrams to grams', () {
       expect(product.getNutrientValuePer100(Nutrient.iron), 0.005);
+    });
+
+    test('converts micrograms to grams', () {
       expect(
         product.getNutrientValuePer100(Nutrient.vitaminB9),
         closeTo(0.00003, 1e-12),
       );
+    });
+
+    test('keeps energy in kJ', () {
       expect(product.getNutrientValuePer100(Nutrient.energyKJ), 1200);
+    });
+
+    test('returns null for a missing nutrient', () {
       expect(product.getNutrientValuePer100(Nutrient.salt), isNull);
-      expect(product.hasNutritionData, isTrue);
     });
 
     test('ignores estimates, except added sugars', () {

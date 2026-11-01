@@ -81,17 +81,19 @@ String _expected(final List<Map<String, dynamic>> inputSets) =>
     jsonEncode(<String, dynamic>{'input_sets': inputSets});
 
 void main() {
-  test('NutritionContainerHelper number format suits the input field', () {
-    for (final String locale in <String>['en', 'fr']) {
-      final NumberFormat format = NutritionContainerHelper.getNumberFormat(
-        locale,
-      );
-      expect(() => DecimalSeparatorRewriter(format), returnsNormally);
-      expect(
-        format.format(1.6042e-06),
-        locale == 'en' ? '0.0000016' : '0,0000016',
-      );
-    }
+  group('NutritionContainerHelper format', () {
+    test('suits the input field', () {
+      for (final String locale in <String>['en', 'fr']) {
+        final NumberFormat format = NutritionContainerHelper.getNumberFormat(
+          locale,
+        );
+        expect(() => DecimalSeparatorRewriter(format), returnsNormally);
+        expect(
+          format.format(1.6042e-06),
+          locale == 'en' ? '0.0000016' : '0,0000016',
+        );
+      }
+    });
   });
 
   group('NutritionContainerHelper load', () {
