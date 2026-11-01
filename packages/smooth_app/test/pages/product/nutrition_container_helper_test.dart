@@ -117,6 +117,7 @@ void main() {
         _set(_manufacturer, '100g', <String, Map<String, dynamic>>{
           'fat': _value('g', '2'),
           'copper': _value('mg', '0.5'),
+          'iron': <String, dynamic>{'unit': 'mg', 'value_computed': 0.048},
         }),
       ]);
       expect(helper.getValue(Nutrient.fat), 1);
@@ -125,6 +126,8 @@ void main() {
       expect(helper.isFromManufacturer(Nutrient.fat), isFalse);
       expect(helper.isFromManufacturer(Nutrient.copper), isTrue);
       expect(helper.isFromManufacturer(Nutrient.sugars), isFalse);
+      expect(helper.getValue(Nutrient.iron), isNull);
+      expect(helper.isFromManufacturer(Nutrient.iron), isFalse);
     });
 
     test('ignores prepared and estimate sets', () {

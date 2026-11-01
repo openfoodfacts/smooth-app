@@ -381,7 +381,7 @@ class NutritionContainerHelper extends ChangeNotifier {
           line.values[nutrient] = value;
         }
         if (sets.first?.nutritionValues?[nutrient] == null &&
-            sets.last?.nutritionValues?[nutrient] != null) {
+            _getNumber(sets.last?.nutritionValues?[nutrient]) != null) {
           line.fromManufacturer.add(nutrient);
         }
         final Unit unit = nutritionValue?.unit ?? nutrient.typicalUnit;
