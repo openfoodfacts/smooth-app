@@ -1173,8 +1173,8 @@ packages:
     description:
       path: "."
       ref: "feat/aggregated-set"
-      resolved-ref: e82cc718d5123ae4ee33594e2a3f4faa82179abd
-      url: "C:/Users/Urban/Desktop/AI/OpenFoodFacts-redesign/openfoodfacts-dart"
+      resolved-ref: e66448e298d9b9757d0362ed6ee2588ecc8bebf3
+      url: "https://github.com/UrbanFercec/openfoodfacts-dart.git"
     source: git
     version: "3.31.1"
   openfoodfacts_flutter_lints:
