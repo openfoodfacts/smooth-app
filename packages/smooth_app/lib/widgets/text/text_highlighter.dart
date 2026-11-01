@@ -181,7 +181,12 @@ class HighlightedTextSpan extends WidgetSpan {
            ),
            margin: margin,
            padding: padding,
-           child: Text(text, style: textStyle),
+           // The enclosing paragraph already scales its WidgetSpans.
+           child: Text(
+             text,
+             style: textStyle,
+             textScaler: TextScaler.noScaling,
+           ),
          ),
        );
 }

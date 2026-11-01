@@ -74,6 +74,13 @@ class _OnboardingWelcomePageContent extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final double fontMultiplier = OnboardingConfig.of(context).fontMultiplier;
     final double hillsHeight = OnboardingBottomHills.height(context);
+    const double sentenceFontSize = 26.0;
+    // Android 14+ grows large sizes less: measure at the sentence's own size.
+    final double textGrowth =
+        MediaQuery.textScalerOf(
+          context,
+        ).clamp(minScaleFactor: 1.0).scale(sentenceFontSize) /
+        sentenceFontSize;
 
     return Padding(
       padding: EdgeInsetsDirectional.only(
@@ -100,13 +107,14 @@ class _OnboardingWelcomePageContent extends StatelessWidget {
           ),
           const Expanded(flex: 37, child: _SunAndCloud()),
           Expanded(
-            flex: 45,
+            flex: (45 * textGrowth).round(),
             child: Align(
               alignment: const Alignment(0, -0.2),
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: SizedBox(
-                  width: MediaQuery.sizeOf(context).width * 0.65,
+                  // Widens with the text size, so words do not break.
+                  width: MediaQuery.sizeOf(context).width * 0.65 * textGrowth,
                   child: TextWithBubbleParts(
                     text: appLocalizations.onboarding_home_welcome_text2,
                     fontMultiplier: fontMultiplier,
@@ -115,7 +123,7 @@ class _OnboardingWelcomePageContent extends StatelessWidget {
                         .secondaryVibrant,
                     textAlign: TextAlign.center,
                     textStyle: const TextStyle(
-                      fontSize: 26,
+                      fontSize: sentenceFontSize,
                       height: 1.48,
                       fontWeight: FontWeight.w600,
                     ),

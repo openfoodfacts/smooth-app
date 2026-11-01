@@ -27,6 +27,21 @@ class _NoRiveFile implements FileLoader {
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
+// Like Android 14+ at 200%: small sizes double, large sizes barely grow.
+class _AndroidNonLinearScaler extends TextScaler {
+  const _AndroidNonLinearScaler();
+
+  @override
+  double scale(double fontSize) =>
+      fontSize <= 50 ? fontSize * 2 : fontSize + 50;
+
+  @override
+  double get textScaleFactor => 2.0;
+
+  @override
+  String toString() => 'Android 14 nonlinear 2x';
+}
+
 void main() {
   late ThemeProvider themeProvider;
   late ColorProvider colorProvider;
@@ -58,8 +73,13 @@ void main() {
   const Size phone = Size(360, 792);
   const double dpr = 3.0;
 
-  for (final double scale in <double>[1.0, 1.3, 2.0]) {
-    testWidgets('German welcome text is not cut at text scale $scale', (
+  for (final TextScaler scaler in <TextScaler>[
+    TextScaler.noScaling,
+    const TextScaler.linear(1.3),
+    const TextScaler.linear(2.0),
+    const _AndroidNonLinearScaler(),
+  ]) {
+    testWidgets('German welcome text is not cut at $scaler', (
       WidgetTester tester,
     ) async {
       tester.view.physicalSize = phone * dpr;
@@ -69,9 +89,7 @@ void main() {
         bottom: 48 * dpr,
       );
       tester.view.padding = tester.view.viewPadding;
-      tester.platformDispatcher.textScaleFactorTestValue = scale;
       addTearDown(tester.view.reset);
-      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
 
       await tester.pumpWidget(
         Provider<FileLoader>.value(
@@ -85,6 +103,10 @@ void main() {
               themeProvider,
               () => colorProvider,
               () => textContrastProvider,
+            ),
+            builder: (BuildContext context, Widget? child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(textScaler: scaler),
+              child: child!,
             ),
             home: const OnboardingHomePage(),
           ),
@@ -122,7 +144,48 @@ void main() {
         );
         expect(slot.contains(painted.topLeft), isTrue, reason: label);
         expect(slot.contains(painted.bottomRight), isTrue, reason: label);
+
+        for (final RegExpMatch word in RegExp(r'\S+').allMatches(label)) {
+          final List<TextBox> boxes = paragraph.getBoxesForSelection(
+            TextSelection(baseOffset: word.start, extentOffset: word.end),
+          );
+          expect(
+            boxes.map((TextBox box) => box.top).toSet(),
+            hasLength(1),
+            reason: '"${word[0]}" is split across lines',
+          );
+        }
       }
+
+      // Bubbles stay in proportion with the sentence (22 vs 26 px).
+      double lineHeight(String word) {
+        final RenderParagraph paragraph =
+            find
+                    .descendant(
+                      of: find.byType(Expanded),
+                      matching: find.byWidgetPredicate(
+                        (Widget w) =>
+                            w is RichText &&
+                            w.text.toPlainText().contains(word),
+                      ),
+                    )
+                    .evaluate()
+                    .last
+                    .renderObject!
+                as RenderParagraph;
+        final int start = paragraph.text.toPlainText().indexOf(word);
+        final TextBox box = paragraph
+            .getBoxesForSelection(
+              TextSelection(baseOffset: start, extentOffset: start + 1),
+            )
+            .first;
+        return MatrixUtils.transformRect(
+          paragraph.getTransformTo(null),
+          box.toRect(),
+        ).height;
+      }
+
+      expect(lineHeight('Sie') / lineHeight('gut'), inInclusiveRange(0.7, 1.0));
     });
   }
 }
