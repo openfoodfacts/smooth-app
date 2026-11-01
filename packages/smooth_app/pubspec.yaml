@@ -101,7 +101,7 @@ dependencies:
 
   openfoodfacts:
     git:
-      url: C:/Users/Urban/Desktop/AI/OpenFoodFacts-redesign/openfoodfacts-dart
+      url: https://github.com/UrbanFercec/openfoodfacts-dart.git
       ref: feat/aggregated-set
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
