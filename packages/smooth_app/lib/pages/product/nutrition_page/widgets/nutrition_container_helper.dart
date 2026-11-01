@@ -78,6 +78,11 @@ class NutritionContainerHelper extends ChangeNotifier {
         for (final PerSize line in _lines) line: <Nutrient, Unit>{},
       };
 
+  final Map<PerSize, Map<Nutrient, NutrientModifier>> _modifiers =
+      <PerSize, Map<Nutrient, NutrientModifier>>{
+        for (final PerSize line in _lines) line: <Nutrient, NutrientModifier>{},
+      };
+
   /// Nutrients added by the end-user.
   final Set<Nutrient> _added = <Nutrient>{};
 
@@ -199,6 +204,9 @@ class NutritionContainerHelper extends ChangeNotifier {
   num? getValue(final Nutrient nutrient) => _values[_perSize]![nutrient];
 
   /// Stores the end-user input when it differs from the loaded value.
+  ///
+  /// Empty text and "-" (not specified) clear the value; any other text that
+  /// can't be parsed is ignored.
   void setNutrientValueText(
     final PerSize perSize,
     final Nutrient nutrient,
@@ -206,11 +214,12 @@ class NutritionContainerHelper extends ChangeNotifier {
     final NumberFormat numberFormat,
   ) {
     num? value;
-    if (text?.isNotEmpty == true) {
-      try {
-        value = numberFormat.parse(text!);
-      } catch (e) {
-        //
+    final String trimmed = text?.trim() ?? '';
+    if (trimmed.isNotEmpty && trimmed != '-') {
+      value = numberFormat.tryParse(trimmed);
+      if (value == null) {
+        _edited[perSize]!.remove(nutrient);
+        return;
       }
     }
     final num? loaded = _values[perSize]![nutrient];
@@ -400,6 +409,10 @@ class NutritionContainerHelper extends ChangeNotifier {
         final Unit unit = nutritionValue?.unit ?? nutrient.typicalUnit;
         _units[line]![nutrient] = unit;
         _initialUnits[line]![nutrient] = unit;
+        final NutrientModifier? modifier = nutritionValue?.modifier;
+        if (modifier != null) {
+          _modifiers[line]![nutrient] = modifier;
+        }
       }
     }
   }
@@ -419,11 +432,13 @@ class NutritionContainerHelper extends ChangeNotifier {
     return false;
   }
 
-  /// Plain decimal notation, never an exponent.
-  static final NumberFormat _writeFormat = NumberFormat(
-    '####0.##########',
-    'en',
-  );
+  /// Plain decimal notation, never an exponent nor a group separator.
+  ///
+  /// More decimals would show binary rounding, e.g. 1234567.8899999999.
+  static NumberFormat getNumberFormat(final String locale) =>
+      NumberFormat('####0.########', locale);
+
+  static final NumberFormat _writeFormat = getNumberFormat('en');
 
   /// Returns the packaging nutrition sets with only the changed nutrients.
   List<NutritionSet> _getChangedSets() {
@@ -446,6 +461,7 @@ class NutritionContainerHelper extends ChangeNotifier {
         nutritionValues[nutrient] = NutritionValue(
           unit: unit,
           valueString: value == null ? '' : _writeFormat.format(value),
+          modifier: edited ? null : _modifiers[line]![nutrient],
         );
       }
       if (nutritionValues.isNotEmpty) {
