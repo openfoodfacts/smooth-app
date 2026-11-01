@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/add_basic_details/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -161,8 +162,7 @@ class ProductFieldPackagingEditor extends ProductFieldEditor {
 
 class ProductFieldNutritionEditor extends ProductFieldEditor {
   @override
-  bool isPopulated(final Product product) =>
-      product.nutriments?.isEmpty() == false;
+  bool isPopulated(final Product product) => product.hasNutritionData;
 
   @override
   String getLabel(final AppLocalizations appLocalizations) =>
