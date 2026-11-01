@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 
 const String _packaging = 'packaging';
 const String _manufacturer = 'manufacturer';
 
-final NumberFormat _format = NumberFormat('####0.##########', 'en');
+final NumberFormat _format = NutritionContainerHelper.getNumberFormat('en');
 
 final OrderedNutrients _orderedNutrients = OrderedNutrients(
   nutrients: <OrderedNutrient>[
@@ -80,6 +81,19 @@ String _expected(final List<Map<String, dynamic>> inputSets) =>
     jsonEncode(<String, dynamic>{'input_sets': inputSets});
 
 void main() {
+  test('NutritionContainerHelper number format suits the input field', () {
+    for (final String locale in <String>['en', 'fr']) {
+      final NumberFormat format = NutritionContainerHelper.getNumberFormat(
+        locale,
+      );
+      expect(() => DecimalSeparatorRewriter(format), returnsNormally);
+      expect(
+        format.format(1.6042e-06),
+        locale == 'en' ? '0.0000016' : '0,0000016',
+      );
+    }
+  });
+
   group('NutritionContainerHelper load', () {
     test('reads the packaging values and units', () {
       final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
@@ -225,6 +239,31 @@ void main() {
         _body(helper),
         contains('"iron":{"unit":"µg","value_string":"5"}'),
       );
+    });
+
+    test('keeps the stored modifier on a unit change', () {
+      final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
+        _set(_packaging, '100g', <String, Map<String, dynamic>>{
+          'fat': <String, dynamic>{..._value('g', '0.5'), 'modifier': '<'},
+        }),
+      ]);
+      helper.setNutrientUnit(Nutrient.fat, Unit.MILLI_G);
+      expect(
+        _body(helper),
+        contains('"fat":{"unit":"mg","value_string":"0.5","modifier":"<"}'),
+      );
+    });
+
+    test('ignores text that is not a number', () {
+      final NutritionContainerHelper helper = _helper(sets);
+      _type(helper, PerSize.oneHundredGrams, Nutrient.fat, '1.2.3');
+      expect(helper.getChangedProducts('1'), isEmpty);
+    });
+
+    test('clears a nutrient that is not specified', () {
+      final NutritionContainerHelper helper = _helper(sets);
+      _type(helper, PerSize.oneHundredGrams, Nutrient.fat, '-');
+      expect(_body(helper), contains('"fat":{"unit":"g","value_string":""}'));
     });
 
     test('clears a nutrient with an empty value string', () {

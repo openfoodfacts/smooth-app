@@ -83,8 +83,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     _servingController.selection = TextSelection.collapsed(
       offset: _servingController.text.length - 1,
     );
-    _decimalNumberFormat = NumberFormat(
-      '####0.##########',
+    _decimalNumberFormat = NutritionContainerHelper.getNumberFormat(
       ProductQuery.getLocaleString(),
     );
   }
