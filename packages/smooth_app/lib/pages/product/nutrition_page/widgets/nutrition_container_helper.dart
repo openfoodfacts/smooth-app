@@ -83,6 +83,11 @@ class NutritionContainerHelper extends ChangeNotifier {
         for (final PerSize line in _lines) line: <Nutrient, NutrientModifier>{},
       };
 
+  final Map<PerSize, Set<Nutrient>> _fromManufacturer =
+      <PerSize, Set<Nutrient>>{
+        for (final PerSize line in _lines) line: <Nutrient>{},
+      };
+
   /// Nutrients added by the end-user.
   final Set<Nutrient> _added = <Nutrient>{};
 
@@ -202,6 +207,10 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   /// Returns the stored product nutrient's value.
   num? getValue(final Nutrient nutrient) => _values[_perSize]![nutrient];
+
+  /// Returns true if the displayed value comes from the manufacturer.
+  bool isFromManufacturer(final Nutrient nutrient) =>
+      _fromManufacturer[_perSize]!.contains(nutrient);
 
   /// Stores the end-user input when it differs from the loaded value.
   ///
@@ -405,6 +414,10 @@ class NutritionContainerHelper extends ChangeNotifier {
         }
         if (value != null) {
           _values[line]![nutrient] = value;
+        }
+        if (sets.first?.nutritionValues?[nutrient] == null &&
+            sets.last?.nutritionValues?[nutrient] != null) {
+          _fromManufacturer[line]!.add(nutrient);
         }
         final Unit unit = nutritionValue?.unit ?? nutrient.typicalUnit;
         _units[line]![nutrient] = unit;
