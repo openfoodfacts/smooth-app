@@ -266,6 +266,9 @@ class _NutrientValueCell extends StatelessWidget {
 
     final bool ownerFieldVisible =
         nutrient != null &&
+        context.watch<NutritionContainerHelper>().isFromManufacturer(
+          nutrient,
+        ) &&
         product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) != null;
 
     return Semantics(
