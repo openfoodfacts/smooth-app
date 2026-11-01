@@ -21,9 +21,10 @@ class PriceProductWidget extends StatelessWidget {
     final List<String>? brands = priceProduct.brands == ''
         ? null
         : priceProduct.brands?.split(',');
-    final String? quantity = priceProduct.quantity == null
+    final int? productQuantity = priceProduct.productQuantity?.toInt();
+    final String? quantity = productQuantity == null
         ? null
-        : '${priceProduct.quantity} ${priceProduct.quantityUnit ?? 'g'}';
+        : '$productQuantity ${priceProduct.quantityUnit ?? 'g'}';
 
     return PriceHeaderContainer(
       imageProvider: imageURL != null ? NetworkImage(imageURL) : null,

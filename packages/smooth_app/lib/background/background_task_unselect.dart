@@ -138,7 +138,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
     );
     final OpenFoodFactsLanguage language = getLanguage();
     try {
-      return await OpenFoodAPIClient.unselectProductImage(
+      await OpenFoodAPIClient.unselectProductImage(
         barcode: barcode,
         imageField: ImageField.fromOffTag(imageField)!,
         language: language,
