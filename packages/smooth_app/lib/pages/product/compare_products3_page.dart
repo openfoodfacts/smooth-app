@@ -10,6 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
@@ -231,13 +232,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
   Widget? _getChild(Attribute attribute, Product product) {
     final Nutrient? nutrient = _getAttributeNutrient(attribute.id!);
     if (nutrient != null) {
-      if (product.nutriments == null) {
-        return null;
-      }
-      final double? value = product.nutriments!.getValue(
-        nutrient,
-        PerSize.oneHundredGrams,
-      );
+      final double? value = product.getNutrientValuePer100(nutrient);
       if (value == null) {
         return null;
       }
