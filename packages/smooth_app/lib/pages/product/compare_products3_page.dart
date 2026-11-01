@@ -148,9 +148,11 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
       final Nutrient nutrient = _getNutrient(orderedNutrient);
       final List<double?> values = <double?>[];
       bool notNull = false;
-      for (final NutritionContainerHelper nutritionContainer
-          in _nutritionContainers) {
-        final double? value = nutritionContainer.getValue(nutrient);
+      for (final Product product in widget.products) {
+        final double? value = NutritionContainerHelper.convertWeightFromG(
+          product.getNutrientValuePer100(nutrient),
+          nutrient.typicalUnit,
+        );
         values.add(value);
         if (value != null) {
           notNull = true;
