@@ -122,6 +122,9 @@ void main() {
       expect(helper.getValue(Nutrient.fat), 1);
       expect(helper.getValue(Nutrient.copper), 0.5);
       expect(helper.getUnit(Nutrient.copper), Unit.MILLI_G);
+      expect(helper.isFromManufacturer(Nutrient.fat), isFalse);
+      expect(helper.isFromManufacturer(Nutrient.copper), isTrue);
+      expect(helper.isFromManufacturer(Nutrient.sugars), isFalse);
     });
 
     test('ignores prepared and estimate sets', () {
