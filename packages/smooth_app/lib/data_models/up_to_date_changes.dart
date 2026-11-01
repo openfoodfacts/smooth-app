@@ -46,6 +46,50 @@ class UpToDateChanges {
   void terminate(String operationKey) =>
       _daoTransientProduct.delete(operationKey);
 
+  /// Returns the [initial] nutrition with the input sets of [change] on top.
+  ///
+  /// An empty `value_string` removes the nutrient, like the server does.
+  static Map<String, dynamic> mergeNutrition(
+    final Map<String, dynamic>? initial,
+    final Map<String, dynamic> change,
+  ) {
+    final List<Map<String, dynamic>> sets = <Map<String, dynamic>>[
+      for (final dynamic set in initial?['input_sets'] ?? <dynamic>[])
+        Map<String, dynamic>.of(set as Map<String, dynamic>),
+    ];
+    for (final dynamic changeSet in change['input_sets'] ?? <dynamic>[]) {
+      final Map<String, dynamic> newSet = changeSet as Map<String, dynamic>;
+      final int index = sets.indexWhere(
+        (final Map<String, dynamic> set) =>
+            set['source'] == newSet['source'] &&
+            set['preparation'] == newSet['preparation'] &&
+            set['per'] == newSet['per'],
+      );
+      final Map<String, dynamic> merged = index < 0
+          ? Map<String, dynamic>.of(newSet)
+          : sets[index];
+      final Map<String, dynamic> nutrients = Map<String, dynamic>.of(
+        merged['nutrients'] ?? <String, dynamic>{},
+      );
+      (newSet['nutrients'] as Map<String, dynamic>? ?? <String, dynamic>{})
+          .forEach((final String id, final dynamic value) {
+            if ((value as Map<String, dynamic>)['value_string'] == '') {
+              nutrients.remove(id);
+            } else {
+              nutrients[id] = value;
+            }
+          });
+      merged['nutrients'] = nutrients;
+      if (newSet.containsKey('unspecified_nutrients')) {
+        merged['unspecified_nutrients'] = newSet['unspecified_nutrients'];
+      }
+      if (index < 0) {
+        sets.add(merged);
+      }
+    }
+    return <String, dynamic>{...?initial, 'input_sets': sets};
+  }
+
   /// Overwrite the [initial] product with the non-null fields of [change].
   ///
   /// Currently limited to the fields modified by
@@ -84,11 +128,8 @@ class UpToDateChanges {
     if (change.noNutritionData != null) {
       initial.noNutritionData = change.noNutritionData;
     }
-    // cf. https://github.com/openfoodfacts/smooth-app/issues/4627
-    // If we don't check if nutriments is empty, most of the time we overwrite
-    // potentially existing nutriments with an empty map.
-    if (change.nutriments != null && !change.nutriments!.isEmpty()) {
-      initial.nutriments = change.nutriments;
+    if (change.nutrition != null) {
+      initial.nutrition = mergeNutrition(initial.nutrition, change.nutrition!);
     }
     if (change.servingSize != null) {
       initial.servingSize = change.servingSize;
