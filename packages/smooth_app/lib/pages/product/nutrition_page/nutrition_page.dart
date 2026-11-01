@@ -50,13 +50,15 @@ class NutritionPageLoaded extends StatefulWidget {
   State<NutritionPageLoaded> createState() => _NutritionPageLoadedState();
 }
 
+typedef _NutrientControllers = Map<Nutrient, TextEditingControllerWithHistory>;
+
 class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     with UpToDateMixin {
-  final Map<PerSize, Map<Nutrient, TextEditingControllerWithHistory>>
-  _controllers = <PerSize, Map<Nutrient, TextEditingControllerWithHistory>>{
-    PerSize.oneHundredGrams: <Nutrient, TextEditingControllerWithHistory>{},
-    PerSize.serving: <Nutrient, TextEditingControllerWithHistory>{},
-  };
+  final Map<PerSize, _NutrientControllers> _controllers =
+      <PerSize, _NutrientControllers>{
+        PerSize.oneHundredGrams: <Nutrient, TextEditingControllerWithHistory>{},
+        PerSize.serving: <Nutrient, TextEditingControllerWithHistory>{},
+      };
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   late final TextEditingControllerWithHistory _servingController;
@@ -103,9 +105,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             create: (_) => _nutritionContainer,
           ),
           Provider<Product>.value(value: upToDateProduct),
-          Provider<
-            Map<PerSize, Map<Nutrient, TextEditingControllerWithHistory>>
-          >.value(value: _controllers),
+          Provider<Map<PerSize, _NutrientControllers>>.value(
+            value: _controllers,
+          ),
           Provider<NumberFormat>.value(value: _decimalNumberFormat),
         ],
         child: UnfocusFieldWhenTapOutside(
@@ -188,8 +190,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     if (_servingController.isDifferentFromInitialValue) {
       return true;
     }
-    for (final Map<Nutrient, TextEditingControllerWithHistory> controllers
-        in _controllers.values) {
+    for (final _NutrientControllers controllers in _controllers.values) {
       for (final TextEditingControllerWithHistory controller
           in controllers.values) {
         if (controller.isDifferentFromInitialValue) {
@@ -204,11 +205,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     if (!_formKey.currentState!.validate()) {
       return null;
     }
-    for (final MapEntry<
-          PerSize,
-          Map<Nutrient, TextEditingControllerWithHistory>
-        >
-        line
+    for (final MapEntry<PerSize, _NutrientControllers> line
         in _controllers.entries) {
       for (final MapEntry<Nutrient, TextEditingControllerWithHistory> entry
           in line.value.entries) {
@@ -291,8 +288,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
   @override
   void dispose() {
-    for (final Map<Nutrient, TextEditingControllerWithHistory> controllers
-        in _controllers.values) {
+    for (final _NutrientControllers controllers in _controllers.values) {
       for (final TextEditingControllerWithHistory controller
           in controllers.values) {
         controller.dispose();
@@ -389,10 +385,9 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
     }
 
     final NumberFormat decimalNumberFormat = context.watch<NumberFormat>();
-    final Map<Nutrient, TextEditingControllerWithHistory> controllers = context
-        .watch<
-          Map<PerSize, Map<Nutrient, TextEditingControllerWithHistory>>
-        >()[nutritionContainer.perSize]!;
+    final Map<PerSize, _NutrientControllers> lines = context
+        .watch<Map<PerSize, _NutrientControllers>>();
+    final _NutrientControllers controllers = lines[nutritionContainer.perSize]!;
 
     for (int i = 0; i != displayableNutrients.length; i++) {
       final OrderedNutrient orderedNutrient = displayableNutrients.elementAt(i);

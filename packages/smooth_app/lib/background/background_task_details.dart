@@ -216,7 +216,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     }
   }
 
-  /// Nutrition changes only contain what the user changed, so none is obsolete.
+  /// Nutrition tasks carry only the delta, so none is obsolete.
   @override
   bool isDeduplicable() =>
       stamp != getStamp(barcode, BackgroundTaskDetailsStamp.nutrition.tag);
