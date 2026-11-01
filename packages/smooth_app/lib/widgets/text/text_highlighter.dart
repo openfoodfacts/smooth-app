@@ -174,6 +174,8 @@ class HighlightedTextSpan extends WidgetSpan {
   }) : assert(radius > 0.0),
        super(
          alignment: PlaceholderAlignment.middle,
+         // Scaled at the bubble's own size, not the paragraph's.
+         style: TextStyle(fontSize: textStyle.fontSize),
          child: Container(
            decoration: BoxDecoration(
              color: backgroundColor,
