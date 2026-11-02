@@ -117,7 +117,7 @@ class UserPreferencesAttributeGroup {
       result.add(
         UserPreferencesItemSimple(
           labels: <String>[group.warning!],
-          builder: (final BuildContext context) {
+          builder: (BuildContext context) {
             final ColorScheme colorScheme = Theme.of(context).colorScheme;
             return Container(
               color: colorScheme.error,

@@ -112,7 +112,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
       ),
       body: ChangeNotifierProvider<PersonalizedRankingModel>(
         create: (_) => _model,
-        builder: (final BuildContext context, _) {
+        builder: (BuildContext context, _) {
           context.watch<PersonalizedRankingModel>();
           final List<String> compactPreferences = productPreferences
               .getCompactView();
@@ -203,9 +203,9 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   );
 
   Widget _buildHeader(
-    final MatchedProductStatusV2 status,
-    final AppLocalizations appLocalizations,
-    final bool darkMode,
+    MatchedProductStatusV2 status,
+    AppLocalizations appLocalizations,
+    bool darkMode,
   ) {
     final ProductCompatibilityHelper helper = ProductCompatibilityHelper.status(
       status,
@@ -231,9 +231,9 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   }
 
   Widget _buildSmoothProductCard(
-    final MatchedScoreV2 matchedProduct,
-    final AppLocalizations appLocalizations,
-    final bool darkMode,
+    MatchedScoreV2 matchedProduct,
+    AppLocalizations appLocalizations,
+    bool darkMode,
   ) => Dismissible(
     direction: DismissDirection.endToStart,
     background: Container(
@@ -243,7 +243,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
       child: const Icon(Icons.delete, color: Colors.white),
     ),
     key: Key(matchedProduct.barcode),
-    onDismissed: (final DismissDirection direction) {
+    onDismissed: (DismissDirection direction) {
       _model.dismiss(matchedProduct.barcode);
       ScaffoldMessenger.of(context).showSnackBar(
         SmoothFloatingSnackbar(

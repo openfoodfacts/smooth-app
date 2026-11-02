@@ -79,7 +79,7 @@ class _AddProductNameInputWidgetState extends State<AddProductNameInputWidget> {
             >(
               listener:
                   (
-                    final BuildContext context,
+                    BuildContext context,
                     _ProductNameEditorProviderState? oldValue,
                     _ProductNameEditorProviderState value,
                   ) {
@@ -122,8 +122,8 @@ class _AddProductNameInputWidgetState extends State<AddProductNameInputWidget> {
                                 value.addedLanguages.length,
                     builder:
                         (
-                          final BuildContext context,
-                          final _ProductNameEditorProviderState value,
+                          BuildContext context,
+                          _ProductNameEditorProviderState value,
                           _,
                         ) {
                           final int count = _collapsed
@@ -232,7 +232,7 @@ class _ProductNameAddNewLanguage extends StatelessWidget {
     final List<OpenFoodFactsLanguage> selectedLanguages = provider
         .value
         .productNames
-        .map((final _EditingProductName productName) => productName.language)
+        .map((_EditingProductName productName) => productName.language)
         .toList(growable: false);
 
     final OpenFoodFactsLanguage? language =
@@ -726,7 +726,7 @@ class _ProductNameNewTranslationWarningState
             vsync: this,
           )
           ..addListener(() => setState(() {}))
-          ..addStatusListener((final AnimationStatus status) {
+          ..addStatusListener((AnimationStatus status) {
             if (status == AnimationStatus.completed) {
               context.read<UserPreferences>().hideInputProductNameBanner();
             }
@@ -749,8 +749,8 @@ class ProductNameEditorProvider
   ProductNameEditorProvider() : super(_ProductNameEditorProviderState.init());
 
   void loadLanguages({
-    required final Product product,
-    final ImageField? imageField,
+    required Product product,
+    ImageField? imageField,
     OpenFoodFactsLanguage? userLanguage,
   }) {
     final Map<OpenFoodFactsLanguage, String> localizedNames =
@@ -777,7 +777,7 @@ class ProductNameEditorProvider
         if (image.field == imageField) {
           if (image.language != null &&
               !productNames.any(
-                (final _EditingProductName productName) =>
+                (_EditingProductName productName) =>
                     productName.language == image.language,
               )) {
             final OpenFoodFactsLanguage language = image.language!;
@@ -809,8 +809,7 @@ class ProductNameEditorProvider
     /// Add existing languages without photo
     for (final OpenFoodFactsLanguage language in localizedNames.keys) {
       if (!productNames.any(
-        (final _EditingProductName productName) =>
-            productName.language == language,
+        (_EditingProductName productName) => productName.language == language,
       )) {
         productNames.add(
           _EditingProductName.initial(
@@ -826,7 +825,7 @@ class ProductNameEditorProvider
     /// Add user language
     if (userLanguage != null) {
       if (!productNames.any(
-        (final _EditingProductName productName) =>
+        (_EditingProductName productName) =>
             productName.language == userLanguage,
       )) {
         productNames.add(
@@ -857,8 +856,8 @@ class ProductNameEditorProvider
     OpenFoodFactsLanguage? userLanguage,
   ) {
     productNames.sort((
-      final _EditingProductName a,
-      final _EditingProductName b,
+      _EditingProductName a,
+      _EditingProductName b,
     ) {
       // Product language is always first
       if (a.language == productLanguage) {
@@ -901,8 +900,7 @@ class ProductNameEditorProvider
   void onNameChanged(OpenFoodFactsLanguage language, String name) {
     final List<_EditingProductName> productNames = value.productNames;
     final int index = productNames.indexWhere(
-      (final _EditingProductName productName) =>
-          productName.language == language,
+      (_EditingProductName productName) => productName.language == language,
     );
 
     if (index >= 0) {

@@ -6,7 +6,7 @@ import 'package:smooth_app/query/product_query.dart';
 /// Helper class that computes the values of each nutrient for a portion.
 class PortionHelper {
   PortionHelper(
-    final List<OrderedNutrient> localizedNutrients,
+    List<OrderedNutrient> localizedNutrients,
     this.productNutriments,
     this.grams,
   ) {
@@ -35,14 +35,14 @@ class PortionHelper {
   int get length => _table.length;
 
   /// Localized name of the [index]th nutrient.
-  String getName(final int index) => _table[index][0];
+  String getName(int index) => _table[index][0];
 
   /// Value + unit of the [index]th nutrient.
-  String getValue(final int index) => _table[index][1];
+  String getValue(int index) => _table[index][1];
 
   /// Recursively populates nutrients' portion values.
   void _populateFactoredNutrients(
-    final List<OrderedNutrient> orderedNutrients,
+    List<OrderedNutrient> orderedNutrients,
   ) {
     for (final OrderedNutrient orderedNutrient in orderedNutrients) {
       final Nutrient? nutrient = NutritionContainerHelper.getNutrient(
@@ -65,8 +65,8 @@ class PortionHelper {
 
   /// Populates for a single nutrient the portion value.
   void _populateFactoredNutrient(
-    final Nutrient nutrient,
-    final String nutrientName,
+    Nutrient nutrient,
+    String nutrientName,
   ) {
     double? value = productNutriments.getValue(
       nutrient,

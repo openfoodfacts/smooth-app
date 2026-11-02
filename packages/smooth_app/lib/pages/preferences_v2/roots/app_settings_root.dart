@@ -185,7 +185,7 @@ class AppSettingsRoot extends PreferencesRoot {
         UserPictureSource.GALLERY,
       ],
       currentValue: userPreferences.userPictureSource,
-      onChanged: (final UserPictureSource? newValue) async =>
+      onChanged: (UserPictureSource? newValue) async =>
           userPreferences.setUserPictureSource(newValue!),
     );
   }
@@ -207,7 +207,7 @@ class AppSettingsRoot extends PreferencesRoot {
             ),
           ) ??
           false,
-      onToggle: (final bool value) => userPreferences.setFlag(
+      onToggle: (bool value) => userPreferences.setFlag(
         KnowledgePanelCard.getExpandFlagTag(
           KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
         ),
@@ -232,7 +232,7 @@ class AppSettingsRoot extends PreferencesRoot {
             ),
           ) ??
           false,
-      onToggle: (final bool value) => userPreferences.setFlag(
+      onToggle: (bool value) => userPreferences.setFlag(
         KnowledgePanelCard.getExpandFlagTag(
           KnowledgePanelCard.PANEL_INGREDIENTS_ID,
         ),
@@ -252,7 +252,7 @@ class AppSettingsRoot extends PreferencesRoot {
       title: appLocalizations.crash_reporting_toggle_title,
       subtitleText: appLocalizations.crash_reporting_toggle_subtitle,
       state: userPreferences.crashReports,
-      onToggle: (final bool value) => userPreferences.setCrashReports(value),
+      onToggle: (bool value) => userPreferences.setCrashReports(value),
     );
   }
 
@@ -266,7 +266,7 @@ class AppSettingsRoot extends PreferencesRoot {
       title: appLocalizations.send_anonymous_data_toggle_title,
       subtitleText: appLocalizations.send_anonymous_data_toggle_subtitle,
       state: userPreferences.userTracking,
-      onToggle: (final bool value) => userPreferences.setUserTracking(value),
+      onToggle: (bool value) => userPreferences.setUserTracking(value),
     );
   }
 }

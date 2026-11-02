@@ -209,7 +209,7 @@ class ProductPageState extends State<ProductPage>
   }
 
   Future<void> _updateLocalDatabaseWithProductHistory(
-    final BuildContext context,
+    BuildContext context,
   ) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await DaoProductList(localDatabase).push(ProductList.history(), barcode);

@@ -16,7 +16,7 @@ class ProductListUserDialogHelper {
 
   /// Shows a "create list" dialog; returns the new [ProductList] if relevant.
   Future<ProductList?> showCreateUserListDialog(
-    final BuildContext context,
+    BuildContext context,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextEditingController textEditingController = TextEditingController();
@@ -25,7 +25,7 @@ class ProductListUserDialogHelper {
     final List<String> lists = daoProductList.getUserLists();
     final String? title = await showDialog<String>(
       context: context,
-      builder: (final BuildContext context) {
+      builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: appLocalizations.user_list_dialog_new_title,
           body: Form(
@@ -84,8 +84,8 @@ class ProductListUserDialogHelper {
 
   /// Shows a "rename list" dialog; returns renamed [ProductList] if relevant.
   Future<ProductList?> showRenameUserListDialog(
-    final BuildContext context,
-    final ProductList initialProductList,
+    BuildContext context,
+    ProductList initialProductList,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextEditingController textEditingController = TextEditingController();
@@ -96,7 +96,7 @@ class ProductListUserDialogHelper {
     final List<String> lists = daoProductList.getUserLists();
     final String? newName = await showDialog<String>(
       context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
+      builder: (BuildContext context) => SmoothAlertDialog(
         title: appLocalizations.user_list_dialog_rename_title,
         body: Form(
           key: formKey,
@@ -147,14 +147,14 @@ class ProductListUserDialogHelper {
 
   /// Shows a "delete list" dialog; returns true if deleted.
   Future<bool> showDeleteUserListDialog(
-    final BuildContext context,
-    final ProductList productList,
+    BuildContext context,
+    ProductList productList,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final bool? deleted = await showDialog<bool>(
       context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
+      builder: (BuildContext context) => SmoothAlertDialog(
         title: appLocalizations.confirm_delete_user_list_title,
         body: Text(
           appLocalizations.confirm_delete_user_list_message(
@@ -189,8 +189,8 @@ class ProductListUserDialogHelper {
   /// Pre-checks all lists where all the selected barcodes are already contained
   /// Returns true if products were added
   Future<bool?> showUserAddProductsDialog(
-    final BuildContext context,
-    final Set<String> barcodes,
+    BuildContext context,
+    Set<String> barcodes,
   ) async {
     final List<String> lists = daoProductList.getUserLists();
 

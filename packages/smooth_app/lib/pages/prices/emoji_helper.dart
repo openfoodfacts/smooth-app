@@ -7,14 +7,14 @@ class EmojiHelper {
   /// Returns the country flag emoji.
   ///
   /// cf. https://emojipedia.org/flag-italy
-  static String? getCountryEmoji(final OpenFoodFactsCountry? country) {
+  static String? getCountryEmoji(OpenFoodFactsCountry? country) {
     if (country == null) {
       return null;
     }
     return getEmojiByCountryCode(country.offTag);
   }
 
-  static String? getEmojiByCountryCode(final String countryCode) {
+  static String? getEmojiByCountryCode(String countryCode) {
     if (countryCode.isEmpty) {
       return null;
     } else if (countryCode.toUpperCase() == 'UK') {
@@ -28,7 +28,7 @@ class EmojiHelper {
   static const int _asciiCapitalA = 65;
   static const int _asciiCapitalZ = 90;
 
-  static String? _getCountryEmojiFromUnicode(final String unicode) {
+  static String? _getCountryEmojiFromUnicode(String unicode) {
     final String? countryLetterEmoji1 = _getCountryLetterEmoji(
       unicode.substring(0, 1),
     );
@@ -45,7 +45,7 @@ class EmojiHelper {
     return '$countryLetterEmoji1$countryLetterEmoji2';
   }
 
-  static String? _getCountryLetterEmoji(final String letter) {
+  static String? _getCountryLetterEmoji(String letter) {
     final int ascii = letter.toUpperCase().codeUnitAt(0);
     if (ascii < _asciiCapitalA || ascii > _asciiCapitalZ) {
       return null;

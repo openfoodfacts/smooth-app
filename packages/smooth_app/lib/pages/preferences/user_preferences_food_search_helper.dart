@@ -6,22 +6,22 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Helper around looking for a term in the food attribute page.
 class UserPreferencesFoodSearchHelper {
-  UserPreferencesFoodSearchHelper(final String query)
+  UserPreferencesFoodSearchHelper(String query)
     : lowerCaseQuery = query.toLowerCase();
 
   final String lowerCaseQuery;
 
-  bool matches(final List<String?> labels) =>
+  bool matches(List<String?> labels) =>
       labels.firstWhereOrNull(
-        (final String? label) =>
+        (String? label) =>
             label != null && label.toLowerCase().contains(lowerCaseQuery),
       ) !=
       null;
 
   PreferenceTile getPreferenceTile({
-    required final String title,
-    required final BuildContext context,
-    final Widget? icon,
+    required String title,
+    required BuildContext context,
+    Widget? icon,
   }) => PreferenceTile(
     title: title,
     onTap: () async => Navigator.of(context).push(

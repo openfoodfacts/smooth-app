@@ -33,9 +33,9 @@ class ProductPriceAddPage extends StatefulWidget {
   final PriceModel model;
 
   static Future<void> showProductPage({
-    required final BuildContext context,
-    required final ProofType proofType,
-    final PriceMetaProduct? product,
+    required BuildContext context,
+    required ProofType proofType,
+    PriceMetaProduct? product,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -86,7 +86,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PriceModel>.value(
       value: widget.model,
-      builder: (final BuildContext context, final Widget? child) {
+      builder: (BuildContext context, Widget? child) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final PriceModel model = Provider.of<PriceModel>(context);
 
@@ -209,7 +209,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
       'Opened price_page with ${widget.model.proofType.offTag}';
 
   /// Exits the page if the [flag] is `true`.
-  void _exitPage(final bool flag) {
+  void _exitPage(bool flag) {
     if (flag) {
       Navigator.of(context).pop();
     }
@@ -220,7 +220,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({
-    required final bool saving,
+    required bool saving,
     required PriceModel model,
   }) async {
     if (!model.hasChanged) {

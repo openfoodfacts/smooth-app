@@ -269,7 +269,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     );
   }
 
-  Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) {
+  Widget _getSimpleListTileItem(AbstractSimpleInputPageHelper helper) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return _ListTitleItem(
@@ -283,7 +283,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
   }
 
   Widget _getMultipleListTileItem(
-    final List<AbstractSimpleInputPageHelper> helpers,
+    List<AbstractSimpleInputPageHelper> helpers,
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<String> titles = <String>[];

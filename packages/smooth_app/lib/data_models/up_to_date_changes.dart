@@ -14,7 +14,7 @@ class UpToDateChanges {
   final DaoTransientOperation _daoTransientProduct;
 
   /// Returns all the actions related to a barcode, sorted by id.
-  Iterable<TransientOperation> getSortedOperations(final String barcode) {
+  Iterable<TransientOperation> getSortedOperations(String barcode) {
     final List<TransientOperation> result = <TransientOperation>[];
     result.addAll(_daoTransientProduct.getAll(barcode));
     result.sort(OperationType.sort);
@@ -33,17 +33,17 @@ class UpToDateChanges {
     return product;
   }
 
-  Future<void> add(final String key, final Product product) async =>
+  Future<void> add(String key, Product product) async =>
       _daoTransientProduct.put(key, product);
 
   /// Returns true if some actions have not been terminated.
-  bool hasNotTerminatedOperations(final String barcode) {
+  bool hasNotTerminatedOperations(String barcode) {
     final Iterable<TransientOperation> actions = getSortedOperations(barcode);
     return actions.isNotEmpty;
   }
 
   /// Terminates a single operation.
-  void terminate(final String operationKey) =>
+  void terminate(String operationKey) =>
       _daoTransientProduct.delete(operationKey);
 
   /// Overwrite the [initial] product with the non-null fields of [change].
@@ -51,7 +51,7 @@ class UpToDateChanges {
   /// Currently limited to the fields modified by
   /// * [BackgroundTaskDetails]
   /// * [BackgroundTaskImage]
-  Product _overwrite(final Product initial, final Product change) {
+  Product _overwrite(Product initial, Product change) {
     if (change.productType != null) {
       initial.productType = change.productType;
     }
@@ -128,7 +128,7 @@ class UpToDateChanges {
     }
 
     /// In some cases we want to force null; we do that with an empty String.
-    String? emptyMeansNull(final String value) => value.isEmpty ? null : value;
+    String? emptyMeansNull(String value) => value.isEmpty ? null : value;
 
     if (change.imageFrontUrl != null) {
       initial.imageFrontUrl = emptyMeansNull(change.imageFrontUrl!);

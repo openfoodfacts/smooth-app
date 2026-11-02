@@ -19,16 +19,16 @@ import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.
 /// The typical use-case is the centralized "open edit page" method.
 abstract class ProductFieldEditor {
   /// Returns true if the field is populated for that product.
-  bool isPopulated(final Product product);
+  bool isPopulated(Product product);
 
   /// Returns a standard "add/edit" button label.
-  String getLabel(final AppLocalizations appLocalizations);
+  String getLabel(AppLocalizations appLocalizations);
 
   /// Opens a page to edit that field for that product.
   Future<void> edit({
-    required final BuildContext context,
-    required final Product product,
-    final bool isLoggedInMandatory = true,
+    required BuildContext context,
+    required Product product,
+    bool isLoggedInMandatory = true,
   });
 }
 
@@ -38,17 +38,17 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
   final AbstractSimpleInputPageHelper helper;
 
   @override
-  bool isPopulated(final Product product) => helper.isPopulated(product);
+  bool isPopulated(Product product) => helper.isPopulated(product);
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) =>
+  String getLabel(AppLocalizations appLocalizations) =>
       helper.getStandardAddButtonLabel(appLocalizations);
 
   @override
   Future<void> edit({
-    required final BuildContext context,
-    required final Product product,
-    final bool isLoggedInMandatory = true,
+    required BuildContext context,
+    required Product product,
+    bool isLoggedInMandatory = true,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -74,24 +74,24 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
 
 class ProductFieldDetailsEditor extends ProductFieldEditor {
   /// Returns true if the [field] is valid (= not empty).
-  bool _isProductFieldValid(final String? field) =>
+  bool _isProductFieldValid(String? field) =>
       field != null && field.trim().isNotEmpty;
 
   @override
-  bool isPopulated(final Product product) =>
+  bool isPopulated(Product product) =>
       _isProductFieldValid(product.productName) ||
       (product.productNameInLanguages?.isNotEmpty == true) ||
       _isProductFieldValid(product.brands);
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) =>
+  String getLabel(AppLocalizations appLocalizations) =>
       appLocalizations.completed_basic_details_btn_text;
 
   @override
   Future<void> edit({
-    required final BuildContext context,
-    required final Product product,
-    final bool isLoggedInMandatory = true,
+    required BuildContext context,
+    required Product product,
+    bool isLoggedInMandatory = true,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -119,18 +119,17 @@ class ProductFieldDetailsEditor extends ProductFieldEditor {
 
 class ProductFieldPackagingEditor extends ProductFieldEditor {
   @override
-  bool isPopulated(final Product product) =>
-      product.packagings?.isEmpty == false;
+  bool isPopulated(Product product) => product.packagings?.isEmpty == false;
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) =>
+  String getLabel(AppLocalizations appLocalizations) =>
       OcrPackagingHelper().getAddButtonLabel(appLocalizations);
 
   @override
   Future<void> edit({
-    required final BuildContext context,
-    required final Product product,
-    final bool isLoggedInMandatory = true,
+    required BuildContext context,
+    required Product product,
+    bool isLoggedInMandatory = true,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -161,18 +160,17 @@ class ProductFieldPackagingEditor extends ProductFieldEditor {
 
 class ProductFieldNutritionEditor extends ProductFieldEditor {
   @override
-  bool isPopulated(final Product product) =>
-      product.nutriments?.isEmpty() == false;
+  bool isPopulated(Product product) => product.nutriments?.isEmpty() == false;
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) =>
+  String getLabel(AppLocalizations appLocalizations) =>
       appLocalizations.nutritional_facts_input_button_label;
 
   @override
   Future<void> edit({
-    required final BuildContext context,
-    required final Product product,
-    final bool isLoggedInMandatory = true,
+    required BuildContext context,
+    required Product product,
+    bool isLoggedInMandatory = true,
   }) async => NutritionPageLoader.showNutritionPage(
     product: product,
     isLoggedInMandatory: isLoggedInMandatory,
@@ -186,14 +184,14 @@ abstract class ProductFieldOcrEditor extends ProductFieldEditor {
   final OcrHelper helper;
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) =>
+  String getLabel(AppLocalizations appLocalizations) =>
       helper.getAddButtonLabel(appLocalizations);
 
   @override
   Future<void> edit({
-    required final BuildContext context,
-    required final Product product,
-    final bool isLoggedInMandatory = true,
+    required BuildContext context,
+    required Product product,
+    bool isLoggedInMandatory = true,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -227,7 +225,7 @@ class ProductFieldOcrIngredientEditor extends ProductFieldOcrEditor {
   ProductFieldOcrIngredientEditor() : super(OcrIngredientsHelper());
 
   @override
-  bool isPopulated(final Product product) =>
+  bool isPopulated(Product product) =>
       product.ingredientsTextInLanguages?.isEmpty == false;
 }
 
@@ -235,6 +233,6 @@ class ProductFieldOcrPackagingEditor extends ProductFieldOcrEditor {
   ProductFieldOcrPackagingEditor() : super(OcrPackagingHelper());
 
   @override
-  bool isPopulated(final Product product) =>
+  bool isPopulated(Product product) =>
       product.packagingTextInLanguages?.isEmpty == false;
 }

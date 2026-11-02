@@ -23,7 +23,7 @@ class _UpToDateProductProvider extends UpToDateProductProvider {
   _UpToDateProductProvider(super.localDatabase);
 
   @override
-  Product getLocalUpToDate(final Product initialProduct) => initialProduct;
+  Product getLocalUpToDate(Product initialProduct) => initialProduct;
 }
 
 class _LocalDatabase extends MockLocalDatabase {

@@ -11,14 +11,14 @@ abstract class LazyCounter {
   const LazyCounter();
 
   /// Returns the value cached locally;
-  int? getLocalCount(final UserPreferences userPreferences) =>
+  int? getLocalCount(UserPreferences userPreferences) =>
       userPreferences.getLazyCount(getSuffixTag());
 
   /// Sets the value cached locally;
   Future<void> setLocalCount(
-    final int value,
-    final UserPreferences userPreferences, {
-    required final bool notify,
+    int value,
+    UserPreferences userPreferences, {
+    required bool notify,
   }) => userPreferences.setLazyCount(value, getSuffixTag(), notify: notify);
 
   /// Returns the suffix tag used to cache the value locally;

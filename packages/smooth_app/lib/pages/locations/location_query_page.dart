@@ -92,9 +92,9 @@ class _LocationQueryPageState extends State<LocationQueryPage>
   }
 
   Widget _getNotEmptyScreen(
-    final Size screenSize,
-    final ThemeData themeData,
-    final AppLocalizations appLocalizations,
+    Size screenSize,
+    ThemeData themeData,
+    AppLocalizations appLocalizations,
   ) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
@@ -159,9 +159,9 @@ class _LocationQueryPageState extends State<LocationQueryPage>
   }
 
   Widget _getErrorWidget(
-    final Size screenSize,
-    final ThemeData themeData,
-    final String errorMessage,
+    Size screenSize,
+    ThemeData themeData,
+    String errorMessage,
   ) {
     return SearchEmptyScreen(
       name: widget.query,
@@ -176,8 +176,8 @@ class _LocationQueryPageState extends State<LocationQueryPage>
   }
 
   Widget _getEmptyText(
-    final ThemeData themeData,
-    final String message,
+    ThemeData themeData,
+    String message,
   ) => Padding(
     padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
     child: Column(

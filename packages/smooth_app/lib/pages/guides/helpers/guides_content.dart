@@ -182,6 +182,7 @@ class _GuidesParagraphTitle extends StatelessWidget {
     return Semantics(
       label: title,
       header: true,
+      headingLevel: 2,
       excludeSemantics: true,
       child: ColoredBox(
         color: context.lightTheme()

@@ -14,15 +14,15 @@ class PriceUserButton extends StatelessWidget {
   final String user;
 
   static String showUserTitle({
-    required final String user,
-    required final BuildContext context,
+    required String user,
+    required BuildContext context,
   }) => user == ProductQuery.getWriteUser().userId
       ? AppLocalizations.of(context).user_search_prices_title
       : AppLocalizations.of(context).user_any_search_prices_title(user);
 
   static Future<void> showUserPrices({
-    required final String user,
-    required final BuildContext context,
+    required String user,
+    required BuildContext context,
   }) async => Navigator.of(context).push(
     MaterialPageRoute<void>(
       builder: (BuildContext context) => PricesPage(

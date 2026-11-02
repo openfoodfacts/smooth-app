@@ -10,7 +10,7 @@ class PartialProductList {
 
   List<String> getBarcodes() => _barcodes;
 
-  void add(final ProductList productList) {
+  void add(ProductList productList) {
     _barcodes.addAll(productList.getList());
     _totalSize = productList.totalSize;
   }

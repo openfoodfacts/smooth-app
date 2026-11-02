@@ -31,12 +31,12 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
 
   static const String _DEFAULT_LANGUAGE_CODE = 'en';
 
-  static String _getImportanceAssetPath(final String languageCode) =>
+  static String _getImportanceAssetPath(String languageCode) =>
       AppHelper.getAssetPath(
         'assets/metadata/init_preferences_$languageCode.json',
       );
 
-  static String _getAttributeAssetPath(final String languageCode) =>
+  static String _getAttributeAssetPath(String languageCode) =>
       AppHelper.getAssetPath(
         'assets/metadata/init_attribute_groups_$languageCode.json',
       );
@@ -44,7 +44,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   /// Inits with the best available not-network references.
   ///
   /// That means trying with assets and local database.
-  Future<void> init(final AssetBundle assetBundle) async {
+  Future<void> init(AssetBundle assetBundle) async {
     // trying the local database with the latest download language...
     if (daoString != null) {
       final String? latestLanguage = await daoString!.get(
@@ -94,7 +94,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   }
 
   /// Loads the references of importance and attribute groups from assets.
-  Future<bool> _loadFromAssets(final AssetBundle assetBundle) async {
+  Future<bool> _loadFromAssets(AssetBundle assetBundle) async {
     try {
       const String languageCode = _DEFAULT_LANGUAGE_CODE;
       final String importanceAssetPath = _getImportanceAssetPath(languageCode);
@@ -168,7 +168,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   }
 
   /// Loads the references of importance and attribute groups from database.
-  Future<bool> _loadFromDatabase(final String languageCode) async {
+  Future<bool> _loadFromDatabase(String languageCode) async {
     if (daoString == null) {
       return false;
     }
@@ -206,9 +206,9 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ///
   /// May throw an exception.
   void _loadFromStrings(
-    final String languageCode,
-    final String preferenceImportancesString,
-    final String attributeGroupsString,
+    String languageCode,
+    String preferenceImportancesString,
+    String attributeGroupsString,
   ) {
     final AvailableProductPreferences myAvailableProductPreferences =
         AvailableProductPreferences.loadFromJSONStrings(
@@ -239,7 +239,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     notify();
   }
 
-  AttributeGroup getAttributeGroup(final String attributeId) {
+  AttributeGroup getAttributeGroup(String attributeId) {
     for (final AttributeGroup attributeGroup in attributeGroups!) {
       for (final Attribute item in attributeGroup.attributes!) {
         if (item.id == attributeId) {

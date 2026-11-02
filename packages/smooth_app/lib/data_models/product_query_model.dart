@@ -21,8 +21,8 @@ class ProductQueryModel with ChangeNotifier {
   LoadingStatus get loadingStatus => _loadingStatus;
 
   Future<bool> _asyncLoad({
-    final bool notify = false,
-    final bool fromScratch = false,
+    bool notify = false,
+    bool fromScratch = false,
   }) async {
     _loadingStatus = LoadingStatus.LOADING;
     _loadingError = await supplier.asyncLoad();
@@ -63,8 +63,8 @@ class ProductQueryModel with ChangeNotifier {
   }
 
   Future<void> _process(
-    final List<String> barcodes,
-    final bool fromScratch,
+    List<String> barcodes,
+    bool fromScratch,
   ) async {
     if (fromScratch) {
       await supplier.clearBeyondTopPage();

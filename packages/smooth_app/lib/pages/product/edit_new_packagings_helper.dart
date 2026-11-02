@@ -18,10 +18,10 @@ class EditNewPackagingsHelper {
 
   /// Creates all controllers from a packaging.
   EditNewPackagingsHelper.packaging(
-    final ProductPackaging packaging,
-    final bool initiallyExpanded, {
-    required final NumberFormat decimalNumberFormat,
-    required final NumberFormat unitNumberFormat,
+    ProductPackaging packaging,
+    bool initiallyExpanded, {
+    required NumberFormat decimalNumberFormat,
+    required NumberFormat unitNumberFormat,
   }) : this._(
          controllerUnits: TextEditingController(
            text: packaging.numberOfUnits == null
@@ -72,7 +72,7 @@ class EditNewPackagingsHelper {
   String? getTitle() {
     final List<String> result = <String>[];
 
-    void addIfNotEmpty(final String text) {
+    void addIfNotEmpty(String text) {
       if (text.isNotEmpty) {
         result.add('$text ');
       }
@@ -118,7 +118,7 @@ class EditNewPackagingsHelper {
     return packaging;
   }
 
-  double? _getParsedDecimalController(final TextEditingController controller) {
+  double? _getParsedDecimalController(TextEditingController controller) {
     final String text = controller.text.trim();
     if (text.isEmpty) {
       return null;
@@ -130,7 +130,7 @@ class EditNewPackagingsHelper {
     }
   }
 
-  int? _getParsedUnitController(final TextEditingController controller) {
+  int? _getParsedUnitController(TextEditingController controller) {
     final String text = controller.text.trim();
     if (text.isEmpty) {
       return null;
@@ -142,7 +142,7 @@ class EditNewPackagingsHelper {
     }
   }
 
-  LocalizedTag? _getLocalizedTag(final TextEditingController controller) {
+  LocalizedTag? _getLocalizedTag(TextEditingController controller) {
     final String text = controller.text;
     if (text.isEmpty) {
       return null;
@@ -150,7 +150,7 @@ class EditNewPackagingsHelper {
     return LocalizedTag()..lcName = text;
   }
 
-  String? _getString(final TextEditingController controller) {
+  String? _getString(TextEditingController controller) {
     final String text = controller.text;
     if (text.isEmpty) {
       return null;

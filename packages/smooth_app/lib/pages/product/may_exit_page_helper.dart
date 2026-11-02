@@ -12,9 +12,9 @@ class MayExitPageHelper {
   /// * `true` means the user wants to save the changes and leave.
   /// * `false` means the user wants to ignore the changes and leave.
   Future<bool?> openSaveBeforeLeavingDialog(
-    final BuildContext context, {
-    final String? title,
-    final bool unfocus = true,
+    BuildContext context, {
+    String? title,
+    bool unfocus = true,
   }) async {
     if (unfocus) {
       FocusManager.instance.primaryFocus?.unfocus();

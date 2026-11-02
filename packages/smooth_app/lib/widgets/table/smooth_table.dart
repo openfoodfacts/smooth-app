@@ -9,8 +9,8 @@ import 'package:smooth_app/widgets/table/smooth_table_cell.dart';
 class SmoothTable {
   SmoothTable(this.cells);
 
-  factory SmoothTable.fromKP(final KnowledgePanelTableElement tableElement) {
-    String cleanHtml(final String text) => text.replaceAll('<br>', ' ');
+  factory SmoothTable.fromKP(KnowledgePanelTableElement tableElement) {
+    String cleanHtml(String text) => text.replaceAll('<br>', ' ');
 
     final List<List<SmoothTableCell>> result = <List<SmoothTableCell>>[];
     result.add(<SmoothTableCell>[]);
@@ -40,7 +40,7 @@ class SmoothTable {
   final List<List<SmoothTableCell>> cells;
 
   List<double> getColumnsMaxLength(
-    final KnowledgePanelTableCellWidthComputer computer,
+    KnowledgePanelTableCellWidthComputer computer,
   ) {
     final int length = cells.first.length;
     final List<double> columnsMaxLength = List<double>.generate(
@@ -65,7 +65,7 @@ class SmoothTable {
   }
 
   static List<double> clampWidths(
-    final List<double> values, {
+    List<double> values, {
     required double maxColWidth,
     required double minColWidth,
     required double colPadding,

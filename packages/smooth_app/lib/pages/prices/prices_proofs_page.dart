@@ -82,7 +82,7 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
   String? _bearerToken;
 
   @override
-  Future<void> fetchInit(final BuildContext context) async {
+  Future<void> fetchInit(BuildContext context) async {
     if (_bearerToken != null) {
       return;
     }
@@ -101,7 +101,7 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
   }
 
   @override
-  Future<void> fetchData(final int pageNumber) async {
+  Future<void> fetchData(int pageNumber) async {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<GetProofsResult> result =
         await OpenPricesAPIClient.getProofs(

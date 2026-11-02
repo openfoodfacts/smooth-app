@@ -141,7 +141,7 @@ class SmoothAlertDialog extends StatelessWidget {
   bool get hasActions =>
       positiveAction != null || negativeAction != null || neutralAction != null;
 
-  Widget _buildContent(final BuildContext context) => DefaultTextStyle.merge(
+  Widget _buildContent(BuildContext context) => DefaultTextStyle.merge(
     style: const TextStyle(height: 1.5),
     child: Column(
       mainAxisSize: MainAxisSize.min,
@@ -214,7 +214,7 @@ class _SmoothDialogTitle extends StatelessWidget {
     );
   }
 
-  Widget _buildCross(final bool isPlaceHolder) {
+  Widget _buildCross(bool isPlaceHolder) {
     if (close) {
       return _SmoothDialogCrossButton(visible: !isPlaceHolder);
     } else {

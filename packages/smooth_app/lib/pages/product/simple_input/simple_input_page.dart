@@ -22,8 +22,8 @@ import 'package:smooth_app/widgets/will_pop_scope.dart';
 /// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
   SimpleInputPage({
-    required final AbstractSimpleInputPageHelper helper,
-    required final Product product,
+    required AbstractSimpleInputPageHelper helper,
+    required Product product,
   }) : this.multiple(
          helpers: <AbstractSimpleInputPageHelper>[helper],
          product: product,
@@ -126,7 +126,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   }
 
   /// Exits the page if the [flag] is `true`.
-  void _exitPage(final bool flag) {
+  void _exitPage(bool flag) {
     if (flag) {
       Navigator.of(context).pop();
     }
@@ -159,7 +159,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
-  Future<bool> _mayExitPage({required final bool saving}) async {
+  Future<bool> _mayExitPage({required bool saving}) async {
     final Map<BackgroundTaskDetailsStamp, Product> changedProducts =
         <BackgroundTaskDetailsStamp, Product>{};
     bool added = false;

@@ -296,8 +296,7 @@ class AnalyticsHelper {
   static Future<void> initSentry({required Function()? appRunner}) async {
     await SentryFlutter.init((SentryFlutterOptions options) {
       options
-        ..dsn =
-            'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
+        ..dsn = 'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
         // To set a uniform sample rate
         ..tracesSampleRate = 1.0
         ..enableTombstone = true
@@ -310,12 +309,12 @@ class AnalyticsHelper {
 
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
-  static void _setCrashReports(final bool crashReports) =>
+  static void _setCrashReports(bool crashReports) =>
       _crashReports = crashReports;
 
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
-  static void _setAnalyticsReports(final bool allow) {
+  static void _setAnalyticsReports(bool allow) {
     if (allow) {
       _analyticsReporting = _AnalyticsTrackingMode.enabled;
     } else {
@@ -349,9 +348,8 @@ class AnalyticsHelper {
   /// default [PersistenceFilter] of [DispatchSettings.persistent] drops
   /// anything older than 23h59m59s when the queue is loaded.
   static Future<void> initMatomo(
-    final bool screenshotMode, {
-    final DispatchSettings dispatchSettings =
-        const DispatchSettings.persistent(),
+    bool screenshotMode, {
+    DispatchSettings dispatchSettings = const DispatchSettings.persistent(),
   }) async {
     _packageInfo = await PackageInfo.fromPlatform();
     if (screenshotMode) {
@@ -398,8 +396,8 @@ class AnalyticsHelper {
   static const Duration _visitTimeout = Duration(minutes: 30);
 
   static void trackAppOpen(
-    final UserPreferences userPreferences, {
-    final Duration? backgroundedFor,
+    UserPreferences userPreferences, {
+    Duration? backgroundedFor,
   }) {
     if (userPreferences.lastVisitedOnboardingPage.isOnboardingNotStarted()) {
       return;

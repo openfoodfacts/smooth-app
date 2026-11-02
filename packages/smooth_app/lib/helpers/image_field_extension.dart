@@ -6,7 +6,7 @@ import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 
 extension ImageFieldSmoothieExtension on ImageField {
   static List<ImageField> getOrderedMainImageFields(
-    final ProductType? productType,
+    ProductType? productType,
   ) => switch (productType) {
     ProductType.product => const <ImageField>[
       ImageField.FRONT,
@@ -25,7 +25,7 @@ extension ImageFieldSmoothieExtension on ImageField {
     ],
   };
 
-  void setUrl(final Product product, final String url) {
+  void setUrl(Product product, String url) {
     switch (this) {
       case ImageField.FRONT:
         product.imageFrontUrl = url;
@@ -44,7 +44,7 @@ extension ImageFieldSmoothieExtension on ImageField {
     }
   }
 
-  String getProductImageButtonText(final AppLocalizations appLocalizations) =>
+  String getProductImageButtonText(AppLocalizations appLocalizations) =>
       switch (this) {
         ImageField.FRONT => appLocalizations.front_photo,
         ImageField.INGREDIENTS => appLocalizations.ingredients_photo,
@@ -54,17 +54,16 @@ extension ImageFieldSmoothieExtension on ImageField {
       };
 
   /// Returns a verbose description of the image field.
-  String getImagePageTitle(final AppLocalizations appLocalizations) =>
-      switch (this) {
-        ImageField.FRONT => appLocalizations.front_packaging_photo_title,
-        ImageField.INGREDIENTS => appLocalizations.ingredients_photo_title,
-        ImageField.NUTRITION => appLocalizations.nutritional_facts_photo_title,
-        ImageField.PACKAGING => appLocalizations.recycling_photo_title,
-        ImageField.OTHER => appLocalizations.take_more_photo_title,
-      };
+  String getImagePageTitle(AppLocalizations appLocalizations) => switch (this) {
+    ImageField.FRONT => appLocalizations.front_packaging_photo_title,
+    ImageField.INGREDIENTS => appLocalizations.ingredients_photo_title,
+    ImageField.NUTRITION => appLocalizations.nutritional_facts_photo_title,
+    ImageField.PACKAGING => appLocalizations.recycling_photo_title,
+    ImageField.OTHER => appLocalizations.take_more_photo_title,
+  };
 
   /// Returns a compact description of the image field.
-  String getProductImageTitle(final AppLocalizations appLocalizations) =>
+  String getProductImageTitle(AppLocalizations appLocalizations) =>
       switch (this) {
         ImageField.FRONT => appLocalizations.product,
         ImageField.INGREDIENTS => appLocalizations.ingredients,
@@ -73,7 +72,7 @@ extension ImageFieldSmoothieExtension on ImageField {
         ImageField.OTHER => appLocalizations.more_photos,
       };
 
-  String getAddPhotoButtonText(final AppLocalizations appLocalizations) =>
+  String getAddPhotoButtonText(AppLocalizations appLocalizations) =>
       switch (this) {
         ImageField.FRONT => appLocalizations.front_packaging_photo_button_label,
         ImageField.INGREDIENTS =>
@@ -85,7 +84,7 @@ extension ImageFieldSmoothieExtension on ImageField {
       };
 
   String getPictureAccessibilityLabel(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => switch (this) {
     ImageField.FRONT =>
       appLocalizations.product_image_front_accessibility_label,
@@ -100,9 +99,9 @@ extension ImageFieldSmoothieExtension on ImageField {
   };
 
   Widget getPhotoButton(
-    final BuildContext context,
-    final Product product,
-    final bool isLoggedInMandatory,
+    BuildContext context,
+    Product product,
+    bool isLoggedInMandatory,
   ) => SmoothLargeButtonWithIcon(
     onPressed: () async => openDetails(context, product, isLoggedInMandatory),
     leadingIcon: const Icon(Icons.camera_alt),
@@ -110,9 +109,9 @@ extension ImageFieldSmoothieExtension on ImageField {
   );
 
   Future<void> openDetails(
-    final BuildContext context,
-    final Product product,
-    final bool isLoggedInMandatory,
+    BuildContext context,
+    Product product,
+    bool isLoggedInMandatory,
   ) => Navigator.push(
     context,
     MaterialPageRoute<void>(

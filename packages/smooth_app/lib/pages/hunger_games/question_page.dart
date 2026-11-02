@@ -208,8 +208,8 @@ class _QuestionsPageState extends State<QuestionsPage>
   }
 
   Future<void> _saveAnswer(
-    final RobotoffQuestion question,
-    final InsightAnnotation insightAnnotation,
+    RobotoffQuestion question,
+    InsightAnnotation insightAnnotation,
   ) async {
     final String? barcode = question.barcode;
     final String? insightId = question.insightId;

@@ -25,7 +25,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
     final List<Marker> markers = <Marker>[];
     final List<LatLng> coordinates = <LatLng>[];
 
-    void addCoordinate(final LatLng latLng) {
+    void addCoordinate(LatLng latLng) {
       coordinates.add(latLng);
       markers.add(
         Marker(

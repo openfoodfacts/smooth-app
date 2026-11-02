@@ -42,13 +42,13 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
   static const OperationType _operationType = OperationType.offlineBarcodes;
 
   static Future<void> addTask({
-    required final LocalDatabase localDatabase,
-    required final String work,
-    required final int pageSize,
-    required final int totalSize,
-    required final int soFarSize,
-    required final ProductType productType,
-    final int pageNumber = 1,
+    required LocalDatabase localDatabase,
+    required String work,
+    required int pageSize,
+    required int totalSize,
+    required int soFarSize,
+    required ProductType productType,
+    int pageNumber = 1,
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
@@ -69,16 +69,16 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => null;
 
   static BackgroundTask _getNewTask(
-    final String uniqueId,
-    final String work,
-    final int pageSize,
-    final int totalSize,
-    final int pageNumber,
-    final ProductType productType,
+    String uniqueId,
+    String work,
+    int pageSize,
+    int totalSize,
+    int pageNumber,
+    ProductType productType,
   ) => BackgroundTaskTopBarcodes._(
     processName: _operationType.processName,
     uniqueId: uniqueId,
@@ -91,13 +91,13 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
   );
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {}
+  Future<void> preExecute(LocalDatabase localDatabase) async {}
 
   @override
   bool get hasImmediateNextTask => true;
 
   @override
-  Future<void> execute(final LocalDatabase localDatabase) async {
+  Future<void> execute(LocalDatabase localDatabase) async {
     final SearchResult searchResult =
         await SearchProductsManager.searchProducts(
           ProductQuery.getReadUser(),

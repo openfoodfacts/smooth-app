@@ -30,21 +30,21 @@ abstract class ProductCropHelper extends CropHelper {
   final ProductType? productType;
 
   @override
-  String getPageTitle(final AppLocalizations appLocalizations) =>
+  String getPageTitle(AppLocalizations appLocalizations) =>
       imageField.getImagePageTitle(appLocalizations);
 
   @override
   Widget getProcessIcon() => const icons.Send();
 
   @override
-  String getProcessLabel(final AppLocalizations appLocalizations) =>
+  String getProcessLabel(AppLocalizations appLocalizations) =>
       appLocalizations.send_image_button_label;
 
   @override
   bool get enableEraser => false;
 
   @protected
-  Future<void> refresh(final BuildContext context) async {
+  Future<void> refresh(BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     localDatabase.notifyListeners();
     final ContinuousScanModel model = context.read<ContinuousScanModel>();
@@ -69,15 +69,15 @@ class ProductCropNewHelper extends ProductCropHelper {
 
   @override
   Future<CropParameters> process({
-    required final BuildContext context,
-    required final CropController controller,
-    required final File inputFile,
-    required final int inputFullWidth,
-    required final int inputFullHeight,
-    required final File preCroppedFile,
-    required final Directory directory,
-    required final int sequenceNumber,
-    required final List<Offset> offsets,
+    required BuildContext context,
+    required CropController controller,
+    required File inputFile,
+    required int inputFullWidth,
+    required int inputFullHeight,
+    required File preCroppedFile,
+    required Directory directory,
+    required int sequenceNumber,
+    required List<Offset> offsets,
   }) async {
     // in this case, it's a brand new picture, with crop parameters.
     // for privacy reasons, we won't send the full image to the server and
@@ -124,15 +124,15 @@ class ProductCropAgainHelper extends ProductCropHelper {
 
   @override
   Future<CropParameters> process({
-    required final BuildContext context,
-    required final CropController controller,
-    required final File inputFile,
-    required final int inputFullWidth,
-    required final int inputFullHeight,
-    required final File preCroppedFile,
-    required final Directory directory,
-    required final int sequenceNumber,
-    required final List<Offset> offsets,
+    required BuildContext context,
+    required CropController controller,
+    required File inputFile,
+    required int inputFullWidth,
+    required int inputFullHeight,
+    required File preCroppedFile,
+    required Directory directory,
+    required int sequenceNumber,
+    required List<Offset> offsets,
   }) async {
     // in this case, it's an existing picture, with crop parameters.
     // we let the server do everything: better performance, and no privacy
@@ -169,9 +169,9 @@ class ProductCropAgainHelper extends ProductCropHelper {
 
   /// Returns the crop rect according to server cropping method.
   Rect _getServerCropRect(
-    final CropController controller,
-    final int inputFullWidth,
-    final int inputFullHeight,
+    CropController controller,
+    int inputFullWidth,
+    int inputFullHeight,
   ) {
     final Offset center = _getRotatedOffsetForOff(
       controller.crop.center,
@@ -202,10 +202,10 @@ class ProductCropAgainHelper extends ProductCropHelper {
   }
 
   Offset _getRotatedOffsetForOff(
-    final Offset offset,
-    final CropController controller,
-    final int inputFullWidth,
-    final int inputFullHeight,
+    Offset offset,
+    CropController controller,
+    int inputFullWidth,
+    int inputFullHeight,
   ) => _getRotatedOffsetForOffHelper(
     controller.rotation,
     offset,
@@ -215,10 +215,10 @@ class ProductCropAgainHelper extends ProductCropHelper {
 
   /// Returns the offset as rotated, for the OFF-dart rotation/crop tool.
   Offset _getRotatedOffsetForOffHelper(
-    final CropRotation rotation,
-    final Offset offset01,
-    final double noonWidth,
-    final double noonHeight,
+    CropRotation rotation,
+    Offset offset01,
+    double noonWidth,
+    double noonHeight,
   ) {
     switch (rotation) {
       case CropRotation.up:

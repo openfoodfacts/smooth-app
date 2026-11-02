@@ -24,11 +24,11 @@ class SearchProductHelper extends SearchHelper {
   String get historyKey => DaoStringList.keySearchProductHistory;
 
   @override
-  String getHintText(final AppLocalizations appLocalizations) =>
+  String getHintText(AppLocalizations appLocalizations) =>
       appLocalizations.search;
 
   @override
-  String getHelpText(final AppLocalizations appLocalizations) =>
+  String getHelpText(AppLocalizations appLocalizations) =>
       appLocalizations.search_product_help;
 
   @override
@@ -65,9 +65,9 @@ class SearchProductHelper extends SearchHelper {
 
   // used to be in now defunct `ChoosePage`
   Future<void> _onSubmittedBarcode(
-    final String value,
-    final BuildContext context,
-    final LocalDatabase localDatabase,
+    String value,
+    BuildContext context,
+    LocalDatabase localDatabase,
   ) async {
     final ProductDialogHelper productDialogHelper = ProductDialogHelper(
       barcode: value,
@@ -104,9 +104,9 @@ class SearchProductHelper extends SearchHelper {
   }
 
   Future<void> _onSubmittedText(
-    final String value,
-    final BuildContext context,
-    final LocalDatabase localDatabase,
+    String value,
+    BuildContext context,
+    LocalDatabase localDatabase,
   ) async {
     final List<String> unwantedIngredients =
         (await UserPreferences.getUserPreferences())

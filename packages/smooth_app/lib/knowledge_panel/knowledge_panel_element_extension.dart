@@ -18,7 +18,7 @@ extension KnowledgePanelElementExtension on KnowledgePanelElement {
   /// Returns true if the element has something to display.
   ///
   /// cf. [getElementWidget].
-  bool hasSomethingToDisplay(final Product product) {
+  bool hasSomethingToDisplay(Product product) {
     switch (elementType) {
       case KnowledgePanelElementType.TEXT:
       case KnowledgePanelElementType.IMAGE:
@@ -43,12 +43,12 @@ extension KnowledgePanelElementExtension on KnowledgePanelElement {
   ///
   /// cf. [hasSomethingToDisplay].
   Widget? getElementWidget({
-    required final Product product,
-    required final bool isInitiallyExpanded,
-    required final bool isClickable,
-    required final bool isTextSelectable,
-    required final int position,
-    required final bool simplified,
+    required Product product,
+    required bool isInitiallyExpanded,
+    required bool isClickable,
+    required bool isTextSelectable,
+    required int position,
+    required bool simplified,
   }) {
     switch (elementType) {
       case KnowledgePanelElementType.TEXT:
@@ -124,7 +124,7 @@ extension KnowledgePanelElementExtension on KnowledgePanelElement {
     }
   }
 
-  List<KnowledgePanel> lookForSquarePanels(final Product product) {
+  List<KnowledgePanel> lookForSquarePanels(Product product) {
     if (elementType == KnowledgePanelElementType.PANEL_GROUP) {
       final List<String>? panelIds = panelGroupElement?.panelIds;
       final List<KnowledgePanel> result = <KnowledgePanel>[];

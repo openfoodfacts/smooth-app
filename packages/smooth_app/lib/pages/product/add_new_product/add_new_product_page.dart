@@ -38,7 +38,7 @@ import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
-  AddNewProductPage.fromBarcode(final String barcode)
+  AddNewProductPage.fromBarcode(String barcode)
     : assert(barcode != ''),
       product = Product(barcode: barcode),
       events = const <EditProductAction, AnalyticsEvent>{
@@ -211,7 +211,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     }
     final bool? leaveThePage = await showDialog<bool>(
       context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
+      builder: (BuildContext context) => SmoothAlertDialog(
         title: appLocalizations.new_product_leave_title,
         actionsAxis: Axis.vertical,
         body: Padding(
@@ -382,7 +382,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     return false;
   }
 
-  Widget _buildCard(final List<Widget> children) => SingleChildScrollView(
+  Widget _buildCard(List<Widget> children) => SingleChildScrollView(
     child: Padding(
       padding: const EdgeInsets.all(LARGE_SPACE),
       child: Column(
@@ -392,7 +392,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     ),
   );
 
-  Attribute? _getAttribute(final String tag) =>
+  Attribute? _getAttribute(String tag) =>
       upToDateProduct.getAttributes(<String>[tag])[tag];
 
   Widget _getButtons() {
@@ -438,7 +438,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             if (_inputProductType == null) {
               return showDialog(
                 context: context,
-                builder: (final BuildContext context) => SmoothAlertDialog(
+                builder: (BuildContext context) => SmoothAlertDialog(
                   title: appLocalizations.product_type_selection_title,
                   body: Text(appLocalizations.product_type_selection_empty),
                   positiveAction: SmoothActionButton(
@@ -468,7 +468,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     );
   }
 
-  List<Widget> _getNutriscoreRows(final BuildContext context) {
+  List<Widget> _getNutriscoreRows(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NUTRISCORE);
     return <Widget>[
@@ -504,7 +504,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     ];
   }
 
-  List<Widget> _getEnvironmentalScoreRows(final BuildContext context) {
+  List<Widget> _getEnvironmentalScoreRows(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
@@ -585,7 +585,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     ];
   }
 
-  List<Widget> _getNovaRows(final BuildContext context) {
+  List<Widget> _getNovaRows(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NOVA);
     return <Widget>[
@@ -617,7 +617,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     ];
   }
 
-  List<Widget> _getProductTypes(final BuildContext context) {
+  List<Widget> _getProductTypes(BuildContext context) {
     final List<Widget> rows = <Widget>[];
     for (final ProductType productType in ProductType.values) {
       rows.add(
@@ -644,7 +644,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   }
 
   /// More compact, for non-FOOD only.
-  List<Widget> _getOxFRows(final BuildContext context) {
+  List<Widget> _getOxFRows(BuildContext context) {
     return <Widget>[
       AddNewProductEditorButton(
         upToDateProduct,
@@ -667,7 +667,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     ];
   }
 
-  List<Widget> _getImageRows(final BuildContext context) {
+  List<Widget> _getImageRows(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> rows = <Widget>[];
     rows.add(const SizedBox(height: 15.0));
@@ -711,8 +711,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   /// Button specific to OTHER images.
   Widget _buildOtherImageButton(
-    final BuildContext context, {
-    required final bool done,
+    BuildContext context, {
+    required bool done,
   }) => AddNewProductButton(
     ImageField.OTHER.getAddPhotoButtonText(AppLocalizations.of(context)),
     done
@@ -737,9 +737,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   /// Button specific to one of the main 4 images.
   Widget _buildMainImageButton(
-    final BuildContext context,
-    final Product product,
-    final ProductImageData productImageData,
+    BuildContext context,
+    Product product,
+    ProductImageData productImageData,
   ) {
     final bool done = _helper.isMainImagePopulated(productImageData, product);
     return AddNewProductButton(
@@ -764,7 +764,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     );
   }
 
-  Widget _buildCategoriesButton(final BuildContext context) =>
+  Widget _buildCategoriesButton(BuildContext context) =>
       AddNewProductEditorButton(
         upToDateProduct,
         _categoryEditor,
@@ -772,22 +772,21 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         isLoggedInMandatory: widget.isLoggedInMandatory,
       );
 
-  List<Widget> _getMiscRows(final BuildContext context) => <Widget>[
+  List<Widget> _getMiscRows(BuildContext context) => <Widget>[
     AddNewProductTitle(AppLocalizations.of(context).new_product_title_misc),
     _buildDetailsButton(context),
   ];
 
-  Widget _buildDetailsButton(final BuildContext context) =>
-      AddNewProductEditorButton(
-        upToDateProduct,
-        _detailsEditor,
-        isLoggedInMandatory: widget.isLoggedInMandatory,
-      );
+  Widget _buildDetailsButton(BuildContext context) => AddNewProductEditorButton(
+    upToDateProduct,
+    _detailsEditor,
+    isLoggedInMandatory: widget.isLoggedInMandatory,
+  );
 
   Widget _buildIngredientsButton(
-    final BuildContext context, {
-    final IconData? forceIconData,
-    final bool disabled = false,
+    BuildContext context, {
+    IconData? forceIconData,
+    bool disabled = false,
   }) => AddNewProductEditorButton(
     upToDateProduct,
     _ingredientsEditor,

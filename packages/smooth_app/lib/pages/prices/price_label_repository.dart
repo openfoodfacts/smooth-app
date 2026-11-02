@@ -13,12 +13,12 @@ class PriceLabelRepository extends PriceTaxonomyRepository<TaxonomyLabel> {
   @protected
   @override
   Map<OpenFoodFactsLanguage, String>? getTaxonomyNames(
-    final TaxonomyLabel item,
+    TaxonomyLabel item,
   ) => item.name;
 
   @protected
   @override
-  Future<Map<String, TaxonomyLabel>?> download(final List<String> tags) async =>
+  Future<Map<String, TaxonomyLabel>?> download(List<String> tags) async =>
       OpenFoodAPIClient.getTaxonomyLabels(
         TaxonomyLabelQueryConfiguration(
           tags: tags,

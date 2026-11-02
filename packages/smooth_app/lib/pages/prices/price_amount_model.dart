@@ -17,7 +17,7 @@ class PriceAmountModel extends ChangeNotifier {
 
   String get paidPrice => _paidPrice;
 
-  set paidPrice(final String value) {
+  set paidPrice(String value) {
     _hasChanged = true;
     _paidPrice = value;
     notifyListeners();
@@ -27,7 +27,7 @@ class PriceAmountModel extends ChangeNotifier {
 
   String get priceWithoutDiscount => _priceWithoutDiscount;
 
-  set priceWithoutDiscount(final String value) {
+  set priceWithoutDiscount(String value) {
     _hasChanged = true;
     _priceWithoutDiscount = value;
     notifyListeners();
@@ -44,7 +44,7 @@ class PriceAmountModel extends ChangeNotifier {
 
   bool get promo => _promo;
 
-  set promo(final bool value) {
+  set promo(bool value) {
     _hasChanged = true;
     _promo = value;
     notifyListeners();
@@ -54,13 +54,13 @@ class PriceAmountModel extends ChangeNotifier {
 
   DiscountType? get discountType => _discountType;
 
-  set discountType(final DiscountType? value) {
+  set discountType(DiscountType? value) {
     _hasChanged = true;
     _discountType = value;
   }
 
   /// Returns the value as a valid strictly positive `double`, or `null`.
-  static double? validateDouble(final String value) {
+  static double? validateDouble(String value) {
     final double? res = double.tryParse(value.replaceAll(',', '.'));
     if (res == null || res <= 0) {
       return null;
@@ -69,7 +69,7 @@ class PriceAmountModel extends ChangeNotifier {
     }
   }
 
-  String? checkParameters(final BuildContext context) {
+  String? checkParameters(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (product.barcode.isEmpty && product.categoryTag.isEmpty) {
       return appLocalizations.prices_amount_no_product;

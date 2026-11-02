@@ -114,7 +114,7 @@ class KnowledgePanelsBuilder {
   }
 
   /// Returns the [button] with the same side padding as the KP action buttons.
-  static Widget _getPaddedButton(final Widget button) => Padding(
+  static Widget _getPaddedButton(Widget button) => Padding(
     padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
     child: button,
   );
@@ -125,8 +125,8 @@ class KnowledgePanelsBuilder {
   /// unless they are missing or already displayed.
   /// cf. [_simplifiedHealthCardExtraPanelIds].
   static List<KnowledgePanelElement> _getSimplifiedHealthCardElements(
-    final Product product,
-    final KnowledgePanel panel,
+    Product product,
+    KnowledgePanel panel,
   ) {
     final List<KnowledgePanelElement> elements = <KnowledgePanelElement>[
       ...?panel.elements,
@@ -145,7 +145,7 @@ class KnowledgePanelsBuilder {
       return elements;
     }
     final int nutrientLevelsIndex = elements.indexWhere(
-      (final KnowledgePanelElement element) =>
+      (KnowledgePanelElement element) =>
           element.getPanelIds().contains('nutrient_levels'),
     );
     elements.insert(
@@ -166,11 +166,11 @@ class KnowledgePanelsBuilder {
   /// That includes the panels displayed inside expanded panels, but not the
   /// ones inside collapsed panels.
   static Set<String> _getDisplayedPanelIds(
-    final Product product,
-    final Iterable<KnowledgePanelElement> elements,
+    Product product,
+    Iterable<KnowledgePanelElement> elements,
   ) {
     final Set<String> result = <String>{};
-    void addPanelIds(final Iterable<KnowledgePanelElement> children) {
+    void addPanelIds(Iterable<KnowledgePanelElement> children) {
       for (final KnowledgePanelElement child in children) {
         for (final String panelId in child.getPanelIds()) {
           // already seen, which also prevents infinite loops
@@ -189,10 +189,10 @@ class KnowledgePanelsBuilder {
     return result;
   }
 
-  static bool supportsSimplifiedPanels(final Product product) =>
+  static bool supportsSimplifiedPanels(Product product) =>
       (product.productType ?? ProductType.food) == ProductType.food;
 
-  static bool needsSimplifiedPanelsRefresh(final Product product) {
+  static bool needsSimplifiedPanelsRefresh(Product product) {
     if (supportsSimplifiedPanels(product)) {
       return getRootKnowledgePanel(product, simplified: true) == null;
     }
@@ -204,9 +204,9 @@ class KnowledgePanelsBuilder {
   /// Typically, we get only the "health_card" and "environment_card" panels.
   /// In option, only the one matching [panelId].
   static List<KnowledgePanelElement> getRootPanelElements(
-    final Product product, {
-    required final bool simplified,
-    final String? panelId,
+    Product product, {
+    required bool simplified,
+    String? panelId,
   }) {
     final List<KnowledgePanelElement> result = <KnowledgePanelElement>[];
     final KnowledgePanel? root = getRootKnowledgePanel(
@@ -239,20 +239,20 @@ class KnowledgePanelsBuilder {
 
   /// Returns the root KP.
   static KnowledgePanel? getRootKnowledgePanel(
-    final Product product, {
-    required final bool simplified,
+    Product product, {
+    required bool simplified,
   }) => getKnowledgePanel(product, simplified ? 'simplified_root' : 'root');
 
   /// Returns the KP that matches the [panelId].
   static KnowledgePanel? getKnowledgePanel(
-    final Product product,
-    final String panelId,
+    Product product,
+    String panelId,
   ) => product.knowledgePanels?.panelIdToPanelMap[panelId];
 
   /// Returns the unique "root" panel element that matches [panelId], or `null`.
   static KnowledgePanelElement? getRootPanelElement(
-    final Product product,
-    final String panelId,
+    Product product,
+    String panelId,
   ) {
     final List<KnowledgePanelElement> elements = getRootPanelElements(
       product,
@@ -267,8 +267,8 @@ class KnowledgePanelsBuilder {
 
   /// Returns true if there are elements to display for that panel.
   static bool hasSomethingToDisplay(
-    final Product product,
-    final String panelId,
+    Product product,
+    String panelId,
   ) {
     final KnowledgePanel panel = KnowledgePanelsBuilder.getKnowledgePanel(
       product,
@@ -279,13 +279,13 @@ class KnowledgePanelsBuilder {
 
   /// Returns a padded widget that displays the KP element, or rarely null.
   static Widget? getElementWidget({
-    required final KnowledgePanelElement knowledgePanelElement,
-    required final Product product,
-    required final bool isInitiallyExpanded,
-    required final bool isClickable,
-    required final bool isTextSelectable,
-    required final int position,
-    required final bool simplified,
+    required KnowledgePanelElement knowledgePanelElement,
+    required Product product,
+    required bool isInitiallyExpanded,
+    required bool isClickable,
+    required bool isTextSelectable,
+    required int position,
+    required bool simplified,
   }) {
     final Widget? result = knowledgePanelElement.getElementWidget(
       product: product,

@@ -9,7 +9,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/new_knowledge_panel_
 
 /// Extension on KnowledgePanel.
 extension KnowledgePanelExtension on KnowledgePanel {
-  bool hasSomethingToDisplay(final Product product) {
+  bool hasSomethingToDisplay(Product product) {
     if (elements == null) {
       return false;
     }
@@ -21,7 +21,7 @@ extension KnowledgePanelExtension on KnowledgePanel {
     return false;
   }
 
-  List<KnowledgePanel> getSquarePanels(final Product product) {
+  List<KnowledgePanel> getSquarePanels(Product product) {
     if ((halfWidthOnMobile ?? false) || (evaluation != null)) {
       return <KnowledgePanel>[this];
     }
@@ -35,13 +35,13 @@ extension KnowledgePanelExtension on KnowledgePanel {
 
   /// Title card of a knowledge panel, like a one-line score widget, or title.
   Widget? getPanelSummaryWidget(
-    final Product product, {
-    required final bool isClickable,
-    required final bool simplified,
-    final bool ignoreEvaluation = false,
-    final TextStyle? textStyleOverride,
-    final EdgeInsetsGeometry? margin,
-    final EdgeInsetsGeometry? padding,
+    Product product, {
+    required bool isClickable,
+    required bool simplified,
+    bool ignoreEvaluation = false,
+    TextStyle? textStyleOverride,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
   }) {
     if (titleElement == null) {
       if (simplified) {

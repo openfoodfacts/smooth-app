@@ -6,7 +6,7 @@ abstract class QuestionsQuery {
   const QuestionsQuery();
 
   Future<List<RobotoffQuestion>> getQuestions(
-    final LocalDatabase localDatabase,
-    final int count,
+    LocalDatabase localDatabase,
+    int count,
   );
 }

@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 abstract class SearchPreloadedItem {
   /// Displays the list item.
   Widget getWidget(
-    final BuildContext context, {
-    final VoidCallback? onDismissItem,
+    BuildContext context, {
+    VoidCallback? onDismissItem,
   });
 
   /// Deletes this item from the preload list.
-  Future<void> delete(final BuildContext context);
+  Future<void> delete(BuildContext context);
 }

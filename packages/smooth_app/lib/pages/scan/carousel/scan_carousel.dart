@@ -137,7 +137,7 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
   /// after the product disappeared and before the whole carousel is refreshed.
   /// In those cases, we don't want the app to crash and display a Container
   /// instead in the meanwhile.
-  Widget _getWidget(final int index) {
+  Widget _getWidget(int index) {
     if (index >= barcodes.length) {
       return EMPTY_WIDGET;
     }
@@ -158,7 +158,7 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
     );
   }
 
-  Widget _cardWidget(final String barcode) {
+  Widget _cardWidget(String barcode) {
     switch (_model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:

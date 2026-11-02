@@ -25,8 +25,8 @@ class CurrencySelectorHelper {
   IconData get currencyIconData => CupertinoIcons.money_dollar_circle;
 
   Future<Currency?> openCurrencySelector({
-    required final BuildContext context,
-    required final Currency selected,
+    required BuildContext context,
+    required Currency selected,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ScrollController scrollController = ScrollController();
@@ -104,7 +104,7 @@ class CurrencySelectorHelper {
     );
   }
 
-  Currency getSelected(final String? code) {
+  Currency getSelected(String? code) {
     if (code != null) {
       for (final Currency currency in _currencyList) {
         if (currency.name == code) {
@@ -116,8 +116,8 @@ class CurrencySelectorHelper {
   }
 
   /// Reorder currencies alphabetically, bring user's selected one to top.
-  void _reorderCurrencies(final Currency selected) {
-    _currencyList.sort((final Currency a, final Currency b) {
+  void _reorderCurrencies(Currency selected) {
+    _currencyList.sort((Currency a, Currency b) {
       if (a == selected) {
         return -1;
       }

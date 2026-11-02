@@ -44,10 +44,10 @@ class ProductImageOtherPage extends StatefulWidget {
   State<ProductImageOtherPage> createState() => _ProductImageOtherPageState();
 
   static Future<ProductImagePageResult?> usePhotoAs({
-    required final BuildContext context,
-    required final Product product,
-    required final OpenFoodFactsLanguage language,
-    required final ProductImage productImage,
+    required BuildContext context,
+    required Product product,
+    required OpenFoodFactsLanguage language,
+    required ProductImage productImage,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final SmoothColorsThemeExtension extension = context
@@ -75,7 +75,7 @@ class ProductImageOtherPage extends StatefulWidget {
       ),
       padding: const EdgeInsetsDirectional.only(start: 15.0, end: 19.0),
       labels: imageFields
-          .map((final ImageField imageField) {
+          .map((ImageField imageField) {
             return switch (imageField) {
               ImageField.FRONT => appLocalizations.photo_field_front,
               ImageField.INGREDIENTS =>
@@ -88,7 +88,7 @@ class ProductImageOtherPage extends StatefulWidget {
           .toList(growable: false),
       values: imageFields,
       prefixIcons: imageFields
-          .map((final ImageField imageField) {
+          .map((ImageField imageField) {
             return switch (imageField) {
               ImageField.FRONT => const icons.Milk.happy(),
               ImageField.INGREDIENTS => const icons.Ingredients.alt(),
@@ -99,7 +99,7 @@ class ProductImageOtherPage extends StatefulWidget {
           })
           .toList(growable: false),
       suffixIcons: imageFields
-          .map((final ImageField imageField) {
+          .map((ImageField imageField) {
             final bool exists = TransientFile.fromProduct(
               product,
               imageField,
@@ -171,7 +171,7 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
               child: PageView(
                 controller: _pageController,
                 children: widget.images
-                    .map((final ProductImage image) {
+                    .map((ProductImage image) {
                       return _ProductImageViewer(
                         image: image,
                         barcode: widget.product.barcode!,
@@ -250,8 +250,8 @@ class _ProductImageViewer extends StatelessWidget {
                 loadingBuilder:
                     (
                       _,
-                      final Widget child,
-                      final ImageChunkEvent? loadingProgress,
+                      Widget child,
+                      ImageChunkEvent? loadingProgress,
                     ) {
                       if (loadingProgress != null) {
                         return const Center(

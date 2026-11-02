@@ -8,8 +8,8 @@ import 'package:smooth_app/database/local_database.dart';
 mixin UpToDateProductListMixin<T extends StatefulWidget> on State<T> {
   /// To be used in the `initState` method.
   void initUpToDate(
-    final ProductList initialProductList,
-    final LocalDatabase localDatabase,
+    ProductList initialProductList,
+    LocalDatabase localDatabase,
   ) {
     _productList = initialProductList;
     _localDatabase = localDatabase;
@@ -26,7 +26,7 @@ mixin UpToDateProductListMixin<T extends StatefulWidget> on State<T> {
 
   ProductList get productList => _productList;
 
-  set productList(final ProductList productList) {
+  set productList(ProductList productList) {
     final ProductList previous = _productList;
     _productList = productList;
     _localDatabase.upToDateProductList.showInterest(_productList);

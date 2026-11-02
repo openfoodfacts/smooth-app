@@ -27,13 +27,13 @@ class PriceCountWidget extends StatelessWidget {
     tooltip: AppLocalizations.of(context).prices_button_count_price(count),
   );
 
-  static Color getForegroundColor(final int count) => switch (count) {
+  static Color getForegroundColor(int count) => switch (count) {
     0 => Colors.red,
     1 => Colors.orange,
     _ => Colors.green,
   };
 
-  static Color? _getBackgroundColor(final int count) => switch (count) {
+  static Color? _getBackgroundColor(int count) => switch (count) {
     0 => Colors.red[100],
     1 => Colors.orange[100],
     _ => Colors.green[100],

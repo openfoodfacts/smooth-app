@@ -35,7 +35,7 @@ enum ProductListPopupMenuEntry {
 /// Popup menu items for the product list page.
 abstract class ProductListPopupItem {
   /// Title of the popup menu item.
-  String getTitle(final AppLocalizations appLocalizations);
+  String getTitle(AppLocalizations appLocalizations);
 
   /// IconData of the popup menu item.
   Widget getIcon();
@@ -50,14 +50,14 @@ abstract class ProductListPopupItem {
   ///
   /// Returns a different product list if there are changes, else null.
   Future<ProductList?> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
   });
 
   /// Returns the popup menu item.
   SmoothPopupMenuItem<ProductListPopupItem> getMenuItem(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => SmoothPopupMenuItem<ProductListPopupItem>(
     value: this,
     icon: getIcon(),
@@ -67,8 +67,8 @@ abstract class ProductListPopupItem {
   /// Returns the first possible URL/server that contains at least one product.
   @protected
   Future<Uri?> _getFirstUrl({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
   }) async {
     final List<String> products = productList.getList();
     final Map<ProductType, List<String>> productTypes = await DaoProduct(
@@ -85,7 +85,7 @@ abstract class ProductListPopupItem {
 /// Popup menu item for the product list page: clear list.
 class ProductListPopupClear extends ProductListPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.clear_long;
 
   @override
@@ -102,9 +102,9 @@ class ProductListPopupClear extends ProductListPopupItem {
 
   @override
   Future<ProductList?> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final DaoProductList daoProductList = DaoProductList(localDatabase);
@@ -139,7 +139,7 @@ class ProductListPopupClear extends ProductListPopupItem {
 /// Popup menu item for the product list page: rename list.
 class ProductListPopupRename extends ProductListPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.user_list_popup_rename;
 
   @override
@@ -150,9 +150,9 @@ class ProductListPopupRename extends ProductListPopupItem {
 
   @override
   Future<ProductList?> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
   }) async => ProductListUserDialogHelper(
     DaoProductList(localDatabase),
   ).showRenameUserListDialog(context, productList);
@@ -161,8 +161,7 @@ class ProductListPopupRename extends ProductListPopupItem {
 /// Popup menu item for the product list page: share list.
 class ProductListPopupShare extends ProductListPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
-      appLocalizations.share;
+  String getTitle(AppLocalizations appLocalizations) => appLocalizations.share;
 
   @override
   Widget getIcon() => icons.Share();
@@ -172,9 +171,9 @@ class ProductListPopupShare extends ProductListPopupItem {
 
   @override
   Future<ProductList?> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final RenderBox? box = context.findRenderObject() as RenderBox?;
@@ -200,7 +199,7 @@ class ProductListPopupShare extends ProductListPopupItem {
 /// Popup menu item for the product list page: open list in web.
 class ProductListPopupOpenInWeb extends ProductListPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.label_web;
 
   @override
@@ -212,9 +211,9 @@ class ProductListPopupOpenInWeb extends ProductListPopupItem {
 
   @override
   Future<ProductList?> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
   }) async {
     final Uri? firstUrl = await _getFirstUrl(
       productList: productList,
@@ -231,7 +230,7 @@ class ProductListPopupOpenInWeb extends ProductListPopupItem {
 /// Popup menu item for the product list page: export list.
 class ProductListPopupExport extends ProductListPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.product_list_export;
 
   @override
@@ -245,9 +244,9 @@ class ProductListPopupExport extends ProductListPopupItem {
 
   @override
   Future<ProductList?> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
   }) async {
     final String listName = ProductQueryPageHelper.getProductListLabel(
       productList,
@@ -293,7 +292,7 @@ class ProductListPopupExport extends ProductListPopupItem {
 /// Popup menu item for the product list page: import list.
 class ProductListPopupImport extends ProductListPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.product_list_import;
 
   @override
@@ -307,9 +306,9 @@ class ProductListPopupImport extends ProductListPopupItem {
 
   @override
   Future<ProductList?> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
   }) async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -332,7 +331,7 @@ class ProductListPopupImport extends ProductListPopupItem {
 /// Popup menu item for the product list page: delete.
 class ProductListPopupDelete extends ProductListPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.action_delete_list;
 
   @override
@@ -343,9 +342,9 @@ class ProductListPopupDelete extends ProductListPopupItem {
 
   @override
   Future<ProductList?> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
   }) async {
     final bool deleted = await ProductListUserDialogHelper(
       DaoProductList(localDatabase),
