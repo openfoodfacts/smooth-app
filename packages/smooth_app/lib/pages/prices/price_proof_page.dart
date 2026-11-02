@@ -18,6 +18,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_interactive_viewer.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Full page display of a proof.
@@ -44,12 +45,11 @@ class _PriceProofPageState extends State<PriceProofPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final String title;
-    if (ProductQuery.getWriteUser().userId == widget.proof.owner) {
-      title = appLocalizations.user_search_proof_title;
-    } else {
-      title = appLocalizations.search_proof_title(widget.proof.owner);
-    }
+    final bool isMyProof =
+        ProductQuery.getWriteUser().userId == widget.proof.owner;
+    final String title = isMyProof
+        ? appLocalizations.user_search_proof_title
+        : appLocalizations.search_proof_title(widget.proof.owner);
 
     final String url = _getUrl(false);
 
@@ -67,11 +67,45 @@ class _PriceProofPageState extends State<PriceProofPage> {
           ],
         ),
         actions: <Widget>[
-          IconButton(
-            tooltip: appLocalizations.prices_website_button,
-            icon: const icons.ExternalLink(size: 20.0),
-            onPressed: () async => LaunchUrlHelper.launchURL(url),
-          ),
+          if (isMyProof && widget.proof.type == ProofType.receipt)
+            SmoothPopupMenuButton<int>(
+              onSelected: (final int action) async {
+                switch (action) {
+                  case 0:
+                    return LaunchUrlHelper.launchURL(url);
+                  case 1:
+                    return LaunchUrlHelper.launchURL(
+                      OpenPricesAPIClient.getUri(
+                        path: 'experiments/receipt-assistant',
+                        queryParameters: <String, dynamic>{
+                          'proof_ids': widget.proof.id,
+                        },
+                        uriHelper: ProductQuery.uriPricesHelper,
+                      ).toString(),
+                    );
+                  default:
+                    throw Exception('Unknown action $action');
+                }
+              },
+              itemBuilder: (_) => <SmoothPopupMenuItem<int>>[
+                SmoothPopupMenuItem<int>(
+                  value: 0,
+                  icon: const icons.ExternalLink(size: 20.0),
+                  label: appLocalizations.proof_action_open_external,
+                ),
+                SmoothPopupMenuItem<int>(
+                  value: 1,
+                  icon: const icons.MagicWand(size: 20.0),
+                  label: appLocalizations.proof_action_experimental_assistant,
+                ),
+              ],
+            )
+          else
+            IconButton(
+              tooltip: appLocalizations.proof_action_open_external,
+              icon: const icons.ExternalLink(size: 20.0),
+              onPressed: () async => LaunchUrlHelper.launchURL(url),
+            ),
         ],
       ),
       body: Stack(
