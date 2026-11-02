@@ -58,7 +58,6 @@ void main() {
           controller = c;
           return Column(
             children: <Widget>[
-              // The suffixes start network futures that must end mounted.
               TabBar(
                 controller: c,
                 tabs: t
@@ -105,7 +104,9 @@ void main() {
     await gesture.moveBy(const Offset(-100, 0));
     await tester.pump();
 
+    final List<ProductPageTab> before = tabs;
     await tester.pumpWidget(wrap(product()));
+    expect(tabs, isNot(same(before)));
     await gesture.moveBy(const Offset(-300, 0));
     await tester.pump();
     await gesture.up();
