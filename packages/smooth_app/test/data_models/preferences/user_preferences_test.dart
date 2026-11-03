@@ -10,6 +10,7 @@ const String _tagMutedUntil = 'donationAsksMutedUntil';
 const String _tagProductsLookedUp = 'productsLookedUpSinceAsk';
 const String _tagLastCountedBarcode = 'lastCountedBarcode';
 const String _tagLastReminderShownAt = 'lastReminderShownAt';
+const String _tagScannedAndViewedProducts = 'save_scanned_and_viewed_products';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,20 @@ void main() {
     await sharedPreferences.remove(_tagProductsLookedUp);
     await sharedPreferences.remove(_tagLastCountedBarcode);
     await sharedPreferences.remove(_tagLastReminderShownAt);
+    await sharedPreferences.remove(_tagScannedAndViewedProducts);
+  });
+
+  group('saveScannedAndViewedProducts', () {
+    test('defaults to true', () {
+      expect(userPreferences.saveScannedAndViewedProducts, isTrue);
+    });
+
+    test('setter updates and persists the preference', () async {
+      await userPreferences.setSaveScannedAndViewedProducts(false);
+
+      expect(userPreferences.saveScannedAndViewedProducts, isFalse);
+      expect(sharedPreferences.getBool(_tagScannedAndViewedProducts), isFalse);
+    });
   });
 
   group('donationAsksMuted', () {

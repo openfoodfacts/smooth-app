@@ -245,11 +245,11 @@ class AppSettingsRoot extends PreferencesRoot {
     Color iconColor,
   ) {
     return TogglePreferenceTile(
-      leading: Icon(Icons.history, color: iconColor),
-      title: appLocalizations.track_scanned_and_viewed_products,
-      subtitleText: appLocalizations.track_scanned_and_viewed_products_body,
-      state: userPreferences.trackScannedAndViewedProducts,
-      onToggle: userPreferences.setTrackScannedAndViewedProducts,
+      leading: icons.History(color: iconColor),
+      title: appLocalizations.save_scanned_and_viewed_products,
+      subtitleText: appLocalizations.save_scanned_and_viewed_products_body,
+      state: userPreferences.saveScannedAndViewedProducts,
+      onToggle: userPreferences.setSaveScannedAndViewedProducts,
     );
   }
 

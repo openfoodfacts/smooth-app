@@ -350,12 +350,13 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     if (_alreadyPushedToHistory) {
       return;
     }
-    if (_isPopulated &&
-        context.read<UserPreferences>().trackScannedAndViewedProducts) {
+    if (_isPopulated) {
       upToDateProduct.productName = upToDateProduct.productName?.trim();
       upToDateProduct.brands = upToDateProduct.brands?.trim();
-      await _daoProductList.push(_history, barcode);
-      _alreadyPushedToHistory = true;
+      if (context.read<UserPreferences>().saveScannedAndViewedProducts) {
+        await _daoProductList.push(_history, barcode);
+        _alreadyPushedToHistory = true;
+      }
     }
   }
 

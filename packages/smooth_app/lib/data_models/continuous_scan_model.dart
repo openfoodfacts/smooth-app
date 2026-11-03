@@ -275,9 +275,9 @@ class ContinuousScanModel with ChangeNotifier {
   ) async {
     if (_latestFoundBarcode != barcode) {
       _latestFoundBarcode = barcode;
+      await _daoProductList.push(productList, _latestFoundBarcode!);
       if (UserPreferences.getUserPreferencesSync()
-          .trackScannedAndViewedProducts) {
-        await _daoProductList.push(productList, _latestFoundBarcode!);
+          .saveScannedAndViewedProducts) {
         await _daoProductList.push(_scanHistory, _latestFoundBarcode!);
         await _daoProductList.push(_history, _latestFoundBarcode!);
       }

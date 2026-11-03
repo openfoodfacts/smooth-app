@@ -117,8 +117,8 @@ class UserPreferences extends ChangeNotifier {
 
   /// Vibrations / haptic feedback
   static const String _TAG_HAPTIC_FEEDBACK_IN_APP = 'haptic_feedback_enabled';
-  static const String _TAG_TRACK_SCANNED_AND_VIEWED_PRODUCTS =
-      'track_scanned_and_viewed_products';
+  static const String _TAG_SAVE_SCANNED_AND_VIEWED_PRODUCTS =
+      'save_scanned_and_viewed_products';
 
   /// Price privacy warning
   static const String TAG_PRICE_PRIVACY_WARNING = 'price_privacy_warning';
@@ -605,13 +605,12 @@ class UserPreferences extends ChangeNotifier {
   bool get hapticFeedbackEnabled =>
       _sharedPreferences.getBool(_TAG_HAPTIC_FEEDBACK_IN_APP) ?? true;
 
-  bool get trackScannedAndViewedProducts =>
-      _sharedPreferences.getBool(_TAG_TRACK_SCANNED_AND_VIEWED_PRODUCTS) ??
-      true;
+  bool get saveScannedAndViewedProducts =>
+      _sharedPreferences.getBool(_TAG_SAVE_SCANNED_AND_VIEWED_PRODUCTS) ?? true;
 
-  Future<void> setTrackScannedAndViewedProducts(bool enabled) async {
+  Future<void> setSaveScannedAndViewedProducts(bool enabled) async {
     await _sharedPreferences.setBool(
-      _TAG_TRACK_SCANNED_AND_VIEWED_PRODUCTS,
+      _TAG_SAVE_SCANNED_AND_VIEWED_PRODUCTS,
       enabled,
     );
     notifyListeners();

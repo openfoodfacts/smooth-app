@@ -213,7 +213,7 @@ class ProductPageState extends State<ProductPage>
     final BuildContext context,
   ) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    if (context.read<UserPreferences>().trackScannedAndViewedProducts) {
+    if (context.read<UserPreferences>().saveScannedAndViewedProducts) {
       await DaoProductList(localDatabase).push(ProductList.history(), barcode);
     }
     localDatabase.notifyListeners();
