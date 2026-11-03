@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/attribute_extensions.dart';
 import 'package:smooth_app/pages/product/product_page/widgets/product_page_title.dart';
@@ -47,7 +48,11 @@ class _ProductForMeAttributeItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
-    final bool clickable = attribute.panelId?.isNotEmpty ?? false;
+    final Product product = context.read<Product>();
+    final bool clickable =
+        attribute.panelId?.isNotEmpty == true &&
+        KnowledgePanelsBuilder.getKnowledgePanel(product, attribute.panelId!) !=
+            null;
     final Color color = getAttributeDisplayBackgroundColor(attribute);
 
     return InkWell(
@@ -57,7 +62,7 @@ class _ProductForMeAttributeItem extends StatelessWidget {
               MaterialPageRoute<void>(
                 builder: (_) => KnowledgePanelPage(
                   panelId: attribute.panelId!,
-                  product: context.read<Product>(),
+                  product: product,
                 ),
               ),
             )

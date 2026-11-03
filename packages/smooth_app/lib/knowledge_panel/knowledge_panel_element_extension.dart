@@ -84,18 +84,20 @@ extension KnowledgePanelElementExtension on KnowledgePanelElement {
       case KnowledgePanelElementType.PANEL_GROUP:
         if (simplified) {
           final List<KnowledgePanel> squarePanels = <KnowledgePanel>[];
+          final List<String> squarePanelIds = <String>[];
           for (final String panelId in panelGroupElement!.panelIds) {
             final KnowledgePanel? panel =
                 KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
             if (panel != null && (panel.halfWidthOnMobile ?? false)) {
               squarePanels.add(panel);
+              squarePanelIds.add(panelId);
             }
           }
 
           if (squarePanels.isNotEmpty) {
             return KnowledgePanelSquareCard(
               panels: squarePanels,
-              panelsIds: panelGroupElement?.panelIds,
+              panelsIds: squarePanelIds,
               product: product,
             );
           }
