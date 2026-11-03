@@ -77,8 +77,8 @@ class _PriceProofPageState extends State<PriceProofPage> {
                     return LaunchUrlHelper.launchURL(
                       OpenPricesAPIClient.getUri(
                         path: 'experiments/receipt-assistant',
-                        queryParameters: <String, dynamic>{
-                          'proof_ids': widget.proof.id,
+                        queryParameters: <String, String>{
+                          'proof_ids': '${widget.proof.id}',
                         },
                         uriHelper: ProductQuery.uriPricesHelper,
                       ).toString(),
