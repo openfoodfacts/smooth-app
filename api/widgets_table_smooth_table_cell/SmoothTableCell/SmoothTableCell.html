@@ -57,7 +57,7 @@
       <span class="name ">SmoothTableCell</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="param-text"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span>, </span></li>
 <li><span class="parameter" id="param-isHeader"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isHeader</span>, </span></li>
 <li><span class="parameter" id="param-leftAlign"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">leftAlign</span> = <span class="default-value">true</span>, </span></li>
-<li><span class="parameter" id="param-color"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">color</span>, </span></li>
+<li><span class="parameter" id="param-evaluation"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Evaluation.html">Evaluation</a></span> <span class="parameter-name">evaluation</span> = <span class="default-value">Evaluation.UNKNOWN</span>, </span></li>
 <li><span class="parameter" id="param-iconUrl"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">iconUrl</span>, </span></li>
 <li><span class="parameter" id="param-percent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">percent</span>, </span></li>
 </ol>})
@@ -72,7 +72,7 @@
   required this.text,
   required this.isHeader,
   this.leftAlign = true,
-  this.color,
+  this.evaluation = Evaluation.UNKNOWN,
   this.iconUrl,
   this.percent,
 });</code></pre>

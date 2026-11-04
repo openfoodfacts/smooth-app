@@ -118,7 +118,9 @@ Widget build(BuildContext context) {
       Container(
         height: SMALL_SPACE,
         width: screenSize.width,
-        color: backgroundColor == null ? null : LIGHT_GREY_COLOR,
+        color: backgroundColor == null
+            ? null
+            : context.extension&lt;SmoothColorsThemeExtension&gt;().greySemiLight,
       ),
       Container(
         padding: EdgeInsets.symmetric(

@@ -55,7 +55,8 @@
     <section class="multi-line-signature">
         
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>
-<span class="name ">getTextColorFromKnowledgePanelElementEvaluation</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getTextColorFromKnowledgePanelElementEvaluation-param-evaluation"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Evaluation.html">Evaluation</a></span> <span class="parameter-name">evaluation</span></span></li>
+<span class="name ">getTextColorFromKnowledgePanelElementEvaluation</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getTextColorFromKnowledgePanelElementEvaluation-param-evaluation"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Evaluation.html">Evaluation</a></span> <span class="parameter-name">evaluation</span>, </span></li>
+<li><span class="parameter" id="getTextColorFromKnowledgePanelElementEvaluation-param-colors"><span class="type-annotation"><a href="../themes_smooth_theme_colors/SmoothColorsThemeExtension-class.html">SmoothColorsThemeExtension</a></span> <span class="parameter-name">colors</span></span></li>
 </ol>)
 
         
@@ -67,19 +68,22 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Color? getTextColorFromKnowledgePanelElementEvaluation(Evaluation evaluation) {
+  <pre class="language-dart"><code class="language-dart">Color? getTextColorFromKnowledgePanelElementEvaluation(
+  Evaluation evaluation,
+  SmoothColorsThemeExtension colors,
+) {
   switch (evaluation) {
     case Evaluation.UNKNOWN:
       &#47;&#47; Use default color for unknown.
       return null;
     case Evaluation.AVERAGE:
-      return GREY_COLOR;
+      return colors.greyUltraLight;
     case Evaluation.NEUTRAL:
-      return DARK_ORANGE_COLOR;
+      return colors.scoreDarkOrange;
     case Evaluation.BAD:
-      return RED_COLOR;
+      return colors.error;
     case Evaluation.GOOD:
-      return DARK_GREEN_COLOR;
+      return colors.success;
   }
 }</code></pre>
 </section>

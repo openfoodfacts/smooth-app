@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the backgroundColor property from the CardEvaluation enum, for the Dart programming language.">
-  <title>backgroundColor property - CardEvaluation enum - score_card library - Dart API</title>
+  <meta name="description" content="API docs for the backgroundColor method from the CardEvaluation enum, for the Dart programming language.">
+  <title>backgroundColor method - CardEvaluation enum - score_card library - Dart API</title>
 
 
   
@@ -27,7 +27,7 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../cards_data_cards_score_card/">cards&#47;data_cards&#47;score_card.dart</a></li>
     <li><a href="../../cards_data_cards_score_card/CardEvaluation.html">CardEvaluation</a></li>
-    <li class="self-crumb">backgroundColor property</li>
+    <li class="self-crumb">backgroundColor method</li>
   </ol>
   <div class="self-name">backgroundColor</div>
   <form class="search navbar-right" role="search">
@@ -49,30 +49,38 @@
     data-above-sidebar="cards_data_cards_score_card&#47;CardEvaluation-enum-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-property">backgroundColor</span> property 
+<h1><span class="kind-method">backgroundColor</span> method 
 </h1></div>
 
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a></span>
+<span class="name ">backgroundColor</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="backgroundColor-param-colors"><span class="type-annotation"><a href="../../themes_smooth_theme_colors/SmoothColorsThemeExtension-class.html">SmoothColorsThemeExtension</a></span> <span class="parameter-name">colors</span></span></li>
+</ol>)
+
+      
+
+    </section>
     
-      <section class="multi-line-signature">
-        
-        <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>
-        <span class="name ">backgroundColor</span>
-        <div class="features"><span class="feature">final</span></div>
 
-      </section>
-      
 
-      
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">final Color backgroundColor;</code></pre>
+  <pre class="language-dart"><code class="language-dart">Color backgroundColor(SmoothColorsThemeExtension colors) =&gt; switch (this) {
+  UNKNOWN =&gt; colors.greyUltraLight,
+  VERY_BAD =&gt; colors.scoreRedBackground,
+  BAD =&gt; colors.scoreOrangeBackground,
+  NEUTRAL =&gt; colors.scoreYellowBackground,
+  GOOD =&gt; colors.scoreLightGreenBackground,
+  VERY_GOOD =&gt; colors.scoreDarkGreenBackground,
+};</code></pre>
 </section>
 
 
-    
-</div> <!-- /.main-content -->
-<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-  <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
@@ -82,13 +90,13 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../cards_data_cards_score_card/">score_card</a></li>
     <li><a href="../../cards_data_cards_score_card/CardEvaluation.html">CardEvaluation</a></li>
-    <li class="self-crumb">backgroundColor property</li>
+    <li class="self-crumb">backgroundColor method</li>
 </ol>
 
-  <h5>CardEvaluation enum</h5>
-  <div id="dartdoc-sidebar-left-content"></div>
-</div><!--/.sidebar-offcanvas-->
-<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <h5>CardEvaluation enum</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
 </div><!--/.sidebar-offcanvas-->
 </main>
 <footer>

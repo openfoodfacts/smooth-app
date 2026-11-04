@@ -114,7 +114,9 @@ Widget build(BuildContext context) {
   final SmoothColorsThemeExtension extension = context
       .extension&lt;SmoothColorsThemeExtension&gt;();
   final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
-  final Color itemColor = isDarkMode ? PRIMARY_GREY_COLOR : LIGHT_GREY_COLOR;
+  final Color itemColor = isDarkMode
+      ? extension.greyUltraDark
+      : extension.greySemiLight;
 
   final Widget textWidget = SizedBox(
     width: double.infinity,

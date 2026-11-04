@@ -78,9 +78,7 @@
       result[result.length - 1].add(
         SmoothTableCell(
           text: cleanHtml(cell.text),
-          color: getTextColorFromKnowledgePanelElementEvaluation(
-            cell.evaluation ?? Evaluation.UNKNOWN,
-          ),
+          evaluation: cell.evaluation ?? Evaluation.UNKNOWN,
           isHeader: false,
           iconUrl: cell.iconUrl,
           percent: cell.percent,
