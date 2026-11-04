@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
@@ -238,7 +239,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     direction: DismissDirection.endToStart,
     background: Container(
       alignment: AlignmentDirectional.centerEnd,
-      color: RED_COLOR,
+      color: context.extension<SmoothColorsThemeExtension>().error,
       padding: const EdgeInsetsDirectional.only(end: 30.0),
       child: const Icon(Icons.delete, color: Colors.white),
     ),

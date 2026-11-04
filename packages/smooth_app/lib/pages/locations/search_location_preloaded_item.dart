@@ -83,7 +83,7 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
       direction: DismissDirection.endToStart,
       onDismissed: (DismissDirection direction) async => onDismissItem(),
       background: Container(
-        color: RED_COLOR,
+        color: context.extension<SmoothColorsThemeExtension>().error,
         alignment: AlignmentDirectional.centerEnd,
         padding: const EdgeInsetsDirectional.only(end: LARGE_SPACE * 2),
         child: const Icon(Icons.delete, color: Colors.white),

@@ -26,7 +26,9 @@ class SmoothProductCardTemplate extends StatelessWidget {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
     final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
-    final Color itemColor = isDarkMode ? PRIMARY_GREY_COLOR : LIGHT_GREY_COLOR;
+    final Color itemColor = isDarkMode
+        ? extension.greyUltraDark
+        : extension.greySemiLight;
 
     final Widget textWidget = SizedBox(
       width: double.infinity,

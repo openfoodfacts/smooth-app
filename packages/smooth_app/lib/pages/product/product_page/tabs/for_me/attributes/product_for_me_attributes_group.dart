@@ -48,7 +48,7 @@ class _ProductForMeAttributeItem extends StatelessWidget {
     final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
     final bool clickable = attribute.panelId?.isNotEmpty ?? false;
-    final Color color = getAttributeDisplayBackgroundColor(attribute);
+    final Color color = getAttributeDisplayBackgroundColor(attribute, theme);
 
     return InkWell(
       onTap: clickable
