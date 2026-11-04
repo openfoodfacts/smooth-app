@@ -5742,6 +5742,18 @@ abstract class AppLocalizations {
   /// **'Proof from \"{user}\"'**
   String search_proof_title(String user);
 
+  /// No description provided for @proof_action_open_external.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the image in an external browser'**
+  String get proof_action_open_external;
+
+  /// No description provided for @proof_action_experimental_assistant.
+  ///
+  /// In en, this message translates to:
+  /// **'Experimental - open proof assistant'**
+  String get proof_action_experimental_assistant;
+
   /// User prices (everybody except me): list tile title
   ///
   /// In en, this message translates to:

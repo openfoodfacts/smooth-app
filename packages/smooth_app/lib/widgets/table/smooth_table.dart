@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_cell_width_computer.dart';
 import 'package:smooth_app/widgets/table/smooth_table_cell.dart';
 
@@ -24,9 +23,7 @@ class SmoothTable {
         result[result.length - 1].add(
           SmoothTableCell(
             text: cleanHtml(cell.text),
-            color: getTextColorFromKnowledgePanelElementEvaluation(
-              cell.evaluation ?? Evaluation.UNKNOWN,
-            ),
+            evaluation: cell.evaluation ?? Evaluation.UNKNOWN,
             isHeader: false,
             iconUrl: cell.iconUrl,
             percent: cell.percent,

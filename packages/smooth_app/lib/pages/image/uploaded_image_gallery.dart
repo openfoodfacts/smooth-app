@@ -50,7 +50,7 @@ class UploadedImageGallery extends StatelessWidget {
           appLocalizations.edit_photo_select_existing_all_subtitle,
         ),
         backgroundColor: Colors.black,
-        foregroundColor: WHITE_COLOR,
+        foregroundColor: Colors.white,
         elevation: 0,
         leading: const SmoothBackButton(iconColor: Colors.white),
       ),

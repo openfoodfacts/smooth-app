@@ -37,7 +37,7 @@ class FakeAppLogService implements AppLogService {
   void w(String message, {dynamic ex, StackTrace? stacktrace, String? tag}) {}
 
   @override
-  List<String> get logFilesPaths => [];
+  List<String> get logFilesPaths => <String>[];
 }
 
 void main() {
