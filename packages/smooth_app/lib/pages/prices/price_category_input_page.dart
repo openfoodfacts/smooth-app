@@ -34,9 +34,11 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
 
   late final TextEditingController _categoryController;
   late final TextEditingController _originController;
+  late final TextEditingController _labelController;
 
   String? _categoryName;
   final List<String> _originNames = <String>[];
+  final List<String> _labelNames = <String>[];
   bool _hasChanged = false;
 
   late final VoidCallback _changes;
@@ -51,6 +53,8 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
     _categoryController.addListener(_changes);
     _originController = TextEditingController();
     _originController.addListener(_changes);
+    _labelController = TextEditingController();
+    _labelController.addListener(_changes);
   }
 
   @override
@@ -71,6 +75,17 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
               title: appLocalizations.prices_category_title,
               icon: const icons.Ingredients(),
               helperText: appLocalizations.prices_category_mandatory,
+              trailing: _categoryName != null
+                  ? SmoothCardHeaderButton(
+                      tooltip: appLocalizations.clear,
+                      circled: true,
+                      onTap: () => setState(() {
+                      _categoryName = null;
+                      _categoryController.clear();
+                    }),
+                      child: const icons.Close(size: 12.0),
+                    )
+                  : null,
               child: (_categoryName == null)
                   ? _MyAutocomplete(
                       helper: SimpleInputPageCategoryHelper(),
@@ -88,8 +103,6 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
               child: Column(
                 spacing: VERY_SMALL_SPACE,
                 children: <Widget>[
-                  for (final String name in _originNames)
-                    _ReadOnlyTextField(name),
                   _MyAutocomplete(
                     helper: SimpleInputPageOriginHelper(),
                     controller: _originController,
@@ -98,6 +111,41 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
                       _originNames.add(selected);
                     }),
                   ),
+                  for (final String name in _originNames)
+                    _OriginItem(
+                      name: name,
+                      onDelete: () => setState(() {
+                        _originNames.remove(name);
+                      }),
+                    ),
+                ],
+              ),
+            ),
+            const SizedBox(height: MEDIUM_SPACE),
+            _PriceCategoryInputContainer(
+              title: appLocalizations.prices_labels_title,
+              icon: const icons.Certification(),
+              helperText: appLocalizations.prices_labels_optional,
+              child: Column(
+                spacing: VERY_SMALL_SPACE,
+                children: <Widget>[
+                  _MyAutocomplete(
+                    helper: SimpleInputPageLabelHelper(),
+                    controller: _labelController,
+                    onSelected: (final String selected) => setState(() {
+                      if (!_labelNames.contains(selected)) {
+                        _labelNames.add(selected);
+                      }
+                      _labelController.text = '';
+                    }),
+                  ),
+                  for (final String name in _labelNames)
+                    _OriginItem(
+                      name: name,
+                      onDelete: () => setState(() {
+                        _labelNames.remove(name);
+                      }),
+                    ),
                 ],
               ),
             ),
@@ -133,6 +181,8 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
     _categoryController.dispose();
     _originController.removeListener(_changes);
     _originController.dispose();
+    _labelController.removeListener(_changes);
+    _labelController.dispose();
     _scrollController.dispose();
     super.dispose();
   }
@@ -188,8 +238,32 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
       PriceMetaProduct.category(
         categoryName: _categoryName!,
         originNames: _originNames,
+        labelNames: _labelNames,
         language: ProductQuery.getLanguage(),
       ),
+    );
+  }
+}
+
+/// A single origin/label item with a delete button.
+class _OriginItem extends StatelessWidget {
+  const _OriginItem({required this.name, required this.onDelete});
+
+  final String name;
+  final VoidCallback onDelete;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Expanded(child: _ReadOnlyTextField(name)),
+        IconButton(
+          icon: const Icon(Icons.close, size: 18.0),
+          onPressed: onDelete,
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(minWidth: 24.0, minHeight: 24.0),
+        ),
+      ],
     );
   }
 }
@@ -200,18 +274,21 @@ class _PriceCategoryInputContainer extends StatelessWidget {
     required this.icon,
     required this.child,
     required this.helperText,
+    this.trailing,
   });
 
   final String title;
   final Widget icon;
   final Widget child;
   final String helperText;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
     return SmoothCardWithRoundedHeader(
       title: title,
       leading: icon,
+      trailing: trailing,
       contentPadding: const EdgeInsetsDirectional.only(
         start: MEDIUM_SPACE,
         end: MEDIUM_SPACE,
@@ -307,6 +384,14 @@ class _ReadOnlyTextFieldState extends State<_ReadOnlyTextField> {
   void initState() {
     super.initState();
     _controller = TextEditingController(text: widget.name);
+  }
+
+  @override
+  void didUpdateWidget(_ReadOnlyTextField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.name != widget.name) {
+      _controller.text = widget.name;
+    }
   }
 
   @override

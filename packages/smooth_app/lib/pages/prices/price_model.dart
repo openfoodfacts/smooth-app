@@ -229,8 +229,7 @@ class PriceModel with ChangeNotifier {
       barcodes.add(priceAmountModel.product.barcode);
       categories.add(priceAmountModel.product.categoryTag);
       origins.add(priceAmountModel.product.originTags);
-      // TODO(monsieurtanuki): to be implemented when supported by "prices"
-      labels.add(<String>[]);
+      labels.add(priceAmountModel.product.labelTags);
       pricePers.add(priceAmountModel.product.pricePer.offTag);
       pricesAreDiscounted.add(priceAmountModel.promo);
       prices.add(priceAmountModel.checkedPaidPrice);
