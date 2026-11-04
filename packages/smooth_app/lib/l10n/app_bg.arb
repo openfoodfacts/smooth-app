@@ -542,8 +542,8 @@
   "myPreferences_not_configured_yet": "Все още не сте задали никакви предпочитания.",
   "myPreferences_food_title": "Хранителни предпочитания",
   "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
-  "myPreferences_food_compatibility_explainer": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary.",
-  "myPreferences_food_privacy": "Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+  "myPreferences_food_compatibility_explainer": "Изберете коя информация за храната е най-важна за вас, за да класирате храната според предпочитанията си, да видите първо информацията, която ви интересува, и да получите обобщение за съвместимост.",
+  "myPreferences_food_privacy": "Тези предпочитания за храна остават на вашето устройство и не са свързани с вашия акаунт за сътрудници в Open Food Facts, ако имате такъв.",
   "@myPreferences_food_privacy": {
     "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
   },
@@ -2464,7 +2464,7 @@
   "prices_website_button": "Отворено на уебсайта „Отворени цени“",
   "prices_bulk_proof_upload_select": "Добавете ценови етикети директно от галерията",
   "prices_bulk_proof_upload_warning": "След като изберете изображения, няма да можете да ги редактирате!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "Изкуственият интелект ще работи върху вашите доказателства, за да извлече цени.",
   "prices_bulk_proof_upload_community_switch": "Позволете на общността да валидира цените, извлечени от изкуствен интелект.",
   "prices_bulk_proof_upload_subtitle": "Множество етикети с цени",
   "prices_bulk_proof_upload_title": "Качване на групово доказателство",
@@ -2811,8 +2811,8 @@
   "prices_discount_type_quantity": "Количествена отстъпка",
   "prices_discount_type_sale": "Sale",
   "prices_discount_type_seasonal": "Seasonal",
-  "prices_discount_type_loyalty_program": "Loyalty program",
-  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_loyalty_program": "Програма за лоялност",
+  "prices_discount_type_expires_soon": "Изтича скоро",
   "prices_discount_type_pick_it_yourself": "Pick it yourself",
   "prices_discount_type_second_hand": "Second hand",
   "prices_discount_type_other": "Друго",
@@ -2925,6 +2925,8 @@
       }
     }
   },
+  "proof_action_open_external": "Open the image in an external browser",
+  "proof_action_experimental_assistant": "Experimental - open proof assistant",
   "user_any_search_prices_title": "Цени на сътрудниците: {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
@@ -4013,12 +4015,12 @@
   "nutriscore_unknown_new_formula": "Неизвестен Nutri-Score (ново изчисление)",
   "nutriscore_not_applicable": "Nutri-Score не е приложим",
   "nutriscore_not_applicable_new_formula": "Nutri-Score не е приложим (ново изчисление)",
-  "environmental_score_generic_new": "Зелен-Резултат",
-  "environmental_score_a_new": "Зелена оценка А",
-  "environmental_score_b_new": "Зелена оценка B",
-  "environmental_score_c_new": "Зелена оценка C",
-  "environmental_score_d_new": "Зелена оценка D",
-  "environmental_score_e_new": "Зелена оценка E",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "Неизвестен Green-Score",
   "environmental_score_not_applicable_new": "Green-Score не е приложим",
   "nova_group_generic_new": "Ултрапреработени храни - NOVA groups",
@@ -4078,12 +4080,12 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Сподели",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score се развива: обяснения!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Какво представлява Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score е лого, което има за цел да ви информира за **хранителното качество на храните**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4092,29 +4094,29 @@
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_nutriscore_v2_nutriscore_a_caption": "Логото на Nutri-Score A",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
+  "guide_nutriscore_v2_why_v2_title": "Защо Nutri-Score се развива?",
+  "guide_nutriscore_v2_why_v2_intro": "Формулата на Nutri-Score **се развива**, за да предоставя по-добри препоръки:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "По-добре оценете всички напитки",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Сравнителните характеристики на **мляко**, **млечни напитки** с добавена захар и **зеленчукови** напитки бяха по-добре разграничени в новия алгоритъм.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "По-добро класиране на напитките",
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
   "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Продуктите, които са **твърде сладки** или **твърде солени**, ще получат допълнително понижение на **рейтинга**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Йерархия в маслата и рибите",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Рейтингът на някои **тлъсти риби** и **масла, богати на добри мазнини**, ще се подобри.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Ограничете червеното месо",
   "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_new_logo_title": "Как да разграничим старото и новото изчисление на Nutri-Score?",
+  "guide_nutriscore_v2_new_logo_text": "Отсега нататък логото може да показва надпис „**Ново изчисление**“, за да се уточни, че това наистина е новото изчисление.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Логото на новия Nutri-Score",
   "guide_nutriscore_v2_where_title": "Къде да намеря новото изчисление на Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score се прилага в 7 страни: Франция, Германия, Белгия, Испания, Люксембург, Нидерландия и Швейцария.",
   "guide_nutriscore_v2_where_paragraph2": "Производителите имат най-много **2 години** след подписването на указа, за да заменят** старото изчисление с новото.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
+  "guide_nutriscore_v2_where_paragraph3": "Без да чакате, **вече ще намерите в приложението OpenFoodFacts** новото изчисление, включително ако производителите не са актуализирали резултата.",
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Зелен-Резултат",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4335,7 +4337,7 @@
   "guide_open_prices_scrapping_title": "Обмисляли ли сте да вземете цени от уебсайтовете на търговците на дребно?",
   "guide_open_prices_scrapping_paragraph1": "Поради правни и технически причини, **не считаме извличането на цени от уебсайтовете на търговците на дребно за валиден начин за допринасяне за Open Prices**. Искаме да се уверим, че цените, които събираме, са точни и актуални, а получаването на извлечени цени от други участници не ни позволява да правим това.",
   "guide_open_prices_scrapping_paragraph2": "Извличането на данни от цените е обмисляна опция в бъдеща версия на Open Prices, но това ще се извършва от самия Open Prices, за да можем да имаме доказателство за цената въз основа на HTML страницата.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "Аз съм търговец на дребно и искам да добавя цени. Как мога да го направя?",
   "guide_open_prices_retailers_paragraph1": "Можете да предоставите цени, като използвате нашия API.\nАко искате да предоставите цени в голям мащаб, моля, свържете се с нас на prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Добре дошли във фактите за отворените продукти!",
@@ -4409,6 +4411,18 @@
   "photo_viewer_details_button_accessibility_label": "Подробности за тази снимка",
   "@photo_viewer_details_button_accessibility_label": {
     "description": "Accessibility label for the Details button on a photo"
+  },
+  "photo_viewer_zoom_button": "Zoom in on the full size photo",
+  "@photo_viewer_zoom_button": {
+    "description": "Tooltip of the button that opens the full size photo, to zoom in on it"
+  },
+  "photo_viewer_copy_url": "Copy the photo URL",
+  "@photo_viewer_copy_url": {
+    "description": "Tooltip of the button on the full size photo page that copies the URL of the full size photo to the clipboard"
+  },
+  "photo_viewer_url_copied": "Photo URL copied to the clipboard!",
+  "@photo_viewer_url_copied": {
+    "description": "Snackbar message shown after copying the URL of the full size photo to the clipboard"
   },
   "photo_viewer_details_title": "Детайли на снимката",
   "@photo_viewer_details_title": {
@@ -5899,31 +5913,31 @@
       }
     }
   },
-  "donation_page_headline": "Open Food Facts is funded by the people who use it",
+  "donation_page_headline": "Open Food Facts се финансира от хората, които го използват",
   "@donation_page_headline": {
     "description": "Headline at the top of the donation page"
   },
-  "donation_where_it_goes_title": "Where it goes",
+  "donation_where_it_goes_title": "Къде отива",
   "@donation_where_it_goes_title": {
     "description": "Title of the block listing what a donation pays for"
   },
-  "donation_where_it_goes_servers": "Servers and storage",
+  "donation_where_it_goes_servers": "Сървъри и съхранение",
   "@donation_where_it_goes_servers": {
     "description": "First thing a donation pays for"
   },
-  "donation_where_it_goes_engineer": "One full-time engineer",
+  "donation_where_it_goes_engineer": "Един инженер на пълен работен ден",
   "@donation_where_it_goes_engineer": {
     "description": "Second thing a donation pays for"
   },
-  "donation_where_it_goes_services": "Services and tooling",
+  "donation_where_it_goes_services": "Услуги и инструменти",
   "@donation_where_it_goes_services": {
     "description": "Third thing a donation pays for"
   },
-  "donation_tiers_title": "Monthly, cancel any time",
+  "donation_tiers_title": "Месечно, анулиране по всяко време",
   "@donation_tiers_title": {
     "description": "Title of the block listing the monthly donation amounts"
   },
-  "donation_tier_amount_monthly": "{amount} a month",
+  "donation_tier_amount_monthly": "{amount} на месец",
   "@donation_tier_amount_monthly": {
     "description": "A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own",
     "placeholders": {
@@ -5932,7 +5946,7 @@
       }
     }
   },
-  "donation_tier_scans": "pays for {scans} scans",
+  "donation_tier_scans": "плаща за {scans} сканирания",
   "@donation_tier_scans": {
     "description": "How many product scans a monthly donation covers, as an approximation",
     "placeholders": {
@@ -5941,19 +5955,19 @@
       }
     }
   },
-  "donation_custom_amount_hint": "Custom amount",
+  "donation_custom_amount_hint": "Персонализирана сума",
   "@donation_custom_amount_hint": {
     "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
   },
-  "donation_custom_amount_error": "Enter an amount",
+  "donation_custom_amount_error": "Въведете сума",
   "@donation_custom_amount_error": {
     "description": "Error shown under the donation amount field when what the donor typed cannot be read as an amount"
   },
-  "donation_cta_monthly": "Support monthly",
+  "donation_cta_monthly": "Месечна поддръжка",
   "@donation_cta_monthly": {
     "description": "Main button of the donation page, opens the donation form with the selected monthly amount"
   },
-  "donation_cta_one_off": "Give once instead",
+  "donation_cta_one_off": "Дай веднъж вместо това",
   "@donation_cta_one_off": {
     "description": "Secondary link of the donation page, opens the donation form for a single gift"
   },
@@ -5961,8 +5975,74 @@
   "@donation_already_donated": {
     "description": "Quiet link under the donation buttons; tapping it stops the app asking for a donation for a year"
   },
-  "donation_already_donated_thanks": "Thank you! We won't ask again for a year.",
+  "donation_already_donated_thanks": "Благодаря! Няма да питаме отново цяла година.",
   "@donation_already_donated_thanks": {
     "description": "Confirmation shown after tapping 'I already donated'"
+  },
+  "donation_reminder_title": "{count, plural, one{Join the {count} person keeping Open Food Facts free.} other{Join the {count} people keeping Open Food Facts free.}}",
+  "@donation_reminder_title": {
+    "description": "Headline of the donation reminder sheet, with the number of donors from the feed",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "768"
+      }
+    }
+  },
+  "donation_reminder_title_generic": "Join the people keeping Open Food Facts free.",
+  "@donation_reminder_title_generic": {
+    "description": "Headline of the donation reminder sheet when the feed carries no usable donor count"
+  },
+  "donation_reminder_body": "A non-profit, built by volunteers, with no ads and no investors. A small monthly gift keeps it free for everyone.",
+  "@donation_reminder_body": {
+    "description": "Body line of the donation reminder sheet"
+  },
+  "donation_reminder_not_now": "Not now",
+  "@donation_reminder_not_now": {
+    "description": "Quiet button on the donation reminder sheet that closes it without changing anything"
+  },
+  "donation_reminder_cta": "Give {amount} a month",
+  "@donation_reminder_cta": {
+    "description": "Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_tier_scans_short": "{scans} scans",
+  "@donation_tier_scans_short": {
+    "description": "Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers",
+    "placeholders": {
+      "scans": {
+        "type": "String",
+        "example": "1,300"
+      }
+    }
+  },
+  "donation_tier_chip_amount": "**{amount}** /month",
+  "@donation_tier_chip_amount": {
+    "description": "Tier chip on the donation reminder sheet: a monthly amount, already formatted with its currency. The part between ** is shown large; keep the ** around the amount.",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_reminder_funding": "**{raised}** of {goal}",
+  "@donation_reminder_funding": {
+    "description": "Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.",
+    "placeholders": {
+      "raised": {
+        "type": "String",
+        "example": "€47,673"
+      },
+      "goal": {
+        "type": "String",
+        "example": "€170,000"
+      }
+    }
   }
 }
