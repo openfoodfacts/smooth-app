@@ -2925,6 +2925,8 @@
       }
     }
   },
+  "proof_action_open_external": "Open the image in an external browser",
+  "proof_action_experimental_assistant": "Experimental - open proof assistant",
   "user_any_search_prices_title": "أسعار المساهمين: {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
@@ -3994,11 +3996,11 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score أ",
-  "nutriscore_b": "Nutri-Score ب",
-  "nutriscore_c": "نيوتري-سكور سي",
-  "nutriscore_d": "Nutri-Score د",
-  "nutriscore_e": "Nutri-Score إي",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (حساب جديد)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -4013,12 +4015,12 @@
   "nutriscore_unknown_new_formula": "Nutri-Score غير المعروفة (حساب جديد)",
   "nutriscore_not_applicable": "Nutri-Score غير قابل للتطبيق",
   "nutriscore_not_applicable_new_formula": "Nutri-Score غير قابل للتطبيق (حساب جديد)",
-  "environmental_score_generic_new": "النتيجة البيئية",
-  "environmental_score_a_new": "النتيجة الخضراء أ",
-  "environmental_score_b_new": "النتيجة الخضراء ب",
-  "environmental_score_c_new": "جرين-سكور سي",
-  "environmental_score_d_new": "النتيجة الخضراء د",
-  "environmental_score_e_new": "النتيجة الخضراء E",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "Green-Score غير معروف",
   "environmental_score_not_applicable_new": "لا ينطبق Green-Score",
   "nova_group_generic_new": "الأطعمة فائقة المعالجة - مجموعة NOVA",
@@ -4114,7 +4116,7 @@
   "guide_nutriscore_v2_unchanged_title": "ما الذي لا يتغير",
   "guide_nutriscore_v2_unchanged_paragraph1": "مؤشر التغذية هو مؤشر مصمم لقياس الجودة الغذائية. وهو مكمل لمجموعة NOVA الخاصة بالأطعمة فائقة المعالجة (الموجودة أيضاً في التطبيق).",
   "guide_nutriscore_v2_unchanged_paragraph2": "بالنسبة للمصنعين، يظل عرض مؤشر التغذية اختياريًا.",
-  "guide_greenscore_title": "النتيجة البيئية",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4409,6 +4411,18 @@
   "photo_viewer_details_button_accessibility_label": "تفاصيل هذه الصورة",
   "@photo_viewer_details_button_accessibility_label": {
     "description": "Accessibility label for the Details button on a photo"
+  },
+  "photo_viewer_zoom_button": "Zoom in on the full size photo",
+  "@photo_viewer_zoom_button": {
+    "description": "Tooltip of the button that opens the full size photo, to zoom in on it"
+  },
+  "photo_viewer_copy_url": "Copy the photo URL",
+  "@photo_viewer_copy_url": {
+    "description": "Tooltip of the button on the full size photo page that copies the URL of the full size photo to the clipboard"
+  },
+  "photo_viewer_url_copied": "Photo URL copied to the clipboard!",
+  "@photo_viewer_url_copied": {
+    "description": "Snackbar message shown after copying the URL of the full size photo to the clipboard"
   },
   "photo_viewer_details_title": "تفاصيل الصورة",
   "@photo_viewer_details_title": {
@@ -5964,5 +5978,71 @@
   "donation_already_donated_thanks": "Thank you! We won't ask again for a year.",
   "@donation_already_donated_thanks": {
     "description": "Confirmation shown after tapping 'I already donated'"
+  },
+  "donation_reminder_title": "{count, plural, one{Join the {count} person keeping Open Food Facts free.} other{Join the {count} people keeping Open Food Facts free.}}",
+  "@donation_reminder_title": {
+    "description": "Headline of the donation reminder sheet, with the number of donors from the feed",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "768"
+      }
+    }
+  },
+  "donation_reminder_title_generic": "Join the people keeping Open Food Facts free.",
+  "@donation_reminder_title_generic": {
+    "description": "Headline of the donation reminder sheet when the feed carries no usable donor count"
+  },
+  "donation_reminder_body": "A non-profit, built by volunteers, with no ads and no investors. A small monthly gift keeps it free for everyone.",
+  "@donation_reminder_body": {
+    "description": "Body line of the donation reminder sheet"
+  },
+  "donation_reminder_not_now": "Not now",
+  "@donation_reminder_not_now": {
+    "description": "Quiet button on the donation reminder sheet that closes it without changing anything"
+  },
+  "donation_reminder_cta": "Give {amount} a month",
+  "@donation_reminder_cta": {
+    "description": "Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_tier_scans_short": "{scans} scans",
+  "@donation_tier_scans_short": {
+    "description": "Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers",
+    "placeholders": {
+      "scans": {
+        "type": "String",
+        "example": "1,300"
+      }
+    }
+  },
+  "donation_tier_chip_amount": "**{amount}** /month",
+  "@donation_tier_chip_amount": {
+    "description": "Tier chip on the donation reminder sheet: a monthly amount, already formatted with its currency. The part between ** is shown large; keep the ** around the amount.",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_reminder_funding": "**{raised}** of {goal}",
+  "@donation_reminder_funding": {
+    "description": "Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.",
+    "placeholders": {
+      "raised": {
+        "type": "String",
+        "example": "€47,673"
+      },
+      "goal": {
+        "type": "String",
+        "example": "€170,000"
+      }
+    }
   }
 }
