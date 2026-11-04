@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
@@ -40,22 +41,38 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
   @override
   void didUpdateWidget(covariant ProductPageTabController oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.product != oldWidget.product) {
-      setState(() {
-        final List<ProductPageTab> newTabs = const ProductPageTabsGenerator()
-            .getTabs(context, widget.product);
+    if (widget.product == oldWidget.product) {
+      return;
+    }
 
+    // `Product` has no value equality, so the check above triggers on every
+    // rebuild that hands us a new (even data-identical) `Product` instance.
+    // We must not treat that alone as a reason to recreate the
+    // `TabController`: doing so replaces the `TabBarView`'s controller
+    // identity, which makes it jump back to the committed tab and can abort
+    // an in-progress swipe gesture (see #7698). Only recreate the
+    // `TabController` when the ordered tab structure actually changed.
+    final List<ProductPageTab> newTabs = const ProductPageTabsGenerator()
+        .getTabs(context, widget.product);
+
+    final bool sameTabStructure = listEquals(
+      _tabs.map((ProductPageTab tab) => tab.id).toList(growable: false),
+      newTabs.map((ProductPageTab tab) => tab.id).toList(growable: false),
+    );
+
+    setState(() {
+      _tabs = newTabs;
+
+      if (!sameTabStructure) {
         final int oldIndex = _tabController.index;
         _tabController.dispose();
-
-        _tabs = newTabs;
         _tabController = TabController(
           length: _tabs.length,
           vsync: this,
           initialIndex: oldIndex < _tabs.length ? oldIndex : 0,
         );
-      });
-    }
+      }
+    });
   }
 
   @override
