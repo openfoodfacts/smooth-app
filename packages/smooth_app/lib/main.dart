@@ -70,7 +70,7 @@ Future<void> launchSmoothApp({
   required AppStore appStore,
   required StoreLabel storeLabel,
   required ScannerLabel scannerLabel,
-  final bool screenshots = false,
+  bool screenshots = false,
 }) async {
   _screenshots = screenshots;
 

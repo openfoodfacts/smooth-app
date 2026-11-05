@@ -15,8 +15,8 @@ class OnboardingLoader {
   ///
   /// The [page] parameter refers to the current page (before the next).
   Future<void> runAtNextTime(
-    final OnboardingPage page,
-    final BuildContext context,
+    OnboardingPage page,
+    BuildContext context,
   ) async {
     switch (page) {
       case OnboardingPage.WELCOME:

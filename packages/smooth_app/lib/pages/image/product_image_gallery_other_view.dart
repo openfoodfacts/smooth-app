@@ -16,7 +16,7 @@ import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 const int _columns = 3;
 
 /// Square size of a thumbnail.
-double _getSquareSize(final BuildContext context) {
+double _getSquareSize(BuildContext context) {
   final double screenWidth = MediaQuery.sizeOf(context).width;
   return screenWidth / _columns;
 }
@@ -63,8 +63,8 @@ class _ProductImageGalleryOtherViewState
       future: _loadOtherPics(product),
       builder:
           (
-            final BuildContext context,
-            final AsyncSnapshot<FetchedProduct> snapshot,
+            BuildContext context,
+            AsyncSnapshot<FetchedProduct> snapshot,
           ) {
             if (snapshot.connectionState != ConnectionState.done) {
               return SliverToBoxAdapter(
@@ -125,7 +125,7 @@ class _RawGridGallery extends StatelessWidget {
         crossAxisCount: _columns,
       ),
       delegate: SliverChildBuilderDelegate(
-        (final BuildContext context, int index) {
+        (BuildContext context, int index) {
           // order by descending ids
           index = rawImages.length - 1 - index;
           final ProductImage productImage = rawImages[index];
@@ -212,12 +212,12 @@ class _RawGridGallery extends StatelessWidget {
       );
 
   Future<void> _openOtherPage({
-    required final BuildContext context,
-    required final Product product,
-    required final List<ProductImage> rawImages,
-    required final ProductImage productImage,
-    required final String heroTag,
-    required final OpenFoodFactsLanguage language,
+    required BuildContext context,
+    required Product product,
+    required List<ProductImage> rawImages,
+    required ProductImage productImage,
+    required String heroTag,
+    required OpenFoodFactsLanguage language,
   }) async {
     await Navigator.push<ProductImagePageResult>(
       context,
@@ -236,12 +236,12 @@ class _RawGridGallery extends StatelessWidget {
   }
 
   Future<ProductImagePageResult?> _usePhotoAs({
-    required final BuildContext context,
-    required final Product product,
-    required final List<ProductImage> rawImages,
-    required final ProductImage productImage,
-    required final String heroTag,
-    required final OpenFoodFactsLanguage language,
+    required BuildContext context,
+    required Product product,
+    required List<ProductImage> rawImages,
+    required ProductImage productImage,
+    required String heroTag,
+    required OpenFoodFactsLanguage language,
   }) => ProductImageOtherPage.usePhotoAs(
     context: context,
     product: product,

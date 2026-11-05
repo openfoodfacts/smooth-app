@@ -33,11 +33,11 @@ class ProductImageCropButton extends ProductImageButton {
   Widget getIcon() => const icons.Edit();
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) =>
+  String getLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_photo_button_label;
 
   @override
-  Future<void> action(final BuildContext context) async {
+  Future<void> action(BuildContext context) async {
     final NavigatorState navigatorState = Navigator.of(context);
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -87,10 +87,10 @@ class ProductImageCropButton extends ProductImageButton {
   }
 
   Future<CropParameters?> _openCropAgainPage(
-    final BuildContext context,
-    final int imageId,
-    final ProductImage productImage,
-    final ProductType? productType,
+    BuildContext context,
+    int imageId,
+    ProductImage productImage,
+    ProductType? productType,
   ) async {
     final NavigatorState navigatorState = Navigator.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -132,8 +132,8 @@ class ProductImageCropButton extends ProductImageButton {
   }
 
   Future<CropParameters?> _openCropNewPage(
-    final NavigatorState navigatorState,
-    final File imageFile,
+    NavigatorState navigatorState,
+    File imageFile,
   ) async => navigatorState.push<CropParameters>(
     MaterialPageRoute<CropParameters>(
       builder: (BuildContext context) => CropPage(
@@ -174,7 +174,7 @@ class ProductImageCropButton extends ProductImageButton {
   /// Returns a crop rect, to be compared with the full image dimensions.
   ///
   /// Sometimes you get all null coordinates, or all 0, or all -1.
-  Rect? _getCropRect(final ProductImage productImage) =>
+  Rect? _getCropRect(ProductImage productImage) =>
       productImage.x1 == productImage.x2 &&
           productImage.y1 == productImage.y2 &&
           productImage.x1 == productImage.y1

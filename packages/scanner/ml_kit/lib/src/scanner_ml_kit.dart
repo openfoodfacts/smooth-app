@@ -162,7 +162,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
       value: _cameraController,
       child: VisibilityDetector(
         key: _visibilityKey,
-        onVisibilityChanged: (final VisibilityInfo info) async {
+        onVisibilityChanged: (VisibilityInfo info) async {
           _screenVisible = info.visibleFraction > 0;
           _onScreenVisibilityChanged(_screenVisible);
         },
@@ -172,7 +172,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
               controller: _cameraController.controller,
               fit: BoxFit.cover,
               errorBuilder: (_, _) => SCANNER_EMPTY_WIDGET,
-              onDetect: (final BarcodeCapture capture) async {
+              onDetect: (BarcodeCapture capture) async {
                 for (final Barcode barcode in capture.barcodes) {
                   final String? string = barcode.displayValue;
                   if (string != null) {

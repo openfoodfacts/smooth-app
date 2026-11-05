@@ -80,7 +80,7 @@ class _SmoothAutocompleteTextFieldState
   }
 
   @override
-  void didUpdateWidget(final SmoothAutocompleteTextField oldWidget) {
+  void didUpdateWidget(SmoothAutocompleteTextField oldWidget) {
     super.didUpdateWidget(oldWidget);
     _debouncedController.replaceWith(widget.controller);
   }
@@ -91,7 +91,7 @@ class _SmoothAutocompleteTextFieldState
       key: widget.autocompleteKey,
       focusNode: widget.focusNode,
       textEditingController: _debouncedController,
-      optionsBuilder: (final TextEditingValue value) {
+      optionsBuilder: (TextEditingValue value) {
         return _getSuggestions(value.text);
       },
       fieldViewBuilder:

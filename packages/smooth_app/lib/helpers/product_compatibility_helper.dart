@@ -5,7 +5,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class ProductCompatibilityHelper {
-  ProductCompatibilityHelper.product(final MatchedProductV2 product)
+  ProductCompatibilityHelper.product(MatchedProductV2 product)
     : status = product.status,
       _score = product.score;
 
@@ -34,7 +34,7 @@ class ProductCompatibilityHelper {
   Color getButtonForegroundColor(bool darkMode) =>
       getHeaderForegroundColor(darkMode);
 
-  String getHeaderText(final AppLocalizations appLocalizations) {
+  String getHeaderText(AppLocalizations appLocalizations) {
     switch (status) {
       case MatchedProductStatusV2.VERY_GOOD_MATCH:
         return appLocalizations.match_very_good;
@@ -51,7 +51,7 @@ class ProductCompatibilityHelper {
     }
   }
 
-  String getSubtitle(final AppLocalizations appLocalizations) {
+  String getSubtitle(AppLocalizations appLocalizations) {
     switch (status) {
       case MatchedProductStatusV2.VERY_GOOD_MATCH:
         return appLocalizations.match_short_very_good;

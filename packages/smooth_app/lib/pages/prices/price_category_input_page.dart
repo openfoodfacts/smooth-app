@@ -75,7 +75,7 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
                   ? _MyAutocomplete(
                       helper: SimpleInputPageCategoryHelper(),
                       controller: _categoryController,
-                      onSelected: (final String selected) =>
+                      onSelected: (String selected) =>
                           setState(() => _categoryName = selected),
                     )
                   : _ReadOnlyTextField(_categoryName!),
@@ -93,7 +93,7 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
                   _MyAutocomplete(
                     helper: SimpleInputPageOriginHelper(),
                     controller: _originController,
-                    onSelected: (final String selected) => setState(() {
+                    onSelected: (String selected) => setState(() {
                       _originController.text = '';
                       _originNames.add(selected);
                     }),
@@ -142,7 +142,7 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<(bool, PriceMetaProduct?)> _mayExitPage({
-    required final bool saving,
+    required bool saving,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (!_hasChanged) {

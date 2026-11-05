@@ -54,7 +54,7 @@ class _NutrientRowState extends State<NutrientRow>
             vsync: this,
           )
           ..addListener(() => setState(() {}))
-          ..addStatusListener((final AnimationStatus status) {
+          ..addStatusListener((AnimationStatus status) {
             if (status == AnimationStatus.completed) {
               _colorAnimation = null;
             }
@@ -334,7 +334,7 @@ class _NutrientValueCell extends StatelessWidget {
                           ),
                           DecimalSeparatorRewriter(decimalNumberFormat),
                         ],
-                        onFieldSubmitted: (final String value) {
+                        onFieldSubmitted: (String value) {
                           focusNodes[orderedNutrient]?.unfocus();
 
                           if (isLast) {
@@ -423,14 +423,14 @@ class _NutrientUnitCellState extends State<_NutrientUnitCell> {
             textAlignment: AlignmentDirectional.center,
             items: units
                 .map(
-                  (final Unit unit) => SmoothDropdownItem<Unit>(
+                  (Unit unit) => SmoothDropdownItem<Unit>(
                     value: unit,
                     label: _getUnitLabel(unit),
                   ),
                 )
                 .toList(growable: false),
             onChanged: controller.isSet
-                ? (final Unit? value) {
+                ? (Unit? value) {
                     if (value == null) {
                       return;
                     }
@@ -456,7 +456,7 @@ class _NutrientUnitCellState extends State<_NutrientUnitCell> {
     Unit.PERCENT: '%',
   };
 
-  static String _getUnitLabel(final Unit unit) =>
+  static String _getUnitLabel(Unit unit) =>
       _unitLabels[unit] ?? UnitHelper.unitToString(unit)!;
 }
 

@@ -131,12 +131,12 @@ class LanguagesSelector extends StatelessWidget {
   /// Otherwise, they will be filtered
   /// [disabledLanguages] will be visible, but disabled (= not selectable).
   static Future<OpenFoodFactsLanguage?> openLanguageSelector(
-    final BuildContext context, {
-    final Iterable<OpenFoodFactsLanguage>? selectedLanguages,
-    final Iterable<OpenFoodFactsLanguage>? disabledLanguages,
-    final bool showSelectedLanguages = false,
-    final Widget? checkedIcon,
-    final String? title,
+    BuildContext context, {
+    Iterable<OpenFoodFactsLanguage>? selectedLanguages,
+    Iterable<OpenFoodFactsLanguage>? disabledLanguages,
+    bool showSelectedLanguages = false,
+    Widget? checkedIcon,
+    String? title,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
@@ -214,7 +214,7 @@ class LanguagesSelector extends StatelessWidget {
     return language;
   }
 
-  static String _getCompleteName(final OpenFoodFactsLanguage language) {
+  static String _getCompleteName(OpenFoodFactsLanguage language) {
     final String nameInLanguage = _languages.getNameInLanguage(language);
     final String nameInEnglish = _languages.getNameInEnglish(language);
     return '$nameInLanguage ($nameInEnglish)';
@@ -225,8 +225,8 @@ class LanguagesSelector extends StatelessWidget {
     Languages languagesHelper,
   ) {
     return languages.sort((
-      final OpenFoodFactsLanguage a,
-      final OpenFoodFactsLanguage b,
+      OpenFoodFactsLanguage a,
+      OpenFoodFactsLanguage b,
     ) {
       return languagesHelper
           .getNameInEnglish(a)

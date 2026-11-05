@@ -112,8 +112,7 @@ Future<void> _openNutrientSelectorModalSheet(
     nutritionContainer.getLeftoverNutrients(),
   );
   leftovers.sort(
-    (final OrderedNutrient a, final OrderedNutrient b) =>
-        a.name!.compareTo(b.name!),
+    (OrderedNutrient a, OrderedNutrient b) => a.name!.compareTo(b.name!),
   );
   final List<OrderedNutrient> filteredList = List<OrderedNutrient>.from(
     leftovers,

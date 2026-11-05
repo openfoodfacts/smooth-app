@@ -40,8 +40,8 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
 
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider<ProductModel>(
-    create: (final BuildContext context) => _model,
-    builder: (final BuildContext context, _) {
+    create: (BuildContext context) => _model,
+    builder: (BuildContext context, _) {
       context.watch<ProductModel>();
       context.watch<LocalDatabase>();
       _model.setLocalUpToDate();
@@ -80,7 +80,7 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
     },
   );
 
-  String _getErrorMessage(final AppLocalizations appLocalizations) =>
+  String _getErrorMessage(AppLocalizations appLocalizations) =>
       _model.loadingError?.getErrorTitle(appLocalizations) ??
       appLocalizations.error_occurred;
 }

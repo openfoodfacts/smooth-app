@@ -21,8 +21,8 @@ class UserPreferencesFoodPage extends StatefulWidget {
   const UserPreferencesFoodPage();
 
   static UserPreferencesFood getUserPreferences({
-    required final UserPreferences userPreferences,
-    required final BuildContext context,
+    required UserPreferences userPreferences,
+    required BuildContext context,
   }) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     BackgroundTaskManager.runAgain(localDatabase);

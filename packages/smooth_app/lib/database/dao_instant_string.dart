@@ -15,8 +15,8 @@ class DaoInstantString extends AbstractDao {
 
   Box<String> _getBox() => Hive.box<String>(_hiveBoxName);
 
-  String? get(final String key) => _getBox().get(key);
+  String? get(String key) => _getBox().get(key);
 
-  Future<void> put(final String key, final String? value) async =>
+  Future<void> put(String key, String? value) async =>
       value == null ? _getBox().delete(key) : _getBox().put(key, value);
 }

@@ -174,8 +174,11 @@ class _SmoothAnimatedListState<T> extends State<SmoothAnimatedList<T>> {
   }
 }
 
-typedef SmoothSliverListItemBuilder<T> =
-    Widget Function(BuildContext context, T object, int index);
+typedef SmoothSliverListItemBuilder<T> = Widget Function(
+  BuildContext context,
+  T object,
+  int index,
+);
 
 class _MovingOverlayItem extends StatefulWidget {
   const _MovingOverlayItem({

@@ -87,6 +87,7 @@ class ScoreCard extends StatelessWidget {
       value: _generateSemanticsValue(context),
       excludeSemantics: true,
       header: type == ScoreCardType.title,
+      headingLevel: type == ScoreCardType.title ? 2 : null,
       button: isClickable,
       child: Padding(
         padding:

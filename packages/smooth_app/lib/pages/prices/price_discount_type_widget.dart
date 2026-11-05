@@ -29,14 +29,13 @@ class PriceDiscountTypeDropdown extends StatelessWidget {
             label: appLocalizations.prices_discount_type,
           ),
           ...DiscountType.values.map(
-            (final DiscountType discountType) =>
-                SmoothDropdownItem<DiscountType?>(
-                  value: discountType,
-                  label: discountType.getTitle(appLocalizations),
-                ),
+            (DiscountType discountType) => SmoothDropdownItem<DiscountType?>(
+              value: discountType,
+              label: discountType.getTitle(appLocalizations),
+            ),
           ),
         ],
-        onChanged: (final DiscountType? value) {
+        onChanged: (DiscountType? value) {
           if (value != null) {
             onChanged(value);
           }

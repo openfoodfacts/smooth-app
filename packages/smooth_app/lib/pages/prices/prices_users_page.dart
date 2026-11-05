@@ -63,7 +63,7 @@ class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
   static const int _pageSize = 20;
 
   @override
-  Future<void> fetchData(final int pageNumber) async {
+  Future<void> fetchData(int pageNumber) async {
     final GetUsersParameters parameters = GetUsersParameters()
       ..orderBy = <OrderBy<GetUsersOrderField>>[
         const OrderBy<GetUsersOrderField>(

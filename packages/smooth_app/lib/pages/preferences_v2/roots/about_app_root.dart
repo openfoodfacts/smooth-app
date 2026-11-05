@@ -122,7 +122,7 @@ class AboutAppRoot extends PreferencesRoot {
       subtitleText: appLocalizations.contribute_develop_dev_mode_subtitle,
       icon: const icons.Contribute(),
       state: userPreferences.devMode != 0,
-      onToggle: (final bool devMode) async =>
+      onToggle: (bool devMode) async =>
           userPreferences.setDevMode(devMode ? 1 : 0),
     );
   }

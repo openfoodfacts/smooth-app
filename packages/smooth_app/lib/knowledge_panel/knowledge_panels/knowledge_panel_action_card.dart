@@ -46,7 +46,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
   }
 
   // TODO(monsieurtanuki): deprecate KnowledgePanelAction in off-dart, as its use drags us behind
-  Widget? _getButton(final BuildContext context, final String action) {
+  Widget? _getButton(BuildContext context, String action) {
     final AbstractSimpleInputPageHelper? simpleInputPageHelper =
         _getSimpleInputPageHelper(context, action);
     if (simpleInputPageHelper != null) {
@@ -98,8 +98,8 @@ class KnowledgePanelActionCard extends StatelessWidget {
   }
 
   AbstractSimpleInputPageHelper? _getSimpleInputPageHelper(
-    final BuildContext context,
-    final String action,
+    BuildContext context,
+    String action,
   ) {
     switch (action) {
       case 'add_categories':
@@ -117,7 +117,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
     }
   }
 
-  bool _isIngredient(final String action) {
+  bool _isIngredient(String action) {
     switch (action) {
       case 'add_ingredients_text':
       case 'add_ingredients_image':
@@ -127,7 +127,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
     }
   }
 
-  bool _isPackaging(final String action) {
+  bool _isPackaging(String action) {
     switch (action) {
       case 'add_packaging_text':
       case 'add_packaging_image':

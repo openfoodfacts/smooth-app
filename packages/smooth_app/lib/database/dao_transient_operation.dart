@@ -66,12 +66,11 @@ class DaoTransientOperation extends AbstractDao {
 
   Box<Product> _getBox() => Hive.box<Product>(_hiveBoxName);
 
-  Product? get(final String key) => _getBox().get(key);
+  Product? get(String key) => _getBox().get(key);
 
-  Future<void> put(final String key, final Product product) =>
-      _getBox().put(key, product);
+  Future<void> put(String key, Product product) => _getBox().put(key, product);
 
-  Future<void> delete(final String key) async => _getBox().delete(key);
+  Future<void> delete(String key) async => _getBox().delete(key);
 
   List<String> getAllKeys() {
     final Box<Product> box = _getBox();
@@ -82,7 +81,7 @@ class DaoTransientOperation extends AbstractDao {
     return result;
   }
 
-  Iterable<TransientOperation> getAll(final String barcode) {
+  Iterable<TransientOperation> getAll(String barcode) {
     final Box<Product> box = _getBox();
     final List<TransientOperation> result = <TransientOperation>[];
     for (final dynamic key in box.keys) {

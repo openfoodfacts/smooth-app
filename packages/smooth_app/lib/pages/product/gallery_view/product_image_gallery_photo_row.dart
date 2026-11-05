@@ -200,9 +200,9 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
   }
 
   Future<void> _onTap({
-    required final BuildContext context,
-    required final Product product,
-    required final TransientFile transientFile,
+    required BuildContext context,
+    required Product product,
+    required TransientFile transientFile,
     required int initialImageIndex,
   }) async {
     if (transientFile.isImageAvailable()) {
@@ -227,10 +227,10 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
   }
 
   Future<void> _onLongTap({
-    required final BuildContext context,
-    required final Product product,
-    required final OpenFoodFactsLanguage language,
-    required final TransientFile transientFile,
+    required BuildContext context,
+    required Product product,
+    required OpenFoodFactsLanguage language,
+    required TransientFile transientFile,
   }) async {
     final File? file = await showPhotoBanner(
       context: context,
@@ -247,7 +247,7 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
 
   Future<void> _openImage({
     required BuildContext context,
-    required final Product product,
+    required Product product,
     required int initialImageIndex,
   }) async => Navigator.push(
     context,
@@ -262,8 +262,8 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
   );
 
   TransientFile _getTransientFile(
-    final Product product,
-    final ImageField imageField,
+    Product product,
+    ImageField imageField,
   ) => TransientFile.fromProduct(product, imageField, widget.language);
 }
 

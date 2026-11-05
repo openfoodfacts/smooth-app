@@ -37,14 +37,14 @@ List<PriceAddProductAction> get priceAddProductActions =>
     ];
 
 Future<void> _addBarcodesToList(
-  final List<String> barcodes,
-  final BuildContext context,
+  List<String> barcodes,
+  BuildContext context,
 ) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
   final PriceModel priceModel = Provider.of<PriceModel>(context, listen: false);
 
-  bool barcodeAlreadyThere(final String barcode) {
+  bool barcodeAlreadyThere(String barcode) {
     for (int i = 0; i < priceModel.length; i++) {
       final PriceAmountModel model = priceModel.elementAt(i);
       if (model.product.barcode == barcode) {
@@ -88,7 +88,7 @@ Future<void> _addBarcodesToList(
     }
     await showDialog<void>(
       context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
+      builder: (BuildContext context) => SmoothAlertDialog(
         body: Text(appLocalizations.prices_barcode_already(barcode)),
         positiveAction: SmoothActionButton(
           text: appLocalizations.okay,
@@ -100,7 +100,7 @@ Future<void> _addBarcodesToList(
 }
 
 void _addProductToList(
-  final PriceModel priceModel,
-  final PriceMetaProduct product,
-  final BuildContext context,
+  PriceModel priceModel,
+  PriceMetaProduct product,
+  BuildContext context,
 ) => priceModel.add(PriceAmountModel(product: product));

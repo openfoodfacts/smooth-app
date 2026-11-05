@@ -116,7 +116,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
   bool _isEdited() => _websiteController.isDifferentFromInitialValue;
 
   /// Exits the page if the [flag] is `true`.
-  void _exitPage(final bool flag) {
+  void _exitPage(bool flag) {
     if (flag) {
       Navigator.of(context).pop();
     }
@@ -126,7 +126,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
-  Future<bool> _mayExitPage({required final bool saving}) async {
+  Future<bool> _mayExitPage({required bool saving}) async {
     if (!_isEdited()) {
       return true;
     }

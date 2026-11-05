@@ -35,9 +35,9 @@ class AddProductToListContainer extends StatelessWidget {
       child: Consumer<_ProductUserListsProvider>(
         builder:
             (
-              final BuildContext context,
-              final _ProductUserListsProvider productUserListsProvider,
-              final Widget? child,
+              BuildContext context,
+              _ProductUserListsProvider productUserListsProvider,
+              Widget? child,
             ) {
               return switch (productUserListsProvider.value) {
                 _ProductUserListsLoadingState _ =>

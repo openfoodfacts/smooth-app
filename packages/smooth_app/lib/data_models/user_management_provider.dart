@@ -16,8 +16,8 @@ class UserManagementProvider with ChangeNotifier {
 
   /// Checks credentials and conditionally saves them.
   Future<LoginResult> login(
-    final User user,
-    final UserPreferences preferences,
+    User user,
+    UserPreferences preferences,
   ) async {
     final LoginResult loginResult = await LoginResult.getLoginResult(
       user,

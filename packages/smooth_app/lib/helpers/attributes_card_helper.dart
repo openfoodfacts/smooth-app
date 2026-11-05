@@ -34,7 +34,7 @@ enum AttributeEvaluation {
 }
 
 Widget getAttributeDisplayIcon(
-  final Attribute attribute, {
+  Attribute attribute, {
   required BuildContext context,
   bool? isFoodPreferences = false,
   double? size,
@@ -56,8 +56,8 @@ Widget getAttributeDisplayIcon(
 }
 
 Color getAttributeDisplayBackgroundColor(
-  final Attribute attribute,
-  final SmoothColorsThemeExtension colors,
+  Attribute attribute,
+  SmoothColorsThemeExtension colors,
 ) => _attributeMatchComparison<Color>(
   attribute,
   colors.greyFair,
@@ -68,7 +68,7 @@ Color getAttributeDisplayBackgroundColor(
   colors.scoreLightGreen,
 );
 
-IconData getAttributeDisplayIconData(final Attribute attribute) =>
+IconData getAttributeDisplayIconData(Attribute attribute) =>
     _attributeMatchComparison<IconData>(
       attribute,
       CupertinoIcons.question,
@@ -114,19 +114,18 @@ AttributeEvaluation getAttributeEvaluation(Attribute attribute) {
   }
 }
 
-String? getDisplayTitle(final Attribute attribute) {
+String? getDisplayTitle(Attribute attribute) {
   if (attribute.id != Attribute.ATTRIBUTE_NOVA) {
     return attribute.title;
   }
   return _getNovaDisplayTitle(attribute);
 }
 
-String? _getNovaDisplayTitle(final Attribute attribute) =>
-    attribute.descriptionShort;
+String? _getNovaDisplayTitle(Attribute attribute) => attribute.descriptionShort;
 
 /// Compares the match score from [attribute] with various thresholds and returns appropriate result.
 T _attributeMatchComparison<T>(
-  final Attribute attribute,
+  Attribute attribute,
   T invalidAttributeResult,
   T lowestMatchResult,
   T lowMatchResult,

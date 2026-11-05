@@ -75,7 +75,7 @@ class ProductModel with ChangeNotifier {
   /// This is the printed error:
   /// A ProductModel was used after being disposed.
   /// Once you have called dispose() on a ProductModel, it can no longer be used.
-  void _safeNotifyListeners(final ProductLoadingStatus status) {
+  void _safeNotifyListeners(ProductLoadingStatus status) {
     try {
       _loadingStatus = status;
       notifyListeners();

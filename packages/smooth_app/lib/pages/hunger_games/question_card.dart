@@ -117,8 +117,8 @@ class QuestionCard extends StatelessWidget {
   }
 
   Future<FetchedProduct> _getProduct(
-    final String barcode,
-    final LocalDatabase localDatabase,
+    String barcode,
+    LocalDatabase localDatabase,
   ) async {
     final Product? result = await DaoProduct(localDatabase).get(barcode);
     if (result != null) {

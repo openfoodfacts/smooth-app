@@ -11,10 +11,10 @@ abstract class AbstractCache extends StatelessWidget {
 
   /// Returns the best cache possibility: none, svg or png/jpeg
   factory AbstractCache.best({
-    final String? iconUrl,
-    final double? width,
-    final double? height,
-    final Color? color,
+    String? iconUrl,
+    double? width,
+    double? height,
+    Color? color,
   }) {
     if (iconUrl == null) {
       return NullCache(width: width, height: height);
@@ -43,11 +43,11 @@ abstract class AbstractCache extends StatelessWidget {
 
   /// Returns the path to the asset cached file (not tintable version).
   @protected
-  String getCacheFilename(final String filename) => 'assets/cache/$filename';
+  String getCacheFilename(String filename) => 'assets/cache/$filename';
 
   /// Returns the path to the asset cached tintable file.
   @protected
-  String getCacheTintableFilename(final String filename) =>
+  String getCacheTintableFilename(String filename) =>
       'assets/cacheTintable/$filename';
 
   /// Returns the simple filename of the icon url (without the full path).
