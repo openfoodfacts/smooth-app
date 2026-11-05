@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
@@ -41,10 +42,15 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
   void didUpdateWidget(covariant ProductPageTabController oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.product != oldWidget.product) {
+      final List<ProductPageTab> newTabs = const ProductPageTabsGenerator()
+          .getTabs(context, widget.product);
+      // Every page rebuild brings a new copy of the product: a new controller
+      // would cancel a swipe in progress.
+      if (listEquals(_ids(newTabs), _ids(_tabs))) {
+        _tabs = newTabs;
+        return;
+      }
       setState(() {
-        final List<ProductPageTab> newTabs = const ProductPageTabsGenerator()
-            .getTabs(context, widget.product);
-
         final int oldIndex = _tabController.index;
         _tabController.dispose();
 
@@ -57,6 +63,9 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
       });
     }
   }
+
+  List<String> _ids(List<ProductPageTab> tabs) =>
+      tabs.map((ProductPageTab tab) => tab.id).toList(growable: false);
 
   @override
   Widget build(BuildContext context) {
