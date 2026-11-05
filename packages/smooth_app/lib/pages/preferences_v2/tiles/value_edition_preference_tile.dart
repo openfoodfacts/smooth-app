@@ -12,6 +12,8 @@ class ValueEditionPreferenceTile extends PreferenceTile {
     super.icon,
     this.value,
     this.hint,
+    this.subtitle,
+    this.dialogDescription,
     this.subtitleWithEmptyValue,
     this.validator,
   }) : assert(dialogAction.length > 0),
@@ -19,6 +21,8 @@ class ValueEditionPreferenceTile extends PreferenceTile {
 
   final String? value;
   final String? hint;
+  final Widget? subtitle;
+  final Widget? dialogDescription;
   final String? subtitleWithEmptyValue;
   final bool Function(String)? validator;
   final Function(String) onNewValue;
@@ -28,7 +32,8 @@ class ValueEditionPreferenceTile extends PreferenceTile {
     return PreferenceTile(
       icon: icon,
       title: title,
-      subtitleText: subtitleText,
+      subtitle: subtitle,
+      subtitleText: subtitle == null ? subtitleText : null,
       trailing: const Icon(Icons.edit),
       onTap: () => _showInputTextDialog(context),
     );
@@ -55,7 +60,7 @@ class ValueEditionPreferenceTile extends PreferenceTile {
                 spacing: BALANCED_SPACE,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(title),
+                  dialogDescription ?? Text(title),
                   TextField(
                     controller: controller,
                     autocorrect: false,
@@ -100,7 +105,7 @@ class ValueEditionPreferenceTile extends PreferenceTile {
       },
     );
 
-    if (res != value) {
+    if (res is String && res != value) {
       onNewValue.call(res);
     }
   }
