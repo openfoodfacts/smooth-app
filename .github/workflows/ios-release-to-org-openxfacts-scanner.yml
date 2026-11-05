@@ -38,7 +38,6 @@ on:
         required: true
 
 env:
-  JAVA_VERSION: 21
   RUBY_VERSION: 3.4.10
 
 jobs:
@@ -57,11 +56,6 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
           working-directory: packages/smooth_app/ios
-      - name: Setup Java JDK
-        uses: actions/setup-java@v6.1.0
-        with:
-          distribution: 'zulu'
-          java-version: ${{ env.JAVA_VERSION }}
 
       # Get the flutter version from ./flutter-version.txt
       - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
@@ -94,6 +88,14 @@ jobs:
           restore-keys: |
             spm-${{ runner.os }}-
 
+      - name: Cache Xcode DerivedData
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: xcode-deriveddata-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
+          restore-keys: |
+            xcode-deriveddata-${{ runner.os }}-
+
       - name: Enable MLKit dependency
         run: chmod +x ci/dependencies/scanner/enable_mlkit_dependency.sh && ci/dependencies/scanner/enable_mlkit_dependency.sh
 
@@ -120,7 +122,7 @@ jobs:
           VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
       - name: Enable Rive dependency
-        run: cd ./packages/smooth_app && dart run rive_native:setup --verbose --clean --platform ios
+        run: cd ./packages/smooth_app && dart run rive_native:setup --verbose --platform ios
 
       - name: Build app
         run: cd ./packages/smooth_app && flutter build ios --release --no-codesign -t lib/entrypoints/ios/main_ios.dart
