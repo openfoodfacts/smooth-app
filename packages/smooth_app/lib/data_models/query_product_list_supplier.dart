@@ -26,11 +26,18 @@ class QueryProductListSupplier extends ProductListSupplier {
         );
         // Search results come without knowledge panels: we keep the local ones
         // if the product is unchanged.
+        // lastModified only catches raw data edits, not recomputed fields:
+        // good enough for now.
         for (final Product product in searchResult.products!) {
+          if (product.knowledgePanels != null) {
+            continue;
+          }
+          if (product.lastModified == null) {
+            continue;
+          }
           final Product? localProduct = localProducts[product.barcode];
-          if (product.lastModified != null &&
-              product.lastModified == localProduct?.lastModified) {
-            product.knowledgePanels ??= localProduct!.knowledgePanels;
+          if (product.lastModified == localProduct?.lastModified) {
+            product.knowledgePanels = localProduct!.knowledgePanels;
           }
         }
         await daoProduct.putAll(
