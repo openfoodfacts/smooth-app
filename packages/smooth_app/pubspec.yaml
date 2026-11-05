@@ -101,7 +101,10 @@ dependencies:
   scanner_zxing:
     path: ../scanner/zxing
 
-  openfoodfacts: 3.30.2
+  openfoodfacts:
+    git:
+      url: https://github.com/UrbanFercec/openfoodfacts-dart.git
+      ref: feat/aggregated-set
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

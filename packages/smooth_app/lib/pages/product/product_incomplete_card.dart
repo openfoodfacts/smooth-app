@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
@@ -46,7 +47,7 @@ class ProductIncompleteCard extends StatelessWidget {
         product.categoriesTagsInLanguages!.isEmpty) {
       return true;
     }
-    if (product.nutriments == null || product.nutriments!.isEmpty()) {
+    if (!product.hasNutritionData) {
       return true;
     }
     if (product.ingredientsTextInLanguages == null ||

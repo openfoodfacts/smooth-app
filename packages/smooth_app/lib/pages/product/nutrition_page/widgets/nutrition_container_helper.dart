@@ -11,16 +11,19 @@ class NutritionContainerHelper extends ChangeNotifier {
     required final OrderedNutrients orderedNutrients,
     required final Product product,
   }) {
-    _initialPerSize = _perSize =
-        PerSize.fromOffTag(product.nutrimentDataPer) ?? PerSize.oneHundredGrams;
     _loadNutrients(orderedNutrients.nutrients);
-    _loadUnits();
-    if (product.nutriments != null) {
-      _loadValues(product.nutriments!);
+    _loadValues(product);
+    if (_hundred.values.isEmpty && _serving.values.isNotEmpty) {
+      _perSize = PerSize.serving;
+    } else {
+      _perSize = PerSize.oneHundredGrams;
     }
     setServingText(product.servingSize);
+    _initialServingSize = servingSize;
     _initialNoNutritionData = _noNutritionData =
-        product.noNutritionData ?? false;
+        product.noNutritionData ??
+        NutritionHelper().getNoNutritionDataOnPackaging(product) ??
+        false;
   }
 
   /// Returns the [Nutrient] that matches the [orderedNutrient].
@@ -44,19 +47,28 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   List<OrderedNutrient> get allNutrients => _nutrients;
 
-  /// Nutrient values.
-  final Map<Nutrient, double?> _values = <Nutrient, double?>{};
+  static const List<PerSize> _lines = <PerSize>[
+    PerSize.oneHundredGrams,
+    PerSize.serving,
+  ];
 
-  /// Nutrient units.
-  final Map<Nutrient, Unit> _units = <Nutrient, Unit>{};
+  /// Set key of the "per 100g" line: it is "per 100ml" for some products.
+  PerSize _hundredPerSize = PerSize.oneHundredGrams;
 
-  /// Initial nutrient units.
-  final Map<Nutrient, Unit> _initialUnits = <Nutrient, Unit>{};
+  final _Line _hundred = _Line();
+  final _Line _serving = _Line();
+
+  _Line _getLine(final PerSize line) =>
+      line == PerSize.serving ? _serving : _hundred;
+
+  PerSize _getSetPerSize(final PerSize line) =>
+      line == PerSize.serving ? PerSize.serving : _hundredPerSize;
 
   /// Nutrients added by the end-user.
   final Set<Nutrient> _added = <Nutrient>{};
 
   late String servingSize;
+  late String _initialServingSize;
 
   late bool _noNutritionData;
   late bool _initialNoNutritionData;
@@ -69,7 +81,6 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   late PerSize _perSize;
-  late PerSize _initialPerSize;
   PerSize get perSize => _perSize;
 
   set perSize(final PerSize value) {
@@ -169,39 +180,42 @@ class NutritionContainerHelper extends ChangeNotifier {
         (!_added.contains(nutrient));
   }
 
-  /// Converts all the data to a [Nutriments].
-  Nutriments _getNutriments() {
-    final Nutriments nutriments = Nutriments.empty();
-    for (final MapEntry<Nutrient, double?> entry in _values.entries) {
-      final Nutrient nutrient = entry.key;
-      final double? value = entry.value;
-      nutriments.setValue(
-        nutrient,
-        _perSize,
-        convertWeightToG(value, getUnit(nutrient)),
-      );
-    }
-    return nutriments;
-  }
-
   /// Returns the stored product nutrient's value.
-  double? getValue(final Nutrient nutrient) => _values[nutrient];
+  num? getValue(final Nutrient nutrient) => _getLine(_perSize).values[nutrient];
 
-  /// Stores the text from the end-user input.
+  /// Returns true if the displayed value comes from the manufacturer.
+  bool isFromManufacturer(final Nutrient nutrient) =>
+      _getLine(_perSize).fromManufacturer.contains(nutrient);
+
+  /// Stores the end-user input when it differs from the loaded value.
+  ///
+  /// Empty text and "-" (not specified) clear the value; any other text that
+  /// can't be parsed is ignored.
   void setNutrientValueText(
+    final PerSize perSize,
     final Nutrient nutrient,
     final String? text,
     final NumberFormat numberFormat,
   ) {
+    final _Line line = _getLine(perSize);
     num? value;
-    if (text?.isNotEmpty == true) {
-      try {
-        value = numberFormat.parse(text!);
-      } catch (e) {
-        //
+    final String trimmed = text?.trim() ?? '';
+    if (trimmed.isNotEmpty && trimmed != '-') {
+      value = numberFormat.tryParse(trimmed);
+      if (value == null) {
+        line.edited.remove(nutrient);
+        return;
       }
     }
-    _values[nutrient] = value?.toDouble();
+    final num? loaded = line.values[nutrient];
+    final bool unchanged = value == null || loaded == null
+        ? value == loaded
+        : numberFormat.format(value) == numberFormat.format(loaded);
+    if (unchanged) {
+      line.edited.remove(nutrient);
+    } else {
+      line.edited[nutrient] = value;
+    }
   }
 
   /// Stores the text from the end-user input.
@@ -215,7 +229,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   void setNextWeightUnit(final OrderedNutrient orderedNutrient) {
     final Nutrient nutrient = orderedNutrient.nutrient!;
     final Unit unit = getUnit(nutrient);
-    _setUnit(nutrient, _nextWeightUnits[unit] ?? unit, init: false);
+    setNutrientUnit(nutrient, _nextWeightUnits[unit] ?? unit);
   }
 
   List<Unit> getUnits(final Nutrient nutrient) {
@@ -229,23 +243,11 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   /// Returns the nutrient [Unit].
-  Unit getUnit(final Nutrient nutrient) => _units[nutrient]!;
+  Unit getUnit(final Nutrient nutrient) => _getLine(_perSize).units[nutrient]!;
 
   /// Stores the nutrient [Unit].
-  void _setUnit(
-    final Nutrient nutrient,
-    final Unit unit, {
-    required final bool init,
-  }) {
-    _units[nutrient] = unit;
-    if (init) {
-      _initialUnits[nutrient] = unit;
-    }
-  }
-
-  void setNutrientUnit(final Nutrient nutrient, final Unit unit) {
-    _setUnit(nutrient, unit, init: false);
-  }
+  void setNutrientUnit(final Nutrient nutrient, final Unit unit) =>
+      _getLine(_perSize).units[nutrient] = unit;
 
   /// To be used when an [OrderedNutrient] is added to the input list
   void add(final OrderedNutrient orderedNutrient) =>
@@ -318,63 +320,183 @@ class NutritionContainerHelper extends ChangeNotifier {
     return value;
   }
 
+  /// Energy in kJ computed from [kCal], rounded.
+  static double? getKJFromKCal(final num? kCal) => kCal == null
+      ? null
+      : NutrimentsHelper.fromKCalToKJ(kCal.toDouble()).roundToDouble();
+
   /// Conversion factors of a value in [Unit] to [Unit.G].
   static const Map<Unit, double> _conversionFactorFromG = <Unit, double>{
     Unit.MILLI_G: 1E3,
     Unit.MICRO_G: 1E6,
   };
 
-  /// Loads product nutrient units into a map.
+  /// Loads the values and units of the as sold nutrition, line by line.
   ///
-  /// Needs nutrients to be loaded first.
-  void _loadUnits() {
-    for (final OrderedNutrient orderedNutrient in _nutrients) {
-      final Nutrient nutrient = getNutrient(orderedNutrient)!;
-      _setUnit(nutrient, nutrient.typicalUnit, init: true);
-    }
-  }
+  /// Each value is the packaging one, else the manufacturer one. Estimates and
+  /// prepared sets are ignored. Needs nutrients to be loaded first.
+  void _loadValues(final Product product) {
+    final NutritionHelper helper = NutritionHelper();
+    final List<NutritionSet> inputSets =
+        helper.getInputSets(product) ?? <NutritionSet>[];
 
-  /// Loads product nutrients into a map.
-  ///
-  /// Needs nutrients and units to be loaded first.
-  void _loadValues(final Nutriments nutriments) {
-    for (final OrderedNutrient orderedNutrient in _nutrients) {
-      final Nutrient nutrient = getNutrient(orderedNutrient)!;
-      final Unit unit = getUnit(nutrient);
-      final double? value = convertWeightFromG(
-        nutrient == Nutrient.energyKJ
-            ? nutriments.getComputedKJ(_perSize)?.roundToDouble()
-            : nutriments.getValue(nutrient, _perSize),
-        unit,
-      );
-      if (value != null) {
-        _values[nutrient] = value;
+    // The packaging set, then the manufacturer set.
+    List<NutritionSet?> getSets(final PerSize perSize) => <NutritionSet?>[
+      for (final String source in <String>[
+        NutritionSetKey.sourcePackaging,
+        NutritionSetKey.sourceManufacturer,
+      ])
+        helper.getNutritionSet(
+          inputSets,
+          NutritionSetKey(
+            source: source,
+            preparation: NutritionSetKey.preparationAsSold,
+            perSize: perSize,
+          ),
+        ),
+    ];
+
+    if (getSets(PerSize.oneHundredGrams).nonNulls.isEmpty &&
+        getSets(PerSize.oneHundredMilliliters).nonNulls.isNotEmpty) {
+      _hundredPerSize = PerSize.oneHundredMilliliters;
+    }
+
+    for (final PerSize perSize in _lines) {
+      final _Line line = _getLine(perSize);
+      final List<NutritionSet?> sets = getSets(_getSetPerSize(perSize));
+
+      NutritionValue? find(final Nutrient nutrient) => sets
+          .map((final NutritionSet? set) => set?.nutritionValues?[nutrient])
+          .nonNulls
+          .firstOrNull;
+
+      for (final OrderedNutrient orderedNutrient in _nutrients) {
+        final Nutrient nutrient = getNutrient(orderedNutrient)!;
+        final NutritionValue? nutritionValue = find(nutrient);
+        num? value = _getNumber(nutritionValue);
+        if (nutrient == Nutrient.energyKJ) {
+          value ??= getKJFromKCal(_getNumber(find(Nutrient.energyKCal)));
+        }
+        if (value != null) {
+          line.values[nutrient] = value;
+        }
+        if (sets.first?.nutritionValues?[nutrient] == null &&
+            _getNumber(sets.last?.nutritionValues?[nutrient]) != null) {
+          line.fromManufacturer.add(nutrient);
+        }
+        final Unit unit = nutritionValue?.unit ?? nutrient.typicalUnit;
+        line.units[nutrient] = unit;
+        line.initialUnits[nutrient] = unit;
+        final NutrientModifier? modifier = nutritionValue?.modifier;
+        if (modifier != null) {
+          line.modifiers[nutrient] = modifier;
+        }
       }
     }
   }
+
+  static num? _getNumber(final NutritionValue? value) =>
+      num.tryParse(value?.getCleanString() ?? '');
 
   /// Returns true if the user edited something.
   bool isEdited() {
     if (_noNutritionData != _initialNoNutritionData) {
       return true;
     }
-    if (_perSize != _initialPerSize) {
-      return true;
-    }
-    for (final Nutrient nutrient in _units.keys) {
-      if (_initialUnits[nutrient] != _units[nutrient]) {
-        return true;
+    for (final PerSize perSize in _lines) {
+      final _Line line = _getLine(perSize);
+      for (final MapEntry<Nutrient, Unit> entry in line.units.entries) {
+        if (line.initialUnits[entry.key] != entry.value) {
+          return true;
+        }
       }
     }
     return false;
   }
 
-  /// Returns a [Product] with changed nutrients data.
-  Product getChangedProduct(Product product) {
-    product.noNutritionData = _noNutritionData;
-    product.nutrimentDataPer = _perSize.offTag;
-    product.nutriments = _getNutriments();
-    product.servingSize = servingSize;
-    return product;
+  /// Plain decimal, no exponent nor group separator.
+  static NumberFormat getNumberFormat(final String locale) =>
+      NumberFormat('####0.########', locale);
+
+  static final NumberFormat _writeFormat = getNumberFormat('en');
+
+  /// Returns the packaging nutrition sets with only the changed nutrients.
+  List<NutritionSet> _getChangedSets() {
+    final List<NutritionSet> result = <NutritionSet>[];
+    for (final PerSize perSize in _lines) {
+      final _Line line = _getLine(perSize);
+      final Map<Nutrient, NutritionValue> nutritionValues =
+          <Nutrient, NutritionValue>{};
+      for (final OrderedNutrient orderedNutrient in _nutrients) {
+        final Nutrient nutrient = getNutrient(orderedNutrient)!;
+        final num? loaded = line.values[nutrient];
+        final bool edited = line.edited.containsKey(nutrient);
+        final Unit unit = line.units[nutrient]!;
+        if (!edited && unit == line.initialUnits[nutrient]) {
+          continue;
+        }
+        final num? value = edited ? line.edited[nutrient] : loaded;
+        if (value == null && loaded == null) {
+          continue;
+        }
+        nutritionValues[nutrient] = NutritionValue(
+          unit: unit,
+          valueString: value == null ? '' : _writeFormat.format(value),
+          modifier: edited ? null : line.modifiers[nutrient],
+        );
+      }
+      if (nutritionValues.isNotEmpty) {
+        result.add(
+          NutritionSet(
+            key: NutritionSetKey(
+              source: NutritionSetKey.sourcePackaging,
+              preparation: NutritionSetKey.preparationAsSold,
+              perSize: _getSetPerSize(perSize),
+            ),
+            nutritionValues: nutritionValues,
+          ),
+        );
+      }
+    }
+    return result;
   }
+
+  /// Returns the minimal products to save, with only the changed data.
+  ///
+  /// The "no nutrition data" flag can't be saved in the same request as the
+  /// nutrition values, hence a separate product.
+  List<Product> getChangedProducts(final String barcode) {
+    final List<Product> result = <Product>[];
+    final Product values = Product(barcode: barcode);
+    final List<NutritionSet> sets = _getChangedSets();
+    if (sets.isNotEmpty) {
+      NutritionHelper().setInputSets(values, sets);
+    }
+    if (servingSize != _initialServingSize) {
+      values.servingSize = servingSize;
+    }
+    if (values.nutrition != null || values.servingSize != null) {
+      result.add(values);
+    }
+    if (_noNutritionData != _initialNoNutritionData) {
+      result.add(Product(barcode: barcode)..noNutritionData = _noNutritionData);
+    }
+    return result;
+  }
+}
+
+/// Values of one line (per 100g or per serving) of the editor.
+class _Line {
+  final Map<Nutrient, num> values = <Nutrient, num>{};
+
+  /// Values typed by the end-user and different from the loaded ones.
+  ///
+  /// A null value means that the end-user cleared the nutrient.
+  final Map<Nutrient, num?> edited = <Nutrient, num?>{};
+
+  final Map<Nutrient, Unit> units = <Nutrient, Unit>{};
+  final Map<Nutrient, Unit> initialUnits = <Nutrient, Unit>{};
+  final Map<Nutrient, NutrientModifier> modifiers =
+      <Nutrient, NutrientModifier>{};
+  final Set<Nutrient> fromManufacturer = <Nutrient>{};
 }

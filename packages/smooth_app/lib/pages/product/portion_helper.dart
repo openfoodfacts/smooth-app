@@ -1,5 +1,6 @@
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -7,14 +8,14 @@ import 'package:smooth_app/query/product_query.dart';
 class PortionHelper {
   PortionHelper(
     final List<OrderedNutrient> localizedNutrients,
-    this.productNutriments,
+    this.product,
     this.grams,
   ) {
     _numberFormat = NumberFormat('####0.###', ProductQuery.getLocaleString());
     _populateFactoredNutrients(localizedNutrients);
   }
 
-  final Nutriments productNutriments;
+  final Product product;
 
   /// Size of the portion, in grams.
   final int grams;
@@ -68,10 +69,7 @@ class PortionHelper {
     final Nutrient nutrient,
     final String nutrientName,
   ) {
-    double? value = productNutriments.getValue(
-      nutrient,
-      PerSize.oneHundredGrams,
-    );
+    double? value = product.getNutrientValuePer100(nutrient);
     if (value == null) {
       return;
     }
