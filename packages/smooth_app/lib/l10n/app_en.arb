@@ -6031,6 +6031,14 @@
       }
     }
   },
+  "save_scanned_and_viewed_products": "Save scanned and viewed products",
+  "@save_scanned_and_viewed_products": {
+    "description": "App setting that controls whether scanned products are saved in the scan history, and viewed products lists."
+  },
+  "save_scanned_and_viewed_products_body": "When disabled, products are not added to your scan history, or viewed products lists. Your own lists are not affected.",
+  "@save_scanned_and_viewed_products_body": {
+    "description": "Description for the setting that controls whether scanned products are saved automatically."
+  },
   "donation_reminder_funding": "**{raised}** of {goal}",
   "@donation_reminder_funding": {
     "description": "Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.",
