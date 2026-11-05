@@ -27,7 +27,9 @@ android {
     }
 
     defaultConfig {
-        applicationId = "org.openfoodfacts.scanner"
+        // Allow package name to be overridden via PACKAGE_NAME environment variable
+        // This enables building different apps (OFF, OBF, OPFF, OPF) from the same codebase
+        applicationId = System.getenv("PACKAGE_NAME") ?: "org.openfoodfacts.scanner"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
