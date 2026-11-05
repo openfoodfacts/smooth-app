@@ -96,11 +96,13 @@
 
       if (!value.isGranted) {
         await _requestPermission();
+        _trackRefusal();
         return;
       }
     }
   }
 
+  _trackRefusal();
   _status = _DevicePermissionStatus.answered;
 }</code></pre>
 </section>

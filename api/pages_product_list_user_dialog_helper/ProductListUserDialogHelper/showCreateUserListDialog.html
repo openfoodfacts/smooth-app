@@ -133,6 +133,7 @@
 
   final ProductList productList = ProductList.user(title);
   await daoProductList.put(productList);
+  AnalyticsHelper.trackEvent(AnalyticsEvent.userListCreated);
   daoProductList.localDatabase.notifyListeners();
   return productList;
 }</code></pre>

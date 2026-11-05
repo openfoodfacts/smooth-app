@@ -121,6 +121,10 @@ Returns true if products were added</p>
               ProductList.user(list),
               barcodes.toList(),
             );
+            AnalyticsHelper.trackEvent(
+              AnalyticsEvent.userListProductAdded,
+              eventValue: barcodes.length,
+            );
           }
 
           &#47;&#47; List got unselected

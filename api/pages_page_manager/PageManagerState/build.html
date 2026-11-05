@@ -244,6 +244,13 @@ Widget build(BuildContext context) {
             carouselManager.showSearchCard();
           }
 
+          if (_pageKeys[index] != _currentPage) {
+            AnalyticsHelper.trackEvent(
+              AnalyticsEvent.bottomTabSelected,
+              action: _pageKeys[index].name,
+            );
+          }
+
           _selectTab(_pageKeys[index], index);
         },
       ),
