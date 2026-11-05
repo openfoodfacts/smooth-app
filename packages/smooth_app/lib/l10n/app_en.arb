@@ -1318,6 +1318,14 @@
   "@clear_long": {
     "description": "Clears a product list (long label)"
   },
+  "clear_default_list_histories": "Clear default list histories",
+  "@clear_default_list_histories": {
+    "description": "Action to clear the products from the built-in product lists"
+  },
+  "confirm_clear_default_list_histories": "This will remove products from the three default lists. Custom lists won't be affected. Continue?",
+  "@confirm_clear_default_list_histories": {
+    "description": "Confirmation explaining that clearing default histories does not affect custom lists"
+  },
   "really_clear": "Do you really want to delete this list?",
   "@Plural": {},
   "pct_match": "{percent}% match",
