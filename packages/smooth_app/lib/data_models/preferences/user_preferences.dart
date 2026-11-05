@@ -126,6 +126,7 @@ class UserPreferences extends ChangeNotifier {
 
   /// User picture source
   static const String _TAG_USER_PICTURE_SOURCE = 'userPictureSource';
+  static const String _TAG_LAST_PICTURE_SOURCE = 'lastPictureSource';
 
   /// If the in-app review was asked at least one time (false by default)
   static const String _TAG_IN_APP_REVIEW_ALREADY_DISPLAYED =
@@ -630,13 +631,66 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP) ??
       AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY;
 
-  UserPictureSource get userPictureSource => UserPictureSource.fromString(
-    _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
-        UserPictureSource.defaultValue.tag,
-  );
+  /// Returns the explicitly configured [UserPictureSource] if one was saved,
+  /// or null if the user has not set an explicit preference.
+  UserPictureSource? get explicitUserPictureSource {
+    final String? tag = _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE);
+    if (tag == null) {
+      return null;
+    }
+    try {
+      return UserPictureSource.fromString(tag);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Returns the persistently remembered last picture source (Camera or Gallery),
+  /// or null if no photo source has been selected yet.
+  UserPictureSource? get lastPictureSource {
+    final String? tag = _sharedPreferences.getString(_TAG_LAST_PICTURE_SOURCE);
+    if (tag == null) {
+      return null;
+    }
+    try {
+      final UserPictureSource source = UserPictureSource.fromString(tag);
+      return source == UserPictureSource.SELECT ? null : source;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Persistently stores the last selected picture source (Camera or Gallery).
+  Future<void> setLastPictureSource(final UserPictureSource source) async {
+    if (source == UserPictureSource.SELECT) {
+      return;
+    }
+    await _sharedPreferences.setString(_TAG_LAST_PICTURE_SOURCE, source.tag);
+    notifyListeners();
+  }
+
+  /// Resets the remembered last picture source.
+  Future<void> resetLastPictureSource() async {
+    await _sharedPreferences.remove(_TAG_LAST_PICTURE_SOURCE);
+    notifyListeners();
+  }
+
+  /// Clears any explicitly configured picture source preference.
+  Future<void> clearUserPictureSource() async {
+    await _sharedPreferences.remove(_TAG_USER_PICTURE_SOURCE);
+    notifyListeners();
+  }
+
+  /// Returns the explicitly configured picture source, defaulting to
+  /// [UserPictureSource.defaultValue] (i.e. SELECT / "Ask each time").
+  UserPictureSource get userPictureSource =>
+      explicitUserPictureSource ?? UserPictureSource.defaultValue;
 
   Future<void> setUserPictureSource(final UserPictureSource source) async {
     await _sharedPreferences.setString(_TAG_USER_PICTURE_SOURCE, source.tag);
+    if (source != UserPictureSource.SELECT) {
+      await _sharedPreferences.setString(_TAG_LAST_PICTURE_SOURCE, source.tag);
+    }
     notifyListeners();
   }
 

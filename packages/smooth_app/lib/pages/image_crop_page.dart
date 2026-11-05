@@ -52,47 +52,75 @@ Future<XFile?> pickImageFile(
   final BuildContext context, {
   final UserPictureSource? forcedSource,
 }) async {
+  final UserPreferences userPreferences = context.read<UserPreferences>();
+
   /// Picks an image file from gallery or camera.
   Future<XFile?> innerPickImageFile(
     final BuildContext context, {
     bool ignorePlatformException = false,
   }) async {
     final UserPictureSource? source;
-    if (forcedSource != null) {
+    bool isFromLastSource = false;
+
+    if (forcedSource != null && forcedSource != UserPictureSource.SELECT) {
       source = forcedSource;
     } else {
-      source = await _getUserPictureSource(context);
+      source = await getUserPictureSource(context);
       if (source == null) {
         return null;
       }
-    }
-    final ImagePicker picker = ImagePicker();
-    if (source == UserPictureSource.GALLERY) {
-      try {
-        return picker.pickImage(
-          imageQuality: ImagePickerConstants.imagePickerQuality,
-          maxHeight: ImagePickerConstants.imagePickerMaxSize,
-          maxWidth: ImagePickerConstants.imagePickerMaxSize,
-          source: ImageSource.gallery,
-        );
-      } on PlatformException catch (e) {
-        // On debug builds this catch won't work.
-        // Please run on profile/release modes to test it
-        if (ignorePlatformException) {
-          return null;
-        } else if (e.code == 'photo_access_denied') {
-          throw PhotoAccessDenied();
-        } else {
-          rethrow;
-        }
+      if (userPreferences.explicitUserPictureSource == null &&
+          userPreferences.lastPictureSource == source) {
+        isFromLastSource = true;
       }
     }
-    return picker.pickImage(
-      imageQuality: ImagePickerConstants.imagePickerQuality,
-      maxHeight: ImagePickerConstants.imagePickerMaxSize,
-      maxWidth: ImagePickerConstants.imagePickerMaxSize,
-      source: ImageSource.camera,
-    );
+
+    Future<XFile?> pick(final UserPictureSource src) async {
+      final ImagePicker picker = ImagePicker();
+      if (src == UserPictureSource.GALLERY) {
+        try {
+          return await picker.pickImage(
+            imageQuality: ImagePickerConstants.imagePickerQuality,
+            maxHeight: ImagePickerConstants.imagePickerMaxSize,
+            maxWidth: ImagePickerConstants.imagePickerMaxSize,
+            source: ImageSource.gallery,
+          );
+        } on PlatformException catch (e) {
+          // On debug builds this catch won't work.
+          // Please run on profile/release modes to test it
+          if (ignorePlatformException) {
+            return null;
+          } else if (e.code == 'photo_access_denied') {
+            throw PhotoAccessDenied();
+          } else {
+            rethrow;
+          }
+        }
+      }
+      return picker.pickImage(
+        imageQuality: ImagePickerConstants.imagePickerQuality,
+        maxHeight: ImagePickerConstants.imagePickerMaxSize,
+        maxWidth: ImagePickerConstants.imagePickerMaxSize,
+        source: ImageSource.camera,
+      );
+    }
+
+    XFile? pickedFile = await pick(source);
+
+    // If the source was automatically launched via lastPictureSource (not an explicit setting)
+    // and the user cancelled it without picking an image, provide an escape hatch by prompting
+    // so the user can easily switch to the other source or cancel.
+    if (pickedFile == null && isFromLastSource && context.mounted) {
+      final UserPictureSource? fallbackSource = await getUserPictureSource(
+        context,
+        forcePrompt: true,
+      );
+      if (fallbackSource != null && context.mounted) {
+        pickedFile = await pick(fallbackSource);
+      }
+    }
+
+    return pickedFile;
   }
 
   try {
@@ -114,37 +142,55 @@ Future<XFile?> pickImageFile(
 }
 
 /// Returns the picture source selected by the user.
-Future<UserPictureSource?> _getUserPictureSource(
-  final BuildContext context,
-) async {
+@visibleForTesting
+Future<UserPictureSource?> getUserPictureSource(
+  final BuildContext context, {
+  bool forcePrompt = false,
+}) async {
   if (!CameraHelper.hasACamera) {
     return UserPictureSource.GALLERY;
   }
   final UserPreferences userPreferences = context.read<UserPreferences>();
-  final UserPictureSource source = userPreferences.userPictureSource;
-  if (source != UserPictureSource.SELECT) {
-    return source;
+
+  if (!forcePrompt) {
+    final UserPictureSource explicit = userPreferences.userPictureSource;
+    if (explicit != UserPictureSource.SELECT) {
+      return explicit;
+    }
+    if (userPreferences.explicitUserPictureSource != UserPictureSource.SELECT) {
+      final UserPictureSource? lastSource = userPreferences.lastPictureSource;
+      if (lastSource != null) {
+        return lastSource;
+      }
+    }
   }
 
-  return showSmoothModalSheet<UserPictureSource>(
-    context: context,
-    builder: (BuildContext context) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final UserPictureSource? selectedSource =
+      await showSmoothModalSheet<UserPictureSource>(
+        context: context,
+        builder: (BuildContext context) {
+          final AppLocalizations appLocalizations = AppLocalizations.of(
+            context,
+          );
 
-      return SmoothModalSheet(
-        title: appLocalizations.choose_image_source_title,
-        closeButton: true,
-        closeButtonSemanticsOrder: 5.0,
-        body: const _ImageSourcePicker(),
-        bodyPadding: const EdgeInsetsDirectional.only(
-          start: BALANCED_SPACE,
-          end: MEDIUM_SPACE,
-          top: LARGE_SPACE,
-          bottom: MEDIUM_SPACE,
-        ),
+          return SmoothModalSheet(
+            title: appLocalizations.choose_image_source_title,
+            closeButton: true,
+            closeButtonSemanticsOrder: 5.0,
+            body: const _ImageSourcePicker(),
+            bodyPadding: const EdgeInsetsDirectional.only(
+              start: BALANCED_SPACE,
+              end: MEDIUM_SPACE,
+              top: LARGE_SPACE,
+              bottom: MEDIUM_SPACE,
+            ),
+          );
+        },
       );
-    },
-  );
+  if (selectedSource != null && selectedSource != UserPictureSource.SELECT) {
+    await userPreferences.setLastPictureSource(selectedSource);
+  }
+  return selectedSource;
 }
 
 class _ImageSourcePicker extends StatefulWidget {

@@ -12,6 +12,8 @@ const String _tagStripHiddenUntil = 'donationStripHiddenUntil';
 const String _tagProductsLookedUp = 'productsLookedUpSinceAsk';
 const String _tagLastCountedBarcode = 'lastCountedBarcode';
 const String _tagLastReminderShownAt = 'lastReminderShownAt';
+const String _tagUserPictureSource = 'userPictureSource';
+const String _tagLastPictureSource = 'lastPictureSource';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +34,8 @@ void main() {
     await sharedPreferences.remove(_tagProductsLookedUp);
     await sharedPreferences.remove(_tagLastCountedBarcode);
     await sharedPreferences.remove(_tagLastReminderShownAt);
+    await sharedPreferences.remove(_tagUserPictureSource);
+    await sharedPreferences.remove(_tagLastPictureSource);
   });
 
   group('donationAsksMuted', () {
@@ -162,5 +166,148 @@ void main() {
       shownAt!.difference(before).abs(),
       lessThan(const Duration(seconds: 5)),
     );
+  });
+
+  group('picture source preferences and precedence', () {
+    test('initial state has no explicit preference and no last source', () {
+      expect(userPreferences.explicitUserPictureSource, isNull);
+      expect(userPreferences.lastPictureSource, isNull);
+      expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+    });
+
+    test('setLastPictureSource persists and notifies', () async {
+      int notified = 0;
+      void listener() => notified++;
+      userPreferences.addListener(listener);
+      addTearDown(() => userPreferences.removeListener(listener));
+
+      await userPreferences.setLastPictureSource(UserPictureSource.CAMERA);
+      expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
+      expect(sharedPreferences.getString(_tagLastPictureSource), 'C');
+      expect(notified, 1);
+
+      await userPreferences.setLastPictureSource(UserPictureSource.GALLERY);
+      expect(userPreferences.lastPictureSource, UserPictureSource.GALLERY);
+      expect(sharedPreferences.getString(_tagLastPictureSource), 'G');
+      expect(notified, 2);
+
+      // Setting SELECT as last source is a no-op
+      await userPreferences.setLastPictureSource(UserPictureSource.SELECT);
+      expect(userPreferences.lastPictureSource, UserPictureSource.GALLERY);
+      expect(sharedPreferences.getString(_tagLastPictureSource), 'G');
+      expect(notified, 2);
+
+      await userPreferences.resetLastPictureSource();
+      expect(userPreferences.lastPictureSource, isNull);
+      expect(sharedPreferences.getString(_tagLastPictureSource), isNull);
+      expect(notified, 3);
+    });
+
+    test('explicitUserPictureSource reads saved explicit preference', () async {
+      await sharedPreferences.setString(_tagUserPictureSource, 'C');
+      expect(
+        userPreferences.explicitUserPictureSource,
+        UserPictureSource.CAMERA,
+      );
+
+      await sharedPreferences.setString(_tagUserPictureSource, 'G');
+      expect(
+        userPreferences.explicitUserPictureSource,
+        UserPictureSource.GALLERY,
+      );
+
+      await sharedPreferences.setString(_tagUserPictureSource, 'S');
+      expect(
+        userPreferences.explicitUserPictureSource,
+        UserPictureSource.SELECT,
+      );
+
+      await sharedPreferences.setString(_tagUserPictureSource, 'INVALID');
+      expect(userPreferences.explicitUserPictureSource, isNull);
+    });
+
+    test(
+      'setUserPictureSource updates both explicit and last source',
+      () async {
+        await userPreferences.setUserPictureSource(UserPictureSource.CAMERA);
+        expect(
+          userPreferences.explicitUserPictureSource,
+          UserPictureSource.CAMERA,
+        );
+        expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
+        expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
+
+        await userPreferences.clearUserPictureSource();
+        expect(userPreferences.explicitUserPictureSource, isNull);
+        // last source is still CAMERA
+        expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
+        // userPictureSource returns explicit preference (defaults to SELECT)
+        expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+      },
+    );
+
+    group('explicit preference and last source separation', () {
+      test('explicit CAMERA persists independently of last source', () async {
+        await userPreferences.setLastPictureSource(UserPictureSource.GALLERY);
+        await userPreferences.setUserPictureSource(UserPictureSource.CAMERA);
+
+        expect(
+          userPreferences.explicitUserPictureSource,
+          UserPictureSource.CAMERA,
+        );
+        expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
+        expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
+
+        // Manually set last source back to GALLERY
+        await sharedPreferences.setString(_tagLastPictureSource, 'G');
+        expect(userPreferences.lastPictureSource, UserPictureSource.GALLERY);
+        expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
+      });
+
+      test('explicit GALLERY persists independently of last source', () async {
+        await userPreferences.setUserPictureSource(UserPictureSource.GALLERY);
+        await sharedPreferences.setString(_tagLastPictureSource, 'C');
+
+        expect(
+          userPreferences.explicitUserPictureSource,
+          UserPictureSource.GALLERY,
+        );
+        expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
+        expect(userPreferences.userPictureSource, UserPictureSource.GALLERY);
+      });
+
+      test('explicit SELECT ("Ask each time") returns SELECT', () async {
+        await userPreferences.setLastPictureSource(UserPictureSource.CAMERA);
+        await userPreferences.setUserPictureSource(UserPictureSource.SELECT);
+
+        expect(
+          userPreferences.explicitUserPictureSource,
+          UserPictureSource.SELECT,
+        );
+        expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
+        expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+      });
+
+      test(
+        'when no explicit preference is set, userPictureSource defaults to SELECT',
+        () async {
+          expect(userPreferences.explicitUserPictureSource, isNull);
+          expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+
+          await userPreferences.setLastPictureSource(UserPictureSource.CAMERA);
+          expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
+          expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+        },
+      );
+
+      test(
+        'when no explicit preference and no last source, defaults to SELECT',
+        () {
+          expect(userPreferences.explicitUserPictureSource, isNull);
+          expect(userPreferences.lastPictureSource, isNull);
+          expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+        },
+      );
+    });
   });
 }
