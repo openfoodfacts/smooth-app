@@ -131,6 +131,7 @@ In order to run the application, make sure you are in the `packages/smooth_app` 
 these commands:
 
 - `flutter pub get .`
+- Fast Development / Desktop ⚡: `flutter run -t lib/entrypoints/dev/main_dev.dart` (or `-d macos` / `-d linux` / `-d windows` for instant desktop execution without emulators)
 - On Android 🤖: `flutter run -t lib/entrypoints/android/main_google_play.dart`
 - On iOS/macOS 🍎: `flutter run -t lib/entrypoints/ios/main_ios.dart`
 - Troubleshooting : If you get an error like

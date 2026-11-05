@@ -30,6 +30,18 @@ class SmoothColorsThemeExtension
     required this.greyLight,
     required this.cellOdd,
     required this.cellEven,
+    required this.greyUltraLight,
+    required this.greySemiLight,
+    required this.greyFair,
+    required this.greyUltraDark,
+    required this.scoreLightGreen,
+    required this.scoreDarkYellow,
+    required this.scoreDarkOrange,
+    required this.scoreRedBackground,
+    required this.scoreOrangeBackground,
+    required this.scoreYellowBackground,
+    required this.scoreLightGreenBackground,
+    required this.scoreDarkGreenBackground,
   });
 
   SmoothColorsThemeExtension.defaultValues(bool lightTheme)
@@ -59,7 +71,19 @@ class SmoothColorsThemeExtension
       greyMedium = const Color(0xFF8F8F8F),
       greyLight = const Color(0xFFE0E0E0),
       cellOdd = lightTheme ? const Color(0xFFFAF8F6) : const Color(0xFF2D251E),
-      cellEven = lightTheme ? const Color(0xFFFFFFFF) : const Color(0xFF201A17);
+      cellEven = lightTheme ? const Color(0xFFFFFFFF) : const Color(0xFF201A17),
+      greyUltraLight = const Color(0xFFF2F2F2),
+      greySemiLight = const Color(0xFFBFBFBF),
+      greyFair = const Color(0xFF888888),
+      greyUltraDark = const Color(0xFF4F4F4F),
+      scoreLightGreen = const Color(0xFF60AC0E),
+      scoreDarkYellow = const Color(0xFFC88F01),
+      scoreDarkOrange = const Color(0xFFE07312),
+      scoreRedBackground = const Color(0xFFFFCCCC),
+      scoreOrangeBackground = const Color(0xFFFFE6CC),
+      scoreYellowBackground = const Color(0xFFFFFFCC),
+      scoreLightGreenBackground = const Color(0xFFE6FFCC),
+      scoreDarkGreenBackground = const Color(0xFFCCFFCC);
 
   // Ristreto
   final Color primaryUltraBlack;
@@ -111,6 +135,38 @@ class SmoothColorsThemeExtension
   final Color cellOdd;
   final Color cellEven;
 
+  /// Unknown score cards, text of average cells in panel tables, packaging
+  /// editor cards
+  final Color greyUltraLight;
+
+  /// Loading product cards (light), onboarding bottom bar, packaging editor
+  /// cards
+  final Color greySemiLight;
+
+  /// Background of unknown attribute icons
+  final Color greyFair;
+
+  /// Unknown score text, loading product cards (dark), packaging editor cards
+  final Color greyUltraDark;
+
+  // Reserved for scores, do not reuse elsewhere.
+
+  /// Text of good score cards, background of good attribute icons
+  final Color scoreLightGreen;
+
+  /// Text of neutral score cards
+  final Color scoreDarkYellow;
+
+  /// Text of neutral cells in panel tables
+  final Color scoreDarkOrange;
+
+  /// Score card backgrounds, from very bad to very good
+  final Color scoreRedBackground;
+  final Color scoreOrangeBackground;
+  final Color scoreYellowBackground;
+  final Color scoreLightGreenBackground;
+  final Color scoreDarkGreenBackground;
+
   @override
   ThemeExtension<SmoothColorsThemeExtension> copyWith({
     Color? primaryUltraBlack,
@@ -140,6 +196,18 @@ class SmoothColorsThemeExtension
     Color? greyLight,
     Color? cellOdd,
     Color? cellEven,
+    Color? greyUltraLight,
+    Color? greySemiLight,
+    Color? greyFair,
+    Color? greyUltraDark,
+    Color? scoreLightGreen,
+    Color? scoreDarkYellow,
+    Color? scoreDarkOrange,
+    Color? scoreRedBackground,
+    Color? scoreOrangeBackground,
+    Color? scoreYellowBackground,
+    Color? scoreLightGreenBackground,
+    Color? scoreDarkGreenBackground,
   }) {
     return SmoothColorsThemeExtension(
       primaryUltraBlack: primaryUltraBlack ?? this.primaryUltraBlack,
@@ -169,6 +237,22 @@ class SmoothColorsThemeExtension
       greyLight: greyLight ?? this.greyLight,
       cellOdd: cellOdd ?? this.cellOdd,
       cellEven: cellEven ?? this.cellEven,
+      greyUltraLight: greyUltraLight ?? this.greyUltraLight,
+      greySemiLight: greySemiLight ?? this.greySemiLight,
+      greyFair: greyFair ?? this.greyFair,
+      greyUltraDark: greyUltraDark ?? this.greyUltraDark,
+      scoreLightGreen: scoreLightGreen ?? this.scoreLightGreen,
+      scoreDarkYellow: scoreDarkYellow ?? this.scoreDarkYellow,
+      scoreDarkOrange: scoreDarkOrange ?? this.scoreDarkOrange,
+      scoreRedBackground: scoreRedBackground ?? this.scoreRedBackground,
+      scoreOrangeBackground:
+          scoreOrangeBackground ?? this.scoreOrangeBackground,
+      scoreYellowBackground:
+          scoreYellowBackground ?? this.scoreYellowBackground,
+      scoreLightGreenBackground:
+          scoreLightGreenBackground ?? this.scoreLightGreenBackground,
+      scoreDarkGreenBackground:
+          scoreDarkGreenBackground ?? this.scoreDarkGreenBackground,
     );
   }
 
@@ -226,6 +310,38 @@ class SmoothColorsThemeExtension
       greyLight: Color.lerp(greyLight, other.greyLight, t)!,
       cellOdd: Color.lerp(cellOdd, other.cellOdd, t)!,
       cellEven: Color.lerp(cellEven, other.cellEven, t)!,
+      greyUltraLight: Color.lerp(greyUltraLight, other.greyUltraLight, t)!,
+      greySemiLight: Color.lerp(greySemiLight, other.greySemiLight, t)!,
+      greyFair: Color.lerp(greyFair, other.greyFair, t)!,
+      greyUltraDark: Color.lerp(greyUltraDark, other.greyUltraDark, t)!,
+      scoreLightGreen: Color.lerp(scoreLightGreen, other.scoreLightGreen, t)!,
+      scoreDarkYellow: Color.lerp(scoreDarkYellow, other.scoreDarkYellow, t)!,
+      scoreDarkOrange: Color.lerp(scoreDarkOrange, other.scoreDarkOrange, t)!,
+      scoreRedBackground: Color.lerp(
+        scoreRedBackground,
+        other.scoreRedBackground,
+        t,
+      )!,
+      scoreOrangeBackground: Color.lerp(
+        scoreOrangeBackground,
+        other.scoreOrangeBackground,
+        t,
+      )!,
+      scoreYellowBackground: Color.lerp(
+        scoreYellowBackground,
+        other.scoreYellowBackground,
+        t,
+      )!,
+      scoreLightGreenBackground: Color.lerp(
+        scoreLightGreenBackground,
+        other.scoreLightGreenBackground,
+        t,
+      )!,
+      scoreDarkGreenBackground: Color.lerp(
+        scoreDarkGreenBackground,
+        other.scoreDarkGreenBackground,
+        t,
+      )!,
     );
   }
 }

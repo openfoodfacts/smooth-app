@@ -50,6 +50,12 @@ variations, and extensive testing infrastructure.
 ```bash
 cd packages/smooth_app
 
+# Fast development (Desktop / Mobile without heavy scanner/store overhead) - RECOMMENDED FOR UI & LOGIC
+fvm flutter run -t lib/entrypoints/dev/main_dev.dart
+# Run directly on Desktop (instant build, no emulator required):
+fvm flutter run -d macos -t lib/entrypoints/dev/main_dev.dart
+# (or -d linux / -d windows)
+
 # Android (Google Play variant) - DEFAULT
 fvm flutter run -t lib/entrypoints/android/main_google_play.dart
 # NEVER CANCEL: Initial build takes 10-15 minutes, subsequent builds 2-3 minutes

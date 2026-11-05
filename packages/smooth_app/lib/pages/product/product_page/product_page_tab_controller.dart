@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
 
 class ProductPageTabController extends StatefulWidget {
@@ -32,7 +34,7 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
         length: _tabs.length,
         vsync: this,
         initialIndex: 0,
-      );
+      )..addListener(_onTabChanged);
       _isInitialized = true;
     }
   }
@@ -41,10 +43,15 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
   void didUpdateWidget(covariant ProductPageTabController oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.product != oldWidget.product) {
+      final List<ProductPageTab> newTabs = const ProductPageTabsGenerator()
+          .getTabs(context, widget.product);
+      // Every page rebuild brings a new copy of the product: a new controller
+      // would cancel a swipe in progress.
+      if (listEquals(_ids(newTabs), _ids(_tabs))) {
+        _tabs = newTabs;
+        return;
+      }
       setState(() {
-        final List<ProductPageTab> newTabs = const ProductPageTabsGenerator()
-            .getTabs(context, widget.product);
-
         final int oldIndex = _tabController.index;
         _tabController.dispose();
 
@@ -53,8 +60,20 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
           length: _tabs.length,
           vsync: this,
           initialIndex: oldIndex < _tabs.length ? oldIndex : 0,
-        );
+        )..addListener(_onTabChanged);
       });
+    }
+  }
+
+  List<String> _ids(List<ProductPageTab> tabs) =>
+      tabs.map((ProductPageTab tab) => tab.id).toList(growable: false);
+
+  void _onTabChanged() {
+    if (!_tabController.indexIsChanging) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.productPageTabSelected,
+        action: _tabs[_tabController.index].id,
+      );
     }
   }
 

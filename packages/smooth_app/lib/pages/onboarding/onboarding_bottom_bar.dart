@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Bottom Bar during onboarding. Typical use case: previous/next buttons.
 class OnboardingBottomBar extends StatelessWidget {
@@ -33,7 +34,9 @@ class OnboardingBottomBar extends StatelessWidget {
         Container(
           height: SMALL_SPACE,
           width: screenSize.width,
-          color: backgroundColor == null ? null : LIGHT_GREY_COLOR,
+          color: backgroundColor == null
+              ? null
+              : context.extension<SmoothColorsThemeExtension>().greySemiLight,
         ),
         Container(
           padding: EdgeInsets.symmetric(

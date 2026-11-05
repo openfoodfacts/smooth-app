@@ -49,6 +49,9 @@ void main() {
   debugPrint(' - flutter run -t lib/entrypoints/android/main_google_play.dart');
   debugPrint(' - flutter run -t lib/entrypoints/ios/main_ios.dart');
   debugPrint(
+    ' - flutter run -t lib/entrypoints/dev/main_dev.dart (fast development / desktop)',
+  );
+  debugPrint(
     'More information here: https://github.com/openfoodfacts/smooth-app#how-to-run-the-project',
   );
   debugPrint('--------');
