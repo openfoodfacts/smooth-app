@@ -23,9 +23,10 @@ class QueryProductListSupplier extends ProductListSupplier {
           searchResult.products!.map(
             (final Product product) => product.barcode!,
           ),
+          language: productQuery.language,
         );
-        // Search results come without knowledge panels: we keep the local ones
-        // if the product is unchanged.
+        // Search results usually come without knowledge panels: we keep the
+        // local ones if the product is unchanged and in the same language.
         // lastModified only catches raw data edits, not recomputed fields:
         // good enough for now.
         for (final Product product in searchResult.products!) {
