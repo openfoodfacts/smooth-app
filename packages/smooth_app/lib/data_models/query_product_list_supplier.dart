@@ -21,7 +21,7 @@ class QueryProductListSupplier extends ProductListSupplier {
         final DaoProduct daoProduct = DaoProduct(localDatabase);
         final Map<String, Product> localProducts = await daoProduct.getAll(
           searchResult.products!.map(
-            (final Product product) => product.barcode!,
+            (Product product) => product.barcode!,
           ),
           language: productQuery.language,
         );
