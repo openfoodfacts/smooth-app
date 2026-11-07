@@ -74,8 +74,8 @@ Returns true if products were added</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;bool?&gt; showUserAddProductsDialog(
-  final BuildContext context,
-  final Set&lt;String&gt; barcodes,
+  BuildContext context,
+  Set&lt;String&gt; barcodes,
 ) async {
   final List&lt;String&gt; lists = daoProductList.getUserLists();
 

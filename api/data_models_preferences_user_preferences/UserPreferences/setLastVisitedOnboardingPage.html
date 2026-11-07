@@ -73,7 +73,7 @@ navigated before that tap would report before consent.</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setLastVisitedOnboardingPage(final OnboardingPage page) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setLastVisitedOnboardingPage(OnboardingPage page) async {
   await _sharedPreferences.setInt(
     _TAG_LAST_VISITED_ONBOARDING_PAGE,
     page.index,

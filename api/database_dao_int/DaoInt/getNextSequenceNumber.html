@@ -73,7 +73,7 @@ This is useful to generate a unique id for a given <code>key</code>.</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; getNextSequenceNumber(final String key) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; getNextSequenceNumber(String key) async {
   int? result = get(key);
   if (result == null) {
     result = 1;

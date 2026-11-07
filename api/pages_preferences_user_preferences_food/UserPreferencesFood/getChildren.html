@@ -70,7 +70,7 @@
   &#47;&#47; we don&#39;t want this on the onboarding
   UserPreferencesItemSimple(
     labels: &lt;String&gt;[appLocalizations.reset_food_prefs],
-    builder: (final BuildContext context) =&gt; ListTile(
+    builder: (BuildContext context) =&gt; ListTile(
       title: Text(appLocalizations.reset_food_prefs),
       onTap: () async =&gt; _confirmReset(),
       leading: Icon(

@@ -73,9 +73,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setFavorite(
-  final LocalDatabase localDatabase,
-  final OsmLocation location,
-  final bool isFavorite,
+  LocalDatabase localDatabase,
+  OsmLocation location,
+  bool isFavorite,
 ) async {
   final DaoStringList daoStringList = DaoStringList(localDatabase);
   final String locationKey = _locationToString(location);

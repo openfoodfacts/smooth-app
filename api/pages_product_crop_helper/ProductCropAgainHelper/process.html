@@ -85,15 +85,15 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;CropParameters&gt; process({
-  required final BuildContext context,
-  required final CropController controller,
-  required final File inputFile,
-  required final int inputFullWidth,
-  required final int inputFullHeight,
-  required final File preCroppedFile,
-  required final Directory directory,
-  required final int sequenceNumber,
-  required final List&lt;Offset&gt; offsets,
+  required BuildContext context,
+  required CropController controller,
+  required File inputFile,
+  required int inputFullWidth,
+  required int inputFullHeight,
+  required File preCroppedFile,
+  required Directory directory,
+  required int sequenceNumber,
+  required List&lt;Offset&gt; offsets,
 }) async {
   &#47;&#47; in this case, it&#39;s an existing picture, with crop parameters.
   &#47;&#47; we let the server do everything: better performance, and no privacy

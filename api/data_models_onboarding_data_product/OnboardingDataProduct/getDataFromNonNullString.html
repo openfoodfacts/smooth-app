@@ -76,7 +76,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Product getDataFromNonNullString(final String jsonString) {
+Product getDataFromNonNullString(String jsonString) {
   final Map&lt;String, dynamic&gt; productData =
       jsonDecode(jsonString) as Map&lt;String, dynamic&gt;;
   return Product.fromJson(productData[&#39;product&#39;] as Map&lt;String, dynamic&gt;);

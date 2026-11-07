@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">double getWidth(final KnowledgePanelTableCellWidthComputer computer) {
+  <pre class="language-dart"><code class="language-dart">double getWidth(KnowledgePanelTableCellWidthComputer computer) {
   double result = computer.computeTextSize(text, _getStyle(computer)).width;
   if (iconUrl != null) {
     result += iconWidth;

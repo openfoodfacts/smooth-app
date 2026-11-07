@@ -73,12 +73,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Widget getButton({
-  required final Product product,
-  required final ImageField imageField,
-  required final OpenFoodFactsLanguage language,
-  required final bool isLoggedInMandatory,
+  required Product product,
+  required ImageField imageField,
+  required OpenFoodFactsLanguage language,
+  required bool isLoggedInMandatory,
   required bool imageExists,
-  final double? borderWidth,
+  double? borderWidth,
 }) =&gt; switch (this) {
   ProductImageButtonType.local =&gt; ProductImageLocalButton(
     product: product,

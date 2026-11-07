@@ -76,12 +76,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;Attribute&gt; getSortedAttributes(
-  final Product product,
-  final List&lt;String&gt; attributeGroupOrder,
-  final Set&lt;String&gt; attributesToExcludeIfStatusIsUnknown,
-  final ProductPreferences preferences,
-  final String importance, {
-  final bool excludeMainScoreAttributes = true,
+  Product product,
+  List&lt;String&gt; attributeGroupOrder,
+  Set&lt;String&gt; attributesToExcludeIfStatusIsUnknown,
+  ProductPreferences preferences,
+  String importance, {
+  bool excludeMainScoreAttributes = true,
 }) {
   final List&lt;Attribute&gt; result = &lt;Attribute&gt;[];
   if (product.attributeGroups == null) {

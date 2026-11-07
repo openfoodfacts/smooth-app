@@ -120,7 +120,7 @@ Widget build(BuildContext context) {
     child: Column(
       children: priceAddProductActions
           .map(
-            (final PriceAddProductAction action) =&gt; Padding(
+            (PriceAddProductAction action) =&gt; Padding(
               padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
               child: SmoothLargeButtonWithIcon(
                 text: action.label(appLocalizations),

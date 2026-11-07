@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void dismiss(final String barcode) {
+  <pre class="language-dart"><code class="language-dart">void dismiss(String barcode) {
   localDatabase.upToDate.loseInterest(barcode);
   initialBarcodes.remove(barcode);
   int? index;

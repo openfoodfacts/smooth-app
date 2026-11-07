@@ -78,8 +78,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;String?&gt; getExtractedText(
-  final Product product,
-  final OpenFoodFactsLanguage language,
+  Product product,
+  OpenFoodFactsLanguage language,
 ) async {
   final OcrIngredientsResult result =
       await OpenFoodAPIClient.extractIngredients(

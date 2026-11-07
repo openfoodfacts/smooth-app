@@ -68,7 +68,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static ProductType? extractProductType(
-  final UriProductHelper uriProductHelper,
+  UriProductHelper uriProductHelper,
 ) {
   final String domain = uriProductHelper.domain;
   for (final ProductType productType in ProductType.values) {

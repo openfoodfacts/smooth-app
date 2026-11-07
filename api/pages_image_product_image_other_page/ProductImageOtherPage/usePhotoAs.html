@@ -71,10 +71,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;ProductImagePageResult?&gt; usePhotoAs({
-  required final BuildContext context,
-  required final Product product,
-  required final OpenFoodFactsLanguage language,
-  required final ProductImage productImage,
+  required BuildContext context,
+  required Product product,
+  required OpenFoodFactsLanguage language,
+  required ProductImage productImage,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final SmoothColorsThemeExtension extension = context
@@ -102,7 +102,7 @@
     ),
     padding: const EdgeInsetsDirectional.only(start: 15.0, end: 19.0),
     labels: imageFields
-        .map((final ImageField imageField) {
+        .map((ImageField imageField) {
           return switch (imageField) {
             ImageField.FRONT =&gt; appLocalizations.photo_field_front,
             ImageField.INGREDIENTS =&gt;
@@ -115,7 +115,7 @@
         .toList(growable: false),
     values: imageFields,
     prefixIcons: imageFields
-        .map((final ImageField imageField) {
+        .map((ImageField imageField) {
           return switch (imageField) {
             ImageField.FRONT =&gt; const icons.Milk.happy(),
             ImageField.INGREDIENTS =&gt; const icons.Ingredients.alt(),
@@ -126,7 +126,7 @@
         })
         .toList(growable: false),
     suffixIcons: imageFields
-        .map((final ImageField imageField) {
+        .map((ImageField imageField) {
           final bool exists = TransientFile.fromProduct(
             product,
             imageField,

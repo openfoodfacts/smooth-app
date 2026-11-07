@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;String?&gt; getDownloadedName(final String tag) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;String?&gt; getDownloadedName(String tag) async {
   final List&lt;String&gt;? result = await getDownloadedNames(&lt;String&gt;[tag]);
   if (result == null) {
     return null;

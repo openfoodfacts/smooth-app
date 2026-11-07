@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static String getKey(final ProductList productList) =&gt;
+  <pre class="language-dart"><code class="language-dart">static String getKey(ProductList productList) =&gt;
     &#39;${productList.listType.key}&#39;
     &#39;$_keySeparator&#39;
     &#39;${base64.encode(utf8.encode(productList.getParametersKey()))}&#39;;</code></pre>

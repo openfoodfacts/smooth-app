@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setUserCountryCode(final String countryCode) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setUserCountryCode(String countryCode) async {
   await _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
   await _sharedPreferences.setInt(
     _TAG_USER_COUNTRY_CODE_LAST_UPDATE,

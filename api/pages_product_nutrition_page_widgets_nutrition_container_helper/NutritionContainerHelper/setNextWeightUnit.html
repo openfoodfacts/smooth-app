@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void setNextWeightUnit(final OrderedNutrient orderedNutrient) {
+  <pre class="language-dart"><code class="language-dart">void setNextWeightUnit(OrderedNutrient orderedNutrient) {
   final Nutrient nutrient = orderedNutrient.nutrient!;
   final Unit unit = getUnit(nutrient);
   _setUnit(nutrient, _nextWeightUnits[unit] ?? unit, init: false);

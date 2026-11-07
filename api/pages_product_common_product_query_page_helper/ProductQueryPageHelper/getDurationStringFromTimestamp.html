@@ -70,9 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static String getDurationStringFromTimestamp(
-  final int timestamp,
-  final BuildContext context, {
-  final bool compact = false,
+  int timestamp,
+  BuildContext context, {
+  bool compact = false,
 }) {
   final int now = LocalDatabase.nowInMillis();
   final int seconds = ((now - timestamp) &#47; 1000).floor();

@@ -70,9 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static String getDurationStringFromSeconds(
-  final int seconds,
-  final AppLocalizations appLocalizations, {
-  final bool compact = false,
+  int seconds,
+  AppLocalizations appLocalizations, {
+  bool compact = false,
 }) {
   final double minutes = seconds &#47; 60;
   final int roundMinutes = minutes.round();

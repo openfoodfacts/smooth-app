@@ -73,9 +73,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; putAll(
-  final Iterable&lt;Product&gt; products,
-  final OpenFoodFactsLanguage language, {
-  required final ProductType productType,
+  Iterable&lt;Product&gt; products,
+  OpenFoodFactsLanguage language, {
+  required ProductType productType,
 }) async {
   for (final Product product in products) {
     &#47;&#47; in case the server product has no product type, which shouldn&#39;t happen
@@ -83,7 +83,7 @@
     product.productType ??= productType;
   }
   await localDatabase.database.transaction(
-    (final Transaction transaction) async =&gt;
+    (Transaction transaction) async =&gt;
         _bulkReplaceLoop(transaction, products, language, productType),
   );
 }</code></pre>

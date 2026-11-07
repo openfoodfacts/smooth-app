@@ -72,8 +72,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String getImportanceForProject(
-  final String attributeId,
-  final PreferencesPageProjects project,
+  String attributeId,
+  PreferencesPageProjects project,
 ) =&gt;
     _sharedPreferences.getString(
       _getImportanceTagForProject(attributeId, project),

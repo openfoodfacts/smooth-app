@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String getShareProductLabel(
-  final AppLocalizations appLocalizations,
-  final String url,
+  AppLocalizations appLocalizations,
+  String url,
 ) =&gt; switch (this) {
   ProductType.food =&gt; appLocalizations.share_product_text(url),
   ProductType.beauty =&gt; appLocalizations.share_product_text_beauty(url),

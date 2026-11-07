@@ -79,9 +79,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;void&gt; edit({
-  required final BuildContext context,
-  required final Product product,
-  final bool isLoggedInMandatory = true,
+  required BuildContext context,
+  required Product product,
+  bool isLoggedInMandatory = true,
 }) async {
   if (!await ProductRefresher().checkIfLoggedIn(
     context,

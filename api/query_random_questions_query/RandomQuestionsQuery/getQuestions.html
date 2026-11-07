@@ -75,8 +75,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;List&lt;RobotoffQuestion&gt;&gt; getQuestions(
-  final LocalDatabase localDatabase,
-  final int count,
+  LocalDatabase localDatabase,
+  int count,
 ) async {
   final RobotoffQuestionResult result = await RobotoffAPIClient.getQuestions(
     ProductQuery.getLanguage(),

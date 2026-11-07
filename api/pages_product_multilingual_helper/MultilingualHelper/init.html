@@ -76,15 +76,15 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void init({
-  required final Map&lt;OpenFoodFactsLanguage, String&gt;? multilingualTexts,
-  required final String? monolingualText,
-  final List&lt;ProductImage&gt;? selectedImages,
-  final ImageField? imageField,
+  required Map&lt;OpenFoodFactsLanguage, String&gt;? multilingualTexts,
+  required String? monolingualText,
+  List&lt;ProductImage&gt;? selectedImages,
+  ImageField? imageField,
   OpenFoodFactsLanguage? productLanguage,
 }) {
   void setMultilingualText(
-    final OpenFoodFactsLanguage language,
-    final String text,
+    OpenFoodFactsLanguage language,
+    String text,
   ) =&gt; _initialMultilingualTexts[language] =
       _currentMultilingualTexts[language] = text;
 

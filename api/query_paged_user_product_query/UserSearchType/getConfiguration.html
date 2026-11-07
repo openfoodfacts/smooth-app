@@ -72,11 +72,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">ProductSearchQueryConfiguration getConfiguration(
-  final String userId,
-  final int pageSize,
-  final int pageNumber,
-  final OpenFoodFactsLanguage language,
-  final List&lt;ProductField&gt; fields,
+  String userId,
+  int pageSize,
+  int pageNumber,
+  OpenFoodFactsLanguage language,
+  List&lt;ProductField&gt; fields,
 ) =&gt; ProductSearchQueryConfiguration(
   parametersList: &lt;Parameter&gt;[
     TagFilter.fromType(tagFilterType: type, tagName: userId),

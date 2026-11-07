@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; visitUrl(final BuildContext context) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; visitUrl(BuildContext context) async {
   if (!isAnUrl()) {
     &#47;&#47; Not supposed to happen
     return;
@@ -75,7 +75,7 @@
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final bool? accepted = await showDialog&lt;bool&gt;(
     context: context,
-    builder: (final BuildContext context) =&gt; SmoothAlertDialog(
+    builder: (BuildContext context) =&gt; SmoothAlertDialog(
       title: appLocalizations.folksonomy_action_external_link_title,
       body: Column(
         spacing: SMALL_SPACE,

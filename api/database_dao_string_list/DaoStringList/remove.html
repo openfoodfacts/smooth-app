@@ -68,7 +68,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; remove(final String key, final String item) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; remove(String key, String item) async {
   final List&lt;String&gt; list = getAll(key);
   if (list.remove(item)) {
     await _getBox().put(key, list);

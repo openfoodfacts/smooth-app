@@ -72,8 +72,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;ProductImage&gt; getRawProductImages(
-  final Product product,
-  final ImageSize imageSize,
+  Product product,
+  ImageSize imageSize,
 ) {
   final List&lt;ProductImage&gt;? rawImages = product.getRawImages();
   if (rawImages == null) {
@@ -104,7 +104,7 @@
     map[imageId] = productImage;
   }
   final List&lt;ProductImage&gt; result = List&lt;ProductImage&gt;.of(map.values);
-  result.sort((final ProductImage a, final ProductImage b) {
+  result.sort((ProductImage a, ProductImage b) {
     final int result = (a.uploaded?.millisecondsSinceEpoch ?? 0).compareTo(
       b.uploaded?.millisecondsSinceEpoch ?? 0,
     );

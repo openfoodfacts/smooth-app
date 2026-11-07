@@ -65,8 +65,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">NutritionContainerHelper({
-  required final OrderedNutrients orderedNutrients,
-  required final Product product,
+  required OrderedNutrients orderedNutrients,
+  required Product product,
 }) {
   _initialPerSize = _perSize =
       PerSize.fromOffTag(product.nutrimentDataPer) ?? PerSize.oneHundredGrams;

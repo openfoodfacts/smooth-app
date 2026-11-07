@@ -67,12 +67,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; put(final String barcode) async =&gt;
-    localDatabase.database.rawInsert(
-      &#39;insert into $TABLE($COLUMN_BARCODE, $COLUMN_LAST_ACCESS) &#39;
-      &#39;values(?, ?)&#39;,
-      &lt;Object&gt;[barcode, LocalDatabase.nowInMillis()],
-    );</code></pre>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; put(String barcode) async =&gt; localDatabase.database.rawInsert(
+  &#39;insert into $TABLE($COLUMN_BARCODE, $COLUMN_LAST_ACCESS) &#39;
+  &#39;values(?, ?)&#39;,
+  &lt;Object&gt;[barcode, LocalDatabase.nowInMillis()],
+);</code></pre>
 </section>
 
 

@@ -95,7 +95,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">set latestProductType(final ProductType value) {
+  <pre class="language-dart"><code class="language-dart">set latestProductType(ProductType value) {
   unawaited(
     _sharedPreferences.setString(_TAG_LATEST_PRODUCT_TYPE, value.offTag),
   );

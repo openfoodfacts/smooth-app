@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Widget getWidget({
-  required final BuildContext context,
-  required final KnowledgePanelTableCellWidthComputer computer,
+  required BuildContext context,
+  required KnowledgePanelTableCellWidthComputer computer,
 }) {
   final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
   final Color? color = getTextColorFromKnowledgePanelElementEvaluation(
@@ -121,7 +121,7 @@
           ),
         );
 
-  Widget getTextWidget(final int maxLines) {
+  Widget getTextWidget(int maxLines) {
     final AlignmentDirectional textAlignment = leftAlign
         ? AlignmentDirectional.centerStart
         : AlignmentDirectional.centerEnd;

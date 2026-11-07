@@ -68,7 +68,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; add(final String barcode, String insightId) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; add(String barcode, String insightId) async {
   final Map&lt;String, List&lt;String&gt;&gt; value = await getAll();
   if (value.keys.contains(barcode)) {
     if (value[barcode] == null) {

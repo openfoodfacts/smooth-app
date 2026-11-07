@@ -85,8 +85,8 @@ With that <code>bool</code> we're able to deal with 2 cases:</p>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;void&gt; postExecute(
-  final LocalDatabase localDatabase,
-  final bool success,
+  LocalDatabase localDatabase,
+  bool success,
 ) async {
   await super.postExecute(localDatabase, success);
   &#47;&#47; TODO(monsieurtanuki): we should also remove the hypothetical transient file, shouldn&#39;t we?

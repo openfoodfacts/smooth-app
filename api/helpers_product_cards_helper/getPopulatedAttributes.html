@@ -70,9 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;Attribute&gt; getPopulatedAttributes(
-  final Product product,
-  final List&lt;String&gt; attributeIds,
-  final List&lt;String&gt; excludedAttributeIds,
+  Product product,
+  List&lt;String&gt; attributeIds,
+  List&lt;String&gt; excludedAttributeIds,
 ) {
   final List&lt;Attribute&gt; result = &lt;Attribute&gt;[];
   final Map&lt;String, Attribute&gt; attributes = product.getAttributes(attributeIds);

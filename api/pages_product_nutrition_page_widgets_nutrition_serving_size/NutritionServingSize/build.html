@@ -120,9 +120,11 @@ Widget build(BuildContext context) {
         child: SmoothCardWithRoundedHeader(
           title: appLocalizations.nutrition_page_serving_size,
           leading: Consumer&lt;TextEditingController&gt;(
-            builder:
-                (BuildContext context, TextEditingController controller, _) =&gt;
-                    ScaleAnimation(animated: controller.text.isNotEmpty),
+            builder: (
+              BuildContext context,
+              TextEditingController controller,
+              _,
+            ) =&gt; ScaleAnimation(animated: controller.text.isNotEmpty),
           ),
           leadingIconSize: 21.0,
           leadingPadding: const EdgeInsetsDirectional.only(

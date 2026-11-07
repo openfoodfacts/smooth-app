@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; clear(final ProductList productList) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; clear(ProductList productList) async {
   final _BarcodeList newList = _BarcodeList.now(&lt;String&gt;[]);
   await _put(getKey(productList), newList);
 }</code></pre>

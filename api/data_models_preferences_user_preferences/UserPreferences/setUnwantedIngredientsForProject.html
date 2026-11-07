@@ -73,7 +73,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setUnwantedIngredientsForProject(
   Map&lt;String, String&gt; ingredientsMap,
-  final PreferencesPageProjects project,
+  PreferencesPageProjects project,
 ) async {
   await _sharedPreferences.setString(
     &#39;${_TAG_UNWANTED_INGREDIENTS}_${project.projectKey}&#39;,

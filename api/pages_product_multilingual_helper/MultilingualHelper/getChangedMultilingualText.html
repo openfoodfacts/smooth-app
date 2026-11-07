@@ -79,7 +79,7 @@
       &lt;OpenFoodFactsLanguage, String&gt;{};
 
   &#47;&#47; setting new names, comparing them to old names for change flag.
-  void setNewName(final OpenFoodFactsLanguage language) {
+  void setNewName(OpenFoodFactsLanguage language) {
     final String newName = getCleanText(_currentMultilingualTexts[language]);
     final String oldName = getCleanText(_initialMultilingualTexts[language]);
     if (newName != oldName) {

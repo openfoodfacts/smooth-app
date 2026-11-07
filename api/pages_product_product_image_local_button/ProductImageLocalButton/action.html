@@ -73,7 +73,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Future&lt;void&gt; action(final BuildContext context) async {
+Future&lt;void&gt; action(BuildContext context) async {
   if (!await ProductRefresher().checkIfLoggedIn(
     context,
     isLoggedInMandatory: isLoggedInMandatory,

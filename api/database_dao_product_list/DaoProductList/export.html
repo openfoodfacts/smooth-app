@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, dynamic&gt;&gt; export(final ProductList productList) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, dynamic&gt;&gt; export(ProductList productList) async {
   final Map&lt;String, dynamic&gt; result = &lt;String, dynamic&gt;{};
   final _BarcodeList? list = await _get(productList);
   if (list == null) {

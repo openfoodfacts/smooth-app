@@ -67,9 +67,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static UserPictureSource fromString(final String tag) =&gt; UserPictureSource
-    .values
-    .firstWhere((final UserPictureSource source) =&gt; source.tag == tag);</code></pre>
+  <pre class="language-dart"><code class="language-dart">static UserPictureSource fromString(String tag) =&gt; UserPictureSource.values
+    .firstWhere((UserPictureSource source) =&gt; source.tag == tag);</code></pre>
 </section>
 
 

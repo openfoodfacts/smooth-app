@@ -74,10 +74,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;CropParameters?&gt; confirmAndUploadNewImage(
-  final BuildContext context, {
-  required final CropHelper cropHelper,
-  required final bool isLoggedInMandatory,
-  final UserPictureSource? forcedSource,
+  BuildContext context, {
+  required CropHelper cropHelper,
+  required bool isLoggedInMandatory,
+  UserPictureSource? forcedSource,
 }) async {
   final XFile? fullPhoto = await pickImageFile(
     context,

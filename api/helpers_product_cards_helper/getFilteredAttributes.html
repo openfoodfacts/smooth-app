@@ -77,11 +77,11 @@ dealt with somewhere else.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;Attribute&gt; getFilteredAttributes(
-  final AttributeGroup attributeGroup,
-  final String importance,
-  final Set&lt;String&gt; attributesToExcludeIfStatusIsUnknown,
-  final ProductPreferences preferences, {
-  final bool excludeMainScoreAttributes = true,
+  AttributeGroup attributeGroup,
+  String importance,
+  Set&lt;String&gt; attributesToExcludeIfStatusIsUnknown,
+  ProductPreferences preferences, {
+  bool excludeMainScoreAttributes = true,
 }) {
   final List&lt;Attribute&gt; result = &lt;Attribute&gt;[];
   if (attributeGroup.attributes == null) {

@@ -74,10 +74,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;T?&gt; run&lt;T&gt;({
-  required final BuildContext context,
-  required final Future&lt;T&gt; future,
-  final String? title,
-  final bool? dismissible,
+  required BuildContext context,
+  required Future&lt;T&gt; future,
+  String? title,
+  bool? dismissible,
 }) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   return LoadingDialog&lt;T&gt;._()._run(

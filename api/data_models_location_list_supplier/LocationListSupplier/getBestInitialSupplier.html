@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static LocationListSupplier getBestInitialSupplier(final String query) {
+  <pre class="language-dart"><code class="language-dart">static LocationListSupplier getBestInitialSupplier(String query) {
   int? osmId = int.tryParse(query);
   if (osmId != null) {
     final List&lt;String&gt; queries = &lt;String&gt;[];

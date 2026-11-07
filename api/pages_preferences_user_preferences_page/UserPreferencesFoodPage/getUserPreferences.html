@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static UserPreferencesFood getUserPreferences({
-  required final UserPreferences userPreferences,
-  required final BuildContext context,
+  required UserPreferences userPreferences,
+  required BuildContext context,
 }) {
   final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
   BackgroundTaskManager.runAgain(localDatabase);

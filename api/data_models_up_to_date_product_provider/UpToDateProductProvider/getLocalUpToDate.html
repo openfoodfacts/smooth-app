@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Product getLocalUpToDate(final Product initialProduct) {
+  <pre class="language-dart"><code class="language-dart">Product getLocalUpToDate(Product initialProduct) {
   final String barcode = initialProduct.barcode!;
   Product result = copy(_latestDownloadedProducts[barcode] ?? initialProduct);
   result = _changes.getUpToDateProduct(result);

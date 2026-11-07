@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">bool arePreferencesSetForProject(final PreferencesPageProjects project) {
+  <pre class="language-dart"><code class="language-dart">bool arePreferencesSetForProject(PreferencesPageProjects project) {
   final Set&lt;String&gt; keys = _sharedPreferences.getKeys();
   final String prefix = _getImportancePrefixForProject(project);
   for (final String key in keys) {

@@ -74,10 +74,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; addTask({
-  required final String barcode,
-  required final String insightId,
-  required final InsightAnnotation insightAnnotation,
-  required final BuildContext context,
+  required String barcode,
+  required String insightId,
+  required InsightAnnotation insightAnnotation,
+  required BuildContext context,
 }) async {
   final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
   final String uniqueId = await _operationType.getNewKey(

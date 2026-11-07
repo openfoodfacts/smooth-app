@@ -67,17 +67,16 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String getErrorMessage(final AppLocalizations appLocalizations) =&gt;
-    switch (type) {
-      LoginResultType.successful =&gt; &#39;not supposed to happen&#39;,
-      LoginResultType.unsuccessful =&gt; appLocalizations.incorrect_credentials,
-      LoginResultType.serverIssue =&gt;
-        appLocalizations.login_result_type_server_issue,
-      LoginResultType.exception =&gt;
-        isNoNetworkException(text!)
-            ? appLocalizations.login_result_type_server_unreachable
-            : text!,
-    };</code></pre>
+  <pre class="language-dart"><code class="language-dart">String getErrorMessage(AppLocalizations appLocalizations) =&gt; switch (type) {
+  LoginResultType.successful =&gt; &#39;not supposed to happen&#39;,
+  LoginResultType.unsuccessful =&gt; appLocalizations.incorrect_credentials,
+  LoginResultType.serverIssue =&gt;
+    appLocalizations.login_result_type_server_issue,
+  LoginResultType.exception =&gt;
+    isNoNetworkException(text!)
+        ? appLocalizations.login_result_type_server_unreachable
+        : text!,
+};</code></pre>
 </section>
 
 

@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; addTask(
-  final String barcode,
-  final LocalDatabase localDatabase,
+  String barcode,
+  LocalDatabase localDatabase,
 ) async {
   final String uniqueId = await _operationType.getNewKey(
     localDatabase,

@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; delete(final ProductList productList) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; delete(ProductList productList) async {
   final LazyBox&lt;_BarcodeList&gt; box = _getBox();
   final String key = getKey(productList);
   localDatabase.upToDateProductList.setLocalUpToDate(key, &lt;String&gt;[]);

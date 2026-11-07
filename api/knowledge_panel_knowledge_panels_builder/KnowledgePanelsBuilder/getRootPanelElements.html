@@ -75,9 +75,9 @@ In option, only the one matching <code>panelId</code>.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static List&lt;KnowledgePanelElement&gt; getRootPanelElements(
-  final Product product, {
-  required final bool simplified,
-  final String? panelId,
+  Product product, {
+  required bool simplified,
+  String? panelId,
 }) {
   final List&lt;KnowledgePanelElement&gt; result = &lt;KnowledgePanelElement&gt;[];
   final KnowledgePanel? root = getRootKnowledgePanel(

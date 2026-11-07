@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setColorScheme(final String color) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setColorScheme(String color) async {
   await _sharedPreferences.setString(_TAG_CURRENT_COLOR_SCHEME, color);
   notifyListeners();
 }</code></pre>

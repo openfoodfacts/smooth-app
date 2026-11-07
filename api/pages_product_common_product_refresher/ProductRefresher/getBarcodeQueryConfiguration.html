@@ -73,9 +73,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">ProductQueryConfiguration getBarcodeQueryConfiguration(
-  final String barcode,
-  final OpenFoodFactsLanguage language, {
-  final IngredientsUnwantedParameter? unwantedIngredients,
+  String barcode,
+  OpenFoodFactsLanguage language, {
+  IngredientsUnwantedParameter? unwantedIngredients,
 }) =&gt; ProductQueryConfiguration(
   barcode,
   fields: ProductQuery.fields,

@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void increaseLanguageUsage(final OpenFoodFactsLanguage language) {
+  <pre class="language-dart"><code class="language-dart">void increaseLanguageUsage(OpenFoodFactsLanguage language) {
   final String? usage = _sharedPreferences.getString(_TAG_LANGUAGES_USAGE);
   final Map&lt;String, int&gt; languages;
   if (usage == null || usage.isEmpty) {

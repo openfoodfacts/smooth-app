@@ -54,7 +54,7 @@
 
     <section class="multi-line-signature">
       
-<span class="returntype"><a href="https://pub.dev/documentation/intl/0.20.2/intl/NumberFormat-class.html">NumberFormat</a></span>
+<span class="returntype"><a href="https://pub.dev/documentation/intl/0.20.3/intl/NumberFormat-class.html">NumberFormat</a></span>
 <span class="name ">getNumberFormat</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="getNumberFormat-param-decimal"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">decimal</span>, </span></li>
 </ol>})
 
@@ -67,11 +67,10 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static NumberFormat getNumberFormat({required final bool decimal}) =&gt;
-    NumberFormat(
-      decimal ? &#39;####0.#####&#39; : &#39;######0&#39;,
-      ProductQuery.getLocaleString(),
-    );</code></pre>
+  <pre class="language-dart"><code class="language-dart">static NumberFormat getNumberFormat({required bool decimal}) =&gt; NumberFormat(
+  decimal ? &#39;####0.#####&#39; : &#39;######0&#39;,
+  ProductQuery.getLocaleString(),
+);</code></pre>
 </section>
 
 

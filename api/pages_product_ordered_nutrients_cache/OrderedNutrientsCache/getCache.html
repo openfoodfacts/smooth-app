@@ -72,8 +72,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;OrderedNutrientsCache?&gt; getCache(
-  final BuildContext context,
-  final ProductType? productType,
+  BuildContext context,
+  ProductType? productType,
 ) async {
   final OrderedNutrientsCache cache = OrderedNutrientsCache._(productType);
   final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();

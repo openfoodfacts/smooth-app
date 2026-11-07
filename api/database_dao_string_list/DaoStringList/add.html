@@ -71,7 +71,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; add(final String key, final String string) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; add(String key, String string) async {
   final List&lt;String&gt; value = getAll(key);
   value.remove(string);
   value.add(string);

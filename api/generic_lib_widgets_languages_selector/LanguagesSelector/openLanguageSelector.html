@@ -79,12 +79,12 @@ Otherwise, they will be filtered
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;OpenFoodFactsLanguage?&gt; openLanguageSelector(
-  final BuildContext context, {
-  final Iterable&lt;OpenFoodFactsLanguage&gt;? selectedLanguages,
-  final Iterable&lt;OpenFoodFactsLanguage&gt;? disabledLanguages,
-  final bool showSelectedLanguages = false,
-  final Widget? checkedIcon,
-  final String? title,
+  BuildContext context, {
+  Iterable&lt;OpenFoodFactsLanguage&gt;? selectedLanguages,
+  Iterable&lt;OpenFoodFactsLanguage&gt;? disabledLanguages,
+  bool showSelectedLanguages = false,
+  Widget? checkedIcon,
+  String? title,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final UserPreferences userPreferences = context.read&lt;UserPreferences&gt;();

@@ -130,7 +130,7 @@ Widget build(BuildContext context) {
         maxCrossAxisExtent: columnWidth,
         childAspectRatio: 1,
       ),
-      itemBuilder: (final BuildContext context, int index) {
+      itemBuilder: (BuildContext context, int index) {
         &#47;&#47; order by descending ids
         index = rawImages.length - 1 - index;
         final ProductImage rawImage = rawImages[index];

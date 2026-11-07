@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">bool donationAsksMuted(final DateTime now) {
+  <pre class="language-dart"><code class="language-dart">bool donationAsksMuted(DateTime now) {
   final DateTime? mutedUntil = donationAsksMutedUntil;
   return mutedUntil != null &amp;&amp; now.isBefore(mutedUntil);
 }</code></pre>

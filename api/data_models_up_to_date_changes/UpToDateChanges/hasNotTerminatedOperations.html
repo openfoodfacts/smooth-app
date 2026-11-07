@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">bool hasNotTerminatedOperations(final String barcode) {
+  <pre class="language-dart"><code class="language-dart">bool hasNotTerminatedOperations(String barcode) {
   final Iterable&lt;TransientOperation&gt; actions = getSortedOperations(barcode);
   return actions.isNotEmpty;
 }</code></pre>

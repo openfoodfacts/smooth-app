@@ -73,8 +73,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;FetchedProduct&gt; silentFetchAndRefresh({
-  required final LocalDatabase localDatabase,
-  required final String barcode,
+  required LocalDatabase localDatabase,
+  required String barcode,
 }) async {
   &#47;&#47; Now we let &quot;food&quot; redirect the queries if needed, as we use
   &#47;&#47; ProductTypeFilter.all

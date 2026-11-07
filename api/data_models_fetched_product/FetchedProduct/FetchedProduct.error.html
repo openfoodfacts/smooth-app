@@ -69,9 +69,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const FetchedProduct.error({
-  required final String exceptionString,
-  required final bool isConnected,
-  final String? failedPingedHost,
+  required String exceptionString,
+  required bool isConnected,
+  String? failedPingedHost,
 }) : this._(
        status: FetchedProductStatus.internetError,
        isConnected: isConnected,

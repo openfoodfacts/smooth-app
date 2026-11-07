@@ -74,13 +74,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;CropParameters?&gt; useExistingPhotoFor({
-  required final BuildContext context,
-  required final ProductImage rawImage,
-  required final String barcode,
-  required final ImageField imageField,
-  required final bool isLoggedInMandatory,
-  required final ProductType? productType,
-  required final OpenFoodFactsLanguage language,
+  required BuildContext context,
+  required ProductImage rawImage,
+  required String barcode,
+  required ImageField imageField,
+  required bool isLoggedInMandatory,
+  required ProductType? productType,
+  required OpenFoodFactsLanguage language,
 }) async {
   final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
   final File? imageFile = await downloadImageUrl(

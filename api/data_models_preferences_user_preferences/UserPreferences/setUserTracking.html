@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setUserTracking(final bool state) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setUserTracking(bool state) async {
   await _sharedPreferences.setBool(_TAG_USER_TRACKING, state);
   onAnalyticsChanged.value = state;
   notifyListeners();

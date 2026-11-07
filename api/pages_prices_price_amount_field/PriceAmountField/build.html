@@ -130,7 +130,7 @@ Widget build(BuildContext context) {
       ),
     ),
     maxLines: 1,
-    onChanged: (final String? value) {
+    onChanged: (String? value) {
       if (isPaidPrice) {
         model.paidPrice = value ?? &#39;&#39;;
         return;

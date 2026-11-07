@@ -56,8 +56,8 @@
       
       <span class="name ">EditNewPackagingsHelper.packaging</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="packaging-param-packaging"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/ProductPackaging-class.html">ProductPackaging</a></span> <span class="parameter-name">packaging</span>, </span></li>
 <li><span class="parameter" id="packaging-param-initiallyExpanded"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">initiallyExpanded</span>, {</span></li>
-<li><span class="parameter" id="packaging-param-decimalNumberFormat"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/intl/0.20.2/intl/NumberFormat-class.html">NumberFormat</a></span> <span class="parameter-name">decimalNumberFormat</span>, </span></li>
-<li><span class="parameter" id="packaging-param-unitNumberFormat"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/intl/0.20.2/intl/NumberFormat-class.html">NumberFormat</a></span> <span class="parameter-name">unitNumberFormat</span>, </span></li>
+<li><span class="parameter" id="packaging-param-decimalNumberFormat"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/intl/0.20.3/intl/NumberFormat-class.html">NumberFormat</a></span> <span class="parameter-name">decimalNumberFormat</span>, </span></li>
+<li><span class="parameter" id="packaging-param-unitNumberFormat"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/intl/0.20.3/intl/NumberFormat-class.html">NumberFormat</a></span> <span class="parameter-name">unitNumberFormat</span>, </span></li>
 </ol>})
     </section>
     
@@ -70,10 +70,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">EditNewPackagingsHelper.packaging(
-  final ProductPackaging packaging,
-  final bool initiallyExpanded, {
-  required final NumberFormat decimalNumberFormat,
-  required final NumberFormat unitNumberFormat,
+  ProductPackaging packaging,
+  bool initiallyExpanded, {
+  required NumberFormat decimalNumberFormat,
+  required NumberFormat unitNumberFormat,
 }) : this._(
        controllerUnits: TextEditingController(
          text: packaging.numberOfUnits == null

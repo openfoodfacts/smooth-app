@@ -56,7 +56,7 @@
       
   <div>
     <ol class="annotation-list">
-        <li>@<a href="https://api.flutter.dev/flutter/meta/protected-constant.html">protected</a></li>
+        <li>@<a href="https://pub.dev/documentation/meta/1.19.0/meta/protected-constant.html">protected</a></li>
     </ol>
   </div>
 <span class="returntype">void</span>
@@ -166,7 +166,9 @@ void setState(VoidCallback fn) {
           &#39;This error happens if you call setState() on a State object for a widget that &#39;
           &#39;no longer appears in the widget tree (e.g., whose parent widget no longer &#39;
           &#39;includes the widget in its build). This error can occur when code calls &#39;
-          &#39;setState() from a timer or an animation callback.&#39;,
+          &#39;setState() from a timer, from an animation callback, or after an &#39;
+          &#39;asynchronous operation (such as an awaited network request or other &#39;
+          &#39;Future) completes after the widget has been removed from the tree.&#39;,
         ),
         ErrorHint(
           &#39;The preferred solution is &#39;

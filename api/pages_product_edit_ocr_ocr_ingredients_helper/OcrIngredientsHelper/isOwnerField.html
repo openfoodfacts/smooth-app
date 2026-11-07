@@ -79,8 +79,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 bool isOwnerField(
-  final Product product,
-  final OpenFoodFactsLanguage language,
+  Product product,
+  OpenFoodFactsLanguage language,
 ) =&gt;
     product.ownerFields?.containsKey(&#39;ingredients_text_${language.offTag}&#39;) ??
     false;</code></pre>

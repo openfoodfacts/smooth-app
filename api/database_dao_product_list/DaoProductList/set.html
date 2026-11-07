@@ -74,9 +74,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; set(
-  final ProductList productList,
-  final String barcode,
-  final bool include,
+  ProductList productList,
+  String barcode,
+  bool include,
 ) async {
   final _BarcodeList? list = await _get(productList);
   final List&lt;String&gt; barcodes;

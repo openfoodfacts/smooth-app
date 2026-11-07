@@ -71,7 +71,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">bool remove(final String key) {
+  <pre class="language-dart"><code class="language-dart">bool remove(String key) {
   final int result = (_interestCounts[key] ?? 0) - 1;
   if (result &lt;= 0) {
     _interestCounts.remove(key);

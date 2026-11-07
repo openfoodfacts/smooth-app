@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Iterable&lt;TransientOperation&gt; getSortedOperations(final String barcode) {
+  <pre class="language-dart"><code class="language-dart">Iterable&lt;TransientOperation&gt; getSortedOperations(String barcode) {
   final List&lt;TransientOperation&gt; result = &lt;TransientOperation&gt;[];
   result.addAll(_daoTransientProduct.getAll(barcode));
   result.sort(OperationType.sort);

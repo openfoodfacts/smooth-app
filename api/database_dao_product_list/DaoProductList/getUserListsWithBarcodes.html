@@ -71,7 +71,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;String&gt;&gt; getUserListsWithBarcodes(
-  final List&lt;String&gt; withBarcodes,
+  List&lt;String&gt; withBarcodes,
 ) async {
   final List&lt;String&gt; result = &lt;String&gt;[];
   for (final dynamic key in _getBox().keys) {

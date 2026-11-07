@@ -72,8 +72,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Iterable&lt;OpenFoodFactsLanguage&gt; getProductImageLanguages(
-  final Product product,
-  final ImageField imageField,
+  Product product,
+  ImageField imageField,
 ) {
   final Set&lt;OpenFoodFactsLanguage&gt; result = &lt;OpenFoodFactsLanguage&gt;{};
   result.addAll(TransientFile.getImageLanguages(imageField, product.barcode!));

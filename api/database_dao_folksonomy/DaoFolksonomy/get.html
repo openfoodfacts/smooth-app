@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;ProductTag&gt;?&gt; get(final String barcode) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;ProductTag&gt;?&gt; get(String barcode) async {
   final List&lt;Map&lt;String, dynamic&gt;&gt; result = await localDatabase.database
       .query(
         _table,

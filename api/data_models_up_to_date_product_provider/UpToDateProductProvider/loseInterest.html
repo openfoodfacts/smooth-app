@@ -71,7 +71,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void loseInterest(final String barcode) {
+  <pre class="language-dart"><code class="language-dart">void loseInterest(String barcode) {
   final bool lostInterest = _interest.remove(barcode);
   if (!lostInterest) {
     return;

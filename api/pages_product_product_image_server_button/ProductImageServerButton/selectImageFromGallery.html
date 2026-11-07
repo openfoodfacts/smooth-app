@@ -72,11 +72,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;CropParameters?&gt; selectImageFromGallery({
-  required final BuildContext context,
-  required final Product product,
-  required final ImageField imageField,
-  required final OpenFoodFactsLanguage language,
-  required final bool isLoggedInMandatory,
+  required BuildContext context,
+  required Product product,
+  required ImageField imageField,
+  required OpenFoodFactsLanguage language,
+  required bool isLoggedInMandatory,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   if (!await ProductRefresher().checkIfLoggedIn(

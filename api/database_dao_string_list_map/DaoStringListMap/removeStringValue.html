@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; removeStringValue(final String insightId) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; removeStringValue(String insightId) async {
   final Map&lt;String, List&lt;String&gt;&gt; value = await getAll();
   bool needNotify = false;
   for (final String barcode in value.keys) {

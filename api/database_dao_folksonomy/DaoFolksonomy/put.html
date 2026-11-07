@@ -68,7 +68,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; put(final String barcode, final List&lt;ProductTag&gt;? tags) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; put(String barcode, List&lt;ProductTag&gt;? tags) async {
   if (tags == null) {
     await localDatabase.database.delete(
       _table,

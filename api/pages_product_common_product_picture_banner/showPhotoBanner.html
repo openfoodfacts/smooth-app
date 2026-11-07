@@ -72,11 +72,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;File?&gt; showPhotoBanner({
-  required final BuildContext context,
-  required final Product product,
-  required final ImageField imageField,
-  required final OpenFoodFactsLanguage language,
-  final TransientFile? transientFile,
+  required BuildContext context,
+  required Product product,
+  required ImageField imageField,
+  required OpenFoodFactsLanguage language,
+  TransientFile? transientFile,
 }) async {
   final PhotoRowActions? action = await _showPhotoBanner(
     context: context,

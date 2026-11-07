@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">bool donationStripHidden(final DateTime now) {
+  <pre class="language-dart"><code class="language-dart">bool donationStripHidden(DateTime now) {
   final DateTime? hiddenUntil = donationStripHiddenUntil;
   return hiddenUntil != null &amp;&amp; now.isBefore(hiddenUntil);
 }</code></pre>

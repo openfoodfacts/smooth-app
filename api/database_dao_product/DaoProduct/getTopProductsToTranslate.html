@@ -79,10 +79,10 @@ products being probably wiped out.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;String&gt;&gt; getTopProductsToTranslate(
-  final OpenFoodFactsLanguage language, {
-  required final int limit,
-  required final List&lt;String&gt; excludeBarcodes,
-  required final ProductType productType,
+  OpenFoodFactsLanguage language, {
+  required int limit,
+  required List&lt;String&gt; excludeBarcodes,
+  required ProductType productType,
 }) async {
   final List&lt;String&gt; result = &lt;String&gt;[];
 

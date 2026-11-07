@@ -70,9 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static FutureOr&lt;void&gt; onUpgrade(
-  final Database db,
-  final int oldVersion,
-  final int newVersion,
+  Database db,
+  int oldVersion,
+  int newVersion,
 ) async {
   if (oldVersion &lt; 6) {
     await db.execute(
@@ -96,8 +96,8 @@
 
   &#47;&#47;&#47; Not brilliant, but for historical reasons we have to catch that here.
   bool isDuplicateColumnException(
-    final DatabaseException e,
-    final String column,
+    DatabaseException e,
+    String column,
   ) =&gt; e.toString().startsWith(
     &#39;DatabaseException(duplicate column name: $column (code 1 SQLITE_ERROR&#39;,
   );

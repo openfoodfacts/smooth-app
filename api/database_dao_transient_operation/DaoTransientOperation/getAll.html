@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Iterable&lt;TransientOperation&gt; getAll(final String barcode) {
+  <pre class="language-dart"><code class="language-dart">Iterable&lt;TransientOperation&gt; getAll(String barcode) {
   final Box&lt;Product&gt; box = _getBox();
   final List&lt;TransientOperation&gt; result = &lt;TransientOperation&gt;[];
   for (final dynamic key in box.keys) {

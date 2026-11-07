@@ -72,14 +72,14 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; showDeleteUserListDialog(
-  final BuildContext context,
-  final ProductList productList,
+  BuildContext context,
+  ProductList productList,
 ) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   final bool? deleted = await showDialog&lt;bool&gt;(
     context: context,
-    builder: (final BuildContext context) =&gt; SmoothAlertDialog(
+    builder: (BuildContext context) =&gt; SmoothAlertDialog(
       title: appLocalizations.confirm_delete_user_list_title,
       body: Text(
         appLocalizations.confirm_delete_user_list_message(

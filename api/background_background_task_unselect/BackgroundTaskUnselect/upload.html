@@ -76,13 +76,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
+Future&lt;void&gt; upload(LocalDatabase localDatabase) async {
   final UriProductHelper uriProductHelper = await getUriProductHelper(
     localDatabase,
   );
   final OpenFoodFactsLanguage language = getLanguage();
   try {
-    return OpenFoodAPIClient.unselectProductImage(
+    return await OpenFoodAPIClient.unselectProductImage(
       barcode: barcode,
       imageField: ImageField.fromOffTag(imageField)!,
       language: language,

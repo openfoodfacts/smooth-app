@@ -71,7 +71,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; init(final AssetBundle assetBundle) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; init(AssetBundle assetBundle) async {
   &#47;&#47; trying the local database with the latest download language...
   if (daoString != null) {
     final String? latestLanguage = await daoString!.get(

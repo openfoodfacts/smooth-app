@@ -73,12 +73,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;String&gt; getNewKey(
-  final LocalDatabase localDatabase, {
-  final String? barcode = BackgroundTaskProgressing.noBarcode,
-  final int? totalSize,
-  final int? soFarSize,
-  final String? work,
-  final ProductType? productType,
+  LocalDatabase localDatabase, {
+  String? barcode = BackgroundTaskProgressing.noBarcode,
+  int? totalSize,
+  int? soFarSize,
+  String? work,
+  ProductType? productType,
 }) async {
   final int sequentialId = await DaoInt(
     localDatabase,

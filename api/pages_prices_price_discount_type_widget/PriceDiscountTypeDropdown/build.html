@@ -121,14 +121,13 @@ Widget build(BuildContext context) {
           label: appLocalizations.prices_discount_type,
         ),
         ...DiscountType.values.map(
-          (final DiscountType discountType) =&gt;
-              SmoothDropdownItem&lt;DiscountType?&gt;(
-                value: discountType,
-                label: discountType.getTitle(appLocalizations),
-              ),
+          (DiscountType discountType) =&gt; SmoothDropdownItem&lt;DiscountType?&gt;(
+            value: discountType,
+            label: discountType.getTitle(appLocalizations),
+          ),
         ),
       ],
-      onChanged: (final DiscountType? value) {
+      onChanged: (DiscountType? value) {
         if (value != null) {
           onChanged(value);
         }

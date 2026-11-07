@@ -56,7 +56,7 @@
       
   <div>
     <ol class="annotation-list">
-        <li>@<a href="https://api.flutter.dev/flutter/meta/protected-constant.html">protected</a></li>
+        <li>@<a href="https://pub.dev/documentation/meta/1.19.0/meta/protected-constant.html">protected</a></li>
     </ol>
   </div>
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
@@ -73,7 +73,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@protected
-Future&lt;void&gt; refresh(final BuildContext context) async {
+Future&lt;void&gt; refresh(BuildContext context) async {
   final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
   localDatabase.notifyListeners();
   final ContinuousScanModel model = context.read&lt;ContinuousScanModel&gt;();

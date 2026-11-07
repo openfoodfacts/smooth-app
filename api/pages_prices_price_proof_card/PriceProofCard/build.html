@@ -127,14 +127,13 @@ Widget build(BuildContext context) {
       children: &lt;Widget&gt;[
         SmoothRadioGroup&lt;ProofType&gt;(
           groupValue: model.proofType,
-          onChanged: (final ProofType? proofType) =&gt;
-              model.proofType = proofType!,
+          onChanged: (ProofType? proofType) =&gt; model.proofType = proofType!,
           items:
               (forcedProofType != null
                       ? &lt;ProofType&gt;[forcedProofType!]
                       : &lt;ProofType&gt;[ProofType.receipt, ProofType.priceTag])
                   .map&lt;SmoothRadioItem&lt;ProofType&gt;&gt;(
-                    (final ProofType item) =&gt; SmoothRadioItem&lt;ProofType&gt;(
+                    (ProofType item) =&gt; SmoothRadioItem&lt;ProofType&gt;(
                       value: item,
                       label: item.getTitle(appLocalizations),
                       icon: item.getIcon(context),

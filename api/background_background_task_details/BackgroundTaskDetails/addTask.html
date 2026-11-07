@@ -81,12 +81,12 @@ At least one of <code>context</code> and <code>localDatabase</code> must be not 
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; addTask(
-  final Product minimalistProduct, {
+  Product minimalistProduct, {
   required BuildContext? context,
-  required final BackgroundTaskDetailsStamp stamp,
-  required final ProductType? productType,
+  required BackgroundTaskDetailsStamp stamp,
+  required ProductType? productType,
   LocalDatabase? localDatabase,
-  final bool showSnackBar = true,
+  bool showSnackBar = true,
 }) async {
   if (BackgroundTaskBarcode.isBarcodeToBeIgnored(
     minimalistProduct.barcode!,

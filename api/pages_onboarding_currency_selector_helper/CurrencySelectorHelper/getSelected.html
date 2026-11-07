@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Currency getSelected(final String? code) {
+  <pre class="language-dart"><code class="language-dart">Currency getSelected(String? code) {
   if (code != null) {
     for (final Currency currency in _currencyList) {
       if (currency.name == code) {

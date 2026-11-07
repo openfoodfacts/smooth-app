@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, Product&gt;&gt; getAll(final Iterable&lt;String&gt; barcodes) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, Product&gt;&gt; getAll(Iterable&lt;String&gt; barcodes) async {
   final Map&lt;String, Product&gt; result = &lt;String, Product&gt;{};
   if (barcodes.isEmpty) {
     return result;

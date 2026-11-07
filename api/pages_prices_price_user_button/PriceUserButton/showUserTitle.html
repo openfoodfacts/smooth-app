@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static String showUserTitle({
-  required final String user,
-  required final BuildContext context,
+  required String user,
+  required BuildContext context,
 }) =&gt; user == ProductQuery.getWriteUser().userId
     ? AppLocalizations.of(context).user_search_prices_title
     : AppLocalizations.of(context).user_any_search_prices_title(user);</code></pre>

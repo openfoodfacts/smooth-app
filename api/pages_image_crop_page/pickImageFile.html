@@ -72,12 +72,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;XFile?&gt; pickImageFile(
-  final BuildContext context, {
-  final UserPictureSource? forcedSource,
+  BuildContext context, {
+  UserPictureSource? forcedSource,
 }) async {
   &#47;&#47;&#47; Picks an image file from gallery or camera.
   Future&lt;XFile?&gt; innerPickImageFile(
-    final BuildContext context, {
+    BuildContext context, {
     bool ignorePlatformException = false,
   }) async {
     final UserPictureSource? source;
@@ -92,7 +92,7 @@
     final ImagePicker picker = ImagePicker();
     if (source == UserPictureSource.GALLERY) {
       try {
-        return picker.pickImage(
+        return await picker.pickImage(
           imageQuality: ImagePickerConstants.imagePickerQuality,
           maxHeight: ImagePickerConstants.imagePickerMaxSize,
           maxWidth: ImagePickerConstants.imagePickerMaxSize,
@@ -119,7 +119,7 @@
   }
 
   try {
-    return innerPickImageFile(context);
+    return await innerPickImageFile(context);
   } on PhotoAccessDenied catch (_) {
     if (!context.mounted) {
       return null;

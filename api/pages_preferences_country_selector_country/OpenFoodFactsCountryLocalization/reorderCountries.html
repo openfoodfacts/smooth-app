@@ -73,9 +73,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static void reorderCountries(
   List&lt;Country&gt; countries,
-  final String? userCountryCode,
+  String? userCountryCode,
 ) {
-  countries.sort((final Country a, final Country b) {
+  countries.sort((Country a, Country b) {
     if (a.offTag == userCountryCode) {
       return -1;
     }

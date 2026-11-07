@@ -80,7 +80,7 @@ a static variable - won't be there at app restart. Unless you recover.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Future&lt;void&gt; recover(final LocalDatabase localDatabase) async {
+Future&lt;void&gt; recover(LocalDatabase localDatabase) async {
   final File? transientFile = _getTransientImage();
   if (transientFile == null) {
     await putTransientImage(localDatabase);

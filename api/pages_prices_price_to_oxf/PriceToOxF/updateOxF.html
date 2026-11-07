@@ -71,10 +71,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; updateOxF({
-  required final LocalDatabase localDatabase,
-  required final List&lt;String&gt; initialBarcodes,
-  required final int locationOSMId,
-  required final LocationOSMType locationOSMType,
+  required LocalDatabase localDatabase,
+  required List&lt;String&gt; initialBarcodes,
+  required int locationOSMId,
+  required LocationOSMType locationOSMType,
 }) async {
   final List&lt;String&gt; actualBarcodes = &lt;String&gt;[];
   for (final String barcode in initialBarcodes) {

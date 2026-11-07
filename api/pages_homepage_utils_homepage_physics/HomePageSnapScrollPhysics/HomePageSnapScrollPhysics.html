@@ -68,7 +68,7 @@
   <pre class="language-dart"><code class="language-dart">HomePageSnapScrollPhysics({
   required List&lt;double&gt; steps,
   this.lastStepBlocking = true,
-  final ScrollPhysics? parent,
+  ScrollPhysics? parent,
 }) : steps = steps.toList()..sort(),
      ignoreNextScroll = false,
      super(parent: parent ?? const BouncingScrollPhysics());</code></pre>

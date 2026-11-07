@@ -74,8 +74,8 @@ Returns true if successful.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; fetchAndRefresh({
-  required final String barcode,
-  required final BuildContext context,
+  required String barcode,
+  required BuildContext context,
 }) async {
   final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);

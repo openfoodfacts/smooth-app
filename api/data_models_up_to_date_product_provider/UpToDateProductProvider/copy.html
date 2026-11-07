@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Product copy(final Product source) =&gt; Product.fromJson(
+  <pre class="language-dart"><code class="language-dart">Product copy(Product source) =&gt; Product.fromJson(
   jsonDecode(jsonEncode(source.toJson())) as Map&lt;String, dynamic&gt;,
 );</code></pre>
 </section>

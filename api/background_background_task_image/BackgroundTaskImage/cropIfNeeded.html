@@ -82,14 +82,14 @@ Returns null if the image (cropped or not) is too small.
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;BackgroundCropResult&gt; cropIfNeeded({
-  required final String fullPath,
-  required final int rotationDegrees,
-  required final int cropX1,
-  required final int cropY1,
-  required final int cropX2,
-  required final int cropY2,
-  required final bool forceCompression,
-  required final List&lt;double&gt;? eraserCoordinates,
+  required String fullPath,
+  required int rotationDegrees,
+  required int cropX1,
+  required int cropY1,
+  required int cropX2,
+  required int cropY2,
+  required bool forceCompression,
+  required List&lt;double&gt;? eraserCoordinates,
 }) async {
   final String croppedPath = await getCroppedPath(fullPath);
 

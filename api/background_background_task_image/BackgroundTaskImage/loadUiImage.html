@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;ui.Image&gt; loadUiImage(final Uint8List list) async {
+  <pre class="language-dart"><code class="language-dart">static Future&lt;ui.Image&gt; loadUiImage(Uint8List list) async {
   final Completer&lt;ui.Image&gt; completer = Completer&lt;ui.Image&gt;();
   ui.decodeImageFromList(list, completer.complete);
   return completer.future;

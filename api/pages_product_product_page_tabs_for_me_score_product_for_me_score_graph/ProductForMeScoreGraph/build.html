@@ -110,11 +110,10 @@ and</li>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   return ConsumerFilter&lt;ProductPageCompatibility&gt;(
-    buildWhen:
-        (
-          ProductPageCompatibility? previousValue,
-          ProductPageCompatibility currentValue,
-        ) =&gt; previousValue?.score != currentValue.score,
+    buildWhen: (
+      ProductPageCompatibility? previousValue,
+      ProductPageCompatibility currentValue,
+    ) =&gt; previousValue?.score != currentValue.score,
     builder: (BuildContext context, ProductPageCompatibility value, _) {
       final SmoothColorsThemeExtension theme = context
           .extension&lt;SmoothColorsThemeExtension&gt;();

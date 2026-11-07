@@ -117,7 +117,7 @@ Widget build(BuildContext context) {
   final List&lt;Marker&gt; markers = &lt;Marker&gt;[];
   final List&lt;LatLng&gt; coordinates = &lt;LatLng&gt;[];
 
-  void addCoordinate(final LatLng latLng) {
+  void addCoordinate(LatLng latLng) {
     coordinates.add(latLng);
     markers.add(
       Marker(

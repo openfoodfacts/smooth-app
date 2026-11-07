@@ -72,8 +72,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static void runAgain(
-  final LocalDatabase localDatabase, {
-  final bool forceNowIfPossible = false,
+  LocalDatabase localDatabase, {
+  bool forceNowIfPossible = false,
 }) {
   for (final BackgroundTaskQueue queue in BackgroundTaskQueue.values) {
     getInstance(

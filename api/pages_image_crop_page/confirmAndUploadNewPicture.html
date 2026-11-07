@@ -77,13 +77,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;CropParameters?&gt; confirmAndUploadNewPicture(
-  final BuildContext context, {
-  required final ImageField imageField,
-  required final String barcode,
-  required final ProductType? productType,
-  required final OpenFoodFactsLanguage language,
-  required final bool isLoggedInMandatory,
-  final UserPictureSource? forcedSource,
+  BuildContext context, {
+  required ImageField imageField,
+  required String barcode,
+  required ProductType? productType,
+  required OpenFoodFactsLanguage language,
+  required bool isLoggedInMandatory,
+  UserPictureSource? forcedSource,
 }) async =&gt; confirmAndUploadNewImage(
   context,
   cropHelper: ProductCropNewHelper(

@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static OperationType? getOperationType(final String key) {
+  <pre class="language-dart"><code class="language-dart">static OperationType? getOperationType(String key) {
   final List&lt;String&gt; keyItems = key.split(_transientHeaderSeparator);
   final String find = keyItems[0];
   for (final OperationType operationType in OperationType.values) {

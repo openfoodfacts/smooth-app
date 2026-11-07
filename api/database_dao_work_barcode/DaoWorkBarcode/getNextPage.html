@@ -72,8 +72,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;String&gt;&gt; getNextPage(
-  final String work,
-  final int pageSize,
+  String work,
+  int pageSize,
 ) async {
   final List&lt;String&gt; result = &lt;String&gt;[];
   final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = await localDatabase.database

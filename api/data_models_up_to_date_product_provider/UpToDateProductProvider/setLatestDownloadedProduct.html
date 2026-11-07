@@ -72,8 +72,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void setLatestDownloadedProduct(
-  final Product product, {
-  final bool notify = true,
+  Product product, {
+  bool notify = true,
 }) {
   _latestDownloadedProducts[product.barcode!] = product;
   _timestamps[product.barcode!] = LocalDatabase.nowInMillis();

@@ -71,13 +71,12 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Rect getResizedRect(final Rect source, final num factor) =&gt;
-    Rect.fromLTRB(
-      source.left * factor,
-      source.top * factor,
-      source.right * factor,
-      source.bottom * factor,
-    );</code></pre>
+  <pre class="language-dart"><code class="language-dart">static Rect getResizedRect(Rect source, num factor) =&gt; Rect.fromLTRB(
+  source.left * factor,
+  source.top * factor,
+  source.right * factor,
+  source.bottom * factor,
+);</code></pre>
 </section>
 
 

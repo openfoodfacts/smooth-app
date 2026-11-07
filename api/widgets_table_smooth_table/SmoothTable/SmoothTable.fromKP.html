@@ -63,8 +63,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">factory SmoothTable.fromKP(final KnowledgePanelTableElement tableElement) {
-  String cleanHtml(final String text) =&gt; text.replaceAll(&#39;&lt;br&gt;&#39;, &#39; &#39;);
+  <pre class="language-dart"><code class="language-dart">factory SmoothTable.fromKP(KnowledgePanelTableElement tableElement) {
+  String cleanHtml(String text) =&gt; text.replaceAll(&#39;&lt;br&gt;&#39;, &#39; &#39;);
 
   final List&lt;List&lt;SmoothTableCell&gt;&gt; result = &lt;List&lt;SmoothTableCell&gt;&gt;[];
   result.add(&lt;SmoothTableCell&gt;[]);

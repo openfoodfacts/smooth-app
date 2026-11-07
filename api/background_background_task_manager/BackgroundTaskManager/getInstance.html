@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static BackgroundTaskManager getInstance(
-  final LocalDatabase localDatabase, {
-  required final BackgroundTaskQueue queue,
+  LocalDatabase localDatabase, {
+  required BackgroundTaskQueue queue,
 }) {
   if (_instances == null) {
     final Map&lt;BackgroundTaskQueue, BackgroundTaskManager&gt; result =

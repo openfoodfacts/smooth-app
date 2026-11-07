@@ -70,7 +70,7 @@
   required this.processName,
   required this.uniqueId,
   required this.stamp,
-  final OpenFoodFactsLanguage? language,
+  OpenFoodFactsLanguage? language,
 }) &#47;&#47; TODO(monsieurtanuki): don&#39;t store the password in a clear format...
   &#47;&#47; TODO(monsieurtanuki): store the uriProductHelper as well
   : user = jsonEncode(ProductQuery.getWriteUser().toJson()),

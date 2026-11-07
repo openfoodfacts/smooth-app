@@ -71,10 +71,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;SearchResult&gt; searchProducts(
-  final User? user,
-  final AbstractQueryConfiguration configuration, {
-  required final UriProductHelper uriHelper,
-  required final SearchProductsType type,
+  User? user,
+  AbstractQueryConfiguration configuration, {
+  required UriProductHelper uriHelper,
+  required SearchProductsType type,
 }) async {
   await type.waitIfNeeded();
 

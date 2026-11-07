@@ -74,9 +74,8 @@ anything older than 23h59m59s when the queue is loaded.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initMatomo(
-  final bool screenshotMode, {
-  final DispatchSettings dispatchSettings =
-      const DispatchSettings.persistent(),
+  bool screenshotMode, {
+  DispatchSettings dispatchSettings = const DispatchSettings.persistent(),
 }) async {
   _packageInfo = await PackageInfo.fromPlatform();
   if (screenshotMode) {

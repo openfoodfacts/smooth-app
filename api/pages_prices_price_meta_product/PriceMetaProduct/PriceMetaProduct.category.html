@@ -66,9 +66,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">PriceMetaProduct.category({
-  required final String categoryName,
-  required final List&lt;String&gt; originNames,
-  required final OpenFoodFactsLanguage language,
+  required String categoryName,
+  required List&lt;String&gt; originNames,
+  required OpenFoodFactsLanguage language,
 }) : _product = null,
      _categoryName = categoryName,
      _categoryTag = _getTag(categoryName, language),

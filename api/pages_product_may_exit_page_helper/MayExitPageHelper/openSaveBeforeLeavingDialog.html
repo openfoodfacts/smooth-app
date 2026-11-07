@@ -79,9 +79,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;bool?&gt; openSaveBeforeLeavingDialog(
-  final BuildContext context, {
-  final String? title,
-  final bool unfocus = true,
+  BuildContext context, {
+  String? title,
+  bool unfocus = true,
 }) async {
   if (unfocus) {
     FocusManager.instance.primaryFocus?.unfocus();

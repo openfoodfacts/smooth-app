@@ -70,8 +70,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static void setQueryType(final UserPreferences userPreferences) {
-  UriProductHelper getProductHelper(final String flagProd) =&gt;
+  <pre class="language-dart"><code class="language-dart">static void setQueryType(UserPreferences userPreferences) {
+  UriProductHelper getProductHelper(String flagProd) =&gt;
       userPreferences.getFlag(flagProd) ?? true
       ? uriHelperFoodProd
       : getTestUriProductHelper(userPreferences);

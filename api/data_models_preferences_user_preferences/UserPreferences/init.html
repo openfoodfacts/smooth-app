@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; init(final ProductPreferences productPreferences) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; init(ProductPreferences productPreferences) async {
   await _onMigrate();
 
   if (_sharedPreferences.getBool(_TAG_INIT) != null) {

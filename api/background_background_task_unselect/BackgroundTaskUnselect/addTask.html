@@ -75,11 +75,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; addTask(
-  final String barcode, {
-  required final ProductType? productType,
-  required final ImageField imageField,
-  required final BuildContext context,
-  required final OpenFoodFactsLanguage language,
+  String barcode, {
+  required ProductType? productType,
+  required ImageField imageField,
+  required BuildContext context,
+  required OpenFoodFactsLanguage language,
 }) async {
   if (BackgroundTaskBarcode.isBarcodeToBeIgnored(barcode, context)) {
     return;

@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static ProductListType getProductListType(final String key) {
+  <pre class="language-dart"><code class="language-dart">static ProductListType getProductListType(String key) {
   final int pos = key.indexOf(_keySeparator);
   if (pos &lt; 0) {
     throw Exception(&#39;Unknown key format without &quot;$_keySeparator&quot;: $key&#39;);

@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setUseFlashWithCamera(final bool useFlash) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setUseFlashWithCamera(bool useFlash) async {
   await _sharedPreferences.setBool(_TAG_USE_FLASH_WITH_CAMERA, useFlash);
   notifyListeners();
 }</code></pre>

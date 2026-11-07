@@ -70,10 +70,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">factory AbstractCache.best({
-  final String? iconUrl,
-  final double? width,
-  final double? height,
-  final Color? color,
+  String? iconUrl,
+  double? width,
+  double? height,
+  Color? color,
 }) {
   if (iconUrl == null) {
     return NullCache(width: width, height: height);

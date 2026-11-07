@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static int getSequentialId(final TransientOperation operation) {
+  <pre class="language-dart"><code class="language-dart">static int getSequentialId(TransientOperation operation) {
   final List&lt;String&gt; keyItems = operation.key.split(
     _transientHeaderSeparator,
   );

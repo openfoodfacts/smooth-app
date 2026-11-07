@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String? checkParameters(final BuildContext context) {
+  <pre class="language-dart"><code class="language-dart">String? checkParameters(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   if (product.barcode.isEmpty &amp;&amp; product.categoryTag.isEmpty) {
     return appLocalizations.prices_amount_no_product;

@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initCountry(final UserPreferences userPreferences) async {
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initCountry(UserPreferences userPreferences) async {
   &#47;&#47; not ideal, but we have many contributors monitoring France
   const OpenFoodFactsCountry defaultCountry = OpenFoodFactsCountry.FRANCE;
   final String? isoCode =

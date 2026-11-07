@@ -70,9 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static FutureOr&lt;void&gt; onUpgrade(
-  final Database db,
-  final int oldVersion,
-  final int newVersion,
+  Database db,
+  int oldVersion,
+  int newVersion,
 ) async {
   if (oldVersion &lt; 3) {
     await db.execute(

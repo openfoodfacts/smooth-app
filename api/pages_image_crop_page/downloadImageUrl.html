@@ -73,9 +73,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;File?&gt; downloadImageUrl(
-  final BuildContext context,
-  final String? imageUrl,
-  final DaoInt daoInt,
+  BuildContext context,
+  String? imageUrl,
+  DaoInt daoInt,
 ) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   if (imageUrl == null) {

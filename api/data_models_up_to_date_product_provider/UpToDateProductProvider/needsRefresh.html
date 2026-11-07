@@ -71,7 +71,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">bool needsRefresh(final int? latestTimestamp, final List&lt;String&gt; barcodes) {
+  <pre class="language-dart"><code class="language-dart">bool needsRefresh(int? latestTimestamp, List&lt;String&gt; barcodes) {
   if (latestTimestamp == null) {
     &#47;&#47; no need to &quot;refresh&quot;, need to start instead!
     return false;

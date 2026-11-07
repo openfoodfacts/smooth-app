@@ -78,8 +78,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget getWidget(
-  final BuildContext context, {
-  final VoidCallback? onDismissItem,
+  BuildContext context, {
+  VoidCallback? onDismissItem,
 }) {
   final String? title = osmLocation.getTitle();
   final String? subtitle = osmLocation.getSubtitle();

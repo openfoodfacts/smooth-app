@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; printStats({final bool verbose = false}) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; printStats({bool verbose = false}) async {
   final List&lt;String&gt; barcodes = await getAllKeys();
   debugPrint(&#39;number of barcodes: ${barcodes.length}&#39;);
   final Map&lt;String, Product&gt; map = await getAll(barcodes);

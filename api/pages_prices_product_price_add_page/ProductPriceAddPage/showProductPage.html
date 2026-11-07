@@ -70,9 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; showProductPage({
-  required final BuildContext context,
-  required final ProofType proofType,
-  final PriceMetaProduct? product,
+  required BuildContext context,
+  required ProofType proofType,
+  PriceMetaProduct? product,
 }) async {
   if (!await ProductRefresher().checkIfLoggedIn(
     context,

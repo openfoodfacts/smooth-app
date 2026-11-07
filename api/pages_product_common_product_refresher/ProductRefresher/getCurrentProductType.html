@@ -72,8 +72,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;ProductType?&gt; getCurrentProductType({
-  required final LocalDatabase localDatabase,
-  required final String barcode,
+  required LocalDatabase localDatabase,
+  required String barcode,
 }) async {
   final Product? localProduct = await DaoProduct(localDatabase).get(barcode);
   return localProduct?.productType;

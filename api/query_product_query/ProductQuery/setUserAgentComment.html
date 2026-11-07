@@ -71,7 +71,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static void setUserAgentComment(final String comment) {
+  <pre class="language-dart"><code class="language-dart">static void setUserAgentComment(String comment) {
   final UserAgent? previous = OpenFoodAPIConfiguration.userAgent;
   if (previous == null) {
     return;

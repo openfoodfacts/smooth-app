@@ -70,9 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setLazyCount(
-  final int value,
-  final String suffixTag, {
-  required final bool notify,
+  int value,
+  String suffixTag, {
+  required bool notify,
 }) async {
   final int? oldValue = getLazyCount(suffixTag);
   if (value == oldValue) {

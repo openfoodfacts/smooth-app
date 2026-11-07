@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; removeKey(final String barcode) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; removeKey(String barcode) async {
   final Map&lt;String, List&lt;String&gt;&gt; value = await getAll();
   if (value.remove(barcode) != null) {
     await _getBox().put(_key, value);

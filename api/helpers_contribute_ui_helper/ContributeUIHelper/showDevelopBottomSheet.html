@@ -105,7 +105,7 @@
                 appLocalizations.contribute_develop_dev_mode_subtitle,
               ),
               value: userPreferences.devMode != 0,
-              onChanged: (final bool devMode) async =&gt;
+              onChanged: (bool devMode) async =&gt;
                   userPreferences.setDevMode(devMode ? 1 : 0),
             ),
           ],

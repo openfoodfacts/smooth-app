@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static bool isBarcodeToBeIgnored(
-  final String barcode,
-  final BuildContext? context,
+  String barcode,
+  BuildContext? context,
 ) {
   final bool result = _forbiddenProducts.contains(barcode);
   if (result &amp;&amp; context != null) {

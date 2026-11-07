@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; fetchRobotoffExtraction(final Product product) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; fetchRobotoffExtraction(Product product) async {
   if (product.barcode == null) {
     return false;
   }
@@ -100,7 +100,7 @@
     for (final String nutrientOffTag in extractedNutrients) {
       &#47;&#47; If the nutrient is not in the list of nutrients, we add it
       final OrderedNutrient? missingNutrient = getLeftoverNutrients()
-          .firstWhereOrNull((final OrderedNutrient orderedNutrient) {
+          .firstWhereOrNull((OrderedNutrient orderedNutrient) {
             return orderedNutrient.nutrient?.offTag == nutrientOffTag;
           });
 

@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">AttributeGroup getAttributeGroup(final String attributeId) {
+  <pre class="language-dart"><code class="language-dart">AttributeGroup getAttributeGroup(String attributeId) {
   for (final AttributeGroup attributeGroup in attributeGroups!) {
     for (final Attribute item in attributeGroup.attributes!) {
       if (item.id == attributeId) {

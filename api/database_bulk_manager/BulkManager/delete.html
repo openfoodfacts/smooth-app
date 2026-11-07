@@ -74,10 +74,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; delete({
-  required final BulkDeletable bulkDeletable,
-  required final List&lt;dynamic&gt; parameters,
-  required final DatabaseExecutor databaseExecutor,
-  final List&lt;dynamic&gt;? additionalParameters,
+  required BulkDeletable bulkDeletable,
+  required List&lt;dynamic&gt; parameters,
+  required DatabaseExecutor databaseExecutor,
+  List&lt;dynamic&gt;? additionalParameters,
 }) async {
   int result = 0;
   final String tableName = bulkDeletable.getTableName();

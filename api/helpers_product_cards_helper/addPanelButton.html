@@ -75,12 +75,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Widget addPanelButton(
-  final String label, {
-  required final Function() onPressed,
-  final Widget? leadingIcon,
-  final Widget? trailingIcon,
-  final TextAlign? textAlign,
-  final EdgeInsetsGeometry? padding,
+  String label, {
+  required Function() onPressed,
+  Widget? leadingIcon,
+  Widget? trailingIcon,
+  TextAlign? textAlign,
+  EdgeInsetsGeometry? padding,
   BorderRadiusGeometry? borderRadius,
   WidgetStateProperty&lt;double?&gt;? elevation,
 }) =&gt; Padding(

@@ -77,13 +77,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Widget? getPanelSummaryWidget(
-  final Product product, {
-  required final bool isClickable,
-  required final bool simplified,
-  final bool ignoreEvaluation = false,
-  final TextStyle? textStyleOverride,
-  final EdgeInsetsGeometry? margin,
-  final EdgeInsetsGeometry? padding,
+  Product product, {
+  required bool isClickable,
+  required bool simplified,
+  bool ignoreEvaluation = false,
+  TextStyle? textStyleOverride,
+  EdgeInsetsGeometry? margin,
+  EdgeInsetsGeometry? padding,
 }) {
   if (titleElement == null) {
     if (simplified) {

@@ -81,10 +81,10 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;bool&gt; doSomething({
-  required final ProductList productList,
-  required final LocalDatabase localDatabase,
-  required final BuildContext context,
-  required final Set&lt;String&gt; selectedBarcodes,
+  required ProductList productList,
+  required LocalDatabase localDatabase,
+  required BuildContext context,
+  required Set&lt;String&gt; selectedBarcodes,
 }) async {
   selectedBarcodes.addAll(productList.barcodes);
   return true;

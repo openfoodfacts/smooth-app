@@ -72,8 +72,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;ProductList?&gt; showRenameUserListDialog(
-  final BuildContext context,
-  final ProductList initialProductList,
+  BuildContext context,
+  ProductList initialProductList,
 ) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final TextEditingController textEditingController = TextEditingController();
@@ -84,7 +84,7 @@
   final List&lt;String&gt; lists = daoProductList.getUserLists();
   final String? newName = await showDialog&lt;String&gt;(
     context: context,
-    builder: (final BuildContext context) =&gt; SmoothAlertDialog(
+    builder: (BuildContext context) =&gt; SmoothAlertDialog(
       title: appLocalizations.user_list_dialog_rename_title,
       body: Form(
         key: formKey,

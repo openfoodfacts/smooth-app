@@ -67,12 +67,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static String replaceSubdomain(final String url) =&gt;
-    UriHelper.replaceSubdomain(
-      Uri.parse(url),
-      language: getLanguage(),
-      country: getCountry(),
-    ).toString();</code></pre>
+  <pre class="language-dart"><code class="language-dart">static String replaceSubdomain(String url) =&gt; UriHelper.replaceSubdomain(
+  Uri.parse(url),
+  language: getLanguage(),
+  country: getCountry(),
+).toString();</code></pre>
 </section>
 
 

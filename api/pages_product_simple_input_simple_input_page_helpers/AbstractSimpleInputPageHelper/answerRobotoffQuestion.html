@@ -69,13 +69,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void answerRobotoffQuestion(
-  final RobotoffQuestion question,
-  final InsightAnnotation? annotation,
+  RobotoffQuestion question,
+  InsightAnnotation? annotation,
 ) {
   robotoffQuestionsNotifier.value = robotoffQuestionsNotifier.value
       .map&lt;RobotoffQuestion, InsightAnnotation?&gt;((
-        final RobotoffQuestion key,
-        final InsightAnnotation? value,
+        RobotoffQuestion key,
+        InsightAnnotation? value,
       ) {
         if (key == question) {
           return MapEntry&lt;RobotoffQuestion, InsightAnnotation?&gt;(

@@ -66,9 +66,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">factory TransientFile.fromProduct(
-  final Product product,
-  final ImageField imageField,
-  final OpenFoodFactsLanguage language,
+  Product product,
+  ImageField imageField,
+  OpenFoodFactsLanguage language,
 ) {
   final ProductImageData productImageData = getProductImageData(
     product,
@@ -83,7 +83,7 @@
     product
         .getRawImages()
         ?.firstWhereOrNull(
-          (final ProductImage productImage) =&gt;
+          (ProductImage productImage) =&gt;
               productImage.imgid == productImageData.imageId,
         )
         ?.uploaded,

@@ -74,13 +74,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; addTask({
-  required final LocalDatabase localDatabase,
-  required final String work,
-  required final int pageSize,
-  required final int totalSize,
-  required final int soFarSize,
-  required final ProductType productType,
-  final int pageNumber = 1,
+  required LocalDatabase localDatabase,
+  required String work,
+  required int pageSize,
+  required int totalSize,
+  required int soFarSize,
+  required ProductType productType,
+  int pageNumber = 1,
 }) async {
   final String uniqueId = await _operationType.getNewKey(
     localDatabase,
