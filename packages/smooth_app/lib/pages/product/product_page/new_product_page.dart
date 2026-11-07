@@ -70,7 +70,16 @@ class ProductPageState extends State<ProductPage>
     DaoProductLastAccess(localDatabase).put(barcode);
 
     onNextFrame(() {
-      if (KnowledgePanelsBuilder.needsSimplifiedPanelsRefresh(widget.product)) {
+      if (widget.product.knowledgePanels == null) {
+        unawaited(
+          ProductRefresher().silentFetchAndRefresh(
+            localDatabase: localDatabase,
+            barcode: barcode,
+          ),
+        );
+      } else if (KnowledgePanelsBuilder.needsSimplifiedPanelsRefresh(
+        widget.product,
+      )) {
         unawaited(
           ProductRefresher().fetchAndRefresh(
             barcode: barcode,
