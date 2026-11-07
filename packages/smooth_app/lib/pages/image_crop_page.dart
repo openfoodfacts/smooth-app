@@ -52,16 +52,12 @@ Future<XFile?> pickImageFile(
   final BuildContext context, {
   final UserPictureSource? forcedSource,
 }) async {
-  final UserPreferences userPreferences = context.read<UserPreferences>();
-
   /// Picks an image file from gallery or camera.
   Future<XFile?> innerPickImageFile(
     final BuildContext context, {
     bool ignorePlatformException = false,
   }) async {
     final UserPictureSource? source;
-    bool isFromLastSource = false;
-
     if (forcedSource != null && forcedSource != UserPictureSource.SELECT) {
       source = forcedSource;
     } else {
@@ -69,62 +65,41 @@ Future<XFile?> pickImageFile(
       if (source == null) {
         return null;
       }
-      if (userPreferences.explicitUserPictureSource == null &&
-          userPreferences.lastPictureSource == source) {
-        isFromLastSource = true;
-      }
     }
-
-    Future<XFile?> pick(final UserPictureSource src) async {
-      final ImagePicker picker = ImagePicker();
-      if (src == UserPictureSource.GALLERY) {
-        try {
-          return await picker.pickImage(
-            imageQuality: ImagePickerConstants.imagePickerQuality,
-            maxHeight: ImagePickerConstants.imagePickerMaxSize,
-            maxWidth: ImagePickerConstants.imagePickerMaxSize,
-            source: ImageSource.gallery,
-          );
-        } on PlatformException catch (e) {
-          // On debug builds this catch won't work.
-          // Please run on profile/release modes to test it
-          if (ignorePlatformException) {
-            return null;
-          } else if (e.code == 'photo_access_denied') {
-            throw PhotoAccessDenied();
-          } else {
-            rethrow;
-          }
+    if (!context.mounted) {
+      return null;
+    }
+    final ImagePicker picker = ImagePicker();
+    if (source == UserPictureSource.GALLERY) {
+      try {
+        return await picker.pickImage(
+          imageQuality: ImagePickerConstants.imagePickerQuality,
+          maxHeight: ImagePickerConstants.imagePickerMaxSize,
+          maxWidth: ImagePickerConstants.imagePickerMaxSize,
+          source: ImageSource.gallery,
+        );
+      } on PlatformException catch (e) {
+        // On debug builds this catch won't work.
+        // Please run on profile/release modes to test it
+        if (ignorePlatformException) {
+          return null;
+        } else if (e.code == 'photo_access_denied') {
+          throw PhotoAccessDenied();
+        } else {
+          rethrow;
         }
       }
-      return picker.pickImage(
-        imageQuality: ImagePickerConstants.imagePickerQuality,
-        maxHeight: ImagePickerConstants.imagePickerMaxSize,
-        maxWidth: ImagePickerConstants.imagePickerMaxSize,
-        source: ImageSource.camera,
-      );
     }
-
-    XFile? pickedFile = await pick(source);
-
-    // If the source was automatically launched via lastPictureSource (not an explicit setting)
-    // and the user cancelled it without picking an image, provide an escape hatch by prompting
-    // so the user can easily switch to the other source or cancel.
-    if (pickedFile == null && isFromLastSource && context.mounted) {
-      final UserPictureSource? fallbackSource = await getUserPictureSource(
-        context,
-        forcePrompt: true,
-      );
-      if (fallbackSource != null && context.mounted) {
-        pickedFile = await pick(fallbackSource);
-      }
-    }
-
-    return pickedFile;
+    return picker.pickImage(
+      imageQuality: ImagePickerConstants.imagePickerQuality,
+      maxHeight: ImagePickerConstants.imagePickerMaxSize,
+      maxWidth: ImagePickerConstants.imagePickerMaxSize,
+      source: ImageSource.camera,
+    );
   }
 
   try {
-    return innerPickImageFile(context);
+    return await innerPickImageFile(context);
   } on PhotoAccessDenied catch (_) {
     if (!context.mounted) {
       return null;
@@ -144,25 +119,15 @@ Future<XFile?> pickImageFile(
 /// Returns the picture source selected by the user.
 @visibleForTesting
 Future<UserPictureSource?> getUserPictureSource(
-  final BuildContext context, {
-  bool forcePrompt = false,
-}) async {
+  final BuildContext context,
+) async {
   if (!CameraHelper.hasACamera) {
     return UserPictureSource.GALLERY;
   }
   final UserPreferences userPreferences = context.read<UserPreferences>();
-
-  if (!forcePrompt) {
-    final UserPictureSource explicit = userPreferences.userPictureSource;
-    if (explicit != UserPictureSource.SELECT) {
-      return explicit;
-    }
-    if (userPreferences.explicitUserPictureSource != UserPictureSource.SELECT) {
-      final UserPictureSource? lastSource = userPreferences.lastPictureSource;
-      if (lastSource != null) {
-        return lastSource;
-      }
-    }
+  final UserPictureSource source = userPreferences.userPictureSource;
+  if (source != UserPictureSource.SELECT) {
+    return source;
   }
 
   final UserPictureSource? selectedSource =

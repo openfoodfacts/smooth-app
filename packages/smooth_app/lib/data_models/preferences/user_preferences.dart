@@ -669,28 +669,19 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Resets the remembered last picture source.
-  Future<void> resetLastPictureSource() async {
-    await _sharedPreferences.remove(_TAG_LAST_PICTURE_SOURCE);
-    notifyListeners();
-  }
-
-  /// Clears any explicitly configured picture source preference.
-  Future<void> clearUserPictureSource() async {
-    await _sharedPreferences.remove(_TAG_USER_PICTURE_SOURCE);
-    notifyListeners();
-  }
-
-  /// Returns the explicitly configured picture source, defaulting to
-  /// [UserPictureSource.defaultValue] (i.e. SELECT / "Ask each time").
+  /// Returns the user choice regarding the picture source.
+  ///
+  /// Precedence:
+  /// 1. An explicitly configured setting in preferences ([_TAG_USER_PICTURE_SOURCE]).
+  /// 2. The persistently remembered last-used source ([lastPictureSource]).
+  /// 3. The default value ([UserPictureSource.defaultValue], i.e. SELECT).
   UserPictureSource get userPictureSource =>
-      explicitUserPictureSource ?? UserPictureSource.defaultValue;
+      explicitUserPictureSource ??
+      lastPictureSource ??
+      UserPictureSource.defaultValue;
 
   Future<void> setUserPictureSource(final UserPictureSource source) async {
     await _sharedPreferences.setString(_TAG_USER_PICTURE_SOURCE, source.tag);
-    if (source != UserPictureSource.SELECT) {
-      await _sharedPreferences.setString(_TAG_LAST_PICTURE_SOURCE, source.tag);
-    }
     notifyListeners();
   }
 

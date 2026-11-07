@@ -197,10 +197,9 @@ void main() {
       expect(sharedPreferences.getString(_tagLastPictureSource), 'G');
       expect(notified, 2);
 
-      await userPreferences.resetLastPictureSource();
+      await sharedPreferences.remove(_tagLastPictureSource);
       expect(userPreferences.lastPictureSource, isNull);
       expect(sharedPreferences.getString(_tagLastPictureSource), isNull);
-      expect(notified, 3);
     });
 
     test('explicitUserPictureSource reads saved explicit preference', () async {
@@ -226,88 +225,37 @@ void main() {
       expect(userPreferences.explicitUserPictureSource, isNull);
     });
 
-    test(
-      'setUserPictureSource updates both explicit and last source',
-      () async {
-        await userPreferences.setUserPictureSource(UserPictureSource.CAMERA);
-        expect(
-          userPreferences.explicitUserPictureSource,
-          UserPictureSource.CAMERA,
-        );
-        expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
-        expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
-
-        await userPreferences.clearUserPictureSource();
-        expect(userPreferences.explicitUserPictureSource, isNull);
-        // last source is still CAMERA
-        expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
-        // userPictureSource returns explicit preference (defaults to SELECT)
-        expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
-      },
-    );
-
-    group('explicit preference and last source separation', () {
-      test('explicit CAMERA persists independently of last source', () async {
-        await userPreferences.setLastPictureSource(UserPictureSource.GALLERY);
-        await userPreferences.setUserPictureSource(UserPictureSource.CAMERA);
-
-        expect(
-          userPreferences.explicitUserPictureSource,
-          UserPictureSource.CAMERA,
-        );
-        expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
-        expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
-
-        // Manually set last source back to GALLERY
-        await sharedPreferences.setString(_tagLastPictureSource, 'G');
-        expect(userPreferences.lastPictureSource, UserPictureSource.GALLERY);
-        expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
-      });
-
-      test('explicit GALLERY persists independently of last source', () async {
-        await userPreferences.setUserPictureSource(UserPictureSource.GALLERY);
-        await sharedPreferences.setString(_tagLastPictureSource, 'C');
-
-        expect(
-          userPreferences.explicitUserPictureSource,
-          UserPictureSource.GALLERY,
-        );
-        expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
-        expect(userPreferences.userPictureSource, UserPictureSource.GALLERY);
-      });
-
-      test('explicit SELECT ("Ask each time") returns SELECT', () async {
-        await userPreferences.setLastPictureSource(UserPictureSource.CAMERA);
-        await userPreferences.setUserPictureSource(UserPictureSource.SELECT);
-
-        expect(
-          userPreferences.explicitUserPictureSource,
-          UserPictureSource.SELECT,
-        );
-        expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
-        expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
-      });
-
-      test(
-        'when no explicit preference is set, userPictureSource defaults to SELECT',
-        () async {
-          expect(userPreferences.explicitUserPictureSource, isNull);
-          expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
-
-          await userPreferences.setLastPictureSource(UserPictureSource.CAMERA);
-          expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
-          expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
-        },
+    test('setUserPictureSource updates explicit preference', () async {
+      await userPreferences.setUserPictureSource(UserPictureSource.CAMERA);
+      expect(
+        userPreferences.explicitUserPictureSource,
+        UserPictureSource.CAMERA,
       );
+      expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
 
-      test(
-        'when no explicit preference and no last source, defaults to SELECT',
-        () {
-          expect(userPreferences.explicitUserPictureSource, isNull);
-          expect(userPreferences.lastPictureSource, isNull);
-          expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
-        },
-      );
+      await sharedPreferences.remove(_tagUserPictureSource);
+      expect(userPreferences.explicitUserPictureSource, isNull);
+      expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+    });
+
+    test('precedence: explicit preference overrides lastPictureSource', () async {
+      await userPreferences.setLastPictureSource(UserPictureSource.CAMERA);
+
+      // 1. Explicit GALLERY overrides last CAMERA
+      await userPreferences.setUserPictureSource(UserPictureSource.GALLERY);
+      expect(userPreferences.userPictureSource, UserPictureSource.GALLERY);
+
+      // 2. Explicit SELECT ("Ask each time") overrides last CAMERA
+      await userPreferences.setUserPictureSource(UserPictureSource.SELECT);
+      expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+
+      // 3. Without explicit preference, last source is used
+      await sharedPreferences.remove(_tagUserPictureSource);
+      expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
+
+      // 4. Without explicit preference and without last source, defaults to SELECT
+      await sharedPreferences.remove(_tagLastPictureSource);
+      expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
     });
   });
 }
