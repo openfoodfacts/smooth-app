@@ -19,6 +19,7 @@ class SearchPage extends StatefulWidget {
     this.searchHelper, {
     this.preloadedList,
     this.autofocus = true,
+    this.initialQuery,
     this.heroTag,
     this.backButtonType,
   });
@@ -35,6 +36,7 @@ class SearchPage extends StatefulWidget {
   final SearchHelper searchHelper;
   final List<SearchPreloadedItem>? preloadedList;
   final bool autofocus;
+  final String? initialQuery;
   final String? heroTag;
   final BackButtonType? backButtonType;
 
@@ -63,7 +65,8 @@ class SearchPageExtra {
 
 class _SearchPageState extends State<SearchPage> {
   // https://github.com/openfoodfacts/smooth-app/pull/2219
-  final TextEditingController _searchTextController = TextEditingController();
+  late final TextEditingController _searchTextController =
+      TextEditingController(text: widget.initialQuery);
   final FocusNode _searchFocusNode = FocusNode();
   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
