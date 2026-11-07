@@ -5,6 +5,7 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
@@ -193,7 +194,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
   /// Computes all the nutrients with a portion factor, and displays a dialog.
   Future<void> _computeAndShow() async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    if (widget.product.nutriments == null) {
+    if (!widget.product.hasNutritionData) {
       _onComputationError();
       return;
     }
@@ -212,7 +213,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
     final int quantity = int.parse(_quantityController.text);
     final PortionHelper helper = PortionHelper(
       cache.orderedNutrients.nutrients,
-      widget.product.nutriments!,
+      widget.product,
       quantity,
     );
     if (helper.isEmpty) {
