@@ -65,7 +65,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   }
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async =>
+  Future<void> preExecute(LocalDatabase localDatabase) async =>
       localDatabase.upToDate.addChange(uniqueId, getProductChange());
 
   /// Adds the background task about changing a product.
@@ -76,12 +76,12 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   /// where [localDatabase] is not null.
   /// At least one of [context] and [localDatabase] must be not null.
   static Future<void> addTask(
-    final Product minimalistProduct, {
+    Product minimalistProduct, {
     required BuildContext? context,
-    required final BackgroundTaskDetailsStamp stamp,
-    required final ProductType? productType,
+    required BackgroundTaskDetailsStamp stamp,
+    required ProductType? productType,
     LocalDatabase? localDatabase,
-    final bool showSnackBar = true,
+    bool showSnackBar = true,
   }) async {
     if (BackgroundTaskBarcode.isBarcodeToBeIgnored(
       minimalistProduct.barcode!,
@@ -119,15 +119,15 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => null;
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskDetails _getNewTask(
-    final Product minimalistProduct,
-    final String uniqueId,
-    final BackgroundTaskDetailsStamp stamp,
-    final ProductType productType,
+    Product minimalistProduct,
+    String uniqueId,
+    BackgroundTaskDetailsStamp stamp,
+    ProductType productType,
   ) => BackgroundTaskDetails._(
     uniqueId: uniqueId,
     processName: _operationType.processName,
@@ -137,7 +137,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
   );
 
-  static String getStamp(final String barcode, final String stamp) =>
+  static String getStamp(String barcode, String stamp) =>
       '$barcode;detail;$stamp';
 
   @override
@@ -152,7 +152,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
 
   /// Uploads the product changes.
   @override
-  Future<void> upload(final LocalDatabase localDatabase) async {
+  Future<void> upload(LocalDatabase localDatabase) async {
     final UriProductHelper uriProductHelper = await getUriProductHelper(
       localDatabase,
     );

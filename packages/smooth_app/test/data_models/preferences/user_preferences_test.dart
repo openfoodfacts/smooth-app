@@ -238,24 +238,27 @@ void main() {
       expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
     });
 
-    test('precedence: explicit preference overrides lastPictureSource', () async {
-      await userPreferences.setLastPictureSource(UserPictureSource.CAMERA);
+    test(
+      'precedence: explicit preference overrides lastPictureSource',
+      () async {
+        await userPreferences.setLastPictureSource(UserPictureSource.CAMERA);
 
-      // 1. Explicit GALLERY overrides last CAMERA
-      await userPreferences.setUserPictureSource(UserPictureSource.GALLERY);
-      expect(userPreferences.userPictureSource, UserPictureSource.GALLERY);
+        // 1. Explicit GALLERY overrides last CAMERA
+        await userPreferences.setUserPictureSource(UserPictureSource.GALLERY);
+        expect(userPreferences.userPictureSource, UserPictureSource.GALLERY);
 
-      // 2. Explicit SELECT ("Ask each time") overrides last CAMERA
-      await userPreferences.setUserPictureSource(UserPictureSource.SELECT);
-      expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+        // 2. Explicit SELECT ("Ask each time") overrides last CAMERA
+        await userPreferences.setUserPictureSource(UserPictureSource.SELECT);
+        expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
 
-      // 3. Without explicit preference, last source is used
-      await sharedPreferences.remove(_tagUserPictureSource);
-      expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
+        // 3. Without explicit preference, last source is used
+        await sharedPreferences.remove(_tagUserPictureSource);
+        expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
 
-      // 4. Without explicit preference and without last source, defaults to SELECT
-      await sharedPreferences.remove(_tagLastPictureSource);
-      expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
-    });
+        // 4. Without explicit preference and without last source, defaults to SELECT
+        await sharedPreferences.remove(_tagLastPictureSource);
+        expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+      },
+    );
   });
 }

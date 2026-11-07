@@ -16,7 +16,7 @@ class SearchLocationHelper extends SearchHelper {
   String get historyKey => DaoStringList.keySearchLocationHistory;
 
   @override
-  String getHintText(final AppLocalizations appLocalizations) =>
+  String getHintText(AppLocalizations appLocalizations) =>
       appLocalizations.search_store;
 
   @override

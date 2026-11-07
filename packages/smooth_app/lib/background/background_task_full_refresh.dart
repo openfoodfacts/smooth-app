@@ -26,8 +26,8 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
   static const OperationType _operationType = OperationType.fullRefresh;
 
   static Future<void> addTask({
-    required final BuildContext context,
-    required final int pageSize,
+    required BuildContext context,
+    required int pageSize,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(localDatabase);
@@ -44,15 +44,15 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => (
     appLocalizations.background_task_title_full_refresh,
     AlignmentDirectional.bottomCenter,
   );
 
   static BackgroundTaskFullRefresh _getNewTask(
-    final String uniqueId,
-    final int pageSize,
+    String uniqueId,
+    int pageSize,
   ) => BackgroundTaskFullRefresh._(
     processName: _operationType.processName,
     uniqueId: uniqueId,
@@ -61,7 +61,7 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
   );
 
   @override
-  Future<void> execute(final LocalDatabase localDatabase) async {
+  Future<void> execute(LocalDatabase localDatabase) async {
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final DaoWorkBarcode daoWorkBarcode = DaoWorkBarcode(localDatabase);
 
@@ -105,17 +105,17 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
   }
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {}
+  Future<void> preExecute(LocalDatabase localDatabase) async {}
 
   @override
   bool hasImmediateNextTask = false;
 
   Future<void> _startDownloadTask({
-    required final List<String> barcodes,
-    required final String work,
-    required final LocalDatabase localDatabase,
-    required final int downloadFlag,
-    required final ProductType productType,
+    required List<String> barcodes,
+    required String work,
+    required LocalDatabase localDatabase,
+    required int downloadFlag,
+    required ProductType productType,
   }) async {
     if (barcodes.isEmpty) {
       return;

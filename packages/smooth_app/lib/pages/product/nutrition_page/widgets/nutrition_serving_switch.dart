@@ -65,7 +65,7 @@ class NutritionServingSwitch extends StatelessWidget {
                           label: appLocalizations.nutrition_page_per_serving,
                         ),
                       ],
-                      onChanged: (final PerSize? value) {
+                      onChanged: (PerSize? value) {
                         if (value == null) {
                           return;
                         }

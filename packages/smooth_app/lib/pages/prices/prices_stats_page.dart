@@ -66,8 +66,8 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
   }
 
   Widget _buildStatsContent(
-    final PriceTotalStats stats,
-    final AppLocalizations appLocalizations,
+    PriceTotalStats stats,
+    AppLocalizations appLocalizations,
   ) {
     final String? updated = _formatDateTime(stats.updated);
     return ListView(
@@ -247,9 +247,9 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
   }
 
   Widget _getSectionHeader(
-    final IconData iconData,
-    final String description, {
-    final String? path,
+    IconData iconData,
+    String description, {
+    String? path,
   }) => ListTile(
     leading: Icon(iconData),
     title: Text(description),
@@ -280,7 +280,7 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
     return ListTile(title: Text(displayValue), subtitle: Text(description));
   }
 
-  static String? _formatDateTime(final DateTime? dateTime) => dateTime == null
+  static String? _formatDateTime(DateTime? dateTime) => dateTime == null
       ? null
       : DateFormat.yMd(
           ProductQuery.getLanguage().offTag,

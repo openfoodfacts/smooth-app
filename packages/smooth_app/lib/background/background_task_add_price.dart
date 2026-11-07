@@ -111,24 +111,24 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
 
   /// Adds the background task about uploading a product image.
   static Future<void> addTask({
-    required final BuildContext context,
-    required final CropParameters cropObject,
-    required final ProofType proofType,
-    required final DateTime date,
-    required final Currency currency,
-    required final int locationOSMId,
-    required final LocationOSMType locationOSMType,
-    required final List<String> barcodes,
-    required final List<String> categories,
-    required final List<List<String>> origins,
-    required final List<List<String>> labels,
-    required final List<String> pricePers,
-    required final List<bool> pricesAreDiscounted,
-    required final List<double> prices,
-    required final List<double?> pricesWithoutDiscount,
-    required final bool displaySnackbar,
-    required final bool readyForPriceTagValidation,
-    required final List<String> discountTypes,
+    required BuildContext context,
+    required CropParameters cropObject,
+    required ProofType proofType,
+    required DateTime date,
+    required Currency currency,
+    required int locationOSMId,
+    required LocationOSMType locationOSMType,
+    required List<String> barcodes,
+    required List<String> categories,
+    required List<List<String>> origins,
+    required List<List<String>> labels,
+    required List<String> pricePers,
+    required List<bool> pricesAreDiscounted,
+    required List<double> prices,
+    required List<double?> pricesWithoutDiscount,
+    required bool displaySnackbar,
+    required bool readyForPriceTagValidation,
+    required List<String> discountTypes,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(localDatabase);
@@ -164,24 +164,24 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskAddPrice _getNewTask({
-    required final String uniqueId,
-    required final CropParameters cropObject,
-    required final ProofType proofType,
-    required final DateTime date,
-    required final Currency currency,
-    required final int locationOSMId,
-    required final LocationOSMType locationOSMType,
-    required final List<String> barcodes,
-    required final List<String> categories,
-    required final List<List<String>> origins,
-    required final List<List<String>> labels,
-    required final List<String> pricePers,
-    required final List<bool> pricesAreDiscounted,
-    required final List<double> prices,
-    required final List<double?> pricesWithoutDiscount,
-    required final bool displaySnackbar,
-    required final bool readyForPriceTagValidation,
-    required final List<String> discountTypes,
+    required String uniqueId,
+    required CropParameters cropObject,
+    required ProofType proofType,
+    required DateTime date,
+    required Currency currency,
+    required int locationOSMId,
+    required LocationOSMType locationOSMType,
+    required List<String> barcodes,
+    required List<String> categories,
+    required List<List<String>> origins,
+    required List<List<String>> labels,
+    required List<String> pricePers,
+    required List<bool> pricesAreDiscounted,
+    required List<double> prices,
+    required List<double?> pricesWithoutDiscount,
+    required bool displaySnackbar,
+    required bool readyForPriceTagValidation,
+    required List<String> discountTypes,
   }) => BackgroundTaskAddPrice._(
     uniqueId: uniqueId,
     processName: _operationType.processName,
@@ -217,13 +217,13 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => displaySnackbar ? super.getFloatingMessage(appLocalizations) : null;
 
   @override
   Future<void> postExecute(
-    final LocalDatabase localDatabase,
-    final bool success,
+    LocalDatabase localDatabase,
+    bool success,
   ) async {
     await super.postExecute(localDatabase, success);
     try {
@@ -241,7 +241,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   }
 
   @override
-  Future<void> execute(final LocalDatabase localDatabase) async {
+  Future<void> execute(LocalDatabase localDatabase) async {
     final BackgroundCropResult cropResult =
         await BackgroundTaskImage.cropIfNeeded(
           fullPath: fullPath,

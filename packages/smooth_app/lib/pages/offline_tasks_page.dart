@@ -55,7 +55,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
           ? Center(child: Text(appLocalizations.background_task_list_empty))
           : ListView.builder(
               itemCount: taskIds.length,
-              itemBuilder: (final BuildContext context, final int index) {
+              itemBuilder: (BuildContext context, int index) {
                 final String taskId = taskIds[index];
                 final String? status = daoInstantString.get(
                   BackgroundTaskManager.taskIdToErrorDaoInstantStringKey(
@@ -90,30 +90,29 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                   onTap: () async {
                     final bool? stopTask = await showDialog<bool>(
                       context: context,
-                      builder: (final BuildContext context) =>
-                          SmoothAlertDialog(
-                            body: Text(
-                              appLocalizations.background_task_question_stop,
-                            ),
-                            actionsAxis: Axis.vertical,
-                            negativeAction: staleStatus == null
-                                ? null
-                                : SmoothActionButton(
-                                    // TODO(monsieurtanuki): localize
-                                    text: 'un-stale',
-                                    onPressed: () =>
-                                        Navigator.of(context).pop(false),
-                                  ),
-                            positiveAction: SmoothActionButton(
-                              // TODO(monsieurtanuki): localize
-                              text: 'stop',
-                              onPressed: () => Navigator.of(context).pop(true),
-                            ),
-                            neutralAction: SmoothActionButton(
-                              text: appLocalizations.cancel,
-                              onPressed: () => Navigator.of(context).pop(null),
-                            ),
-                          ),
+                      builder: (BuildContext context) => SmoothAlertDialog(
+                        body: Text(
+                          appLocalizations.background_task_question_stop,
+                        ),
+                        actionsAxis: Axis.vertical,
+                        negativeAction: staleStatus == null
+                            ? null
+                            : SmoothActionButton(
+                                // TODO(monsieurtanuki): localize
+                                text: 'un-stale',
+                                onPressed: () =>
+                                    Navigator.of(context).pop(false),
+                              ),
+                        positiveAction: SmoothActionButton(
+                          // TODO(monsieurtanuki): localize
+                          text: 'stop',
+                          onPressed: () => Navigator.of(context).pop(true),
+                        ),
+                        neutralAction: SmoothActionButton(
+                          text: appLocalizations.cancel,
+                          onPressed: () => Navigator.of(context).pop(null),
+                        ),
+                      ),
                     );
                     switch (stopTask) {
                       case null:
@@ -151,8 +150,8 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
   }
 
   String _getMessage(
-    final String? status,
-    final AppLocalizations appLocalizations,
+    String? status,
+    AppLocalizations appLocalizations,
   ) {
     switch (status) {
       case null:
@@ -173,7 +172,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     return status;
   }
 
-  String? _getWorkText(final String taskId) {
+  String? _getWorkText(String taskId) {
     final String? work = OperationType.getWork(taskId);
     if (work == null || work.isEmpty) {
       return null;

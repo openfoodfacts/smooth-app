@@ -55,12 +55,12 @@ enum OperationType {
   static const String _uniqueSequenceKey = 'OperationType';
 
   Future<String> getNewKey(
-    final LocalDatabase localDatabase, {
-    final String? barcode = BackgroundTaskProgressing.noBarcode,
-    final int? totalSize,
-    final int? soFarSize,
-    final String? work,
-    final ProductType? productType,
+    LocalDatabase localDatabase, {
+    String? barcode = BackgroundTaskProgressing.noBarcode,
+    int? totalSize,
+    int? soFarSize,
+    String? work,
+    ProductType? productType,
   }) async {
     final int sequentialId = await DaoInt(
       localDatabase,
@@ -91,10 +91,10 @@ enum OperationType {
     folksonomy => BackgroundTaskFolksonomy.fromJson(map),
   };
 
-  bool matches(final TransientOperation action) =>
+  bool matches(TransientOperation action) =>
       action.key.startsWith('$header$_transientHeaderSeparator');
 
-  String getLabel(final AppLocalizations appLocalizations) => switch (this) {
+  String getLabel(AppLocalizations appLocalizations) => switch (this) {
     OperationType.details => appLocalizations.background_task_operation_details,
     OperationType.addPrice => 'Add price',
     OperationType.addOtherPrice => 'Add price to existing proof',
@@ -113,24 +113,24 @@ enum OperationType {
     OperationType.folksonomy => 'Updating folksonomy product tags',
   };
 
-  static int getSequentialId(final TransientOperation operation) {
+  static int getSequentialId(TransientOperation operation) {
     final List<String> keyItems = operation.key.split(
       _transientHeaderSeparator,
     );
     return int.parse(keyItems[1]);
   }
 
-  static String getBarcode(final String key) => _getNthParameter(key, 2)!;
+  static String getBarcode(String key) => _getNthParameter(key, 2)!;
 
-  static int? getTotalSize(final String key) => _getNthIntParameter(key, 3);
+  static int? getTotalSize(String key) => _getNthIntParameter(key, 3);
 
-  static int? getSoFarSize(final String key) => _getNthIntParameter(key, 4);
+  static int? getSoFarSize(String key) => _getNthIntParameter(key, 4);
 
-  static String? getWork(final String key) => _getNthParameter(key, 5);
+  static String? getWork(String key) => _getNthParameter(key, 5);
 
-  static String? getProductType(final String key) => _getNthParameter(key, 6);
+  static String? getProductType(String key) => _getNthParameter(key, 6);
 
-  static String? _getNthParameter(final String key, final int index) {
+  static String? _getNthParameter(String key, int index) {
     final List<String> keyItems = key.split(_transientHeaderSeparator);
     if (keyItems.length <= index) {
       return null;
@@ -138,7 +138,7 @@ enum OperationType {
     return keyItems[index];
   }
 
-  static int? _getNthIntParameter(final String key, final int index) {
+  static int? _getNthIntParameter(String key, int index) {
     final String? parameter = _getNthParameter(key, index);
     if (parameter == null) {
       return null;
@@ -146,7 +146,7 @@ enum OperationType {
     return int.tryParse(parameter);
   }
 
-  static OperationType? getOperationType(final String key) {
+  static OperationType? getOperationType(String key) {
     final List<String> keyItems = key.split(_transientHeaderSeparator);
     final String find = keyItems[0];
     for (final OperationType operationType in OperationType.values) {
@@ -158,7 +158,7 @@ enum OperationType {
   }
 
   static int sort(
-    final TransientOperation operationA,
-    final TransientOperation operationB,
+    TransientOperation operationA,
+    TransientOperation operationB,
   ) => getSequentialId(operationA).compareTo(getSequentialId(operationB));
 }

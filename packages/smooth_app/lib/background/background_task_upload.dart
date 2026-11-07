@@ -71,17 +71,17 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
       TransientFile(ImageField.fromOffTag(imageField)!, barcode, getLanguage());
 
   @protected
-  Future<void> putTransientImage(final LocalDatabase localDatabase) async =>
+  Future<void> putTransientImage(LocalDatabase localDatabase) async =>
       _getTransientFile().putImage(localDatabase, await getFile(croppedPath));
 
   @protected
-  void removeTransientImage(final LocalDatabase localDatabase) =>
+  void removeTransientImage(LocalDatabase localDatabase) =>
       _getTransientFile().removeImage(localDatabase);
 
   File? _getTransientImage() => _getTransientFile().getImage();
 
   @override
-  Future<void> recover(final LocalDatabase localDatabase) async {
+  Future<void> recover(LocalDatabase localDatabase) async {
     final File? transientFile = _getTransientImage();
     if (transientFile == null) {
       await putTransientImage(localDatabase);
@@ -89,9 +89,9 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
   }
 
   static String getStamp(
-    final String barcode,
-    final String imageField,
-    final String language,
+    String barcode,
+    String imageField,
+    String language,
   ) => '$barcode;image;$imageField;$language';
 
   static Future<Directory> getDirectory() async =>
@@ -116,7 +116,7 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
   }
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {
+  Future<void> preExecute(LocalDatabase localDatabase) async {
     await localDatabase.upToDate.addChange(uniqueId, getProductChange());
     await putTransientImage(localDatabase);
   }

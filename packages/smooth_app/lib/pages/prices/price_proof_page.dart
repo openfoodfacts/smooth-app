@@ -69,7 +69,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
         actions: <Widget>[
           if (isMyProof && widget.proof.type == ProofType.receipt)
             SmoothPopupMenuButton<int>(
-              onSelected: (final int action) async {
+              onSelected: (int action) async {
                 switch (action) {
                   case 0:
                     return LaunchUrlHelper.launchURL(url);
@@ -211,7 +211,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
     );
   }
 
-  String _getUrl(final bool isThumbnail) => widget.proof
+  String _getUrl(bool isThumbnail) => widget.proof
       .getFileUrl(
         uriProductHelper: ProductQuery.uriPricesHelper,
         isThumbnail: isThumbnail,

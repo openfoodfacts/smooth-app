@@ -13,41 +13,41 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 class OcrPackagingHelper extends OcrHelper {
   @override
   // ignore: deprecated_member_use
-  String? getMonolingualText(final Product product) => product.packaging;
+  String? getMonolingualText(Product product) => product.packaging;
 
   @override
-  void setMonolingualText(final Product product, final String text) =>
+  void setMonolingualText(Product product, String text) =>
       // ignore: deprecated_member_use
       product.packaging = text;
 
   @override
   Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
-    final Product product,
+    Product product,
   ) => product.packagingTextInLanguages;
 
   @override
   void setMultilingualTexts(
-    final Product product,
-    final Map<OpenFoodFactsLanguage, String> texts,
+    Product product,
+    Map<OpenFoodFactsLanguage, String> texts,
   ) => product.packagingTextInLanguages = texts;
 
   @override
-  String? getImageUrl(final Product product) => product.imagePackagingUrl;
+  String? getImageUrl(Product product) => product.imagePackagingUrl;
 
   @override
-  String getImageError(final AppLocalizations appLocalizations) =>
+  String getImageError(AppLocalizations appLocalizations) =>
       appLocalizations.packaging_editing_image_error;
 
   @override
-  String getError(final AppLocalizations appLocalizations) =>
+  String getError(AppLocalizations appLocalizations) =>
       appLocalizations.packaging_editing_error;
 
   @override
-  String getActionExtractText(final AppLocalizations appLocalizations) =>
+  String getActionExtractText(AppLocalizations appLocalizations) =>
       appLocalizations.edit_packaging_extract_btn_text;
 
   @override
-  String getActionExtractShortText(final AppLocalizations appLocalizations) =>
+  String getActionExtractShortText(AppLocalizations appLocalizations) =>
       appLocalizations.edit_packaging_extract_btn_text_short;
 
   @override
@@ -67,31 +67,31 @@ class OcrPackagingHelper extends OcrHelper {
       appLocalizations.edit_packaging_loading_photo_help_dialog_body;
 
   @override
-  String getActionRefreshPhoto(final AppLocalizations appLocalizations) =>
+  String getActionRefreshPhoto(AppLocalizations appLocalizations) =>
       appLocalizations.edit_packaging_refresh_photo_btn_text;
 
   @override
-  String getInstructions(final AppLocalizations appLocalizations) =>
+  String getInstructions(AppLocalizations appLocalizations) =>
       appLocalizations.packaging_editing_instructions;
 
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.packaging_editing_title;
 
   @override
-  String getEditableContentTitle(final AppLocalizations appLocalizations) =>
+  String getEditableContentTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_packaging_list_title;
 
   @override
-  String getPhotoTitle(final AppLocalizations appLocalizations) =>
+  String getPhotoTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_packaging_photo_title;
 
   @override
-  String getType(final AppLocalizations appLocalizations) =>
+  String getType(AppLocalizations appLocalizations) =>
       appLocalizations.edit_packagings_title;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getAddButtonLabel(AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_packaging_image;
 
   /// Not supported yet
@@ -103,8 +103,8 @@ class OcrPackagingHelper extends OcrHelper {
 
   @override
   Future<String?> getExtractedText(
-    final Product product,
-    final OpenFoodFactsLanguage language,
+    Product product,
+    OpenFoodFactsLanguage language,
   ) async {
     final OcrPackagingResult result = await OpenFoodAPIClient.extractPackaging(
       getUser(),

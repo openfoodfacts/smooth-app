@@ -10,7 +10,7 @@ class AddNutritionButton extends StatelessWidget {
 
   final Product product;
 
-  static bool acceptsNutritionFacts(final Product product) =>
+  static bool acceptsNutritionFacts(Product product) =>
       product.productType != ProductType.product &&
       product.productType != ProductType.beauty;
 

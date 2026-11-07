@@ -52,14 +52,13 @@ class PriceProofCard extends StatelessWidget {
         children: <Widget>[
           SmoothRadioGroup<ProofType>(
             groupValue: model.proofType,
-            onChanged: (final ProofType? proofType) =>
-                model.proofType = proofType!,
+            onChanged: (ProofType? proofType) => model.proofType = proofType!,
             items:
                 (forcedProofType != null
                         ? <ProofType>[forcedProofType!]
                         : <ProofType>[ProofType.receipt, ProofType.priceTag])
                     .map<SmoothRadioItem<ProofType>>(
-                      (final ProofType item) => SmoothRadioItem<ProofType>(
+                      (ProofType item) => SmoothRadioItem<ProofType>(
                         value: item,
                         label: item.getTitle(appLocalizations),
                         icon: item.getIcon(context),
@@ -118,7 +117,7 @@ enum _ProofSource {
   gallery,
   history;
 
-  String getTitle(final AppLocalizations appLocalizations) => switch (this) {
+  String getTitle(AppLocalizations appLocalizations) => switch (this) {
     _ProofSource.camera => appLocalizations.settings_app_camera,
     _ProofSource.gallery => appLocalizations.gallery_source_label,
     _ProofSource.history => appLocalizations.user_search_proofs_title,
@@ -130,7 +129,7 @@ enum _ProofSource {
     _ProofSource.history => const icons.PriceReceipt().icon,
   };
 
-  Future<void> process(final BuildContext context) async {
+  Future<void> process(BuildContext context) async {
     final PriceModel model = context.read<PriceModel>();
 
     switch (this) {
@@ -163,7 +162,7 @@ enum _ProofSource {
   }
 
   static List<_ProofSource> getPossibleProofSources({
-    required final bool includeMyProofs,
+    required bool includeMyProofs,
   }) {
     final List<_ProofSource> result = <_ProofSource>[];
     final bool hasCamera = CameraHelper.hasACamera;
@@ -178,8 +177,8 @@ enum _ProofSource {
   }
 
   static Future<_ProofSource?> select(
-    final BuildContext context, {
-    required final List<_ProofSource> sources,
+    BuildContext context, {
+    required List<_ProofSource> sources,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 

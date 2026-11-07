@@ -23,7 +23,7 @@ class ScannerZXing extends Scanner {
         ? CameraLensDirection.front
         : CameraLensDirection.back;
     return (await availableCameras()).any(
-      (final CameraDescription camera) => camera.lensDirection == direction,
+      (CameraDescription camera) => camera.lensDirection == direction,
     );
   }
 
@@ -185,15 +185,14 @@ class _ZXingController implements CustomScannerController {
           return ReaderWidget(
             codeFormat: _formats,
             lensDirection: _lensDirection,
-            onScan: (final Code code) {
+            onScan: (Code code) {
               final String? text = code.text;
               if (text != null && text.isNotEmpty) {
                 onScan(text);
               }
             },
-            onControllerCreated:
-                (final CameraController? camera, final Exception? _) =>
-                    _onCameraCreated(camera),
+            onControllerCreated: (CameraController? camera, Exception? _) =>
+                _onCameraCreated(camera),
             showScannerOverlay: false,
             showFlashlight: false,
             showToggleCamera: false,
@@ -252,7 +251,7 @@ class _SmoothBarcodeScannerZXingState
   @override
   Widget build(BuildContext context) => VisibilityDetector(
     key: const ValueKey<String>('VisibilityDetector'),
-    onVisibilityChanged: (final VisibilityInfo info) {
+    onVisibilityChanged: (VisibilityInfo info) {
       if (!mounted) {
         return;
       }
@@ -265,7 +264,7 @@ class _SmoothBarcodeScannerZXingState
     child: Stack(
       children: <Widget>[
         _controller.buildCameraView(
-          onScan: (final String barcode) => unawaited(widget.onScan(barcode)),
+          onScan: (String barcode) => unawaited(widget.onScan(barcode)),
         ),
         Center(
           child: SmoothBarcodeScannerVisor(

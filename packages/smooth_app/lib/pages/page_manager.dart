@@ -192,9 +192,10 @@ class PageManagerState extends State<PageManager> {
           child: IndexedStack(index: _currentPage!.index, children: _tabs),
         ),
         bottomNavigationBar: ConsumerFilter<UserPreferences>(
-          buildWhen:
-              (UserPreferences? previousValue, UserPreferences currentValue) =>
-                  _isProd(currentValue) != (_isProd(previousValue)),
+          buildWhen: (
+            UserPreferences? previousValue,
+            UserPreferences currentValue,
+          ) => _isProd(currentValue) != (_isProd(previousValue)),
           builder:
               (BuildContext context, UserPreferences prefs, Widget? child) {
                 if (_isProd(prefs)) {

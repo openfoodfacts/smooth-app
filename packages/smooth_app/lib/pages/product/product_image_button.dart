@@ -47,10 +47,10 @@ abstract class ProductImageButton extends StatelessWidget {
   Widget getIcon();
 
   @protected
-  String getLabel(final AppLocalizations appLocalizations);
+  String getLabel(AppLocalizations appLocalizations);
 
   @protected
-  Future<void> action(final BuildContext context);
+  Future<void> action(BuildContext context);
 }
 
 enum ProductImageButtonType {
@@ -60,12 +60,12 @@ enum ProductImageButtonType {
   edit;
 
   Widget getButton({
-    required final Product product,
-    required final ImageField imageField,
-    required final OpenFoodFactsLanguage language,
-    required final bool isLoggedInMandatory,
+    required Product product,
+    required ImageField imageField,
+    required OpenFoodFactsLanguage language,
+    required bool isLoggedInMandatory,
     required bool imageExists,
-    final double? borderWidth,
+    double? borderWidth,
   }) => switch (this) {
     ProductImageButtonType.local => ProductImageLocalButton(
       product: product,

@@ -33,7 +33,7 @@ class SmoothBarcodeWidget extends StatelessWidget {
           barcode: _barcodeType,
           color: color,
           style: const TextStyle(color: color),
-          errorBuilder: (final BuildContext context, String? error) {
+          errorBuilder: (BuildContext context, String? error) {
             return Container(
               width: double.infinity,
               height: height,

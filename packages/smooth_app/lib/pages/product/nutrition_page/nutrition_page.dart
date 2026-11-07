@@ -217,7 +217,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   }
 
   /// Exits the page if the [flag] is `true`.
-  void _exitPage(final bool flag) {
+  void _exitPage(bool flag) {
     if (flag) {
       Navigator.of(context).pop();
     }
@@ -227,7 +227,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
-  Future<bool> _mayExitPage({required final bool saving}) async {
+  Future<bool> _mayExitPage({required bool saving}) async {
     if (!_isEdited()) {
       return true;
     }
@@ -405,7 +405,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
 
     widgets.add(
       NutritionAddNutrientButton(
-        onNutrientSelected: (final OrderedNutrient nutrient) {
+        onNutrientSelected: (OrderedNutrient nutrient) {
           setState(() => _nutrientToHighlight = nutrient);
         },
       ),
@@ -520,7 +520,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             NutritionAddNutrientHeaderButton(
-              onNutrientSelected: (final OrderedNutrient nutrient) {
+              onNutrientSelected: (OrderedNutrient nutrient) {
                 setState(() => _nutrientToHighlight = nutrient);
               },
             ),
@@ -591,7 +591,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
 }
 
 // cf. https://github.com/openfoodfacts/smooth-app/issues/3387
-Nutrient getNutrient(final OrderedNutrient orderedNutrient) {
+Nutrient getNutrient(OrderedNutrient orderedNutrient) {
   if (orderedNutrient.nutrient != null) {
     return orderedNutrient.nutrient!;
   }

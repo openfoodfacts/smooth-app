@@ -159,9 +159,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
 
   // TODO(monsieurtanuki): put that in a specific Widget class
   Widget _getNotEmptyScreen(
-    final Size screenSize,
-    final ThemeData themeData,
-    final AppLocalizations appLocalizations,
+    Size screenSize,
+    ThemeData themeData,
+    AppLocalizations appLocalizations,
   ) {
     final int itemCount = _getItemCount();
 
@@ -313,9 +313,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   }
 
   Widget _getErrorWidget(
-    final Size screenSize,
-    final ThemeData themeData,
-    final String errorMessage,
+    Size screenSize,
+    ThemeData themeData,
+    String errorMessage,
   ) {
     return SearchEmptyScreen(
       name: widget.name,
@@ -330,7 +330,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
-  Widget _getEmptyText(final ThemeData themeData, final String message) {
+  Widget _getEmptyText(ThemeData themeData, String message) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
     final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
@@ -514,16 +514,16 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
-  Widget _getIconButton(final _Action action) => IconButton(
+  Widget _getIconButton(_Action action) => IconButton(
     tooltip: action.text,
     icon: Icon(action.iconData),
     onPressed: action.onPressed,
   );
 
   _Action _getWorldAction(
-    final AppLocalizations appLocalizations,
-    final PagedProductQuery worldQuery,
-    final bool editableAppBarTitle,
+    AppLocalizations appLocalizations,
+    PagedProductQuery worldQuery,
+    bool editableAppBarTitle,
   ) => _Action(
     text: appLocalizations.world_results_action,
     iconData: const icons.World.help().icon,
@@ -542,7 +542,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     }
   }
 
-  ProductQueryModel _getModel(final ProductListSupplier supplier) =>
+  ProductQueryModel _getModel(ProductListSupplier supplier) =>
       ProductQueryModel(supplier);
 
   Future<void> _refreshList() async {

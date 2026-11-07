@@ -40,13 +40,23 @@ jobs:
       - name: Get dependencies
         run: ci/pub_get.sh
 
+      # Normalize line endings in downloaded dependencies and workspace to avoid dartdoc CRLF offset bugs
+      - name: Normalize line endings
+        run: |
+          find "${PUB_CACHE:-$HOME/.pub-cache}" -name "*.dart" -exec sed -i 's/\r$//' {} + 2>/dev/null || true
+          find . -name "*.dart" -exec sed -i 's/\r$//' {} +
+
       # Generated localization files (120+ language files with >120,000 getters)
       # bloat the dartdoc search index (index.json) to >100MB, which exceeds GitHub's 100MB file limit.
       - name: Remove generated localization files before dartdoc
         run: rm -f packages/smooth_app/lib/l10n/app_localizations_*.dart
 
+      # dartdoc 9.0.6 bundled with Flutter 3.47.9 has a known RangeError bug in _stripDocImports (dart-lang/dartdoc#4180).
+      # Globally activating dartdoc installs >=9.0.8 with the fix (PR #4289).
       - name: Run Dartdoc
-        run: dart doc .
+        run: |
+          dart pub global activate dartdoc
+          dart pub global run dartdoc .
         working-directory: ./packages/smooth_app
 
       - name: Install mkdocs and mkdocs-material

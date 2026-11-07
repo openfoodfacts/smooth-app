@@ -10,7 +10,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 /// Implementation for "Traces" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageTraceHelper extends AbstractSimpleInputPageHelper {
   @override
-  bool isOwnerField(final Product product) =>
+  bool isOwnerField(Product product) =>
       product.getOwnerFieldTimestamp(
         OwnerField.productField(
           ProductField.TRACES,
@@ -20,11 +20,11 @@ class SimpleInputPageTraceHelper extends AbstractSimpleInputPageHelper {
       null;
 
   @override
-  List<String> initTerms(final Product product) =>
+  List<String> initTerms(Product product) =>
       product.tracesTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
-  void changeProduct(final Product changedProduct) {
+  void changeProduct(Product changedProduct) {
     // for the local change
     changedProduct.tracesTagsInLanguages =
         <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
@@ -33,11 +33,11 @@ class SimpleInputPageTraceHelper extends AbstractSimpleInputPageHelper {
   }
 
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_traces_title;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getAddButtonLabel(AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_product_traces;
 
   @override
@@ -47,7 +47,7 @@ class SimpleInputPageTraceHelper extends AbstractSimpleInputPageHelper {
   WidgetBuilder? getAddExplanationsContent() => null;
 
   @override
-  String getAddHint(final AppLocalizations appLocalizations) =>
+  String getAddHint(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_traces_hint;
 
   @override

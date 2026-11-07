@@ -22,7 +22,7 @@ class FetchedProduct {
   });
 
   // The reason behind the "ignore": I want to force "product" to be not null
-  const FetchedProduct.found(final Product product)
+  const FetchedProduct.found(Product product)
     // ignore: prefer_initializing_formals
     : this._(status: FetchedProductStatus.ok, product: product);
 
@@ -36,9 +36,9 @@ class FetchedProduct {
 
   /// When the "fetch product" operation had an internet error.
   const FetchedProduct.error({
-    required final String exceptionString,
-    required final bool isConnected,
-    final String? failedPingedHost,
+    required String exceptionString,
+    required bool isConnected,
+    String? failedPingedHost,
   }) : this._(
          status: FetchedProductStatus.internetError,
          isConnected: isConnected,
@@ -58,7 +58,7 @@ class FetchedProduct {
   /// When relevant, host of the query that we couldn't even ping.
   final String? failedPingedHost;
 
-  String getErrorTitle(final AppLocalizations appLocalizations) {
+  String getErrorTitle(AppLocalizations appLocalizations) {
     switch (status) {
       case FetchedProductStatus.ok:
         return 'Not supposed to happen...';

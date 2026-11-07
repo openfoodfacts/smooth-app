@@ -24,28 +24,28 @@ abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
   String get historyKey;
 
   /// Hint text for the search field.
-  String getHintText(final AppLocalizations appLocalizations);
+  String getHintText(AppLocalizations appLocalizations);
 
   /// A small message that will be displayed below the search bar
-  String getHelpText(final AppLocalizations appLocalizations);
+  String getHelpText(AppLocalizations appLocalizations);
 
   /// An optional leading widget for the search bar.
   Widget? getLeadingWidget(BuildContext context) => null;
 
   /// Returns all the previous queries, in reverse order.
-  List<String> getAllQueries(final LocalDatabase localDatabase) =>
+  List<String> getAllQueries(LocalDatabase localDatabase) =>
       DaoStringList(localDatabase).getAll(historyKey).reversed.toList();
 
   /// Adds a query to the history.
   Future<void> addQuery(
-    final LocalDatabase localDatabase,
-    final String query,
+    LocalDatabase localDatabase,
+    String query,
   ) async => DaoStringList(localDatabase).add(historyKey, query);
 
   /// Removes a query from the history.
   Future<bool> removeQuery(
-    final LocalDatabase localDatabase,
-    final String query,
+    LocalDatabase localDatabase,
+    String query,
   ) async => DaoStringList(localDatabase).remove(historyKey, query);
 
   /// Typical search when we have a controller+focus.

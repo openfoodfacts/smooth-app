@@ -63,7 +63,7 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
 /// A manager for handling location data with infinite scrolling
 class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
   @override
-  Future<void> fetchData(final int pageNumber) async {
+  Future<void> fetchData(int pageNumber) async {
     final MaybeError<GetLocationsResult> result =
         await OpenPricesAPIClient.getLocations(
           GetLocationsParameters()

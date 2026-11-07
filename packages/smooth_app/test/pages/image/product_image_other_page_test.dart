@@ -17,7 +17,7 @@ import 'package:smooth_app/widgets/smooth_interactive_viewer.dart';
 import '../../tests_utils/mocks.dart';
 
 void main() {
-  Future<void> pumpPage(WidgetTester tester, final ProductImage image) async {
+  Future<void> pumpPage(WidgetTester tester, ProductImage image) async {
     SharedPreferences.setMockInitialValues(mockSharedPreferences());
     final UserPreferences prefs = await UserPreferences.getUserPreferences();
     ProductQuery.setQueryType(prefs);
@@ -73,7 +73,7 @@ void main() {
     String? copied;
     tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
       SystemChannels.platform,
-      (final MethodCall call) async {
+      (MethodCall call) async {
         if (call.method == 'Clipboard.setData') {
           copied = (call.arguments as Map<Object?, Object?>)['text'] as String?;
         }

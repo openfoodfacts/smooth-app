@@ -54,8 +54,8 @@ class _ProductImageViewerState extends State<ProductImageViewer>
   }
 
   Widget _getImageButton(
-    final ProductImageButtonType type,
-    final bool imageExists,
+    ProductImageButtonType type,
+    bool imageExists,
   ) => Padding(
     padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
     child: type.getButton(

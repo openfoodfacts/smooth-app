@@ -21,12 +21,11 @@ abstract class ProductQuery {
 
   static late OpenFoodFactsCountry _country;
 
-  static String replaceSubdomain(final String url) =>
-      UriHelper.replaceSubdomain(
-        Uri.parse(url),
-        language: getLanguage(),
-        country: getCountry(),
-      ).toString();
+  static String replaceSubdomain(String url) => UriHelper.replaceSubdomain(
+    Uri.parse(url),
+    language: getLanguage(),
+    country: getCountry(),
+  ).toString();
 
   /// Returns the global language for API queries.
   static OpenFoodFactsLanguage getLanguage() {
@@ -41,8 +40,8 @@ abstract class ProductQuery {
 
   /// Sets the global language for API queries.
   static void setLanguage(
-    final BuildContext? context,
-    final UserPreferences userPreferences, {
+    BuildContext? context,
+    UserPreferences userPreferences, {
     String? languageCode,
   }) {
     languageCode ??=
@@ -65,7 +64,7 @@ abstract class ProductQuery {
   static OpenFoodFactsCountry getCountry() => _country;
 
   /// Sets the global country for API queries: implicit choice at init time.
-  static Future<void> initCountry(final UserPreferences userPreferences) async {
+  static Future<void> initCountry(UserPreferences userPreferences) async {
     // not ideal, but we have many contributors monitoring France
     const OpenFoodFactsCountry defaultCountry = OpenFoodFactsCountry.FRANCE;
     final String? isoCode =
@@ -87,8 +86,8 @@ abstract class ProductQuery {
   ///
   /// Returns true if the [isoCode] was correctly detected.
   static Future<bool> setCountry(
-    final UserPreferences userPreferences,
-    final String isoCode,
+    UserPreferences userPreferences,
+    String isoCode,
   ) async {
     final OpenFoodFactsCountry? country = OpenFoodFactsCountry.fromOffTag(
       isoCode,
@@ -102,8 +101,8 @@ abstract class ProductQuery {
 
   /// Sets the global country for API queries.
   static Future<void> _setCountry(
-    final UserPreferences userPreferences,
-    final OpenFoodFactsCountry country,
+    UserPreferences userPreferences,
+    OpenFoodFactsCountry country,
   ) async {
     _country = country;
     // we need this to run "world" queries
@@ -124,7 +123,7 @@ abstract class ProductQuery {
   /// Sets a comment for the user agent.
   ///
   /// cf. https://github.com/openfoodfacts/smooth-app/issues/2248
-  static void setUserAgentComment(final String comment) {
+  static void setUserAgentComment(String comment) {
     final UserAgent? previous = OpenFoodAPIConfiguration.userAgent;
     if (previous == null) {
       return;
@@ -143,7 +142,7 @@ abstract class ProductQuery {
   /// Sets the uuid id as "final variable", for instance for API queries.
   ///
   /// To be called at main / init.
-  static Future<void> setUuid(final LocalDatabase localDatabase) async {
+  static Future<void> setUuid(LocalDatabase localDatabase) async {
     final DaoString uuidString = DaoString(localDatabase);
     String? uuid = await uuidString.get(_UUID_NAME);
 
@@ -187,8 +186,8 @@ abstract class ProductQuery {
   static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
 
   /// Sets the query type according to the current [UserPreferences]
-  static void setQueryType(final UserPreferences userPreferences) {
-    UriProductHelper getProductHelper(final String flagProd) =>
+  static void setQueryType(UserPreferences userPreferences) {
+    UriProductHelper getProductHelper(String flagProd) =>
         userPreferences.getFlag(flagProd) ?? true
         ? uriHelperFoodProd
         : getTestUriProductHelper(userPreferences);
@@ -217,7 +216,7 @@ abstract class ProductQuery {
 
   /// Returns the standard test env, or the custom test env if relevant.
   static UriProductHelper getTestUriProductHelper(
-    final UserPreferences userPreferences,
+    UserPreferences userPreferences,
   ) {
     final String testEnvDomain =
         userPreferences.getDevModeString(
@@ -234,7 +233,7 @@ abstract class ProductQuery {
   }
 
   static ProductType? extractProductType(
-    final UriProductHelper uriProductHelper,
+    UriProductHelper uriProductHelper,
   ) {
     final String domain = uriProductHelper.domain;
     for (final ProductType productType in ProductType.values) {
@@ -247,7 +246,7 @@ abstract class ProductQuery {
 
   // TODO(monsieurtanuki): make the parameter "required"
   static UriProductHelper getUriProductHelper({
-    required final ProductType? productType,
+    required ProductType? productType,
   }) {
     final UriProductHelper currentUriProductHelper = _uriProductHelper;
     if (productType == null) {
@@ -335,8 +334,8 @@ abstract class ProductQuery {
 
   /// Returns the token for Prices, as cached or just downloaded.
   static Future<MaybeError<String>> getPriceToken(
-    final User user,
-    final LocalDatabase localDatabase,
+    User user,
+    LocalDatabase localDatabase,
   ) async {
     final UriProductHelper uriHelper = ProductQuery.uriPricesHelper;
     final String key =

@@ -36,8 +36,8 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
   }
 
   static Future<void> addTask(
-    final String barcode,
-    final LocalDatabase localDatabase,
+    String barcode,
+    LocalDatabase localDatabase,
   ) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
@@ -48,8 +48,8 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
   }
 
   static BackgroundTask _getNewTask(
-    final String uniqueId,
-    final String barcode,
+    String uniqueId,
+    String barcode,
   ) => BackgroundTaskFolksonomy._(
     processName: _operationType.processName,
     uniqueId: uniqueId,

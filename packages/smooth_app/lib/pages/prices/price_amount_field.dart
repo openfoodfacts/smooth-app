@@ -45,7 +45,7 @@ class PriceAmountField extends StatelessWidget {
         ),
       ),
       maxLines: 1,
-      onChanged: (final String? value) {
+      onChanged: (String? value) {
         if (isPaidPrice) {
           model.paidPrice = value ?? '';
           return;

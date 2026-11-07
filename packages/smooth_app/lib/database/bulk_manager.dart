@@ -20,9 +20,9 @@ class BulkManager {
 
   /// Returns the number of inserted rows by optimized bulk insert
   Future<int> insert({
-    required final BulkInsertable bulkInsertable,
-    required final List<dynamic> parameters,
-    required final DatabaseExecutor databaseExecutor,
+    required BulkInsertable bulkInsertable,
+    required List<dynamic> parameters,
+    required DatabaseExecutor databaseExecutor,
   }) async {
     int result = 0;
     final String tableName = bulkInsertable.getTableName();
@@ -57,10 +57,10 @@ class BulkManager {
 
   /// Returns the number of deleted rows by optimized bulk delete
   Future<int> delete({
-    required final BulkDeletable bulkDeletable,
-    required final List<dynamic> parameters,
-    required final DatabaseExecutor databaseExecutor,
-    final List<dynamic>? additionalParameters,
+    required BulkDeletable bulkDeletable,
+    required List<dynamic> parameters,
+    required DatabaseExecutor databaseExecutor,
+    List<dynamic>? additionalParameters,
   }) async {
     int result = 0;
     final String tableName = bulkDeletable.getTableName();

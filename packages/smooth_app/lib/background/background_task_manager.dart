@@ -23,8 +23,8 @@ class BackgroundTaskManager {
   static Map<BackgroundTaskQueue, BackgroundTaskManager>? _instances;
 
   static BackgroundTaskManager getInstance(
-    final LocalDatabase localDatabase, {
-    required final BackgroundTaskQueue queue,
+    LocalDatabase localDatabase, {
+    required BackgroundTaskQueue queue,
   }) {
     if (_instances == null) {
       final Map<BackgroundTaskQueue, BackgroundTaskManager> result =
@@ -38,16 +38,14 @@ class BackgroundTaskManager {
   }
 
   /// Returns [DaoInstantString] key for tasks.
-  static String _taskIdToDaoInstantStringKey(final String taskId) =>
-      'task:$taskId';
+  static String _taskIdToDaoInstantStringKey(String taskId) => 'task:$taskId';
 
   /// Returns [DaoInstantString] key for task errors.
-  static String taskIdToErrorDaoInstantStringKey(final String taskId) =>
+  static String taskIdToErrorDaoInstantStringKey(String taskId) =>
       'taskError:$taskId';
 
   /// Returns [DaoInt] key for count of task failures.
-  static String taskIdToCountDaoIntKey(final String taskId) =>
-      'taskCount:$taskId';
+  static String taskIdToCountDaoIntKey(String taskId) => 'taskCount:$taskId';
 
   /// Returns [DaoInt] key for "stale" task status.
   ///
@@ -56,13 +54,13 @@ class BackgroundTaskManager {
   /// visible in the background task page.
   /// Here, the user can stop it altogether (like any failed taks)
   /// or un-stale it.
-  static String taskIdToStaleStatusDaoIntKey(final String taskId) =>
+  static String taskIdToStaleStatusDaoIntKey(String taskId) =>
       'taskStaleStatus:$taskId';
 
   /// Runs all background task queues.
   static void runAgain(
-    final LocalDatabase localDatabase, {
-    final bool forceNowIfPossible = false,
+    LocalDatabase localDatabase, {
+    bool forceNowIfPossible = false,
   }) {
     for (final BackgroundTaskQueue queue in BackgroundTaskQueue.values) {
       getInstance(
@@ -73,7 +71,7 @@ class BackgroundTaskManager {
   }
 
   /// Adds a task to the pending task list.
-  Future<void> add(final BackgroundTask task) async {
+  Future<void> add(BackgroundTask task) async {
     final String taskId = task.uniqueId;
     await DaoInstantString(
       localDatabase,
@@ -91,8 +89,8 @@ class BackgroundTaskManager {
   /// Most of the time this method is used for garbage collecting, that's why
   /// the [success] parameter is set to `false` by default.
   Future<void> _finishTask(
-    final String taskId, {
-    final bool success = false,
+    String taskId, {
+    bool success = false,
   }) async {
     final BackgroundTask? task = _get(taskId);
     if (task != null) {
@@ -112,7 +110,7 @@ class BackgroundTaskManager {
   }
 
   /// Returns the related task, or null but that is unexpected.
-  BackgroundTask? _get(final String taskId) {
+  BackgroundTask? _get(String taskId) {
     try {
       final String? json = DaoInstantString(
         localDatabase,
@@ -140,7 +138,7 @@ class BackgroundTaskManager {
   ///
   /// With [forceNowIfPossible] we can be more aggressive and force the decision
   /// of running now or at least just after the current running block.
-  int? _canStartNow(final bool forceNowIfPossible) {
+  int? _canStartNow(bool forceNowIfPossible) {
     final int now = LocalDatabase.nowInMillis();
     final int? latestRunStart = localDatabase.daoIntGet(
       queue.tagLastStartTimestamp,
@@ -198,7 +196,7 @@ class BackgroundTaskManager {
   /// `forceNowIfPossible = true`
   /// 2. we're just checking casually if there are pending tasks
   /// `forceNowIfPossible = false`
-  void _run({final bool forceNowIfPossible = false}) =>
+  void _run({bool forceNowIfPossible = false}) =>
       unawaited(_runAsync(forceNowIfPossible));
 
   /// Runs all the pending tasks, and then smoothly ends.
@@ -208,7 +206,7 @@ class BackgroundTaskManager {
   /// If a task fails and another task with the same stamp comes after,
   /// we can remove the failed task from the list: it would have been
   /// overwritten anyway.
-  Future<void> _runAsync(final bool forceNowIfPossible) async {
+  Future<void> _runAsync(bool forceNowIfPossible) async {
     final int? now = _canStartNow(forceNowIfPossible);
     if (now == null) {
       return;
@@ -267,8 +265,8 @@ class BackgroundTaskManager {
   }
 
   Future<void> _setTaskErrorStatus(
-    final String taskId,
-    final String status,
+    String taskId,
+    String status,
   ) async {
     _debugPrint('setStatus - $taskId: $status');
 
@@ -298,7 +296,7 @@ class BackgroundTaskManager {
   ///
   /// Returns true if managed to remove the task immediately.
   /// Returns false if the task will be removed next time it's possible.
-  Future<bool> removeTaskAsap(final String taskId) async {
+  Future<bool> removeTaskAsap(String taskId) async {
     final String? status = DaoInstantString(
       localDatabase,
     ).get(taskIdToErrorDaoInstantStringKey(taskId));
@@ -321,7 +319,7 @@ class BackgroundTaskManager {
   static const String taskStatusNoInternet = 'X';
 
   // TODO(monsieurtanuki): get rid of this once we're relaxed about the tasks.
-  void _debugPrint(final String message) {
+  void _debugPrint(String message) {
     // debugPrint('${LocalDatabase.nowInMillis()} $queue $message');
   }
 

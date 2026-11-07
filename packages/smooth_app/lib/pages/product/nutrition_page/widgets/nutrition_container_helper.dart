@@ -8,8 +8,8 @@ import 'package:smooth_app/query/product_query.dart';
 /// Nutrition data, for nutrient order and conversions.
 class NutritionContainerHelper extends ChangeNotifier {
   NutritionContainerHelper({
-    required final OrderedNutrients orderedNutrients,
-    required final Product product,
+    required OrderedNutrients orderedNutrients,
+    required Product product,
   }) {
     _initialPerSize = _perSize =
         PerSize.fromOffTag(product.nutrimentDataPer) ?? PerSize.oneHundredGrams;
@@ -26,7 +26,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   /// Returns the [Nutrient] that matches the [orderedNutrient].
   ///
   /// Special case: energy is considered as energyKJ
-  static Nutrient? getNutrient(final OrderedNutrient orderedNutrient) {
+  static Nutrient? getNutrient(OrderedNutrient orderedNutrient) {
     if (orderedNutrient.id == 'energy') {
       return Nutrient.energyKJ;
     }
@@ -63,7 +63,7 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   bool get noNutritionData => _noNutritionData;
 
-  set noNutritionData(final bool value) {
+  set noNutritionData(bool value) {
     _noNutritionData = value;
     notifyListeners();
   }
@@ -72,7 +72,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   late PerSize _initialPerSize;
   PerSize get perSize => _perSize;
 
-  set perSize(final PerSize value) {
+  set perSize(PerSize value) {
     _perSize = value;
     notifyListeners();
   }
@@ -87,7 +87,7 @@ class NutritionContainerHelper extends ChangeNotifier {
       _robotoffNutrientExtraction;
 
   // Fetch the robotoff extraction for the product, return true if the extraction was successful
-  Future<bool> fetchRobotoffExtraction(final Product product) async {
+  Future<bool> fetchRobotoffExtraction(Product product) async {
     if (product.barcode == null) {
       return false;
     }
@@ -120,7 +120,7 @@ class NutritionContainerHelper extends ChangeNotifier {
       for (final String nutrientOffTag in extractedNutrients) {
         // If the nutrient is not in the list of nutrients, we add it
         final OrderedNutrient? missingNutrient = getLeftoverNutrients()
-            .firstWhereOrNull((final OrderedNutrient orderedNutrient) {
+            .firstWhereOrNull((OrderedNutrient orderedNutrient) {
               return orderedNutrient.nutrient?.offTag == nutrientOffTag;
             });
 
@@ -153,16 +153,16 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   /// Returns the not interesting nutrients, for a "Please add me!" list.
   Iterable<OrderedNutrient> getLeftoverNutrients() => _nutrients.where(
-    (final OrderedNutrient element) => _isNotRelevant(element),
+    (OrderedNutrient element) => _isNotRelevant(element),
   );
 
   /// Returns the interesting nutrients that need to be displayed.
   Iterable<OrderedNutrient> getDisplayableNutrients() => _nutrients.where(
-    (final OrderedNutrient element) => !_isNotRelevant(element),
+    (OrderedNutrient element) => !_isNotRelevant(element),
   );
 
   /// Returns true if the [OrderedNutrient] is not relevant.
-  bool _isNotRelevant(final OrderedNutrient orderedNutrient) {
+  bool _isNotRelevant(OrderedNutrient orderedNutrient) {
     final Nutrient nutrient = getNutrient(orderedNutrient)!;
     return getValue(nutrient) == null &&
         (!orderedNutrient.displayInEditForm) &&
@@ -185,13 +185,13 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   /// Returns the stored product nutrient's value.
-  double? getValue(final Nutrient nutrient) => _values[nutrient];
+  double? getValue(Nutrient nutrient) => _values[nutrient];
 
   /// Stores the text from the end-user input.
   void setNutrientValueText(
-    final Nutrient nutrient,
-    final String? text,
-    final NumberFormat numberFormat,
+    Nutrient nutrient,
+    String? text,
+    NumberFormat numberFormat,
   ) {
     num? value;
     if (text?.isNotEmpty == true) {
@@ -205,20 +205,20 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   /// Stores the text from the end-user input.
-  void setServingText(final String? text) =>
+  void setServingText(String? text) =>
       servingSize = text?.trim().isNotEmpty == true ? text! : '';
 
   /// Typical use-case: should we make the [Unit] button clickable?
-  bool isEditableWeight(final Unit unit) => _nextWeightUnits[unit] != null;
+  bool isEditableWeight(Unit unit) => _nextWeightUnits[unit] != null;
 
   /// Typical use-case: [Unit] button action.
-  void setNextWeightUnit(final OrderedNutrient orderedNutrient) {
+  void setNextWeightUnit(OrderedNutrient orderedNutrient) {
     final Nutrient nutrient = orderedNutrient.nutrient!;
     final Unit unit = getUnit(nutrient);
     _setUnit(nutrient, _nextWeightUnits[unit] ?? unit, init: false);
   }
 
-  List<Unit> getUnits(final Nutrient nutrient) {
+  List<Unit> getUnits(Nutrient nutrient) {
     final List<Unit> units = <Unit>[Unit.G, Unit.MILLI_G, Unit.MICRO_G];
 
     if (units.contains(getUnit(nutrient))) {
@@ -229,13 +229,13 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   /// Returns the nutrient [Unit].
-  Unit getUnit(final Nutrient nutrient) => _units[nutrient]!;
+  Unit getUnit(Nutrient nutrient) => _units[nutrient]!;
 
   /// Stores the nutrient [Unit].
   void _setUnit(
-    final Nutrient nutrient,
-    final Unit unit, {
-    required final bool init,
+    Nutrient nutrient,
+    Unit unit, {
+    required bool init,
   }) {
     _units[nutrient] = unit;
     if (init) {
@@ -243,12 +243,12 @@ class NutritionContainerHelper extends ChangeNotifier {
     }
   }
 
-  void setNutrientUnit(final Nutrient nutrient, final Unit unit) {
+  void setNutrientUnit(Nutrient nutrient, Unit unit) {
     _setUnit(nutrient, unit, init: false);
   }
 
   /// To be used when an [OrderedNutrient] is added to the input list
-  void add(final OrderedNutrient orderedNutrient) =>
+  void add(OrderedNutrient orderedNutrient) =>
       _added.add(getNutrient(orderedNutrient)!);
 
   /// Returns a vertical list of nutrients from a tree structure.
@@ -258,11 +258,11 @@ class NutritionContainerHelper extends ChangeNotifier {
   /// For some countries, there's energy or energyKJ, or both
   /// cf. https://github.com/openfoodfacts/openfoodfacts-server/blob/main/lib/ProductOpener/Food.pm
   /// Regarding our list of nutrients here, we need one and only one of them.
-  void _loadNutrients(final List<OrderedNutrient> nutrients) {
+  void _loadNutrients(List<OrderedNutrient> nutrients) {
     bool alreadyEnergyKJ = false;
 
     // inner method, in order to use alreadyEnergyKJ without a private variable.
-    void populateOrderedNutrientList(final List<OrderedNutrient> list) {
+    void populateOrderedNutrientList(List<OrderedNutrient> list) {
       for (final OrderedNutrient orderedNutrient in list) {
         final Nutrient? nutrient = getNutrient(orderedNutrient);
         if (nutrient != null) {
@@ -293,7 +293,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   /// Converts a double (weight) value from grams.
   ///
   /// Typical use-case: after receiving a value from the BE.
-  static double? convertWeightFromG(final double? value, final Unit unit) {
+  static double? convertWeightFromG(double? value, Unit unit) {
     if (value == null) {
       return null;
     }
@@ -307,7 +307,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   /// Converts a double (weight) value from grams.
   ///
   /// Typical use-case: sending a value to the BE.
-  static double? convertWeightToG(final double? value, final Unit unit) {
+  static double? convertWeightToG(double? value, Unit unit) {
     if (value == null) {
       return null;
     }
@@ -337,7 +337,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   /// Loads product nutrients into a map.
   ///
   /// Needs nutrients and units to be loaded first.
-  void _loadValues(final Nutriments nutriments) {
+  void _loadValues(Nutriments nutriments) {
     for (final OrderedNutrient orderedNutrient in _nutrients) {
       final Nutrient nutrient = getNutrient(orderedNutrient)!;
       final Unit unit = getUnit(nutrient);

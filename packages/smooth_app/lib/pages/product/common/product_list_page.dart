@@ -143,7 +143,7 @@ class _ProductListPageState extends State<ProductListPage>
         animateActionMode: true,
         actions: <Widget>[
           SmoothPopupMenuButton<ProductListPopupItem>(
-            onSelected: (final ProductListPopupItem action) async {
+            onSelected: (ProductListPopupItem action) async {
               final ProductList? differentProductList = await action
                   .doSomething(
                     productList: productList,
@@ -178,7 +178,7 @@ class _ProductListPageState extends State<ProductListPage>
         ),
         actionModeActions: <Widget>[
           SmoothPopupMenuButton<ProductListItemPopupItem>(
-            onSelected: (final ProductListItemPopupItem action) async {
+            onSelected: (ProductListItemPopupItem action) async {
               final bool andThenSetState = await action.doSomething(
                 productList: productList,
                 localDatabase: localDatabase,
@@ -317,11 +317,11 @@ class _ProductListPageState extends State<ProductListPage>
   }
 
   Widget _buildItem(
-    final bool dismissible,
-    final List<String> barcodes,
-    final int index,
-    final LocalDatabase localDatabase,
-    final AppLocalizations appLocalizations,
+    bool dismissible,
+    List<String> barcodes,
+    int index,
+    LocalDatabase localDatabase,
+    AppLocalizations appLocalizations,
   ) {
     final String barcode = barcodes[index];
     final bool selected = _selectedBarcodes.contains(barcode);
@@ -378,7 +378,7 @@ class _ProductListPageState extends State<ProductListPage>
           child: const icons.Trash(size: 20.0, color: Colors.white),
         ),
         key: Key(barcode),
-        onDismissed: (final DismissDirection direction) async {
+        onDismissed: (DismissDirection direction) async {
           final bool removed = productList.remove(barcode);
           bool removedFromSelectedBarcodes = false;
           if (removed) {
@@ -428,9 +428,9 @@ class _ProductListPageState extends State<ProductListPage>
 
   /// Calls the "refresh products" part with dialogs on top.
   Future<void> _refreshListProducts(
-    final List<String> products,
-    final LocalDatabase localDatabase,
-    final AppLocalizations appLocalizations,
+    List<String> products,
+    LocalDatabase localDatabase,
+    AppLocalizations appLocalizations,
   ) async {
     final bool? done = await LoadingDialog.run<bool>(
       context: context,
@@ -468,8 +468,8 @@ class _ProductListPageState extends State<ProductListPage>
 
   /// Fetches the products from the API and refreshes the local database
   Future<bool> _reloadProducts(
-    final List<String> barcodes,
-    final LocalDatabase localDatabase,
+    List<String> barcodes,
+    LocalDatabase localDatabase,
   ) async {
     const int pageSize = 20;
     bool fresh = true;
