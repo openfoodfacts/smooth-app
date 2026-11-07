@@ -63,9 +63,9 @@ class PriceDataValue extends StatelessWidget {
   }
 
   String _formatPrice(
-    final NumberFormat currencyFormat,
-    final num value,
-    final AppLocalizations appLocalizations, {
+    NumberFormat currencyFormat,
+    num value,
+    AppLocalizations appLocalizations, {
     bool hideUnit = false,
   }) {
     final String formatted = currencyFormat.format(value);

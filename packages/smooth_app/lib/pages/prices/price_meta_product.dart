@@ -15,9 +15,9 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 /// Meta version of a product, coming from OFF or from Prices.
 class PriceMetaProduct {
   PriceMetaProduct.category({
-    required final String categoryName,
-    required final List<String> originNames,
-    required final OpenFoodFactsLanguage language,
+    required String categoryName,
+    required List<String> originNames,
+    required OpenFoodFactsLanguage language,
   }) : _product = null,
        _categoryName = categoryName,
        _categoryTag = _getTag(categoryName, language),
@@ -26,14 +26,14 @@ class PriceMetaProduct {
        _priceProduct = null,
        _barcode = null;
 
-  PriceMetaProduct.product(final Product product)
+  PriceMetaProduct.product(Product product)
     : _product = product,
       _categoryTag = null,
       _categoryName = null,
       _priceProduct = null,
       _barcode = null;
 
-  PriceMetaProduct.priceProduct(final PriceProduct priceProduct)
+  PriceMetaProduct.priceProduct(PriceProduct priceProduct)
     : _product = null,
       _categoryTag = null,
       _categoryName = null,
@@ -41,9 +41,9 @@ class PriceMetaProduct {
       _barcode = null;
 
   PriceMetaProduct.unknown(
-    final String barcode,
-    final LocalDatabase localDatabase,
-    final PriceModel priceModel,
+    String barcode,
+    LocalDatabase localDatabase,
+    PriceModel priceModel,
   ) : _product = null,
       _categoryTag = null,
       _categoryName = null,
@@ -53,13 +53,13 @@ class PriceMetaProduct {
   }
 
   static String _getTag(
-    final String name,
-    final OpenFoodFactsLanguage language,
+    String name,
+    OpenFoodFactsLanguage language,
   ) => '${language.offTag}:$name';
 
   static List<String> _getTags(
-    final List<String> names,
-    final OpenFoodFactsLanguage language,
+    List<String> names,
+    OpenFoodFactsLanguage language,
   ) {
     final List<String> result = <String>[];
     for (final String name in names) {
@@ -102,7 +102,7 @@ class PriceMetaProduct {
   List<String> get originNames =>
       _categoryTag == null ? <String>[] : _originNames!;
 
-  String getName(final AppLocalizations appLocalizations) {
+  String getName(AppLocalizations appLocalizations) {
     if (_categoryName != null) {
       return _categoryName;
     }
@@ -121,7 +121,7 @@ class PriceMetaProduct {
     return appLocalizations.prices_barcode_search_not_found;
   }
 
-  Widget getImageWidget(final double size) {
+  Widget getImageWidget(double size) {
     if (_product != null) {
       return SmoothMainProductImage(
         product: _product!,
@@ -141,8 +141,8 @@ class PriceMetaProduct {
   }
 
   Future<void> _search(
-    final LocalDatabase localDatabase,
-    final PriceModel priceModel,
+    LocalDatabase localDatabase,
+    PriceModel priceModel,
   ) async {
     _loading = true;
     try {

@@ -5,6 +5,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
@@ -16,7 +17,7 @@ class ProductListUserDialogHelper {
 
   /// Shows a "create list" dialog; returns the new [ProductList] if relevant.
   Future<ProductList?> showCreateUserListDialog(
-    final BuildContext context,
+    BuildContext context,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextEditingController textEditingController = TextEditingController();
@@ -25,7 +26,7 @@ class ProductListUserDialogHelper {
     final List<String> lists = daoProductList.getUserLists();
     final String? title = await showDialog<String>(
       context: context,
-      builder: (final BuildContext context) {
+      builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: appLocalizations.user_list_dialog_new_title,
           body: Form(
@@ -78,14 +79,15 @@ class ProductListUserDialogHelper {
 
     final ProductList productList = ProductList.user(title);
     await daoProductList.put(productList);
+    AnalyticsHelper.trackEvent(AnalyticsEvent.userListCreated);
     daoProductList.localDatabase.notifyListeners();
     return productList;
   }
 
   /// Shows a "rename list" dialog; returns renamed [ProductList] if relevant.
   Future<ProductList?> showRenameUserListDialog(
-    final BuildContext context,
-    final ProductList initialProductList,
+    BuildContext context,
+    ProductList initialProductList,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextEditingController textEditingController = TextEditingController();
@@ -96,7 +98,7 @@ class ProductListUserDialogHelper {
     final List<String> lists = daoProductList.getUserLists();
     final String? newName = await showDialog<String>(
       context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
+      builder: (BuildContext context) => SmoothAlertDialog(
         title: appLocalizations.user_list_dialog_rename_title,
         body: Form(
           key: formKey,
@@ -147,14 +149,14 @@ class ProductListUserDialogHelper {
 
   /// Shows a "delete list" dialog; returns true if deleted.
   Future<bool> showDeleteUserListDialog(
-    final BuildContext context,
-    final ProductList productList,
+    BuildContext context,
+    ProductList productList,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final bool? deleted = await showDialog<bool>(
       context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
+      builder: (BuildContext context) => SmoothAlertDialog(
         title: appLocalizations.confirm_delete_user_list_title,
         body: Text(
           appLocalizations.confirm_delete_user_list_message(
@@ -189,8 +191,8 @@ class ProductListUserDialogHelper {
   /// Pre-checks all lists where all the selected barcodes are already contained
   /// Returns true if products were added
   Future<bool?> showUserAddProductsDialog(
-    final BuildContext context,
-    final Set<String> barcodes,
+    BuildContext context,
+    Set<String> barcodes,
   ) async {
     final List<String> lists = daoProductList.getUserLists();
 
@@ -235,6 +237,10 @@ class ProductListUserDialogHelper {
               await daoProductList.bulkSet(
                 ProductList.user(list),
                 barcodes.toList(),
+              );
+              AnalyticsHelper.trackEvent(
+                AnalyticsEvent.userListProductAdded,
+                eventValue: barcodes.length,
               );
             }
 

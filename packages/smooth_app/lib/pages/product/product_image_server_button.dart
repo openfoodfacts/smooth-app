@@ -31,11 +31,11 @@ class ProductImageServerButton extends ProductImageButton {
   Widget getIcon() => const icons.ImageGallery();
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) =>
+  String getLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_photo_select_existing_button_label;
 
   @override
-  Future<void> action(final BuildContext context) async {
+  Future<void> action(BuildContext context) async {
     await selectImageFromGallery(
       context: context,
       product: product,
@@ -46,11 +46,11 @@ class ProductImageServerButton extends ProductImageButton {
   }
 
   static Future<CropParameters?> selectImageFromGallery({
-    required final BuildContext context,
-    required final Product product,
-    required final ImageField imageField,
-    required final OpenFoodFactsLanguage language,
-    required final bool isLoggedInMandatory,
+    required BuildContext context,
+    required Product product,
+    required ImageField imageField,
+    required OpenFoodFactsLanguage language,
+    required bool isLoggedInMandatory,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (!await ProductRefresher().checkIfLoggedIn(
@@ -131,13 +131,13 @@ class ProductImageServerButton extends ProductImageButton {
   }
 
   static Future<CropParameters?> _openGallery({
-    required final BuildContext context,
-    required final List<ProductImage> rawImages,
-    required final ProductType? productType,
-    required final String barcode,
-    required final ImageField imageField,
-    required final OpenFoodFactsLanguage language,
-    required final bool isLoggedInMandatory,
+    required BuildContext context,
+    required List<ProductImage> rawImages,
+    required ProductType? productType,
+    required String barcode,
+    required ImageField imageField,
+    required OpenFoodFactsLanguage language,
+    required bool isLoggedInMandatory,
   }) => Navigator.push<CropParameters?>(
     context,
     MaterialPageRoute<CropParameters?>(

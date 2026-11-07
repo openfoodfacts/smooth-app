@@ -12,15 +12,15 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/donation/donation_ladder_outline.dart';
 import 'package:smooth_app/pages/donation/donation_offer.dart';
-import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
+import 'package:smooth_app/pages/donation/donation_tier_row.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
 import 'package:smooth_app/widgets/v2/smooth_scaffold2.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 /// Explains what a donation pays for and hands off to the donation form with
 /// the amount, interval and currency preselected.
@@ -41,6 +41,7 @@ class _DonationPageState extends State<DonationPage> {
   /// Read once: a feed arriving mid-visit would move the ladder under the
   /// donor's current selection.
   late final DonationOffer _offer;
+  late final DonationTestArm _arm;
 
   int? _selectedAmount;
   int? _customAmount;
@@ -54,9 +55,12 @@ class _DonationPageState extends State<DonationPage> {
       news is AppNewsStateLoaded ? news.content.donation : null,
     );
 
+    _arm = _offer.arm(context.read<UserPreferences>().getDonationTestBucket());
+
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationPageOpened,
       eventValue: widget.source?.analyticsValue,
+      action: _arm.action(widget.source),
     );
   }
 
@@ -103,7 +107,12 @@ class _DonationPageState extends State<DonationPage> {
                   onSelected: _select,
                   onCustomAmount: _setCustomAmount,
                 ),
-                _Ctas(offer: _offer, amount: amount, source: widget.source),
+                _Ctas(
+                  offer: _offer,
+                  amount: amount,
+                  source: widget.source,
+                  arm: _arm,
+                ),
               ],
             ),
           ),
@@ -238,21 +247,12 @@ class _TierList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    // [AppLocalizations.localeName] rather than [ProductQuery]: it is the
-    // locale the sentence itself is in. `intl` ships no number symbols for 46
-    // of the app's 128 locales and both constructors throw there, so fall back
-    // rather than lose the tier picker to an ErrorWidget.
-    final String numberLocale =
-        NumberFormat.localeExists(appLocalizations.localeName)
-        ? appLocalizations.localeName
-        : 'en';
-    final NumberFormat amountFormat = NumberFormat.simpleCurrency(
-      locale: numberLocale,
-      name: offer.currency,
-      decimalDigits: 0,
+    final NumberFormat amountFormat = offer.amountFormat(
+      appLocalizations.localeName,
     );
-    final NumberFormat numberFormat = NumberFormat.decimalPattern(numberLocale);
+    final NumberFormat numberFormat = offer.numberFormat(
+      appLocalizations.localeName,
+    );
     final List<DonationTier> tiers = offer.tiers;
 
     return _Block(
@@ -281,7 +281,7 @@ class _TierList extends StatelessWidget {
               },
             ),
           for (final DonationTier tier in tiers)
-            _TierRow(
+            DonationTierRow(
               selected: tier.amount == selectedAmount,
               amount: appLocalizations.donation_tier_amount_monthly(
                 amountFormat.format(tier.amount),
@@ -304,38 +304,9 @@ class _TierList extends StatelessWidget {
   }
 }
 
-/// The outline every pickable thing in the ladder shares.
-class _LadderOutline extends StatelessWidget {
-  const _LadderOutline({required this.active, required this.child});
-
-  final bool active;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: ROUNDED_BORDER_RADIUS,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          // Everything is outlined so it all reads as pickable; only the
-          // opacity moves, so choosing never shifts the list.
-          border: Border.all(
-            width: 2.0,
-            color: Theme.of(
-              context,
-            ).colorScheme.primary.withValues(alpha: active ? 1.0 : 0.25),
-          ),
-        ),
-        child: child,
-      ),
-    );
-  }
-}
-
 /// A nested [Theme] rather than a new parameter on a field with 50 other call
 /// sites: its `filled: true` picks up the primary-button fill, and its unset
-/// state borders would draw a second ring inside [_LadderOutline].
+/// state borders would draw a second ring inside [DonationLadderOutline].
 class _CustomAmountField extends StatelessWidget {
   const _CustomAmountField({
     required this.active,
@@ -361,7 +332,7 @@ class _CustomAmountField extends StatelessWidget {
       borderSide: BorderSide(color: Colors.transparent, width: 5.0),
     );
 
-    return _LadderOutline(
+    return DonationLadderOutline(
       active: active,
       child: Theme(
         data: theme.copyWith(
@@ -412,52 +383,18 @@ class _CustomAmountField extends StatelessWidget {
   }
 }
 
-class _TierRow extends StatelessWidget {
-  const _TierRow({
-    required this.selected,
-    required this.amount,
-    required this.scans,
-    required this.onTap,
-  });
-
-  final bool selected;
-  final String amount;
-  final String scans;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return MergeSemantics(
-      child: Semantics(
-        selected: selected,
-        child: _LadderOutline(
-          active: selected,
-          child: PreferenceTile(
-            leading: selected
-                ? const icons.CheckBox.filled()
-                : const icons.CheckBox(),
-            title: amount,
-            subtitleText: scans,
-            trailing: EMPTY_WIDGET,
-            borderRadius: ROUNDED_BORDER_RADIUS,
-            onTap: onTap,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class _Ctas extends StatelessWidget {
   const _Ctas({
     required this.offer,
     required this.amount,
     required this.source,
+    required this.arm,
   });
 
   final DonationOffer offer;
   final int amount;
   final DonationSource? source;
+  final DonationTestArm arm;
 
   @override
   Widget build(BuildContext context) {
@@ -469,10 +406,10 @@ class _Ctas extends StatelessWidget {
           text: appLocalizations.donation_cta_monthly,
           leadingIcon: const icons.Donate(),
           onPressed: () =>
-              _open(offer.tier(amount).url(source: source), amount),
+              _open(offer.tier(amount).url(source: source, arm: arm), amount),
         ),
         TextButton(
-          onPressed: () => _open(offer.oneOffUrl(source: source), 0),
+          onPressed: () => _open(offer.oneOffUrl(source: source, arm: arm), 0),
           style: TextButton.styleFrom(
             minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
           ),
@@ -493,6 +430,7 @@ class _Ctas extends StatelessWidget {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationAlreadyDonated,
       eventValue: source?.analyticsValue,
+      action: arm.action(source),
     );
     await context.read<UserPreferences>().muteDonationAsks(
       const Duration(days: 365),
@@ -512,20 +450,9 @@ class _Ctas extends StatelessWidget {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationHandoff,
       eventValue: monthlyAmount,
+      action: arm.action(source),
     );
 
-    // Apple Pay and Google Pay disappear inside a webview, and a device with no
-    // Custom Tabs provider silently gets url_launcher's own bundled one. Fall
-    // back to a real browser instead, which keeps every payment method.
-    final bool customTabs = await supportsLaunchMode(
-      LaunchMode.inAppBrowserView,
-    );
-
-    return LaunchUrlHelper.launchURL(
-      url,
-      mode: customTabs
-          ? LaunchMode.inAppBrowserView
-          : LaunchMode.externalApplication,
-    );
+    return LaunchUrlHelper.launchURLInBrowserView(url);
   }
 }

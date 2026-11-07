@@ -29,8 +29,8 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
       super.fromJson();
 
   static List<String> _getStringList(
-    final Map<String, dynamic> json,
-    final String tag,
+    Map<String, dynamic> json,
+    String tag,
   ) {
     final List<dynamic> dynamicList =
         json[_jsonTagExcludeBarcodes] as List<dynamic>;
@@ -60,7 +60,7 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
   UriProductHelper get _uriProductHelper =>
       ProductQuery.getUriProductHelper(productType: productType);
 
-  static Future<void> addTask(final LocalDatabase localDatabase) async {
+  static Future<void> addTask(LocalDatabase localDatabase) async {
     for (final ProductType productType in ProductType.values) {
       await _addTask(
         localDatabase,
@@ -71,9 +71,9 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
   }
 
   static Future<void> _addTask(
-    final LocalDatabase localDatabase, {
-    required final List<String> excludeBarcodes,
-    required final ProductType productType,
+    LocalDatabase localDatabase, {
+    required List<String> excludeBarcodes,
+    required ProductType productType,
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
@@ -89,13 +89,13 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => null;
 
   static BackgroundTask _getNewTask(
-    final String uniqueId,
-    final List<String> excludeBarcodes,
-    final ProductType productType,
+    String uniqueId,
+    List<String> excludeBarcodes,
+    ProductType productType,
   ) => BackgroundTaskLanguageRefresh._(
     processName: _operationType.processName,
     uniqueId: uniqueId,
@@ -105,7 +105,7 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
   );
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {}
+  Future<void> preExecute(LocalDatabase localDatabase) async {}
 
   @override
   bool get hasImmediateNextTask => true;
@@ -114,7 +114,7 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
   static const int _pageSize = 20;
 
   @override
-  Future<void> execute(final LocalDatabase localDatabase) async {
+  Future<void> execute(LocalDatabase localDatabase) async {
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final List<String> barcodes = await daoProduct.getTopProductsToTranslate(

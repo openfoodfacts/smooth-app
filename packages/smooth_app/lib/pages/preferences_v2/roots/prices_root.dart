@@ -30,6 +30,9 @@ class PricesRoot extends PreferencesRoot {
   const PricesRoot({required super.title});
 
   @override
+  String get actionName => 'Opened prices_settings_page';
+
+  @override
   SmoothPopupMenuButton<dynamic>? actions(BuildContext context) {
     return SmoothPopupMenuButton<void>(
       onSelected: (_) =>
@@ -295,8 +298,7 @@ class PricesRoot extends PreferencesRoot {
       title: appLocalizations.prices_validation_assistant,
       subtitleText:
           appLocalizations.preferences_prices_validation_assistant_subtitle,
-      url:
-          'https://prices.openfoodfacts.org/experiments/price-validation-assistant',
+      url: 'https://prices.openfoodfacts.org/experiments/price-validation-assistant',
     );
   }
 

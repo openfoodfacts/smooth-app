@@ -17,6 +17,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/pages/donation/donation_reminder_scope.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
@@ -100,28 +101,36 @@ class ProductPageState extends State<ProductPage>
       localDatabase,
     ).hasNotTerminatedOperations(upToDateProduct.barcode!);
 
-    return MultiProvider(
-      providers: <SingleChildWidget>[
-        Provider<Product>.value(value: upToDateProduct),
-        Provider<ProductPageState>.value(value: this),
-        Provider<ProductPageCompatibility>.value(
-          value: ProductPageCompatibility(
-            color: ProductCompatibilityHelper.product(
-              matchedProductV2,
-            ).getColor(context),
-            matchedProductV2: matchedProductV2,
-            productType: upToDateProduct.productType,
+    return DonationReminderScope(
+      barcode: barcode,
+      child: MultiProvider(
+        providers: <SingleChildWidget>[
+          Provider<Product>.value(value: upToDateProduct),
+          Provider<ProductPageState>.value(value: this),
+          Provider<ProductPageCompatibility>.value(
+            value: ProductPageCompatibility(
+              color: ProductCompatibilityHelper.product(
+                matchedProductV2,
+              ).getColor(context),
+              matchedProductV2: matchedProductV2,
+              productType: upToDateProduct.productType,
+            ),
           ),
+          ChangeNotifierProvider<ScrollController>.value(
+            value: _scrollController,
+          ),
+        ],
+        child: ProductPageTabController(
+          product: upToDateProduct,
+          childBuilder:
+              (List<ProductPageTab> tabs, TabController tabController) {
+                return _buildTabLayout(
+                  hasPendingOperations,
+                  tabs,
+                  tabController,
+                );
+              },
         ),
-        ChangeNotifierProvider<ScrollController>.value(
-          value: _scrollController,
-        ),
-      ],
-      child: ProductPageTabController(
-        product: upToDateProduct,
-        childBuilder: (List<ProductPageTab> tabs, TabController tabController) {
-          return _buildTabLayout(hasPendingOperations, tabs, tabController);
-        },
       ),
     );
   }
@@ -137,44 +146,53 @@ class ProductPageState extends State<ProductPage>
       changeStatusBarBrightness: false,
       statusBarBackgroundColor: Colors.transparent,
       body: tabs.isNotEmpty
-          ? NestedScrollView(
-              controller: _scrollController,
-              headerSliverBuilder: (BuildContext context, bool value) {
-                return <Widget>[
-                  SliverPersistentHeader(
-                    delegate: ProductHeaderDelegate(
-                      statusBarHeight: MediaQuery.viewPaddingOf(context).top,
-                      backButtonType: widget.backButton,
+          ? RefreshIndicator(
+              // Tab lists only: NestedScrollView is depth 0, TabBarView depth 1.
+              notificationPredicate: (ScrollNotification notification) =>
+                  notification.depth == 2,
+              onRefresh: () async => ProductRefresher().fetchAndRefresh(
+                barcode: barcode,
+                context: context,
+              ),
+              child: NestedScrollView(
+                controller: _scrollController,
+                headerSliverBuilder: (BuildContext context, bool value) {
+                  return <Widget>[
+                    SliverPersistentHeader(
+                      delegate: ProductHeaderDelegate(
+                        statusBarHeight: MediaQuery.viewPaddingOf(context).top,
+                        backButtonType: widget.backButton,
+                      ),
+                      pinned: true,
+                      floating: false,
                     ),
-                    pinned: true,
-                    floating: false,
-                  ),
-                  SliverToBoxAdapter(
-                    child: HeroMode(
-                      enabled:
-                          widget.withHeroAnimation &&
-                          widget.heroTag?.isNotEmpty == true,
-                      child: SummaryCard(
-                        upToDateProduct,
-                        _productPreferences,
-                        heroTag: widget.heroTag,
-                        isFullVersion: true,
-                        borderRadius: ROUNDED_BORDER_RADIUS,
-                        attributeGroupsVisible: false,
+                    SliverToBoxAdapter(
+                      child: HeroMode(
+                        enabled:
+                            widget.withHeroAnimation &&
+                            widget.heroTag?.isNotEmpty == true,
+                        child: SummaryCard(
+                          upToDateProduct,
+                          _productPreferences,
+                          heroTag: widget.heroTag,
+                          isFullVersion: true,
+                          borderRadius: ROUNDED_BORDER_RADIUS,
+                          attributeGroupsVisible: false,
+                        ),
                       ),
                     ),
-                  ),
-                  ProductPageTabBar(tabController: tabController, tabs: tabs),
-                ];
-              },
-              body: TabBarView(
-                controller: tabController,
-                children: tabs
-                    .map(
-                      (ProductPageTab tab) =>
-                          tab.builder(context, upToDateProduct),
-                    )
-                    .toList(growable: false),
+                    ProductPageTabBar(tabController: tabController, tabs: tabs),
+                  ];
+                },
+                body: TabBarView(
+                  controller: tabController,
+                  children: tabs
+                      .map(
+                        (ProductPageTab tab) =>
+                            tab.builder(context, upToDateProduct),
+                      )
+                      .toList(growable: false),
+                ),
               ),
             )
           : const Center(child: CircularProgressIndicator()),
@@ -201,7 +219,7 @@ class ProductPageState extends State<ProductPage>
   }
 
   Future<void> _updateLocalDatabaseWithProductHistory(
-    final BuildContext context,
+    BuildContext context,
   ) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await DaoProductList(localDatabase).push(ProductList.history(), barcode);

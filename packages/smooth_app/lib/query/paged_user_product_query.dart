@@ -23,11 +23,11 @@ enum UserSearchType {
   final bool toBeCompleted;
 
   ProductSearchQueryConfiguration getConfiguration(
-    final String userId,
-    final int pageSize,
-    final int pageNumber,
-    final OpenFoodFactsLanguage language,
-    final List<ProductField> fields,
+    String userId,
+    int pageSize,
+    int pageNumber,
+    OpenFoodFactsLanguage language,
+    List<ProductField> fields,
   ) => ProductSearchQueryConfiguration(
     parametersList: <Parameter>[
       TagFilter.fromType(tagFilterType: type, tagName: userId),

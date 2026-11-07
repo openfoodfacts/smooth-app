@@ -18,6 +18,8 @@ on:
         required: true
       MATCH_GIT_BASIC_AUTHORIZATION: 
         required: true
+      MATCH_GIT_BASIC_AUTHORIZATION_2: 
+        required: true
       MATCH_GIT_URL:
         required: true
       MATCH_KEYCHAIN_PASSWORD: 
@@ -35,29 +37,23 @@ on:
 
 env:
   JAVA_VERSION: 21
-  RUBY_VERSION: 3.2.0
+  RUBY_VERSION: 3.4.10
  
 jobs:
-  testflight-release:
+  testflight-release:  
     name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
     runs-on: macos-26
     steps:
       - name: Checkout sources
         uses: actions/checkout@v7
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
-      - name: bundle install
-        run: bundle install
-        working-directory: ./packages/smooth_app/ios/
-      - name: bundle install
-        run: bundle install
-        working-directory: ./packages/smooth_app/android/
+          bundler-cache: true
+          working-directory: packages/smooth_app/ios
       - name: Setup Java JDK
-        uses: actions/setup-java@v6.0.1
+        uses: actions/setup-java@v6.1.0
         with:
           distribution: 'zulu'
           java-version: ${{ env.JAVA_VERSION }}
@@ -72,10 +68,26 @@ jobs:
           #channel: stable
           cache: true
           flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
-          cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
+          cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages/smooth_app/pubspec.lock')}}
 
       - name: Flutter version    
         run: flutter --version
+
+      - name: Cache Pub dependencies
+        uses: actions/cache@v6
+        with:
+          path: ~/.pub-cache
+          key: pub-cache-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
+          restore-keys: |
+            pub-cache-${{ runner.os }}-
+
+      - name: Cache SwiftPM
+        uses: actions/cache@v6
+        with:
+          path: ~/Library/Caches/org.swift.swiftpm
+          key: spm-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
+          restore-keys: |
+            spm-${{ runner.os }}-
 
       - name: Enable MLKit dependency
         run: chmod +x ci/dependencies/scanner/enable_mlkit_dependency.sh && ci/dependencies/scanner/enable_mlkit_dependency.sh
@@ -86,9 +98,6 @@ jobs:
       - name: Get dependencies
         run: ci/pub_get.sh
       
-      - name: Bundle install
-        run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
-
       - name: Decrypt iOS AuthKey file
         run: cd ./packages/smooth_app/ios/fastlane/envfiles && chmod +x decrypt_secrets.sh && ./decrypt_secrets.sh
         env:
@@ -100,22 +109,22 @@ jobs:
         uses: maierj/fastlane-action@v3.2.0
         with:
           lane: setVersion
-          subdirectory: ./packages/smooth_app/android/
+          subdirectory: ./packages/smooth_app/ios/
         env:
           VERSION_NAME: ${{ inputs.VERSION_NAME }}
           VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
-      - name: Enable Rive dependency
+      - name: Enable the Rive dependency
         run: cd ./packages/smooth_app && dart run rive_native:setup --verbose --clean --platform ios
 
       - name: Build app
-        run: cd ./packages/smooth_app && cd ios && rm -rf Pods && rm -f Podfile.lock && flutter pub get && pod install && cd .. && flutter build ios --release --no-codesign -t lib/entrypoints/ios/main_ios.dart
+        run: cd ./packages/smooth_app && flutter build ios --release --no-codesign -t lib/entrypoints/ios/main_ios.dart
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
           FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION_2 }}
           MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
           MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
@@ -125,9 +134,6 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
 
-      - name: cat Podfile
-        run: cd ./packages/smooth_app/ios && cat Podfile
- 
       - name: Release ipa
         run: cd ./packages/smooth_app/ios && bundle exec fastlane beta
         env:
@@ -135,7 +141,7 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
           FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION_2 }}
           MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
           MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
@@ -144,4 +150,5 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
           SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
-
+          FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120
+          FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 5

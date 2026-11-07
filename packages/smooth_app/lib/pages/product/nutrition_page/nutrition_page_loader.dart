@@ -11,9 +11,9 @@ class NutritionPageLoader {
 
   /// Shows the nutrition page after loading the ordered nutrient list.
   static Future<void> showNutritionPage({
-    required final Product product,
-    required final bool isLoggedInMandatory,
-    required final BuildContext context,
+    required Product product,
+    required bool isLoggedInMandatory,
+    required BuildContext context,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,

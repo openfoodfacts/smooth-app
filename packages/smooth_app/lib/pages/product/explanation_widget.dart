@@ -19,6 +19,7 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
     return Semantics(
       value: widget.explanations,
       header: true,
+      headingLevel: 2,
       child: BlockSemantics(
         child: InkWell(
           onTap: () => setState(() => _expanded = !_expanded),

@@ -98,7 +98,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
           title: appLocalizations.edit_product_form_item_photos_title,
           product: upToDateProduct,
           bottom: ProductImageGalleryTabBar(
-            onTabChanged: (final OpenFoodFactsLanguage language) => onNextFrame(
+            onTabChanged: (OpenFoodFactsLanguage language) => onNextFrame(
               () => setState(() {
                 _language = language;
                 _scrollController.animateTo(

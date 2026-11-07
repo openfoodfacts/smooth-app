@@ -13,31 +13,31 @@ abstract class CropHelper {
   bool isNewImage();
 
   /// Page title of the crop page.
-  String getPageTitle(final AppLocalizations appLocalizations);
+  String getPageTitle(AppLocalizations appLocalizations);
 
   /// Icon of the "process!" button.
   Widget getProcessIcon();
 
   /// Label of the "process!" button.
-  String getProcessLabel(final AppLocalizations appLocalizations);
+  String getProcessLabel(AppLocalizations appLocalizations);
 
   /// Processes the crop operation.
   Future<CropParameters> process({
-    required final BuildContext context,
-    required final CropController controller,
-    required final File inputFile,
-    required final int inputFullWidth,
-    required final int inputFullHeight,
-    required final File preCroppedFile,
-    required final Directory directory,
-    required final int sequenceNumber,
-    required final List<Offset> offsets,
+    required BuildContext context,
+    required CropController controller,
+    required File inputFile,
+    required int inputFullWidth,
+    required int inputFullHeight,
+    required File preCroppedFile,
+    required Directory directory,
+    required int sequenceNumber,
+    required List<Offset> offsets,
   });
 
   /// Should we display the eraser with the crop grid?
   bool get enableEraser;
 
-  static Rect _getLocalCropRectFromRect(final Rect crop) =>
+  static Rect _getLocalCropRectFromRect(Rect crop) =>
       BackgroundTaskImage.getUpsizedRect(crop);
 
   static Rect getFullLocalCropRect() =>
@@ -45,13 +45,13 @@ abstract class CropHelper {
 
   /// Returns the crop rect according to local cropping method * factor.
   @protected
-  Rect getLocalCropRect(final CropController controller) =>
+  Rect getLocalCropRect(CropController controller) =>
       _getLocalCropRectFromRect(controller.crop);
 
   /// Full-size crop, aka no crop.
   static const Rect fullImageCropRect = Rect.fromLTRB(0, 0, 1, 1);
 
-  static List<Offset> getOffsets(final List<double>? eraserCoordinates) {
+  static List<Offset> getOffsets(List<double>? eraserCoordinates) {
     final List<Offset> offsets = <Offset>[];
     if (eraserCoordinates != null) {
       for (int i = 0; i < eraserCoordinates.length; i += 2) {

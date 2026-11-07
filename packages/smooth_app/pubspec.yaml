@@ -4,8 +4,8 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: ^3.12.2
-  flutter: ^3.44.8
+  sdk: ^3.13.0
+  flutter: ^3.47.9
 
 dependencies:
   flutter:
@@ -18,7 +18,7 @@ dependencies:
   barcode_widget: 2.0.4
   carousel_slider: 5.1.2
   cupertino_icons: 1.0.9
-  flutter_svg: 2.3.0
+  flutter_svg: 2.3.2
   vector_graphics: 1.2.3
   flutter_map: 8.3.1
   html: 0.15.6
@@ -40,9 +40,9 @@ dependencies:
   uuid: 4.6.0
   provider: 6.1.5+1
   sentry_flutter: 9.26.0
-  sqflite: 2.4.3
-  sqflite_common_ffi: 2.4.2
-  url_launcher: 6.3.2
+  sqflite: 2.4.5
+  sqflite_common_ffi: 2.4.5
+  url_launcher: 6.3.3
   visibility_detector: 0.4.0+2
   app_settings: 8.0.3
   diacritic: 0.1.6
@@ -51,10 +51,10 @@ dependencies:
   audioplayers: 6.8.1
   flutter_email_sender: 10.0.1
   flutter_native_splash: 2.4.8
-  image: 4.9.1
+  image: 4.12.0
   crop_image: 1.0.17
   shared_preferences: 2.5.5
-  intl: 0.20.2
+  intl: 0.20.3
   collection: 1.19.1
   path: 1.9.1
   path_provider: 2.1.6
@@ -63,8 +63,6 @@ dependencies:
   shimmer: 3.0.0
   rive: 0.14.11
   webview_flutter: 4.14.1
-  webview_flutter_android: 4.13.0
-  webview_flutter_wkwebview: 3.26.0
   flutter_custom_tabs: 2.6.0
   flutter_image_compress: 2.5.1
   connectivity_plus: 7.3.1
@@ -90,11 +88,8 @@ dependencies:
   app_store_uri:
     path: ../app_store/uri_store
 
-  # We use two different scanning engines, 
-  # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
-  # but qr_code_scanner which uses the open source ZXing for F-Droid
-  mobile_scanner: 7.4.2
-
+  # Two scanning engines: ML Kit (scanner_ml_kit) for the Play Store and Apple
+  # App Store, ZXing (scanner_zxing) for F-Droid.
   scanner_shared:
     path: ../scanner/shared
 

@@ -54,7 +54,7 @@ class ContributeUIHelper {
                   appLocalizations.contribute_develop_dev_mode_subtitle,
                 ),
                 value: userPreferences.devMode != 0,
-                onChanged: (final bool devMode) async =>
+                onChanged: (bool devMode) async =>
                     userPreferences.setDevMode(devMode ? 1 : 0),
               ),
             ],

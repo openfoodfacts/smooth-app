@@ -15,6 +15,9 @@ class ContributeRoot extends PreferencesRoot {
   const ContributeRoot({required super.title});
 
   @override
+  String get actionName => 'Opened contribute_page';
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final OpenFoodFactsCountry country = ProductQuery.getCountry();
@@ -58,8 +61,7 @@ class ContributeRoot extends PreferencesRoot {
       leading: const icons.Student(),
       title: appLocalizations.contribute_join_skill_pool,
       subtitleText: appLocalizations.preferences_contribute_skill_pool_subtitle,
-      url:
-          'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
+      url: 'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
     );
   }
 

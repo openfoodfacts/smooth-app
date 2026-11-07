@@ -18,7 +18,7 @@ class PriceModel with ChangeNotifier {
     required this._proofType,
     required this._currency,
     required this.multipleProducts,
-    final PriceMetaProduct? initialProduct,
+    PriceMetaProduct? initialProduct,
     this._readyForPriceTagValidation = false,
   }) : _proof = null,
        existingPrices = null,
@@ -38,7 +38,7 @@ class PriceModel with ChangeNotifier {
 
   bool get readyForPriceTagValidation => _readyForPriceTagValidation;
 
-  set readyForPriceTagValidation(final bool value) {
+  set readyForPriceTagValidation(bool value) {
     _hasChanged = true;
     _readyForPriceTagValidation = value;
     notifyListeners();
@@ -61,7 +61,7 @@ class PriceModel with ChangeNotifier {
   /// "Should we support multiple products?" (instead of a single product).
   final bool multipleProducts;
 
-  void setProof(final Proof proof, {final bool init = false}) {
+  void setProof(Proof proof, {bool init = false}) {
     if (!init) {
       _hasChanged = true;
     }
@@ -87,7 +87,7 @@ class PriceModel with ChangeNotifier {
   /// Checks if a proof cannot be reused for prices adding.
   ///
   /// Sometimes we get partial data from the Prices server.
-  static bool isProofNotGoodEnough(final Proof proof) =>
+  static bool isProofNotGoodEnough(Proof proof) =>
       proof.currency == null ||
       proof.date == null ||
       proof.type == null ||
@@ -103,20 +103,20 @@ class PriceModel with ChangeNotifier {
 
   final List<Price>? existingPrices;
 
-  void add(final PriceAmountModel priceAmountModel) {
+  void add(PriceAmountModel priceAmountModel) {
     _hasChanged = true;
     _priceAmountModels.add(priceAmountModel);
     notifyListeners();
   }
 
-  void removeAt(final int index) {
+  void removeAt(int index) {
     _hasChanged = true;
     _priceAmountModels[index].dispose();
     _priceAmountModels.removeAt(index);
     notifyListeners();
   }
 
-  PriceAmountModel elementAt(final int index) => _priceAmountModels[index];
+  PriceAmountModel elementAt(int index) => _priceAmountModels[index];
 
   List<PriceAmountModel> get priceAmountModels => _priceAmountModels;
 
@@ -126,7 +126,7 @@ class PriceModel with ChangeNotifier {
 
   CropParameters? get cropParameters => _cropParameters;
 
-  set cropParameters(final CropParameters? value) {
+  set cropParameters(CropParameters? value) {
     _hasChanged = true;
     _cropParameters = value;
     _proof = null;
@@ -141,7 +141,7 @@ class PriceModel with ChangeNotifier {
 
   ProofType get proofType => _proof != null ? _proof!.type! : _proofType;
 
-  set proofType(final ProofType proofType) {
+  set proofType(ProofType proofType) {
     _hasChanged = true;
     _proofType = proofType;
     notifyListeners();
@@ -151,7 +151,7 @@ class PriceModel with ChangeNotifier {
 
   DateTime get date => _date;
 
-  set date(final DateTime date) {
+  set date(DateTime date) {
     _hasChanged = true;
     _date = date;
     notifyListeners();
@@ -162,7 +162,7 @@ class PriceModel with ChangeNotifier {
 
   OsmLocation? _location;
 
-  set location(final OsmLocation location) {
+  set location(OsmLocation location) {
     _hasChanged = true;
     _location = location;
     notifyListeners();
@@ -176,7 +176,7 @@ class PriceModel with ChangeNotifier {
 
   Currency get currency => _currency;
 
-  set currency(final Currency currency) {
+  set currency(Currency currency) {
     _hasChanged = true;
     _currency = currency;
     notifyListeners();
@@ -187,7 +187,7 @@ class PriceModel with ChangeNotifier {
   void notifyListeners() => super.notifyListeners();
 
   /// Returns the error message of the parameter check, or null if OK.
-  String? checkParameters(final BuildContext context) {
+  String? checkParameters(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (proof == null) {
       if (cropParameters == null) {
@@ -213,8 +213,8 @@ class PriceModel with ChangeNotifier {
 
   /// Adds the related background task.
   Future<void> addTask(
-    final BuildContext context, {
-    required final bool displaySnackbar,
+    BuildContext context, {
+    required bool displaySnackbar,
   }) async {
     final List<String> barcodes = <String>[];
     final List<String> categories = <String>[];

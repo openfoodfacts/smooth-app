@@ -179,7 +179,7 @@ class _CropPageState extends State<CropPage> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     if (_progress == null && _cacheImageWidth == null) {
       final Size screenSize = MediaQuery.sizeOf(context);
       final double pixelRatio = MediaQuery.devicePixelRatioOf(context);
@@ -275,31 +275,29 @@ class _CropPageState extends State<CropPage> {
                             LayoutBuilder(
                               builder:
                                   (
-                                    final BuildContext context,
-                                    final BoxConstraints constraints,
+                                    BuildContext context,
+                                    BoxConstraints constraints,
                                   ) => Center(
                                     child: GestureDetector(
-                                      onPanStart:
-                                          (final DragStartDetails details) =>
-                                              setState(
-                                                () => _eraserModel.panStart(
-                                                  details.localPosition,
-                                                  constraints,
-                                                ),
-                                              ),
+                                      onPanStart: (DragStartDetails details) =>
+                                          setState(
+                                            () => _eraserModel.panStart(
+                                              details.localPosition,
+                                              constraints,
+                                            ),
+                                          ),
                                       onPanUpdate:
-                                          (final DragUpdateDetails details) =>
+                                          (DragUpdateDetails details) =>
                                               setState(
                                                 () => _eraserModel.panUpdate(
                                                   details.localPosition,
                                                   constraints,
                                                 ),
                                               ),
-                                      onPanEnd:
-                                          (final DragEndDetails details) =>
-                                              setState(
-                                                () => _eraserModel.panEnd(),
-                                              ),
+                                      onPanEnd: (DragEndDetails details) =>
+                                          setState(
+                                            () => _eraserModel.panEnd(),
+                                          ),
                                     ),
                                   ),
                             ),
@@ -359,8 +357,8 @@ class _CropPageState extends State<CropPage> {
 
   /// Returns a file with the cropped image + max size, for the transient image.
   Future<File> _getPreCroppedImageFile(
-    final Directory directory,
-    final int sequenceNumber,
+    Directory directory,
+    int sequenceNumber,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String croppedPath = '${directory.path}/cropped_$sequenceNumber.jpeg';
@@ -584,7 +582,7 @@ class _CropPageState extends State<CropPage> {
     );
   }
 
-  Future<void> _showExceptionDialog(final Object e) async {
+  Future<void> _showExceptionDialog(Object e) async {
     if (mounted) {
       // not likely to happen, but you never know...
       return LoadingDialog.error(

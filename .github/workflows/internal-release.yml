@@ -2,8 +2,11 @@ name: Create internal releases of the Mobile app for Android & iOS
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
- RUBY_VERSION: 3.4.10
+  RUBY_VERSION: 3.4.10
 
 jobs:
   tag-commit:
@@ -20,14 +23,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.321.0
+        uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
-          #working-directory: packages/smooth_app/android
-      - name: bundle install
-        run: bundle install
-        working-directory: ./packages/smooth_app/android/
+          bundler-cache: true
+          working-directory: packages/smooth_app/android
       # Get the latest version name from file
       - name: Set VERSION_NAME env
         run: echo "VERSION_NAME=$(cat version.txt)">> $GITHUB_ENV
@@ -102,7 +102,8 @@ jobs:
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
       FASTLANE_USER: ${{secrets.FASTLANE_USER }}
       FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-      MATCH_GIT_BASIC_AUTHORIZATION: ${{secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+      MATCH_GIT_BASIC_AUTHORIZATION: ${{secrets.MATCH_GIT_BASIC_AUTHORIZATION_2 }}
+      MATCH_GIT_BASIC_AUTHORIZATION_2: ${{secrets.MATCH_GIT_BASIC_AUTHORIZATION_2 }}
       MATCH_GIT_URL: ${{secrets.MATCH_GIT_URL }}
       MATCH_KEYCHAIN_PASSWORD: ${{secrets.MATCH_KEYCHAIN_PASSWORD }}
       MATCH_PASSWORD: ${{secrets.MATCH_PASSWORD }}

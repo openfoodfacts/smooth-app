@@ -14,7 +14,7 @@ abstract class AbstractOnboardingData<T> {
   static const String barcode = 'example';
 
   /// Gets the data, either as recently downloaded, or as asset (fallback).
-  Future<T> getData(final AssetBundle rootBundle) async {
+  Future<T> getData(AssetBundle rootBundle) async {
     try {
       return getDataFromString(
         await DaoString(_localDatabase).get(_getDatabaseKey()),
@@ -47,7 +47,7 @@ abstract class AbstractOnboardingData<T> {
   }
 
   /// Converts a string into the expected object, even null.
-  T? getDataFromString(final String? jsonString) {
+  T? getDataFromString(String? jsonString) {
     if (jsonString == null) {
       return null;
     }
@@ -56,7 +56,7 @@ abstract class AbstractOnboardingData<T> {
 
   /// Converts a string into the expected object.
   @protected
-  T getDataFromNonNullString(final String jsonString);
+  T getDataFromNonNullString(String jsonString);
 
   /// Downloads a data and returns it.
   @protected

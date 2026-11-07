@@ -6,10 +6,30 @@ before_all do
     version: '26.3',
     select_for_current_build_only: true,
   )
-  sh("xcodebuild -downloadPlatform iOS")
+  has_ios_sdk = system("xcodebuild -showsdks | grep -q 'iOS SDKs:'")
+  unless has_ios_sdk
+    sh("xcodebuild -downloadPlatform iOS")
+  end
 end
 
 platform :ios do
+
+  desc "Set's version to env:VERSION_NAME and the version code env:VERSION_CODE used for android + iOS"
+  lane :setVersion do
+      begin
+          version_code = ENV["VERSION_CODE"]
+          puts "version_code: " + version_code.to_s
+
+          new_version_name = ENV["VERSION_NAME"]
+          puts new_version_name
+
+          flutter_set_version(
+            path_to_yaml: "../pubspec.yaml",
+            version_name: new_version_name.to_s,
+            version_code: version_code.to_s,
+          )
+      end
+  end
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
@@ -18,7 +38,7 @@ platform :ios do
     
     puts "Releasing beta version for identifier #{APP_IDENTIFIER}"
 
-    sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
+    sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false, git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"])
     update_code_signing_settings(
       path: "Runner.xcodeproj",
       use_automatic_signing: false,
@@ -38,6 +58,7 @@ platform :ios do
       configuration: "Release",
       workspace: "Runner.xcworkspace",
       scheme: "Runner",
+      clean: false,
       export_method: "app-store",
       export_options: {
           provisioningProfiles: {
@@ -71,7 +92,8 @@ platform :ios do
       type: "appstore", 
       readonly: is_ci, 
       clone_branch_directly: false,
-      app_identifier: APP_IDENTIFIER
+      app_identifier: APP_IDENTIFIER,
+      git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
     )
     update_code_signing_settings(
       path: "Runner.xcodeproj",
@@ -92,6 +114,7 @@ platform :ios do
       configuration: "Release",
       workspace: "Runner.xcworkspace",
       scheme: "Runner",
+      clean: false,
       export_method: "app-store",
       export_options: {
           provisioningProfiles: {

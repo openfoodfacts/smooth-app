@@ -409,7 +409,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   }
 
   List<Widget> _buildAttributeChips(
-    final List<Attribute> attributes,
+    List<Attribute> attributes,
     EdgeInsetsGeometry padding,
   ) {
     final List<Widget> result = <Widget>[];
@@ -426,7 +426,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   }
 
   Widget? _buildAttributeChipForValidAttributes(
-    final Attribute attribute,
+    Attribute attribute,
     EdgeInsetsGeometry padding,
   ) {
     if (attribute.status == Attribute.STATUS_UNKNOWN &&
@@ -434,7 +434,10 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       return null;
     }
     final String? attributeDisplayTitle = getDisplayTitle(attribute);
-    final Widget attributeIcon = getAttributeDisplayIcon(attribute);
+    final Widget attributeIcon = getAttributeDisplayIcon(
+      attribute,
+      context: context,
+    );
     if (attributeDisplayTitle == null) {
       return null;
     }
@@ -490,7 +493,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
 
   /// Ensures [_isAttributeClickable] is called before this method
   Future<void> _openFullKnowledgePanel({
-    required final Attribute attribute,
+    required Attribute attribute,
   }) async {
     await Navigator.push<void>(
       context,

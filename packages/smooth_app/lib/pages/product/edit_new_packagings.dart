@@ -22,6 +22,7 @@ import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/color_schemes.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -69,8 +70,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
   }
 
   void _addPackagingToControllers(
-    final ProductPackaging packaging, {
-    final bool initiallyExpanded = false,
+    ProductPackaging packaging, {
+    bool initiallyExpanded = false,
   }) {
     _helpers.add(
       EditNewPackagingsHelper.packaging(
@@ -82,7 +83,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     );
   }
 
-  void _removePackagingAt(final int index) {
+  void _removePackagingAt(int index) {
     final EditNewPackagingsHelper helper = _helpers.removeAt(index);
     helper.dispose();
   }
@@ -268,7 +269,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
   }
 
   /// Exits the page if the [flag] is `true`.
-  void _exitPage(final bool flag) {
+  void _exitPage(bool flag) {
     if (flag) {
       Navigator.of(context).pop();
     }
@@ -283,8 +284,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
   }
 
   bool _isPackagingDifferent(
-    final ProductPackaging p1,
-    final ProductPackaging p2,
+    ProductPackaging p1,
+    ProductPackaging p2,
   ) =>
       p1.shape?.lcName != p2.shape?.lcName ||
       p1.material?.lcName != p2.material?.lcName ||
@@ -293,7 +294,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
       p1.weightMeasured != p2.weightMeasured ||
       p1.numberOfUnits != p2.numberOfUnits;
 
-  bool _hasPackagingsChanged(final List<ProductPackaging> packagings) {
+  bool _hasPackagingsChanged(List<ProductPackaging> packagings) {
     if (upToDateProduct.packagings == null) {
       return packagings.isNotEmpty;
     }
@@ -315,7 +316,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
-  Future<bool> _mayExitPage({required final bool saving}) async {
+  Future<bool> _mayExitPage({required bool saving}) async {
     final Product changedProduct = Product(barcode: barcode);
     bool changed = false;
 
@@ -364,23 +365,28 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
   }
 }
 
-Color _getSmoothCardColor(final BuildContext context) =>
-    Theme.of(context).brightness == Brightness.light
-    ? GREY_COLOR
-    : PRIMARY_GREY_COLOR;
+Color _getSmoothCardColor(BuildContext context) {
+  final SmoothColorsThemeExtension colors = context
+      .extension<SmoothColorsThemeExtension>();
+  return Theme.of(context).brightness == Brightness.light
+      ? colors.greyUltraLight
+      : colors.greyUltraDark;
+}
 
-Color _getSmoothCardColorAlternate(final BuildContext context, int index) {
+Color _getSmoothCardColorAlternate(BuildContext context, int index) {
   final bool lightTheme = Theme.of(context).brightness == Brightness.light;
+  final SmoothColorsThemeExtension colors = context
+      .extension<SmoothColorsThemeExtension>();
   Color cardColor = Colors.white;
   if (lightTheme) {
     if (index.isOdd) {
-      cardColor = GREY_COLOR;
+      cardColor = colors.greyUltraLight;
     } else {
-      cardColor = LIGHT_GREY_COLOR;
+      cardColor = colors.greySemiLight;
     }
   } else {
     if (index.isOdd) {
-      cardColor = PRIMARY_GREY_COLOR;
+      cardColor = colors.greyUltraDark;
     } else {
       cardColor = darkColorScheme.surface;
     }

@@ -20,8 +20,8 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
 
   @override
   Widget getWidget(
-    final BuildContext context, {
-    final VoidCallback? onDismissItem,
+    BuildContext context, {
+    VoidCallback? onDismissItem,
   }) {
     final String? title = osmLocation.getTitle();
     final String? subtitle = osmLocation.getSubtitle();
@@ -83,7 +83,7 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
       direction: DismissDirection.endToStart,
       onDismissed: (DismissDirection direction) async => onDismissItem(),
       background: Container(
-        color: RED_COLOR,
+        color: context.extension<SmoothColorsThemeExtension>().error,
         alignment: AlignmentDirectional.centerEnd,
         padding: const EdgeInsetsDirectional.only(end: LARGE_SPACE * 2),
         child: const Icon(Icons.delete, color: Colors.white),
@@ -93,7 +93,7 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
   }
 
   @override
-  Future<void> delete(final BuildContext context) async {
+  Future<void> delete(BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await DaoOsmLocation(localDatabase).delete(osmLocation);
   }

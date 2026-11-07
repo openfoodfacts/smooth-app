@@ -31,7 +31,7 @@ class ThemeProvider with ChangeNotifier {
 
   String get currentTheme => _forceLight ? THEME_LIGHT : _theme;
 
-  void setOnboardingComplete(final bool onboardingComplete) {
+  void setOnboardingComplete(bool onboardingComplete) {
     _forceLight = !onboardingComplete;
   }
 

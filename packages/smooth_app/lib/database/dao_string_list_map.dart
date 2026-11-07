@@ -30,7 +30,7 @@ class DaoStringListMap extends AbstractDao {
     return mapFinal;
   }
 
-  Future<void> add(final String barcode, String insightId) async {
+  Future<void> add(String barcode, String insightId) async {
     final Map<String, List<String>> value = await getAll();
     if (value.keys.contains(barcode)) {
       if (value[barcode] == null) {
@@ -47,7 +47,7 @@ class DaoStringListMap extends AbstractDao {
     localDatabase.notifyListeners();
   }
 
-  Future<bool> removeKey(final String barcode) async {
+  Future<bool> removeKey(String barcode) async {
     final Map<String, List<String>> value = await getAll();
     if (value.remove(barcode) != null) {
       await _getBox().put(_key, value);
@@ -57,7 +57,7 @@ class DaoStringListMap extends AbstractDao {
     return false;
   }
 
-  Future<bool> removeStringValue(final String insightId) async {
+  Future<bool> removeStringValue(String insightId) async {
     final Map<String, List<String>> value = await getAll();
     bool needNotify = false;
     for (final String barcode in value.keys) {
@@ -76,7 +76,7 @@ class DaoStringListMap extends AbstractDao {
     return false;
   }
 
-  Future<bool> containsStringValue(final String insightId) async {
+  Future<bool> containsStringValue(String insightId) async {
     final Map<String, List<String>> value = await getAll();
     bool exists = false;
     for (final String barcode in value.keys) {

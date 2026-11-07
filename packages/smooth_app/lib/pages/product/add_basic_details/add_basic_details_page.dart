@@ -173,7 +173,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   }
 
   /// Exits the page if the [flag] is `true`.
-  void _exitPage(final bool flag) {
+  void _exitPage(bool flag) {
     if (flag) {
       Navigator.of(context).pop();
     }
@@ -183,7 +183,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
-  Future<bool> _mayExitPage({required final bool saving}) async {
+  Future<bool> _mayExitPage({required bool saving}) async {
     final Product? minimalistProduct = _getMinimalistProduct();
     if (minimalistProduct == null) {
       return true;
@@ -278,8 +278,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   }
 
   bool _isOwnerField(
-    final ProductField productField, {
-    final OpenFoodFactsLanguage? language,
+    ProductField productField, {
+    OpenFoodFactsLanguage? language,
   }) => _product.hasOwnerField(productField, language: language);
 }
 

@@ -18,9 +18,9 @@ class DaoWorkBarcode extends AbstractSqlDao {
   static const String _columnBarcode = 'barcode';
 
   static FutureOr<void> onUpgrade(
-    final Database db,
-    final int oldVersion,
-    final int newVersion,
+    Database db,
+    int oldVersion,
+    int newVersion,
   ) async {
     if (oldVersion < 3) {
       await db.execute(
@@ -35,7 +35,7 @@ class DaoWorkBarcode extends AbstractSqlDao {
   }
 
   /// Returns the number of barcodes for that work.
-  Future<int> getCount(final String work) async {
+  Future<int> getCount(String work) async {
     final List<Map<String, dynamic>> queryResults = await localDatabase.database
         .query(
           _table,
@@ -51,8 +51,8 @@ class DaoWorkBarcode extends AbstractSqlDao {
 
   /// Returns the next barcodes for that work.
   Future<List<String>> getNextPage(
-    final String work,
-    final int pageSize,
+    String work,
+    int pageSize,
   ) async {
     final List<String> result = <String>[];
     final List<Map<String, dynamic>> queryResults = await localDatabase.database
@@ -71,18 +71,17 @@ class DaoWorkBarcode extends AbstractSqlDao {
 
   /// Returns the number of inserted rows.
   Future<int> putAll(
-    final String work,
-    final Iterable<String> barcodes,
+    String work,
+    Iterable<String> barcodes,
   ) async => localDatabase.database.transaction(
-    (final Transaction transaction) async =>
-        _bulkInsert(transaction, work, barcodes),
+    (Transaction transaction) async => _bulkInsert(transaction, work, barcodes),
   );
 
   /// Returns the number of inserted rows by optimized bulk insert.
   Future<int> _bulkInsert(
-    final DatabaseExecutor databaseExecutor,
-    final String work,
-    final Iterable<String> barcodes,
+    DatabaseExecutor databaseExecutor,
+    String work,
+    Iterable<String> barcodes,
   ) async {
     if (barcodes.isEmpty) {
       return 0;
@@ -118,25 +117,27 @@ class DaoWorkBarcode extends AbstractSqlDao {
   /// Deletes all barcodes for a given work.
   ///
   /// Returns the number of rows deleted.
-  Future<int> deleteWork(final String work) async => localDatabase.database
-      .delete(_table, where: '$_columnWork = ?', whereArgs: <String>[work]);
+  Future<int> deleteWork(String work) async => localDatabase.database.delete(
+    _table,
+    where: '$_columnWork = ?',
+    whereArgs: <String>[work],
+  );
 
   /// Deletes all barcodes for a given work.
   ///
   /// Returns the number of rows deleted.
   Future<int> deleteBarcodes(
-    final String work,
-    final Iterable<String> barcodes,
+    String work,
+    Iterable<String> barcodes,
   ) async => localDatabase.database.transaction(
-    (final Transaction transaction) async =>
-        _bulkDelete(transaction, work, barcodes),
+    (Transaction transaction) async => _bulkDelete(transaction, work, barcodes),
   );
 
   /// Returns the number of deleted rows by optimized bulk delete.
   Future<int> _bulkDelete(
-    final DatabaseExecutor databaseExecutor,
-    final String work,
-    final Iterable<String> barcodes,
+    DatabaseExecutor databaseExecutor,
+    String work,
+    Iterable<String> barcodes,
   ) async {
     if (barcodes.isEmpty) {
       return 0;

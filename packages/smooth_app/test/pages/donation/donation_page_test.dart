@@ -270,6 +270,7 @@ void main() {
       );
       expect(events, hasLength(1));
       expect(events.single['e_v'], '${source.analyticsValue}');
+      expect(events.single['e_a'], '${source.name}:old');
       expect(tester, meetsGuideline(textContrastGuideline));
     });
   }

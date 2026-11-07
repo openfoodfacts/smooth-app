@@ -75,7 +75,7 @@ enum PreferencesPageProjects {
     PreferencesPageProjects.pets => 'open_pet_food_facts',
   };
 
-  Widget getLeadingIcon(final bool lightTheme, {EdgeInsetsGeometry? padding}) =>
+  Widget getLeadingIcon(bool lightTheme, {EdgeInsetsGeometry? padding}) =>
       FaqRoot.createLeadingIcon(
         'assets/'
         'guides/'

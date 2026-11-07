@@ -122,8 +122,8 @@ class _EditLanguageTabBarState extends State<EditLanguageTabBar>
             child: Consumer<_EditLanguageProvider>(
               builder:
                   (
-                    final BuildContext context,
-                    final _EditLanguageProvider provider,
+                    BuildContext context,
+                    _EditLanguageProvider provider,
                     _,
                   ) {
                     if (provider.value.languages == null) {
@@ -147,7 +147,7 @@ class _EditLanguageTabBarState extends State<EditLanguageTabBar>
                           child: SmoothTabBar<OpenFoodFactsLanguage>(
                             tabController: _tabController!,
                             items: provider.value.languages!.map(
-                              (final OpenFoodFactsLanguage language) =>
+                              (OpenFoodFactsLanguage language) =>
                                   SmoothTabBarItem<OpenFoodFactsLanguage>(
                                     label: Languages().getNameInLanguage(
                                       language,
@@ -157,7 +157,7 @@ class _EditLanguageTabBarState extends State<EditLanguageTabBar>
                             ),
                             leadingItems: widget.showLanguageIndicator
                                 ? provider.value.languagesStates!.map((
-                                    final OpenFoodFactsLanguageState state,
+                                    OpenFoodFactsLanguageState state,
                                   ) {
                                     switch (state) {
                                       case OpenFoodFactsLanguageState.normal:
@@ -172,7 +172,7 @@ class _EditLanguageTabBarState extends State<EditLanguageTabBar>
                                     }
                                   })
                                 : null,
-                            onTabChanged: (final OpenFoodFactsLanguage value) {
+                            onTabChanged: (OpenFoodFactsLanguage value) {
                               widget.onTabChanged.call(value);
                             },
                             padding: widget.padding.add(
@@ -321,7 +321,7 @@ class _EditLanguageProvider
 
   Product? product;
 
-  void attachProduct(final Product product) {
+  void attachProduct(Product product) {
     if (!equalsProduct(product)) {
       this.product = product;
       refreshLanguages(initial: true);
@@ -399,8 +399,8 @@ class _EditLanguageProvider
   _extractLanguages() {
     final List<ProductLanguageWithState> imageLanguagesWithState =
         languagesProvider(product!)..sort((
-          final ProductLanguageWithState a,
-          final ProductLanguageWithState b,
+          ProductLanguageWithState a,
+          ProductLanguageWithState b,
         ) {
           return a.code.compareTo(b.code);
         });
@@ -492,10 +492,13 @@ class _EditLanguageTabBarProviderState {
   final bool hasNewLanguage;
 }
 
-typedef DidProductChanged =
-    bool Function(Product oldProduct, Product newProduct);
-typedef ProductLanguagesProvider =
-    List<ProductLanguageWithState> Function(Product product);
+typedef DidProductChanged = bool Function(
+  Product oldProduct,
+  Product newProduct,
+);
+typedef ProductLanguagesProvider = List<ProductLanguageWithState> Function(
+  Product product,
+);
 
 @immutable
 class ProductLanguageWithState {

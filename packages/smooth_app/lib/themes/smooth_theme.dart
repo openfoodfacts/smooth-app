@@ -14,10 +14,10 @@ class SmoothTheme {
   static const double SECONDARY_COLOR_SHADE_VALUE = 0.4;
 
   static ThemeData getThemeData(
-    final Brightness brightness,
-    final ThemeProvider themeProvider,
-    final ColorProvider Function() colorProvider,
-    final TextContrastProvider Function() textContrastProvider,
+    Brightness brightness,
+    ThemeProvider themeProvider,
+    ColorProvider Function() colorProvider,
+    TextContrastProvider Function() textContrastProvider,
   ) {
     final bool lightTheme = brightness == Brightness.light;
     ColorScheme myColorScheme;
@@ -50,7 +50,7 @@ class SmoothTheme {
 
     return ThemeData(
       fontFamily: 'OpenSans',
-      primaryColor: DARK_BROWN_COLOR,
+      primaryColor: smoothExtension.primaryBlack,
       extensions: <ThemeExtension<dynamic>>[smoothExtension],
       colorScheme: myColorScheme,
       canvasColor: themeProvider.currentTheme == THEME_AMOLED

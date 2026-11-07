@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
@@ -112,7 +113,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
       ),
       body: ChangeNotifierProvider<PersonalizedRankingModel>(
         create: (_) => _model,
-        builder: (final BuildContext context, _) {
+        builder: (BuildContext context, _) {
           context.watch<PersonalizedRankingModel>();
           final List<String> compactPreferences = productPreferences
               .getCompactView();
@@ -203,9 +204,9 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   );
 
   Widget _buildHeader(
-    final MatchedProductStatusV2 status,
-    final AppLocalizations appLocalizations,
-    final bool darkMode,
+    MatchedProductStatusV2 status,
+    AppLocalizations appLocalizations,
+    bool darkMode,
   ) {
     final ProductCompatibilityHelper helper = ProductCompatibilityHelper.status(
       status,
@@ -231,19 +232,19 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   }
 
   Widget _buildSmoothProductCard(
-    final MatchedScoreV2 matchedProduct,
-    final AppLocalizations appLocalizations,
-    final bool darkMode,
+    MatchedScoreV2 matchedProduct,
+    AppLocalizations appLocalizations,
+    bool darkMode,
   ) => Dismissible(
     direction: DismissDirection.endToStart,
     background: Container(
       alignment: AlignmentDirectional.centerEnd,
-      color: RED_COLOR,
+      color: context.extension<SmoothColorsThemeExtension>().error,
       padding: const EdgeInsetsDirectional.only(end: 30.0),
       child: const Icon(Icons.delete, color: Colors.white),
     ),
     key: Key(matchedProduct.barcode),
-    onDismissed: (final DismissDirection direction) {
+    onDismissed: (DismissDirection direction) {
       _model.dismiss(matchedProduct.barcode);
       ScaffoldMessenger.of(context).showSnackBar(
         SmoothFloatingSnackbar(

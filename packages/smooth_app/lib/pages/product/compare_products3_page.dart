@@ -13,6 +13,7 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -192,11 +193,11 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     );
   }
 
-  Row _getTextRow(final List<String> texts) => _getWidgetRow(<Widget>[
+  Row _getTextRow(List<String> texts) => _getWidgetRow(<Widget>[
     for (final String text in texts) Expanded(child: Text(text)),
   ]);
 
-  Row _getWidgetRow(final List<Widget> widgets) {
+  Row _getWidgetRow(List<Widget> widgets) {
     final List<Widget> children = <Widget>[];
     bool first = true;
     for (final Widget widget in widgets) {
@@ -213,7 +214,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     );
   }
 
-  Nutrient? _getAttributeNutrient(final String attributeId) {
+  Nutrient? _getAttributeNutrient(String attributeId) {
     switch (attributeId) {
       case Attribute.ATTRIBUTE_LOW_FAT:
         return Nutrient.fat;
@@ -227,7 +228,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     return null;
   }
 
-  Widget? _getChild(final Attribute attribute, final Product product) {
+  Widget? _getChild(Attribute attribute, Product product) {
     final Nutrient? nutrient = _getAttributeNutrient(attribute.id!);
     if (nutrient != null) {
       if (product.nutriments == null) {
@@ -255,9 +256,9 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
   }
 
   Widget _getAttributeRow({
-    required final List<List<Attribute>> attributesArray,
-    required final int index,
-    required final List<Product> products,
+    required List<List<Attribute>> attributesArray,
+    required int index,
+    required List<Product> products,
   }) {
     final List<Widget> children = <Widget>[];
     late String title;
@@ -269,7 +270,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
       child = Expanded(
         child: Container(
           height: 36,
-          color: getAttributeDisplayBackgroundColor(attribute),
+          color: getAttributeDisplayBackgroundColor(
+            attribute,
+            context.extension<SmoothColorsThemeExtension>(),
+          ),
           child: child,
         ),
       );
@@ -295,8 +299,8 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
   }
 
   Widget _getNutrientRow({
-    required final List<double?> values,
-    required final Nutrient nutrient,
+    required List<double?> values,
+    required Nutrient nutrient,
   }) {
     final List<Widget> children = <Widget>[];
     for (final double? value in values) {
@@ -326,7 +330,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     );
   }
 
-  Nutrient _getNutrient(final OrderedNutrient orderedNutrient) {
+  Nutrient _getNutrient(OrderedNutrient orderedNutrient) {
     if (orderedNutrient.nutrient != null) {
       return orderedNutrient.nutrient!;
     }

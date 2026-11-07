@@ -44,10 +44,10 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
 
   /// Adds the background task about hunger games.
   static Future<void> addTask({
-    required final String barcode,
-    required final String insightId,
-    required final InsightAnnotation insightAnnotation,
-    required final BuildContext context,
+    required String barcode,
+    required String insightId,
+    required InsightAnnotation insightAnnotation,
+    required BuildContext context,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
@@ -72,15 +72,15 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => null;
 
   /// Returns a new background task about hunger games.
   static BackgroundTaskHungerGames _getNewTask(
-    final String barcode,
-    final String insightId,
-    final int insightAnnotation,
-    final String uniqueId,
+    String barcode,
+    String insightId,
+    int insightAnnotation,
+    String uniqueId,
   ) => BackgroundTaskHungerGames._(
     processName: _operationType.processName,
     uniqueId: uniqueId,
@@ -92,16 +92,16 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     insightAnnotation: insightAnnotation,
   );
 
-  static String _getStamp(final String barcode, final String insightId) =>
+  static String _getStamp(String barcode, String insightId) =>
       '$barcode;hungerGames;$insightId';
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {}
+  Future<void> preExecute(LocalDatabase localDatabase) async {}
 
   @override
   Future<void> postExecute(
-    final LocalDatabase localDatabase,
-    final bool success,
+    LocalDatabase localDatabase,
+    bool success,
   ) async {
     await super.postExecute(localDatabase, success);
     final RobotoffInsightHelper robotoffInsightHelper = RobotoffInsightHelper(
@@ -114,7 +114,7 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
   bool get refreshAfterException => false;
 
   @override
-  Future<void> upload(final LocalDatabase localDatabase) async {
+  Future<void> upload(LocalDatabase localDatabase) async {
     final InsightAnnotation? annotation = InsightAnnotation.fromInt(
       insightAnnotation,
     );

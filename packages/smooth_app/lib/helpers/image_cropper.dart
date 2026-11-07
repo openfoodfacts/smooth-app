@@ -136,9 +136,9 @@ class ImageCropper {
   }
 
   static Future<image.Image> _convertImageFromUI(
-    final ByteData rawData,
-    final int width,
-    final int height,
+    ByteData rawData,
+    int width,
+    int height,
   ) async => image.Image.fromBytes(
     width: width,
     height: height,

@@ -28,11 +28,16 @@ android {
 
     defaultConfig {
         applicationId = "org.openfoodfacts.scanner"
-        minSdk = flutter.minSdkVersion
+        // In debug builds, bump minSdk to at least 24 (Android 7.0+) unless explicitly overridden.
+        // This avoids legacy MultiDex dexing passes and heavy Java desugaring transformations,
+        // drastically speeding up incremental and cold debug builds.
+        // Release builds retain flutter.minSdkVersion (API 21) for full backwards compatibility.
+        val isDebugTask = gradle.startParameter.taskNames.any { it.contains("Debug", ignoreCase = true) }
+        val minSdkOverride = project.findProperty("minSdk")?.toString()?.toIntOrNull()
+        minSdk = minSdkOverride ?: if (isDebugTask) maxOf(flutter.minSdkVersion, 24) else flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        multiDexEnabled = true
     }
 
     signingConfigs {
@@ -63,6 +68,5 @@ flutter {
 }
 
 dependencies {
-    implementation("androidx.multidex:multidex:2.0.1")
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.2")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 }

@@ -13,7 +13,7 @@ import 'package:smooth_app/widgets/table/table_extractor.dart';
 class ScrollableTableWidget extends StatefulWidget {
   const ScrollableTableWidget(this.smoothTable, {super.key});
 
-  ScrollableTableWidget.fromHtml(final String html)
+  ScrollableTableWidget.fromHtml(String html)
     : this(TableExtractor().extract(html));
 
   final SmoothTable smoothTable;
@@ -54,7 +54,7 @@ class _ScrollableTableWidgetState extends State<ScrollableTableWidget> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (final BuildContext context, final BoxConstraints constraints) {
+      builder: (BuildContext context, BoxConstraints constraints) {
         final List<double> widths = SmoothTable.clampWidths(
           _columnsMaxLength,
           maxColWidth: max(

@@ -1,10 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/html_extension.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_cell_width_computer.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Represents the data in a single cell in this table.
 class SmoothTableCell {
@@ -12,7 +15,7 @@ class SmoothTableCell {
     required this.text,
     required this.isHeader,
     this.leftAlign = true,
-    this.color,
+    this.evaluation = Evaluation.UNKNOWN,
     this.iconUrl,
     this.percent,
   });
@@ -20,7 +23,7 @@ class SmoothTableCell {
   final String text;
   final bool isHeader;
   final bool leftAlign;
-  final Color? color;
+  final Evaluation evaluation;
   final String? iconUrl;
   final double? percent;
 
@@ -28,14 +31,14 @@ class SmoothTableCell {
   static const double _cellItemPadding = VERY_SMALL_SPACE;
   static const double _cellPercentageWidth = 4 * _cellItemSize;
 
-  TextStyle _getStyle(final KnowledgePanelTableCellWidthComputer computer) =>
+  TextStyle _getStyle(KnowledgePanelTableCellWidthComputer computer) =>
       isHeader ? computer.headerTextStyle : computer.textStyle;
 
   static const double iconWidth = _cellItemSize + 2 * _cellItemPadding;
   static const double percentageWidth =
       _cellPercentageWidth + 2 * _cellItemPadding;
 
-  double getWidth(final KnowledgePanelTableCellWidthComputer computer) {
+  double getWidth(KnowledgePanelTableCellWidthComputer computer) {
     double result = computer.computeTextSize(text, _getStyle(computer)).width;
     if (iconUrl != null) {
       result += iconWidth;
@@ -47,10 +50,14 @@ class SmoothTableCell {
   }
 
   Widget getWidget({
-    required final BuildContext context,
-    required final KnowledgePanelTableCellWidthComputer computer,
+    required BuildContext context,
+    required KnowledgePanelTableCellWidthComputer computer,
   }) {
     final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
+    final Color? color = getTextColorFromKnowledgePanelElementEvaluation(
+      evaluation,
+      context.extension<SmoothColorsThemeExtension>(),
+    );
     final Color foreground, background;
     if (isDark) {
       foreground = Colors.white.withAlpha(192);
@@ -95,7 +102,7 @@ class SmoothTableCell {
             ),
           );
 
-    Widget getTextWidget(final int maxLines) {
+    Widget getTextWidget(int maxLines) {
       final AlignmentDirectional textAlignment = leftAlign
           ? AlignmentDirectional.centerStart
           : AlignmentDirectional.centerEnd;
@@ -110,10 +117,10 @@ class SmoothTableCell {
       if (color != null) {
         styleBuilder.write(
           'color: rgba('
-          '${(color!.r * 255.0).round().clamp(0, 255)},'
-          '${(color!.g * 255.0).round().clamp(0, 255)},'
-          '${(color!.b * 255.0).round().clamp(0, 255)},'
-          '${color!.a}'
+          '${(color.r * 255.0).round().clamp(0, 255)},'
+          '${(color.g * 255.0).round().clamp(0, 255)},'
+          '${(color.b * 255.0).round().clamp(0, 255)},'
+          '${color.a}'
           ');',
         );
       }

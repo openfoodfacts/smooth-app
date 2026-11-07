@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -16,6 +19,8 @@ import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_interactive_viewer.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
 
@@ -39,10 +44,10 @@ class ProductImageOtherPage extends StatefulWidget {
   State<ProductImageOtherPage> createState() => _ProductImageOtherPageState();
 
   static Future<ProductImagePageResult?> usePhotoAs({
-    required final BuildContext context,
-    required final Product product,
-    required final OpenFoodFactsLanguage language,
-    required final ProductImage productImage,
+    required BuildContext context,
+    required Product product,
+    required OpenFoodFactsLanguage language,
+    required ProductImage productImage,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final SmoothColorsThemeExtension extension = context
@@ -70,7 +75,7 @@ class ProductImageOtherPage extends StatefulWidget {
       ),
       padding: const EdgeInsetsDirectional.only(start: 15.0, end: 19.0),
       labels: imageFields
-          .map((final ImageField imageField) {
+          .map((ImageField imageField) {
             return switch (imageField) {
               ImageField.FRONT => appLocalizations.photo_field_front,
               ImageField.INGREDIENTS =>
@@ -83,7 +88,7 @@ class ProductImageOtherPage extends StatefulWidget {
           .toList(growable: false),
       values: imageFields,
       prefixIcons: imageFields
-          .map((final ImageField imageField) {
+          .map((ImageField imageField) {
             return switch (imageField) {
               ImageField.FRONT => const icons.Milk.happy(),
               ImageField.INGREDIENTS => const icons.Ingredients.alt(),
@@ -94,7 +99,7 @@ class ProductImageOtherPage extends StatefulWidget {
           })
           .toList(growable: false),
       suffixIcons: imageFields
-          .map((final ImageField imageField) {
+          .map((ImageField imageField) {
             final bool exists = TransientFile.fromProduct(
               product,
               imageField,
@@ -166,7 +171,7 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
               child: PageView(
                 controller: _pageController,
                 children: widget.images
-                    .map((final ProductImage image) {
+                    .map((ProductImage image) {
                       return _ProductImageViewer(
                         image: image,
                         barcode: widget.product.barcode!,
@@ -245,8 +250,8 @@ class _ProductImageViewer extends StatelessWidget {
                 loadingBuilder:
                     (
                       _,
-                      final Widget child,
-                      final ImageChunkEvent? loadingProgress,
+                      Widget child,
+                      ImageChunkEvent? loadingProgress,
                     ) {
                       if (loadingProgress != null) {
                         return const Center(
@@ -280,8 +285,19 @@ class _ProductImageViewer extends StatelessWidget {
                   barcode: barcode,
                   productType: productType,
                 ),
-                const Spacer(),
-                if (image.expired) _ProductImageOutdatedLabel(colors: colors),
+                const SizedBox(width: SMALL_SPACE),
+                _ProductImageZoomButton(
+                  image: image,
+                  barcode: barcode,
+                  productType: productType,
+                ),
+                if (image.expired)
+                  Expanded(
+                    child: Align(
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: _ProductImageOutdatedLabel(colors: colors),
+                    ),
+                  ),
               ],
             ),
           ),
@@ -309,13 +325,116 @@ class _ProductImageOutdatedLabel extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(SMALL_SPACE),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 const icons.Outdated(size: 18.0, color: Colors.white),
                 const SizedBox(width: SMALL_SPACE),
-                Text(
-                  AppLocalizations.of(context).product_image_outdated,
-                  style: const TextStyle(fontSize: 13.0, color: Colors.white),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).product_image_outdated,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontSize: 13.0, color: Colors.white),
+                  ),
                 ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ProductImageZoomButton extends StatelessWidget {
+  const _ProductImageZoomButton({
+    required this.image,
+    required this.barcode,
+    required this.productType,
+  });
+
+  final ProductImage image;
+  final String barcode;
+  final ProductType? productType;
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        color: Colors.black45,
+        shape: BoxShape.circle,
+      ),
+      child: IconButton(
+        padding: const EdgeInsets.all(SMALL_SPACE),
+        constraints: const BoxConstraints(),
+        style: const ButtonStyle(
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        ),
+        tooltip: AppLocalizations.of(context).photo_viewer_zoom_button,
+        icon: const icons.Zoom(size: 18.0, color: Colors.white),
+        onPressed: () => Navigator.push<void>(
+          context,
+          MaterialPageRoute<void>(
+            builder: (_) => _ProductImageZoomPage(
+              url: image.getUrl(
+                barcode,
+                uriHelper: ProductQuery.getUriProductHelper(
+                  productType: productType,
+                ),
+                imageSize: ImageSize.ORIGINAL,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ProductImageZoomPage extends StatelessWidget {
+  const _ProductImageZoomPage({required this.url});
+
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return SmoothScaffold(
+      appBar: SmoothAppBar(
+        title: Text(appLocalizations.edit_product_form_item_photos_title),
+        actions: <Widget>[
+          IconButton(
+            tooltip: appLocalizations.photo_viewer_copy_url,
+            icon: const icons.Copy(),
+            onPressed: () {
+              Clipboard.setData(ClipboardData(text: url));
+              SmoothHapticFeedback.click();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SmoothFloatingSnackbar.positive(
+                  context: context,
+                  text: appLocalizations.photo_viewer_url_copied,
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+      body: SmoothInteractiveViewer(
+        child: Center(
+          child: Image.network(
+            url,
+            fit: BoxFit.contain,
+            loadingBuilder: (_, Widget child, ImageChunkEvent? progress) =>
+                progress == null
+                ? child
+                : const Center(child: CircularProgressIndicator.adaptive()),
+            errorBuilder: (_, _, _) => Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const icons.Warning(size: 48.0, color: Colors.red),
+                const SizedBox(height: SMALL_SPACE),
+                Text(appLocalizations.error_loading_photo),
               ],
             ),
           ),

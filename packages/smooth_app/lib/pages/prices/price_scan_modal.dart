@@ -46,7 +46,7 @@ class _BarcodeScannerViewState extends State<_BarcodeScannerView>
       children: <Widget>[
         Positioned.fill(
           child: GlobalVars.barcodeScanner.getScanner(
-            onScan: (final String barcode) async {
+            onScan: (String barcode) async {
               Navigator.of(context).pop(barcode);
               return true;
             },

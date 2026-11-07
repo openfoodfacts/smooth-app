@@ -31,7 +31,7 @@ class PriceLocationWidget extends StatelessWidget {
     );
   }
 
-  static String? getLocationTitle(final Location? location) {
+  static String? getLocationTitle(Location? location) {
     if (location == null) {
       return null;
     }
@@ -60,12 +60,12 @@ class PriceLocationWidget extends StatelessWidget {
     return result.toString();
   }
 
-  static OpenFoodFactsCountry? _getCountry(final Location location) =>
+  static OpenFoodFactsCountry? _getCountry(Location location) =>
       OpenFoodFactsCountry.fromOffTag(location.countryCode);
 
   static Future<void> showLocationPrices({
-    required final int locationId,
-    required final BuildContext context,
+    required int locationId,
+    required BuildContext context,
   }) async => Navigator.of(context).push(
     MaterialPageRoute<void>(
       builder: (BuildContext context) => PricesPage(

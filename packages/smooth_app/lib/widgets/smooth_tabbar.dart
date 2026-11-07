@@ -196,13 +196,16 @@ class _ProductHeaderTabBarPainter extends CustomPainter {
     final Color backgroundColor = primaryColor.withValues(alpha: 0.0);
 
     if (progress > 0.0) {
-      _paint.shader =
-          ui.Gradient.linear(Offset.zero, Offset(gradientSize, 0.0), <Color>[
-            primaryColor.withValues(
-              alpha: progress.progressAndClamp(0.0, 0.3, 1.0),
-            ),
-            backgroundColor,
-          ]);
+      _paint.shader = ui.Gradient.linear(
+        Offset.zero,
+        Offset(gradientSize, 0.0),
+        <Color>[
+          primaryColor.withValues(
+            alpha: progress.progressAndClamp(0.0, 0.3, 1.0),
+          ),
+          backgroundColor,
+        ],
+      );
 
       canvas.drawRect(Rect.fromLTWH(0, 0, gradientSize, size.height), _paint);
     }

@@ -22,12 +22,12 @@ class ProductImageLocalButton extends ProductImageButton {
   Widget getIcon() => const icons.Camera.add();
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) => imageExists
+  String getLabel(AppLocalizations appLocalizations) => imageExists
       ? appLocalizations.capture
       : appLocalizations.capture_new_picture;
 
   @override
-  Future<void> action(final BuildContext context) async {
+  Future<void> action(BuildContext context) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
       isLoggedInMandatory: isLoggedInMandatory,

@@ -19,6 +19,9 @@ class LegalInformationRoot extends PreferencesRoot {
   const LegalInformationRoot({required super.title});
 
   @override
+  String get actionName => 'Opened legal_information_page';
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 

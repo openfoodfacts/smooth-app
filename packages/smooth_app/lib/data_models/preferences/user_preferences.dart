@@ -34,13 +34,12 @@ enum UserPictureSource {
 
   static UserPictureSource get defaultValue => UserPictureSource.SELECT;
 
-  static UserPictureSource fromString(final String tag) => UserPictureSource
-      .values
-      .firstWhere((final UserPictureSource source) => source.tag == tag);
+  static UserPictureSource fromString(String tag) => UserPictureSource.values
+      .firstWhere((UserPictureSource source) => source.tag == tag);
 }
 
 class UserPreferences extends ChangeNotifier {
-  UserPreferences._shared(final SharedPreferences sharedPreferences)
+  UserPreferences._shared(SharedPreferences sharedPreferences)
     : _sharedPreferences = sharedPreferences {
     onCrashReportingChanged = ValueNotifier<bool>(crashReports);
     onAnalyticsChanged = ValueNotifier<bool>(userTracking);
@@ -144,12 +143,19 @@ class UserPreferences extends ChangeNotifier {
 
   /// Donation asks (home card, reminders)
   static const String _TAG_DONATION_ASKS_MUTED_UNTIL = 'donationAsksMutedUntil';
+  static const String _TAG_DONATION_TEST_BUCKET = 'donationTestBucket';
+  static const String _TAG_DONATION_STRIP_HIDDEN_UNTIL =
+      'donationStripHiddenUntil';
+  static const String _TAG_PRODUCTS_LOOKED_UP_SINCE_ASK =
+      'productsLookedUpSinceAsk';
+  static const String _TAG_LAST_COUNTED_BARCODE = 'lastCountedBarcode';
+  static const String _TAG_LAST_REMINDER_SHOWN_AT = 'lastReminderShownAt';
 
   /// Info messages
   static const String _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME =
       'bannerInputProductName';
 
-  Future<void> init(final ProductPreferences productPreferences) async {
+  Future<void> init(ProductPreferences productPreferences) async {
     await _onMigrate();
 
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -195,21 +201,21 @@ class UserPreferences extends ChangeNotifier {
     // No need to call notifyListeners here
   }
 
-  String _getImportanceTag(final String variable) =>
+  String _getImportanceTag(String variable) =>
       _TAG_PREFIX_IMPORTANCE + variable;
 
   String _getImportancePrefixForProject(
-    final PreferencesPageProjects project,
+    PreferencesPageProjects project,
   ) => '$_TAG_PREFIX_IMPORTANCE${project.projectKey}_';
 
   String _getImportanceTagForProject(
-    final String variable,
-    final PreferencesPageProjects project,
+    String variable,
+    PreferencesPageProjects project,
   ) => '${_getImportancePrefixForProject(project)}$variable';
 
   Future<void> setImportance(
-    final String attributeId,
-    final String importanceId,
+    String attributeId,
+    String importanceId,
   ) async {
     await _sharedPreferences.setString(
       _getImportanceTag(attributeId),
@@ -220,9 +226,9 @@ class UserPreferences extends ChangeNotifier {
 
   /// Sets the importance for an attribute for a specific project.
   Future<void> setImportanceForProject(
-    final String attributeId,
-    final String importanceId,
-    final PreferencesPageProjects project,
+    String attributeId,
+    String importanceId,
+    PreferencesPageProjects project,
   ) async {
     await _sharedPreferences.setString(
       _getImportanceTagForProject(attributeId, project),
@@ -269,7 +275,7 @@ class UserPreferences extends ChangeNotifier {
   }
 
   /// Are the preferences set for this project?
-  bool arePreferencesSetForProject(final PreferencesPageProjects project) {
+  bool arePreferencesSetForProject(PreferencesPageProjects project) {
     final Set<String> keys = _sharedPreferences.getKeys();
     final String prefix = _getImportancePrefixForProject(project);
     for (final String key in keys) {
@@ -298,17 +304,17 @@ class UserPreferences extends ChangeNotifier {
     return false;
   }
 
-  Future<void> setTheme(final String theme) async {
+  Future<void> setTheme(String theme) async {
     await _sharedPreferences.setString(_TAG_CURRENT_THEME_MODE, theme);
     notifyListeners();
   }
 
-  Future<void> setColorScheme(final String color) async {
+  Future<void> setColorScheme(String color) async {
     await _sharedPreferences.setString(_TAG_CURRENT_COLOR_SCHEME, color);
     notifyListeners();
   }
 
-  Future<void> setContrastScheme(final String contrastLevel) async {
+  Future<void> setContrastScheme(String contrastLevel) async {
     await _sharedPreferences.setString(
       _TAG_CURRENT_CONTRAST_MODE,
       contrastLevel,
@@ -316,12 +322,12 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  String _getLazyCountTag(final String tag) => '$_TAG_LAZY_COUNT_PREFIX$tag';
+  String _getLazyCountTag(String tag) => '$_TAG_LAZY_COUNT_PREFIX$tag';
 
   Future<void> setLazyCount(
-    final int value,
-    final String suffixTag, {
-    required final bool notify,
+    int value,
+    String suffixTag, {
+    required bool notify,
   }) async {
     final int? oldValue = getLazyCount(suffixTag);
     if (value == oldValue) {
@@ -333,10 +339,10 @@ class UserPreferences extends ChangeNotifier {
     }
   }
 
-  int? getLazyCount(final String suffixTag) =>
+  int? getLazyCount(String suffixTag) =>
       _sharedPreferences.getInt(_getLazyCountTag(suffixTag));
 
-  Future<void> setUserTracking(final bool state) async {
+  Future<void> setUserTracking(bool state) async {
     await _sharedPreferences.setBool(_TAG_USER_TRACKING, state);
     onAnalyticsChanged.value = state;
     notifyListeners();
@@ -357,7 +363,7 @@ class UserPreferences extends ChangeNotifier {
     return result;
   }
 
-  Future<void> setCrashReports(final bool state) async {
+  Future<void> setCrashReports(bool state) async {
     await _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);
     onCrashReportingChanged.value = state;
     notifyListeners();
@@ -374,7 +380,7 @@ class UserPreferences extends ChangeNotifier {
   bool get shouldShowPricesFeedbackForm =>
       _sharedPreferences.getBool(_TAG_PRICES_FEEDBACK_FORM) ?? true;
 
-  Future<void> setReadyForPriceTagValidation(final bool state) async =>
+  Future<void> setReadyForPriceTagValidation(bool state) async =>
       _sharedPreferences.setBool(_TAG_READY_FOR_PRICE_TAG_VALIDATION, state);
 
   bool get readyForPriceTagValidation =>
@@ -412,7 +418,7 @@ class UserPreferences extends ChangeNotifier {
       CONTRAST_MEDIUM;
 
   /// Please use [ProductQuery.setCountry] as interface
-  Future<void> setUserCountryCode(final String countryCode) async {
+  Future<void> setUserCountryCode(String countryCode) async {
     await _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
     await _sharedPreferences.setInt(
       _TAG_USER_COUNTRY_CODE_LAST_UPDATE,
@@ -424,7 +430,7 @@ class UserPreferences extends ChangeNotifier {
   String? get userCountryCode =>
       _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE);
 
-  Future<void> setUserCurrencyCode(final String code) async {
+  Future<void> setUserCurrencyCode(String code) async {
     await _sharedPreferences.setString(_TAG_USER_CURRENCY_CODE, code);
     notifyListeners();
   }
@@ -436,7 +442,7 @@ class UserPreferences extends ChangeNotifier {
   /// It is today: the first call comes from the welcome page's tap handler,
   /// which awaits `setUserTracking(true)` first. A new entry point that
   /// navigated before that tap would report before consent.
-  Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async {
+  Future<void> setLastVisitedOnboardingPage(OnboardingPage page) async {
     await _sharedPreferences.setInt(
       _TAG_LAST_VISITED_ONBOARDING_PAGE,
       page.index,
@@ -505,23 +511,22 @@ class UserPreferences extends ChangeNotifier {
   String? get appLanguageCode =>
       getDevModeString(UserPreferencesDevMode.userPreferencesAppLanguageCode);
 
-  String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
+  String _getFlagTag(String key) => _TAG_PREFIX_FLAG + key;
 
-  Future<void> setFlag(final String key, final bool? value) async {
+  Future<void> setFlag(String key, bool? value) async {
     value == null
         ? await _sharedPreferences.remove(_getFlagTag(key))
         : await _sharedPreferences.setBool(_getFlagTag(key), value);
     notifyListeners();
   }
 
-  bool? getFlag(final String key) =>
-      _sharedPreferences.getBool(_getFlagTag(key));
+  bool? getFlag(String key) => _sharedPreferences.getBool(_getFlagTag(key));
 
   List<String> getExcludedAttributeIds() =>
       _sharedPreferences.getStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS) ??
       <String>[];
 
-  Future<void> setExcludedAttributeIds(final List<String> value) async {
+  Future<void> setExcludedAttributeIds(List<String> value) async {
     await _sharedPreferences.setStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS, value);
     notifyListeners();
   }
@@ -549,7 +554,7 @@ class UserPreferences extends ChangeNotifier {
 
   /// Returns the unwanted ingredients map for a specific project.
   Map<String, String> _getUnwantedIngredientsMapForProject(
-    final PreferencesPageProjects project,
+    PreferencesPageProjects project,
   ) {
     final String? jsonString = _sharedPreferences.getString(
       '${_TAG_UNWANTED_INGREDIENTS}_${project.projectKey}',
@@ -577,7 +582,7 @@ class UserPreferences extends ChangeNotifier {
 
   /// Returns the list of canonical tags for unwanted ingredients for a specific project.
   List<String> getUnwantedIngredientTagsForProject(
-    final PreferencesPageProjects project,
+    PreferencesPageProjects project,
   ) => _getUnwantedIngredientsMapForProject(project).values.toList();
 
   /// Returns the list of user-facing names for unwanted ingredients.
@@ -588,7 +593,7 @@ class UserPreferences extends ChangeNotifier {
 
   /// Returns the list of user-facing names for unwanted ingredients for a specific project.
   List<String> getUnwantedIngredientsForProject(
-    final PreferencesPageProjects project,
+    PreferencesPageProjects project,
   ) => _getUnwantedIngredientsMapForProject(project).keys.toList();
 
   /// Sets the unwanted ingredients map.
@@ -607,7 +612,7 @@ class UserPreferences extends ChangeNotifier {
   /// Sets the unwanted ingredients map for a specific project.
   Future<void> setUnwantedIngredientsForProject(
     Map<String, String> ingredientsMap,
-    final PreferencesPageProjects project,
+    PreferencesPageProjects project,
   ) async {
     await _sharedPreferences.setString(
       '${_TAG_UNWANTED_INGREDIENTS}_${project.projectKey}',
@@ -619,7 +624,7 @@ class UserPreferences extends ChangeNotifier {
   bool get useFlashWithCamera =>
       _sharedPreferences.getBool(_TAG_USE_FLASH_WITH_CAMERA) ?? false;
 
-  Future<void> setUseFlashWithCamera(final bool useFlash) async {
+  Future<void> setUseFlashWithCamera(bool useFlash) async {
     await _sharedPreferences.setBool(_TAG_USE_FLASH_WITH_CAMERA, useFlash);
     notifyListeners();
   }
@@ -640,22 +645,21 @@ class UserPreferences extends ChangeNotifier {
   bool get hapticFeedbackEnabled =>
       _sharedPreferences.getBool(_TAG_HAPTIC_FEEDBACK_IN_APP) ?? true;
 
-  Future<void> setDevMode(final int value) async {
+  Future<void> setDevMode(int value) async {
     await _sharedPreferences.setInt(_TAG_DEV_MODE, value);
     notifyListeners();
   }
 
   int get devMode => _sharedPreferences.getInt(_TAG_DEV_MODE) ?? 0;
 
-  Future<void> setDevModeString(final String tag, final String value) async {
+  Future<void> setDevModeString(String tag, String value) async {
     await _sharedPreferences.setString(tag, value);
     notifyListeners();
   }
 
-  String? getDevModeString(final String tag) =>
-      _sharedPreferences.getString(tag);
+  String? getDevModeString(String tag) => _sharedPreferences.getString(tag);
 
-  Future<void> setActiveAttributeGroup(final String value) async {
+  Future<void> setActiveAttributeGroup(String value) async {
     await _sharedPreferences.setString(_TAG_ACTIVE_ATTRIBUTE_GROUP, value);
     notifyListeners();
   }
@@ -669,7 +673,7 @@ class UserPreferences extends ChangeNotifier {
         UserPictureSource.defaultValue.tag,
   );
 
-  Future<void> setUserPictureSource(final UserPictureSource source) async {
+  Future<void> setUserPictureSource(UserPictureSource source) async {
     await _sharedPreferences.setString(_TAG_USER_PICTURE_SOURCE, source.tag);
     notifyListeners();
   }
@@ -678,7 +682,7 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getStringList(_TAG_USER_KNOWLEDGE_PANEL_ORDER) ??
       <String>[];
 
-  Future<void> setUserKnowledgePanelOrder(final List<String> source) async {
+  Future<void> setUserKnowledgePanelOrder(List<String> source) async {
     await _sharedPreferences.setStringList(
       _TAG_USER_KNOWLEDGE_PANEL_ORDER,
       source,
@@ -698,7 +702,7 @@ class UserPreferences extends ChangeNotifier {
   final Set<String> taglineFeedSessionClicks = <String>{};
 
   // This method voluntarily does not notify listeners (not needed)
-  Future<void> taglineFeedMarkNewsAsDisplayed(final String ids) async {
+  Future<void> taglineFeedMarkNewsAsDisplayed(String ids) async {
     final List<String> displayedNews = taglineFeedDisplayedNews;
     final List<String> clickedNews = taglineFeedClickedNews;
 
@@ -720,7 +724,7 @@ class UserPreferences extends ChangeNotifier {
   }
 
   // This method voluntarily does not notify listeners (not needed)
-  Future<void> taglineFeedMarkNewsAsClicked(final String ids) async {
+  Future<void> taglineFeedMarkNewsAsClicked(String ids) async {
     final List<String> displayedNews = taglineFeedDisplayedNews;
     final List<String> clickedNews = taglineFeedClickedNews;
 
@@ -748,7 +752,7 @@ class UserPreferences extends ChangeNotifier {
     return millis == null ? null : DateTime.fromMillisecondsSinceEpoch(millis);
   }
 
-  Future<void> muteDonationAsks(final Duration duration) async {
+  Future<void> muteDonationAsks(Duration duration) async {
     await _sharedPreferences.setInt(
       _TAG_DONATION_ASKS_MUTED_UNTIL,
       DateTime.now().add(duration).millisecondsSinceEpoch,
@@ -756,9 +760,77 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool donationAsksMuted(final DateTime now) {
+  bool donationAsksMuted(DateTime now) {
     final DateTime? mutedUntil = donationAsksMutedUntil;
     return mutedUntil != null && now.isBefore(mutedUntil);
+  }
+
+  /// This install's draw in 0..99, made once and kept.
+  int getDonationTestBucket() {
+    int? bucket = _sharedPreferences.getInt(_TAG_DONATION_TEST_BUCKET);
+    if (bucket == null) {
+      bucket = math.Random().nextInt(100);
+      unawaited(_sharedPreferences.setInt(_TAG_DONATION_TEST_BUCKET, bucket));
+    }
+    return bucket;
+  }
+
+  DateTime? get donationStripHiddenUntil {
+    final int? millis = _sharedPreferences.getInt(
+      _TAG_DONATION_STRIP_HIDDEN_UNTIL,
+    );
+    return millis == null ? null : DateTime.fromMillisecondsSinceEpoch(millis);
+  }
+
+  Future<void> hideDonationStrip(Duration duration) async {
+    await _sharedPreferences.setInt(
+      _TAG_DONATION_STRIP_HIDDEN_UNTIL,
+      DateTime.now().add(duration).millisecondsSinceEpoch,
+    );
+    notifyListeners();
+  }
+
+  bool donationStripHidden(DateTime now) {
+    final DateTime? hiddenUntil = donationStripHiddenUntil;
+    return hiddenUntil != null && now.isBefore(hiddenUntil);
+  }
+
+  int get productsLookedUpSinceAsk =>
+      _sharedPreferences.getInt(_TAG_PRODUCTS_LOOKED_UP_SINCE_ASK) ?? 0;
+
+  String? get lastCountedBarcode =>
+      _sharedPreferences.getString(_TAG_LAST_COUNTED_BARCODE);
+
+  DateTime? get lastReminderShownAt {
+    final int? millis = _sharedPreferences.getInt(_TAG_LAST_REMINDER_SHOWN_AT);
+    return millis == null ? null : DateTime.fromMillisecondsSinceEpoch(millis);
+  }
+
+  /// No-op for the barcode the page before it already counted. Both values
+  /// are written before the first `await`, so a caller that reads them right
+  /// after, without awaiting, already sees the new count and barcode.
+  Future<void> countProductLookedUp(String barcode) async {
+    if (barcode == lastCountedBarcode) {
+      return;
+    }
+    final Future<bool> countSaved = _sharedPreferences.setInt(
+      _TAG_PRODUCTS_LOOKED_UP_SINCE_ASK,
+      productsLookedUpSinceAsk + 1,
+    );
+    final Future<bool> barcodeSaved = _sharedPreferences.setString(
+      _TAG_LAST_COUNTED_BARCODE,
+      barcode,
+    );
+    await countSaved;
+    await barcodeSaved;
+  }
+
+  Future<void> markDonationReminderShown() async {
+    await _sharedPreferences.setInt(
+      _TAG_LAST_REMINDER_SHOWN_AT,
+      DateTime.now().millisecondsSinceEpoch,
+    );
+    await _sharedPreferences.setInt(_TAG_PRODUCTS_LOOKED_UP_SINCE_ASK, 0);
   }
 
   bool showInputProductNameBanner() =>
@@ -778,7 +850,7 @@ class UserPreferences extends ChangeNotifier {
       ) ??
       ProductType.food;
 
-  set latestProductType(final ProductType value) {
+  set latestProductType(ProductType value) {
     unawaited(
       _sharedPreferences.setString(_TAG_LATEST_PRODUCT_TYPE, value.offTag),
     );
@@ -800,7 +872,7 @@ class UserPreferences extends ChangeNotifier {
   }
 
   Future<void> setProductPageActions(
-    final Iterable<ProductFooterActionBar> value,
+    Iterable<ProductFooterActionBar> value,
   ) async {
     assert(!value.contains(ProductFooterActionBar.settings));
     await _sharedPreferences.setStringList(
@@ -812,7 +884,7 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  void increaseLanguageUsage(final OpenFoodFactsLanguage language) {
+  void increaseLanguageUsage(OpenFoodFactsLanguage language) {
     final String? usage = _sharedPreferences.getString(_TAG_LANGUAGES_USAGE);
     final Map<String, int> languages;
     if (usage == null || usage.isEmpty) {
@@ -838,7 +910,7 @@ class UserPreferences extends ChangeNotifier {
   List<String> get productPageTabs =>
       _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_TABS) ?? <String>[];
 
-  Future<void> setProductPageTabs(final List<String> value) async {
+  Future<void> setProductPageTabs(List<String> value) async {
     await _sharedPreferences.setStringList(_TAG_PRODUCT_PAGE_TABS, value);
     notifyListeners();
   }
@@ -854,7 +926,7 @@ class UserPreferences extends ChangeNotifier {
   }
 
   Future<void> setForMeAttributesFilterType(
-    final ForMeAttributesFilterType filter,
+    ForMeAttributesFilterType filter,
   ) async {
     await _sharedPreferences.setString(
       _TAG_PRODUCT_PAGE_FOR_ME_FILTER,

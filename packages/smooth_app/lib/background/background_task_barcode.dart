@@ -42,8 +42,8 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
   ];
 
   static bool isBarcodeToBeIgnored(
-    final String barcode,
-    final BuildContext? context,
+    String barcode,
+    BuildContext? context,
   ) {
     final bool result = _forbiddenProducts.contains(barcode);
     if (result && context != null) {
@@ -70,11 +70,11 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
 
   /// Uploads data changes.
   @protected
-  Future<void> upload(final LocalDatabase localDatabase);
+  Future<void> upload(LocalDatabase localDatabase);
 
   /// Executes the background task: upload, download, update locally.
   @override
-  Future<void> execute(final LocalDatabase localDatabase) async {
+  Future<void> execute(LocalDatabase localDatabase) async {
     bool exception = false;
     try {
       await upload(localDatabase);
@@ -107,7 +107,7 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
   bool get refreshAfterException => true;
 
   /// Downloads the whole product, updates locally.
-  Future<void> _downloadAndRefresh(final LocalDatabase localDatabase) async =>
+  Future<void> _downloadAndRefresh(LocalDatabase localDatabase) async =>
       ProductRefresher().silentFetchAndRefresh(
         barcode: barcode,
         localDatabase: localDatabase,
@@ -115,7 +115,7 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
 
   @protected
   Future<UriProductHelper> getUriProductHelper(
-    final LocalDatabase localDatabase,
+    LocalDatabase localDatabase,
   ) async {
     // in case the product type evolved (very rare cases), we need to check it
     // and use the correct product type instead.
