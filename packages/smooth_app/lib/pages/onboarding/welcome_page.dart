@@ -35,17 +35,14 @@ class WelcomePage extends StatelessWidget {
         body: SafeArea(
           bottom: Platform.isAndroid,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Flexible(
-                flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
                   child: ListView(
                     children: <Widget>[
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           SizedBox(height: screenSize.height * .05),
@@ -63,20 +60,15 @@ class WelcomePage extends StatelessWidget {
                             padding: const EdgeInsetsDirectional.only(
                               top: SMALL_SPACE,
                             ),
-                            child: SizedBox(
-                              height: screenSize.height * .15,
-                              child: AutoSizeText(
-                                appLocalizations.whatIsOff,
-                                style: headlineStyle,
-                                maxLines: 3,
-                                textAlign: TextAlign.center,
-                              ),
+                            child: AutoSizeText(
+                              appLocalizations.whatIsOff,
+                              style: headlineStyle,
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ],
                       ),
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
