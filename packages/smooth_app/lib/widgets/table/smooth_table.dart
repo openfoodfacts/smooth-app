@@ -39,7 +39,11 @@ class SmoothTable {
   List<double> getColumnsMaxLength(
     KnowledgePanelTableCellWidthComputer computer,
   ) {
-    final int length = cells.first.length;
+    final int length = cells.fold<int>(
+      0,
+      (final int result, final List<SmoothTableCell> row) =>
+          max(result, row.length),
+    );
     final List<double> columnsMaxLength = List<double>.generate(
       length,
       (int index) => 0,
@@ -52,10 +56,6 @@ class SmoothTable {
           cell.getWidth(computer),
         );
         index++;
-        if (index >= length) {
-          // it would crash if we went beyond the initial length
-          break;
-        }
       }
     }
     return columnsMaxLength;
