@@ -31,14 +31,14 @@ class SmoothTableCell {
   static const double _cellItemPadding = VERY_SMALL_SPACE;
   static const double _cellPercentageWidth = 4 * _cellItemSize;
 
-  TextStyle _getStyle(final KnowledgePanelTableCellWidthComputer computer) =>
+  TextStyle _getStyle(KnowledgePanelTableCellWidthComputer computer) =>
       isHeader ? computer.headerTextStyle : computer.textStyle;
 
   static const double iconWidth = _cellItemSize + 2 * _cellItemPadding;
   static const double percentageWidth =
       _cellPercentageWidth + 2 * _cellItemPadding;
 
-  double getWidth(final KnowledgePanelTableCellWidthComputer computer) {
+  double getWidth(KnowledgePanelTableCellWidthComputer computer) {
     double result = computer.computeTextSize(text, _getStyle(computer)).width;
     if (iconUrl != null) {
       result += iconWidth;
@@ -50,8 +50,8 @@ class SmoothTableCell {
   }
 
   Widget getWidget({
-    required final BuildContext context,
-    required final KnowledgePanelTableCellWidthComputer computer,
+    required BuildContext context,
+    required KnowledgePanelTableCellWidthComputer computer,
   }) {
     final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
     final Color? color = getTextColorFromKnowledgePanelElementEvaluation(
@@ -102,7 +102,7 @@ class SmoothTableCell {
             ),
           );
 
-    Widget getTextWidget(final int maxLines) {
+    Widget getTextWidget(int maxLines) {
       final AlignmentDirectional textAlignment = leftAlign
           ? AlignmentDirectional.centerStart
           : AlignmentDirectional.centerEnd;

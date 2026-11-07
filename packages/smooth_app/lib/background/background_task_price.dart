@@ -88,7 +88,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   static const String _jsonTagPriceWithoutDiscount = 'priceWithoutDiscount';
   static const String _jsonTagDiscountTypes = 'discountTypes';
 
-  static List<double>? fromJsonListDouble(final List<dynamic>? input) {
+  static List<double>? fromJsonListDouble(List<dynamic>? input) {
     if (input == null) {
       return null;
     }
@@ -100,7 +100,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   }
 
   static List<double?>? _fromJsonListNullableDouble(
-    final List<dynamic>? input,
+    List<dynamic>? input,
   ) {
     if (input == null) {
       return null;
@@ -112,7 +112,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     return result;
   }
 
-  static List<String>? _fromJsonListString(final List<dynamic>? input) {
+  static List<String>? _fromJsonListString(List<dynamic>? input) {
     if (input == null) {
       return null;
     }
@@ -124,7 +124,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   }
 
   static List<List<String>>? _fromJsonListListString(
-    final List<dynamic>? input,
+    List<dynamic>? input,
   ) {
     if (input == null) {
       return null;
@@ -140,7 +140,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     return result;
   }
 
-  static List<bool>? _fromJsonListBool(final List<dynamic>? input) {
+  static List<bool>? _fromJsonListBool(List<dynamic>? input) {
     if (input == null) {
       return null;
     }
@@ -153,8 +153,8 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
 
   /// Normalizes discount types list to match the expected length (barcodes)
   static List<String> _normalizeDiscountTypes(
-    final List<dynamic>? input,
-    final int expectedLength,
+    List<dynamic>? input,
+    int expectedLength,
   ) {
     final List<String> result = List<String>.filled(expectedLength, '');
     if (input != null) {
@@ -202,21 +202,21 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => (appLocalizations.add_price_queued, AlignmentDirectional.bottomCenter);
 
   @protected
   static String getStamp({
-    required final DateTime date,
-    required final int locationOSMId,
-    required final LocationOSMType locationOSMType,
+    required DateTime date,
+    required int locationOSMId,
+    required LocationOSMType locationOSMType,
   }) => 'no_barcode;price;$date;$locationOSMId;$locationOSMType';
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {}
+  Future<void> preExecute(LocalDatabase localDatabase) async {}
 
   @protected
-  Future<String> getBearerToken(final LocalDatabase localDatabase) async {
+  Future<String> getBearerToken(LocalDatabase localDatabase) async {
     final MaybeError<String> token = await ProductQuery.getPriceToken(
       getUser(),
       localDatabase,
@@ -232,9 +232,9 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
 
   @protected
   Future<void> addPrices({
-    required final String bearerToken,
-    required final int proofId,
-    required final LocalDatabase localDatabase,
+    required String bearerToken,
+    required int proofId,
+    required LocalDatabase localDatabase,
   }) async {
     // Now we split: one item, one task
     final bool split = barcodes.length > 1;
@@ -328,5 +328,5 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   @override
   bool isDeduplicable() => false;
 
-  double _fixPriceDecimals(final double price) => currency.fixDecimals(price);
+  double _fixPriceDecimals(double price) => currency.fixDecimals(price);
 }

@@ -22,7 +22,7 @@ class PriceAddProductCard extends StatelessWidget {
       child: Column(
         children: priceAddProductActions
             .map(
-              (final PriceAddProductAction action) => Padding(
+              (PriceAddProductAction action) => Padding(
                 padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
                 child: SmoothLargeButtonWithIcon(
                   text: action.label(appLocalizations),

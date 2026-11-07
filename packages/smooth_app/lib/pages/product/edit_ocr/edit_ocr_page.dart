@@ -232,7 +232,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   }
 
   /// Exits the page if the [flag] is `true`.
-  void _exitPage(final bool flag) {
+  void _exitPage(bool flag) {
     if (flag) {
       Navigator.of(context).pop();
     }
@@ -242,7 +242,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
-  Future<bool> _mayExitPage({required final bool saving}) async {
+  Future<bool> _mayExitPage({required bool saving}) async {
     final Product? changedProduct = _getMinimalistProduct();
     if (changedProduct == null) {
       return true;

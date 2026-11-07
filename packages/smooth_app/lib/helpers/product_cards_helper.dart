@@ -14,11 +14,11 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 
 SmoothAppBar buildEditProductAppBar({
-  required final BuildContext context,
-  required final String title,
-  required final Product product,
-  final PreferredSizeWidget? bottom,
-  final List<Widget>? actions,
+  required BuildContext context,
+  required String title,
+  required Product product,
+  PreferredSizeWidget? bottom,
+  List<Widget>? actions,
 }) => SmoothAppBar(
   centerTitle: false,
   title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
@@ -33,8 +33,8 @@ SmoothAppBar buildEditProductAppBar({
 );
 
 String getProductNameAndBrands(
-  final Product product,
-  final AppLocalizations appLocalizations,
+  Product product,
+  AppLocalizations appLocalizations,
 ) {
   final String name = getProductName(product, appLocalizations);
   final String brands = getProductBrands(product, appLocalizations);
@@ -42,7 +42,7 @@ String getProductNameAndBrands(
 }
 
 /// Returns a trimmed version of the string, or null if null or empty.
-String? _clearString(final String? string) {
+String? _clearString(String? string) {
   if (string == null) {
     return null;
   }
@@ -53,13 +53,13 @@ String? _clearString(final String? string) {
 }
 
 String getProductName(
-  final Product product,
-  final AppLocalizations appLocalizations,
+  Product product,
+  AppLocalizations appLocalizations,
 ) => getProductNameWithLanguage(product, appLocalizations).$2;
 
 (OpenFoodFactsLanguage, String) getProductNameWithLanguage(
-  final Product product,
-  final AppLocalizations appLocalizations,
+  Product product,
+  AppLocalizations appLocalizations,
 ) {
   final OpenFoodFactsLanguage currentLanguage = ProductQuery.getLanguage();
   final String? nameInCurrentLanguage = _clearString(
@@ -85,8 +85,8 @@ String getProductName(
 }
 
 String getProductBrands(
-  final Product product,
-  final AppLocalizations appLocalizations,
+  Product product,
+  AppLocalizations appLocalizations,
 ) {
   final String? brands = _clearString(product.brands);
   if (brands == null) {
@@ -96,8 +96,8 @@ String getProductBrands(
 }
 
 List<String> getProductBrandsList(
-  final Product product,
-  final AppLocalizations appLocalizations,
+  Product product,
+  AppLocalizations appLocalizations,
 ) {
   final String? brands = _clearString(product.brands);
   if (brands == null) {
@@ -203,9 +203,9 @@ class _ProductSmoothCardTitle extends StatelessWidget {
 
 // used to be in now defunct `AttributeListExpandable`
 List<Attribute> getPopulatedAttributes(
-  final Product product,
-  final List<String> attributeIds,
-  final List<String> excludedAttributeIds,
+  Product product,
+  List<String> attributeIds,
+  List<String> excludedAttributeIds,
 ) {
   final List<Attribute> result = <Attribute>[];
   final Map<String, Attribute> attributes = product.getAttributes(attributeIds);
@@ -234,10 +234,10 @@ List<Attribute> getPopulatedAttributes(
 
 /// Returns the mandatory attributes, ordered by attribute group order
 List<Attribute> getMandatoryAttributes(
-  final Product product,
-  final List<String> attributeGroupOrder,
-  final Set<String> attributesToExcludeIfStatusIsUnknown,
-  final ProductPreferences preferences,
+  Product product,
+  List<String> attributeGroupOrder,
+  Set<String> attributesToExcludeIfStatusIsUnknown,
+  ProductPreferences preferences,
 ) => getSortedAttributes(
   product,
   attributeGroupOrder,
@@ -248,12 +248,12 @@ List<Attribute> getMandatoryAttributes(
 
 /// Returns the attributes, ordered by importance desc and attribute group order
 List<Attribute> getSortedAttributes(
-  final Product product,
-  final List<String> attributeGroupOrder,
-  final Set<String> attributesToExcludeIfStatusIsUnknown,
-  final ProductPreferences preferences,
-  final String importance, {
-  final bool excludeMainScoreAttributes = true,
+  Product product,
+  List<String> attributeGroupOrder,
+  Set<String> attributesToExcludeIfStatusIsUnknown,
+  ProductPreferences preferences,
+  String importance, {
+  bool excludeMainScoreAttributes = true,
 }) {
   final List<Attribute> result = <Attribute>[];
   if (product.attributeGroups == null) {
@@ -288,11 +288,11 @@ List<Attribute> getSortedAttributes(
 /// [SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
 /// dealt with somewhere else.
 List<Attribute> getFilteredAttributes(
-  final AttributeGroup attributeGroup,
-  final String importance,
-  final Set<String> attributesToExcludeIfStatusIsUnknown,
-  final ProductPreferences preferences, {
-  final bool excludeMainScoreAttributes = true,
+  AttributeGroup attributeGroup,
+  String importance,
+  Set<String> attributesToExcludeIfStatusIsUnknown,
+  ProductPreferences preferences, {
+  bool excludeMainScoreAttributes = true,
 }) {
   final List<Attribute> result = <Attribute>[];
   if (attributeGroup.attributes == null) {
@@ -318,12 +318,12 @@ List<Attribute> getFilteredAttributes(
 }
 
 Widget addPanelButton(
-  final String label, {
-  required final Function() onPressed,
-  final Widget? leadingIcon,
-  final Widget? trailingIcon,
-  final TextAlign? textAlign,
-  final EdgeInsetsGeometry? padding,
+  String label, {
+  required Function() onPressed,
+  Widget? leadingIcon,
+  Widget? trailingIcon,
+  TextAlign? textAlign,
+  EdgeInsetsGeometry? padding,
   BorderRadiusGeometry? borderRadius,
   WidgetStateProperty<double?>? elevation,
 }) => Padding(
@@ -343,8 +343,8 @@ Widget addPanelButton(
 );
 
 List<ProductImageData> getProductMainImagesData(
-  final Product product,
-  final OpenFoodFactsLanguage language,
+  Product product,
+  OpenFoodFactsLanguage language,
 ) {
   final List<ProductImageData> result = <ProductImageData>[];
   for (final ImageField imageField
@@ -358,9 +358,9 @@ List<ProductImageData> getProductMainImagesData(
 
 /// Returns data about the [imageField], for the [language].
 ProductImageData getProductImageData(
-  final Product product,
-  final ImageField imageField,
-  final OpenFoodFactsLanguage language,
+  Product product,
+  ImageField imageField,
+  OpenFoodFactsLanguage language,
 ) {
   final ProductImage? productImage = getLocalizedProductImage(
     product,
@@ -385,7 +385,7 @@ ProductImageData getProductImageData(
   return getEmptyProductImageData(imageField);
 }
 
-ProductImageData getEmptyProductImageData(final ImageField imageField) =>
+ProductImageData getEmptyProductImageData(ImageField imageField) =>
     ProductImageData(
       imageField: imageField,
       imageId: null,
@@ -394,9 +394,9 @@ ProductImageData getEmptyProductImageData(final ImageField imageField) =>
     );
 
 ProductImage? getLocalizedProductImage(
-  final Product product,
-  final ImageField imageField,
-  final OpenFoodFactsLanguage language,
+  Product product,
+  ImageField imageField,
+  OpenFoodFactsLanguage language,
 ) {
   if (product.images == null) {
     return null;
@@ -414,8 +414,8 @@ ProductImage? getLocalizedProductImage(
 
 /// Returns the languages for which [imageField] has images for that [product].
 Iterable<OpenFoodFactsLanguage> getProductImageLanguages(
-  final Product product,
-  final ImageField imageField,
+  Product product,
+  ImageField imageField,
 ) {
   final Set<OpenFoodFactsLanguage> result = <OpenFoodFactsLanguage>{};
   result.addAll(TransientFile.getImageLanguages(imageField, product.barcode!));
@@ -434,8 +434,8 @@ Iterable<OpenFoodFactsLanguage> getProductImageLanguages(
 
 /// Returns an id-sorted list of raw images matching the imageSize if possible.
 List<ProductImage> getRawProductImages(
-  final Product product,
-  final ImageSize imageSize,
+  Product product,
+  ImageSize imageSize,
 ) {
   final List<ProductImage>? rawImages = product.getRawImages();
   if (rawImages == null) {
@@ -466,7 +466,7 @@ List<ProductImage> getRawProductImages(
     map[imageId] = productImage;
   }
   final List<ProductImage> result = List<ProductImage>.of(map.values);
-  result.sort((final ProductImage a, final ProductImage b) {
+  result.sort((ProductImage a, ProductImage b) {
     final int result = (a.uploaded?.millisecondsSinceEpoch ?? 0).compareTo(
       b.uploaded?.millisecondsSinceEpoch ?? 0,
     );

@@ -205,8 +205,8 @@ class _CountrySelectorButton extends StatelessWidget {
 
   // TODO(g123k): move this to a dedicated Provider
   Future<void> _changeCurrencyIfRelevant(
-    final BuildContext context,
-    final Country country,
+    BuildContext context,
+    Country country,
   ) async {
     final UserPreferences userPreferences = context.read<UserPreferences>();
     final String? possibleCurrencyCode = country.currency?.name;
@@ -226,7 +226,7 @@ class _CountrySelectorButton extends StatelessWidget {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
       changeCurrency = await showDialog<bool>(
         context: context,
-        builder: (final BuildContext context) => SmoothAlertDialog(
+        builder: (BuildContext context) => SmoothAlertDialog(
           body: Text(
             '${appLocalizations.country_change_message}'
             '\n'

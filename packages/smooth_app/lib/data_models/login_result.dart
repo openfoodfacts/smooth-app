@@ -15,26 +15,25 @@ class LoginResult {
   final User? user;
   final String? text;
 
-  String getErrorMessage(final AppLocalizations appLocalizations) =>
-      switch (type) {
-        LoginResultType.successful => 'not supposed to happen',
-        LoginResultType.unsuccessful => appLocalizations.incorrect_credentials,
-        LoginResultType.serverIssue =>
-          appLocalizations.login_result_type_server_issue,
-        LoginResultType.exception =>
-          isNoNetworkException(text!)
-              ? appLocalizations.login_result_type_server_unreachable
-              : text!,
-      };
+  String getErrorMessage(AppLocalizations appLocalizations) => switch (type) {
+    LoginResultType.successful => 'not supposed to happen',
+    LoginResultType.unsuccessful => appLocalizations.incorrect_credentials,
+    LoginResultType.serverIssue =>
+      appLocalizations.login_result_type_server_issue,
+    LoginResultType.exception =>
+      isNoNetworkException(text!)
+          ? appLocalizations.login_result_type_server_unreachable
+          : text!,
+  };
 
-  static bool isNoNetworkException(final String text) =>
+  static bool isNoNetworkException(String text) =>
       text == 'Network is unreachable' ||
       text.startsWith('Failed host lookup: ');
 
   /// Checks credentials. Returns null if OK, or an error message.
   static Future<LoginResult> getLoginResult(
-    final User user,
-    final UserPreferences userPreferences,
+    User user,
+    UserPreferences userPreferences,
   ) async {
     try {
       final bool prodUrl =

@@ -269,12 +269,12 @@ class ConnectRoot extends PreferencesRoot {
   };
 
   Future<void> _sendEmail({
-    required final BuildContext context,
-    required final String recipient,
-    required final AppLocalizations appLocalizations,
-    final String body = '',
-    final String subject = '',
-    final List<String>? attachmentPaths,
+    required BuildContext context,
+    required String recipient,
+    required AppLocalizations appLocalizations,
+    String body = '',
+    String subject = '',
+    List<String>? attachmentPaths,
   }) async {
     final Email email = Email(
       body: body,

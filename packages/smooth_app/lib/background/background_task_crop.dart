@@ -49,18 +49,18 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
 
   /// Adds the background task about uploading a product image.
   static Future<void> addTask(
-    final String barcode, {
-    required final ProductType? productType,
-    required final OpenFoodFactsLanguage language,
-    required final int imageId,
-    required final ImageField imageField,
-    required final File croppedFile,
-    required final int rotation,
-    required final int x1,
-    required final int y1,
-    required final int x2,
-    required final int y2,
-    required final BuildContext context,
+    String barcode, {
+    required ProductType? productType,
+    required OpenFoodFactsLanguage language,
+    required int imageId,
+    required ImageField imageField,
+    required File croppedFile,
+    required int rotation,
+    required int x1,
+    required int y1,
+    required int x2,
+    required int y2,
+    required BuildContext context,
   }) async {
     if (BackgroundTaskBarcode.isBarcodeToBeIgnored(barcode, context)) {
       return;
@@ -96,7 +96,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => (
     appLocalizations.product_task_background_schedule,
     AlignmentDirectional.topCenter,
@@ -104,18 +104,18 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
 
   /// Returns a new background task about cropping an existing image.
   static BackgroundTaskCrop _getNewTask(
-    final OpenFoodFactsLanguage language,
-    final String barcode,
-    final ProductType productType,
-    final int imageId,
-    final ImageField imageField,
-    final File croppedFile,
-    final String uniqueId,
-    final int rotationDegrees,
-    final int cropX1,
-    final int cropY1,
-    final int cropX2,
-    final int cropY2,
+    OpenFoodFactsLanguage language,
+    String barcode,
+    ProductType productType,
+    int imageId,
+    ImageField imageField,
+    File croppedFile,
+    String uniqueId,
+    int rotationDegrees,
+    int cropX1,
+    int cropY1,
+    int cropX2,
+    int cropY2,
   ) => BackgroundTaskCrop._(
     uniqueId: uniqueId,
     barcode: barcode,
@@ -156,8 +156,8 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
 
   @override
   Future<void> postExecute(
-    final LocalDatabase localDatabase,
-    final bool success,
+    LocalDatabase localDatabase,
+    bool success,
   ) async {
     await super.postExecute(localDatabase, success);
     try {
@@ -177,7 +177,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
 
   /// Uploads the product image.
   @override
-  Future<void> upload(final LocalDatabase localDatabase) async {
+  Future<void> upload(LocalDatabase localDatabase) async {
     final UriProductHelper uriProductHelper = await getUriProductHelper(
       localDatabase,
     );

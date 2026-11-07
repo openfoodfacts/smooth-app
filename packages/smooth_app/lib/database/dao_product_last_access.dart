@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:sqflite/sqflite.dart';
@@ -12,9 +13,9 @@ class DaoProductLastAccess extends AbstractSqlDao {
   static const String COLUMN_LAST_ACCESS = 'last_access';
 
   static FutureOr<void> onUpgrade(
-    final Database db,
-    final int oldVersion,
-    final int newVersion,
+    Database db,
+    int oldVersion,
+    int newVersion,
   ) async {
     if (oldVersion < 5) {
       await db.execute(
@@ -27,12 +28,11 @@ class DaoProductLastAccess extends AbstractSqlDao {
     }
   }
 
-  Future<void> put(final String barcode) async =>
-      localDatabase.database.rawInsert(
-        'insert into $TABLE($COLUMN_BARCODE, $COLUMN_LAST_ACCESS) '
-        'values(?, ?)',
-        <Object>[barcode, LocalDatabase.nowInMillis()],
-      );
+  Future<void> put(String barcode) async => localDatabase.database.rawInsert(
+    'insert into $TABLE($COLUMN_BARCODE, $COLUMN_LAST_ACCESS) '
+    'values(?, ?)',
+    <Object>[barcode, LocalDatabase.nowInMillis()],
+  );
 
   /// Delete all items from the database
   Future<int> deleteAll() async => localDatabase.database.delete(TABLE);

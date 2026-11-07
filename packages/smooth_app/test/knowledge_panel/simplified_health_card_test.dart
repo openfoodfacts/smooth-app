@@ -77,13 +77,12 @@ void main() {
     Material(child: child),
   );
 
-  KnowledgePanelElement panelElement(final String panelId) =>
-      KnowledgePanelElement(
-        elementType: KnowledgePanelElementType.PANEL,
-        panelElement: KnowledgePanelPanelIdElement(panelId: panelId),
-      );
+  KnowledgePanelElement panelElement(String panelId) => KnowledgePanelElement(
+    elementType: KnowledgePanelElementType.PANEL,
+    panelElement: KnowledgePanelPanelIdElement(panelId: panelId),
+  );
 
-  KnowledgePanelElement panelGroupElement(final List<String> panelIds) =>
+  KnowledgePanelElement panelGroupElement(List<String> panelIds) =>
       KnowledgePanelElement(
         elementType: KnowledgePanelElementType.PANEL_GROUP,
         panelGroupElement: KnowledgePanelPanelGroupElement(
@@ -92,7 +91,7 @@ void main() {
         ),
       );
 
-  KnowledgePanel textPanel(final String title) => KnowledgePanel(
+  KnowledgePanel textPanel(String title) => KnowledgePanel(
     titleElement: TitleElement(title: title),
     elements: <KnowledgePanelElement>[
       KnowledgePanelElement(
@@ -135,10 +134,10 @@ void main() {
 
   /// Mimics the panels the server sends for a food product (e.g. 3017620422003).
   Product buildProduct({
-    final List<KnowledgePanelElement>? healthCardElements,
-    final bool withNutritionTable = true,
-    final bool withIngredients = true,
-    final List<String>? statesTags,
+    List<KnowledgePanelElement>? healthCardElements,
+    bool withNutritionTable = true,
+    bool withIngredients = true,
+    List<String>? statesTags,
   }) => Product(barcode: '3017620422003')
     ..statesTags = statesTags
     ..knowledgePanels = KnowledgePanels(
@@ -174,15 +173,15 @@ void main() {
 
   /// Displays the [panelId] card the way the product page tabs do.
   Future<List<Widget>> pumpCard(
-    final WidgetTester tester,
-    final Product product, {
-    final String panelId = simplifiedHealthCardId,
+    WidgetTester tester,
+    Product product, {
+    String panelId = simplifiedHealthCardId,
   }) async {
     late List<Widget> children;
     await tester.pumpWidget(
       wrap(
         Builder(
-          builder: (final BuildContext context) {
+          builder: (BuildContext context) {
             children = KnowledgePanelsBuilder.getChildren(
               context,
               panelElement: panelElement(panelId),
@@ -199,20 +198,19 @@ void main() {
     return children;
   }
 
-  List<List<String>> getPanelGroups(final List<Widget> children) =>
-      <List<String>>[
-        for (final KnowledgePanelGroupCard card
-            in children.whereType<KnowledgePanelGroupCard>())
-          card.groupElement.panelIds,
-      ];
+  List<List<String>> getPanelGroups(List<Widget> children) => <List<String>>[
+    for (final KnowledgePanelGroupCard card
+        in children.whereType<KnowledgePanelGroupCard>())
+      card.groupElement.panelIds,
+  ];
 
-  Finder findCard(final String panelId) => find.byWidgetPredicate(
-    (final Widget widget) =>
+  Finder findCard(String panelId) => find.byWidgetPredicate(
+    (Widget widget) =>
         widget is KnowledgePanelCard && widget.panelId == panelId,
   );
 
-  Finder findExpandedCard(final String panelId) => find.byWidgetPredicate(
-    (final Widget widget) =>
+  Finder findExpandedCard(String panelId) => find.byWidgetPredicate(
+    (Widget widget) =>
         widget is KnowledgePanelExpandedCard && widget.panelId == panelId,
   );
 
@@ -415,9 +413,9 @@ void main() {
 
   group('"Expand" preferences on a single card', () {
     Future<void> pumpPanel(
-      final WidgetTester tester,
-      final Product product,
-      final String panelId,
+      WidgetTester tester,
+      Product product,
+      String panelId,
     ) async {
       await tester.pumpWidget(
         wrap(

@@ -55,7 +55,7 @@ class UserPreferencesFood {
     // we don't want this on the onboarding
     UserPreferencesItemSimple(
       labels: <String>[appLocalizations.reset_food_prefs],
-      builder: (final BuildContext context) => ListTile(
+      builder: (BuildContext context) => ListTile(
         title: Text(appLocalizations.reset_food_prefs),
         onTap: () async => _confirmReset(),
         leading: Icon(
@@ -124,7 +124,7 @@ class UserPreferencesFood {
     return result;
   }
 
-  List<UserPreferencesItem> _getOnboardingBody({final bool? collapsed}) {
+  List<UserPreferencesItem> _getOnboardingBody({bool? collapsed}) {
     final List<AttributeGroup> groups = _reorderGroups(
       productPreferences.attributeGroups!,
     );

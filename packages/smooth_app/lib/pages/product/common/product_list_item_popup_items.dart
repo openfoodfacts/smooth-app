@@ -20,7 +20,7 @@ enum ProductListItemPopupMenuEntry { compareSideBySide, rank, delete }
 /// Popup menu items for the product list page, for selected items.
 abstract class ProductListItemPopupItem {
   /// Title of the popup menu item.
-  String getTitle(final AppLocalizations appLocalizations);
+  String getTitle(AppLocalizations appLocalizations);
 
   /// IconData of the popup menu item.
   Widget getIcon();
@@ -32,16 +32,16 @@ abstract class ProductListItemPopupItem {
   ///
   /// Returns true if the caller must refresh (setState) (e.g. after deleting).
   Future<bool> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
-    required final Set<String> selectedBarcodes,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
+    required Set<String> selectedBarcodes,
   });
 
   /// Returns the popup menu item.
   SmoothPopupMenuItem<ProductListItemPopupItem> getMenuItem(
-    final AppLocalizations appLocalizations,
-    final bool enabled,
+    AppLocalizations appLocalizations,
+    bool enabled,
   ) => SmoothPopupMenuItem<ProductListItemPopupItem>(
     value: this,
     icon: getIcon(),
@@ -53,7 +53,7 @@ abstract class ProductListItemPopupItem {
 /// Popup menu item for the product list page: compare side by side selected items.
 class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.product_list_compare_side_by_side;
 
   @override
@@ -61,10 +61,10 @@ class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
 
   @override
   Future<bool> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
-    required final Set<String> selectedBarcodes,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
+    required Set<String> selectedBarcodes,
   }) async {
     final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
       context,
@@ -106,7 +106,7 @@ class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
 /// Popup menu item for the product list page: rank selected items.
 class ProductListItemPopupRank extends ProductListItemPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.compare_products_mode;
 
   @override
@@ -114,10 +114,10 @@ class ProductListItemPopupRank extends ProductListItemPopupItem {
 
   @override
   Future<bool> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
-    required final Set<String> selectedBarcodes,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
+    required Set<String> selectedBarcodes,
   }) async {
     await Navigator.push<void>(
       context,
@@ -135,7 +135,7 @@ class ProductListItemPopupRank extends ProductListItemPopupItem {
 /// Popup menu item for the product list page: delete selected items.
 class ProductListItemPopupDelete extends ProductListItemPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.delete_products_mode;
 
   @override
@@ -146,10 +146,10 @@ class ProductListItemPopupDelete extends ProductListItemPopupItem {
 
   @override
   Future<bool> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
-    required final Set<String> selectedBarcodes,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
+    required Set<String> selectedBarcodes,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final DaoProductList daoProductList = DaoProductList(localDatabase);
@@ -194,7 +194,7 @@ class ProductListItemPopupDelete extends ProductListItemPopupItem {
 /// Popup menu item for the product list page: select all items.
 class ProductListItemPopupSelectAll extends ProductListItemPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.select_all_products_mode;
 
   @override
@@ -202,10 +202,10 @@ class ProductListItemPopupSelectAll extends ProductListItemPopupItem {
 
   @override
   Future<bool> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
-    required final Set<String> selectedBarcodes,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
+    required Set<String> selectedBarcodes,
   }) async {
     selectedBarcodes.addAll(productList.barcodes);
     return true;
@@ -215,7 +215,7 @@ class ProductListItemPopupSelectAll extends ProductListItemPopupItem {
 /// Popup menu item for the product list page: unselect all items.
 class ProductListItemPopupUnselectAll extends ProductListItemPopupItem {
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.select_none_products_mode;
 
   @override
@@ -223,10 +223,10 @@ class ProductListItemPopupUnselectAll extends ProductListItemPopupItem {
 
   @override
   Future<bool> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
-    required final Set<String> selectedBarcodes,
+    required ProductList productList,
+    required LocalDatabase localDatabase,
+    required BuildContext context,
+    required Set<String> selectedBarcodes,
   }) async {
     selectedBarcodes.clear();
     return true;

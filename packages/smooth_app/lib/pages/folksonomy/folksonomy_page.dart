@@ -326,9 +326,11 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
           },
       separatorBuilder: (_, _, Animation<double> animation) =>
           SizeTransition(sizeFactor: animation, child: const Divider()),
-      removedSeparatorBuilder:
-          (BuildContext context, int index, Animation<double> animation) =>
-              SizeTransition(sizeFactor: animation, child: const Divider()),
+      removedSeparatorBuilder: (
+        BuildContext context,
+        int index,
+        Animation<double> animation,
+      ) => SizeTransition(sizeFactor: animation, child: const Divider()),
     );
   }
 

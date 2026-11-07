@@ -34,9 +34,9 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   ];
 
   static FutureOr<void> onUpgrade(
-    final Database db,
-    final int oldVersion,
-    final int newVersion,
+    Database db,
+    int oldVersion,
+    int newVersion,
   ) async {
     if (oldVersion < 2) {
       await db.execute(
@@ -63,7 +63,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   }
 
   /// Returns the [Product] that matches the [barcode], or null.
-  Future<Product?> get(final String barcode) async {
+  Future<Product?> get(String barcode) async {
     final List<Map<String, dynamic>> queryResults = await localDatabase.database
         .query(
           _TABLE_PRODUCT,
@@ -79,7 +79,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   }
 
   /// Returns the [Product]s that match the [barcodes].
-  Future<Map<String, Product>> getAll(final Iterable<String> barcodes) async {
+  Future<Map<String, Product>> getAll(Iterable<String> barcodes) async {
     final Map<String, Product> result = <String, Product>{};
     if (barcodes.isEmpty) {
       return result;
@@ -113,7 +113,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
 
   /// Returns the local products split by product type.
   Future<Map<ProductType, List<String>>> getProductTypes(
-    final List<String> barcodes,
+    List<String> barcodes,
   ) async {
     final Map<ProductType, List<String>> result = <ProductType, List<String>>{};
     if (barcodes.isEmpty) {
@@ -152,7 +152,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
 
   /// Returns all the local products split by a function.
   Future<Map<String, List<String>>> splitAllProducts(
-    final String Function(Product) splitFunction,
+    String Function(Product) splitFunction,
   ) async {
     final Map<String, List<String>> result = <String, List<String>>{};
     final List<Map<String, dynamic>> queryResults = await localDatabase.database
@@ -171,16 +171,16 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   }
 
   Future<void> put(
-    final Product product,
-    final OpenFoodFactsLanguage language, {
-    required final ProductType productType,
+    Product product,
+    OpenFoodFactsLanguage language, {
+    required ProductType productType,
   }) async => putAll(<Product>[product], language, productType: productType);
 
   /// Replaces products in database
   Future<void> putAll(
-    final Iterable<Product> products,
-    final OpenFoodFactsLanguage language, {
-    required final ProductType productType,
+    Iterable<Product> products,
+    OpenFoodFactsLanguage language, {
+    required ProductType productType,
   }) async {
     for (final Product product in products) {
       // in case the server product has no product type, which shouldn't happen
@@ -188,7 +188,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
       product.productType ??= productType;
     }
     await localDatabase.database.transaction(
-      (final Transaction transaction) async =>
+      (Transaction transaction) async =>
           _bulkReplaceLoop(transaction, products, language, productType),
     );
   }
@@ -217,10 +217,10 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   /// The direct impact is we shouldn't use foreign key constraints on
   /// `product.barcode`.
   Future<void> _bulkReplaceLoop(
-    final DatabaseExecutor databaseExecutor,
-    final Iterable<Product> products,
-    final OpenFoodFactsLanguage language,
-    final ProductType productType,
+    DatabaseExecutor databaseExecutor,
+    Iterable<Product> products,
+    OpenFoodFactsLanguage language,
+    ProductType productType,
   ) async {
     final int lastUpdate = LocalDatabase.nowInMillis();
     final BulkManager bulkManager = BulkManager();
@@ -247,13 +247,13 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   List<String> getInsertColumns() => _columns;
 
   @override
-  String getDeleteWhere(final List<dynamic> deleteWhereArgs) =>
+  String getDeleteWhere(List<dynamic> deleteWhereArgs) =>
       '$_TABLE_PRODUCT_COLUMN_BARCODE in (?${',?' * (deleteWhereArgs.length - 1)})';
 
   @override
   String getTableName() => _TABLE_PRODUCT;
 
-  Product _getProductFromQueryResult(final Map<String, dynamic> row) {
+  Product _getProductFromQueryResult(Map<String, dynamic> row) {
     final Uint8List compressed =
         row[_TABLE_PRODUCT_COLUMN_GZIPPED_JSON] as Uint8List;
     final String encodedJson = utf8.decode(gzip.decode(compressed.toList()));
@@ -263,7 +263,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   }
 
   /// For developers with stats in mind only.
-  Future<void> printStats({final bool verbose = false}) async {
+  Future<void> printStats({bool verbose = false}) async {
     final List<String> barcodes = await getAllKeys();
     debugPrint('number of barcodes: ${barcodes.length}');
     final Map<String, Product> map = await getAll(barcodes);
@@ -349,10 +349,10 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   /// found anymore on the server - it happened to me with obviously fake test
   /// products being probably wiped out.
   Future<List<String>> getTopProductsToTranslate(
-    final OpenFoodFactsLanguage language, {
-    required final int limit,
-    required final List<String> excludeBarcodes,
-    required final ProductType productType,
+    OpenFoodFactsLanguage language, {
+    required int limit,
+    required List<String> excludeBarcodes,
+    required ProductType productType,
   }) async {
     final List<String> result = <String>[];
 

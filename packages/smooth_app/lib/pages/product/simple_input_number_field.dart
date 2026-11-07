@@ -28,14 +28,13 @@ class SimpleInputNumberField extends StatelessWidget {
   final bool withClearButton;
 
   // we admit both decimal points (anyway, the keyboard will only show one)
-  static RegExp getNumberRegExp({required final bool decimal}) =>
+  static RegExp getNumberRegExp({required bool decimal}) =>
       decimal ? RegExp(r'[\d,.]') : RegExp(r'\d');
 
-  static NumberFormat getNumberFormat({required final bool decimal}) =>
-      NumberFormat(
-        decimal ? '####0.#####' : '######0',
-        ProductQuery.getLocaleString(),
-      );
+  static NumberFormat getNumberFormat({required bool decimal}) => NumberFormat(
+    decimal ? '####0.#####' : '######0',
+    ProductQuery.getLocaleString(),
+  );
 
   @override
   Widget build(BuildContext context) => Padding(

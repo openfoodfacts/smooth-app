@@ -85,7 +85,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
     );
   }
 
-  void _setText(final String message) {
+  void _setText(String message) {
     if (mounted) {
       setState(() => _text = message);
     }

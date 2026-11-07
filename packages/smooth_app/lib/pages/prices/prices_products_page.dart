@@ -34,7 +34,7 @@ class _PricesProductsPageState extends State<PricesProductsPage>
       _InfiniteScrollProductManager();
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SmoothScaffold(
@@ -74,7 +74,7 @@ class _InfiniteScrollProductManager
       ];
 
   @override
-  Future<void> fetchData(final int pageNumber) async {
+  Future<void> fetchData(int pageNumber) async {
     final MaybeError<GetPriceProductsResult> result =
         await OpenPricesAPIClient.getPriceProducts(
           GetPriceProductsParameters()

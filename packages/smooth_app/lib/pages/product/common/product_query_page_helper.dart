@@ -11,10 +11,10 @@ class ProductQueryPageHelper {
   const ProductQueryPageHelper._();
 
   static Future<Widget> getBestChoiceWidget({
-    required final PagedProductQuery productQuery,
-    required final LocalDatabase localDatabase,
-    required final String name,
-    required final BuildContext context,
+    required PagedProductQuery productQuery,
+    required LocalDatabase localDatabase,
+    required String name,
+    required BuildContext context,
     bool editableAppBarTitle = true,
     bool searchResult = true,
   }) async {
@@ -30,10 +30,10 @@ class ProductQueryPageHelper {
   }
 
   static Future<void> openBestChoice({
-    required final PagedProductQuery productQuery,
-    required final LocalDatabase localDatabase,
-    required final String name,
-    required final BuildContext context,
+    required PagedProductQuery productQuery,
+    required LocalDatabase localDatabase,
+    required String name,
+    required BuildContext context,
     bool editableAppBarTitle = true,
     bool searchResult = true,
     SearchQueryCallback? editQueryCallback,
@@ -61,9 +61,9 @@ class ProductQueryPageHelper {
   }
 
   static String getDurationStringFromSeconds(
-    final int seconds,
-    final AppLocalizations appLocalizations, {
-    final bool compact = false,
+    int seconds,
+    AppLocalizations appLocalizations, {
+    bool compact = false,
   }) {
     final double minutes = seconds / 60;
     final int roundMinutes = minutes.round();
@@ -112,9 +112,9 @@ class ProductQueryPageHelper {
   }
 
   static String getDurationStringFromTimestamp(
-    final int timestamp,
-    final BuildContext context, {
-    final bool compact = false,
+    int timestamp,
+    BuildContext context, {
+    bool compact = false,
   }) {
     final int now = LocalDatabase.nowInMillis();
     final int seconds = ((now - timestamp) / 1000).floor();
@@ -126,8 +126,8 @@ class ProductQueryPageHelper {
   }
 
   static String getProductListLabel(
-    final ProductList productList,
-    final AppLocalizations appLocalizations,
+    ProductList productList,
+    AppLocalizations appLocalizations,
   ) {
     switch (productList.listType) {
       case ProductListType.HTTP_SEARCH_KEYWORDS:

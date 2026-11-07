@@ -19,7 +19,7 @@ class EraserPainter extends CustomPainter {
 
   final Path _path = Path();
 
-  void _addToPath(final Offset start, final Offset end) {
+  void _addToPath(Offset start, Offset end) {
     _path.moveTo(start.dx, start.dy);
     _path.lineTo(end.dx, end.dy);
   }

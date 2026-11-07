@@ -9,7 +9,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 extension FolksonomyProductTagExtension on ProductTag {
   bool isAnUrl() => value.startsWith('https://');
 
-  Future<void> visitUrl(final BuildContext context) async {
+  Future<void> visitUrl(BuildContext context) async {
     if (!isAnUrl()) {
       // Not supposed to happen
       return;
@@ -17,7 +17,7 @@ extension FolksonomyProductTagExtension on ProductTag {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool? accepted = await showDialog<bool>(
       context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
+      builder: (BuildContext context) => SmoothAlertDialog(
         title: appLocalizations.folksonomy_action_external_link_title,
         body: Column(
           spacing: SMALL_SPACE,

@@ -19,11 +19,11 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 Future<File?> showPhotoBanner({
-  required final BuildContext context,
-  required final Product product,
-  required final ImageField imageField,
-  required final OpenFoodFactsLanguage language,
-  final TransientFile? transientFile,
+  required BuildContext context,
+  required Product product,
+  required ImageField imageField,
+  required OpenFoodFactsLanguage language,
+  TransientFile? transientFile,
 }) async {
   final PhotoRowActions? action = await _showPhotoBanner(
     context: context,
@@ -62,11 +62,11 @@ Future<File?> showPhotoBanner({
 }
 
 Future<File?> _takePicture({
-  required final BuildContext context,
-  required final Product product,
-  required final ImageField imageField,
-  required final OpenFoodFactsLanguage language,
-  required final UserPictureSource pictureSource,
+  required BuildContext context,
+  required Product product,
+  required ImageField imageField,
+  required OpenFoodFactsLanguage language,
+  required UserPictureSource pictureSource,
 }) async {
   return ProductImageGalleryView.takePicture(
     context: context,
@@ -78,10 +78,10 @@ Future<File?> _takePicture({
 }
 
 Future<File?> _selectPictureFromProductGallery({
-  required final BuildContext context,
-  required final Product product,
-  required final ImageField imageField,
-  required final OpenFoodFactsLanguage language,
+  required BuildContext context,
+  required Product product,
+  required ImageField imageField,
+  required OpenFoodFactsLanguage language,
 }) async {
   final CropParameters? parameters =
       await ProductImageServerButton.selectImageFromGallery(
@@ -96,10 +96,10 @@ Future<File?> _selectPictureFromProductGallery({
 }
 
 Future<PhotoRowActions?> _showPhotoBanner({
-  required final BuildContext context,
-  required final Product product,
-  required final ImageField imageField,
-  required final OpenFoodFactsLanguage language,
+  required BuildContext context,
+  required Product product,
+  required ImageField imageField,
+  required OpenFoodFactsLanguage language,
   required TransientFile? transientFile,
 }) async {
   final SmoothColorsThemeExtension extension = context

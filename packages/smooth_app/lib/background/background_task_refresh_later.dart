@@ -46,13 +46,13 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
 
   /// Here we change nothing, therefore we do nothing.
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {}
+  Future<void> preExecute(LocalDatabase localDatabase) async {}
 
   /// Adds the background task about refreshing the product later.
   static Future<void> addTask(
-    final String barcode, {
-    required final LocalDatabase localDatabase,
-    required final ProductType productType,
+    String barcode, {
+    required LocalDatabase localDatabase,
+    required ProductType productType,
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
@@ -68,14 +68,14 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => null;
 
   /// Returns a new background task about refreshing a product later.
   static BackgroundTaskRefreshLater _getNewTask(
-    final String barcode,
-    final String uniqueId,
-    final ProductType productType,
+    String barcode,
+    String uniqueId,
+    ProductType productType,
   ) => BackgroundTaskRefreshLater._(
     uniqueId: uniqueId,
     processName: _operationType.processName,
@@ -85,11 +85,11 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
     stamp: _getStamp(barcode),
   );
 
-  static String _getStamp(final String barcode) => '$barcode;refresh';
+  static String _getStamp(String barcode) => '$barcode;refresh';
 
   /// Here we change nothing, therefore we do nothing.
   @override
-  Future<void> upload(final LocalDatabase localDatabase) async {}
+  Future<void> upload(LocalDatabase localDatabase) async {}
 
   /// Returns true if "enough" time elapsed after the task creation.
   @override

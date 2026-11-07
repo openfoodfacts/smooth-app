@@ -168,12 +168,12 @@ class AddNewProductScoreIcon extends StatelessWidget {
 /// Helper for the "Add new product" page.
 class AddNewProductHelper {
   bool isMainImagePopulated(
-    final ProductImageData productImageData,
-    final Product product,
+    ProductImageData productImageData,
+    Product product,
   ) =>
       getProductImageLanguages(product, productImageData.imageField).isNotEmpty;
 
-  bool isOneMainImagePopulated(final Product product) {
+  bool isOneMainImagePopulated(Product product) {
     final List<ProductImageData> productImagesData = getProductMainImagesData(
       product,
       // TODO(monsieurtanuki): check somehow with all languages

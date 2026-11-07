@@ -31,12 +31,12 @@ class _PendingPriceModel extends PriceModel {
   bool get hasChanged => true;
 
   @override
-  String? checkParameters(final BuildContext context) => null;
+  String? checkParameters(BuildContext context) => null;
 
   @override
   Future<void> addTask(
-    final BuildContext context, {
-    required final bool displaySnackbar,
+    BuildContext context, {
+    required bool displaySnackbar,
   }) {
     saveStarted = true;
     return saved.future;
@@ -55,7 +55,7 @@ void main() {
       disposeBeforeSave
           ? 'completing a save after disposal does not access the old context'
           : 'completing a save while mounted closes the price page',
-      (final WidgetTester tester) async {
+      (WidgetTester tester) async {
         final UserPreferences preferences =
             await UserPreferences.getUserPreferences();
         await preferences.setFlag(
@@ -87,7 +87,7 @@ void main() {
           find.byType(Navigator),
         );
         final MaterialPageRoute<void> route = MaterialPageRoute<void>(
-          builder: (final BuildContext context) => ProductPriceAddPage(model),
+          builder: (BuildContext context) => ProductPriceAddPage(model),
         );
         unawaited(navigator.push(route));
         await tester.pumpAndSettle();

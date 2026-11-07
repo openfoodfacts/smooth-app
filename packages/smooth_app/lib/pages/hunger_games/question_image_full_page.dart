@@ -50,7 +50,7 @@ class QuestionImageFullPage extends StatelessWidget {
   );
 
   // cf. https://github.com/openfoodfacts/smooth-app/issues/3065
-  String? _getBetterUrl(final String url) {
+  String? _getBetterUrl(String url) {
     const int ascii0 = 48;
     const int ascii9 = 57;
 
