@@ -149,7 +149,7 @@ class _SmoothProductItemPicture extends StatelessWidget {
 
       final MatchedProductV2 matchedProduct = MatchedProductV2(
         product,
-        productPreferences,
+        productPreferences.getManagerForProduct(product),
       );
       final ProductCompatibilityHelper helper =
           ProductCompatibilityHelper.product(matchedProduct);

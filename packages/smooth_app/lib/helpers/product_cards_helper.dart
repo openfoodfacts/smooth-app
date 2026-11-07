@@ -259,6 +259,9 @@ List<Attribute> getSortedAttributes(
   if (product.attributeGroups == null) {
     return result;
   }
+  final ProductPreferencesManager manager = preferences.getManagerForProduct(
+    product,
+  );
   final Map<String, List<Attribute>> mandatoryAttributesByGroup =
       <String, List<Attribute>>{};
   // collecting all the mandatory attributes, by group
@@ -267,7 +270,7 @@ List<Attribute> getSortedAttributes(
       attributeGroup,
       importance,
       attributesToExcludeIfStatusIsUnknown,
-      preferences,
+      manager,
       excludeMainScoreAttributes: excludeMainScoreAttributes,
     );
   }
@@ -288,11 +291,11 @@ List<Attribute> getSortedAttributes(
 /// [SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
 /// dealt with somewhere else.
 List<Attribute> getFilteredAttributes(
-  AttributeGroup attributeGroup,
-  String importance,
-  Set<String> attributesToExcludeIfStatusIsUnknown,
-  ProductPreferences preferences, {
-  bool excludeMainScoreAttributes = true,
+  final AttributeGroup attributeGroup,
+  final String importance,
+  final Set<String> attributesToExcludeIfStatusIsUnknown,
+  final ProductPreferencesManager preferences, {
+  final bool excludeMainScoreAttributes = true,
 }) {
   final List<Attribute> result = <Attribute>[];
   if (attributeGroup.attributes == null) {

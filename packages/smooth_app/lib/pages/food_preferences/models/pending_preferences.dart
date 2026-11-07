@@ -127,10 +127,16 @@ class PendingPreferences extends ChangeNotifier {
 
   Future<void> saveAll() async {
     await Future.wait(
-      _pendingImportances.entries.map(
-        (MapEntry<String, String> entry) => _userPreferences
-            .setImportanceForProject(entry.key, entry.value, _project),
-      ),
+      _pendingImportances.entries.map((MapEntry<String, String> entry) async {
+        await _userPreferences.setImportanceForProject(
+          entry.key,
+          entry.value,
+          _project,
+        );
+        if (_project == PreferencesPageProjects.food) {
+          await _userPreferences.setImportance(entry.key, entry.value);
+        }
+      }),
     );
 
     await _saveUnwantedIngredients();
