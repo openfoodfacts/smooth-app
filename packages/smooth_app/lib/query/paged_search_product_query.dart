@@ -11,18 +11,25 @@ abstract class PagedSearchProductQuery extends PagedProductQuery {
   IngredientsUnwantedParameter getUnwantedIngredientsParameter();
 
   @override
-  AbstractQueryConfiguration getQueryConfiguration() =>
-      ProductSearchQueryConfiguration(
-        fields: ProductQuery.fields,
-        parametersList: <Parameter>[
-          PageSize(size: pageSize),
-          PageNumber(page: pageNumber),
-          getParameter(),
-          getUnwantedIngredientsParameter(),
-        ],
-        language: language,
-        country: country,
-        version: ProductQuery.productQueryVersion,
-        activateKnowledgePanelsSimplified: true,
-      );
+  AbstractQueryConfiguration getQueryConfiguration() {
+    // Knowledge panels are most of the response and no result tile shows
+    // them: the product page downloads them when opened.
+    final List<ProductField> fields = List<ProductField>.from(
+      ProductQuery.fields,
+      growable: true,
+    );
+    fields.remove(ProductField.KNOWLEDGE_PANELS);
+    return ProductSearchQueryConfiguration(
+      fields: fields,
+      parametersList: <Parameter>[
+        PageSize(size: pageSize),
+        PageNumber(page: pageNumber),
+        getParameter(),
+        getUnwantedIngredientsParameter(),
+      ],
+      language: language,
+      country: country,
+      version: ProductQuery.productQueryVersion,
+    );
+  }
 }
