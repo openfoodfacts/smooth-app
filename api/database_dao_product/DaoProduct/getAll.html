@@ -55,26 +55,36 @@
     <section class="multi-line-signature">
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
-<span class="name ">getAll</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getAll-param-barcodes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span></span></li>
-</ol>)
+<span class="name ">getAll</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getAll-param-barcodes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span>, {</span></li>
+<li><span class="parameter" id="getAll-param-languageFilter"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a>?</span> <span class="parameter-name">languageFilter</span>, </span></li>
+</ol>})
 
       
 
     </section>
     
 <section class="desc markdown">
-  <p>Returns the <a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Product-class.html">Product</a>s that match the <code>barcodes</code>.</p>
+  <p>Returns the <a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Product-class.html">Product</a>s that match the <code>barcodes</code>, and the
+<code>languageFilter</code> if not null.</p>
+<p><code>languageFilter</code> should normally be unset: the barcode is the key, the
+language is just a field.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, Product&gt;&gt; getAll(Iterable&lt;String&gt; barcodes) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, Product&gt;&gt; getAll(
+  Iterable&lt;String&gt; barcodes, {
+  OpenFoodFactsLanguage? languageFilter,
+}) async {
   final Map&lt;String, Product&gt; result = &lt;String, Product&gt;{};
   if (barcodes.isEmpty) {
     return result;
   }
+  final String languageCondition = languageFilter == null
+      ? &#39;&#39;
+      : &quot; and $_TABLE_PRODUCT_COLUMN_LANGUAGE = &#39;${languageFilter.offTag}&#39;&quot;;
   for (
     int start = 0;
     start &lt; barcodes.length;
@@ -89,7 +99,9 @@
         .query(
           _TABLE_PRODUCT,
           columns: _columns,
-          where: &#39;$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${&#39;,?&#39; * (size - 1)})&#39;,
+          where:
+              &#39;$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${&#39;,?&#39; * (size - 1)})&#39;
+              &#39;$languageCondition&#39;,
           whereArgs: barcodes
               .subList(start, start + size)
               .toList(growable: true),

@@ -72,20 +72,27 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-AbstractQueryConfiguration getQueryConfiguration() =&gt;
-    ProductSearchQueryConfiguration(
-      fields: ProductQuery.fields,
-      parametersList: &lt;Parameter&gt;[
-        PageSize(size: pageSize),
-        PageNumber(page: pageNumber),
-        getParameter(),
-        getUnwantedIngredientsParameter(),
-      ],
-      language: language,
-      country: country,
-      version: ProductQuery.productQueryVersion,
-      activateKnowledgePanelsSimplified: true,
-    );</code></pre>
+AbstractQueryConfiguration getQueryConfiguration() {
+  &#47;&#47; Knowledge panels are most of the response and no result tile shows
+  &#47;&#47; them: the product page downloads them when opened.
+  final List&lt;ProductField&gt; fields = List&lt;ProductField&gt;.from(
+    ProductQuery.fields,
+    growable: true,
+  );
+  fields.remove(ProductField.KNOWLEDGE_PANELS);
+  return ProductSearchQueryConfiguration(
+    fields: fields,
+    parametersList: &lt;Parameter&gt;[
+      PageSize(size: pageSize),
+      PageNumber(page: pageNumber),
+      getParameter(),
+      getUnwantedIngredientsParameter(),
+    ],
+    language: language,
+    country: country,
+    version: ProductQuery.productQueryVersion,
+  );
+}</code></pre>
 </section>
 
 

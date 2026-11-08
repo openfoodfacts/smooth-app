@@ -73,8 +73,7 @@
   final List&lt;String&gt; result = &lt;String&gt;[];
   for (final dynamic key in _getBox().keys) {
     final String tmp = key.toString();
-    final ProductListType productListType = getProductListType(tmp);
-    if (productListType != ProductListType.USER) {
+    if (!tmp.startsWith(&#39;${ProductListType.USER.key}$_keySeparator&#39;)) {
       continue;
     }
     result.add(getProductListParameters(tmp));

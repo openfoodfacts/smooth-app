@@ -84,7 +84,30 @@ Future&lt;String?&gt; asyncLoad() async {
       productList.setAll(searchResult.products!);
       productList.totalSize = searchResult.count ?? 0;
       partialProductList.add(productList);
-      await DaoProduct(localDatabase).putAll(
+      final DaoProduct daoProduct = DaoProduct(localDatabase);
+      final Map&lt;String, Product&gt; localProducts = await daoProduct.getAll(
+        searchResult.products!.map(
+          (Product product) =&gt; product.barcode!,
+        ),
+        languageFilter: productQuery.language,
+      );
+      &#47;&#47; Search results usually come without knowledge panels: we keep the
+      &#47;&#47; local ones if the product is unchanged and in the same language.
+      &#47;&#47; lastModified only catches raw data edits, not recomputed fields:
+      &#47;&#47; good enough for now.
+      for (final Product product in searchResult.products!) {
+        if (product.knowledgePanels != null) {
+          continue;
+        }
+        if (product.lastModified == null) {
+          continue;
+        }
+        final Product? localProduct = localProducts[product.barcode];
+        if (product.lastModified == localProduct?.lastModified) {
+          product.knowledgePanels = localProduct!.knowledgePanels;
+        }
+      }
+      await daoProduct.putAll(
         searchResult.products!,
         productQuery.language,
         productType: productQuery.productType,
