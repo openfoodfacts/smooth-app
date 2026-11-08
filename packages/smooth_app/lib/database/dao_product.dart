@@ -78,19 +78,22 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     return null;
   }
 
-  /// Returns the [Product]s that match the [barcodes], and the [language] if
-  /// not null.
+  /// Returns the [Product]s that match the [barcodes], and the
+  /// [languageFilter] if not null.
+  ///
+  /// [languageFilter] should normally be unset: the barcode is the key, the
+  /// language is just a field.
   Future<Map<String, Product>> getAll(
     Iterable<String> barcodes, {
-    OpenFoodFactsLanguage? language,
+    OpenFoodFactsLanguage? languageFilter,
   }) async {
     final Map<String, Product> result = <String, Product>{};
     if (barcodes.isEmpty) {
       return result;
     }
-    final String languageCondition = language == null
+    final String languageCondition = languageFilter == null
         ? ''
-        : " and $_TABLE_PRODUCT_COLUMN_LANGUAGE = '${language.offTag}'";
+        : " and $_TABLE_PRODUCT_COLUMN_LANGUAGE = '${languageFilter.offTag}'";
     for (
       int start = 0;
       start < barcodes.length;

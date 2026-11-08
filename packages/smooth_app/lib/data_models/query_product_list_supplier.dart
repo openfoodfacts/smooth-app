@@ -23,7 +23,7 @@ class QueryProductListSupplier extends ProductListSupplier {
           searchResult.products!.map(
             (Product product) => product.barcode!,
           ),
-          language: productQuery.language,
+          languageFilter: productQuery.language,
         );
         // Search results usually come without knowledge panels: we keep the
         // local ones if the product is unchanged and in the same language.
