@@ -28,7 +28,13 @@ jobs:
       id: get-pr-head
       run: |
         echo "branch=$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName')" >> $GITHUB_OUTPUT
-        echo "sha=$(gh pr view $PR_NO --repo $REPO --json headRefOid --jq '.headRefOid')" >> $GITHUB_OUTPUT
+        # Only run PR code with this job's write token for same-repository PRs.
+        sha=$(gh pr view "$PR_NO" --repo "$REPO" --json headRefOid,isCrossRepository --jq 'select(.isCrossRepository == false) | .headRefOid') || exit 1
+        if [ -z "$sha" ]; then
+          echo "::error::PR must belong to this repository and have a non-empty head SHA"
+          exit 1
+        fi
+        echo "sha=$sha" >> "$GITHUB_OUTPUT"
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
