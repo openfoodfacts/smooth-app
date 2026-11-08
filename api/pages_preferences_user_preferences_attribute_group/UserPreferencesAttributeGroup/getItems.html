@@ -55,7 +55,7 @@
     <section class="multi-line-signature">
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../pages_preferences_user_preferences_item/UserPreferencesItem-class.html">UserPreferencesItem</a></span>&gt;</span></span>
-<span class="name ">getItems</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="getItems-param-collapsed"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">collapsed</span>, </span></li>
+<span class="name ">getItems</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="getItems-param-isCollapsed"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">isCollapsed</span>, </span></li>
 </ol>})
 
       
@@ -67,10 +67,10 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;UserPreferencesItem&gt; getItems({bool? collapsed}) {
+  <pre class="language-dart"><code class="language-dart">List&lt;UserPreferencesItem&gt; getItems({bool? isCollapsed}) {
   final SmoothColorsThemeExtension extension = context
       .extension&lt;SmoothColorsThemeExtension&gt;();
-  collapsed ??= _isCollapsed;
+  final bool shouldCollapse = isCollapsed ?? isCollapsedByDefault;
   final List&lt;UserPreferencesItem&gt; result = &lt;UserPreferencesItem&gt;[];
   result.add(
     UserPreferencesItemSimple(
@@ -83,9 +83,17 @@
           padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
           child: InkWell(
             borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
-            onTap: () =&gt; collapsed == true
-                ? userPreferences.setActiveAttributeGroup(group.id!)
-                : null,
+            onTap: () {
+              final String? groupId = group.id;
+              if (groupId == null) {
+                &#47;&#47; keep the selection unchanged when the group has no ID
+                return;
+              }
+
+              userPreferences.setActiveAttributeGroup(
+                shouldCollapse ? groupId : &#39;&#39;,
+              );
+            },
             child: ListTile(
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadiusDirectional.vertical(
@@ -123,7 +131,7 @@
                 child: icons.AppIconTheme(
                   size: 10.0,
                   color: Colors.white,
-                  child: collapsed!
+                  child: shouldCollapse
                       ? const icons.Chevron.up()
                       : const icons.Chevron.down(),
                 ),
@@ -134,7 +142,7 @@
       ),
     ),
   );
-  if (collapsed) {
+  if (shouldCollapse) {
     return result;
   }
   if (group.warning != null) {
