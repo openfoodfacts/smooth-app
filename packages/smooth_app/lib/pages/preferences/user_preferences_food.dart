@@ -64,7 +64,7 @@ class UserPreferencesFood {
         ),
       ),
     ),
-    ..._getOnboardingBody(collapsed: false),
+    ..._getOnboardingBody(),
   ];
 
   List<AttributeGroup> _reorderGroups(List<AttributeGroup> groups) {
@@ -160,7 +160,7 @@ class UserPreferencesFood {
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
           themeData: themeData,
-        ).getItems(collapsed: collapsed),
+        ).getItems(isCollapsed: collapsed),
       );
     }
     return result;
