@@ -2,9 +2,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 
 Map<String, dynamic> _set(
-  final String per,
-  final Map<String, dynamic> nutrients, {
-  final List<String>? unspecified,
+  String per,
+  Map<String, dynamic> nutrients, {
+  List<String>? unspecified,
 }) => <String, dynamic>{
   'source': 'packaging',
   'preparation': 'as_sold',
@@ -13,18 +13,18 @@ Map<String, dynamic> _set(
   'unspecified_nutrients': ?unspecified,
 };
 
-Map<String, dynamic> _nutrition(final List<Map<String, dynamic>> sets) =>
+Map<String, dynamic> _nutrition(List<Map<String, dynamic>> sets) =>
     <String, dynamic>{
       'aggregated_set': <String, dynamic>{'per': '100g'},
       'input_sets': sets,
     };
 
-Map<String, dynamic> _gramValue(final String valueString) => <String, dynamic>{
+Map<String, dynamic> _gramValue(String valueString) => <String, dynamic>{
   'unit': 'g',
   'value_string': valueString,
 };
 
-List<Map<String, dynamic>> _sets(final Map<String, dynamic> nutrition) =>
+List<Map<String, dynamic>> _sets(Map<String, dynamic> nutrition) =>
     (nutrition['input_sets'] as List<dynamic>).cast<Map<String, dynamic>>();
 
 void main() {
