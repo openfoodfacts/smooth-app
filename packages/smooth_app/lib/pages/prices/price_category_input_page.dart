@@ -254,11 +254,13 @@ class _OriginItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Row(
       children: <Widget>[
         Expanded(child: _ReadOnlyTextField(name)),
         IconButton(
           icon: const Icon(Icons.close, size: 18.0),
+          tooltip: appLocalizations.edit_product_form_item_remove_item_tooltip,
           onPressed: onDelete,
           padding: EdgeInsets.zero,
           constraints: const BoxConstraints(minWidth: 24.0, minHeight: 24.0),
