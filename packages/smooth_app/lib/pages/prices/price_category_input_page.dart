@@ -80,9 +80,9 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
                       tooltip: appLocalizations.clear,
                       circled: true,
                       onTap: () => setState(() {
-                      _categoryName = null;
-                      _categoryController.clear();
-                    }),
+                        _categoryName = null;
+                        _categoryController.clear();
+                      }),
                       child: const icons.Close(size: 12.0),
                     )
                   : null,
