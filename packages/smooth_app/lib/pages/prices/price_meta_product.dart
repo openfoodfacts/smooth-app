@@ -64,7 +64,7 @@ class PriceMetaProduct {
     List<String> names,
     OpenFoodFactsLanguage language,
   ) {
-    List<String> result = <String>[];
+    final List<String> result = <String>[];
     for (final String name in names) {
       result.add(_getTag(name, language));
     }
