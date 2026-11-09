@@ -132,7 +132,7 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
                   _MyAutocomplete(
                     helper: SimpleInputPageLabelHelper(),
                     controller: _labelController,
-                    onSelected: (final String selected) => setState(() {
+                    onSelected: (String selected) => setState(() {
                       if (!_labelNames.contains(selected)) {
                         _labelNames.add(selected);
                       }
