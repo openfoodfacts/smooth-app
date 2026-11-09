@@ -153,7 +153,7 @@ class _SmoothProductItemPicture extends StatelessWidget {
       );
       final ProductCompatibilityHelper helper =
           ProductCompatibilityHelper.product(matchedProduct);
-      final String? score = helper.getFormattedScore(singleDigitAllowed: true);
+      final String? score = helper.getFormattedScore();
 
       borderColor = helper.getColor(context);
 
