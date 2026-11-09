@@ -3,9 +3,9 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 
 Product _product(
-  final Map<String, Map<String, dynamic>> nutrients, {
-  final String preparation = 'as_sold',
-  final String per = '100g',
+  Map<String, Map<String, dynamic>> nutrients, {
+  String preparation = 'as_sold',
+  String per = '100g',
 }) => Product()
   ..nutrition = <String, dynamic>{
     'aggregated_set': <String, dynamic>{
@@ -16,9 +16,9 @@ Product _product(
   };
 
 Map<String, dynamic> _value(
-  final String source,
-  final String unit,
-  final num value,
+  String source,
+  String unit,
+  num value,
 ) => <String, dynamic>{'source': source, 'unit': unit, 'value': value};
 
 void main() {
@@ -87,7 +87,7 @@ void main() {
     });
 
     test('has data with as sold input values only', () {
-      Product withInputSet(final String source, final String preparation) =>
+      Product withInputSet(String source, String preparation) =>
           Product()
             ..nutrition = <String, dynamic>{
               'input_sets': <Map<String, dynamic>>[

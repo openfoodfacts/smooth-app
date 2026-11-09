@@ -17,7 +17,7 @@ extension ProductNutritionExtension on Product {
   bool get hasNutritionData =>
       _getAsSoldValues().isNotEmpty ||
       (NutritionHelper().getInputSets(this) ?? <NutritionSet>[]).any(
-        (final NutritionSet set) =>
+        (NutritionSet set) =>
             set.key.preparation == NutritionSetKey.preparationAsSold &&
             set.key.source != NutritionSetKey.sourceEstimate &&
             set.nutritionValues?.isNotEmpty == true,
@@ -38,8 +38,8 @@ extension ProductNutritionExtension on Product {
       return result;
     }
     aggregatedSet.nutritionValues?.forEach((
-      final Nutrient nutrient,
-      final NutritionValue value,
+      Nutrient nutrient,
+      NutritionValue value,
     ) {
       if (value.source != NutritionSetKey.sourceEstimate ||
           nutrient == Nutrient.addedSugars) {

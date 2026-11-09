@@ -58,10 +58,9 @@ class NutritionContainerHelper extends ChangeNotifier {
   final _Line _hundred = _Line();
   final _Line _serving = _Line();
 
-  _Line _getLine(final PerSize line) =>
-      line == PerSize.serving ? _serving : _hundred;
+  _Line _getLine(PerSize line) => line == PerSize.serving ? _serving : _hundred;
 
-  PerSize _getSetPerSize(final PerSize line) =>
+  PerSize _getSetPerSize(PerSize line) =>
       line == PerSize.serving ? PerSize.serving : _hundredPerSize;
 
   /// Nutrients added by the end-user.
@@ -181,10 +180,10 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   /// Returns the stored product nutrient's value.
-  num? getValue(final Nutrient nutrient) => _getLine(_perSize).values[nutrient];
+  num? getValue(Nutrient nutrient) => _getLine(_perSize).values[nutrient];
 
   /// Returns true if the displayed value comes from the manufacturer.
-  bool isFromManufacturer(final Nutrient nutrient) =>
+  bool isFromManufacturer(Nutrient nutrient) =>
       _getLine(_perSize).fromManufacturer.contains(nutrient);
 
   /// Stores the end-user input when it differs from the loaded value.
@@ -192,10 +191,10 @@ class NutritionContainerHelper extends ChangeNotifier {
   /// Empty text and "-" (not specified) clear the value; any other text that
   /// can't be parsed is ignored.
   void setNutrientValueText(
-    final PerSize perSize,
-    final Nutrient nutrient,
-    final String? text,
-    final NumberFormat numberFormat,
+    PerSize perSize,
+    Nutrient nutrient,
+    String? text,
+    NumberFormat numberFormat,
   ) {
     final _Line line = _getLine(perSize);
     num? value;
@@ -243,10 +242,10 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   /// Returns the nutrient [Unit].
-  Unit getUnit(final Nutrient nutrient) => _getLine(_perSize).units[nutrient]!;
+  Unit getUnit(Nutrient nutrient) => _getLine(_perSize).units[nutrient]!;
 
   /// Stores the nutrient [Unit].
-  void setNutrientUnit(final Nutrient nutrient, final Unit unit) =>
+  void setNutrientUnit(Nutrient nutrient, Unit unit) =>
       _getLine(_perSize).units[nutrient] = unit;
 
   /// To be used when an [OrderedNutrient] is added to the input list
@@ -321,7 +320,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   /// Energy in kJ computed from [kCal], rounded.
-  static double? getKJFromKCal(final num? kCal) => kCal == null
+  static double? getKJFromKCal(num? kCal) => kCal == null
       ? null
       : NutrimentsHelper.fromKCalToKJ(kCal.toDouble()).roundToDouble();
 
@@ -335,13 +334,13 @@ class NutritionContainerHelper extends ChangeNotifier {
   ///
   /// Each value is the packaging one, else the manufacturer one. Estimates and
   /// prepared sets are ignored. Needs nutrients to be loaded first.
-  void _loadValues(final Product product) {
+  void _loadValues(Product product) {
     final NutritionHelper helper = NutritionHelper();
     final List<NutritionSet> inputSets =
         helper.getInputSets(product) ?? <NutritionSet>[];
 
     // The packaging set, then the manufacturer set.
-    List<NutritionSet?> getSets(final PerSize perSize) => <NutritionSet?>[
+    List<NutritionSet?> getSets(PerSize perSize) => <NutritionSet?>[
       for (final String source in <String>[
         NutritionSetKey.sourcePackaging,
         NutritionSetKey.sourceManufacturer,
@@ -365,8 +364,8 @@ class NutritionContainerHelper extends ChangeNotifier {
       final _Line line = _getLine(perSize);
       final List<NutritionSet?> sets = getSets(_getSetPerSize(perSize));
 
-      NutritionValue? find(final Nutrient nutrient) => sets
-          .map((final NutritionSet? set) => set?.nutritionValues?[nutrient])
+      NutritionValue? find(Nutrient nutrient) => sets
+          .map((NutritionSet? set) => set?.nutritionValues?[nutrient])
           .nonNulls
           .firstOrNull;
 
@@ -395,7 +394,7 @@ class NutritionContainerHelper extends ChangeNotifier {
     }
   }
 
-  static num? _getNumber(final NutritionValue? value) =>
+  static num? _getNumber(NutritionValue? value) =>
       num.tryParse(value?.getCleanString() ?? '');
 
   /// Returns true if the user edited something.
@@ -415,7 +414,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   /// Plain decimal, no exponent nor group separator.
-  static NumberFormat getNumberFormat(final String locale) =>
+  static NumberFormat getNumberFormat(String locale) =>
       NumberFormat('####0.########', locale);
 
   static final NumberFormat _writeFormat = getNumberFormat('en');
@@ -465,7 +464,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   ///
   /// The "no nutrition data" flag can't be saved in the same request as the
   /// nutrition values, hence a separate product.
-  List<Product> getChangedProducts(final String barcode) {
+  List<Product> getChangedProducts(String barcode) {
     final List<Product> result = <Product>[];
     final Product values = Product(barcode: barcode);
     final List<NutritionSet> sets = _getChangedSets();

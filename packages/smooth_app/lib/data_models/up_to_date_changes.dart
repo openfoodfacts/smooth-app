@@ -50,8 +50,8 @@ class UpToDateChanges {
   ///
   /// An empty `value_string` removes the nutrient, like the server does.
   static Map<String, dynamic> mergeNutrition(
-    final Map<String, dynamic>? initial,
-    final Map<String, dynamic> change,
+    Map<String, dynamic>? initial,
+    Map<String, dynamic> change,
   ) {
     final List<Map<String, dynamic>> sets = <Map<String, dynamic>>[
       for (final dynamic set in initial?['input_sets'] ?? <dynamic>[])
@@ -60,7 +60,7 @@ class UpToDateChanges {
     for (final dynamic changeSet in change['input_sets'] ?? <dynamic>[]) {
       final Map<String, dynamic> newSet = changeSet as Map<String, dynamic>;
       final int index = sets.indexWhere(
-        (final Map<String, dynamic> set) =>
+        (Map<String, dynamic> set) =>
             set['source'] == newSet['source'] &&
             set['preparation'] == newSet['preparation'] &&
             set['per'] == newSet['per'],
@@ -72,7 +72,7 @@ class UpToDateChanges {
         merged['nutrients'] ?? <String, dynamic>{},
       );
       (newSet['nutrients'] as Map<String, dynamic>? ?? <String, dynamic>{})
-          .forEach((final String id, final dynamic value) {
+          .forEach((String id, dynamic value) {
             if ((value as Map<String, dynamic>)['value_string'] == '') {
               nutrients.remove(id);
             } else {

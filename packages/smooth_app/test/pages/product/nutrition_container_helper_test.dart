@@ -31,7 +31,7 @@ final OrderedNutrients _orderedNutrients = OrderedNutrients(
   ],
 );
 
-Map<String, dynamic> _value(final String unit, final String valueString) =>
+Map<String, dynamic> _value(String unit, String valueString) =>
     <String, dynamic>{
       'unit': unit,
       'value': num.parse(valueString),
@@ -39,10 +39,10 @@ Map<String, dynamic> _value(final String unit, final String valueString) =>
     };
 
 Map<String, dynamic> _set(
-  final String source,
-  final String per,
-  final Map<String, Map<String, dynamic>> nutrients, {
-  final String preparation = 'as_sold',
+  String source,
+  String per,
+  Map<String, Map<String, dynamic>> nutrients, {
+  String preparation = 'as_sold',
 }) => <String, dynamic>{
   'source': source,
   'preparation': preparation,
@@ -51,9 +51,9 @@ Map<String, dynamic> _set(
 };
 
 NutritionContainerHelper _helper(
-  final List<Map<String, dynamic>> sets, {
-  final String? servingSize,
-  final bool? noNutritionData,
+  List<Map<String, dynamic>> sets, {
+  String? servingSize,
+  bool? noNutritionData,
 }) => NutritionContainerHelper(
   orderedNutrients: _orderedNutrients,
   product: Product(barcode: '1', servingSize: servingSize)
@@ -64,20 +64,20 @@ NutritionContainerHelper _helper(
 );
 
 void _type(
-  final NutritionContainerHelper helper,
-  final PerSize line,
-  final Nutrient nutrient,
-  final String text,
+  NutritionContainerHelper helper,
+  PerSize line,
+  Nutrient nutrient,
+  String text,
 ) => helper.setNutrientValueText(line, nutrient, text, _format);
 
-String? _body(final NutritionContainerHelper helper) {
+String? _body(NutritionContainerHelper helper) {
   final List<Product> products = helper.getChangedProducts('1');
   return products.isEmpty || products.first.nutrition == null
       ? null
       : jsonEncode(products.first.nutrition);
 }
 
-String _expected(final List<Map<String, dynamic>> inputSets) =>
+String _expected(List<Map<String, dynamic>> inputSets) =>
     jsonEncode(<String, dynamic>{'input_sets': inputSets});
 
 void main() {
