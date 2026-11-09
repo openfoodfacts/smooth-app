@@ -22,13 +22,21 @@ class UserPreferencesFoodSearchHelper {
     required String title,
     required BuildContext context,
     Widget? icon,
+    Future<void> Function()? onTapCallback,
   }) => PreferenceTile(
     title: title,
-    onTap: () async => Navigator.of(context).push(
-      MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => const UserPreferencesFoodPage(),
-      ),
-    ),
+    onTap: () async {
+      final NavigatorState navigator = Navigator.of(context);
+      await onTapCallback?.call();
+      if (!navigator.mounted) {
+        return;
+      }
+      await navigator.push(
+        MaterialPageRoute<Widget>(
+          builder: (BuildContext context) => const UserPreferencesFoodPage(),
+        ),
+      );
+    },
     icon: icon ?? const icons.HappyToast(),
   );
 }
