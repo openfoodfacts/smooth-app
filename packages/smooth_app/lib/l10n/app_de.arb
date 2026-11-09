@@ -71,11 +71,11 @@
   "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
-  "food_preferences_page_title_introduction": "Personalisiere die App",
+  "food_preferences_page_title_introduction": "Die App personalisieren",
   "@food_preferences_page_title_introduction": {
     "description": "Title for the introduction page of the food preferences wizard"
   },
-  "food_preferences_page_title_diets": "Dieten",
+  "food_preferences_page_title_diets": "Diäten",
   "@food_preferences_page_title_diets": {
     "description": "Title for the diets page of the food preferences wizard"
   },
@@ -87,11 +87,11 @@
   "@food_preferences_page_title_unwanted_foods": {
     "description": "Title for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "food_preferences_page_title_foods_to_avoid": "Was ich lieber vermeide",
   "@food_preferences_page_title_foods_to_avoid": {
     "description": "Title for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_title_environment": "Environmental preferences",
+  "food_preferences_page_title_environment": "Umweltpräferenzen",
   "@food_preferences_page_title_environment": {
     "description": "Title for the environment preferences page of the food preferences wizard"
   },
@@ -133,15 +133,15 @@
   "@food_preferences_page_description_diets": {
     "description": "Description for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "food_preferences_page_description_allergies": "Wählen Sie die Allergene aus, die Sie aus Gründen der Lebensmittelsicherheit vermeiden müssen.",
   "@food_preferences_page_description_allergies": {
     "description": "Description for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "food_preferences_page_description_unwanted_foods": "Geben Sie die Lebensmittel oder Zutaten an, die Sie nicht essen.",
   "@food_preferences_page_description_unwanted_foods": {
     "description": "Description for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "food_preferences_page_description_foods_to_avoid": "Wählen Sie die Lebensmittel aus, die Sie lieber vermeiden möchten, ohne dass es sich um ein striktes Verbot handelt.",
   "@food_preferences_page_description_foods_to_avoid": {
     "description": "Description for the foods to avoid page of the food preferences wizard"
   },
@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Herzlichen Glückwunsch! Ihr Konto wurde erstellt.",
   "sign_up_page_display_name_hint": "Name",
   "sign_up_page_display_name_error_empty": "Bitte geben Sie den zu verwendenden Anzeigenamen ein",
-  "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_hint": "E-Mail-Adresse",
+  "sign_up_page_email_error_empty": "E-Mail-Adresse erforderlich",
   "sign_up_page_email_error_invalid": "Ungültige E-Mail-Adresse",
   "sign_up_page_username_hint": "Benutzername: Öffentlich sichtbar",
   "sign_up_page_username_error_empty": "Bitte geben Sie einen Benutzernamen ein",
@@ -482,7 +482,7 @@
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts ist ein globales Projekt, das Produkte aus über 160 Länder enthält. OpenFoodFacts wird in eine Vielzahl von Sprachen, mit ständig wachsendem Inhalt übersetzt.",
+  "contribute_translate_text": "Open Food Facts ist ein globales Projekt, das Produkte aus über 160 Länder enthält. Open Food Facts wird in eine Vielzahl von Sprachen, mit ständig wachsendem Inhalt übersetzt.",
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Übersetzungen sind eine der Hauptaufgaben des Projekts",
   "@contribute_translate_text_2": {},
@@ -1030,7 +1030,7 @@
   },
   "product_image_outdated": "Dieses Bild ist möglicherweise veraltet",
   "product_image_outdated_explanations_title": "Dieses Bild ist möglicherweise veraltet",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "Dieses Bild wurde vor mehr als einem Jahr aufgenommen.\n**Bitte prüfen Sie, ob es noch aktuell ist**.\n\nDies ist **nur ein Warnhinweis**. Wenn der Inhalt immer noch derselbe ist, können Sie diese Meldung ignorieren.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1141,7 +1141,7 @@
       }
     }
   },
-  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "tagline_feed_funding_months_left": "{months,plural, one {{months} Monate übrig} =1{Ein Monat übrig} other{{months} Monate übrig}}",
   "@tagline_feed_funding_months_left": {
     "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
     "placeholders": {
@@ -2751,7 +2751,7 @@
   "prices_location_mandatory": "Sie müssen einen Laden auswählen!",
   "prices_location_search_broader": "Sie haben nicht gefunden, wonach Sie gesucht haben? Versuchen Sie es mit einer allgemeineren Suchanfrage!",
   "prices_location_open_map": "Den Laden auf der Karte ansehen",
-  "prices_location_edit": "Select another shop",
+  "prices_location_edit": "Wählen Sie einen anderen Shop",
   "prices_proof_subtitle": "Nachweis",
   "prices_proof_empty_title": "Noch keine Beweise!",
   "prices_proof_empty_explanation": "Fügen Sie zunächst ein Foto der **Quittung** oder des **Preisschilds** hinzu!",
@@ -2925,8 +2925,8 @@
       }
     }
   },
-  "proof_action_open_external": "Open the image in an external browser",
-  "proof_action_experimental_assistant": "Experimental - open proof assistant",
+  "proof_action_open_external": "Das Bild in einem externen Browser öffnen",
+  "proof_action_experimental_assistant": "Experimentell – offener Beweisassistent",
   "user_any_search_prices_title": "Preise für Mitwirkende: {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
@@ -3442,12 +3442,12 @@
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
   },
-  "expand_nutrition_facts": "Nährwerttabelle erweitern",
+  "expand_nutrition_facts": "Nährwerttabelle aufklappen",
   "@expand_nutrition_facts": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_nutrition_facts_body": "Nährwerttabelle geöffnet lassen",
-  "expand_ingredients": "Zutatenliste erweitern",
+  "expand_ingredients": "Zutatenliste aufklappen",
   "@expand_ingredients": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
@@ -3760,7 +3760,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Bitte senden Sie uns manuell eine E-Mail an",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "E-Mail-Adresse in Zwischenablage kopiert!",
   "select_accent_color": "Akzentfarbe auswählen",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3950,7 +3950,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "{num} Produkte zum sofortigen Scannen verfügbar",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4412,15 +4412,15 @@
   "@photo_viewer_details_button_accessibility_label": {
     "description": "Accessibility label for the Details button on a photo"
   },
-  "photo_viewer_zoom_button": "Zoom in on the full size photo",
+  "photo_viewer_zoom_button": "Zoomen Sie das Foto in voller Größe heran",
   "@photo_viewer_zoom_button": {
     "description": "Tooltip of the button that opens the full size photo, to zoom in on it"
   },
-  "photo_viewer_copy_url": "Copy the photo URL",
+  "photo_viewer_copy_url": "URL des Fotos kopieren",
   "@photo_viewer_copy_url": {
     "description": "Tooltip of the button on the full size photo page that copies the URL of the full size photo to the clipboard"
   },
-  "photo_viewer_url_copied": "Photo URL copied to the clipboard!",
+  "photo_viewer_url_copied": "Foto-URL in die Zwischenablage kopiert!",
   "@photo_viewer_url_copied": {
     "description": "Snackbar message shown after copying the URL of the full size photo to the clipboard"
   },
@@ -4585,7 +4585,7 @@
       }
     }
   },
-  "barcode_probably_invalid": "Probably invalid barcode",
+  "barcode_probably_invalid": "Vermutlich ungültiger Barcode",
   "@barcode_probably_invalid": {
     "description": "Warning message. Keep it short."
   },
@@ -5636,7 +5636,7 @@
   "@product_edit_robotoff_show_proof": {
     "description": "Button to show the proof related to a suggestion"
   },
-  "product_edit_robotoff_expand_proof": "Erweiterungsnachweis",
+  "product_edit_robotoff_expand_proof": "Beweis vergrößern",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
   },
@@ -5824,7 +5824,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bringen Sie Open Food Facts in Ihre Sprache",
+  "preferences_contribute_translate_header": "Übersetzen Sie Open Food Facts in Ihre Sprache",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5913,11 +5913,11 @@
       }
     }
   },
-  "donation_page_headline": "Open Food Facts is funded by the people who use it",
+  "donation_page_headline": "Open Food Facts wird von den Nutzern finanziert",
   "@donation_page_headline": {
     "description": "Headline at the top of the donation page"
   },
-  "donation_where_it_goes_title": "Where it goes",
+  "donation_where_it_goes_title": "Wohin es geht",
   "@donation_where_it_goes_title": {
     "description": "Title of the block listing what a donation pays for"
   },
@@ -5925,11 +5925,11 @@
   "@donation_where_it_goes_servers": {
     "description": "First thing a donation pays for"
   },
-  "donation_where_it_goes_engineer": "One full-time engineer",
+  "donation_where_it_goes_engineer": "Ein Vollzeitingenieur",
   "@donation_where_it_goes_engineer": {
     "description": "Second thing a donation pays for"
   },
-  "donation_where_it_goes_services": "Services and tooling",
+  "donation_where_it_goes_services": "Dienstleistungen und Werkzeuge",
   "@donation_where_it_goes_services": {
     "description": "Third thing a donation pays for"
   },
@@ -5946,7 +5946,7 @@
       }
     }
   },
-  "donation_tier_scans": "pays for {scans} scans",
+  "donation_tier_scans": "bezahlt für {scans} Scans",
   "@donation_tier_scans": {
     "description": "How many product scans a monthly donation covers, as an approximation",
     "placeholders": {
@@ -5955,19 +5955,19 @@
       }
     }
   },
-  "donation_custom_amount_hint": "Custom amount",
+  "donation_custom_amount_hint": "Eigener Betrag",
   "@donation_custom_amount_hint": {
     "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
   },
-  "donation_custom_amount_error": "Enter an amount",
+  "donation_custom_amount_error": "Betrag eingeben",
   "@donation_custom_amount_error": {
     "description": "Error shown under the donation amount field when what the donor typed cannot be read as an amount"
   },
-  "donation_cta_monthly": "Support monthly",
+  "donation_cta_monthly": "Monatliche Unterstützung",
   "@donation_cta_monthly": {
     "description": "Main button of the donation page, opens the donation form with the selected monthly amount"
   },
-  "donation_cta_one_off": "Give once instead",
+  "donation_cta_one_off": "Stattdessen einmal geben",
   "@donation_cta_one_off": {
     "description": "Secondary link of the donation page, opens the donation form for a single gift"
   },
@@ -5979,7 +5979,7 @@
   "@donation_already_donated_thanks": {
     "description": "Confirmation shown after tapping 'I already donated'"
   },
-  "donation_reminder_title": "{count, plural, one{Join the {count} person keeping Open Food Facts free.} other{Join the {count} people keeping Open Food Facts free.}}",
+  "donation_reminder_title": "{count, plural, one{Werde Teil der {count} Person, die Open Food Facts kostenlos halten.} other{Werde Teil der {count} Personen, die Open Food Facts kostenlos halten.}}",
   "@donation_reminder_title": {
     "description": "Headline of the donation reminder sheet, with the number of donors from the feed",
     "placeholders": {
@@ -5993,7 +5993,7 @@
   "@donation_reminder_title_generic": {
     "description": "Headline of the donation reminder sheet when the feed carries no usable donor count"
   },
-  "donation_reminder_body": "A non-profit, built by volunteers, with no ads and no investors. A small monthly gift keeps it free for everyone.",
+  "donation_reminder_body": "Eine gemeinnützige Organisation, aufgebaut von Freiwilligen, ohne Werbung und Investoren. Ein kleiner monatlicher Beitrag ermöglicht es, den Zugang für alle kostenlos zu halten.",
   "@donation_reminder_body": {
     "description": "Body line of the donation reminder sheet"
   },
@@ -6001,7 +6001,7 @@
   "@donation_reminder_not_now": {
     "description": "Quiet button on the donation reminder sheet that closes it without changing anything"
   },
-  "donation_reminder_cta": "Give {amount} a month",
+  "donation_reminder_cta": "{amount} pro Monat",
   "@donation_reminder_cta": {
     "description": "Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency",
     "placeholders": {
@@ -6011,7 +6011,7 @@
       }
     }
   },
-  "donation_tier_scans_short": "{scans} scans",
+  "donation_tier_scans_short": "{scans} Scans",
   "@donation_tier_scans_short": {
     "description": "Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers",
     "placeholders": {
@@ -6021,7 +6021,7 @@
       }
     }
   },
-  "donation_tier_chip_amount": "**{amount}** /month",
+  "donation_tier_chip_amount": "**{amount}** /Monat",
   "@donation_tier_chip_amount": {
     "description": "Tier chip on the donation reminder sheet: a monthly amount, already formatted with its currency. The part between ** is shown large; keep the ** around the amount.",
     "placeholders": {
@@ -6031,7 +6031,7 @@
       }
     }
   },
-  "donation_reminder_funding": "**{raised}** of {goal}",
+  "donation_reminder_funding": "**{raised}** von {goal}",
   "@donation_reminder_funding": {
     "description": "Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.",
     "placeholders": {
