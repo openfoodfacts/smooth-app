@@ -624,6 +624,35 @@
     "description": "Title of the OxF selector."
   },
   "search_history": "היסטוריית חיפוש",
+  "search_history_locations": "Location history",
+  "@search_history_locations": {
+    "description": "Title of the list of the locations previously selected, displayed above the search history"
+  },
+  "search_location_select": "Select this shop",
+  "@search_location_select": {
+    "description": "Menu entry of a location in the search history: selects it as the search result"
+  },
+  "search_location_menu_title": "Shop: {name}",
+  "@search_location_menu_title": {
+    "description": "Title of the menu of a location in the search history",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "search_location_remove": "Remove from history",
+  "@search_location_remove": {
+    "description": "Menu entry of a location in the search history: removes it from the history"
+  },
+  "search_location_favorite_add": "Add to favorites",
+  "@search_location_favorite_add": {
+    "description": "Tooltip of the heart of a location in the search history, when it is not a favorite"
+  },
+  "search_location_favorite_remove": "Remove from favorites",
+  "@search_location_favorite_remove": {
+    "description": "Tooltip of the heart of a location in the search history, when it is a favorite"
+  },
   "search_store": "חיפוש חנות",
   "@search_store": {
     "description": "Hint text of a search store text input field"
