@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// A Button similar to a [PopupMenuButton] for non Apple platforms.
 /// On iOS and macOS, it's still an [IconButton], but that opens a
@@ -80,6 +83,39 @@ class _SmoothPopupMenuButtonState<T> extends State<SmoothPopupMenuButton<T>> {
           ),
         );
       },
+    );
+  }
+}
+
+class SmoothRoundMenuButton extends StatelessWidget {
+  const SmoothRoundMenuButton({this.onPressed});
+
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+
+    return Tooltip(
+      message: MaterialLocalizations.of(context).showMenuTooltip,
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: onPressed,
+        child: Ink(
+          decoration: ShapeDecoration(
+            shape: const CircleBorder(),
+            color: extension.primaryMedium,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: icons.ThreeDots.vertical(
+              size: 12.0,
+              color: extension.primarySemiDark,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
