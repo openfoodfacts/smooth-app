@@ -56,7 +56,8 @@
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
 <span class="name ">getWidget</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getWidget-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, {</span></li>
-<li><span class="parameter" id="getWidget-param-onDismissItem"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onDismissItem</span>, </span></li>
+<li><span class="parameter" id="getWidget-param-onDeleteItem"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onDeleteItem</span>, </span></li>
+<li><span class="parameter" id="getWidget-param-onFavoriteChanged"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onFavoriteChanged</span>, </span></li>
 </ol>})
 
       
@@ -65,6 +66,9 @@
     
 <section class="desc markdown">
   <p>Displays the list item.</p>
+<p><code>onDeleteItem</code> is called when the user asks to remove the item. Without
+it, the item cannot be removed.
+<code>onFavoriteChanged</code> is called once the item changed its favorite status.</p>
 </section>
 
 
@@ -73,7 +77,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Widget getWidget(
   BuildContext context, {
-  VoidCallback? onDismissItem,
+  VoidCallback? onDeleteItem,
+  VoidCallback? onFavoriteChanged,
 });</code></pre>
 </section>
 

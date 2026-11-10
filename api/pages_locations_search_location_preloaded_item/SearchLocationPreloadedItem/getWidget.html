@@ -61,7 +61,8 @@
   </div>
 <span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
 <span class="name ">getWidget</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getWidget-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, {</span></li>
-<li><span class="parameter" id="getWidget-param-onDismissItem"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onDismissItem</span>, </span></li>
+<li><span class="parameter" id="getWidget-param-onDeleteItem"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onDeleteItem</span>, </span></li>
+<li><span class="parameter" id="getWidget-param-onFavoriteChanged"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onFavoriteChanged</span>, </span></li>
 </ol>})
 
       <div class="features"><span class="feature">override</span></div>
@@ -70,6 +71,9 @@
     
 <section class="desc markdown">
   <p>Displays the list item.</p>
+<p><code>onDeleteItem</code> is called when the user asks to remove the item. Without
+it, the item cannot be removed.
+<code>onFavoriteChanged</code> is called once the item changed its favorite status.</p>
 </section>
 
 
@@ -79,74 +83,125 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget getWidget(
   BuildContext context, {
-  VoidCallback? onDismissItem,
+  VoidCallback? onDeleteItem,
+  VoidCallback? onFavoriteChanged,
 }) {
-  final String? title = osmLocation.getTitle();
-  final String? subtitle = osmLocation.getSubtitle();
-  final Widget child = SmoothCard(
-    elevation: 4.0,
-    child: ListTile(
-      leading: Consumer&lt;LocalDatabase&gt;(
-        builder: (BuildContext context, LocalDatabase localDatabase, _) {
-          final SmoothColorsThemeExtension theme = context
-              .extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
+  final bool lightTheme = context.lightTheme();
 
-          final bool isFavorite = FavoriteLocationHelper().isFavorite(
-            localDatabase,
-            osmLocation,
-          );
+  final String? name = osmLocation.name;
+  final String? street = osmLocation.street;
+  final String? address = _address;
+  final String title = name ?? street ?? address ?? osmLocation.primaryKey;
 
-          return IconButton(
-            icon: isFavorite
-                ? const icons.Heart.filled()
-                : const icons.Heart.outline(),
-            style: IconButton.styleFrom(
-              foregroundColor: isFavorite ? theme.error : null,
-            ),
-            onPressed: () async =&gt; FavoriteLocationHelper().setFavorite(
-              localDatabase,
-              osmLocation,
-              !isFavorite,
-            ),
-          );
-        },
-      ),
-      onTap: () {
-        if (popFirst) {
-          &#47;&#47; pops this result page
-          Navigator.of(context).pop();
-        }
-        &#47;&#47; returns the result from search page
-        Navigator.of(context).pop(osmLocation);
-      },
-      title: title == null ? null : Text(title),
-      subtitle: subtitle == null ? null : Text(subtitle),
-      trailing: IconButton(
-        onPressed: () async =&gt; Navigator.push&lt;OsmLocation&gt;(
-          context,
-          MaterialPageRoute&lt;OsmLocation&gt;(
-            builder: (BuildContext context) =&gt;
-                LocationMapPage(osmLocation, popFirst: popFirst),
+  return SmoothCard(
+    elevation: 5.0,
+    elevationColor: Colors.black26,
+    margin: const EdgeInsetsDirectional.only(
+      top: MEDIUM_SPACE,
+      start: SMALL_SPACE,
+      end: SMALL_SPACE,
+    ),
+    padding: EdgeInsets.zero,
+    color: lightTheme ? null : extension.primaryUltraBlack,
+    child: InkWell(
+      borderRadius: ROUNDED_BORDER_RADIUS,
+      onTap: () =&gt; _select(context),
+      child: DefaultTextStyle.merge(
+        style: TextStyle(color: extension.primaryBlack, fontSize: 15.0),
+        child: IconTheme.merge(
+          data: IconThemeData(
+            color: lightTheme
+                ? extension.primaryNormal
+                : extension.primaryMedium,
+            size: 20.0,
+          ),
+          child: Stack(
+            children: &lt;Widget&gt;[
+              Padding(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: _horizontalPadding,
+                  vertical: _verticalPadding,
+                ),
+                child: Column(
+                  spacing: SMALL_SPACE,
+                  children: &lt;Widget&gt;[
+                    Row(
+                      spacing: VERY_SMALL_SPACE,
+                      children: &lt;Widget&gt;[
+                        Expanded(
+                          child: PriceDataEntry(
+                            icon: OsmLocationKind.of(osmLocation).icon,
+                            label: title,
+                            labelStyle: const TextStyle(
+                              fontWeight: FontWeight.w600,
+                            ),
+                            labelPadding: const EdgeInsetsDirectional.only(
+                              bottom: 2.5,
+                            ),
+                          ),
+                        ),
+                        &#47;&#47; The heart is drawn above, with a larger tap area
+                        const SizedBox.square(
+                          dimension: _SearchLocationFavoriteItem.size,
+                        ),
+                      ],
+                    ),
+                    if (name != null &amp;&amp; street != null)
+                      PriceDataEntry(
+                        icon: const icons.Street.road(),
+                        label: street,
+                        labelPadding: const EdgeInsetsDirectional.only(
+                          bottom: 2.5,
+                        ),
+                      ),
+                    Row(
+                      spacing: VERY_SMALL_SPACE,
+                      children: &lt;Widget&gt;[
+                        Expanded(
+                          child: address == null || address == title
+                              ? EMPTY_WIDGET
+                              : PriceDataEntry(
+                                  icon: const icons.Location(),
+                                  label: address,
+                                  labelPadding:
+                                      const EdgeInsetsDirectional.only(
+                                        bottom: 2.5,
+                                      ),
+                                ),
+                        ),
+                        _SearchLocationMenu(
+                          osmLocation: osmLocation,
+                          title: title,
+                          popFirst: popFirst,
+                          onSelect: () =&gt; _select(context),
+                          onDeleteItem: onDeleteItem,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              PositionedDirectional(
+                top:
+                    _verticalPadding +
+                    _SearchLocationFavoriteItem.iconPadding -
+                    _SearchLocationFavoriteItem.tapPadding,
+                end:
+                    _horizontalPadding +
+                    _SearchLocationFavoriteItem.iconPadding -
+                    _SearchLocationFavoriteItem.tapPadding,
+                child: _SearchLocationFavoriteItem(
+                  osmLocation: osmLocation,
+                  onTap: onFavoriteChanged,
+                ),
+              ),
+            ],
           ),
         ),
-        icon: const icons.World.location(),
       ),
     ),
-  );
-  if (onDismissItem == null) {
-    return child;
-  }
-  return Dismissible(
-    key: Key(&#39;${osmLocation.osmType}${osmLocation.osmId}&#39;),
-    direction: DismissDirection.endToStart,
-    onDismissed: (DismissDirection direction) async =&gt; onDismissItem(),
-    background: Container(
-      color: context.extension&lt;SmoothColorsThemeExtension&gt;().error,
-      alignment: AlignmentDirectional.centerEnd,
-      padding: const EdgeInsetsDirectional.only(end: LARGE_SPACE * 2),
-      child: const Icon(Icons.delete, color: Colors.white),
-    ),
-    child: child,
   );
 }</code></pre>
 </section>
