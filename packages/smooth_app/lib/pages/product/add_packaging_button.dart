@@ -6,15 +6,16 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 
 /// "Add (new) packaging" button for user contribution.
 class AddPackagingButton extends StatelessWidget {
-  AddPackagingButton({required this.product});
+  AddPackagingButton({required this.product, this.label});
 
   final Product product;
+  final String? label;
 
   final ProductFieldEditor _editor = ProductFieldPackagingEditor();
 
   @override
   Widget build(BuildContext context) => addPanelButton(
-    _editor.getLabel(AppLocalizations.of(context)),
+    label ?? _editor.getLabel(AppLocalizations.of(context)),
     onPressed: () async => _editor.edit(
       context: context,
       product: product,
