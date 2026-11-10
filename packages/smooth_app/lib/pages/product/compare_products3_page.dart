@@ -232,7 +232,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
   Widget? _getChild(Attribute attribute, Product product) {
     final Nutrient? nutrient = _getAttributeNutrient(attribute.id!);
     if (nutrient != null) {
-      final double? value = product.getNutrientValuePer100(nutrient);
+      final double? value = product.getNutrientValue(
+        nutrient,
+        PerSize.oneHundredGrams,
+      );
       if (value == null) {
         return null;
       }

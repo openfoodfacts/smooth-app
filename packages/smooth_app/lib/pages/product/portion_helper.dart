@@ -69,7 +69,10 @@ class PortionHelper {
     Nutrient nutrient,
     String nutrientName,
   ) {
-    double? value = product.getNutrientValuePer100(nutrient);
+    double? value = product.getNutrientValue(
+      nutrient,
+      PerSize.oneHundredGrams,
+    );
     if (value == null) {
       return;
     }
