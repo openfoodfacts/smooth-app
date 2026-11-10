@@ -147,6 +147,33 @@ fvm flutter analyze --fatal-infos --fatal-warnings .
 # Total time: 8-12 minutes. NEVER CANCEL any of these steps.
 ```
 
+### Translations
+
+- New user-facing strings go in `packages/smooth_app/lib/l10n/app_en.arb`, the template, with an
+  `@key` description. The other languages come from Crowdin.
+- Then regenerate `lib/l10n/app_localizations.dart` with `fvm flutter gen-l10n` (also run by
+  `fvm flutter pub get`).
+
+### Icons
+
+Always import the app icons with the `icons` prefix, and use them as `icons.Name()`:
+
+```dart
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+
+const icons.World.location()
+```
+
+### Empty widgets
+
+When a widget has no content to show, use `EMPTY_WIDGET` (from
+`packages/smooth_app/lib/generic_lib/design_constants.dart`), not `SizedBox.shrink()`, `SizedBox()`,
+`Container()` or a `null` child:
+
+```dart
+child: address == null ? EMPTY_WIDGET : Text(address),
+```
+
 ### Build Troubleshooting
 
 If you encounter build issues:

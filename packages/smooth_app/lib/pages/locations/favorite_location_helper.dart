@@ -2,7 +2,7 @@ import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 
-/// Helper used to set/unset/sort stores as user favorites.
+/// Helper used to set/unset stores as user favorites.
 class FavoriteLocationHelper {
   factory FavoriteLocationHelper() {
     _instance ??= const FavoriteLocationHelper._();

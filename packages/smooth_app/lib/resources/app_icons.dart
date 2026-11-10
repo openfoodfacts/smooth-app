@@ -1855,6 +1855,14 @@ class Map extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.map);
+
+  const Map.marker({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.map_marker);
 }
 
 class MagicWand extends AppIcon {
@@ -2618,6 +2626,14 @@ class Search extends AppIcon {
     super.key,
   }) : super._(_IconsFont.database_search);
 
+  const Search.history({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.search_history);
+
   const Search.off({
     super.color,
     super.size,
@@ -2837,6 +2853,22 @@ class Street extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.street);
+
+  const Street.path({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.path);
+
+  const Street.road({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.road);
 }
 
 class Strength extends AppIcon {
@@ -3094,6 +3126,14 @@ class User extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.user_edit);
+
+  const User.location({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.user_location);
 
   const User.question({
     super.color,
