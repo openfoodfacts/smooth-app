@@ -41,7 +41,7 @@
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
-  "previous_label": "Previous",
+  "previous_label": "Kɔfɛta",
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
@@ -799,7 +799,7 @@
   "ingredients_photo_title": "Ingredients Photo",
   "nutritional_facts_photo_title": "Nutrition Facts Photo",
   "recycling_photo_title": "Ladilikanw ka ɲɛsin fɛnw lasegincogo ma Foto",
-  "take_photo_title": "Take a picture",
+  "take_photo_title": "Foto dɔ ta",
   "take_more_photo_title": "Take more photos",
   "front_photo_uploaded": "Front photo uploaded",
   "@front_photo_uploaded": {},
@@ -1058,7 +1058,7 @@
   "@product_image_action_take_new_picture": {
     "description": "Replace the existing picture with a new one"
   },
-  "product_image_action_take_picture": "Take a picture",
+  "product_image_action_take_picture": "Foto dɔ ta",
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
@@ -1983,7 +1983,7 @@
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
-  "edit_product_form_item_traces_hint": "trace",
+  "edit_product_form_item_traces_hint": "nɔ",
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
@@ -2426,7 +2426,7 @@
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
-  "dev_preferences_news_provider_status_title": "Status",
+  "dev_preferences_news_provider_status_title": "Cogo",
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
@@ -2442,7 +2442,7 @@
   "product_type_label_food": "Food",
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
-  "product_type_label_product": "Other",
+  "product_type_label_product": "Dɔ wɛrɛ",
   "product_type_label_unknown": "Unknown",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
@@ -2522,7 +2522,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "Fɛn dilannen ma sɔrɔ",
   "prices_barcode_search_none_yet": "No product yet",
   "prices_barcode_search_running": "Looking for {barcode}",
   "@prices_barcode_search_running": {
@@ -2552,7 +2552,7 @@
     "description": "Short title for PricePer.unit"
   },
   "prices_category_title": "Category",
-  "prices_category_mandatory": "Mandatory",
+  "prices_category_mandatory": "Wajibiyalen don",
   "prices_category_optional": "Wajibi tɛ",
   "prices_origins_title": "Origins",
   "prices_category_error_mandatory": "O kulu ye wajibi ye",
@@ -2815,7 +2815,7 @@
   "prices_discount_type_expires_soon": "Expires soon",
   "prices_discount_type_pick_it_yourself": "Pick it yourself",
   "prices_discount_type_second_hand": "Second hand",
-  "prices_discount_type_other": "Other",
+  "prices_discount_type_other": "Dɔ wɛrɛ",
   "dev_preferences_import_history_result_success": "Done",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3414,7 +3414,7 @@
   "@capture": {
     "description": "Button label for taking a new photo (= there's already one)"
   },
-  "capture_new_picture": "Take a picture",
+  "capture_new_picture": "Foto dɔ ta",
   "@capture_new_picture": {
     "description": "Button label for taking a new photo (= the first one)"
   },
@@ -4040,7 +4040,7 @@
   "contact_title_pro_email": "Producer Contact",
   "contact_title_press_page": "Press Page",
   "contact_title_press_email": "Press Contact",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "I tɔgɔ sɛbɛn an ka kibarubata kɔnɔ",
   "contact_title_calendar": "Subscribe to our community calendar",
   "hunger_games_loading_line1": "Please give us a few seconds…",
   "hunger_games_loading_line2": "We're downloading the questions!",
@@ -4084,7 +4084,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score ye mun ye?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4136,12 +4136,12 @@
   "guide_greenscore_lca_arg1_text2": "**Ɲɛnamaya taabolo sɛgɛsɛgɛli** ye jateminɛ kɛcogo ye min bɛ kɛ ka sigida jateminɛ kɛcogo caman ni sariya caman kɛ.",
   "guide_greenscore_lca_arg1_text3": "**A bɛ suman:**",
   "guide_greenscore_lca_arg2_title": "6 sɛnɛcogo taabolo",
-  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
-  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_agriculture": "Sɛnɛkɛko",
+  "guide_greenscore_lca_arg2_processing": "Yɛlɛmali",
   "guide_greenscore_lca_arg2_packaging": "Packaging",
-  "guide_greenscore_lca_arg2_transportation": "Transportation",
-  "guide_greenscore_lca_arg2_distribution": "Distribution",
-  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg2_transportation": "Latagali",
+  "guide_greenscore_lca_arg2_distribution": "Tilali",
+  "guide_greenscore_lca_arg2_consumption": "Dunlicogo",
   "guide_greenscore_lca_arg3_title": "14 sigida laminiko gɛlɛya jiralanw",
   "guide_greenscore_lca_arg3_text1": "Waati jiginni/karɔbɔli senna",
   "guide_greenscore_lca_arg3_text2": "Ozɔni (Ozone) hakɛ dɔgɔyali",
@@ -4477,11 +4477,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "Front picture",
+  "product_image_front_accessibility_label": "Ɲɛfɛ foto",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "Ingredients picture",
+  "product_image_ingredients_accessibility_label": "Fɛn minnu bɛ kɛ a la foto",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -4655,11 +4655,11 @@
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
   "date": "Date",
-  "photo_rotate_left": "Rotate left",
+  "photo_rotate_left": "Lamini numanfɛ",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Rotate right",
+  "photo_rotate_right": "Lamini kininfɛ",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4919,7 +4919,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "Bɛɛ lajɛlen",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4939,7 +4939,7 @@
   "@prices_stats_community": {
     "description": "Label for community count"
   },
-  "prices_stats_consumption": "Consumption",
+  "prices_stats_consumption": "Dunlicogo",
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
@@ -4951,7 +4951,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Cɛɲi",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -5023,7 +5023,7 @@
   "@prices_stats_api": {
     "description": "Label for API source"
   },
-  "prices_stats_other": "Other",
+  "prices_stats_other": "Dɔ wɛrɛ",
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
@@ -5111,7 +5111,7 @@
   "@preferences_app_bar_message": {
     "description": "Message to show in the preferences app bar when the user is logged in"
   },
-  "preferences_app_bar_products_modified": "Products modified",
+  "preferences_app_bar_products_modified": "Dumunifɛn yɛlɛmanenw",
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
@@ -5896,7 +5896,7 @@
   "@homepage_horizontal_list_view_more_button": {
     "description": "Button to see all items in a horizontal list on the homepage"
   },
-  "homepage_list_most_scanned_title": "Most scanned products",
+  "homepage_list_most_scanned_title": "Fɛn dilannen minnu sekanena ka ca",
   "@homepage_list_most_scanned_title": {
     "description": "Title for the most scanned products horizontal list on the homepage"
   },
