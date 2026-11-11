@@ -1171,12 +1171,11 @@ packages:
   openfoodfacts:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "feat/aggregated-set"
-      resolved-ref: e66448e298d9b9757d0362ed6ee2588ecc8bebf3
-      url: "https://github.com/UrbanFercec/openfoodfacts-dart.git"
-    source: git
-    version: "3.31.1"
+      name: openfoodfacts
+      sha256: "20875cc92af0dbff93e78487949aea1ccef4d0f3f5acd5b014355238dc3589cf"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.32.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
