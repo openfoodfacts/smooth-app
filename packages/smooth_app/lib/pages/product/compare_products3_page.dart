@@ -150,10 +150,16 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
       final List<double?> values = <double?>[];
       bool notNull = false;
       for (final Product product in widget.products) {
-        double? per100 = product.getNutrientValuePer100(nutrient);
+        double? per100 = product.getNutrientValue(
+          nutrient,
+          PerSize.oneHundredGrams,
+        );
         if (nutrient == Nutrient.energyKJ) {
           per100 ??= NutritionContainerHelper.getKJFromKCal(
-            product.getNutrientValuePer100(Nutrient.energyKCal),
+            product.getNutrientValue(
+              Nutrient.energyKCal,
+              PerSize.oneHundredGrams,
+            ),
           );
         }
         final double? value = NutritionContainerHelper.convertWeightFromG(
