@@ -266,6 +266,7 @@ class _NutrientValueCell extends StatelessWidget {
 
     final bool ownerFieldVisible =
         nutrient != null &&
+        !controller.isDifferentFromInitialValue &&
         context.watch<NutritionContainerHelper>().isFromManufacturer(
           nutrient,
         ) &&

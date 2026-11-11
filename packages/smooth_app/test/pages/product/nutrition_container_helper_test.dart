@@ -169,6 +169,16 @@ void main() {
       expect(_format.format(helper.getValue(Nutrient.vitaminB9)), '0.000031');
     });
 
+    test('opens on a filled 100ml set over an empty 100g set', () {
+      final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
+        _set(_packaging, '100g', <String, Map<String, dynamic>>{}),
+        _set(_packaging, '100ml', <String, Map<String, dynamic>>{
+          'fat': _value('g', '2'),
+        }),
+      ]);
+      expect(helper.getValue(Nutrient.fat), 2);
+    });
+
     test('computes energy in kJ from kcal', () {
       final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
         _set(_packaging, '100g', <String, Map<String, dynamic>>{

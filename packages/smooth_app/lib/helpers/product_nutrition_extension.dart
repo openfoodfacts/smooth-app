@@ -7,8 +7,16 @@ extension ProductNutritionExtension on Product {
   ///
   /// Same priority as the server: manufacturer, packaging, then usda values.
   /// Per 100g also takes a per 100ml value, or a per serving value scaled to
-  /// 100.
-  double? getNutrientValue(Nutrient nutrient, PerSize perSize) {
+  /// 100. Energy in kJ is computed from kcal when missing.
+  double? getNutrientValue(Nutrient nutrient, PerSize perSize) =>
+      _getStoredValue(nutrient, perSize) ??
+      (nutrient == Nutrient.energyKJ
+          ? NutritionContainerHelper.getKJFromKCal(
+              _getStoredValue(Nutrient.energyKCal, perSize),
+            )
+          : null);
+
+  double? _getStoredValue(Nutrient nutrient, PerSize perSize) {
     final List<NutritionSet> sets =
         NutritionHelper().getInputSets(this) ?? <NutritionSet>[];
     final List<PerSize> perSizes = <PerSize>[
