@@ -3,12 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/value_edition_preference_tile.dart';
 
-class CityPostcodeTile extends StatelessWidget {
-  const CityPostcodeTile({required this.title});
-
-  final String title;
+class CityPostcodeTile extends PreferenceTile {
+  const CityPostcodeTile({required super.title});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class CityPostcodeTile extends StatelessWidget {
 
     return ValueEditionPreferenceTile(
       title: title,
-      icon: Icons.location_on_outlined,
+      icon: const Icon(Icons.location_on_outlined),
       dialogAction: appLocalizations.save,
       value: cityOrPostcode,
       hint: appLocalizations.preferences_city_or_postcode_title,

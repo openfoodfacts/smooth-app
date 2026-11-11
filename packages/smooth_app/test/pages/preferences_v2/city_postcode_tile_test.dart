@@ -36,7 +36,7 @@ void main() {
     final AppLocalizations appLocalizations = AppLocalizations.of(
       tester.element(find.byType(CityPostcodeTile)),
     );
-    await tester.tap(find.text(appLocalizations.save.toUpperCase()));
+    await tester.tap(find.text(appLocalizations.okay.toUpperCase()));
     await tester.pumpAndSettle();
 
     expect(userPreferences.userCityOrPostcode, 'Paris');

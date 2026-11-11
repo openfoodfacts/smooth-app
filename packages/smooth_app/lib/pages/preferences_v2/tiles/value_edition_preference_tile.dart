@@ -10,18 +10,17 @@ class ValueEditionPreferenceTile extends PreferenceTile {
     required String dialogAction,
     required this.onNewValue,
     super.icon,
+    super.subtitle,
     this.value,
     this.hint,
-    this.subtitle,
     this.dialogDescription,
     this.subtitleWithEmptyValue,
     this.validator,
   }) : assert(dialogAction.length > 0),
-       super(subtitleText: dialogAction);
+       super(subtitleText: subtitle == null ? dialogAction : null);
 
   final String? value;
   final String? hint;
-  final Widget? subtitle;
   final Widget? dialogDescription;
   final String? subtitleWithEmptyValue;
   final bool Function(String)? validator;
