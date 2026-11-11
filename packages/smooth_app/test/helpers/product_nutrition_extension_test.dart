@@ -61,16 +61,18 @@ void main() {
       expect(_per100(product, Nutrient.salt), isNull);
     });
 
-    test('prefers packaging values, then manufacturer values', () {
+    test('prefers manufacturer values, then packaging values', () {
       final Product product = _product(<Map<String, dynamic>>[
         _set(<String, Map<String, dynamic>>{
+          'iron': _value('mg', '6'),
+          'zinc': _value('mg', '5'),
+        }),
+        _set(<String, Map<String, dynamic>>{
           'iron': _value('mg', '5'),
-          'copper': _value('mg', '0.5'),
         }, source: 'manufacturer'),
-        _set(<String, Map<String, dynamic>>{'iron': _value('mg', '6')}),
       ]);
-      expect(_per100(product, Nutrient.iron), 0.006);
-      expect(_per100(product, Nutrient.copper), 0.0005);
+      expect(_per100(product, Nutrient.iron), 0.005);
+      expect(_per100(product, Nutrient.zinc), 0.005);
     });
 
     test('ignores estimates and prepared values', () {
@@ -132,6 +134,7 @@ void main() {
         }, per: '1kg'),
       ]);
       expect(_per100(product, Nutrient.fat), isNull);
+      expect(product.hasNutritionData, isTrue);
     });
 
     test('has data with as sold input values only', () {
