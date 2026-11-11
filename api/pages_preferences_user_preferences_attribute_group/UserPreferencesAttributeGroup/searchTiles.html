@@ -77,7 +77,14 @@
   if (group.name != null &amp;&amp;
       (helper.matches(&lt;String?&gt;[group.name, group.warning]))) {
     result.add(
-      helper.getPreferenceTile(title: group.name!, context: context),
+      helper.getPreferenceTile(
+        title: group.name!,
+        context: context,
+        onTapCallback: () async {
+          &#47;&#47; checks the group name and warning for a match and opens attribute group that holds the search match, e.g. &quot;Allergens&quot; for query &quot;allergens&quot;
+          await userPreferences.setActiveAttributeGroup(group.id!);
+        },
+      ),
     );
   }
   final SmoothColorsThemeExtension theme = context
@@ -104,6 +111,10 @@
         helper.getPreferenceTile(
           title: attribute.name!,
           context: context,
+          onTapCallback: () async {
+            &#47;&#47; checks each attribute inside the group and opens attribute group that holds the search match, e.g. allergens for query &quot;gluten&quot;
+            await userPreferences.setActiveAttributeGroup(group.id!);
+          },
           icon: getAttributeDisplayIcon(
             attribute,
             context: context,
