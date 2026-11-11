@@ -645,7 +645,7 @@
   "@search_location_remove": {
     "description": "Menu entry of a location in the search history: removes it from the history"
   },
-  "search_location_favorite_add": "Add to favorites",
+  "search_location_favorite_add": "Føj til favoritter",
   "@search_location_favorite_add": {
     "description": "Tooltip of the heart of a location in the search history, when it is not a favorite"
   },
