@@ -86,7 +86,7 @@
     <h2>Constructors</h2>
     <dl class="constructor-summary-list">
         <dt id="DefaultPreferencesRoot.new" class="callable">
-          <span class="name"><a href="../pages_preferences_v2_roots_default_root/DefaultPreferencesRoot/DefaultPreferencesRoot.html">DefaultPreferencesRoot</a></span><span class="signature">({<span class="parameter" id="param-cards"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../pages_preferences_v2_cards_preference_card/PreferenceCard-class.html">PreferenceCard</a></span>&gt;</span></span> <span class="parameter-name">cards</span>, </span><span class="parameter" id="param-customAppBar"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">customAppBar</span>, </span><span class="parameter" id="param-externalSearchTiles"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../pages_preferences_v2_tiles_external_search_tiles_external_search_preference_tile/ExternalSearchPreferenceTile-class.html">ExternalSearchPreferenceTile</a></span>&gt;</span></span> <span class="parameter-name">externalSearchTiles</span> = <span class="default-value">const &lt;ExternalSearchPreferenceTile&gt;[]</span>, </span><span class="parameter" id="param-header"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/WidgetBuilder.html">WidgetBuilder</a>?</span> <span class="parameter-name">header</span>, </span><span class="parameter" id="param-footer"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/WidgetBuilder.html">WidgetBuilder</a>?</span> <span class="parameter-name">footer</span>, </span><span class="parameter" id="param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span></span>})</span>
+          <span class="name"><a href="../pages_preferences_v2_roots_default_root/DefaultPreferencesRoot/DefaultPreferencesRoot.html">DefaultPreferencesRoot</a></span><span class="signature">({<span class="parameter" id="param-cards"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../pages_preferences_v2_cards_preference_card/PreferenceCard-class.html">PreferenceCard</a></span>&gt;</span></span> <span class="parameter-name">cards</span>, </span><span class="parameter" id="param-customAppBar"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">customAppBar</span>, </span><span class="parameter" id="param-externalSearchTiles"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../pages_preferences_v2_tiles_external_search_tiles_external_search_preference_tile/ExternalSearchPreferenceTile-class.html">ExternalSearchPreferenceTile</a></span>&gt;</span></span> <span class="parameter-name">externalSearchTiles</span> = <span class="default-value">const &lt;ExternalSearchPreferenceTile&gt;[]</span>, </span><span class="parameter" id="param-searchRoots"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../pages_preferences_v2_roots_preferences_root/PreferencesRoot-class.html">PreferencesRoot</a></span>&gt;</span></span> <span class="parameter-name">searchRoots</span> = <span class="default-value">const &lt;PreferencesRoot&gt;[]</span>, </span><span class="parameter" id="param-header"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/WidgetBuilder.html">WidgetBuilder</a>?</span> <span class="parameter-name">header</span>, </span><span class="parameter" id="param-footer"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/WidgetBuilder.html">WidgetBuilder</a>?</span> <span class="parameter-name">footer</span>, </span><span class="parameter" id="param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span></span>})</span>
         </dt>
         <dd>
           
@@ -205,6 +205,18 @@
 <dd class="inherited">
   A representation of the runtime type of the object.
   <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="searchRoots" class="property">
+  <span class="name"><a href="../pages_preferences_v2_roots_default_root/DefaultPreferencesRoot/searchRoots.html">searchRoots</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../pages_preferences_v2_roots_preferences_root/PreferencesRoot-class.html">PreferencesRoot</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
@@ -438,16 +450,16 @@ children.
 
 </dd>
 
-        <dt id="searchTiles" class="callable inherited">
-  <span class="name"><a href="../pages_preferences_v2_roots_preferences_root/PreferencesRoot/searchTiles.html">searchTiles</a></span><span class="signature">(<wbr><span class="parameter" id="searchTiles-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="searchTiles-param-query"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">query</span></span>)
+        <dt id="searchTiles" class="callable">
+  <span class="name"><a href="../pages_preferences_v2_roots_default_root/DefaultPreferencesRoot/searchTiles.html">searchTiles</a></span><span class="signature">(<wbr><span class="parameter" id="searchTiles-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="searchTiles-param-query"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">query</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../pages_preferences_v2_tiles_preference_tile/PreferenceTile-class.html">PreferenceTile</a></span>&gt;</span></span>
   </span>
   
 
 </dt>
-<dd class="inherited">
+<dd>
   
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">override</span></div>
 
 </dd>
 

@@ -115,6 +115,9 @@ Widget build(BuildContext context) {
 
   final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
   final bool lightTheme = context.lightTheme();
+  final PricesRoot pricesRoot = PricesRoot(
+    title: appLocalizations.preferences_prices_title,
+  );
 
   return ChangeNotifierProvider&lt;PreferencesRootSearchController&gt;(
     create: (_) =&gt; PreferencesRootSearchController(),
@@ -123,7 +126,7 @@ Widget build(BuildContext context) {
           ? LoggedInAppBar(userId: userId)
           : const LoggedOutAppBar(),
       cards: &lt;PreferenceCard&gt;[
-        _buildContributeCard(context, appLocalizations),
+        _buildContributeCard(context, appLocalizations, pricesRoot),
         PreferenceCard(
           title: appLocalizations.preferences_page_customize_app_title,
           tiles: &lt;PreferenceTile&gt;[
@@ -172,6 +175,7 @@ Widget build(BuildContext context) {
           ],
         ),
       ],
+      searchRoots: &lt;PreferencesRoot&gt;[pricesRoot],
       externalSearchTiles: const &lt;ExternalSearchPreferenceTile&gt;[
         WikiSearchPreferenceTile(),
         GithubSearchPreferenceTile(),
