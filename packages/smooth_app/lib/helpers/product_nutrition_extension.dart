@@ -5,62 +5,69 @@ extension ProductNutritionExtension on Product {
   /// Returns the as sold value of [nutrient] for [perSize] (weights in grams),
   /// or null if unknown.
   ///
-  /// Packaging values first, then manufacturer values. Per 100g also takes a
-  /// per 100ml value, or a per serving value scaled to 100.
+  /// Same priority as the server: manufacturer values first, then packaging
+  /// values. Per 100g also takes a per 100ml value, or a per serving value
+  /// scaled to 100.
   double? getNutrientValue(Nutrient nutrient, PerSize perSize) {
-    final List<NutritionSet> sets = _getAsSoldInputSets();
-    for (final PerSize setPerSize in <PerSize>[
+    final List<PerSize> perSizes = <PerSize>[
       perSize,
       if (perSize == PerSize.oneHundredGrams) ...<PerSize>[
         PerSize.oneHundredMilliliters,
         PerSize.serving,
       ],
-    ]) {
-      for (final NutritionSet set in sets) {
-        if (set.key.perSize != setPerSize) {
-          continue;
-        }
-        final NutritionValue? nutritionValue = set.nutritionValues?[nutrient];
-        final num? value = num.tryParse(
-          nutritionValue?.getCleanString() ?? '',
-        );
-        final Unit? unit = nutritionValue?.unit;
-        if (value == null || unit == null) {
-          continue;
-        }
-        final double? grams = NutritionContainerHelper.convertWeightToG(
-          value.toDouble(),
-          unit,
-        );
-        if (setPerSize != PerSize.serving || perSize == PerSize.serving) {
-          return grams;
-        }
-        final double? servingFactor = _getServingTo100Factor(set.key);
-        if (servingFactor != null && grams != null) {
-          return grams * servingFactor;
-        }
+    ];
+    for (final NutritionSet set in _getAsSoldInputSets()) {
+      if (!perSizes.contains(set.key.perSize)) {
+        continue;
+      }
+      final NutritionValue? nutritionValue = set.nutritionValues?[nutrient];
+      final num? value = num.tryParse(nutritionValue?.getCleanString() ?? '');
+      final Unit? unit = nutritionValue?.unit;
+      if (value == null || unit == null) {
+        continue;
+      }
+      final double? grams = NutritionContainerHelper.convertWeightToG(
+        value.toDouble(),
+        unit,
+      );
+      if (set.key.perSize != PerSize.serving || perSize == PerSize.serving) {
+        return grams;
+      }
+      final double? servingFactor = _getServingTo100Factor(set.key);
+      if (servingFactor != null && grams != null) {
+        return grams * servingFactor;
       }
     }
     return null;
   }
 
-  bool get hasNutritionData => _getAsSoldInputSets().any(
-    (NutritionSet set) => set.nutritionValues?.isNotEmpty == true,
-  );
+  bool get hasNutritionData =>
+      (NutritionHelper().getInputSets(this) ?? <NutritionSet>[]).any(
+        (NutritionSet set) =>
+            set.key.preparation == NutritionSetKey.preparationAsSold &&
+            set.key.source != NutritionSetKey.sourceEstimate &&
+            set.nutritionValues?.isNotEmpty == true,
+      );
 
   List<NutritionSet> _getAsSoldInputSets() {
     final List<NutritionSet> sets =
         NutritionHelper().getInputSets(this) ?? <NutritionSet>[];
     return <NutritionSet>[
       for (final String source in <String>[
-        NutritionSetKey.sourcePackaging,
         NutritionSetKey.sourceManufacturer,
+        NutritionSetKey.sourcePackaging,
       ])
-        ...sets.where(
-          (NutritionSet set) =>
-              set.key.source == source &&
-              set.key.preparation == NutritionSetKey.preparationAsSold,
-        ),
+        for (final PerSize perSize in <PerSize>[
+          PerSize.oneHundredGrams,
+          PerSize.oneHundredMilliliters,
+          PerSize.serving,
+        ])
+          ...sets.where(
+            (NutritionSet set) =>
+                set.key.source == source &&
+                set.key.perSize == perSize &&
+                set.key.preparation == NutritionSetKey.preparationAsSold,
+          ),
     ];
   }
 
