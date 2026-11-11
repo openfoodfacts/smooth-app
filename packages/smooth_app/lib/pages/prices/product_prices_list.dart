@@ -121,6 +121,7 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
       color: lightTheme ? null : extension.primaryUltraBlack,
       child: InkWell(
         onTap: () => _showOptionsMenu(context, item),
+        onLongPress: () => _showOptionsMenu(context, item),
         borderRadius: ROUNDED_BORDER_RADIUS,
         child: Padding(
           padding: const EdgeInsetsDirectional.all(SMALL_SPACE),

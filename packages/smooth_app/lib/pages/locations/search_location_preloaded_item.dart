@@ -39,6 +39,15 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
     final String? address = _address;
     final String title = name ?? street ?? address ?? osmLocation.primaryKey;
 
+    final _SearchLocationMenu menu = _SearchLocationMenu(
+      osmLocation: osmLocation,
+      title: title,
+      popFirst: popFirst,
+      onSelect: () => _select(context),
+      onDeleteItem: onDeleteItem,
+      onFavoriteChanged: onFavoriteChanged,
+    );
+
     return SmoothCard(
       elevation: 5.0,
       elevationColor: Colors.black26,
@@ -52,6 +61,7 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
       child: InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: () => _select(context),
+        onLongPress: () => menu.show(context),
         child: DefaultTextStyle.merge(
           style: TextStyle(color: extension.primaryBlack, fontSize: 15.0),
           child: IconTheme.merge(
@@ -115,13 +125,7 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
                                         ),
                                   ),
                           ),
-                          _SearchLocationMenu(
-                            osmLocation: osmLocation,
-                            title: title,
-                            popFirst: popFirst,
-                            onSelect: () => _select(context),
-                            onDeleteItem: onDeleteItem,
-                          ),
+                          menu,
                         ],
                       ),
                     ],
@@ -189,7 +193,7 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
   }
 }
 
-enum _SearchLocationAction { select, openMap, delete }
+enum _SearchLocationAction { select, favorite, openMap, delete }
 
 class _SearchLocationMenu extends StatelessWidget {
   const _SearchLocationMenu({
@@ -198,6 +202,7 @@ class _SearchLocationMenu extends StatelessWidget {
     required this.popFirst,
     required this.onSelect,
     this.onDeleteItem,
+    this.onFavoriteChanged,
   });
 
   final OsmLocation osmLocation;
@@ -205,14 +210,20 @@ class _SearchLocationMenu extends StatelessWidget {
   final bool popFirst;
   final VoidCallback onSelect;
   final VoidCallback? onDeleteItem;
+  final VoidCallback? onFavoriteChanged;
 
   @override
   Widget build(BuildContext context) =>
-      SmoothRoundMenuButton(onPressed: () async => _showOptionsMenu(context));
+      SmoothRoundMenuButton(onPressed: () async => show(context));
 
-  Future<void> _showOptionsMenu(BuildContext context) async {
+  Future<void> show(BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool canDelete = onDeleteItem != null;
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final bool isFavorite = FavoriteLocationHelper().isFavorite(
+      localDatabase,
+      osmLocation,
+    );
 
     final _SearchLocationAction? action =
         await showSmoothListOfChoicesModalSheet<_SearchLocationAction>(
@@ -220,16 +231,25 @@ class _SearchLocationMenu extends StatelessWidget {
           title: appLocalizations.search_location_menu_title(title),
           labels: <String>[
             appLocalizations.search_location_select,
+            if (isFavorite)
+              appLocalizations.search_location_favorite_remove
+            else
+              appLocalizations.search_location_favorite_add,
             appLocalizations.prices_location_open_map,
             if (canDelete) appLocalizations.search_location_remove,
           ],
           prefixIcons: <Widget>[
             const icons.Favorite.check(),
+            if (isFavorite)
+              const icons.Heart.filled()
+            else
+              const icons.Heart.outline(),
             const icons.Map.marker(),
             if (canDelete) const icons.Trash(),
           ],
           values: <_SearchLocationAction>[
             _SearchLocationAction.select,
+            _SearchLocationAction.favorite,
             _SearchLocationAction.openMap,
             if (canDelete) _SearchLocationAction.delete,
           ],
@@ -242,6 +262,13 @@ class _SearchLocationMenu extends StatelessWidget {
     switch (action) {
       case _SearchLocationAction.select:
         onSelect();
+      case _SearchLocationAction.favorite:
+        await FavoriteLocationHelper().setFavorite(
+          localDatabase,
+          osmLocation,
+          !isFavorite,
+        );
+        onFavoriteChanged?.call();
       case _SearchLocationAction.openMap:
         await Navigator.push<OsmLocation>(
           context,

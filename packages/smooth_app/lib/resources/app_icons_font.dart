@@ -779,6 +779,11 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData discount_loyalty = IconData(
+    0xe89a,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData charity = IconData(
     0xe89b,
     fontFamily: _kFontFam,
@@ -1211,6 +1216,41 @@ class _IconsFont {
   );
   static const IconData user_location = IconData(
     0xe936,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData discount_other = IconData(
+    0xe937,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData discount_pick_it = IconData(
+    0xe938,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData discount_quantity = IconData(
+    0xe939,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData discount_sale = IconData(
+    0xe93a,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData discount_seasonal = IconData(
+    0xe93b,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData discount_second_hand = IconData(
+    0xe93c,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData discount_soon = IconData(
+    0xe93d,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
