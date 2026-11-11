@@ -171,17 +171,27 @@ Widget build(BuildContext context) {
             spacer,
             ScanProductBaseCardButton(
               text: appLocalizations.carousel_unknown_product_button,
-              onTap: !dense ? () =&gt; _onTap(context) : null,
+              onTap: () =&gt; _onTap(context),
             ),
           ],
         );
 
+        final Widget clickableChild = InkWell(
+          onTap: () =&gt; _onTap(context),
+          child: child,
+        );
+
         if (dense) {
-          return SingleChildScrollView(
-            child: InkWell(onTap: () =&gt; _onTap(context), child: child),
-          );
+          return SingleChildScrollView(child: clickableChild);
         } else {
-          return child;
+          return CustomScrollView(
+            slivers: &lt;Widget&gt;[
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: clickableChild,
+              ),
+            ],
+          );
         }
       },
     ),
