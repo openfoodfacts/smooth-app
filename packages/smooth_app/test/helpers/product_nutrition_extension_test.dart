@@ -57,6 +57,15 @@ void main() {
       expect(_per100(product, Nutrient.energyKJ), 1200);
     });
 
+    test('computes energy in kJ from kcal', () {
+      final Product product = _product(<Map<String, dynamic>>[
+        _set(<String, Map<String, dynamic>>{
+          'energy-kcal': _value('kcal', '100'),
+        }),
+      ]);
+      expect(_per100(product, Nutrient.energyKJ), 419);
+    });
+
     test('returns null for a missing nutrient', () {
       expect(_per100(product, Nutrient.salt), isNull);
     });

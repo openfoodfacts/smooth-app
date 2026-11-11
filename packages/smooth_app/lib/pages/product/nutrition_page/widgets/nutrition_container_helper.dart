@@ -355,8 +355,12 @@ class NutritionContainerHelper extends ChangeNotifier {
         ),
     ];
 
-    if (getSets(PerSize.oneHundredGrams).nonNulls.isEmpty &&
-        getSets(PerSize.oneHundredMilliliters).nonNulls.isNotEmpty) {
+    bool hasValues(PerSize perSize) => getSets(
+      perSize,
+    ).any((NutritionSet? set) => set?.nutritionValues?.isNotEmpty == true);
+
+    if (!hasValues(PerSize.oneHundredGrams) &&
+        hasValues(PerSize.oneHundredMilliliters)) {
       _hundredPerSize = PerSize.oneHundredMilliliters;
     }
 
