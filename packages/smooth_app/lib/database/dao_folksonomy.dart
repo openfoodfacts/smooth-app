@@ -21,9 +21,9 @@ class DaoFolksonomy extends AbstractSqlDao {
   ];
 
   static FutureOr<void> onUpgrade(
-    final Database db,
-    final int oldVersion,
-    final int newVersion,
+    Database db,
+    int oldVersion,
+    int newVersion,
   ) async {
     if (oldVersion < 9) {
       await db.execute(
@@ -36,7 +36,7 @@ class DaoFolksonomy extends AbstractSqlDao {
     }
   }
 
-  Future<void> put(final String barcode, final List<ProductTag>? tags) async {
+  Future<void> put(String barcode, List<ProductTag>? tags) async {
     if (tags == null) {
       await localDatabase.database.delete(
         _table,
@@ -56,7 +56,7 @@ class DaoFolksonomy extends AbstractSqlDao {
     });
   }
 
-  Future<List<ProductTag>?> get(final String barcode) async {
+  Future<List<ProductTag>?> get(String barcode) async {
     final List<Map<String, dynamic>> result = await localDatabase.database
         .query(
           _table,

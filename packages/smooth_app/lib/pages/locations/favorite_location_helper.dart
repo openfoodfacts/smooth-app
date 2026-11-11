@@ -3,7 +3,7 @@ import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 
-/// Helper used to set/unset/sort stores as user favorites.
+/// Helper used to set/unset stores as user favorites.
 class FavoriteLocationHelper {
   factory FavoriteLocationHelper() {
     _instance ??= const FavoriteLocationHelper._();
@@ -17,9 +17,9 @@ class FavoriteLocationHelper {
 
   /// Sets a store as a favorite store (or not, depending on [isFavorite]).
   Future<void> setFavorite(
-    final LocalDatabase localDatabase,
-    final OsmLocation location,
-    final bool isFavorite,
+    LocalDatabase localDatabase,
+    OsmLocation location,
+    bool isFavorite,
   ) async {
     final DaoStringList daoStringList = DaoStringList(localDatabase);
     final String locationKey = _locationToString(location);
@@ -62,8 +62,8 @@ class FavoriteLocationHelper {
 
   /// Returns true if a store was flagged as favorite.
   bool isFavorite(
-    final LocalDatabase localDatabase,
-    final OsmLocation location,
+    LocalDatabase localDatabase,
+    OsmLocation location,
   ) {
     final DaoStringList daoStringList = DaoStringList(localDatabase);
     final List<String> favorites = daoStringList.getAll(_key);
@@ -71,7 +71,7 @@ class FavoriteLocationHelper {
   }
 
   /// Returns true if a store was flagged as favorite, from stored keys.
-  bool _isFavorite(final List<String> favorites, final OsmLocation location) {
+  bool _isFavorite(List<String> favorites, OsmLocation location) {
     for (final String favorite in favorites) {
       if (favorite == _locationToString(location)) {
         return true;
@@ -80,6 +80,6 @@ class FavoriteLocationHelper {
     return false;
   }
 
-  String _locationToString(final OsmLocation location) =>
+  String _locationToString(OsmLocation location) =>
       '${location.osmType}-${location.osmId}';
 }

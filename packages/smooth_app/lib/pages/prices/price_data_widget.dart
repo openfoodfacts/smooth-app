@@ -9,6 +9,7 @@ import 'package:smooth_app/pages/prices/price_data_value.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 
 /// Price Data display (no product data here).
 class PriceDataWidget extends StatelessWidget {
@@ -107,43 +108,10 @@ class PriceDataWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  _PriceMenuButton(onPressed: showOptionsMenu),
+                  SmoothRoundMenuButton(onPressed: showOptionsMenu),
                 ],
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _PriceMenuButton extends StatelessWidget {
-  const _PriceMenuButton({this.onPressed});
-
-  final VoidCallback? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
-
-    return Tooltip(
-      message: MaterialLocalizations.of(context).showMenuTooltip,
-      child: InkWell(
-        customBorder: const CircleBorder(),
-        onTap: onPressed,
-        child: Ink(
-          decoration: ShapeDecoration(
-            shape: const CircleBorder(),
-            color: extension.primaryMedium,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(SMALL_SPACE),
-            child: icons.ThreeDots.vertical(
-              size: 12.0,
-              color: extension.primarySemiDark,
-            ),
           ),
         ),
       ),

@@ -14,13 +14,13 @@ class PriceCategoryRepository
   @protected
   @override
   Map<OpenFoodFactsLanguage, String>? getTaxonomyNames(
-    final TaxonomyCategory item,
+    TaxonomyCategory item,
   ) => item.name;
 
   @protected
   @override
   Future<Map<String, TaxonomyCategory>?> download(
-    final List<String> tags,
+    List<String> tags,
   ) async => OpenFoodAPIClient.getTaxonomyCategories(
     TaxonomyCategoryQueryConfiguration(
       tags: tags,

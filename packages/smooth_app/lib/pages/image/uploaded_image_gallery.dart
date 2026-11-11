@@ -50,7 +50,7 @@ class UploadedImageGallery extends StatelessWidget {
           appLocalizations.edit_photo_select_existing_all_subtitle,
         ),
         backgroundColor: Colors.black,
-        foregroundColor: WHITE_COLOR,
+        foregroundColor: Colors.white,
         elevation: 0,
         leading: const SmoothBackButton(iconColor: Colors.white),
       ),
@@ -60,7 +60,7 @@ class UploadedImageGallery extends StatelessWidget {
           maxCrossAxisExtent: columnWidth,
           childAspectRatio: 1,
         ),
-        itemBuilder: (final BuildContext context, int index) {
+        itemBuilder: (BuildContext context, int index) {
           // order by descending ids
           index = rawImages.length - 1 - index;
           final ProductImage rawImage = rawImages[index];
@@ -114,13 +114,13 @@ class UploadedImageGallery extends StatelessWidget {
   }
 
   static Future<CropParameters?> useExistingPhotoFor({
-    required final BuildContext context,
-    required final ProductImage rawImage,
-    required final String barcode,
-    required final ImageField imageField,
-    required final bool isLoggedInMandatory,
-    required final ProductType? productType,
-    required final OpenFoodFactsLanguage language,
+    required BuildContext context,
+    required ProductImage rawImage,
+    required String barcode,
+    required ImageField imageField,
+    required bool isLoggedInMandatory,
+    required ProductType? productType,
+    required OpenFoodFactsLanguage language,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final File? imageFile = await downloadImageUrl(

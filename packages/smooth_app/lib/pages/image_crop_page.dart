@@ -49,12 +49,12 @@ class ImagePickerConstants {
 
 /// Safely picks an image file from gallery or camera, regarding access denied.
 Future<XFile?> pickImageFile(
-  final BuildContext context, {
-  final UserPictureSource? forcedSource,
+  BuildContext context, {
+  UserPictureSource? forcedSource,
 }) async {
   /// Picks an image file from gallery or camera.
   Future<XFile?> innerPickImageFile(
-    final BuildContext context, {
+    BuildContext context, {
     bool ignorePlatformException = false,
   }) async {
     final UserPictureSource? source;
@@ -69,7 +69,7 @@ Future<XFile?> pickImageFile(
     final ImagePicker picker = ImagePicker();
     if (source == UserPictureSource.GALLERY) {
       try {
-        return picker.pickImage(
+        return await picker.pickImage(
           imageQuality: ImagePickerConstants.imagePickerQuality,
           maxHeight: ImagePickerConstants.imagePickerMaxSize,
           maxWidth: ImagePickerConstants.imagePickerMaxSize,
@@ -96,7 +96,7 @@ Future<XFile?> pickImageFile(
   }
 
   try {
-    return innerPickImageFile(context);
+    return await innerPickImageFile(context);
   } on PhotoAccessDenied catch (_) {
     if (!context.mounted) {
       return null;
@@ -115,7 +115,7 @@ Future<XFile?> pickImageFile(
 
 /// Returns the picture source selected by the user.
 Future<UserPictureSource?> _getUserPictureSource(
-  final BuildContext context,
+  BuildContext context,
 ) async {
   if (!CameraHelper.hasACamera) {
     return UserPictureSource.GALLERY;
@@ -221,7 +221,7 @@ class _ImageSourcePickerState extends State<_ImageSourcePicker> {
                       activeColor: Theme.of(context).primaryColor,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       value: rememberChoice,
-                      onChanged: (final bool? value) =>
+                      onChanged: (bool? value) =>
                           setState(() => rememberChoice = value ?? false),
                     ),
                   ),
@@ -302,13 +302,13 @@ class _ImageSourceButton extends StatelessWidget {
 
 /// Lets the user pick a new product picture, crop it, and save it.
 Future<CropParameters?> confirmAndUploadNewPicture(
-  final BuildContext context, {
-  required final ImageField imageField,
-  required final String barcode,
-  required final ProductType? productType,
-  required final OpenFoodFactsLanguage language,
-  required final bool isLoggedInMandatory,
-  final UserPictureSource? forcedSource,
+  BuildContext context, {
+  required ImageField imageField,
+  required String barcode,
+  required ProductType? productType,
+  required OpenFoodFactsLanguage language,
+  required bool isLoggedInMandatory,
+  UserPictureSource? forcedSource,
 }) async => confirmAndUploadNewImage(
   context,
   cropHelper: ProductCropNewHelper(
@@ -323,10 +323,10 @@ Future<CropParameters?> confirmAndUploadNewPicture(
 
 /// Lets the user pick a picture, crop it, and save it.
 Future<CropParameters?> confirmAndUploadNewImage(
-  final BuildContext context, {
-  required final CropHelper cropHelper,
-  required final bool isLoggedInMandatory,
-  final UserPictureSource? forcedSource,
+  BuildContext context, {
+  required CropHelper cropHelper,
+  required bool isLoggedInMandatory,
+  UserPictureSource? forcedSource,
 }) async {
   final XFile? fullPhoto = await pickImageFile(
     context,
@@ -355,7 +355,7 @@ Future<CropParameters?> confirmAndUploadNewImage(
   );
 }
 
-Future<bool?> _onGalleryAccessDenied(final BuildContext context) {
+Future<bool?> _onGalleryAccessDenied(BuildContext context) {
   return showDialog<bool>(
     context: context,
     builder: (BuildContext context) {
@@ -387,9 +387,9 @@ Future<bool?> _onGalleryAccessDenied(final BuildContext context) {
 
 /// Downloads an image URL into a file, with a dialog.
 Future<File?> downloadImageUrl(
-  final BuildContext context,
-  final String? imageUrl,
-  final DaoInt daoInt,
+  BuildContext context,
+  String? imageUrl,
+  DaoInt daoInt,
 ) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   if (imageUrl == null) {

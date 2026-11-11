@@ -41,8 +41,8 @@ abstract class ProductListSupplier {
 
   /// Returns the fastest data supplier: database if possible, or server query
   static Future<ProductListSupplier> getBestSupplier(
-    final PagedProductQuery productQuery,
-    final LocalDatabase localDatabase,
+    PagedProductQuery productQuery,
+    LocalDatabase localDatabase,
   ) async {
     final int? timestamp = await DaoProductList(
       localDatabase,

@@ -164,5 +164,7 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
 /// Network cache, with url as key and SVG data as value.
 Map<String, String> _networkCache = <String, String>{};
 
-typedef WidgetErrorBuilder =
-    Widget Function(BuildContext context, dynamic exception);
+typedef WidgetErrorBuilder = Widget Function(
+  BuildContext context,
+  dynamic exception,
+);

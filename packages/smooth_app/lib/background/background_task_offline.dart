@@ -28,10 +28,10 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
   static const OperationType _operationType = OperationType.offline;
 
   static Future<void> addTask({
-    required final BuildContext context,
-    required final int pageSize,
-    required final int totalSize,
-    required final ProductType productType,
+    required BuildContext context,
+    required int pageSize,
+    required int totalSize,
+    required ProductType productType,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
@@ -58,18 +58,18 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => (
     appLocalizations.background_task_title_top_n,
     AlignmentDirectional.bottomCenter,
   );
 
   static BackgroundTaskOffline _getNewTask(
-    final String uniqueId,
-    final String work,
-    final int pageSize,
-    final int totalSize,
-    final ProductType productType,
+    String uniqueId,
+    String work,
+    int pageSize,
+    int totalSize,
+    ProductType productType,
   ) => BackgroundTaskOffline._(
     processName: _operationType.processName,
     uniqueId: uniqueId,
@@ -81,13 +81,13 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
   );
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {}
+  Future<void> preExecute(LocalDatabase localDatabase) async {}
 
   @override
   bool get hasImmediateNextTask => true;
 
   @override
-  Future<void> execute(final LocalDatabase localDatabase) async {
+  Future<void> execute(LocalDatabase localDatabase) async {
     final DaoWorkBarcode daoWorkBarcode = DaoWorkBarcode(localDatabase);
     await daoWorkBarcode.deleteWork(work);
     await BackgroundTaskTopBarcodes.addTask(

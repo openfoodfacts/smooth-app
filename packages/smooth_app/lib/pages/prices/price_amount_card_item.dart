@@ -74,13 +74,13 @@ class _PriceAmountCardItemState extends State<PriceAmountCardItem> {
             value: model.product.pricePer,
             items: PricePer.values
                 .map(
-                  (final PricePer pricePer) => SmoothDropdownItem<PricePer>(
+                  (PricePer pricePer) => SmoothDropdownItem<PricePer>(
                     value: pricePer,
                     label: pricePer.getTitle(appLocalizations),
                   ),
                 )
                 .toList(),
-            onChanged: (final PricePer? value) {
+            onChanged: (PricePer? value) {
               if (value == null) {
                 return;
               }
@@ -89,8 +89,7 @@ class _PriceAmountCardItemState extends State<PriceAmountCardItem> {
           ),
         SwitchListTile(
           value: model.promo,
-          onChanged: (final bool value) =>
-              setState(() => model.promo = !model.promo),
+          onChanged: (bool value) => setState(() => model.promo = !model.promo),
           title: Text(appLocalizations.prices_amount_is_discounted),
           controlAffinity: ListTileControlAffinity.leading,
           contentPadding: EdgeInsetsDirectional.zero,
@@ -98,7 +97,7 @@ class _PriceAmountCardItemState extends State<PriceAmountCardItem> {
         if (model.promo)
           PriceDiscountTypeDropdown(
             value: model.discountType,
-            onChanged: (final DiscountType? value) {
+            onChanged: (DiscountType? value) {
               setState(() => model.discountType = value);
             },
           ),

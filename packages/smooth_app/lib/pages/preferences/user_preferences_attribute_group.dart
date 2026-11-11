@@ -33,7 +33,9 @@ class UserPreferencesAttributeGroup {
   final ProductPreferences productPreferences;
   final AttributeGroup group;
 
-  bool get _isCollapsed => userPreferences.activeAttributeGroup != group.id;
+  // true for every group, except the expanded group
+  bool get isCollapsedByDefault =>
+      userPreferences.activeAttributeGroup != group.id;
 
   List<Widget> getContent() {
     final List<Widget> result = <Widget>[];
@@ -43,10 +45,10 @@ class UserPreferencesAttributeGroup {
     return result;
   }
 
-  List<UserPreferencesItem> getItems({bool? collapsed}) {
+  List<UserPreferencesItem> getItems({bool? isCollapsed}) {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
-    collapsed ??= _isCollapsed;
+    final bool shouldCollapse = isCollapsed ?? isCollapsedByDefault;
     final List<UserPreferencesItem> result = <UserPreferencesItem>[];
     result.add(
       UserPreferencesItemSimple(
@@ -59,9 +61,17 @@ class UserPreferencesAttributeGroup {
             padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
             child: InkWell(
               borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
-              onTap: () => collapsed == true
-                  ? userPreferences.setActiveAttributeGroup(group.id!)
-                  : null,
+              onTap: () {
+                final String? groupId = group.id;
+                if (groupId == null) {
+                  // keep the selection unchanged when the group has no ID
+                  return;
+                }
+
+                userPreferences.setActiveAttributeGroup(
+                  shouldCollapse ? groupId : '',
+                );
+              },
               child: ListTile(
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadiusDirectional.vertical(
@@ -99,7 +109,7 @@ class UserPreferencesAttributeGroup {
                   child: icons.AppIconTheme(
                     size: 10.0,
                     color: Colors.white,
-                    child: collapsed!
+                    child: shouldCollapse
                         ? const icons.Chevron.up()
                         : const icons.Chevron.down(),
                   ),
@@ -110,14 +120,14 @@ class UserPreferencesAttributeGroup {
         ),
       ),
     );
-    if (collapsed) {
+    if (shouldCollapse) {
       return result;
     }
     if (group.warning != null) {
       result.add(
         UserPreferencesItemSimple(
           labels: <String>[group.warning!],
-          builder: (final BuildContext context) {
+          builder: (BuildContext context) {
             final ColorScheme colorScheme = Theme.of(context).colorScheme;
             return Container(
               color: colorScheme.error,

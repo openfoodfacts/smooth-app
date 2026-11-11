@@ -33,15 +33,15 @@ class MultilingualHelper extends ChangeNotifier {
   ///
   /// Here we try our best to find translations and a default language.
   void init({
-    required final Map<OpenFoodFactsLanguage, String>? multilingualTexts,
-    required final String? monolingualText,
-    final List<ProductImage>? selectedImages,
-    final ImageField? imageField,
+    required Map<OpenFoodFactsLanguage, String>? multilingualTexts,
+    required String? monolingualText,
+    List<ProductImage>? selectedImages,
+    ImageField? imageField,
     OpenFoodFactsLanguage? productLanguage,
   }) {
     void setMultilingualText(
-      final OpenFoodFactsLanguage language,
-      final String text,
+      OpenFoodFactsLanguage language,
+      String text,
     ) => _initialMultilingualTexts[language] =
         _currentMultilingualTexts[language] = text;
 
@@ -146,7 +146,7 @@ class MultilingualHelper extends ChangeNotifier {
         <OpenFoodFactsLanguage, String>{};
 
     // setting new names, comparing them to old names for change flag.
-    void setNewName(final OpenFoodFactsLanguage language) {
+    void setNewName(OpenFoodFactsLanguage language) {
       final String newName = getCleanText(_currentMultilingualTexts[language]);
       final String oldName = getCleanText(_initialMultilingualTexts[language]);
       if (newName != oldName) {
@@ -177,7 +177,7 @@ class MultilingualHelper extends ChangeNotifier {
     return _initialMultilingualTexts;
   }
 
-  static String getCleanText(final String? name) => (name ?? '').trim();
+  static String getCleanText(String? name) => (name ?? '').trim();
 
   bool hasChanged() {
     if (isMonolingual()) {

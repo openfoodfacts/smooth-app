@@ -154,10 +154,10 @@ class _ProductFooterButtonsBar extends StatelessWidget {
                 bottomPadding: bottomPadding,
               )
             : ConsumerFilter<UserPreferences>(
-                buildWhen:
-                    (UserPreferences? previous, UserPreferences current) =>
-                        previous?.productPageActions !=
-                        current.productPageActions,
+                buildWhen: (
+                  UserPreferences? previous,
+                  UserPreferences current,
+                ) => previous?.productPageActions != current.productPageActions,
                 builder:
                     (BuildContext context, UserPreferences userPreferences, _) {
                       final List<ProductFooterActionBar> productPageActions =

@@ -38,10 +38,10 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   bool _initialized = false;
 
   @protected
-  bool containsTerm(final String term) => _terms.contains(term);
+  bool containsTerm(String term) => _terms.contains(term);
 
   /// Starts from scratch with a new (or refreshed) [Product].
-  void reInit(final Product product, {final bool backgroundTask = false}) {
+  void reInit(Product product, {bool backgroundTask = false}) {
     this.product = product;
     _terms = List<String>.from(initTerms(this.product));
     _initTerms = List<String>.from(_terms);
@@ -73,7 +73,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// WARNING: this list must be copied; if not you may alter the product.
   /// cf. https://github.com/openfoodfacts/smooth-app/issues/3529
   @protected
-  List<String> initTerms(final Product product);
+  List<String> initTerms(Product product);
 
   /// Returns the current terms to be displayed.
   List<String> get terms => _terms;
@@ -81,7 +81,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   bool isNewTerm(String term) => !_initTerms.contains(term);
 
   /// Returns true if the field is populated.
-  bool isPopulated(final Product product) => initTerms(product).isNotEmpty;
+  bool isPopulated(Product product) => initTerms(product).isNotEmpty;
 
   /// Returns true if the term was not in the list and then was added.
   bool addTerm(String term) {
@@ -128,7 +128,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   ///
   /// The things we build the interface, very unlikely to return false,
   /// as we remove existing items.
-  bool removeTerm(final String term) {
+  bool removeTerm(String term) {
     if (_terms.remove(term)) {
       _changed = _computeHasChanged();
       notifyListeners();
@@ -139,7 +139,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   bool _computeHasChanged() =>
       robotoffQuestionsNotifier.value.values.any(
-        (final InsightAnnotation? annotation) => annotation != null,
+        (InsightAnnotation? annotation) => annotation != null,
       ) ||
       !const DeepCollectionEquality().equals(_terms, _initTerms);
 
@@ -147,30 +147,29 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   ///
   /// Typical use case: for category, that have a distinct label when the values
   /// are already set.
-  String getStandardAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getStandardAddButtonLabel(AppLocalizations appLocalizations) =>
       getAddButtonLabel(appLocalizations);
 
   /// Returns the title on the main "edit product" page.
-  String getTitle(final AppLocalizations appLocalizations);
+  String getTitle(AppLocalizations appLocalizations);
 
   /// Returns the subtitle on the main "edit product" page.
-  String? getSubtitle(final AppLocalizations appLocalizations) => null;
+  String? getSubtitle(AppLocalizations appLocalizations) => null;
 
   /// Returns the label of the corresponding "add" button.
-  String getAddButtonLabel(final AppLocalizations appLocalizations);
+  String getAddButtonLabel(AppLocalizations appLocalizations);
 
   /// Returns the hint of the "add" text field.
-  String getAddHint(final AppLocalizations appLocalizations);
+  String getAddHint(AppLocalizations appLocalizations);
 
   /// Returns the type of the text field (eg: label, category…).
-  String getTypeLabel(final AppLocalizations appLocalizations);
+  String getTypeLabel(AppLocalizations appLocalizations);
 
   /// Returns the Tooltip for the "add" text field.
-  String getAddTooltip(final AppLocalizations appLocalizations);
+  String getAddTooltip(AppLocalizations appLocalizations);
 
   /// Returns additional examples about the "add" text field.
-  String? getAddExplanationsTitle(final AppLocalizations appLocalizations) =>
-      null;
+  String? getAddExplanationsTitle(AppLocalizations appLocalizations) => null;
 
   /// Returns additional examples about the "add" text field.
   WidgetBuilder? getAddExplanationsContent() => null;
@@ -179,7 +178,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   BackgroundTaskDetailsStamp getStamp();
 
   /// Impacts a product in order to take the changes into account.
-  void changeProduct(final Product changedProduct);
+  void changeProduct(Product changedProduct);
 
   /// Allows to provide some suggestions to the user.
   ValueNotifier<SimpleInputSuggestionsState> getSuggestions() =>
@@ -197,8 +196,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   Widget getIcon();
 
   /// Extra widget to be displayed after the list.
-  Widget? getExtraWidget(final BuildContext context, final Product product) =>
-      null;
+  Widget? getExtraWidget(BuildContext context, Product product) => null;
 
   /// Text capitalization for the text field.
   TextCapitalization? getTextCapitalization() => null;
@@ -209,9 +207,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Typical extra widget for the "add other pics" button.
   @protected
   Widget getExtraPhotoWidget(
-    final BuildContext context,
-    final Product product,
-    final String title,
+    BuildContext context,
+    Product product,
+    String title,
   ) => Padding(
     padding: const EdgeInsetsDirectional.only(
       top: 0,
@@ -241,7 +239,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   );
 
   /// Returns true if changes were made.
-  bool getChangedProduct(final Product product) {
+  bool getChangedProduct(Product product) {
     if (!_changed) {
       return false;
     }
@@ -276,7 +274,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   ///
   /// The item separator is the comma.
   bool addItemsFromController(
-    final TextEditingController controller, {
+    TextEditingController controller, {
     bool clearController = true,
   }) {
     try {
@@ -309,7 +307,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   }
 
   /// Mainly used when reordering the list.
-  void replaceItems(final List<String> items) {
+  void replaceItems(List<String> items) {
     if (const DeepCollectionEquality().equals(_terms, items)) {
       return;
     }
@@ -332,7 +330,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   AnalyticsEditEvents getAnalyticsEditEvent();
 
   /// Returns true if the field is an owner field.
-  bool isOwnerField(final Product product) => false;
+  bool isOwnerField(Product product) => false;
 
   final ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
   robotoffQuestionsNotifier =
@@ -370,13 +368,13 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   }
 
   void answerRobotoffQuestion(
-    final RobotoffQuestion question,
-    final InsightAnnotation? annotation,
+    RobotoffQuestion question,
+    InsightAnnotation? annotation,
   ) {
     robotoffQuestionsNotifier.value = robotoffQuestionsNotifier.value
         .map<RobotoffQuestion, InsightAnnotation?>((
-          final RobotoffQuestion key,
-          final InsightAnnotation? value,
+          RobotoffQuestion key,
+          InsightAnnotation? value,
         ) {
           if (key == question) {
             return MapEntry<RobotoffQuestion, InsightAnnotation?>(
@@ -433,24 +431,24 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
   bool get editable => true;
 
   @override
-  List<String> initTerms(final Product product) => splitString(product.brands);
+  List<String> initTerms(Product product) => splitString(product.brands);
 
   @override
-  void changeProduct(final Product changedProduct) =>
+  void changeProduct(Product changedProduct) =>
       changedProduct.brands = MultilingualHelper.getCleanText(
         formatProductBrands(terms.join(separator)),
       );
 
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.brand_names;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getAddButtonLabel(AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_product_brands;
 
   @override
-  String getAddHint(final AppLocalizations appLocalizations) =>
+  String getAddHint(AppLocalizations appLocalizations) =>
       appLocalizations.add_basic_details_brand_names_hint;
 
   @override
@@ -564,22 +562,22 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms(final Product product) => splitString(product.stores);
+  List<String> initTerms(Product product) => splitString(product.stores);
 
   @override
-  void changeProduct(final Product changedProduct) =>
+  void changeProduct(Product changedProduct) =>
       changedProduct.stores = terms.join(separator);
 
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_stores_title;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getAddButtonLabel(AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_product_stores;
 
   @override
-  String getAddHint(final AppLocalizations appLocalizations) =>
+  String getAddHint(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_stores_hint;
 
   @override
@@ -641,22 +639,22 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms(final Product product) => splitString(product.origins);
+  List<String> initTerms(Product product) => splitString(product.origins);
 
   @override
-  void changeProduct(final Product changedProduct) =>
+  void changeProduct(Product changedProduct) =>
       changedProduct.origins = terms.join(separator);
 
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_origins_title;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getAddButtonLabel(AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_product_origins;
 
   @override
-  String getAddHint(final AppLocalizations appLocalizations) =>
+  String getAddHint(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_origins_hint;
 
   @override
@@ -710,7 +708,7 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.origins;
 
   @override
-  Widget? getExtraWidget(final BuildContext context, final Product product) =>
+  Widget? getExtraWidget(BuildContext context, Product product) =>
       getExtraPhotoWidget(
         context,
         product,
@@ -724,23 +722,22 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms(final Product product) =>
-      splitString(product.embCodes);
+  List<String> initTerms(Product product) => splitString(product.embCodes);
 
   @override
-  void changeProduct(final Product changedProduct) =>
+  void changeProduct(Product changedProduct) =>
       changedProduct.embCodes = terms.join(separator);
 
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_title;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getAddButtonLabel(AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_product_emb;
 
   @override
-  String getAddHint(final AppLocalizations appLocalizations) =>
+  String getAddHint(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_hint;
 
   @override
@@ -827,7 +824,7 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
       AnalyticsEditEvents.traceabilityCodes;
 
   @override
-  Widget? getExtraWidget(final BuildContext context, final Product product) =>
+  Widget? getExtraWidget(BuildContext context, Product product) =>
       getExtraPhotoWidget(
         context,
         product,
@@ -844,11 +841,11 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms(final Product product) =>
+  List<String> initTerms(Product product) =>
       product.labelsTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
-  void changeProduct(final Product changedProduct) {
+  void changeProduct(Product changedProduct) {
     // for the local change
     changedProduct.labelsTagsInLanguages =
         <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
@@ -857,19 +854,19 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   }
 
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_labels_title;
 
   @override
-  String getSubtitle(final AppLocalizations appLocalizations) =>
+  String getSubtitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_labels_subtitle;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getAddButtonLabel(AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_product_labels;
 
   @override
-  String getAddHint(final AppLocalizations appLocalizations) =>
+  String getAddHint(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_labels_hint;
 
   @override
@@ -931,7 +928,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       AnalyticsEditEvents.labelsAndCertifications;
 
   @override
-  Widget? getExtraWidget(final BuildContext context, final Product product) =>
+  Widget? getExtraWidget(BuildContext context, Product product) =>
       getExtraPhotoWidget(
         context,
         product,
@@ -945,7 +942,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   @override
-  bool isOwnerField(final Product product) =>
+  bool isOwnerField(Product product) =>
       product.getOwnerFieldTimestamp(
         OwnerField.productField(
           ProductField.CATEGORIES,
@@ -955,7 +952,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
       null;
 
   @override
-  List<String> initTerms(final Product product) =>
+  List<String> initTerms(Product product) =>
       product.categoriesTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
@@ -967,7 +964,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   }
 
   @override
-  void changeProduct(final Product changedProduct) {
+  void changeProduct(Product changedProduct) {
     // for the local change
     changedProduct.categoriesTagsInLanguages =
         <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
@@ -976,11 +973,11 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   }
 
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_title;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) {
+  String getAddButtonLabel(AppLocalizations appLocalizations) {
     if (terms.isNotEmpty) {
       return appLocalizations.score_add_missing_precise_product_category;
     }
@@ -988,7 +985,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   }
 
   @override
-  String getStandardAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getStandardAddButtonLabel(AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_product_category;
 
   @override
@@ -1029,7 +1026,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   };
 
   @override
-  String getAddHint(final AppLocalizations appLocalizations) =>
+  String getAddHint(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_hint;
 
   @override

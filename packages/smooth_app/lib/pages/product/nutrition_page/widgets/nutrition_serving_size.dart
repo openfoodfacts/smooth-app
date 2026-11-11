@@ -28,9 +28,11 @@ class NutritionServingSize extends StatelessWidget {
           child: SmoothCardWithRoundedHeader(
             title: appLocalizations.nutrition_page_serving_size,
             leading: Consumer<TextEditingController>(
-              builder:
-                  (BuildContext context, TextEditingController controller, _) =>
-                      ScaleAnimation(animated: controller.text.isNotEmpty),
+              builder: (
+                BuildContext context,
+                TextEditingController controller,
+                _,
+              ) => ScaleAnimation(animated: controller.text.isNotEmpty),
             ),
             leadingIconSize: 21.0,
             leadingPadding: const EdgeInsetsDirectional.only(

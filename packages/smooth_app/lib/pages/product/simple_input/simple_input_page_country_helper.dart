@@ -26,11 +26,11 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   final List<OpenFoodFactsCountry> _countries = OpenFoodFactsCountry.values;
 
   @override
-  List<String> initTerms(final Product product) =>
+  List<String> initTerms(Product product) =>
       product.countriesTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
-  void reInit(final Product product, {final bool backgroundTask = false}) {
+  void reInit(Product product, {bool backgroundTask = false}) {
     super.reInit(product);
 
     if (backgroundTask) {
@@ -51,7 +51,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   bool addItemsFromController(
-    final TextEditingController controller, {
+    TextEditingController controller, {
     bool clearController = true,
   }) {
     final bool result = super.addItemsFromController(
@@ -65,7 +65,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   }
 
   @override
-  void changeProduct(final Product changedProduct) {
+  void changeProduct(Product changedProduct) {
     // for the temporary local change
     changedProduct.countriesTagsInLanguages =
         <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
@@ -95,15 +95,15 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   }
 
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_countries_title;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getAddButtonLabel(AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_product_countries;
 
   @override
-  String getAddHint(final AppLocalizations appLocalizations) =>
+  String getAddHint(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_countries_hint;
 
   @override

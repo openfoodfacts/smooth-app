@@ -30,10 +30,10 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final WidgetStateProperty<double?>? elevation;
 
-  Color _getBackgroundColor(final ThemeData themeData) =>
+  Color _getBackgroundColor(ThemeData themeData) =>
       backgroundColor ?? themeData.colorScheme.secondary;
 
-  Color _getForegroundColor(final ThemeData themeData) =>
+  Color _getForegroundColor(ThemeData themeData) =>
       foregroundColor ?? themeData.colorScheme.onSecondary;
 
   @override

@@ -19,6 +19,9 @@ class DefaultPreferencesRoot extends PreferencesRoot {
   final WidgetBuilder? footer;
 
   @override
+  State<PreferencesRoot> createState() => PreferencesRootState();
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) => cards;
 
   @override

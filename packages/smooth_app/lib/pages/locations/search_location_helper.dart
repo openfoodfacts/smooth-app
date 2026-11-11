@@ -5,7 +5,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/location_query_page.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Search helper dedicated to location search.
@@ -16,12 +16,25 @@ class SearchLocationHelper extends SearchHelper {
   String get historyKey => DaoStringList.keySearchLocationHistory;
 
   @override
-  String getHintText(final AppLocalizations appLocalizations) =>
+  String getHintText(AppLocalizations appLocalizations) =>
       appLocalizations.search_store;
 
   @override
   String getHelpText(AppLocalizations appLocalizations) =>
       appLocalizations.search_store_help;
+
+  @override
+  String getPreloadedItemsTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.search_history_locations;
+
+  @override
+  Widget getPreloadedItemsTitleIcon() => const icons.Search.history();
+
+  @override
+  Widget getQueriesTitleIcon() => const icons.History();
+
+  @override
+  bool get showPasteFromClipboard => false;
 
   @override
   Widget? getLeadingWidget(BuildContext context) {
@@ -35,10 +48,7 @@ class SearchLocationHelper extends SearchHelper {
           shape: const CircleBorder(),
           color: theme.primaryMedium,
         ),
-        child: const Padding(
-          padding: EdgeInsetsDirectional.only(top: 1.0),
-          child: Location(),
-        ),
+        child: const icons.World.location(),
       ),
     );
   }

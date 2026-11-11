@@ -159,7 +159,7 @@ class _CameraScannerPageState extends State<CameraScannerPage>
     );
   }
 
-  Future<bool> _onNewBarcodeDetected(final String barcode) async {
+  Future<bool> _onNewBarcodeDetected(String barcode) async {
     if (!await _model.onScan(barcode)) {
       return false;
     }

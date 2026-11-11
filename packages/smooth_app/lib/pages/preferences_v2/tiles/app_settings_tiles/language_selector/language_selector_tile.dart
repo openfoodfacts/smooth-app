@@ -106,7 +106,7 @@ class LanguageSelectorTile extends PreferenceTile {
     );
   }
 
-  static String _getCompleteName(final OpenFoodFactsLanguage language) {
+  static String _getCompleteName(OpenFoodFactsLanguage language) {
     final String nameInLanguage = Languages().getNameInLanguage(language);
     final String nameInEnglish = Languages().getNameInEnglish(language);
     return '$nameInLanguage ($nameInEnglish)';

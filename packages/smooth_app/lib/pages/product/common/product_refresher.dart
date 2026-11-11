@@ -25,7 +25,7 @@ import 'package:smooth_app/services/smooth_services.dart';
 class ProductRefresher {
   /// Checks if the user is logged in and opens a "please log in" dialog if not.
   Future<bool> checkIfLoggedIn(
-    final BuildContext context, {
+    BuildContext context, {
     required bool isLoggedInMandatory,
   }) async {
     if (!isLoggedInMandatory) {
@@ -77,9 +77,9 @@ class ProductRefresher {
 
   /// Returns the standard configuration for barcode product query.
   ProductQueryConfiguration getBarcodeQueryConfiguration(
-    final String barcode,
-    final OpenFoodFactsLanguage language, {
-    final IngredientsUnwantedParameter? unwantedIngredients,
+    String barcode,
+    OpenFoodFactsLanguage language, {
+    IngredientsUnwantedParameter? unwantedIngredients,
   }) => ProductQueryConfiguration(
     barcode,
     fields: ProductQuery.fields,
@@ -93,9 +93,9 @@ class ProductRefresher {
 
   /// Returns the standard configuration for several barcodes product query.
   ProductSearchQueryConfiguration getBarcodeListQueryConfiguration(
-    final List<String> barcodes,
-    final OpenFoodFactsLanguage language, {
-    final IngredientsUnwantedParameter? unwantedIngredients,
+    List<String> barcodes,
+    OpenFoodFactsLanguage language, {
+    IngredientsUnwantedParameter? unwantedIngredients,
   }) => ProductSearchQueryConfiguration(
     fields: ProductQuery.fields,
     language: language,
@@ -113,9 +113,9 @@ class ProductRefresher {
   ///
   /// Silent version.
   Future<List<String>?> silentFetchAndRefreshList({
-    required final List<String> barcodes,
-    required final LocalDatabase localDatabase,
-    required final ProductType productType,
+    required List<String> barcodes,
+    required LocalDatabase localDatabase,
+    required ProductType productType,
   }) async => _fetchAndRefreshList(localDatabase, barcodes, productType);
 
   /// Fetches the product from the server and refreshes the local database.
@@ -123,8 +123,8 @@ class ProductRefresher {
   /// With a waiting dialog.
   /// Returns true if successful.
   Future<bool> fetchAndRefresh({
-    required final String barcode,
-    required final BuildContext context,
+    required String barcode,
+    required BuildContext context,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -163,8 +163,8 @@ class ProductRefresher {
 
   /// Returns the product type stored locally for that product.
   static Future<ProductType?> getCurrentProductType({
-    required final LocalDatabase localDatabase,
-    required final String barcode,
+    required LocalDatabase localDatabase,
+    required String barcode,
   }) async {
     final Product? localProduct = await DaoProduct(localDatabase).get(barcode);
     return localProduct?.productType;
@@ -174,8 +174,8 @@ class ProductRefresher {
   ///
   /// Silent version.
   Future<FetchedProduct> silentFetchAndRefresh({
-    required final LocalDatabase localDatabase,
-    required final String barcode,
+    required LocalDatabase localDatabase,
+    required String barcode,
   }) async {
     // Now we let "food" redirect the queries if needed, as we use
     // ProductTypeFilter.all
@@ -236,9 +236,9 @@ class ProductRefresher {
   /// Returns the list of barcodes for which a product was found
   /// or null if error.
   Future<List<String>?> _fetchAndRefreshList(
-    final LocalDatabase localDatabase,
-    final List<String> barcodes,
-    final ProductType productType,
+    LocalDatabase localDatabase,
+    List<String> barcodes,
+    ProductType productType,
   ) async {
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();

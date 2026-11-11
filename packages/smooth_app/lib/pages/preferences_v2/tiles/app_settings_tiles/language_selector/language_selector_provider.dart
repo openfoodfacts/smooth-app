@@ -71,8 +71,8 @@ class _LanguageSelectorProvider
     );
 
     languagesList.sort((
-      final OpenFoodFactsLanguage a,
-      final OpenFoodFactsLanguage b,
+      OpenFoodFactsLanguage a,
+      OpenFoodFactsLanguage b,
     ) {
       final String aName = languages.getNameInEnglish(a);
       final String bName = languages.getNameInEnglish(b);

@@ -17,7 +17,7 @@ class DaoTransientFolksonomy extends AbstractDao {
 
   Box<String> _getBox() => Hive.box<String>(_hiveBoxName);
 
-  List<FolksonomyOperation>? get(final String barcode) {
+  List<FolksonomyOperation>? get(String barcode) {
     final String? value = _getBox().get(barcode);
     if (value == null) {
       return null;
@@ -26,14 +26,14 @@ class DaoTransientFolksonomy extends AbstractDao {
   }
 
   Future<void> put(
-    final String barcode,
-    final List<FolksonomyOperation> operations,
+    String barcode,
+    List<FolksonomyOperation> operations,
   ) => _getBox().put(barcode, _writeFolksonomyOperationsToJson(operations));
 
-  Future<void> delete(final String barcode) async => _getBox().delete(barcode);
+  Future<void> delete(String barcode) async => _getBox().delete(barcode);
 
   List<FolksonomyOperation> _getFolksonomyOperationsFromJson(
-    final String operations,
+    String operations,
   ) => (jsonDecode(operations) as List<dynamic>)
       .map(
         (dynamic json) =>
@@ -42,7 +42,7 @@ class DaoTransientFolksonomy extends AbstractDao {
       .toList();
 
   String _writeFolksonomyOperationsToJson(
-    final List<FolksonomyOperation> operations,
+    List<FolksonomyOperation> operations,
   ) => jsonEncode(
     operations
         .map((FolksonomyOperation operation) => operation.toJson())

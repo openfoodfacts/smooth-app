@@ -55,8 +55,8 @@ class PricesPage extends StatelessWidget {
                 currentValue.shouldShowPricesFeedbackForm,
         builder:
             (
-              final BuildContext context,
-              final UserPreferences userPreferences,
+              BuildContext context,
+              UserPreferences userPreferences,
               _,
             ) {
               if (!userPreferences.shouldShowPricesFeedbackForm) {

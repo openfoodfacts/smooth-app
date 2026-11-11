@@ -23,8 +23,8 @@ class GetPricesModel {
 
   /// Gets latest prices for a product.
   factory GetPricesModel.product({
-    required final PriceMetaProduct product,
-    required final BuildContext context,
+    required PriceMetaProduct product,
+    required BuildContext context,
   }) => GetPricesModel(
     parameters: getStandardPricesParameters()..productCode = product.barcode,
     displayEachProduct: false,

@@ -42,7 +42,7 @@ class LocationQueryModel with ChangeNotifier {
 
   final Set<String> _locationKeys = <String>{};
 
-  Future<void> _process(final List<OsmLocation> locations) async {
+  Future<void> _process(List<OsmLocation> locations) async {
     for (final OsmLocation location in locations) {
       final String primaryKey = location.primaryKey;
       if (_locationKeys.contains(primaryKey)) {
@@ -57,7 +57,7 @@ class LocationQueryModel with ChangeNotifier {
   LocationListSupplier? get alternateSupplier =>
       _currentSupplier.alternateSupplier;
 
-  Future<void> loadMore(final LocationListSupplier supplier) async {
+  Future<void> loadMore(LocationListSupplier supplier) async {
     _currentSupplier = supplier;
     await _asyncLoad();
   }

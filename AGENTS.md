@@ -11,14 +11,14 @@ variations, and extensive testing infrastructure.
 
 ### Flutter Version Management
 
-- **CRITICAL**: This app requires Flutter version **3.44.8** exactly (as specified in
+- **CRITICAL**: This app requires Flutter version **3.47.9** exactly (as specified in
   `flutter-version.txt`)
 - **ALWAYS** use FVM (Flutter Version Management) for consistent Flutter versions:
   ```bash
   # Install FVM first: https://fvm.app/documentation/getting-started/installation
-  fvm install 3.44.8
-  fvm use 3.44.8
-  fvm flutter --version  # Should show Flutter 3.44.8
+  fvm install 3.47.9
+  fvm use 3.47.9
+  fvm flutter --version  # Should show Flutter 3.47.9
   ```
 - Export Flutter to PATH: `export PATH="$(fvm flutter sdk-path)/bin:$PATH"`
 
@@ -49,6 +49,12 @@ variations, and extensive testing infrastructure.
 
 ```bash
 cd packages/smooth_app
+
+# Fast development (Desktop / Mobile without heavy scanner/store overhead) - RECOMMENDED FOR UI & LOGIC
+fvm flutter run -t lib/entrypoints/dev/main_dev.dart
+# Run directly on Desktop (instant build, no emulator required):
+fvm flutter run -d macos -t lib/entrypoints/dev/main_dev.dart
+# (or -d linux / -d windows)
 
 # Android (Google Play variant) - DEFAULT
 fvm flutter run -t lib/entrypoints/android/main_google_play.dart
@@ -141,6 +147,33 @@ fvm flutter analyze --fatal-infos --fatal-warnings .
 # Total time: 8-12 minutes. NEVER CANCEL any of these steps.
 ```
 
+### Translations
+
+- New user-facing strings go in `packages/smooth_app/lib/l10n/app_en.arb`, the template, with an
+  `@key` description. The other languages come from Crowdin.
+- Then regenerate `lib/l10n/app_localizations.dart` with `fvm flutter gen-l10n` (also run by
+  `fvm flutter pub get`).
+
+### Icons
+
+Always import the app icons with the `icons` prefix, and use them as `icons.Name()`:
+
+```dart
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+
+const icons.World.location()
+```
+
+### Empty widgets
+
+When a widget has no content to show, use `EMPTY_WIDGET` (from
+`packages/smooth_app/lib/generic_lib/design_constants.dart`), not `SizedBox.shrink()`, `SizedBox()`,
+`Container()` or a `null` child:
+
+```dart
+child: address == null ? EMPTY_WIDGET : Text(address),
+```
+
 ### Build Troubleshooting
 
 If you encounter build issues:
@@ -167,7 +200,7 @@ If you encounter build issues:
 
 ### Important Files
 
-- `flutter-version.txt` - Specifies required Flutter version (3.44.8)
+- `flutter-version.txt` - Specifies required Flutter version (3.47.9)
 - `packages/smooth_app/pubspec.yaml` - Main app dependencies
 - `packages/smooth_app/lib/entrypoints/` - Platform-specific entry points
 - `packages/smooth_app/integration_test/` - End-to-end test scenarios

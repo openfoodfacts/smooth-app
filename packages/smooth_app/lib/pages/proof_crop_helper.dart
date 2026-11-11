@@ -20,14 +20,14 @@ class ProofCropHelper extends CropHelper {
   bool isNewImage() => true;
 
   @override
-  String getPageTitle(final AppLocalizations appLocalizations) =>
+  String getPageTitle(AppLocalizations appLocalizations) =>
       model.proofType.getTitle(appLocalizations);
 
   @override
   Widget getProcessIcon() => const icons.Check();
 
   @override
-  String getProcessLabel(final AppLocalizations appLocalizations) =>
+  String getProcessLabel(AppLocalizations appLocalizations) =>
       appLocalizations.okay;
 
   @override
@@ -35,15 +35,15 @@ class ProofCropHelper extends CropHelper {
 
   @override
   Future<CropParameters> process({
-    required final BuildContext context,
-    required final CropController controller,
-    required final File inputFile,
-    required final int inputFullWidth,
-    required final int inputFullHeight,
-    required final File preCroppedFile,
-    required final Directory directory,
-    required final int sequenceNumber,
-    required final List<Offset> offsets,
+    required BuildContext context,
+    required CropController controller,
+    required File inputFile,
+    required int inputFullWidth,
+    required int inputFullHeight,
+    required File preCroppedFile,
+    required Directory directory,
+    required int sequenceNumber,
+    required List<Offset> offsets,
   }) async {
     // It's a brand new picture, with crop parameters.
     // For privacy reasons, we won't send the full image to the server and

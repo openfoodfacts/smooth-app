@@ -17,7 +17,7 @@ abstract class BackgroundTask {
     required this.processName,
     required this.uniqueId,
     required this.stamp,
-    final OpenFoodFactsLanguage? language,
+    OpenFoodFactsLanguage? language,
   }) // TODO(monsieurtanuki): don't store the password in a clear format...
     // TODO(monsieurtanuki): store the uriProductHelper as well
     : user = jsonEncode(ProductQuery.getWriteUser().toJson()),
@@ -50,7 +50,7 @@ abstract class BackgroundTask {
   static const String _jsonTagCountry = 'country';
   static const String _jsonTagStamp = 'stamp';
 
-  static String getProcessName(final Map<String, dynamic> map) =>
+  static String getProcessName(Map<String, dynamic> map) =>
       map[_jsonTagProcessName] as String;
 
   /// Typically, similar to the name of the class that extends this one.
@@ -79,7 +79,7 @@ abstract class BackgroundTask {
   };
 
   /// Executes the background task: upload, download, update locally.
-  Future<void> execute(final LocalDatabase localDatabase);
+  Future<void> execute(LocalDatabase localDatabase);
 
   /// Executes the background task: upload, download, update locally.
 
@@ -88,7 +88,7 @@ abstract class BackgroundTask {
   /// For instance, here we can pretend that we've changed the product name
   /// by doing it locally, but the background task that talks to the server
   /// is not even started.
-  Future<void> preExecute(final LocalDatabase localDatabase);
+  Future<void> preExecute(LocalDatabase localDatabase);
 
   /// To be executed _after_ the actual run.
   ///
@@ -99,8 +99,8 @@ abstract class BackgroundTask {
   /// 2. something bad happened and we just need to clear the task
   @mustCallSuper
   Future<void> postExecute(
-    final LocalDatabase localDatabase,
-    final bool success,
+    LocalDatabase localDatabase,
+    bool success,
   ) async => localDatabase.upToDate.terminate(uniqueId);
 
   /// Returns true if the task may run now.
@@ -115,16 +115,16 @@ abstract class BackgroundTask {
   /// Null if no message wanted (like, stealth mode).
   @protected
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   );
 
   /// Adds this task to the [BackgroundTaskManager].
   @protected
   Future<void> addToManager(
-    final LocalDatabase localDatabase, {
-    required final BackgroundTaskQueue queue,
-    final BuildContext? context,
-    final bool showSnackBar = true,
+    LocalDatabase localDatabase, {
+    required BackgroundTaskQueue queue,
+    BuildContext? context,
+    bool showSnackBar = true,
   }) async {
     await BackgroundTaskManager.getInstance(
       localDatabase,
@@ -172,7 +172,7 @@ abstract class BackgroundTask {
   /// Especially useful for transient files: if a user closed the app before
   /// successfully completing the upload task, the transient file - that is just
   /// a static variable - won't be there at app restart. Unless you recover.
-  Future<void> recover(final LocalDatabase localDatabase) async {}
+  Future<void> recover(LocalDatabase localDatabase) async {}
 
   /// Returns true if the task ends calling another task for immediate exec.
   ///

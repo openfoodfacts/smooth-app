@@ -19,7 +19,7 @@ class ProductIncompleteCard extends StatelessWidget {
   final Product product;
   final bool isLoggedInMandatory;
 
-  static bool isProductIncomplete(final Product product) {
+  static bool isProductIncomplete(Product product) {
     if (product.productType != null &&
         product.productType != ProductType.food) {
       return false;
@@ -56,18 +56,18 @@ class ProductIncompleteCard extends StatelessWidget {
     return false;
   }
 
-  static bool _isNutriscoreNotApplicable(final Product product) =>
+  static bool _isNutriscoreNotApplicable(Product product) =>
       _isScoreNotApplicable(product, 'nutriscore');
 
-  static bool _isEnvironmentalScoreNotApplicable(final Product product) =>
+  static bool _isEnvironmentalScoreNotApplicable(Product product) =>
       _isScoreNotApplicable(product, 'ecoscore');
 
-  static bool _isScoreNotApplicable(final Product product, final String tag) =>
+  static bool _isScoreNotApplicable(Product product, String tag) =>
       _getAttribute(product, tag)?.iconUrl ==
       'https://static.openfoodfacts.org/images/attributes/dist/$tag-not-applicable.svg';
 
   // TODO(monsieurtanuki): move to off-dart (or find it there)
-  static Attribute? _getAttribute(final Product product, final String id) {
+  static Attribute? _getAttribute(Product product, String id) {
     if (product.attributeGroups == null) {
       return null;
     }

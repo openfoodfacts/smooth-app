@@ -2,9 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 
-class CustomScannerController {
-  CustomScannerController(this._controller)
+class MLKitScannerController implements CustomScannerController {
+  MLKitScannerController(this._controller)
     : _torchState = ScannerTorchState(),
       _availableCamerasState = AvailableCamerasState(),
       _cameraFacingState = CameraFacingState();
@@ -19,6 +20,7 @@ class CustomScannerController {
   bool _isClosing = false;
   bool _isClosed = false;
 
+  @override
   Future<void> start() async {
     if (isStarted || _isStarting || isClosing) {
       return;
@@ -41,6 +43,7 @@ class CustomScannerController {
     } catch (_) {}
   }
 
+  @override
   void onPause() {
     _isStarted = false;
     _isStarting = false;
@@ -56,12 +59,14 @@ class CustomScannerController {
 
   MobileScannerController get controller => _controller;
 
+  @override
   bool get isStarted => _isStarted;
 
   bool get isClosing => _isClosing;
 
   bool get isClosed => _isClosed;
 
+  @override
   Future<void> stop() async {
     if (isClosed || isClosing || _isStarting) {
       return;
@@ -78,19 +83,24 @@ class CustomScannerController {
     } catch (_) {}
   }
 
+  @override
   bool get hasTorch => _torchState.value != null;
 
+  @override
   ValueNotifier<TorchState?> get hasTorchState => _torchState;
 
   // ugly
+  @override
   bool get isTorchOn => _torchState.value == TorchState.on;
 
+  @override
   void turnTorchOff() {
     if (isTorchOn) {
       unawaited(_controller.toggleTorch());
     }
   }
 
+  @override
   void turnTorchOn() {
     if (!isTorchOn) {
       unawaited(_controller.toggleTorch());
@@ -109,6 +119,7 @@ class CustomScannerController {
 
   ValueNotifier<CameraFacing> get cameraFacing => _cameraFacingState;
 
+  @override
   void toggleCamera() {
     _controller.switchCamera();
     if (_controller.facing == CameraFacing.front) {
@@ -121,6 +132,20 @@ class CustomScannerController {
   }
 
   Future<void> dispose() => _controller.dispose();
+
+  @override
+  Widget buildCameraView({required void Function(String barcode) onScan}) =>
+      MobileScanner(
+        controller: _controller,
+        placeholderBuilder: (_) =>
+            const SizedBox.expand(child: ColoredBox(color: Colors.black)),
+        onDetect: (BarcodeCapture capture) {
+          final String? value = capture.barcodes.firstOrNull?.rawValue;
+          if (value != null) {
+            onScan(value);
+          }
+        },
+      );
 }
 
 class ScannerTorchState extends ValueNotifier<TorchState?> {
