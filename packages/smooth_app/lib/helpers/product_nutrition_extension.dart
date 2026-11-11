@@ -11,14 +11,15 @@ extension ProductNutritionExtension on Product {
   double? getNutrientValue(Nutrient nutrient, PerSize perSize) {
     final List<NutritionSet> sets =
         NutritionHelper().getInputSets(this) ?? <NutritionSet>[];
+    final List<PerSize> perSizes = <PerSize>[
+      perSize,
+      if (perSize == PerSize.oneHundredGrams) ...<PerSize>[
+        PerSize.oneHundredMilliliters,
+        PerSize.serving,
+      ],
+    ];
     for (final String source in _sources) {
-      for (final PerSize setPerSize in <PerSize>[
-        perSize,
-        if (perSize == PerSize.oneHundredGrams) ...<PerSize>[
-          PerSize.oneHundredMilliliters,
-          PerSize.serving,
-        ],
-      ]) {
+      for (final PerSize setPerSize in perSizes) {
         for (final NutritionSet set in sets.where(
           (NutritionSet set) =>
               set.key.source == source &&

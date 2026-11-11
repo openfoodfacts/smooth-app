@@ -181,6 +181,14 @@ void main() {
       ]);
       expect(_per100(product, Nutrient.fat), 1);
       expect(_per100(product, Nutrient.sugars), 3);
+    });
+
+    test('has data with usda values only', () {
+      final Product product = _product(<Map<String, dynamic>>[
+        _set(<String, Map<String, dynamic>>{
+          'fat': _value('g', '2'),
+        }, source: 'usda'),
+      ]);
       expect(product.hasNutritionData, isTrue);
     });
 
