@@ -146,12 +146,8 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final bool dense =
-            constraints.maxHeight <= 400.0 ||
-            MediaQuery.textScalerOf(context).scale(1.0) >= 1.30;
-
-        return Provider<ScanCardDensity>(
-          create: (_) => dense ? ScanCardDensity.DENSE : ScanCardDensity.NORMAL,
+        return Provider<ScanCardDensity>.value(
+          value: ScanCardDensity.getDensity(context, constraints),
           child: _cardWidget(barcode),
         );
       },
@@ -204,4 +200,17 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
   }
 }
 
-enum ScanCardDensity { DENSE, NORMAL }
+enum ScanCardDensity {
+  DENSE,
+  NORMAL;
+
+  static ScanCardDensity getDensity(
+    BuildContext context,
+    BoxConstraints constraints,
+  ) {
+    final bool dense =
+        constraints.maxHeight <= 400.0 ||
+        MediaQuery.textScalerOf(context).scale(1.0) >= 1.30;
+    return dense ? ScanCardDensity.DENSE : ScanCardDensity.NORMAL;
+  }
+}

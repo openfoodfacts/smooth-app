@@ -198,7 +198,14 @@ class UserPreferencesAttributeGroup {
     if (group.name != null &&
         (helper.matches(<String?>[group.name, group.warning]))) {
       result.add(
-        helper.getPreferenceTile(title: group.name!, context: context),
+        helper.getPreferenceTile(
+          title: group.name!,
+          context: context,
+          onTapCallback: () async {
+            // checks the group name and warning for a match and opens attribute group that holds the search match, e.g. "Allergens" for query "allergens"
+            await userPreferences.setActiveAttributeGroup(group.id!);
+          },
+        ),
       );
     }
     final SmoothColorsThemeExtension theme = context
@@ -225,6 +232,10 @@ class UserPreferencesAttributeGroup {
           helper.getPreferenceTile(
             title: attribute.name!,
             context: context,
+            onTapCallback: () async {
+              // checks each attribute inside the group and opens attribute group that holds the search match, e.g. allergens for query "gluten"
+              await userPreferences.setActiveAttributeGroup(group.id!);
+            },
             icon: getAttributeDisplayIcon(
               attribute,
               context: context,

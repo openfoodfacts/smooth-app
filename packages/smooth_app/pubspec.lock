@@ -688,10 +688,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_map
-      sha256: ce1debbb29cade61964334b2a19c7c76e5bb2ef7dacf126c6424ee44036232f8
+      sha256: "9bbe5472f66ae648d2ca2efbce97fcaa04e71261fabd3e062f26728222d7f767"
       url: "https://pub.dev"
     source: hosted
-    version: "8.3.1"
+    version: "8.3.2"
   flutter_native_splash:
     dependency: "direct main"
     description:
@@ -887,10 +887,10 @@ packages:
     dependency: "direct main"
     description:
       name: image_picker
-      sha256: d8402284df184bc05f4a2210c6c23983b0720f4cd87cbd05c5390a78af602667
+      sha256: e71b1bd9e40124041128d60fc3034c7b1598e1bba4e570bba0c70301c817013a
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.3"
+    version: "1.2.4"
   image_picker_android:
     dependency: transitive
     description:
@@ -1807,10 +1807,10 @@ packages:
     dependency: "direct main"
     description:
       name: vector_graphics
-      sha256: "9d0e3b9cb16542ad660daee871e726a10d13a93b7b5391677c3160e8f5e83935"
+      sha256: "82885f6ac633044e7a4e4d8d745724a67aa0dc50af5d8a81ec29379f63c29035"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.3"
+    version: "1.2.6"
   vector_graphics_codec:
     dependency: transitive
     description:

@@ -32,6 +32,14 @@ abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
   /// An optional leading widget for the search bar.
   Widget? getLeadingWidget(BuildContext context) => null;
 
+  String? getPreloadedItemsTitle(AppLocalizations appLocalizations) => null;
+
+  Widget? getPreloadedItemsTitleIcon() => null;
+
+  Widget? getQueriesTitleIcon() => null;
+
+  bool get showPasteFromClipboard => true;
+
   /// Returns all the previous queries, in reverse order.
   List<String> getAllQueries(LocalDatabase localDatabase) =>
       DaoStringList(localDatabase).getAll(historyKey).reversed.toList();
