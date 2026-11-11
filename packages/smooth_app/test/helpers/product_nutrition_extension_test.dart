@@ -100,31 +100,88 @@ void main() {
     test('scales a per serving value to 100', () {
       final Product product = _product(<Map<String, dynamic>>[
         _set(
-          <String, Map<String, dynamic>>{
-            'fat': _value('g', '8'),
-            'sugars': _value('g', '4'),
-          },
+          <String, Map<String, dynamic>>{'fat': _value('g', '8')},
+          per: 'serving',
+          perQuantity: 40,
+          perUnit: 'g',
+        ),
+      ]);
+      expect(_per100(product, Nutrient.fat), 20);
+      expect(product.getNutrientValue(Nutrient.fat, PerSize.serving), 8);
+    });
+
+    test('prefers per 100g, then per serving, within a source', () {
+      final Product product = _product(<Map<String, dynamic>>[
+        _set(
+          <String, Map<String, dynamic>>{'sugars': _value('g', '4')},
           per: 'serving',
           perQuantity: 40,
           perUnit: 'g',
         ),
         _set(<String, Map<String, dynamic>>{'sugars': _value('g', '9')}),
       ]);
-      expect(_per100(product, Nutrient.fat), 20);
       expect(_per100(product, Nutrient.sugars), 9);
-      expect(product.getNutrientValue(Nutrient.fat, PerSize.serving), 8);
     });
 
-    test('does not scale a serving below 5 g', () {
+    test('prefers the source over the per', () {
       final Product product = _product(<Map<String, dynamic>>[
+        _set(<String, Map<String, dynamic>>{'fat': _value('g', '9')}),
         _set(
-          <String, Map<String, dynamic>>{'fat': _value('g', '1')},
+          <String, Map<String, dynamic>>{'fat': _value('g', '8')},
+          source: 'manufacturer',
           per: 'serving',
-          perQuantity: 2,
+          perQuantity: 40,
           perUnit: 'g',
         ),
       ]);
-      expect(_per100(product, Nutrient.fat), isNull);
+      expect(_per100(product, Nutrient.fat), 20);
+    });
+
+    test('scales a serving from 5 g, not below', () {
+      Product withServing(num quantity) => _product(<Map<String, dynamic>>[
+        _set(
+          <String, Map<String, dynamic>>{'fat': _value('g', '1')},
+          per: 'serving',
+          perQuantity: quantity,
+          perUnit: 'g',
+        ),
+      ]);
+      expect(_per100(withServing(5), Nutrient.fat), 20);
+      expect(_per100(withServing(4), Nutrient.fat), isNull);
+    });
+
+    test('keeps a percentage from a serving as it is', () {
+      final Product product = _product(<Map<String, dynamic>>[
+        _set(
+          <String, Map<String, dynamic>>{'alcohol': _value('% vol', '5')},
+          per: 'serving',
+          perQuantity: 330,
+          perUnit: 'ml',
+        ),
+      ]);
+      expect(_per100(product, Nutrient.alcohol), 5);
+    });
+
+    test('reads a value computed by the server', () {
+      final Product product = _product(<Map<String, dynamic>>[
+        _set(<String, Map<String, dynamic>>{
+          'salt': <String, dynamic>{'unit': 'g', 'value_computed': 0.5},
+        }),
+      ]);
+      expect(_per100(product, Nutrient.salt), 0.5);
+    });
+
+    test('reads usda values after packaging values', () {
+      final Product product = _product(<Map<String, dynamic>>[
+        _set(<String, Map<String, dynamic>>{
+          'fat': _value('g', '2'),
+          'sugars': _value('g', '3'),
+        }, source: 'usda'),
+        _set(<String, Map<String, dynamic>>{'fat': _value('g', '1')}),
+      ]);
+      expect(_per100(product, Nutrient.fat), 1);
+      expect(_per100(product, Nutrient.sugars), 3);
+      expect(product.hasNutritionData, isTrue);
     });
 
     test('ignores a per 1kg set', () {
