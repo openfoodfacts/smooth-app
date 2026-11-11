@@ -20,7 +20,7 @@ enum PreferencesPageProjects {
   };
 
   static PreferencesPageProjects? fromProductType(
-    final ProductType? productType,
+    ProductType? productType,
   ) {
     if (productType == null) {
       return null;

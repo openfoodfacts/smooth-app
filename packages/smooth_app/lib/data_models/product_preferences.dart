@@ -357,10 +357,10 @@ class ScopedProductPreferencesManager extends ProductPreferencesManager {
 
   @override
   PreferenceImportance? getPreferenceImportanceFromImportanceId(
-    final String importanceId,
+    String importanceId,
   ) => _parent.getPreferenceImportanceFromImportanceId(importanceId);
 
   @override
-  int? getImportanceIndex(final String importanceId) =>
+  int? getImportanceIndex(String importanceId) =>
       _parent.getImportanceIndex(importanceId);
 }

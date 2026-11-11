@@ -238,9 +238,9 @@ class UserPreferences extends ChangeNotifier {
   }
 
   String getImportance(
-    final String attributeId, {
-    final PreferencesPageProjects? project,
-    final ProductType? productType,
+    String attributeId, {
+    PreferencesPageProjects? project,
+    ProductType? productType,
   }) {
     final PreferencesPageProjects? resolvedProject =
         project ?? PreferencesPageProjects.fromProductType(productType);
@@ -253,8 +253,8 @@ class UserPreferences extends ChangeNotifier {
 
   /// Gets the importance for an attribute for a specific project.
   String getImportanceForProject(
-    final String attributeId,
-    final PreferencesPageProjects project,
+    String attributeId,
+    PreferencesPageProjects project,
   ) {
     final String? projectValue = _sharedPreferences.getString(
       _getImportanceTagForProject(attributeId, project),

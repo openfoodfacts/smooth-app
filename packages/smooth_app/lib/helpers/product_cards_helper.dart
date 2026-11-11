@@ -291,11 +291,11 @@ List<Attribute> getSortedAttributes(
 /// [SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
 /// dealt with somewhere else.
 List<Attribute> getFilteredAttributes(
-  final AttributeGroup attributeGroup,
-  final String importance,
-  final Set<String> attributesToExcludeIfStatusIsUnknown,
-  final ProductPreferencesManager preferences, {
-  final bool excludeMainScoreAttributes = true,
+  AttributeGroup attributeGroup,
+  String importance,
+  Set<String> attributesToExcludeIfStatusIsUnknown,
+  ProductPreferencesManager preferences, {
+  bool excludeMainScoreAttributes = true,
 }) {
   final List<Attribute> result = <Attribute>[];
   if (attributeGroup.attributes == null) {
