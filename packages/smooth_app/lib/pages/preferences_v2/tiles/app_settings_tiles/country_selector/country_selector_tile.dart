@@ -15,6 +15,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';
+import 'package:smooth_app/widgets/selector_screen/smooth_selector_route.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 part 'country_selector_provider.dart';
@@ -109,34 +110,10 @@ class CountrySelectorTile extends PreferenceTile {
   Future<void> _openCountrySelector(BuildContext context) async {
     final dynamic newCountry = await Navigator.of(context, rootNavigator: true)
         .push(
-          PageRouteBuilder<dynamic>(
-            pageBuilder: (_, _, _) => _CountrySelectorScreen(
+          smoothSelectorRoute<dynamic>(
+            (_) => _CountrySelectorScreen(
               provider: context.read<_CountrySelectorProvider>(),
             ),
-            transitionsBuilder:
-                (
-                  BuildContext context,
-                  Animation<double> animation,
-                  Animation<double> secondaryAnimation,
-                  Widget child,
-                ) {
-                  final Tween<Offset> tween = Tween<Offset>(
-                    begin: const Offset(0.0, 1.0),
-                    end: Offset.zero,
-                  );
-                  final CurvedAnimation curvedAnimation = CurvedAnimation(
-                    parent: animation,
-                    curve: Curves.easeInOut,
-                  );
-                  final Animation<Offset> position = tween.animate(
-                    curvedAnimation,
-                  );
-
-                  return SlideTransition(
-                    position: position,
-                    child: FadeTransition(opacity: animation, child: child),
-                  );
-                },
           ),
         );
 

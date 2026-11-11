@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/currency_selector/currency_selector_provider.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/currency_selector/currency_selector_screen.dart';
 import 'package:smooth_app/pages/prices/currency_extension.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/widgets/selector_screen/smooth_selector_route.dart';
 
 /// Button that displays the currency for price adding.
 class PriceCurrencySelector extends StatelessWidget {
@@ -29,14 +33,27 @@ class PriceCurrencySelector extends StatelessWidget {
   static Future<void> openSelector({required BuildContext context}) async {
     final PriceModel model = context.read<PriceModel>();
 
-    final CurrencySelectorHelper helper = CurrencySelectorHelper();
-    final Currency? currency = await helper.openCurrencySelector(
-      context: context,
-      selected: model.currency,
-    );
-
-    if (currency != null) {
-      model.currency = currency;
+    // With a proof, the currency comes from the proof.
+    if (model.proof != null) {
+      return;
     }
+
+    final UserPreferences preferences = context.read<UserPreferences>();
+
+    await Navigator.of(context).push<Currency>(
+      smoothSelectorRoute<Currency>(
+        (_) => ChangeNotifierProvider<CurrencySelectorProvider>(
+          create: (_) => CurrencySelectorProvider(
+            preferences: preferences,
+            autoValidate: true,
+            currentCode: () => model.currency.name,
+            onSave: (Currency currency) async => model.currency = currency,
+          ),
+          builder: (BuildContext context, _) => CurrencySelectorScreen(
+            provider: context.read<CurrencySelectorProvider>(),
+          ),
+        ),
+      ),
+    );
   }
 }
