@@ -310,19 +310,19 @@ class ProductListPopupImport extends ProductListPopupItem {
     required LocalDatabase localDatabase,
     required BuildContext context,
   }) async {
-    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+    final List<PlatformFile> result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: <String>['csv'],
     );
 
-    if (result == null) {
+    if (result.isEmpty) {
       return null;
     }
 
     await ProductListHelper(
       list: productList,
       localDatabase: localDatabase,
-    ).importFileToList(File(result.files.single.path!));
+    ).importFileToList(File(result.single.path!));
 
     return productList;
   }
