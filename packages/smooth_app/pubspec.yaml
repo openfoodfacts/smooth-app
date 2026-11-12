@@ -33,8 +33,8 @@ dependencies:
   l10n_countries: 2.0.3
   latlong2: 0.10.1
   matomo_tracker: 6.1.1
-  package_info_plus: 9.0.1
-  device_info_plus: 12.4.0
+  package_info_plus: 10.2.2
+  device_info_plus: 13.3.0
   permission_handler: 12.0.3
   photo_view: 0.15.0
   uuid: 4.6.0
@@ -58,7 +58,7 @@ dependencies:
   collection: 1.19.1
   path: 1.9.1
   path_provider: 2.1.6
-  share_plus: 12.0.2
+  share_plus: 13.3.1
   fimber: 0.7.0
   shimmer: 4.0.0
   rive: 0.14.11
@@ -72,8 +72,7 @@ dependencies:
   sliver_tools: 0.2.12
   cached_network_image: 3.4.1
 
-  # careful with gradle compatibility, cf. https://github.com/miguelpruivo/flutter_file_picker/issues/1952#issuecomment-4791104079
-  file_picker: 10.3.8
+  file_picker: 13.3.3
   animated_line_through: 1.0.5
   mobkit_dashed_border: 0.0.8
 
