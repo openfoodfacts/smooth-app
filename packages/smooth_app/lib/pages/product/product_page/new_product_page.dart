@@ -148,6 +148,11 @@ class ProductPageState extends State<ProductPage>
     List<ProductPageTab> tabs,
     TabController tabController,
   ) {
+    final ProductHeaderDelegate headerDelegate = ProductHeaderDelegate(
+      statusBarHeight: MediaQuery.viewPaddingOf(context).top,
+      backButtonType: widget.backButton,
+    );
+
     return SmoothScaffold(
       contentBehindStatusBar: true,
       spaceBehindStatusBar: false,
@@ -155,6 +160,9 @@ class ProductPageState extends State<ProductPage>
       statusBarBackgroundColor: Colors.transparent,
       body: tabs.isNotEmpty
           ? RefreshIndicator(
+              // The pinned header is part of the NestedScrollView, so without
+              // this offset the spinner is drawn over the status bar.
+              edgeOffset: headerDelegate.minExtent,
               // Tab lists only: NestedScrollView is depth 0, TabBarView depth 1.
               notificationPredicate: (ScrollNotification notification) =>
                   notification.depth == 2,
@@ -167,10 +175,7 @@ class ProductPageState extends State<ProductPage>
                 headerSliverBuilder: (BuildContext context, bool value) {
                   return <Widget>[
                     SliverPersistentHeader(
-                      delegate: ProductHeaderDelegate(
-                        statusBarHeight: MediaQuery.viewPaddingOf(context).top,
-                        backButtonType: widget.backButton,
-                      ),
+                      delegate: headerDelegate,
                       pinned: true,
                       floating: false,
                     ),
