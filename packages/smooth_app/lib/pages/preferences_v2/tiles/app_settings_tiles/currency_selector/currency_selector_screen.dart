@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/currency_selector/currency_selector_provider.dart';
 import 'package:smooth_app/pages/prices/currency_extension.dart';
+import 'package:smooth_app/pages/prices/currency_name_extension.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
@@ -14,9 +16,11 @@ class CurrencySelectorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return SmoothSelectorScreen<Currency>(
       provider: provider,
-      title: AppLocalizations.of(context).currency_selector_title,
+      title: appLocalizations.currency_selector_title,
       itemBuilder:
           (
             BuildContext context,
@@ -26,28 +30,36 @@ class CurrencySelectorScreen extends StatelessWidget {
           ) {
             return Row(
               children: <Widget>[
-                const Expanded(flex: 1, child: icons.Currency()),
+                const icons.Currency(),
+                const SizedBox(width: SMALL_SPACE),
                 Expanded(
-                  flex: 2,
-                  child: Text(
-                    currency.name,
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                  child: TextHighlighter(
+                    text: currency.localizedName(appLocalizations),
+                    filter: filter,
                   ),
                 ),
-                Expanded(
-                  flex: 7,
-                  child: TextHighlighter(
-                    text: currency.getFullName(),
-                    filter: filter,
-                    textStyle: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
+                const SizedBox(width: SMALL_SPACE),
+                TextHighlighter(
+                  text: currency.getFullName(),
+                  filter: filter,
+                  textStyle: const TextStyle(fontWeight: FontWeight.w600),
                 ),
               ],
             );
           },
-      itemsFilter: filterCurrencies,
+      itemsFilter:
+          (
+            List<Currency> currencies,
+            Currency? selectedItem,
+            Currency? selectedItemOverride,
+            String filter,
+          ) => filterCurrencies(
+            currencies,
+            selectedItem,
+            selectedItemOverride,
+            filter,
+            appLocalizations: appLocalizations,
+          ),
     );
   }
 }

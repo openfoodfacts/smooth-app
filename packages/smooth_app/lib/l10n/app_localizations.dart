@@ -7322,6 +7322,942 @@ abstract class AppLocalizations {
   /// **'Select your currency:'**
   String get currency_selector_title;
 
+  /// Name of the AED currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'UAE dirham'**
+  String get currency_name_aed;
+
+  /// Name of the AFN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Afghan afghani'**
+  String get currency_name_afn;
+
+  /// Name of the ALL currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Albanian lek'**
+  String get currency_name_all;
+
+  /// Name of the AMD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Armenian dram'**
+  String get currency_name_amd;
+
+  /// Name of the ANG currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Netherlands Antillean guilder'**
+  String get currency_name_ang;
+
+  /// Name of the AOA currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Angolan kwanza'**
+  String get currency_name_aoa;
+
+  /// Name of the ARS currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Argentine peso'**
+  String get currency_name_ars;
+
+  /// Name of the AUD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Australian dollar'**
+  String get currency_name_aud;
+
+  /// Name of the AWG currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Aruban florin'**
+  String get currency_name_awg;
+
+  /// Name of the AZN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Azerbaijani manat'**
+  String get currency_name_azn;
+
+  /// Name of the BAM currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Bosnia-Herzegovina convertible mark'**
+  String get currency_name_bam;
+
+  /// Name of the BBD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Barbadian dollar'**
+  String get currency_name_bbd;
+
+  /// Name of the BDT currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Bangladeshi taka'**
+  String get currency_name_bdt;
+
+  /// Name of the BGN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Bulgarian lev'**
+  String get currency_name_bgn;
+
+  /// Name of the BHD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Bahraini dinar'**
+  String get currency_name_bhd;
+
+  /// Name of the BIF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Burundian franc'**
+  String get currency_name_bif;
+
+  /// Name of the BMD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Bermudian dollar'**
+  String get currency_name_bmd;
+
+  /// Name of the BND currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Brunei dollar'**
+  String get currency_name_bnd;
+
+  /// Name of the BOB currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Bolivian boliviano'**
+  String get currency_name_bob;
+
+  /// Name of the BRL currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Brazilian real'**
+  String get currency_name_brl;
+
+  /// Name of the BSD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Bahamian dollar'**
+  String get currency_name_bsd;
+
+  /// Name of the BTN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Bhutanese ngultrum'**
+  String get currency_name_btn;
+
+  /// Name of the BWP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Botswanan pula'**
+  String get currency_name_bwp;
+
+  /// Name of the BYN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Belarusian ruble'**
+  String get currency_name_byn;
+
+  /// Name of the BZD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Belize dollar'**
+  String get currency_name_bzd;
+
+  /// Name of the CAD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Canadian dollar'**
+  String get currency_name_cad;
+
+  /// Name of the CDF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Congolese franc'**
+  String get currency_name_cdf;
+
+  /// Name of the CHF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Swiss franc'**
+  String get currency_name_chf;
+
+  /// Name of the CLP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Chilean peso'**
+  String get currency_name_clp;
+
+  /// Name of the CNY currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Chinese yuan'**
+  String get currency_name_cny;
+
+  /// Name of the COP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Colombian peso'**
+  String get currency_name_cop;
+
+  /// Name of the CRC currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Costa Rican colon'**
+  String get currency_name_crc;
+
+  /// Name of the CUC currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Cuban convertible peso'**
+  String get currency_name_cuc;
+
+  /// Name of the CUP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Cuban peso'**
+  String get currency_name_cup;
+
+  /// Name of the CVE currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Cape Verdean escudo'**
+  String get currency_name_cve;
+
+  /// Name of the CZK currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Czech koruna'**
+  String get currency_name_czk;
+
+  /// Name of the DJF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Djiboutian franc'**
+  String get currency_name_djf;
+
+  /// Name of the DKK currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Danish krone'**
+  String get currency_name_dkk;
+
+  /// Name of the DOP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Dominican peso'**
+  String get currency_name_dop;
+
+  /// Name of the DZD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Algerian dinar'**
+  String get currency_name_dzd;
+
+  /// Name of the EGP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Egyptian pound'**
+  String get currency_name_egp;
+
+  /// Name of the ERN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Eritrean nakfa'**
+  String get currency_name_ern;
+
+  /// Name of the ETB currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Ethiopian birr'**
+  String get currency_name_etb;
+
+  /// Name of the EUR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Euro'**
+  String get currency_name_eur;
+
+  /// Name of the FJD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Fijian dollar'**
+  String get currency_name_fjd;
+
+  /// Name of the FKP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Falkland Islands pound'**
+  String get currency_name_fkp;
+
+  /// Name of the GBP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'British pound'**
+  String get currency_name_gbp;
+
+  /// Name of the GEL currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Georgian lari'**
+  String get currency_name_gel;
+
+  /// Name of the GHS currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Ghanaian cedi'**
+  String get currency_name_ghs;
+
+  /// Name of the GIP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Gibraltar pound'**
+  String get currency_name_gip;
+
+  /// Name of the GMD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Gambian dalasi'**
+  String get currency_name_gmd;
+
+  /// Name of the GNF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Guinean franc'**
+  String get currency_name_gnf;
+
+  /// Name of the GTQ currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Guatemalan quetzal'**
+  String get currency_name_gtq;
+
+  /// Name of the GYD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Guyanaese dollar'**
+  String get currency_name_gyd;
+
+  /// Name of the HKD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Hong Kong dollar'**
+  String get currency_name_hkd;
+
+  /// Name of the HNL currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Honduran lempira'**
+  String get currency_name_hnl;
+
+  /// Name of the HRK currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Croatian kuna'**
+  String get currency_name_hrk;
+
+  /// Name of the HTG currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Haitian gourde'**
+  String get currency_name_htg;
+
+  /// Name of the HUF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Hungarian forint'**
+  String get currency_name_huf;
+
+  /// Name of the IDR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Indonesian rupiah'**
+  String get currency_name_idr;
+
+  /// Name of the ILS currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Israeli new shekel'**
+  String get currency_name_ils;
+
+  /// Name of the INR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Indian rupee'**
+  String get currency_name_inr;
+
+  /// Name of the IQD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Iraqi dinar'**
+  String get currency_name_iqd;
+
+  /// Name of the IRR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Iranian rial'**
+  String get currency_name_irr;
+
+  /// Name of the ISK currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Icelandic krona'**
+  String get currency_name_isk;
+
+  /// Name of the JMD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Jamaican dollar'**
+  String get currency_name_jmd;
+
+  /// Name of the JOD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Jordanian dinar'**
+  String get currency_name_jod;
+
+  /// Name of the JPY currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Japanese yen'**
+  String get currency_name_jpy;
+
+  /// Name of the KES currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Kenyan shilling'**
+  String get currency_name_kes;
+
+  /// Name of the KGS currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Kyrgystani som'**
+  String get currency_name_kgs;
+
+  /// Name of the KHR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Cambodian riel'**
+  String get currency_name_khr;
+
+  /// Name of the KMF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Comorian franc'**
+  String get currency_name_kmf;
+
+  /// Name of the KPW currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'North Korean won'**
+  String get currency_name_kpw;
+
+  /// Name of the KRW currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'South Korean won'**
+  String get currency_name_krw;
+
+  /// Name of the KWD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Kuwaiti dinar'**
+  String get currency_name_kwd;
+
+  /// Name of the KYD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Cayman Islands dollar'**
+  String get currency_name_kyd;
+
+  /// Name of the KZT currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Kazakhstani tenge'**
+  String get currency_name_kzt;
+
+  /// Name of the LAK currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Laotian kip'**
+  String get currency_name_lak;
+
+  /// Name of the LBP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Lebanese pound'**
+  String get currency_name_lbp;
+
+  /// Name of the LKR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Sri Lankan rupee'**
+  String get currency_name_lkr;
+
+  /// Name of the LRD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Liberian dollar'**
+  String get currency_name_lrd;
+
+  /// Name of the LSL currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Lesotho loti'**
+  String get currency_name_lsl;
+
+  /// Name of the LYD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Libyan dinar'**
+  String get currency_name_lyd;
+
+  /// Name of the MAD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Moroccan dirham'**
+  String get currency_name_mad;
+
+  /// Name of the MDL currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Moldovan leu'**
+  String get currency_name_mdl;
+
+  /// Name of the MGA currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Malagasy ariary'**
+  String get currency_name_mga;
+
+  /// Name of the MKD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Macedonian denar'**
+  String get currency_name_mkd;
+
+  /// Name of the MMK currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Myanmar kyat'**
+  String get currency_name_mmk;
+
+  /// Name of the MNT currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Mongolian tugrik'**
+  String get currency_name_mnt;
+
+  /// Name of the MOP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Macanese pataca'**
+  String get currency_name_mop;
+
+  /// Name of the MRU currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Mauritanian ouguiya'**
+  String get currency_name_mru;
+
+  /// Name of the MUR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Mauritian rupee'**
+  String get currency_name_mur;
+
+  /// Name of the MVR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Maldivian rufiyaa'**
+  String get currency_name_mvr;
+
+  /// Name of the MWK currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Malawian kwacha'**
+  String get currency_name_mwk;
+
+  /// Name of the MXN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Mexican peso'**
+  String get currency_name_mxn;
+
+  /// Name of the MYR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Malaysian ringgit'**
+  String get currency_name_myr;
+
+  /// Name of the MZN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Mozambican metical'**
+  String get currency_name_mzn;
+
+  /// Name of the NAD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Namibian dollar'**
+  String get currency_name_nad;
+
+  /// Name of the NGN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Nigerian naira'**
+  String get currency_name_ngn;
+
+  /// Name of the NIO currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Nicaraguan cordoba'**
+  String get currency_name_nio;
+
+  /// Name of the NOK currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Norwegian krone'**
+  String get currency_name_nok;
+
+  /// Name of the NPR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Nepalese rupee'**
+  String get currency_name_npr;
+
+  /// Name of the NZD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'New Zealand dollar'**
+  String get currency_name_nzd;
+
+  /// Name of the OMR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Omani rial'**
+  String get currency_name_omr;
+
+  /// Name of the PAB currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Panamanian balboa'**
+  String get currency_name_pab;
+
+  /// Name of the PEN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Peruvian sol'**
+  String get currency_name_pen;
+
+  /// Name of the PGK currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Papua New Guinean kina'**
+  String get currency_name_pgk;
+
+  /// Name of the PHP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Philippine peso'**
+  String get currency_name_php;
+
+  /// Name of the PKR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Pakistani rupee'**
+  String get currency_name_pkr;
+
+  /// Name of the PLN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Polish zloty'**
+  String get currency_name_pln;
+
+  /// Name of the PYG currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Paraguayan guarani'**
+  String get currency_name_pyg;
+
+  /// Name of the QAR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Qatari riyal'**
+  String get currency_name_qar;
+
+  /// Name of the RON currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Romanian leu'**
+  String get currency_name_ron;
+
+  /// Name of the RSD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Serbian dinar'**
+  String get currency_name_rsd;
+
+  /// Name of the RUB currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Russian ruble'**
+  String get currency_name_rub;
+
+  /// Name of the RWF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Rwandan franc'**
+  String get currency_name_rwf;
+
+  /// Name of the SAR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Saudi riyal'**
+  String get currency_name_sar;
+
+  /// Name of the SBD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Solomon Islands dollar'**
+  String get currency_name_sbd;
+
+  /// Name of the SCR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Seychellois rupee'**
+  String get currency_name_scr;
+
+  /// Name of the SDG currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Sudanese pound'**
+  String get currency_name_sdg;
+
+  /// Name of the SEK currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Swedish krona'**
+  String get currency_name_sek;
+
+  /// Name of the SGD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Singapore dollar'**
+  String get currency_name_sgd;
+
+  /// Name of the SHP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Saint Helena pound'**
+  String get currency_name_shp;
+
+  /// Name of the SLE currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Sierra Leonean leone'**
+  String get currency_name_sle;
+
+  /// Name of the SOS currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Somali shilling'**
+  String get currency_name_sos;
+
+  /// Name of the SRD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Surinamese dollar'**
+  String get currency_name_srd;
+
+  /// Name of the SSP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'South Sudanese pound'**
+  String get currency_name_ssp;
+
+  /// Name of the STN currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Sao Tome and Principe dobra'**
+  String get currency_name_stn;
+
+  /// Name of the SVC currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Salvadoran colon'**
+  String get currency_name_svc;
+
+  /// Name of the SYP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Syrian pound'**
+  String get currency_name_syp;
+
+  /// Name of the SZL currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Swazi lilangeni'**
+  String get currency_name_szl;
+
+  /// Name of the THB currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Thai baht'**
+  String get currency_name_thb;
+
+  /// Name of the TJS currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Tajikistani somoni'**
+  String get currency_name_tjs;
+
+  /// Name of the TMT currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Turkmenistani manat'**
+  String get currency_name_tmt;
+
+  /// Name of the TND currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Tunisian dinar'**
+  String get currency_name_tnd;
+
+  /// Name of the TOP currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Tongan paanga'**
+  String get currency_name_top;
+
+  /// Name of the TRY currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Turkish lira'**
+  String get currency_name_try;
+
+  /// Name of the TTD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Trinidad and Tobago dollar'**
+  String get currency_name_ttd;
+
+  /// Name of the TWD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'New Taiwan dollar'**
+  String get currency_name_twd;
+
+  /// Name of the TZS currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Tanzanian shilling'**
+  String get currency_name_tzs;
+
+  /// Name of the UAH currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Ukrainian hryvnia'**
+  String get currency_name_uah;
+
+  /// Name of the UGX currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Ugandan shilling'**
+  String get currency_name_ugx;
+
+  /// Name of the USD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'US dollar'**
+  String get currency_name_usd;
+
+  /// Name of the UYU currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Uruguayan peso'**
+  String get currency_name_uyu;
+
+  /// Name of the UZS currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Uzbekistani som'**
+  String get currency_name_uzs;
+
+  /// Name of the VES currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Venezuelan bolivar'**
+  String get currency_name_ves;
+
+  /// Name of the VND currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Vietnamese dong'**
+  String get currency_name_vnd;
+
+  /// Name of the VUV currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Vanuatu vatu'**
+  String get currency_name_vuv;
+
+  /// Name of the WST currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Samoan tala'**
+  String get currency_name_wst;
+
+  /// Name of the XAF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Central African CFA franc'**
+  String get currency_name_xaf;
+
+  /// Name of the XCD currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'East Caribbean dollar'**
+  String get currency_name_xcd;
+
+  /// Name of the XOF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'West African CFA franc'**
+  String get currency_name_xof;
+
+  /// Name of the XPF currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'CFP franc'**
+  String get currency_name_xpf;
+
+  /// Name of the YER currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Yemeni rial'**
+  String get currency_name_yer;
+
+  /// Name of the ZAR currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'South African rand'**
+  String get currency_name_zar;
+
+  /// Name of the ZMW currency, shown in the currency selector
+  ///
+  /// In en, this message translates to:
+  /// **'Zambian kwacha'**
+  String get currency_name_zmw;
+
   /// Label written as the title of the dialog to select the user language
   ///
   /// In en, this message translates to:

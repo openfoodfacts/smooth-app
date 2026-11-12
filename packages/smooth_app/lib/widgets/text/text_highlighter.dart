@@ -144,7 +144,7 @@ class TextHighlighter extends StatelessWidget {
     String filterWithoutDiacritics,
   ) {
     final String subText = text.substring(startPosition);
-    if (subText.startsWith(filterWithoutDiacritics)) {
+    if (subText.toLowerCase().startsWith(filterWithoutDiacritics)) {
       return endPosition;
     }
 

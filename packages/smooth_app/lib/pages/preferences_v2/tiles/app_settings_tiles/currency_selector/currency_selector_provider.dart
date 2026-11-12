@@ -1,47 +1,49 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/currency_extension.dart';
+import 'package:smooth_app/pages/prices/currency_name_extension.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
 
-/// Returns a new list with [selected] first, then the other currencies by code.
-List<Currency> sortCurrencies(
-  Iterable<Currency> currencies,
-  Currency selected,
-) {
-  return currencies.toList(growable: false)..sort((Currency a, Currency b) {
-    if (a == selected) {
-      return b == selected ? 0 : -1;
-    }
-    if (b == selected) {
-      return 1;
-    }
-    return a.name.compareTo(b.name);
-  });
-}
-
-/// Keeps the selected currencies and the ones matching [filter] (code, name or
-/// symbol). A [List] is returned because the list view reads it by index.
+/// Keeps the selected currencies and the ones matching [filter] (code, symbol
+/// or translated name), sorted by translated name with [selectedItem] first.
+/// A [List] is returned because the list view reads it by index.
 List<Currency> filterCurrencies(
   List<Currency> currencies,
   Currency? selectedItem,
   Currency? selectedItemOverride,
-  String filter,
-) {
+  String filter, {
+  required AppLocalizations appLocalizations,
+}) {
   final String query = filter.trim().getComparisonSafeString();
 
-  if (query.isEmpty) {
-    return currencies;
-  }
+  final Map<Currency, String> names = <Currency, String>{
+    for (final Currency currency in currencies)
+      currency: currency
+          .localizedName(appLocalizations)
+          .getComparisonSafeString(),
+  };
 
   return currencies
       .where(
         (Currency currency) =>
+            query.isEmpty ||
             currency == selectedItem ||
             currency == selectedItemOverride ||
-            currency.getFullName().getComparisonSafeString().contains(query),
+            currency.getFullName().getComparisonSafeString().contains(query) ||
+            names[currency]!.contains(query),
       )
-      .toList(growable: false);
+      .toList(growable: false)
+    ..sort((Currency a, Currency b) {
+      if (a == selectedItem) {
+        return b == selectedItem ? 0 : -1;
+      }
+      if (b == selectedItem) {
+        return 1;
+      }
+      return names[a]!.compareTo(names[b]!);
+    });
 }
 
 class CurrencySelectorProvider extends PreferencesSelectorProvider<Currency> {
@@ -113,7 +115,7 @@ class CurrencySelectorProvider extends PreferencesSelectorProvider<Currency> {
 
     return PreferencesSelectorLoadedState<Currency>(
       selectedItem: selected,
-      items: sortCurrencies(Currency.values, selected),
+      items: Currency.values,
     );
   }
 }
