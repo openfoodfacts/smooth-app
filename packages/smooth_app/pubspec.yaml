@@ -21,7 +21,7 @@ dependencies:
   flutter_svg: 2.3.2
   vector_graphics: 1.2.6
   flutter_map: 8.3.2
-  html: 0.15.6
+  html: 0.15.7
   flutter_widget_from_html_core: 0.17.2
   flutter_secure_storage: 10.3.1
   hive: 2.2.3
