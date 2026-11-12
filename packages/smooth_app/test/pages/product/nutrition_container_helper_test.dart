@@ -188,6 +188,45 @@ void main() {
       expect(helper.getValue(Nutrient.energyKJ), 419);
     });
 
+    test('prefers packaging kcal over manufacturer kJ', () {
+      final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
+        _set(_packaging, '100g', <String, Map<String, dynamic>>{
+          'energy-kcal': _value('kcal', '100'),
+        }),
+        _set(_manufacturer, '100g', <String, Map<String, dynamic>>{
+          'energy-kj': _value('kJ', '1000'),
+        }),
+      ]);
+      expect(helper.getValue(Nutrient.energyKJ), 419);
+      expect(helper.isFromManufacturer(Nutrient.energyKJ), isFalse);
+    });
+
+    test('keeps a packaging entry without value over the manufacturer', () {
+      final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
+        _set(_packaging, '100g', <String, Map<String, dynamic>>{
+          'fat': <String, dynamic>{'unit': 'g', 'modifier': '-'},
+        }),
+        _set(_manufacturer, '100g', <String, Map<String, dynamic>>{
+          'fat': _value('g', '2'),
+        }),
+      ]);
+      expect(helper.getValue(Nutrient.fat), isNull);
+      expect(helper.isFromManufacturer(Nutrient.fat), isFalse);
+    });
+
+    test('reads manufacturer kJ over packaging kcal without value', () {
+      final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
+        _set(_packaging, '100g', <String, Map<String, dynamic>>{
+          'energy-kcal': <String, dynamic>{'unit': 'kcal', 'modifier': '-'},
+        }),
+        _set(_manufacturer, '100g', <String, Map<String, dynamic>>{
+          'energy-kj': _value('kJ', '1000'),
+        }),
+      ]);
+      expect(helper.getValue(Nutrient.energyKJ), 1000);
+      expect(helper.isFromManufacturer(Nutrient.energyKJ), isTrue);
+    });
+
     test('reads the no nutrition data flag', () {
       expect(_helper(<Map<String, dynamic>>[]).noNutritionData, isFalse);
       expect(
