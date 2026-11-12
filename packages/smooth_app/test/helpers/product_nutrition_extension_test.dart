@@ -66,6 +66,18 @@ void main() {
       expect(_per100(product, Nutrient.energyKJ), 419);
     });
 
+    test('prefers manufacturer kcal over packaging kJ', () {
+      final Product product = _product(<Map<String, dynamic>>[
+        _set(<String, Map<String, dynamic>>{
+          'energy-kj': _value('kJ', '1000'),
+        }),
+        _set(<String, Map<String, dynamic>>{
+          'energy-kcal': _value('kcal', '100'),
+        }, source: 'manufacturer'),
+      ]);
+      expect(_per100(product, Nutrient.energyKJ), 419);
+    });
+
     test('returns null for a missing nutrient', () {
       expect(_per100(product, Nutrient.salt), isNull);
     });

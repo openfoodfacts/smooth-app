@@ -368,23 +368,32 @@ class NutritionContainerHelper extends ChangeNotifier {
       final _Line line = _getLine(perSize);
       final List<NutritionSet?> sets = getSets(_getSetPerSize(perSize));
 
-      NutritionValue? find(Nutrient nutrient) => sets
-          .map((NutritionSet? set) => set?.nutritionValues?[nutrient])
-          .nonNulls
-          .firstOrNull;
+      bool hasEntry(NutritionSet? set, Nutrient nutrient) =>
+          set?.nutritionValues?[nutrient] != null ||
+          (nutrient == Nutrient.energyKJ &&
+              _getNumber(set?.nutritionValues?[Nutrient.energyKCal]) != null);
+
+      num? getNumber(NutritionSet? set, Nutrient nutrient) =>
+          _getNumber(set?.nutritionValues?[nutrient]) ??
+          (nutrient == Nutrient.energyKJ
+              ? getKJFromKCal(
+                  _getNumber(set?.nutritionValues?[Nutrient.energyKCal]),
+                )
+              : null);
 
       for (final OrderedNutrient orderedNutrient in _nutrients) {
         final Nutrient nutrient = getNutrient(orderedNutrient)!;
-        final NutritionValue? nutritionValue = find(nutrient);
-        num? value = _getNumber(nutritionValue);
-        if (nutrient == Nutrient.energyKJ) {
-          value ??= getKJFromKCal(_getNumber(find(Nutrient.energyKCal)));
-        }
+        final NutritionSet? valueSet = sets
+            .where((NutritionSet? set) => hasEntry(set, nutrient))
+            .firstOrNull;
+        final NutritionValue? nutritionValue =
+            valueSet?.nutritionValues?[nutrient];
+        final num? value = getNumber(valueSet, nutrient);
         if (value != null) {
           line.values[nutrient] = value;
         }
-        if (sets.first?.nutritionValues?[nutrient] == null &&
-            _getNumber(sets.last?.nutritionValues?[nutrient]) != null) {
+        if (!hasEntry(sets.first, nutrient) &&
+            getNumber(sets.last, nutrient) != null) {
           line.fromManufacturer.add(nutrient);
         }
         final Unit unit = nutritionValue?.unit ?? nutrient.typicalUnit;
