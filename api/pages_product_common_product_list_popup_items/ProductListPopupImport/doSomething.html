@@ -84,7 +84,7 @@ Future&lt;ProductList?&gt; doSomething({
   required LocalDatabase localDatabase,
   required BuildContext context,
 }) async {
-  final FilePickerResult? result = await FilePicker.platform.pickFiles(
+  final PlatformFile? result = await FilePicker.pickFile(
     type: FileType.custom,
     allowedExtensions: &lt;String&gt;[&#39;csv&#39;],
   );
@@ -96,7 +96,7 @@ Future&lt;ProductList?&gt; doSomething({
   await ProductListHelper(
     list: productList,
     localDatabase: localDatabase,
-  ).importFileToList(File(result.files.single.path!));
+  ).importFileToList(File(result.path!));
 
   return productList;
 }</code></pre>
