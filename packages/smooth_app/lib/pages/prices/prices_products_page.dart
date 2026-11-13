@@ -118,11 +118,12 @@ class _InfiniteScrollProductManager
       elevationColor: Colors.black26,
       margin: const EdgeInsetsDirectional.only(
         top: MEDIUM_SPACE,
-        start: 8.0,
-        end: 8.0,
+        start: SMALL_SPACE,
+        end: SMALL_SPACE,
       ),
       padding: EdgeInsetsDirectional.zero,
       color: lightTheme ? null : extension.primaryUltraBlack,
+      clipBehavior: Clip.antiAlias,
       child: InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: () async => Navigator.of(context).push<void>(
@@ -137,7 +138,10 @@ class _InfiniteScrollProductManager
         ),
         child: Padding(
           padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-          child: PriceProductWidget(item),
+          child: PriceProductWidget(
+            item,
+            padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+          ),
         ),
       ),
     );

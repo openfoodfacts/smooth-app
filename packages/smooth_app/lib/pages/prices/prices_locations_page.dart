@@ -10,6 +10,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_data_entry.dart';
+import 'package:smooth_app/pages/prices/price_header_container.dart';
 import 'package:smooth_app/pages/prices/price_location_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -116,11 +117,12 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
       elevationColor: Colors.black26,
       margin: const EdgeInsetsDirectional.only(
         top: MEDIUM_SPACE,
-        start: 8.0,
-        end: 8.0,
+        start: SMALL_SPACE,
+        end: SMALL_SPACE,
       ),
       padding: EdgeInsetsDirectional.zero,
       color: lightTheme ? null : extension.primaryUltraBlack,
+      clipBehavior: Clip.antiAlias,
       child: InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: () async => PriceLocationWidget.showLocationPrices(
@@ -133,7 +135,12 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              PriceLocationWidget(item),
+              PriceLocationWidget(
+                item,
+                padding: hasMetadata
+                    ? PriceHeaderContainer.defaultPadding
+                    : const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+              ),
               if (hasMetadata)
                 DefaultTextStyle.merge(
                   style: TextStyle(
@@ -144,8 +151,8 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
                   ),
                   child: Padding(
                     padding: const EdgeInsetsDirectional.only(
-                      start: SMALL_SPACE,
-                      end: SMALL_SPACE,
+                      start: VERY_SMALL_SPACE,
+                      end: VERY_SMALL_SPACE,
                       top: SMALL_SPACE,
                       bottom: VERY_SMALL_SPACE,
                     ),

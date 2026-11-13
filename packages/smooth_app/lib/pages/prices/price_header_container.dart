@@ -14,8 +14,17 @@ class PriceHeaderContainer extends StatelessWidget {
     this.line3,
     this.count,
     this.warningIndicator = false,
+    this.padding = defaultPadding,
+    this.borderRadius,
     super.key,
   });
+
+  static const EdgeInsetsDirectional defaultPadding =
+      EdgeInsetsDirectional.only(
+        start: VERY_SMALL_SPACE,
+        end: VERY_SMALL_SPACE,
+        top: VERY_SMALL_SPACE,
+      );
 
   final ImageProvider? imageProvider;
   final Widget? placeholder;
@@ -25,6 +34,8 @@ class PriceHeaderContainer extends StatelessWidget {
   final int? count;
   final String semanticsLabel;
   final bool warningIndicator;
+  final EdgeInsetsGeometry padding;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +44,7 @@ class PriceHeaderContainer extends StatelessWidget {
       container: true,
       excludeSemantics: true,
       child: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          start: VERY_SMALL_SPACE,
-          end: VERY_SMALL_SPACE,
-          top: VERY_SMALL_SPACE,
-        ),
+        padding: padding,
         child: IntrinsicHeight(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -47,6 +54,7 @@ class PriceHeaderContainer extends StatelessWidget {
                 size: const Size.square(80.0),
                 imageProvider: imageProvider,
                 placeholder: placeholder,
+                borderRadius: borderRadius,
                 count: count,
               ),
               const SizedBox(width: SMALL_SPACE),

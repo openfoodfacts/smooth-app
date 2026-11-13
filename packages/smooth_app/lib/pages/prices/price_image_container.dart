@@ -23,40 +23,52 @@ class PriceImageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final BorderRadius effectiveBorderRadius =
+        borderRadius ?? ANGULAR_BORDER_RADIUS;
+
     return SizedBox.fromSize(
       size: size,
       child: DecoratedBox(
         position: DecorationPosition.foreground,
         decoration: BoxDecoration(
-          borderRadius: borderRadius ?? ANGULAR_BORDER_RADIUS,
+          borderRadius: effectiveBorderRadius,
           border: Border.all(
             color: count != null
                 ? PriceCountWidget.getForegroundColor(count!)
                 : Colors.black54,
           ),
         ),
-        child: Stack(
-          children: <Widget>[
-            if (imageProvider != null)
-              ProductPicture.fromImageProvider(
-                imageProvider: imageProvider!,
-                size: size,
-                borderRadius: ANGULAR_BORDER_RADIUS,
-              )
-            else if (placeholder != null)
-              Center(child: placeholder)
-            else
-              const PictureNotFound.ink(
-                backgroundDecoration: BoxDecoration(
-                  borderRadius: ANGULAR_BORDER_RADIUS,
+        child: ClipRRect(
+          borderRadius: effectiveBorderRadius,
+          clipBehavior: Clip.antiAlias,
+          child: Stack(
+            children: <Widget>[
+              if (imageProvider != null)
+                ProductPicture.fromImageProvider(
+                  imageProvider: imageProvider!,
+                  size: size,
+                  borderRadius: effectiveBorderRadius,
+                )
+              else if (placeholder != null)
+                Center(child: placeholder)
+              else
+                PictureNotFound.ink(
+                  backgroundDecoration: BoxDecoration(
+                    borderRadius: effectiveBorderRadius,
+                  ),
                 ),
-              ),
-            if (count != null)
-              Align(
-                alignment: AlignmentDirectional.bottomCenter,
-                child: _PriceCountBadge(count: count!),
-              ),
-          ],
+              if (count != null)
+                Align(
+                  alignment: AlignmentDirectional.bottomCenter,
+                  child: _PriceCountBadge(
+                    count: count!,
+                    bottomBorderRadius: Radius.circular(
+                      effectiveBorderRadius.bottomLeft.x,
+                    ),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
@@ -64,9 +76,13 @@ class PriceImageContainer extends StatelessWidget {
 }
 
 class _PriceCountBadge extends StatelessWidget {
-  const _PriceCountBadge({required this.count}) : assert(count >= 0);
+  const _PriceCountBadge({
+    required this.count,
+    this.bottomBorderRadius = Radius.zero,
+  }) : assert(count >= 0);
 
   final int count;
+  final Radius bottomBorderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +91,12 @@ class _PriceCountBadge extends StatelessWidget {
         color: PriceCountWidget.getForegroundColor(
           count,
         ).withValues(alpha: 0.8),
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(12.0)),
+        borderRadius: BorderRadius.only(
+          topLeft: const Radius.circular(12.0),
+          topRight: const Radius.circular(12.0),
+          bottomLeft: bottomBorderRadius,
+          bottomRight: bottomBorderRadius,
+        ),
       ),
       child: Padding(
         padding: const EdgeInsetsDirectional.symmetric(

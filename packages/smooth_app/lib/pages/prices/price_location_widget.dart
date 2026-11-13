@@ -10,9 +10,14 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Price Location display (no price data here).
 class PriceLocationWidget extends StatelessWidget {
-  const PriceLocationWidget(this.location);
+  const PriceLocationWidget(
+    this.location, {
+    this.padding,
+    super.key,
+  });
 
   final Location location;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +70,7 @@ class PriceLocationWidget extends StatelessWidget {
       line2: line2,
       line3: line3,
       count: priceCount,
+      padding: padding ?? PriceHeaderContainer.defaultPadding,
       semanticsLabel: _generateSemanticsLabel(
         appLocalizations,
         name,

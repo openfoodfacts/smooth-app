@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_header_container.dart';
@@ -103,6 +104,34 @@ void main() {
       expect(find.byType(icons.Profile), findsOneWidget);
       expect(find.byType(icons.PriceTag), findsNothing);
     });
+
+    testWidgets(
+      'clips contents with antiAlias and applies effectiveBorderRadius',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          _wrapWithApp(
+            const PriceImageContainer(
+              size: Size.square(80.0),
+              placeholder: icons.Shop(size: 32.0),
+              borderRadius: BorderRadius.all(Radius.circular(12.0)),
+              count: 7,
+            ),
+          ),
+        );
+
+        final ClipRRect clipRRect = tester.widget<ClipRRect>(
+          find.descendant(
+            of: find.byType(PriceImageContainer),
+            matching: find.byType(ClipRRect),
+          ),
+        );
+        expect(clipRRect.clipBehavior, Clip.antiAlias);
+        expect(
+          clipRRect.borderRadius,
+          const BorderRadius.all(Radius.circular(12.0)),
+        );
+      },
+    );
   });
 
   group('PriceHeaderContainer tests', () {
@@ -127,6 +156,33 @@ void main() {
       expect(find.text('123 Rue de Rivoli'), findsOneWidget);
       expect(find.text('42'), findsOneWidget);
       expect(find.byType(icons.Shop), findsOneWidget);
+    });
+
+    testWidgets('applies custom padding when provided', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(
+        _wrapWithApp(
+          const PriceHeaderContainer(
+            line1: 'Product Name',
+            semanticsLabel: 'Product Name',
+            padding: EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+          ),
+        ),
+      );
+
+      final Padding paddingWidget = tester.widget<Padding>(
+        find
+            .descendant(
+              of: find.byType(PriceHeaderContainer),
+              matching: find.byType(Padding),
+            )
+            .first,
+      );
+      expect(
+        paddingWidget.padding,
+        const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+      );
     });
 
     testWidgets('constrains line3 to at most 2 lines with ellipsis', (
@@ -470,6 +526,33 @@ void main() {
         expect(find.text("Bio c' Bon"), findsOneWidget);
         expect(find.text('27'), findsOneWidget);
         expect(find.byType(icons.Shop), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'PriceUserCard applies Clip.antiAlias and balanced padding',
+      (WidgetTester tester) async {
+        final PriceUser user = PriceUser(<String, dynamic>{
+          'user_id': 'test_contributor',
+          'price_count': 10,
+        });
+
+        await tester.pumpWidget(
+          await _wrapWithSmoothApp(child: PriceUserCard(user)),
+        );
+
+        final SmoothCard card = tester.widget<SmoothCard>(
+          find.byType(SmoothCard),
+        );
+        expect(card.clipBehavior, Clip.antiAlias);
+
+        final PriceHeaderContainer header = tester.widget<PriceHeaderContainer>(
+          find.byType(PriceHeaderContainer),
+        );
+        expect(
+          header.padding,
+          const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+        );
       },
     );
   });
