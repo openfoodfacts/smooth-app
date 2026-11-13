@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -148,11 +149,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     final NutritionContainerHelper backBone = _nutritionContainers.first;
     for (final OrderedNutrient orderedNutrient in backBone.allNutrients) {
       final Nutrient nutrient = _getNutrient(orderedNutrient);
-      final List<({num value, Unit unit})?> values =
-          <({num value, Unit unit})?>[];
+      final List<NutritionValue?> values = <NutritionValue?>[];
       bool notNull = false;
       for (final Product product in widget.products) {
-        final ({num value, Unit unit})? value = product.getNutrientValueAsIs(
+        final NutritionValue? value = product.getNutrientValueAsIs(
           nutrient,
           PerSize.oneHundredGrams,
         );
@@ -236,7 +236,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
   Widget? _getChild(Attribute attribute, Product product) {
     final Nutrient? nutrient = _getAttributeNutrient(attribute.id!);
     if (nutrient != null) {
-      final ({num value, Unit unit})? value = product.getNutrientValueAsIs(
+      final NutritionValue? value = product.getNutrientValueAsIs(
         nutrient,
         PerSize.oneHundredGrams,
       );
@@ -302,9 +302,9 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
 
   /// Weights are shown in the typical unit of [nutrient], so that the values
   /// of a row compare at a glance.
-  String _formatValue(({num value, Unit unit}) value, Nutrient nutrient) {
-    num number = value.value;
-    Unit unit = value.unit;
+  String _formatValue(NutritionValue value, Nutrient nutrient) {
+    num number = value.value!;
+    Unit unit = value.unit!;
     if (_weightUnits.contains(unit) &&
         _weightUnits.contains(nutrient.typicalUnit)) {
       number = NutritionContainerHelper.convertWeightFromG(
@@ -313,7 +313,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
       )!;
       unit = nutrient.typicalUnit;
     }
-    return '${NutritionContainerHelper.getNumberFormat(ProductQuery.getLocaleString()).format(number)}'
+    return '${NumberFormat('####0.##', ProductQuery.getLocaleString()).format(number)}'
         ' ${UnitHelper.unitToString(unit)}';
   }
 
@@ -324,11 +324,11 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
   };
 
   Widget _getNutrientRow({
-    required List<({num value, Unit unit})?> values,
+    required List<NutritionValue?> values,
     required Nutrient nutrient,
   }) {
     final List<Widget> children = <Widget>[];
-    for (final ({num value, Unit unit})? value in values) {
+    for (final NutritionValue? value in values) {
       Widget? child = value == null
           ? null
           : Center(

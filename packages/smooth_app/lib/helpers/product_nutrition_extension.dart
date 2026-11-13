@@ -2,45 +2,38 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 
 /// Nutrition facts of a [Product], from the API 3.5 input sets, or from the
-/// old `nutriments` of products and changes saved by older app versions.
+/// old `nutriments` that only products and changes saved by older app versions
+/// have.
 // TODO(monsieurtanuki): move to off-dart.
 extension ProductNutritionExtension on Product {
   /// Returns the as sold value of [nutrient] for [perSize] (weights in grams),
   /// or null if unknown.
   double? getNutrientValue(Nutrient nutrient, PerSize perSize) {
-    final ({num value, Unit unit})? result = getNutrientValueAsIs(
-      nutrient,
-      perSize,
-    );
+    final NutritionValue? result = getNutrientValueAsIs(nutrient, perSize);
     return result == null
         ? null
         : NutritionContainerHelper.convertWeightToG(
-            result.value.toDouble(),
-            result.unit,
+            result.value!.toDouble(),
+            result.unit!,
           );
   }
 
-  /// Returns the as sold value of [nutrient] for [perSize] in the unit it was
-  /// entered in, or null if unknown.
+  /// Returns the as sold value of [nutrient] for [perSize] with the unit it
+  /// was entered in, or null if unknown.
   ///
   /// Same priority as the server: manufacturer, packaging, then usda values.
   /// Per 100g also takes a per 100ml value, or a per serving value scaled to
   /// 100. Energy in kJ is computed from kcal when missing.
-  ({num value, Unit unit})? getNutrientValueAsIs(
-    Nutrient nutrient,
-    PerSize perSize,
-  ) {
+  NutritionValue? getNutrientValueAsIs(Nutrient nutrient, PerSize perSize) {
     if (_hasOldNutriments) {
-      final double? value =
+      final double? value = nutrient == Nutrient.energyKJ
           // ignore: deprecated_member_use
-          nutriments!.getValue(nutrient, perSize) ??
-          (nutrient == Nutrient.energyKJ
-              ? NutritionContainerHelper.getKJFromKCal(
-                  // ignore: deprecated_member_use
-                  nutriments!.getValue(Nutrient.energyKCal, perSize),
-                )
-              : null);
-      return value == null ? null : (value: value, unit: _oldUnit(nutrient));
+          ? nutriments!.getComputedKJ(perSize)
+          // ignore: deprecated_member_use
+          : nutriments!.getValue(nutrient, perSize);
+      return value == null
+          ? null
+          : NutritionValue(value: value, unit: _oldUnit(nutrient));
     }
     final List<NutritionSet> sets =
         NutritionHelper().getInputSets(this) ?? <NutritionSet>[];
@@ -61,7 +54,7 @@ extension ProductNutritionExtension on Product {
         )) {
           final bool needsScaling =
               setPerSize == PerSize.serving && perSize != PerSize.serving;
-          final ({num value, Unit unit})? result = _getValue(
+          final NutritionValue? result = _getValue(
             set,
             nutrient,
             needsScaling: needsScaling,
@@ -78,7 +71,7 @@ extension ProductNutritionExtension on Product {
               )?.value,
             );
             if (kJ != null) {
-              return (value: kJ, unit: Unit.KJ);
+              return NutritionValue(value: kJ, unit: Unit.KJ);
             }
           }
         }
@@ -87,7 +80,6 @@ extension ProductNutritionExtension on Product {
     return null;
   }
 
-  /// True when nutrition facts are said to be missing on the packaging.
   bool get hasNoNutritionData =>
       noNutritionData ??
       NutritionHelper().getNoNutritionDataOnPackaging(this) ??
@@ -109,18 +101,17 @@ extension ProductNutritionExtension on Product {
     'usda',
   ];
 
-  /// The server sends no `nutriments` at API 3.5: they come from products and
-  /// changes saved by older app versions.
   // ignore: deprecated_member_use
   bool get _hasOldNutriments => nutriments?.isEmpty() == false;
 
   /// Old `nutriments` weights are in grams.
-  static Unit _oldUnit(Nutrient nutrient) => switch (nutrient.typicalUnit) {
-    Unit.MILLI_G || Unit.MICRO_G => Unit.G,
-    final Unit unit => unit,
-  };
+  static Unit _oldUnit(Nutrient nutrient) =>
+      nutrient.typicalUnit == Unit.MILLI_G ||
+          nutrient.typicalUnit == Unit.MICRO_G
+      ? Unit.G
+      : nutrient.typicalUnit;
 
-  static ({num value, Unit unit})? _getValue(
+  static NutritionValue? _getValue(
     NutritionSet set,
     Nutrient nutrient, {
     required bool needsScaling,
@@ -135,7 +126,7 @@ extension ProductNutritionExtension on Product {
     }
     // Percentages are the same for every quantity.
     if (!needsScaling || unit == Unit.PERCENT || unit == Unit.PERCENT_VOL) {
-      return (value: value, unit: unit);
+      return NutritionValue(value: value, unit: unit);
     }
     // Same threshold as the server: no scaling from a serving below 5 g or ml.
     final num? quantity = set.key.perQuantity;
@@ -144,6 +135,6 @@ extension ProductNutritionExtension on Product {
         (set.key.perUnit != Unit.G && set.key.perUnit != Unit.MILLI_L)) {
       return null;
     }
-    return (value: value * 100 / quantity, unit: unit);
+    return NutritionValue(value: value * 100 / quantity, unit: unit);
   }
 }

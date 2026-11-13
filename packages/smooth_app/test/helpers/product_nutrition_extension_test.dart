@@ -29,6 +29,14 @@ Map<String, dynamic> _value(String unit, String value) => <String, dynamic>{
 double? _per100(Product product, Nutrient nutrient) =>
     product.getNutrientValue(nutrient, PerSize.oneHundredGrams);
 
+List<Object?> _asIs(Product product, Nutrient nutrient) {
+  final NutritionValue? value = product.getNutrientValueAsIs(
+    nutrient,
+    PerSize.oneHundredGrams,
+  );
+  return <Object?>[value?.value, value?.unit];
+}
+
 void main() {
   group('ProductNutritionExtension', () {
     final Product product = _product(<Map<String, dynamic>>[
@@ -246,17 +254,17 @@ void main() {
     });
 
     test('keeps the unit as entered', () {
-      expect(
-        product.getNutrientValueAsIs(Nutrient.iron, PerSize.oneHundredGrams),
-        (value: 5, unit: Unit.MILLI_G),
-      );
-      expect(
-        product.getNutrientValueAsIs(
-          Nutrient.vitaminB9,
-          PerSize.oneHundredGrams,
-        ),
-        (value: 30, unit: Unit.MICRO_G),
-      );
+      expect(_asIs(product, Nutrient.iron), <Object?>[5, Unit.MILLI_G]);
+      expect(_asIs(product, Nutrient.vitaminB9), <Object?>[30, Unit.MICRO_G]);
+    });
+
+    test('computes energy in kJ from kcal, in kJ', () {
+      final Product product = _product(<Map<String, dynamic>>[
+        _set(<String, Map<String, dynamic>>{
+          'energy-kcal': _value('kcal', '100'),
+        }),
+      ]);
+      expect(_asIs(product, Nutrient.energyKJ), <Object?>[419, Unit.KJ]);
     });
 
     test('scales a serving value in the unit as entered', () {
@@ -268,10 +276,7 @@ void main() {
           perUnit: 'g',
         ),
       ]);
-      expect(
-        product.getNutrientValueAsIs(Nutrient.sodium, PerSize.oneHundredGrams),
-        (value: 200, unit: Unit.MILLI_G),
-      );
+      expect(_asIs(product, Nutrient.sodium), <Object?>[200, Unit.MILLI_G]);
     });
 
     group('old nutriments', () {
@@ -287,14 +292,8 @@ void main() {
         expect(oldProduct.hasNutritionData, isTrue);
         expect(_per100(oldProduct, Nutrient.fat), 12.5);
         expect(_per100(oldProduct, Nutrient.iron), 0.005);
-        expect(
-          oldProduct.getNutrientValueAsIs(
-            Nutrient.iron,
-            PerSize.oneHundredGrams,
-          ),
-          (value: 0.005, unit: Unit.G),
-        );
-        expect(_per100(oldProduct, Nutrient.energyKJ), 419);
+        expect(_asIs(oldProduct, Nutrient.iron), <Object?>[0.005, Unit.G]);
+        expect(_per100(oldProduct, Nutrient.energyKJ), closeTo(418.68, 0.01));
       });
 
       test('win over input sets, as they are a pending older change', () {
