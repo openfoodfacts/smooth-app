@@ -244,5 +244,83 @@ void main() {
       expect(_per100(Product(), Nutrient.fat), isNull);
       expect(Product().hasNutritionData, isFalse);
     });
+
+    test('keeps the unit as entered', () {
+      expect(
+        product.getNutrientValueAsIs(Nutrient.iron, PerSize.oneHundredGrams),
+        (value: 5, unit: Unit.MILLI_G),
+      );
+      expect(
+        product.getNutrientValueAsIs(
+          Nutrient.vitaminB9,
+          PerSize.oneHundredGrams,
+        ),
+        (value: 30, unit: Unit.MICRO_G),
+      );
+    });
+
+    test('scales a serving value in the unit as entered', () {
+      final Product product = _product(<Map<String, dynamic>>[
+        _set(
+          <String, Map<String, dynamic>>{'sodium': _value('mg', '50')},
+          per: 'serving',
+          perQuantity: 25,
+          perUnit: 'g',
+        ),
+      ]);
+      expect(
+        product.getNutrientValueAsIs(Nutrient.sodium, PerSize.oneHundredGrams),
+        (value: 200, unit: Unit.MILLI_G),
+      );
+    });
+
+    group('old nutriments', () {
+      // Saved by an older app version: grams, no input sets.
+      final Product oldProduct = Product()
+        // ignore: deprecated_member_use
+        ..nutriments = (Nutriments.empty()
+          ..setValue(Nutrient.fat, PerSize.oneHundredGrams, 12.5)
+          ..setValue(Nutrient.iron, PerSize.oneHundredGrams, 0.005)
+          ..setValue(Nutrient.energyKCal, PerSize.oneHundredGrams, 100));
+
+      test('are read when there are no input sets', () {
+        expect(oldProduct.hasNutritionData, isTrue);
+        expect(_per100(oldProduct, Nutrient.fat), 12.5);
+        expect(_per100(oldProduct, Nutrient.iron), 0.005);
+        expect(
+          oldProduct.getNutrientValueAsIs(
+            Nutrient.iron,
+            PerSize.oneHundredGrams,
+          ),
+          (value: 0.005, unit: Unit.G),
+        );
+        expect(_per100(oldProduct, Nutrient.energyKJ), 419);
+      });
+
+      test('win over input sets, as they are a pending older change', () {
+        final Product product =
+            _product(<Map<String, dynamic>>[
+                _set(<String, Map<String, dynamic>>{'fat': _value('g', '3')}),
+              ])
+              // ignore: deprecated_member_use
+              ..nutriments = oldProduct.nutriments;
+        expect(_per100(product, Nutrient.fat), 12.5);
+      });
+    });
+
+    test('no nutrition data: local change, then packaging', () {
+      Product withFlag({bool? local, bool? onPackaging}) => Product()
+        ..noNutritionData = local
+        ..nutrition = <String, dynamic>{
+          'no_nutrition_data_on_packaging': ?onPackaging,
+        };
+      expect(withFlag().hasNoNutritionData, isFalse);
+      expect(withFlag(onPackaging: true).hasNoNutritionData, isTrue);
+      expect(
+        withFlag(local: false, onPackaging: true).hasNoNutritionData,
+        isFalse,
+      );
+      expect(withFlag(local: true).hasNoNutritionData, isTrue);
+    });
   });
 }

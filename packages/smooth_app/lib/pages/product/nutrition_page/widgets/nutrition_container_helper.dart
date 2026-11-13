@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Nutrition data, for nutrient order and conversions.
@@ -20,10 +21,7 @@ class NutritionContainerHelper extends ChangeNotifier {
     }
     setServingText(product.servingSize);
     _initialServingSize = servingSize;
-    _initialNoNutritionData = _noNutritionData =
-        product.noNutritionData ??
-        NutritionHelper().getNoNutritionDataOnPackaging(product) ??
-        false;
+    _initialNoNutritionData = _noNutritionData = product.hasNoNutritionData;
   }
 
   /// Returns the [Nutrient] that matches the [orderedNutrient].

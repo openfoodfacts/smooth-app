@@ -147,12 +147,13 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     final NutritionContainerHelper backBone = _nutritionContainers.first;
     for (final OrderedNutrient orderedNutrient in backBone.allNutrients) {
       final Nutrient nutrient = _getNutrient(orderedNutrient);
-      final List<double?> values = <double?>[];
+      final List<({num value, Unit unit})?> values =
+          <({num value, Unit unit})?>[];
       bool notNull = false;
       for (final Product product in widget.products) {
-        final double? value = NutritionContainerHelper.convertWeightFromG(
-          product.getNutrientValue(nutrient, PerSize.oneHundredGrams),
-          nutrient.typicalUnit,
+        final ({num value, Unit unit})? value = product.getNutrientValueAsIs(
+          nutrient,
+          PerSize.oneHundredGrams,
         );
         values.add(value);
         if (value != null) {
@@ -234,7 +235,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
   Widget? _getChild(Attribute attribute, Product product) {
     final Nutrient? nutrient = _getAttributeNutrient(attribute.id!);
     if (nutrient != null) {
-      final double? value = product.getNutrientValue(
+      final ({num value, Unit unit})? value = product.getNutrientValueAsIs(
         nutrient,
         PerSize.oneHundredGrams,
       );
@@ -242,7 +243,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
         return null;
       }
       return Text(
-        '${value.toStringAsFixed(2)} ${UnitHelper.unitToString(nutrient.typicalUnit)}',
+        _formatValue(value),
         style: const TextStyle(fontWeight: FontWeight.w500),
       );
     }
@@ -298,17 +299,20 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     );
   }
 
+  String _formatValue(({num value, Unit unit}) value) =>
+      '${value.value.toStringAsFixed(2)} ${UnitHelper.unitToString(value.unit)}';
+
   Widget _getNutrientRow({
-    required List<double?> values,
+    required List<({num value, Unit unit})?> values,
     required Nutrient nutrient,
   }) {
     final List<Widget> children = <Widget>[];
-    for (final double? value in values) {
+    for (final ({num value, Unit unit})? value in values) {
       Widget? child = value == null
           ? null
           : Center(
               child: Text(
-                '${value.toStringAsFixed(2)} ${UnitHelper.unitToString(nutrient.typicalUnit)}',
+                _formatValue(value),
                 style: const TextStyle(fontWeight: FontWeight.w500),
               ),
             );

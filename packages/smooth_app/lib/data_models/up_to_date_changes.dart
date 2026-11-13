@@ -57,34 +57,40 @@ class UpToDateChanges {
       for (final dynamic set in initial?['input_sets'] ?? <dynamic>[])
         Map<String, dynamic>.of(set as Map<String, dynamic>),
     ];
-    for (final dynamic changeSet in change['input_sets'] ?? <dynamic>[]) {
-      final Map<String, dynamic> newSet = changeSet as Map<String, dynamic>;
-      final int index = sets.indexWhere(
-        (Map<String, dynamic> set) =>
-            set['source'] == newSet['source'] &&
-            set['preparation'] == newSet['preparation'] &&
-            set['per'] == newSet['per'],
-      );
-      final Map<String, dynamic> merged = index < 0
-          ? Map<String, dynamic>.of(newSet)
-          : sets[index];
-      final Map<String, dynamic> nutrients = Map<String, dynamic>.of(
-        merged['nutrients'] ?? <String, dynamic>{},
-      );
-      (newSet['nutrients'] as Map<String, dynamic>? ?? <String, dynamic>{})
-          .forEach((String id, dynamic value) {
-            if ((value as Map<String, dynamic>)['value_string'] == '') {
-              nutrients.remove(id);
-            } else {
-              nutrients[id] = value;
-            }
-          });
-      merged['nutrients'] = nutrients;
-      if (newSet.containsKey('unspecified_nutrients')) {
-        merged['unspecified_nutrients'] = newSet['unspecified_nutrients'];
-      }
-      if (index < 0) {
-        sets.add(merged);
+    final dynamic changedSets = change['input_sets'];
+    if (changedSets != null) {
+      for (final dynamic changeSet in changedSets) {
+        final Map<String, dynamic> newSet = changeSet as Map<String, dynamic>;
+        final NutritionSetKey? newKey = NutritionSetKey.fromJson(newSet);
+        final int index = sets.indexWhere((Map<String, dynamic> set) {
+          final NutritionSetKey? key = NutritionSetKey.fromJson(set);
+          return key != null &&
+              newKey != null &&
+              key.source == newKey.source &&
+              key.preparation == newKey.preparation &&
+              key.perSize == newKey.perSize;
+        });
+        final Map<String, dynamic> merged = index < 0
+            ? Map<String, dynamic>.of(newSet)
+            : sets[index];
+        final Map<String, dynamic> nutrients = Map<String, dynamic>.of(
+          merged['nutrients'] ?? <String, dynamic>{},
+        );
+        (newSet['nutrients'] as Map<String, dynamic>? ?? <String, dynamic>{})
+            .forEach((String id, dynamic value) {
+              if ((value as Map<String, dynamic>)['value_string'] == '') {
+                nutrients.remove(id);
+              } else {
+                nutrients[id] = value;
+              }
+            });
+        merged['nutrients'] = nutrients;
+        if (newSet.containsKey('unspecified_nutrients')) {
+          merged['unspecified_nutrients'] = newSet['unspecified_nutrients'];
+        }
+        if (index < 0) {
+          sets.add(merged);
+        }
       }
     }
     return <String, dynamic>{...?initial, 'input_sets': sets};
@@ -127,6 +133,14 @@ class UpToDateChanges {
     }
     if (change.noNutritionData != null) {
       initial.noNutritionData = change.noNutritionData;
+    }
+    // cf. https://github.com/openfoodfacts/smooth-app/issues/4627
+    // If we don't check if nutriments is empty, most of the time we overwrite
+    // potentially existing nutriments with an empty map.
+    // ignore: deprecated_member_use
+    if (change.nutriments != null && !change.nutriments!.isEmpty()) {
+      // ignore: deprecated_member_use
+      initial.nutriments = change.nutriments;
     }
     if (change.nutrition != null) {
       initial.nutrition = mergeNutrition(initial.nutrition, change.nutrition!);
