@@ -244,7 +244,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
         return null;
       }
       return Text(
-        _formatValue(value),
+        _formatValue(value, nutrient),
         style: const TextStyle(fontWeight: FontWeight.w500),
       );
     }
@@ -300,9 +300,28 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     );
   }
 
-  String _formatValue(({num value, Unit unit}) value) =>
-      '${NutritionContainerHelper.getNumberFormat(ProductQuery.getLocaleString()).format(value.value)}'
-      ' ${UnitHelper.unitToString(value.unit)}';
+  /// Weights are shown in the typical unit of [nutrient], so that the values
+  /// of a row compare at a glance.
+  String _formatValue(({num value, Unit unit}) value, Nutrient nutrient) {
+    num number = value.value;
+    Unit unit = value.unit;
+    if (_weightUnits.contains(unit) &&
+        _weightUnits.contains(nutrient.typicalUnit)) {
+      number = NutritionContainerHelper.convertWeightFromG(
+        NutritionContainerHelper.convertWeightToG(number.toDouble(), unit),
+        nutrient.typicalUnit,
+      )!;
+      unit = nutrient.typicalUnit;
+    }
+    return '${NutritionContainerHelper.getNumberFormat(ProductQuery.getLocaleString()).format(number)}'
+        ' ${UnitHelper.unitToString(unit)}';
+  }
+
+  static const Set<Unit> _weightUnits = <Unit>{
+    Unit.G,
+    Unit.MILLI_G,
+    Unit.MICRO_G,
+  };
 
   Widget _getNutrientRow({
     required List<({num value, Unit unit})?> values,
@@ -314,7 +333,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
           ? null
           : Center(
               child: Text(
-                _formatValue(value),
+                _formatValue(value, nutrient),
                 style: const TextStyle(fontWeight: FontWeight.w500),
               ),
             );
