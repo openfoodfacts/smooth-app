@@ -14,6 +14,7 @@ import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -300,7 +301,8 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
   }
 
   String _formatValue(({num value, Unit unit}) value) =>
-      '${value.value.toStringAsFixed(2)} ${UnitHelper.unitToString(value.unit)}';
+      '${NutritionContainerHelper.getNumberFormat(ProductQuery.getLocaleString()).format(value.value)}'
+      ' ${UnitHelper.unitToString(value.unit)}';
 
   Widget _getNutrientRow({
     required List<({num value, Unit unit})?> values,
