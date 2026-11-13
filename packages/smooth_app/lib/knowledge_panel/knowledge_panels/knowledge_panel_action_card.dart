@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_country_helper.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/widgets/table/html_tag_remover.dart';
 
 /// "Contribute Actions" for the knowledge panels.
 class KnowledgePanelActionCard extends StatelessWidget {
@@ -27,53 +28,79 @@ class KnowledgePanelActionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> actionWidgets = <Widget>[];
+    final List<Widget> initialButtons = <Widget>[];
+    String? singleAction;
     for (final String action in element.actions) {
       final Widget? button = _getButton(context, action);
       if (button != null) {
-        actionWidgets.add(button);
+        initialButtons.add(button);
+        singleAction = action;
       }
     }
+
+    final String plainText = _getPlainText(element.html);
+    final bool overrideSingleButton =
+        plainText.isNotEmpty && initialButtons.length == 1;
+
+    final List<Widget> actionWidgets;
+    if (overrideSingleButton) {
+      actionWidgets = <Widget>[
+        _getButton(context, singleAction!, label: plainText)!,
+      ];
+    } else {
+      actionWidgets = initialButtons;
+    }
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        if (element.html != null) SmoothHtmlWidget(element.html!),
+        if (!overrideSingleButton && element.html != null)
+          SmoothHtmlWidget(element.html!),
         const SizedBox(height: SMALL_SPACE),
         ...actionWidgets,
       ],
     );
   }
 
+  static String _getPlainText(String? html) {
+    if (html == null) {
+      return '';
+    }
+    return HtmlTagRemover().extract(html).trim();
+  }
+
   // TODO(monsieurtanuki): deprecate KnowledgePanelAction in off-dart, as its use drags us behind
-  Widget? _getButton(BuildContext context, String action) {
+  Widget? _getButton(BuildContext context, String action, {String? label}) {
     final AbstractSimpleInputPageHelper? simpleInputPageHelper =
         _getSimpleInputPageHelper(context, action);
     if (simpleInputPageHelper != null) {
       return AddSimpleInputButton(
         product: product,
         helper: simpleInputPageHelper,
+        label: label,
       );
     }
     if (_isPackaging(action)) {
-      return AddPackagingButton(product: product);
+      return AddPackagingButton(product: product, label: label);
     }
     if (_isIngredient(action)) {
       return AddOcrButton(
         product: product,
         editor: ProductFieldOcrIngredientEditor(),
+        label: label,
       );
     }
     if (action == 'add_nutrition_facts') {
       if (AddNutritionButton.acceptsNutritionFacts(product)) {
-        return AddNutritionButton(product);
+        return AddNutritionButton(product, label: label);
       }
       return null;
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (action == 'edit_product') {
       return addPanelButton(
-        appLocalizations.edit_product_label,
+        label ?? appLocalizations.edit_product_label,
         onPressed: () async => Navigator.push<void>(
           context,
           MaterialPageRoute<void>(
@@ -84,7 +111,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
     }
     if (action == 'report_product_to_nutripatrol') {
       return addPanelButton(
-        appLocalizations.product_footer_action_report,
+        label ?? appLocalizations.product_footer_action_report,
         onPressed: () async => LaunchUrlHelper.launchURL(
           'https://nutripatrol.openfoodfacts.org/flag/product/'
           '?barcode=${product.barcode}'
