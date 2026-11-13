@@ -68,14 +68,6 @@ void main() {
         expect(remover.extract('<br>').trim(), '');
         expect(remover.extract('   \n\t  ').trim(), '');
       });
-
-      test('KnowledgePanelActionCard.getPlainText handles null and empty', () {
-        expect(KnowledgePanelActionCard.getPlainText(null), '');
-        expect(KnowledgePanelActionCard.getPlainText(''), '');
-        expect(KnowledgePanelActionCard.getPlainText('   '), '');
-        expect(KnowledgePanelActionCard.getPlainText('<br>'), '');
-        expect(KnowledgePanelActionCard.getPlainText('<b>Text</b>'), 'Text');
-      });
     },
   );
 

@@ -38,7 +38,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
       }
     }
 
-    final String plainText = getPlainText(element.html);
+    final String plainText = _getPlainText(element.html);
     final bool overrideSingleButton =
         plainText.isNotEmpty && initialButtons.length == 1;
 
@@ -63,7 +63,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
     );
   }
 
-  static String getPlainText(String? html) {
+  static String _getPlainText(String? html) {
     if (html == null) {
       return '';
     }
