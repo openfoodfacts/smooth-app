@@ -141,6 +141,20 @@ these commands:
     - `C:\Users\~\AppData\Local\Pub\Cache`  file.
       Then redo the above procedure to run the app.
 
+#### Dev variant (mocked scanner)
+
+`lib/entrypoints/dev/main_dev.dart` is a lightweight variant meant for development only. It uses
+`MockedScanner` and `URIAppStore`, so it needs no camera, no ML Kit/ZXing and no Google Play or
+App Store SDK. It starts faster and runs on desktop (macOS, Linux, Windows) as well as on
+simulators and devices.
+
+Since there is no camera, the scan screens show a text field where you can type a barcode, plus a
+few sample barcodes to tap. Do not use it to test the real scanner: use the Android or iOS
+variants for that.
+
+Run configurations named "Dev (mocked scanner)" (Android Studio / IntelliJ) and
+"Dev - Mocked scanner" (Visual Studio Code) are available.
+
 - [Contributing Guidelines](https://github.com/openfoodfacts/smooth-app/blob/develop/CONTRIBUTING.md)
 
 <br>

@@ -1,6 +1,12 @@
 {
   "configurations": [
     {
+      "name": "Dev - Mocked scanner",
+      "type": "dart",
+      "request": "launch",
+      "program": "packages/smooth_app/lib/entrypoints/dev/main_dev.dart"
+    },
+    {
       "name": "Android - Google Play",
       "type": "dart",
       "request": "launch",
