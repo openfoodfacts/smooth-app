@@ -40,7 +40,7 @@ dependencies:
   uuid: 4.6.0
   provider: 6.1.5+1
   sentry_flutter: 10.3.0
-  sqflite: 2.4.5
+  sqflite: 2.4.6
   sqflite_common_ffi: 2.4.5
   url_launcher: 6.3.3
   visibility_detector: 0.4.0+2
