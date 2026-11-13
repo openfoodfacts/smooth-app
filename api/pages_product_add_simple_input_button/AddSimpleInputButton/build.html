@@ -111,7 +111,7 @@ and</li>
 Widget build(BuildContext context) {
   helper.reInit(product);
   return addPanelButton(
-    helper.getAddButtonLabel(AppLocalizations.of(context)),
+    label ?? helper.getAddButtonLabel(AppLocalizations.of(context)),
     leadingIcon: const icons.Edit(),
     textAlign: TextAlign.center,
     onPressed: () async =&gt; ProductFieldSimpleEditor(

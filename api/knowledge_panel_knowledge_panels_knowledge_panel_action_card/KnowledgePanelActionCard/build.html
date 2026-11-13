@@ -109,18 +109,35 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final List&lt;Widget&gt; actionWidgets = &lt;Widget&gt;[];
+  final List&lt;Widget&gt; initialButtons = &lt;Widget&gt;[];
+  String? singleAction;
   for (final String action in element.actions) {
     final Widget? button = _getButton(context, action);
     if (button != null) {
-      actionWidgets.add(button);
+      initialButtons.add(button);
+      singleAction = action;
     }
   }
+
+  final String plainText = _getPlainText(element.html);
+  final bool overrideSingleButton =
+      plainText.isNotEmpty &amp;&amp; initialButtons.length == 1;
+
+  final List&lt;Widget&gt; actionWidgets;
+  if (overrideSingleButton) {
+    actionWidgets = &lt;Widget&gt;[
+      _getButton(context, singleAction!, label: plainText)!,
+    ];
+  } else {
+    actionWidgets = initialButtons;
+  }
+
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: &lt;Widget&gt;[
-      if (element.html != null) SmoothHtmlWidget(element.html!),
+      if (!overrideSingleButton &amp;&amp; element.html != null)
+        SmoothHtmlWidget(element.html!),
       const SizedBox(height: SMALL_SPACE),
       ...actionWidgets,
     ],
