@@ -151,13 +151,18 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
       final Nutrient nutrient = _getNutrient(orderedNutrient);
       final List<NutritionValue?> values = <NutritionValue?>[];
       bool notNull = false;
-      for (final Product product in widget.products) {
-        final NutritionValue? value = product.getNutrientValue(
-          nutrient,
-          PerSize.oneHundredGrams,
-        );
-        values.add(value);
-        if (value != null) {
+      for (final NutritionContainerHelper nutritionContainer
+          in _nutritionContainers) {
+        final num? value = nutritionContainer.getValue(nutrient);
+        if (value == null) {
+          values.add(null);
+        } else {
+          values.add(
+            NutritionValue(
+              value: value,
+              unit: nutritionContainer.getUnit(nutrient),
+            ),
+          );
           notNull = true;
         }
       }
