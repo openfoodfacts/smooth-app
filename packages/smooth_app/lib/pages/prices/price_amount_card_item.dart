@@ -95,7 +95,7 @@ class _PriceAmountCardItemState extends State<PriceAmountCardItem> {
           contentPadding: EdgeInsetsDirectional.zero,
         ),
         if (model.promo)
-          PriceDiscountTypeDropdown(
+          PriceDiscountTypeSelector(
             value: model.discountType,
             onChanged: (DiscountType? value) {
               setState(() => model.discountType = value);

@@ -133,39 +133,43 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
 
   for (int i = 0; i < labels.length; i++) {
     items.add(
-      ListTile(
-        leading: prefixIcons != null
-            ? IconTheme.merge(
-                data: IconThemeData(color: prefixIconTint),
-                child: prefixIcons.elementAt(i),
-              )
-            : null,
-        title: Text(
-          labels.elementAt(i),
-          style:
-              textStyle ??
-              TextStyle(
-                fontWeight: subtitles != null
-                    ? FontWeight.bold
-                    : FontWeight.w500,
-              ),
-        ),
-        subtitle: subtitles != null ? Text(subtitles.elementAt(i)) : null,
-        contentPadding:
-            contentPadding ??
-            EdgeInsetsDirectional.only(
-              start: LARGE_SPACE,
-              end: addEndArrowToItems ? 16.25 : LARGE_SPACE,
+      Builder(
+        builder: (BuildContext context) {
+          return ListTile(
+            leading: prefixIcons != null
+                ? IconTheme.merge(
+                    data: IconThemeData(color: prefixIconTint),
+                    child: prefixIcons.elementAt(i),
+                  )
+                : null,
+            title: Text(
+              labels.elementAt(i),
+              style:
+                  textStyle ??
+                  TextStyle(
+                    fontWeight: subtitles != null
+                        ? FontWeight.bold
+                        : FontWeight.w500,
+                  ),
             ),
-        trailing: (suffixIcons != null
-            ? IconTheme.merge(
-                data: IconThemeData(color: suffixIconTint),
-                child: suffixIcons.elementAt(i),
-              )
-            : (addEndArrowToItems
-                  ? const _SmoothListOfChoicesEndArrow()
-                  : null)),
-        onTap: () => Navigator.of(context).pop(values.elementAt(i)),
+            subtitle: subtitles != null ? Text(subtitles.elementAt(i)) : null,
+            contentPadding:
+                contentPadding ??
+                EdgeInsetsDirectional.only(
+                  start: LARGE_SPACE,
+                  end: addEndArrowToItems ? 16.25 : LARGE_SPACE,
+                ),
+            trailing: (suffixIcons != null
+                ? IconTheme.merge(
+                    data: IconThemeData(color: suffixIconTint),
+                    child: suffixIcons.elementAt(i),
+                  )
+                : (addEndArrowToItems
+                      ? const _SmoothListOfChoicesEndArrow()
+                      : null)),
+            onTap: () => Navigator.of(context).pop(values.elementAt(i)),
+          );
+        },
       ),
     );
 

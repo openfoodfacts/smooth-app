@@ -5624,6 +5624,54 @@ abstract class AppLocalizations {
   /// **'Other'**
   String get prices_discount_type_other;
 
+  /// Short description of a discount type, under its name in the discount type menu
+  ///
+  /// In en, this message translates to:
+  /// **'Tiered pricing, bundles, 2nd at -50%'**
+  String get prices_discount_type_quantity_subtitle;
+
+  /// Short description of a discount type, under its name in the discount type menu
+  ///
+  /// In en, this message translates to:
+  /// **'Special offers, buy 1 get 1 free'**
+  String get prices_discount_type_sale_subtitle;
+
+  /// Short description of a discount type, under its name in the discount type menu
+  ///
+  /// In en, this message translates to:
+  /// **'End of line, sales, one-off arrivals'**
+  String get prices_discount_type_seasonal_subtitle;
+
+  /// Short description of a discount type, under its name in the discount type menu
+  ///
+  /// In en, this message translates to:
+  /// **'Card benefit, cashback, loyalty price'**
+  String get prices_discount_type_loyalty_program_subtitle;
+
+  /// Short description of a discount type, under its name in the discount type menu
+  ///
+  /// In en, this message translates to:
+  /// **'Short date, anti-waste, clearance'**
+  String get prices_discount_type_expires_soon_subtitle;
+
+  /// Short description of a discount type, under its name in the discount type menu
+  ///
+  /// In en, this message translates to:
+  /// **'On-site harvest, direct from the producer'**
+  String get prices_discount_type_pick_it_yourself_subtitle;
+
+  /// Short description of a discount type, under its name in the discount type menu
+  ///
+  /// In en, this message translates to:
+  /// **'Second hand, refurbished, already used'**
+  String get prices_discount_type_second_hand_subtitle;
+
+  /// Short description of a discount type, under its name in the discount type menu
+  ///
+  /// In en, this message translates to:
+  /// **'Other reason for a price reduction'**
+  String get prices_discount_type_other_subtitle;
+
   /// User dev preferences - Import history - Result successful
   ///
   /// In en, this message translates to:
