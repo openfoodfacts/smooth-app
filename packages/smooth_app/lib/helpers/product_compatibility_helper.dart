@@ -68,11 +68,11 @@ class ProductCompatibilityHelper {
     }
   }
 
-  String? getFormattedScore({bool singleDigitAllowed = false}) {
+  String? getFormattedScore({bool singleDigitAllowed = true}) {
     if (_score == null || status == MatchedProductStatusV2.UNKNOWN_MATCH) {
       return null;
     } else if (_score == 0 || (singleDigitAllowed && _score < 10)) {
-      return _score.toStringAsFixed(0);
+      return _score.toInt().toString();
     }
 
     return NumberFormat('00').format(_score.toInt());
