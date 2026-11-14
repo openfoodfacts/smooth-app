@@ -103,7 +103,7 @@ class ProductPageState extends State<ProductPage>
 
     final MatchedProductV2 matchedProductV2 = MatchedProductV2(
       upToDateProduct,
-      _productPreferences,
+      _productPreferences.getManagerForProduct(upToDateProduct),
     );
 
     final bool hasPendingOperations = UpToDateChanges(
@@ -122,6 +122,7 @@ class ProductPageState extends State<ProductPage>
                 matchedProductV2,
               ).getColor(context),
               matchedProductV2: matchedProductV2,
+              productType: upToDateProduct.productType,
             ),
           ),
           ChangeNotifierProvider<ScrollController>.value(
@@ -254,14 +255,20 @@ class ProductPageCompatibility {
   ProductPageCompatibility({
     required this._color,
     required MatchedProductV2 matchedProductV2,
-  }) : score = ProductCompatibilityHelper.product(
-         matchedProductV2,
-       ).getFormattedScore();
+    ProductType? productType,
+  }) : score = (productType == null || productType == ProductType.food)
+           ? ProductCompatibilityHelper.product(
+               matchedProductV2,
+             ).getFormattedScore()
+           : null,
+       status = matchedProductV2.status;
 
   final Color _color;
   final String? score;
+  final MatchedProductStatusV2 status;
 
-  Color? get color => score != null ? _color : null;
+  Color? get color =>
+      status != MatchedProductStatusV2.UNKNOWN_MATCH ? _color : null;
 
   @override
   //ignore: avoid_equals_and_hash_code_on_mutable_classes (false positive)
@@ -270,9 +277,10 @@ class ProductPageCompatibility {
       other is ProductPageCompatibility &&
           runtimeType == other.runtimeType &&
           _color == other._color &&
-          score == other.score;
+          score == other.score &&
+          status == other.status;
 
   @override
   //ignore: avoid_equals_and_hash_code_on_mutable_classes (false positive)
-  int get hashCode => _color.hashCode ^ score.hashCode;
+  int get hashCode => _color.hashCode ^ score.hashCode ^ status.hashCode;
 }

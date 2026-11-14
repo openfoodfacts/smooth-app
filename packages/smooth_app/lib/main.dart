@@ -145,6 +145,7 @@ Future<bool> _init1() async {
       notify: () => _productPreferences.notifyListeners(),
     ),
     daoString: DaoString(_localDatabase),
+    userPreferences: _userPreferences,
   );
   ProductQuery.setQueryType(_userPreferences);
   UserManagementProvider().checkUserLoginValidity(_userPreferences);
