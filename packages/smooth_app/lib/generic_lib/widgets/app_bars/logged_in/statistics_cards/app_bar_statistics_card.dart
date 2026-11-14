@@ -41,6 +41,20 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
   bool _loading = false;
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        final UserPreferences userPreferences = context.read<UserPreferences>();
+        final int? count = widget.lazyCounter.getLocalCount(userPreferences);
+        if (count == null) {
+          _asyncLoad();
+        }
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
