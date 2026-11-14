@@ -2583,6 +2583,8 @@
   "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Optional",
+  "prices_labels_title": "Labels",
+  "prices_labels_optional": "Optional",
   "prices_origins_title": "Origins",
   "prices_category_error_mandatory": "The category is mandatory",
   "prices_barcode_reader_action": "Barcode reader",

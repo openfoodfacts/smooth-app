@@ -5112,6 +5112,18 @@ abstract class AppLocalizations {
   /// **'Optional'**
   String get prices_category_optional;
 
+  /// No description provided for @prices_labels_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Labels'**
+  String get prices_labels_title;
+
+  /// No description provided for @prices_labels_optional.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional'**
+  String get prices_labels_optional;
+
   /// No description provided for @prices_origins_title.
   ///
   /// In en, this message translates to:

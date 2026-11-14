@@ -17,12 +17,15 @@ class PriceMetaProduct {
   PriceMetaProduct.category({
     required String categoryName,
     required List<String> originNames,
+    required List<String> labelNames,
     required OpenFoodFactsLanguage language,
   }) : _product = null,
        _categoryName = categoryName,
        _categoryTag = _getTag(categoryName, language),
        _originNames = originNames,
        _originTags = _getTags(originNames, language),
+       _labelNames = labelNames,
+       _labelTags = _getTags(labelNames, language),
        _priceProduct = null,
        _barcode = null;
 
@@ -72,6 +75,8 @@ class PriceMetaProduct {
   final String? _categoryName;
   List<String>? _originTags;
   List<String>? _originNames;
+  List<String>? _labelTags;
+  List<String>? _labelNames;
 
   PricePer pricePer = PricePer.kilogram;
   Product? _product;
@@ -101,6 +106,11 @@ class PriceMetaProduct {
 
   List<String> get originNames =>
       _categoryTag == null ? <String>[] : _originNames!;
+
+  List<String> get labelTags => _categoryTag == null ? <String>[] : _labelTags!;
+
+  List<String> get labelNames =>
+      _categoryTag == null ? <String>[] : _labelNames!;
 
   String getName(AppLocalizations appLocalizations) {
     if (_categoryName != null) {
