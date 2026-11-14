@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -10,9 +11,11 @@ import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -146,13 +149,20 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     final NutritionContainerHelper backBone = _nutritionContainers.first;
     for (final OrderedNutrient orderedNutrient in backBone.allNutrients) {
       final Nutrient nutrient = _getNutrient(orderedNutrient);
-      final List<double?> values = <double?>[];
+      final List<NutritionValue?> values = <NutritionValue?>[];
       bool notNull = false;
       for (final NutritionContainerHelper nutritionContainer
           in _nutritionContainers) {
-        final double? value = nutritionContainer.getValue(nutrient);
-        values.add(value);
-        if (value != null) {
+        final num? value = nutritionContainer.getValue(nutrient);
+        if (value == null) {
+          values.add(null);
+        } else {
+          values.add(
+            NutritionValue(
+              value: value,
+              unit: nutritionContainer.getUnit(nutrient),
+            ),
+          );
           notNull = true;
         }
       }
@@ -231,10 +241,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
   Widget? _getChild(Attribute attribute, Product product) {
     final Nutrient? nutrient = _getAttributeNutrient(attribute.id!);
     if (nutrient != null) {
-      if (product.nutriments == null) {
-        return null;
-      }
-      final double? value = product.nutriments!.getValue(
+      final NutritionValue? value = product.getNutrientValue(
         nutrient,
         PerSize.oneHundredGrams,
       );
@@ -242,7 +249,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
         return null;
       }
       return Text(
-        '${value.toStringAsFixed(2)} ${UnitHelper.unitToString(nutrient.typicalUnit)}',
+        _formatValue(value),
         style: const TextStyle(fontWeight: FontWeight.w500),
       );
     }
@@ -298,17 +305,24 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     );
   }
 
+  final NumberFormat _numberFormat = NutritionContainerHelper.getNumberFormat(
+    ProductQuery.getLocaleString(),
+  );
+
+  String _formatValue(NutritionValue value) =>
+      '${_numberFormat.format(value.value)} ${UnitHelper.unitToString(value.unit)}';
+
   Widget _getNutrientRow({
-    required List<double?> values,
+    required List<NutritionValue?> values,
     required Nutrient nutrient,
   }) {
     final List<Widget> children = <Widget>[];
-    for (final double? value in values) {
+    for (final NutritionValue? value in values) {
       Widget? child = value == null
           ? null
           : Center(
               child: Text(
-                '${value.toStringAsFixed(2)} ${UnitHelper.unitToString(nutrient.typicalUnit)}',
+                _formatValue(value),
                 style: const TextStyle(fontWeight: FontWeight.w500),
               ),
             );

@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Nutrition data, for nutrient order and conversions.
@@ -12,15 +13,15 @@ class NutritionContainerHelper extends ChangeNotifier {
     required Product product,
   }) {
     _initialPerSize = _perSize =
-        PerSize.fromOffTag(product.nutrimentDataPer) ?? PerSize.oneHundredGrams;
+        product.getNutritionValues(PerSize.oneHundredGrams).isEmpty &&
+            product.getNutritionValues(PerSize.serving).isNotEmpty
+        ? PerSize.serving
+        : PerSize.oneHundredGrams;
     _loadNutrients(orderedNutrients.nutrients);
-    _loadUnits();
-    if (product.nutriments != null) {
-      _loadValues(product.nutriments!);
-    }
+    _loadValues(product);
     setServingText(product.servingSize);
-    _initialNoNutritionData = _noNutritionData =
-        product.noNutritionData ?? false;
+    _initialServingSize = servingSize;
+    _initialNoNutritionData = _noNutritionData = product.hasNoNutritionData;
   }
 
   /// Returns the [Nutrient] that matches the [orderedNutrient].
@@ -45,7 +46,12 @@ class NutritionContainerHelper extends ChangeNotifier {
   List<OrderedNutrient> get allNutrients => _nutrients;
 
   /// Nutrient values.
-  final Map<Nutrient, double?> _values = <Nutrient, double?>{};
+  final Map<Nutrient, num> _values = <Nutrient, num>{};
+
+  /// Values typed by the end-user and different from the loaded ones.
+  ///
+  /// A null value means that the end-user cleared the nutrient.
+  final Map<Nutrient, num?> _edited = <Nutrient, num?>{};
 
   /// Nutrient units.
   final Map<Nutrient, Unit> _units = <Nutrient, Unit>{};
@@ -53,10 +59,14 @@ class NutritionContainerHelper extends ChangeNotifier {
   /// Initial nutrient units.
   final Map<Nutrient, Unit> _initialUnits = <Nutrient, Unit>{};
 
+  final Map<Nutrient, NutrientModifier> _modifiers =
+      <Nutrient, NutrientModifier>{};
+
   /// Nutrients added by the end-user.
   final Set<Nutrient> _added = <Nutrient>{};
 
   late String servingSize;
+  late String _initialServingSize;
 
   late bool _noNutritionData;
   late bool _initialNoNutritionData;
@@ -169,39 +179,36 @@ class NutritionContainerHelper extends ChangeNotifier {
         (!_added.contains(nutrient));
   }
 
-  /// Converts all the data to a [Nutriments].
-  Nutriments _getNutriments() {
-    final Nutriments nutriments = Nutriments.empty();
-    for (final MapEntry<Nutrient, double?> entry in _values.entries) {
-      final Nutrient nutrient = entry.key;
-      final double? value = entry.value;
-      nutriments.setValue(
-        nutrient,
-        _perSize,
-        convertWeightToG(value, getUnit(nutrient)),
-      );
-    }
-    return nutriments;
-  }
-
   /// Returns the stored product nutrient's value.
-  double? getValue(Nutrient nutrient) => _values[nutrient];
+  num? getValue(Nutrient nutrient) => _values[nutrient];
 
-  /// Stores the text from the end-user input.
+  /// Stores the end-user input when it differs from the loaded value.
+  ///
+  /// Empty text and "-" (not specified) clear the value; any other text that
+  /// can't be parsed is ignored.
   void setNutrientValueText(
     Nutrient nutrient,
     String? text,
     NumberFormat numberFormat,
   ) {
     num? value;
-    if (text?.isNotEmpty == true) {
-      try {
-        value = numberFormat.parse(text!);
-      } catch (e) {
-        //
+    final String trimmed = text?.trim() ?? '';
+    if (trimmed.isNotEmpty && trimmed != '-') {
+      value = numberFormat.tryParse(trimmed);
+      if (value == null) {
+        _edited.remove(nutrient);
+        return;
       }
     }
-    _values[nutrient] = value?.toDouble();
+    final num? loaded = _values[nutrient];
+    final bool unchanged = value == null || loaded == null
+        ? value == loaded
+        : numberFormat.format(value) == numberFormat.format(loaded);
+    if (unchanged) {
+      _edited.remove(nutrient);
+    } else {
+      _edited[nutrient] = value;
+    }
   }
 
   /// Stores the text from the end-user input.
@@ -215,7 +222,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   void setNextWeightUnit(OrderedNutrient orderedNutrient) {
     final Nutrient nutrient = orderedNutrient.nutrient!;
     final Unit unit = getUnit(nutrient);
-    _setUnit(nutrient, _nextWeightUnits[unit] ?? unit, init: false);
+    setNutrientUnit(nutrient, _nextWeightUnits[unit] ?? unit);
   }
 
   List<Unit> getUnits(Nutrient nutrient) {
@@ -232,20 +239,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   Unit getUnit(Nutrient nutrient) => _units[nutrient]!;
 
   /// Stores the nutrient [Unit].
-  void _setUnit(
-    Nutrient nutrient,
-    Unit unit, {
-    required bool init,
-  }) {
-    _units[nutrient] = unit;
-    if (init) {
-      _initialUnits[nutrient] = unit;
-    }
-  }
-
-  void setNutrientUnit(Nutrient nutrient, Unit unit) {
-    _setUnit(nutrient, unit, init: false);
-  }
+  void setNutrientUnit(Nutrient nutrient, Unit unit) => _units[nutrient] = unit;
 
   /// To be used when an [OrderedNutrient] is added to the input list
   void add(OrderedNutrient orderedNutrient) =>
@@ -324,31 +318,30 @@ class NutritionContainerHelper extends ChangeNotifier {
     Unit.MICRO_G: 1E6,
   };
 
-  /// Loads product nutrient units into a map.
+  /// Loads the values and units of the packaging as sold nutrition.
   ///
   /// Needs nutrients to be loaded first.
-  void _loadUnits() {
-    for (final OrderedNutrient orderedNutrient in _nutrients) {
-      final Nutrient nutrient = getNutrient(orderedNutrient)!;
-      _setUnit(nutrient, nutrient.typicalUnit, init: true);
-    }
-  }
-
-  /// Loads product nutrients into a map.
-  ///
-  /// Needs nutrients and units to be loaded first.
-  void _loadValues(Nutriments nutriments) {
-    for (final OrderedNutrient orderedNutrient in _nutrients) {
-      final Nutrient nutrient = getNutrient(orderedNutrient)!;
-      final Unit unit = getUnit(nutrient);
-      final double? value = convertWeightFromG(
-        nutrient == Nutrient.energyKJ
-            ? nutriments.getComputedKJ(_perSize)?.roundToDouble()
-            : nutriments.getValue(nutrient, _perSize),
-        unit,
+  void _loadValues(Product product) {
+    final Map<Nutrient, NutritionValue> nutritionValues = product
+        .getNutritionValues(_perSize);
+    final num? kCal = nutritionValues[Nutrient.energyKCal]?.value;
+    if (nutritionValues[Nutrient.energyKJ] == null && kCal != null) {
+      nutritionValues[Nutrient.energyKJ] = NutritionValue(
+        value: NutrimentsHelper.fromKCalToKJ(kCal.toDouble()).round(),
+        unit: Unit.KJ,
       );
-      if (value != null) {
-        _values[nutrient] = value;
+    }
+    for (final OrderedNutrient orderedNutrient in _nutrients) {
+      final Nutrient nutrient = getNutrient(orderedNutrient)!;
+      final NutritionValue? nutritionValue = nutritionValues[nutrient];
+      final Unit unit = nutritionValue?.unit ?? nutrient.typicalUnit;
+      _units[nutrient] = unit;
+      _initialUnits[nutrient] = unit;
+      if (nutritionValue != null) {
+        _values[nutrient] = nutritionValue.value!;
+        if (nutritionValue.modifier != null) {
+          _modifiers[nutrient] = nutritionValue.modifier!;
+        }
       }
     }
   }
@@ -369,12 +362,86 @@ class NutritionContainerHelper extends ChangeNotifier {
     return false;
   }
 
-  /// Returns a [Product] with changed nutrients data.
-  Product getChangedProduct(Product product) {
-    product.noNutritionData = _noNutritionData;
-    product.nutrimentDataPer = _perSize.offTag;
-    product.nutriments = _getNutriments();
-    product.servingSize = servingSize;
-    return product;
+  /// Plain decimal, no exponent nor group separator.
+  static NumberFormat getNumberFormat(String locale) =>
+      NumberFormat('####0.########', locale);
+
+  static final NumberFormat _writeFormat = getNumberFormat('en');
+
+  /// Returns the packaging nutrition sets with only the changed nutrients.
+  ///
+  /// When the end-user changes the per size, all the values move to the new
+  /// set.
+  List<NutritionSet> _getChangedSets() {
+    final bool perSizeChanged = _perSize != _initialPerSize;
+    final Map<Nutrient, NutritionValue> nutritionValues =
+        <Nutrient, NutritionValue>{};
+    final Map<Nutrient, NutritionValue> removedValues =
+        <Nutrient, NutritionValue>{};
+    for (final OrderedNutrient orderedNutrient in _nutrients) {
+      final Nutrient nutrient = getNutrient(orderedNutrient)!;
+      final num? loaded = _values[nutrient];
+      final bool edited = _edited.containsKey(nutrient);
+      final Unit unit = _units[nutrient]!;
+      if (perSizeChanged && loaded != null) {
+        removedValues[nutrient] = NutritionValue(
+          unit: _initialUnits[nutrient],
+          valueString: '',
+        );
+      }
+      if (!perSizeChanged && !edited && unit == _initialUnits[nutrient]) {
+        continue;
+      }
+      final num? value = edited ? _edited[nutrient] : loaded;
+      if (value == null && (loaded == null || perSizeChanged)) {
+        continue;
+      }
+      nutritionValues[nutrient] = NutritionValue(
+        unit: unit,
+        valueString: value == null ? '' : _writeFormat.format(value),
+        modifier: edited ? null : _modifiers[nutrient],
+      );
+    }
+    NutritionSet getPackagingSet(
+      PerSize perSize,
+      Map<Nutrient, NutritionValue> packagingValues,
+    ) => NutritionSet(
+      key: NutritionSetKey(
+        source: NutritionSetKey.sourcePackaging,
+        preparation: NutritionSetKey.preparationAsSold,
+        perSize: perSize,
+      ),
+      nutritionValues: packagingValues,
+    );
+    return <NutritionSet>[
+      if (removedValues.isNotEmpty)
+        getPackagingSet(_initialPerSize, removedValues),
+      if (nutritionValues.isNotEmpty)
+        getPackagingSet(_perSize, nutritionValues),
+    ];
+  }
+
+  /// Returns the minimal products to save, with only the changed data.
+  ///
+  /// The "no nutrition data" flag can't be saved in the same request as the
+  /// nutrition values, hence a separate product.
+  List<Product> getChangedProducts(String barcode) {
+    final List<Product> result = <Product>[];
+    final Product nutritionProduct = Product(barcode: barcode);
+    final List<NutritionSet> changedSets = _getChangedSets();
+    if (changedSets.isNotEmpty) {
+      NutritionHelper().setInputSets(nutritionProduct, changedSets);
+    }
+    if (servingSize != _initialServingSize) {
+      nutritionProduct.servingSize = servingSize;
+    }
+    if (nutritionProduct.nutrition != null ||
+        nutritionProduct.servingSize != null) {
+      result.add(nutritionProduct);
+    }
+    if (_noNutritionData != _initialNoNutritionData) {
+      result.add(Product(barcode: barcode)..noNutritionData = _noNutritionData);
+    }
+    return result;
   }
 }

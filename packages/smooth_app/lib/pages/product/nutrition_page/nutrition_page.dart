@@ -25,7 +25,6 @@ import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_contai
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_facts_editor.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_serving_size.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_serving_switch.dart';
-import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_animations.dart';
@@ -81,8 +80,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     _servingController.selection = TextSelection.collapsed(
       offset: _servingController.text.length - 1,
     );
-    _decimalNumberFormat = SimpleInputNumberField.getNumberFormat(
-      decimal: true,
+    _decimalNumberFormat = NutritionContainerHelper.getNumberFormat(
+      ProductQuery.getLocaleString(),
     );
   }
 
@@ -195,7 +194,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     return _nutritionContainer.isEdited();
   }
 
-  Product? _getChangedProduct(Product product) {
+  List<Product>? _getChangedProducts() {
     if (!_formKey.currentState!.validate()) {
       return null;
     }
@@ -209,7 +208,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       );
     }
     _nutritionContainer.setServingText(_servingController.text);
-    return _nutritionContainer.getChangedProduct(product);
+    return _nutritionContainer.getChangedProducts(barcode);
   }
 
   void _onChanged() {
@@ -246,10 +245,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       }
     }
 
-    final Product? changedProduct = _getChangedProduct(
-      Product(barcode: barcode),
-    );
-    if (changedProduct == null) {
+    final List<Product>? changedProducts = _getChangedProducts();
+    if (changedProducts == null) {
       if (!mounted) {
         return false;
       }
@@ -267,12 +264,15 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       upToDateProduct,
       true,
     );
-    await BackgroundTaskDetails.addTask(
-      changedProduct,
-      context: context,
-      stamp: BackgroundTaskDetailsStamp.nutrition,
-      productType: upToDateProduct.productType,
-    );
+    for (final Product changedProduct in changedProducts) {
+      await BackgroundTaskDetails.addTask(
+        changedProduct,
+        context: context,
+        stamp: BackgroundTaskDetailsStamp.nutrition,
+        productType: upToDateProduct.productType,
+        showSnackBar: changedProduct == changedProducts.first,
+      );
+    }
     return true;
   }
 
@@ -382,7 +382,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
           context.watch<Map<Nutrient, TextEditingControllerWithHistory>>();
 
       if (controllers[nutrient] == null) {
-        final double? value = nutritionContainer.getValue(nutrient);
+        final num? value = nutritionContainer.getValue(nutrient);
         controllers[nutrient] = TextEditingControllerWithHistory(
           text: value == null ? '' : decimalNumberFormat.format(value),
         )..addListener(widget.onNutrientChanged);
