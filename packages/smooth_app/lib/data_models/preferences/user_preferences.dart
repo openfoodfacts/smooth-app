@@ -80,6 +80,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
   static const String _TAG_USER_COUNTRY_CODE_LAST_UPDATE =
       'userCountryLastUpdate';
+  static const String _TAG_USER_CITY_OR_POSTCODE = 'userCityOrPostcode';
   static const String _TAG_USER_CURRENCY_CODE = 'userCurrency';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
@@ -389,7 +390,26 @@ class UserPreferences extends ChangeNotifier {
   String? get userCountryCode =>
       _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE);
 
-  Future<void> setUserCurrencyCode(String code) async {
+ feat/open-prices-saved-location
+  String? get userCityOrPostcode =>
+      _sharedPreferences.getString(_TAG_USER_CITY_OR_POSTCODE);
+
+  Future<void> setUserCityOrPostcode(final String value) async {
+    final String cityOrPostcode = value.trim();
+    if (cityOrPostcode.isEmpty) {
+      await _sharedPreferences.remove(_TAG_USER_CITY_OR_POSTCODE);
+    } else {
+      await _sharedPreferences.setString(
+        _TAG_USER_CITY_OR_POSTCODE,
+        cityOrPostcode,
+      );
+    }
+    notifyListeners();
+  }
+
+  Future<void> setUserCurrencyCode(final String code) async {
+  Future<void> setUserCurrencyCode(String code) async{
+    develop
     await _sharedPreferences.setString(_TAG_USER_CURRENCY_CODE, code);
     notifyListeners();
   }
