@@ -16,4 +16,4 @@ enum StoreLabel {
   }
 }
 
-enum ScannerLabel { ZXing, MLKit, Test }
+enum ScannerLabel { ZXing, MLKit, Test, Tapirscan }

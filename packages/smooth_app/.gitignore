@@ -45,3 +45,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 !/coverage/
+
+# Written by ci/dependencies/scanner/enable_tapirscan_dependency.sh
+lib/entrypoints/android/main_tapirscan.dart
