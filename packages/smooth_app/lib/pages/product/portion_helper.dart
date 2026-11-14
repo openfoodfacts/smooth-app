@@ -69,15 +69,21 @@ class PortionHelper {
     Nutrient nutrient,
     String nutrientName,
   ) {
-    double? value = product.getNutrientValue(
+    final NutritionValue? nutritionValue = product.getNutrientValue(
       nutrient,
       PerSize.oneHundredGrams,
     );
-    if (value == null) {
+    if (nutritionValue == null) {
       return;
     }
     final Unit unit = nutrient.typicalUnit;
-    value = NutritionContainerHelper.convertWeightFromG(value, unit);
+    double? value = NutritionContainerHelper.convertWeightFromG(
+      NutritionContainerHelper.convertWeightToG(
+        nutritionValue.value!.toDouble(),
+        nutritionValue.unit!,
+      ),
+      unit,
+    );
     if (unit != Unit.PERCENT) {
       // Percents are not impacted by the portion size
       value = value! * grams / 100;
