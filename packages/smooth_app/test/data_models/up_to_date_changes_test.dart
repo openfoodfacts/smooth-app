@@ -1,17 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 
-Map<String, dynamic> _set(
-  String per,
-  Map<String, dynamic> nutrients, {
-  List<String>? unspecified,
-}) => <String, dynamic>{
-  'source': 'packaging',
-  'preparation': 'as_sold',
-  'per': per,
-  'nutrients': nutrients,
-  'unspecified_nutrients': ?unspecified,
-};
+Map<String, dynamic> _inputSet(String per, Map<String, dynamic> nutrients) =>
+    <String, dynamic>{
+      'source': 'packaging',
+      'preparation': 'as_sold',
+      'per': per,
+      'nutrients': nutrients,
+    };
 
 Map<String, dynamic> _nutrition(List<Map<String, dynamic>> sets) =>
     <String, dynamic>{
@@ -30,18 +26,18 @@ List<Map<String, dynamic>> _sets(Map<String, dynamic> nutrition) =>
 void main() {
   group('UpToDateChanges.mergeNutrition', () {
     final Map<String, dynamic> initial = _nutrition(<Map<String, dynamic>>[
-      _set('100g', <String, dynamic>{
+      _inputSet('100g', <String, dynamic>{
         'fat': _gramValue('1'),
         'iron': _gramValue('2'),
       }),
-      _set('serving', <String, dynamic>{'fat': _gramValue('3')}),
+      _inputSet('serving', <String, dynamic>{'fat': _gramValue('3')}),
     ]);
 
     test('replaces a nutrient and keeps the others', () {
       final Map<String, dynamic> result = UpToDateChanges.mergeNutrition(
         initial,
         _nutrition(<Map<String, dynamic>>[
-          _set('100g', <String, dynamic>{'fat': _gramValue('5')}),
+          _inputSet('100g', <String, dynamic>{'fat': _gramValue('5')}),
         ]),
       );
       expect(_sets(result)[0]['nutrients'], <String, dynamic>{
@@ -51,21 +47,23 @@ void main() {
       expect(_sets(result)[1], _sets(initial)[1]);
     });
 
-    test('removes a cleared nutrient', () {
+    test('keeps a cleared nutrient as cleared', () {
       final Map<String, dynamic> result = UpToDateChanges.mergeNutrition(
         initial,
         _nutrition(<Map<String, dynamic>>[
-          _set('serving', <String, dynamic>{'fat': _gramValue('')}),
+          _inputSet('serving', <String, dynamic>{'fat': _gramValue('')}),
         ]),
       );
-      expect(_sets(result)[1]['nutrients'], isEmpty);
+      expect(_sets(result)[1]['nutrients'], <String, dynamic>{
+        'fat': _gramValue(''),
+      });
     });
 
-    test('appends a new set without its cleared nutrients', () {
+    test('appends a new set', () {
       final Map<String, dynamic> result = UpToDateChanges.mergeNutrition(
         initial,
         _nutrition(<Map<String, dynamic>>[
-          _set('100ml', <String, dynamic>{
+          _inputSet('100ml', <String, dynamic>{
             'fat': _gramValue('4'),
             'iron': _gramValue(''),
           }),
@@ -75,42 +73,15 @@ void main() {
       expect(_sets(result)[2]['per'], '100ml');
       expect(_sets(result)[2]['nutrients'], <String, dynamic>{
         'fat': _gramValue('4'),
+        'iron': _gramValue(''),
       });
-    });
-
-    test('replaces the unspecified nutrients only when sent', () {
-      final Map<String, dynamic> withUnspecified = _nutrition(
-        <Map<String, dynamic>>[
-          _set(
-            '100g',
-            <String, dynamic>{'fat': _gramValue('1')},
-            unspecified: <String>['salt'],
-          ),
-        ],
-      );
-      final Map<String, dynamic> kept = UpToDateChanges.mergeNutrition(
-        withUnspecified,
-        _nutrition(<Map<String, dynamic>>[
-          _set('100g', <String, dynamic>{'fat': _gramValue('2')}),
-        ]),
-      );
-      expect(_sets(kept)[0]['unspecified_nutrients'], <String>['salt']);
-      final Map<String, dynamic> replaced = UpToDateChanges.mergeNutrition(
-        withUnspecified,
-        _nutrition(<Map<String, dynamic>>[
-          _set('100g', <String, dynamic>{
-            'fat': _gramValue('2'),
-          }, unspecified: <String>[]),
-        ]),
-      );
-      expect(_sets(replaced)[0]['unspecified_nutrients'], isEmpty);
     });
 
     test('keeps the other keys and does not modify the initial map', () {
       final Map<String, dynamic> result = UpToDateChanges.mergeNutrition(
         initial,
         _nutrition(<Map<String, dynamic>>[
-          _set('100g', <String, dynamic>{'fat': _gramValue('5')}),
+          _inputSet('100g', <String, dynamic>{'fat': _gramValue('5')}),
         ]),
       );
       expect(result['aggregated_set'], initial['aggregated_set']);
@@ -124,7 +95,7 @@ void main() {
       final Map<String, dynamic> result = UpToDateChanges.mergeNutrition(
         null,
         _nutrition(<Map<String, dynamic>>[
-          _set('100g', <String, dynamic>{'fat': _gramValue('5')}),
+          _inputSet('100g', <String, dynamic>{'fat': _gramValue('5')}),
         ]),
       );
       expect(_sets(result), hasLength(1));

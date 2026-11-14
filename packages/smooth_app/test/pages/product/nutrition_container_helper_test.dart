@@ -38,7 +38,7 @@ Map<String, dynamic> _value(String unit, String valueString) =>
       'value_string': valueString,
     };
 
-Map<String, dynamic> _set(
+Map<String, dynamic> _inputSet(
   String source,
   String per,
   Map<String, Map<String, dynamic>> nutrients, {
@@ -98,7 +98,7 @@ void main() {
   group('NutritionContainerHelper load', () {
     test('reads the packaging values and units', () {
       final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
-        _set(_packaging, '100g', <String, Map<String, dynamic>>{
+        _inputSet(_packaging, '100g', <String, Map<String, dynamic>>{
           'fat': _value('g', '12.5'),
           'iron': _value('mg', '5'),
         }),
@@ -112,7 +112,7 @@ void main() {
 
     test('ignores the manufacturer set', () {
       final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
-        _set(_manufacturer, '100g', <String, Map<String, dynamic>>{
+        _inputSet(_manufacturer, '100g', <String, Map<String, dynamic>>{
           'fat': _value('g', '2'),
         }),
       ]);
@@ -121,10 +121,10 @@ void main() {
 
     test('ignores prepared and estimate sets', () {
       final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
-        _set(_packaging, 'serving', <String, Map<String, dynamic>>{
+        _inputSet(_packaging, 'serving', <String, Map<String, dynamic>>{
           'fat': _value('g', '1'),
         }, preparation: 'prepared'),
-        _set('estimate', '100g', <String, Map<String, dynamic>>{
+        _inputSet('estimate', '100g', <String, Map<String, dynamic>>{
           'fat': _value('g', '2'),
         }),
       ]);
@@ -133,7 +133,7 @@ void main() {
 
     test('opens on the serving set when the 100g set is empty', () {
       final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
-        _set(_packaging, 'serving', <String, Map<String, dynamic>>{
+        _inputSet(_packaging, 'serving', <String, Map<String, dynamic>>{
           'fat': _value('g', '8'),
         }),
       ]);
@@ -143,7 +143,7 @@ void main() {
 
     test('shows a stored exponent without exponent', () {
       final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
-        _set(_packaging, '100g', <String, Map<String, dynamic>>{
+        _inputSet(_packaging, '100g', <String, Map<String, dynamic>>{
           'vitamin-b9': <String, dynamic>{
             'unit': 'g',
             'value': 3.1e-05,
@@ -156,7 +156,7 @@ void main() {
 
     test('computes energy in kJ from kcal', () {
       final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
-        _set(_packaging, '100g', <String, Map<String, dynamic>>{
+        _inputSet(_packaging, '100g', <String, Map<String, dynamic>>{
           'energy-kcal': _value('kcal', '100'),
         }),
       ]);
@@ -177,15 +177,15 @@ void main() {
 
   group('NutritionContainerHelper save', () {
     final List<Map<String, dynamic>> sets = <Map<String, dynamic>>[
-      _set(_packaging, '100g', <String, Map<String, dynamic>>{
+      _inputSet(_packaging, '100g', <String, Map<String, dynamic>>{
         'fat': _value('g', '12.5'),
         'iron': _value('mg', '5'),
         'vitamin-b9': _value('µg', '30'),
       }),
-      _set(_packaging, 'serving', <String, Map<String, dynamic>>{
+      _inputSet(_packaging, 'serving', <String, Map<String, dynamic>>{
         'fat': _value('g', '8'),
       }),
-      _set(_manufacturer, '100g', <String, Map<String, dynamic>>{
+      _inputSet(_manufacturer, '100g', <String, Map<String, dynamic>>{
         'copper': _value('mg', '0.5'),
       }),
     ];
@@ -236,7 +236,7 @@ void main() {
 
     test('keeps the stored modifier on a unit change', () {
       final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
-        _set(_packaging, '100g', <String, Map<String, dynamic>>{
+        _inputSet(_packaging, '100g', <String, Map<String, dynamic>>{
           'fat': <String, dynamic>{..._value('g', '0.5'), 'modifier': '<'},
         }),
       ]);
