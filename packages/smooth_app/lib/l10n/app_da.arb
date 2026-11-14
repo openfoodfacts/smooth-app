@@ -649,7 +649,7 @@
   "@search_location_favorite_add": {
     "description": "Tooltip of the heart of a location in the search history, when it is not a favorite"
   },
-  "search_location_favorite_remove": "Remove from favorites",
+  "search_location_favorite_remove": "Fjern fra favoritter",
   "@search_location_favorite_remove": {
     "description": "Tooltip of the heart of a location in the search history, when it is a favorite"
   },
