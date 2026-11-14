@@ -50,14 +50,16 @@ class SmoothButtonWithArrow extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsetsDirectional.only(bottom: 3.0),
-              child: Text(
-                text,
-                style: TextStyle(
-                  color: textColor ?? Colors.white,
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.bold,
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(bottom: 3.0),
+                child: Text(
+                  text,
+                  style: TextStyle(
+                    color: textColor ?? Colors.white,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

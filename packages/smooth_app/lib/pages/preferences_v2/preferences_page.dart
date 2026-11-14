@@ -57,6 +57,9 @@ class PreferencesPage extends StatelessWidget {
 
     final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
     final bool lightTheme = context.lightTheme();
+    final PricesRoot pricesRoot = PricesRoot(
+      title: appLocalizations.preferences_prices_title,
+    );
 
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
@@ -65,7 +68,7 @@ class PreferencesPage extends StatelessWidget {
             ? LoggedInAppBar(userId: userId)
             : const LoggedOutAppBar(),
         cards: <PreferenceCard>[
-          _buildContributeCard(context, appLocalizations),
+          _buildContributeCard(context, appLocalizations, pricesRoot),
           PreferenceCard(
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
@@ -114,6 +117,7 @@ class PreferencesPage extends StatelessWidget {
             ],
           ),
         ],
+        searchRoots: <PreferencesRoot>[pricesRoot],
         externalSearchTiles: const <ExternalSearchPreferenceTile>[
           WikiSearchPreferenceTile(),
           GithubSearchPreferenceTile(),
@@ -142,13 +146,19 @@ class PreferencesPage extends StatelessWidget {
   PreferenceCard _buildContributeCard(
     BuildContext context,
     AppLocalizations appLocalizations,
+    PricesRoot pricesRoot,
   ) {
     final AutoSizeGroup autoSizeGroup = AutoSizeGroup();
 
     return PreferenceCard(
       grid: true,
       tiles: <PreferenceTile>[
-        _buildPricesContributionTile(context, appLocalizations, autoSizeGroup),
+        _buildPricesContributionTile(
+          context,
+          appLocalizations,
+          autoSizeGroup,
+          pricesRoot,
+        ),
         _buildHungerGamesTile(context, autoSizeGroup),
         _buildCompleteProductsTile(context, appLocalizations, autoSizeGroup),
       ],
@@ -159,6 +169,7 @@ class PreferencesPage extends StatelessWidget {
     BuildContext context,
     AppLocalizations appLocalizations,
     AutoSizeGroup autoSizeGroup,
+    PricesRoot pricesRoot,
   ) {
     return SquarePreferenceTile(
       title: appLocalizations.preferences_add_prices,
@@ -172,9 +183,7 @@ class PreferencesPage extends StatelessWidget {
             builder: (BuildContext context) =>
                 ChangeNotifierProvider<PreferencesRootSearchController>(
                   create: (_) => PreferencesRootSearchController(),
-                  child: PricesRoot(
-                    title: appLocalizations.preferences_prices_title,
-                  ),
+                  child: pricesRoot,
                 ),
           ),
         );

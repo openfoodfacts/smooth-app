@@ -178,6 +178,7 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 300),
+      value: widget.checked ? 1.0 : 0.0,
     )..addListener(() => setState(() {}));
 
     final ThemeData themeData = Theme.of(context);

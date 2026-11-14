@@ -57,7 +57,7 @@
                   "id" : "low_saturated_fat",
                   "match" : 97.3333333333333,
                   "name" : "Saturated fat",
-                  "panel_id" : "nutrient_level_saturated_fat",
+                  "panel_id" : "nutrient_level_saturated-fat",
                   "status" : "known",
                   "title" : "Saturated fat in low quantity"
                }
@@ -267,7 +267,7 @@
                   "id" : "additives",
                   "match" : 100,
                   "name" : "Additives",
-                  "panel_id" : "additives",
+                  "panel_id" : "ingredients_analysis",
                   "status" : "known",
                   "title" : "Without additives"
                }
@@ -290,16 +290,15 @@
                   "title" : "Green-Score A+"
                },
                {
-                  "description" : "",
-                  "description_short" : "Currently only for products with chicken or eggs",
-                  "grade" : "e",
-                  "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description" : "The Forest Footprint cannot be computed because the ingredient list is missing.",
+                  "description_short" : "Missing ingredient list",
+                  "grade" : "unknown",
+                  "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/forest-footprint-2026-white-bg-unknown.svg",
                   "id" : "forest_footprint",
                   "match" : 0,
-                  "name" : "Forest footprint",
-                  "panel_id" : "forest_footprint",
-                  "status" : "known",
-                  "title" : "Forest footprint not computed"
+                  "name" : "Forest Footprint",
+                  "status" : "unknown",
+                  "title" : "Forest Footprint not available"
                }
             ],
             "id" : "environment",
@@ -1724,7 +1723,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Taxonomy ID</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>Butternut squash</span></td><td style=\"padding:2px 6px\">en:butternut-squash</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">20128</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>water</span></td><td style=\"padding:2px 6px\">en:water</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">18066</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">9.5</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>carrots</span></td><td style=\"padding:2px 6px\">en:carrot</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">20009</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">10.0</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>sweet potato</span></td><td style=\"padding:2px 6px\">en:sweet-potato</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">4101</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">0.2</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>leeks</span></td><td style=\"padding:2px 6px\">en:leek</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">20039</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">0.2</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>potatoes</span></td><td style=\"padding:2px 6px\">en:potato</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">4003</td><td style=\"padding:2px 6px\">4003</td><td style=\"text-align:right;padding:2px 6px\">0.2</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>salt</span></td><td style=\"padding:2px 6px\">en:salt</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">11058</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">0.2</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
+                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">taxonomy_id</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>Butternut squash</span></td><td style=\"padding:2px 6px\">en:butternut-squash</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">20128</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>water</span></td><td style=\"padding:2px 6px\">en:water</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">18066</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">9.5</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>carrots</span></td><td style=\"padding:2px 6px\">en:carrot</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">20009</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">10.0</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>sweet potato</span></td><td style=\"padding:2px 6px\">en:sweet-potato</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">4101</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">0.2</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>leeks</span></td><td style=\"padding:2px 6px\">en:leek</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">20039</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">0.2</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>potatoes</span></td><td style=\"padding:2px 6px\">en:potato</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">4003</td><td style=\"padding:2px 6px\">4003</td><td style=\"text-align:right;padding:2px 6px\">0.2</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>salt</span></td><td style=\"padding:2px 6px\">en:salt</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">11058</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">0.2</td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
                   }
                },
                {
@@ -2427,7 +2426,7 @@
                                  "text" : "120 kJ<br>(30 kcal)"
                               },
                               {
-                                 "text" : "312.711 kj (65 kcal) (-62%)"
+                                 "text" : "309.686 kj (68 kcal) (-61%)"
                               }
                            ]
                         },
@@ -2442,7 +2441,7 @@
                                  "text" : "0.5 g"
                               },
                               {
-                                 "text" : "1.865 g (-73%)"
+                                 "text" : "1.978 g (-75%)"
                               }
                            ]
                         },
@@ -2457,7 +2456,7 @@
                                  "text" : "0.2 g"
                               },
                               {
-                                 "text" : "0.468 g (-57%)"
+                                 "text" : "0.572 g (-65%)"
                               }
                            ]
                         },
@@ -2472,7 +2471,7 @@
                                  "text" : "0.4 g"
                               },
                               {
-                                 "text" : "0.711 g (-44%)"
+                                 "text" : "0.674 g (-41%)"
                               }
                            ]
                         },
@@ -2487,7 +2486,7 @@
                                  "text" : "0.16 g"
                               },
                               {
-                                 "text" : "0.297 g (-46%)"
+                                 "text" : "0.268 g (-40%)"
                               }
                            ]
                         },
@@ -2517,7 +2516,7 @@
                                  "text" : "3 g"
                               },
                               {
-                                 "text" : "1.607 g (+87%)"
+                                 "text" : "1.435 g (+109%)"
                               }
                            ]
                         },
@@ -2532,7 +2531,7 @@
                                  "text" : "0.5 g"
                               },
                               {
-                                 "text" : "3.005 g (-83%)"
+                                 "text" : "3.176 g (-84%)"
                               }
                            ]
                         },
@@ -2547,7 +2546,7 @@
                                  "text" : "1 g"
                               },
                               {
-                                 "text" : "2.641 g (-62%)"
+                                 "text" : "2.522 g (-60%)"
                               }
                            ]
                         },
@@ -2571,13 +2570,13 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ legumes"
+                                 "text" : "Fruits, vegetables, legumes"
                               },
                               {
                                  "text" : "~ 60.19 %"
                               },
                               {
-                                 "text" : "40.425 % (+49%)"
+                                 "text" : "39.11 % (+54%)"
                               }
                            ]
                         },
@@ -2592,7 +2591,7 @@
                                  "text" : "4 g"
                               },
                               {
-                                 "text" : "9.522 g (-58%)"
+                                 "text" : "9.478 g (-58%)"
                               }
                            ]
                         }
@@ -2663,7 +2662,7 @@
                                  "text" : "120 kJ<br>(29 kcal)"
                               },
                               {
-                                 "text" : "~ 65.7308 kJ<br>(15 kcal)"
+                                 "text" : "~ 65.731 kJ<br>(16 kcal)"
                               }
                            ]
                         },
@@ -2681,7 +2680,7 @@
                                  "text" : "0.5 g"
                               },
                               {
-                                 "text" : "~ 0.075176 g"
+                                 "text" : "~ 0.075 g"
                               }
                            ]
                         },
@@ -2699,7 +2698,7 @@
                                  "text" : "0.2 g"
                               },
                               {
-                                 "text" : "~ 0.009252 g"
+                                 "text" : "~ 0.009 g"
                               }
                            ]
                         },
@@ -2717,7 +2716,7 @@
                                  "text" : "0.4 g"
                               },
                               {
-                                 "text" : "~ 0.2143522 g"
+                                 "text" : "~ 0.214 g"
                               }
                            ]
                         },
@@ -2735,7 +2734,7 @@
                                  "text" : "0.16 g"
                               },
                               {
-                                 "text" : "~ 0.08524696 g"
+                                 "text" : "~ 0.085 g"
                               }
                            ]
                         },
@@ -2771,7 +2770,7 @@
                                  "text" : "3 g"
                               },
                               {
-                                 "text" : "~ 0.769886 g"
+                                 "text" : "~ 0.77 g"
                               }
                            ]
                         },
@@ -2789,7 +2788,7 @@
                                  "text" : "0.5 g"
                               },
                               {
-                                 "text" : "~ 1.528711 g"
+                                 "text" : "~ 1.529 g"
                               }
                            ]
                         },
@@ -2807,7 +2806,7 @@
                                  "text" : "1 g"
                               },
                               {
-                                 "text" : "~ 0.34408 g"
+                                 "text" : "~ 0.344 g"
                               }
                            ]
                         },
@@ -2834,7 +2833,7 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ legumes"
+                                 "text" : "Fruits, vegetables, legumes"
                               },
                               {
                                  "text" : "~ 60.19 %"
@@ -2861,7 +2860,7 @@
                                  "text" : "4 g"
                               },
                               {
-                                 "text" : "~ 3.09778 g"
+                                 "text" : "~ 3.098 g"
                               }
                            ]
                         }
@@ -2970,7 +2969,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass: 300 g)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel: 3 g)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass: 300 g)\n                                    \n                                    \n                                        \n                                            - In contact with food\n                                        \n                                    \n                                    <br>\n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel: 3 g)\n                                    \n                                    \n                                        \n                                            - In contact with food\n                                        \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/recycle-variant.svg",

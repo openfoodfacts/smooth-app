@@ -96,7 +96,7 @@ jobs:
           echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
       - name: ☕ Setup Java JDK
-        uses: actions/setup-java@v6.1.0
+        uses: actions/setup-java@v6.2.0
         with:
           distribution: 'zulu'
           java-version: ${{ env.JAVA_VERSION }}
@@ -177,7 +177,7 @@ jobs:
           persist-credentials: false
 
       - name: ☕ Setup Java JDK
-        uses: actions/setup-java@v6.1.0
+        uses: actions/setup-java@v6.2.0
         with:
           distribution: 'zulu'
           java-version: 21

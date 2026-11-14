@@ -7,6 +7,8 @@ import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
 import 'package:smooth_app/pages/search/search_app_bar.dart';
 import 'package:smooth_app/pages/search/search_field.dart';
 import 'package:smooth_app/pages/search/search_history_view.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -92,6 +94,9 @@ class _SearchPageState extends State<SearchPage> {
           ),
         ],
         child: SmoothScaffold(
+          backgroundColor: context.lightTheme()
+              ? context.extension<SmoothColorsThemeExtension>().primaryLight
+              : null,
           appBar: SearchAppBar(
             searchBar: ValueNotifierListener<SearchHelper, SearchQuery?>(
               listener: _onSearchChanged,

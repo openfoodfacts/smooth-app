@@ -1680,6 +1680,42 @@ abstract class AppLocalizations {
   /// **'Search history'**
   String get search_history;
 
+  /// Title of the list of the locations previously selected, displayed above the search history
+  ///
+  /// In en, this message translates to:
+  /// **'Location history'**
+  String get search_history_locations;
+
+  /// Menu entry of a location in the search history: selects it as the search result
+  ///
+  /// In en, this message translates to:
+  /// **'Select this shop'**
+  String get search_location_select;
+
+  /// Title of the menu of a location in the search history
+  ///
+  /// In en, this message translates to:
+  /// **'Shop: {name}'**
+  String search_location_menu_title(String name);
+
+  /// Menu entry of a location in the search history: removes it from the history
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from history'**
+  String get search_location_remove;
+
+  /// Tooltip of the heart of a location in the search history, when it is not a favorite
+  ///
+  /// In en, this message translates to:
+  /// **'Add to favorites'**
+  String get search_location_favorite_add;
+
+  /// Tooltip of the heart of a location in the search history, when it is a favorite
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favorites'**
+  String get search_location_favorite_remove;
+
   /// Hint text of a search store text input field
   ///
   /// In en, this message translates to:

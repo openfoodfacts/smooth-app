@@ -23,10 +23,18 @@ jobs:
       with:
         comment-id: ${{ github.event.comment.id }}
         reactions: eyes
-    - name: Get branch name
+    - name: Get PR head ref and SHA
       # see https://github.com/actions/checkout/issues/331
-      id: get-branch
-      run: echo "branch=$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName')" >> $GITHUB_OUTPUT
+      id: get-pr-head
+      run: |
+        echo "branch=$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName')" >> $GITHUB_OUTPUT
+        # Only run PR code with this job's write token for same-repository PRs.
+        sha=$(gh pr view "$PR_NO" --repo "$REPO" --json headRefOid,isCrossRepository --jq 'select(.isCrossRepository == false) | .headRefOid') || exit 1
+        if [ -z "$sha" ]; then
+          echo "::error::PR must belong to this repository and have a non-empty head SHA"
+          exit 1
+        fi
+        echo "sha=$sha" >> "$GITHUB_OUTPUT"
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
@@ -35,8 +43,8 @@ jobs:
       uses: actions/checkout@v7
       with:
         fetch-depth: 1
-        # grab the PR branch
-        ref: ${{ steps.get-branch.outputs.branch }}
+        # grab the PR commit immutably to avoid TOCTOU on mutable branch refs
+        ref: ${{ steps.get-pr-head.outputs.sha }}
         # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
@@ -78,7 +86,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v7
       with:
         commit_message: "chore: Linting changes"
-        branch: ${{ github.event.pull_request.head.ref }}
+        branch: ${{ steps.get-pr-head.outputs.branch }}
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>

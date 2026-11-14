@@ -10,6 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/location_map_page.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
+import 'package:smooth_app/pages/locations/osm_location_kind.dart';
 import 'package:smooth_app/pages/locations/search_location_helper.dart';
 import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
@@ -124,7 +125,7 @@ class _PriceLocationCardEmptyLocation extends StatelessWidget {
 
     return SmoothLargeButtonWithIcon(
       text: appLocalizations.prices_location_find,
-      leadingIcon: const icons.Location(),
+      leadingIcon: const icons.Map.marker(),
       trailingIcon: const icons.Chevron.right(size: 10.0),
       onPressed: onTap,
     );
@@ -184,7 +185,10 @@ class _PriceLocationCardWithLocation extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-              child: icons.Shop(color: colorScheme.onSecondary),
+              child: IconTheme.merge(
+                data: IconThemeData(color: colorScheme.onSecondary),
+                child: OsmLocationKind.of(location).icon,
+              ),
             ),
           ),
         ],
