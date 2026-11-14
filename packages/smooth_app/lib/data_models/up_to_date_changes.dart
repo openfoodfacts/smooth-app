@@ -48,52 +48,42 @@ class UpToDateChanges {
 
   /// Returns the [initial] nutrition with the input sets of [change] on top.
   ///
-  /// An empty `value_string` removes the nutrient, like the server does.
+  /// A cleared nutrient keeps its empty `value_string` until the refresh.
+  // TODO(monsieurtanuki): move to off-dart.
   static Map<String, dynamic> mergeNutrition(
     Map<String, dynamic>? initial,
     Map<String, dynamic> change,
   ) {
-    final List<Map<String, dynamic>> sets = <Map<String, dynamic>>[
-      for (final dynamic set in initial?['input_sets'] ?? <dynamic>[])
-        Map<String, dynamic>.of(set as Map<String, dynamic>),
+    final List<Map<String, dynamic>> inputSets = <Map<String, dynamic>>[
+      for (final dynamic inputSet in initial?['input_sets'] ?? <dynamic>[])
+        Map<String, dynamic>.of(inputSet as Map<String, dynamic>),
     ];
     final dynamic changedSets = change['input_sets'];
     if (changedSets != null) {
-      for (final dynamic changeSet in changedSets) {
-        final Map<String, dynamic> newSet = changeSet as Map<String, dynamic>;
+      for (final dynamic changedSet in changedSets) {
+        final Map<String, dynamic> newSet = changedSet as Map<String, dynamic>;
         final NutritionSetKey? newKey = NutritionSetKey.fromJson(newSet);
-        final int index = sets.indexWhere((Map<String, dynamic> set) {
-          final NutritionSetKey? key = NutritionSetKey.fromJson(set);
+        final int index = inputSets.indexWhere((
+          Map<String, dynamic> inputSet,
+        ) {
+          final NutritionSetKey? key = NutritionSetKey.fromJson(inputSet);
           return key != null &&
               newKey != null &&
               key.source == newKey.source &&
               key.preparation == newKey.preparation &&
               key.perSize == newKey.perSize;
         });
-        final Map<String, dynamic> merged = index < 0
-            ? Map<String, dynamic>.of(newSet)
-            : sets[index];
-        final Map<String, dynamic> nutrients = Map<String, dynamic>.of(
-          merged['nutrients'] ?? <String, dynamic>{},
-        );
-        (newSet['nutrients'] as Map<String, dynamic>? ?? <String, dynamic>{})
-            .forEach((String id, dynamic value) {
-              if ((value as Map<String, dynamic>)['value_string'] == '') {
-                nutrients.remove(id);
-              } else {
-                nutrients[id] = value;
-              }
-            });
-        merged['nutrients'] = nutrients;
-        if (newSet.containsKey('unspecified_nutrients')) {
-          merged['unspecified_nutrients'] = newSet['unspecified_nutrients'];
-        }
         if (index < 0) {
-          sets.add(merged);
+          inputSets.add(Map<String, dynamic>.of(newSet));
+          continue;
         }
+        inputSets[index]['nutrients'] = <String, dynamic>{
+          ...?inputSets[index]['nutrients'] as Map<String, dynamic>?,
+          ...?newSet['nutrients'] as Map<String, dynamic>?,
+        };
       }
     }
-    return <String, dynamic>{...?initial, 'input_sets': sets};
+    return <String, dynamic>{...?initial, 'input_sets': inputSets};
   }
 
   /// Overwrite the [initial] product with the non-null fields of [change].

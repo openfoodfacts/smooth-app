@@ -322,12 +322,18 @@ class NutritionContainerHelper extends ChangeNotifier {
   ///
   /// Needs nutrients to be loaded first.
   void _loadValues(Product product) {
+    final Map<Nutrient, NutritionValue> nutritionValues = product
+        .getNutritionValues(_perSize);
+    final num? kCal = nutritionValues[Nutrient.energyKCal]?.value;
+    if (nutritionValues[Nutrient.energyKJ] == null && kCal != null) {
+      nutritionValues[Nutrient.energyKJ] = NutritionValue(
+        value: NutrimentsHelper.fromKCalToKJ(kCal.toDouble()).round(),
+        unit: Unit.KJ,
+      );
+    }
     for (final OrderedNutrient orderedNutrient in _nutrients) {
       final Nutrient nutrient = getNutrient(orderedNutrient)!;
-      final NutritionValue? nutritionValue = product.getNutrientValue(
-        nutrient,
-        _perSize,
-      );
+      final NutritionValue? nutritionValue = nutritionValues[nutrient];
       final Unit unit = nutritionValue?.unit ?? nutrient.typicalUnit;
       _units[nutrient] = unit;
       _initialUnits[nutrient] = unit;
@@ -396,20 +402,22 @@ class NutritionContainerHelper extends ChangeNotifier {
         modifier: edited ? null : _modifiers[nutrient],
       );
     }
-    NutritionSet getSet(
+    NutritionSet getPackagingSet(
       PerSize perSize,
-      Map<Nutrient, NutritionValue> values,
+      Map<Nutrient, NutritionValue> packagingValues,
     ) => NutritionSet(
       key: NutritionSetKey(
         source: NutritionSetKey.sourcePackaging,
         preparation: NutritionSetKey.preparationAsSold,
         perSize: perSize,
       ),
-      nutritionValues: values,
+      nutritionValues: packagingValues,
     );
     return <NutritionSet>[
-      if (removedValues.isNotEmpty) getSet(_initialPerSize, removedValues),
-      if (nutritionValues.isNotEmpty) getSet(_perSize, nutritionValues),
+      if (removedValues.isNotEmpty)
+        getPackagingSet(_initialPerSize, removedValues),
+      if (nutritionValues.isNotEmpty)
+        getPackagingSet(_perSize, nutritionValues),
     ];
   }
 
@@ -419,16 +427,17 @@ class NutritionContainerHelper extends ChangeNotifier {
   /// nutrition values, hence a separate product.
   List<Product> getChangedProducts(String barcode) {
     final List<Product> result = <Product>[];
-    final Product values = Product(barcode: barcode);
-    final List<NutritionSet> sets = _getChangedSets();
-    if (sets.isNotEmpty) {
-      NutritionHelper().setInputSets(values, sets);
+    final Product nutritionProduct = Product(barcode: barcode);
+    final List<NutritionSet> changedSets = _getChangedSets();
+    if (changedSets.isNotEmpty) {
+      NutritionHelper().setInputSets(nutritionProduct, changedSets);
     }
     if (servingSize != _initialServingSize) {
-      values.servingSize = servingSize;
+      nutritionProduct.servingSize = servingSize;
     }
-    if (values.nutrition != null || values.servingSize != null) {
-      result.add(values);
+    if (nutritionProduct.nutrition != null ||
+        nutritionProduct.servingSize != null) {
+      result.add(nutritionProduct);
     }
     if (_noNutritionData != _initialNoNutritionData) {
       result.add(Product(barcode: barcode)..noNutritionData = _noNutritionData);

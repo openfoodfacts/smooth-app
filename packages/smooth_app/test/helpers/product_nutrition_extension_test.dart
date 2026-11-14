@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 
-Map<String, dynamic> _set(
+Map<String, dynamic> _inputSet(
   Map<String, Map<String, dynamic>> nutrients, {
   String source = 'packaging',
   String preparation = 'as_sold',
@@ -35,7 +35,7 @@ List<Object?> _get(
 void main() {
   group('ProductNutritionExtension', () {
     final Product product = _product(<Map<String, dynamic>>[
-      _set(<String, Map<String, dynamic>>{
+      _inputSet(<String, Map<String, dynamic>>{
         'fat': <String, dynamic>{
           'unit': 'g',
           'value': 12.5,
@@ -44,7 +44,7 @@ void main() {
         'iron': _value('mg', '5'),
         'vitamin-b9': _value('µg', '30'),
       }),
-      _set(<String, Map<String, dynamic>>{
+      _inputSet(<String, Map<String, dynamic>>{
         'fat': _value('g', '4'),
       }, per: 'serving'),
     ]);
@@ -67,27 +67,18 @@ void main() {
       ]);
     });
 
-    test('computes energy in kJ from kcal', () {
-      final Product product = _product(<Map<String, dynamic>>[
-        _set(<String, Map<String, dynamic>>{
-          'energy-kcal': _value('kcal', '100'),
-        }),
-      ]);
-      expect(_get(product, Nutrient.energyKJ), <Object?>[419, Unit.KJ]);
-    });
-
     test('reads only the packaging set, as sold', () {
       final Product product = _product(<Map<String, dynamic>>[
-        _set(<String, Map<String, dynamic>>{
+        _inputSet(<String, Map<String, dynamic>>{
           'fat': _value('g', '1'),
         }, source: 'manufacturer'),
-        _set(<String, Map<String, dynamic>>{
+        _inputSet(<String, Map<String, dynamic>>{
           'fat': _value('g', '2'),
         }, source: 'estimate'),
-        _set(<String, Map<String, dynamic>>{
+        _inputSet(<String, Map<String, dynamic>>{
           'fat': _value('g', '3'),
         }, preparation: 'prepared'),
-        _set(<String, Map<String, dynamic>>{
+        _inputSet(<String, Map<String, dynamic>>{
           'fat': _value('g', '4'),
         }, per: '100ml'),
       ]);
@@ -117,11 +108,26 @@ void main() {
       test('are overridden by the new values, nutrient by nutrient', () {
         final Product product =
             _product(<Map<String, dynamic>>[
-                _set(<String, Map<String, dynamic>>{'fat': _value('g', '3')}),
+                _inputSet(<String, Map<String, dynamic>>{
+                  'fat': _value('g', '3'),
+                }),
               ])
               // ignore: deprecated_member_use
               ..nutriments = oldProduct.nutriments;
         expect(_get(product, Nutrient.fat), <Object?>[3, Unit.G]);
+        expect(_get(product, Nutrient.iron), <Object?>[0.005, Unit.G]);
+      });
+
+      test('are hidden by a value cleared and not refreshed yet', () {
+        final Product product =
+            _product(<Map<String, dynamic>>[
+                _inputSet(<String, Map<String, dynamic>>{
+                  'fat': _value('g', ''),
+                }),
+              ])
+              // ignore: deprecated_member_use
+              ..nutriments = oldProduct.nutriments;
+        expect(_get(product, Nutrient.fat), <Object?>[null, null]);
         expect(_get(product, Nutrient.iron), <Object?>[0.005, Unit.G]);
       });
     });

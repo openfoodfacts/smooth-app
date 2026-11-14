@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -299,9 +300,12 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
     );
   }
 
+  final NumberFormat _numberFormat = NutritionContainerHelper.getNumberFormat(
+    ProductQuery.getLocaleString(),
+  );
+
   String _formatValue(NutritionValue value) =>
-      '${NutritionContainerHelper.getNumberFormat(ProductQuery.getLocaleString()).format(value.value)}'
-      ' ${UnitHelper.unitToString(value.unit)}';
+      '${_numberFormat.format(value.value)} ${UnitHelper.unitToString(value.unit)}';
 
   Widget _getNutrientRow({
     required List<NutritionValue?> values,
