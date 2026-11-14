@@ -58,13 +58,16 @@ Future<XFile?> pickImageFile(
     bool ignorePlatformException = false,
   }) async {
     final UserPictureSource? source;
-    if (forcedSource != null) {
+    if (forcedSource != null && forcedSource != UserPictureSource.SELECT) {
       source = forcedSource;
     } else {
-      source = await _getUserPictureSource(context);
+      source = await getUserPictureSource(context);
       if (source == null) {
         return null;
       }
+    }
+    if (!context.mounted) {
+      return null;
     }
     final ImagePicker picker = ImagePicker();
     if (source == UserPictureSource.GALLERY) {
@@ -114,7 +117,8 @@ Future<XFile?> pickImageFile(
 }
 
 /// Returns the picture source selected by the user.
-Future<UserPictureSource?> _getUserPictureSource(
+@visibleForTesting
+Future<UserPictureSource?> getUserPictureSource(
   BuildContext context,
 ) async {
   if (!CameraHelper.hasACamera) {
@@ -126,25 +130,32 @@ Future<UserPictureSource?> _getUserPictureSource(
     return source;
   }
 
-  return showSmoothModalSheet<UserPictureSource>(
-    context: context,
-    builder: (BuildContext context) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final UserPictureSource? selectedSource =
+      await showSmoothModalSheet<UserPictureSource>(
+        context: context,
+        builder: (BuildContext context) {
+          final AppLocalizations appLocalizations = AppLocalizations.of(
+            context,
+          );
 
-      return SmoothModalSheet(
-        title: appLocalizations.choose_image_source_title,
-        closeButton: true,
-        closeButtonSemanticsOrder: 5.0,
-        body: const _ImageSourcePicker(),
-        bodyPadding: const EdgeInsetsDirectional.only(
-          start: BALANCED_SPACE,
-          end: MEDIUM_SPACE,
-          top: LARGE_SPACE,
-          bottom: MEDIUM_SPACE,
-        ),
+          return SmoothModalSheet(
+            title: appLocalizations.choose_image_source_title,
+            closeButton: true,
+            closeButtonSemanticsOrder: 5.0,
+            body: const _ImageSourcePicker(),
+            bodyPadding: const EdgeInsetsDirectional.only(
+              start: BALANCED_SPACE,
+              end: MEDIUM_SPACE,
+              top: LARGE_SPACE,
+              bottom: MEDIUM_SPACE,
+            ),
+          );
+        },
       );
-    },
-  );
+  if (selectedSource != null && selectedSource != UserPictureSource.SELECT) {
+    await userPreferences.setLastPictureSource(selectedSource);
+  }
+  return selectedSource;
 }
 
 class _ImageSourcePicker extends StatefulWidget {
