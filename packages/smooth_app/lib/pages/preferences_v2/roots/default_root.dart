@@ -28,12 +28,20 @@ class DefaultPreferencesRoot extends PreferencesRoot {
   List<PreferenceCard> getCards(BuildContext context) => cards;
 
   @override
-  List<PreferenceTile> searchTiles(BuildContext context, String query) =>
-      <PreferenceTile>[
-        ...super.searchTiles(context, query),
-        for (final PreferencesRoot root in searchRoots)
-          ...root.searchTiles(context, query),
-      ];
+  List<PreferenceTile> searchTiles(BuildContext context, String query) {
+    final List<PreferenceTile> tiles = <PreferenceTile>[
+      ...super.searchTiles(context, query),
+      for (final PreferencesRoot root in searchRoots)
+        ...root.searchTiles(context, query),
+    ];
+    final Set<Key> seenKeys = <Key>{};
+    return tiles.where((PreferenceTile tile) {
+      if (tile.key != null) {
+        return seenKeys.add(tile.key!);
+      }
+      return true;
+    }).toList();
+  }
 
   @override
   WidgetBuilder? getFooter() => footer;

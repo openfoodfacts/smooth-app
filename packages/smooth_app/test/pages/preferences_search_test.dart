@@ -34,6 +34,7 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 
 import '../tests_utils/local_database_mock.dart';
 import '../tests_utils/mocks.dart';
@@ -140,6 +141,7 @@ void main() {
     for (final String title in <String>[
       l10n.prices_add_a_receipt,
       l10n.prices_add_price_tags,
+      l10n.prices_menu_know_more,
       l10n.preferences_prices_newest_title,
       l10n.preferences_prices_top_contributors_title,
       l10n.all_search_prices_top_location_title,
@@ -285,7 +287,42 @@ void main() {
       isNot(same(globalController)),
     );
     expect(pricesContext.read<PreferencesRootSearchController>().query, isNull);
+    expect(
+      tileWithTitle(localizations(tester).prices_menu_know_more),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(
+        of: find.byType(PricesRoot),
+        matching: find.byType(SmoothPopupMenuButton),
+      ),
+      findsNothing,
+    );
   });
+
+  testWidgets(
+    'Open Prices guide is searchable without duplicates in search root',
+    (WidgetTester tester) async {
+      await pumpPage(tester);
+      final AppLocalizations l10n = localizations(tester);
+
+      // Searching 'Open Prices' matches both the FAQ guide tile ("Discover Open Prices")
+      // and the inlined PricesRoot guide tile ("Know more about Open Prices"), but
+      // DefaultPreferencesRoot deduplicates by key so only one guide tile appears.
+      await search(tester, 'Open Prices');
+      final Finder guideFinder = find.byKey(const Key('guide_open_prices'));
+      expect(guideFinder, findsOneWidget);
+
+      await search(tester, l10n.preferences_faq_discover_op_title);
+      expect(
+        tileWithTitle(l10n.preferences_faq_discover_op_title),
+        findsOneWidget,
+      );
+
+      await search(tester, l10n.prices_menu_know_more);
+      expect(tileWithTitle(l10n.prices_menu_know_more), findsOneWidget);
+    },
+  );
 
   for (final bool loggedIn in <bool>[false, true]) {
     for (final ProofType proofType in <ProofType>[

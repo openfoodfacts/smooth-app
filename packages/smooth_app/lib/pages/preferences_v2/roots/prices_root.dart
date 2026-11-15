@@ -24,32 +24,12 @@ import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/proof_bulk_add_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/widgets/smooth_menu_button.dart';
 
 class PricesRoot extends PreferencesRoot {
   const PricesRoot({required super.title});
 
   @override
   String get actionName => 'Opened prices_settings_page';
-
-  @override
-  SmoothPopupMenuButton<dynamic>? actions(BuildContext context) {
-    return SmoothPopupMenuButton<void>(
-      onSelected: (_) =>
-          AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PRICES),
-      itemBuilder: (_) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-        return <SmoothPopupMenuItem<void>>[
-          SmoothPopupMenuItem<void>(
-            label: appLocalizations.prices_menu_know_more,
-            value: null,
-            icon: const icons.Faq(),
-          ),
-        ];
-      },
-    );
-  }
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {
@@ -78,6 +58,7 @@ class PricesRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.prices_generic_title,
         tiles: <PreferenceTile>[
+          _buildOpenPricesGuideTile(context, appLocalizations),
           _buildNewestPricesTile(context, appLocalizations),
           _buildTopContributorsTile(context, appLocalizations),
           _buildTopLocationsTile(context, appLocalizations),
@@ -175,6 +156,18 @@ class PricesRoot extends PreferencesRoot {
   }
 
   // Prices section
+  PreferenceTile _buildOpenPricesGuideTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      key: const Key('guide_open_prices'),
+      icon: const icons.Faq(),
+      title: appLocalizations.prices_menu_know_more,
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PRICES),
+    );
+  }
+
   PreferenceTile _buildNewestPricesTile(
     BuildContext context,
     AppLocalizations appLocalizations,
