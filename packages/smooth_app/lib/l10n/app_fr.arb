@@ -3991,6 +3991,630 @@
   "@currency_selector_title": {
     "description": "Label written as the title of the dialog to select the user currency"
   },
+  "currency_name_aed": "Dirham des Émirats arabes unis",
+  "@currency_name_aed": {
+    "description": "Name of the AED currency, shown in the currency selector"
+  },
+  "currency_name_afn": "Afghani afghan",
+  "@currency_name_afn": {
+    "description": "Name of the AFN currency, shown in the currency selector"
+  },
+  "currency_name_all": "Lek albanais",
+  "@currency_name_all": {
+    "description": "Name of the ALL currency, shown in the currency selector"
+  },
+  "currency_name_amd": "Dram arménien",
+  "@currency_name_amd": {
+    "description": "Name of the AMD currency, shown in the currency selector"
+  },
+  "currency_name_ang": "Florin antillais néerlandais",
+  "@currency_name_ang": {
+    "description": "Name of the ANG currency, shown in the currency selector"
+  },
+  "currency_name_aoa": "Kwanza angolais",
+  "@currency_name_aoa": {
+    "description": "Name of the AOA currency, shown in the currency selector"
+  },
+  "currency_name_ars": "Peso argentin",
+  "@currency_name_ars": {
+    "description": "Name of the ARS currency, shown in the currency selector"
+  },
+  "currency_name_aud": "Dollar australien",
+  "@currency_name_aud": {
+    "description": "Name of the AUD currency, shown in the currency selector"
+  },
+  "currency_name_awg": "Florin arubais",
+  "@currency_name_awg": {
+    "description": "Name of the AWG currency, shown in the currency selector"
+  },
+  "currency_name_azn": "Manat azerbaïdjanais",
+  "@currency_name_azn": {
+    "description": "Name of the AZN currency, shown in the currency selector"
+  },
+  "currency_name_bam": "Mark convertible bosnien",
+  "@currency_name_bam": {
+    "description": "Name of the BAM currency, shown in the currency selector"
+  },
+  "currency_name_bbd": "Dollar barbadien",
+  "@currency_name_bbd": {
+    "description": "Name of the BBD currency, shown in the currency selector"
+  },
+  "currency_name_bdt": "Taka bangladais",
+  "@currency_name_bdt": {
+    "description": "Name of the BDT currency, shown in the currency selector"
+  },
+  "currency_name_bgn": "Lev bulgare",
+  "@currency_name_bgn": {
+    "description": "Name of the BGN currency, shown in the currency selector"
+  },
+  "currency_name_bhd": "Dinar bahreïni",
+  "@currency_name_bhd": {
+    "description": "Name of the BHD currency, shown in the currency selector"
+  },
+  "currency_name_bif": "Franc burundais",
+  "@currency_name_bif": {
+    "description": "Name of the BIF currency, shown in the currency selector"
+  },
+  "currency_name_bmd": "Dollar bermudien",
+  "@currency_name_bmd": {
+    "description": "Name of the BMD currency, shown in the currency selector"
+  },
+  "currency_name_bnd": "Dollar de Brunéi",
+  "@currency_name_bnd": {
+    "description": "Name of the BND currency, shown in the currency selector"
+  },
+  "currency_name_bob": "Boliviano bolivien",
+  "@currency_name_bob": {
+    "description": "Name of the BOB currency, shown in the currency selector"
+  },
+  "currency_name_brl": "Réal brésilien",
+  "@currency_name_brl": {
+    "description": "Name of the BRL currency, shown in the currency selector"
+  },
+  "currency_name_bsd": "Dollar bahaméen",
+  "@currency_name_bsd": {
+    "description": "Name of the BSD currency, shown in the currency selector"
+  },
+  "currency_name_btn": "Ngultrum bhoutanais",
+  "@currency_name_btn": {
+    "description": "Name of the BTN currency, shown in the currency selector"
+  },
+  "currency_name_bwp": "Pula botswanais",
+  "@currency_name_bwp": {
+    "description": "Name of the BWP currency, shown in the currency selector"
+  },
+  "currency_name_byn": "Rouble biélorusse",
+  "@currency_name_byn": {
+    "description": "Name of the BYN currency, shown in the currency selector"
+  },
+  "currency_name_bzd": "Dollar bélizéen",
+  "@currency_name_bzd": {
+    "description": "Name of the BZD currency, shown in the currency selector"
+  },
+  "currency_name_cad": "Dollar canadien",
+  "@currency_name_cad": {
+    "description": "Name of the CAD currency, shown in the currency selector"
+  },
+  "currency_name_cdf": "Franc congolais",
+  "@currency_name_cdf": {
+    "description": "Name of the CDF currency, shown in the currency selector"
+  },
+  "currency_name_chf": "Franc suisse",
+  "@currency_name_chf": {
+    "description": "Name of the CHF currency, shown in the currency selector"
+  },
+  "currency_name_clp": "Peso chilien",
+  "@currency_name_clp": {
+    "description": "Name of the CLP currency, shown in the currency selector"
+  },
+  "currency_name_cny": "Yuan chinois",
+  "@currency_name_cny": {
+    "description": "Name of the CNY currency, shown in the currency selector"
+  },
+  "currency_name_cop": "Peso colombien",
+  "@currency_name_cop": {
+    "description": "Name of the COP currency, shown in the currency selector"
+  },
+  "currency_name_crc": "Colón costaricien",
+  "@currency_name_crc": {
+    "description": "Name of the CRC currency, shown in the currency selector"
+  },
+  "currency_name_cuc": "Peso cubain convertible",
+  "@currency_name_cuc": {
+    "description": "Name of the CUC currency, shown in the currency selector"
+  },
+  "currency_name_cup": "Peso cubain",
+  "@currency_name_cup": {
+    "description": "Name of the CUP currency, shown in the currency selector"
+  },
+  "currency_name_cve": "Escudo cap-verdien",
+  "@currency_name_cve": {
+    "description": "Name of the CVE currency, shown in the currency selector"
+  },
+  "currency_name_czk": "Couronne tchèque",
+  "@currency_name_czk": {
+    "description": "Name of the CZK currency, shown in the currency selector"
+  },
+  "currency_name_djf": "Franc djiboutien",
+  "@currency_name_djf": {
+    "description": "Name of the DJF currency, shown in the currency selector"
+  },
+  "currency_name_dkk": "Couronne danoise",
+  "@currency_name_dkk": {
+    "description": "Name of the DKK currency, shown in the currency selector"
+  },
+  "currency_name_dop": "Peso dominicain",
+  "@currency_name_dop": {
+    "description": "Name of the DOP currency, shown in the currency selector"
+  },
+  "currency_name_dzd": "Dinar algérien",
+  "@currency_name_dzd": {
+    "description": "Name of the DZD currency, shown in the currency selector"
+  },
+  "currency_name_egp": "Livre égyptienne",
+  "@currency_name_egp": {
+    "description": "Name of the EGP currency, shown in the currency selector"
+  },
+  "currency_name_ern": "Nakfa érythréen",
+  "@currency_name_ern": {
+    "description": "Name of the ERN currency, shown in the currency selector"
+  },
+  "currency_name_etb": "Birr éthiopien",
+  "@currency_name_etb": {
+    "description": "Name of the ETB currency, shown in the currency selector"
+  },
+  "currency_name_eur": "Euro",
+  "@currency_name_eur": {
+    "description": "Name of the EUR currency, shown in the currency selector"
+  },
+  "currency_name_fjd": "Dollar fidjien",
+  "@currency_name_fjd": {
+    "description": "Name of the FJD currency, shown in the currency selector"
+  },
+  "currency_name_fkp": "Livre des îles Malouines",
+  "@currency_name_fkp": {
+    "description": "Name of the FKP currency, shown in the currency selector"
+  },
+  "currency_name_gbp": "Livre sterling",
+  "@currency_name_gbp": {
+    "description": "Name of the GBP currency, shown in the currency selector"
+  },
+  "currency_name_gel": "Lari géorgien",
+  "@currency_name_gel": {
+    "description": "Name of the GEL currency, shown in the currency selector"
+  },
+  "currency_name_ghs": "Cédi ghanéen",
+  "@currency_name_ghs": {
+    "description": "Name of the GHS currency, shown in the currency selector"
+  },
+  "currency_name_gip": "Livre de Gibraltar",
+  "@currency_name_gip": {
+    "description": "Name of the GIP currency, shown in the currency selector"
+  },
+  "currency_name_gmd": "Dalasi gambien",
+  "@currency_name_gmd": {
+    "description": "Name of the GMD currency, shown in the currency selector"
+  },
+  "currency_name_gnf": "Franc guinéen",
+  "@currency_name_gnf": {
+    "description": "Name of the GNF currency, shown in the currency selector"
+  },
+  "currency_name_gtq": "Quetzal guatémaltèque",
+  "@currency_name_gtq": {
+    "description": "Name of the GTQ currency, shown in the currency selector"
+  },
+  "currency_name_gyd": "Dollar guyanien",
+  "@currency_name_gyd": {
+    "description": "Name of the GYD currency, shown in the currency selector"
+  },
+  "currency_name_hkd": "Dollar de Hong Kong",
+  "@currency_name_hkd": {
+    "description": "Name of the HKD currency, shown in the currency selector"
+  },
+  "currency_name_hnl": "Lempira hondurien",
+  "@currency_name_hnl": {
+    "description": "Name of the HNL currency, shown in the currency selector"
+  },
+  "currency_name_hrk": "Kuna croate",
+  "@currency_name_hrk": {
+    "description": "Name of the HRK currency, shown in the currency selector"
+  },
+  "currency_name_htg": "Gourde haïtienne",
+  "@currency_name_htg": {
+    "description": "Name of the HTG currency, shown in the currency selector"
+  },
+  "currency_name_huf": "Forint hongrois",
+  "@currency_name_huf": {
+    "description": "Name of the HUF currency, shown in the currency selector"
+  },
+  "currency_name_idr": "Roupie indonésienne",
+  "@currency_name_idr": {
+    "description": "Name of the IDR currency, shown in the currency selector"
+  },
+  "currency_name_ils": "Nouveau shekel israélien",
+  "@currency_name_ils": {
+    "description": "Name of the ILS currency, shown in the currency selector"
+  },
+  "currency_name_inr": "Roupie indienne",
+  "@currency_name_inr": {
+    "description": "Name of the INR currency, shown in the currency selector"
+  },
+  "currency_name_iqd": "Dinar irakien",
+  "@currency_name_iqd": {
+    "description": "Name of the IQD currency, shown in the currency selector"
+  },
+  "currency_name_irr": "Rial iranien",
+  "@currency_name_irr": {
+    "description": "Name of the IRR currency, shown in the currency selector"
+  },
+  "currency_name_isk": "Couronne islandaise",
+  "@currency_name_isk": {
+    "description": "Name of the ISK currency, shown in the currency selector"
+  },
+  "currency_name_jmd": "Dollar jamaïcain",
+  "@currency_name_jmd": {
+    "description": "Name of the JMD currency, shown in the currency selector"
+  },
+  "currency_name_jod": "Dinar jordanien",
+  "@currency_name_jod": {
+    "description": "Name of the JOD currency, shown in the currency selector"
+  },
+  "currency_name_jpy": "Yen japonais",
+  "@currency_name_jpy": {
+    "description": "Name of the JPY currency, shown in the currency selector"
+  },
+  "currency_name_kes": "Shilling kényan",
+  "@currency_name_kes": {
+    "description": "Name of the KES currency, shown in the currency selector"
+  },
+  "currency_name_kgs": "Som kirghize",
+  "@currency_name_kgs": {
+    "description": "Name of the KGS currency, shown in the currency selector"
+  },
+  "currency_name_khr": "Riel cambodgien",
+  "@currency_name_khr": {
+    "description": "Name of the KHR currency, shown in the currency selector"
+  },
+  "currency_name_kmf": "Franc comorien",
+  "@currency_name_kmf": {
+    "description": "Name of the KMF currency, shown in the currency selector"
+  },
+  "currency_name_kpw": "Won nord-coréen",
+  "@currency_name_kpw": {
+    "description": "Name of the KPW currency, shown in the currency selector"
+  },
+  "currency_name_krw": "Won sud-coréen",
+  "@currency_name_krw": {
+    "description": "Name of the KRW currency, shown in the currency selector"
+  },
+  "currency_name_kwd": "Dinar koweïtien",
+  "@currency_name_kwd": {
+    "description": "Name of the KWD currency, shown in the currency selector"
+  },
+  "currency_name_kyd": "Dollar des îles Caïmans",
+  "@currency_name_kyd": {
+    "description": "Name of the KYD currency, shown in the currency selector"
+  },
+  "currency_name_kzt": "Tenge kazakh",
+  "@currency_name_kzt": {
+    "description": "Name of the KZT currency, shown in the currency selector"
+  },
+  "currency_name_lak": "Kip laotien",
+  "@currency_name_lak": {
+    "description": "Name of the LAK currency, shown in the currency selector"
+  },
+  "currency_name_lbp": "Livre libanaise",
+  "@currency_name_lbp": {
+    "description": "Name of the LBP currency, shown in the currency selector"
+  },
+  "currency_name_lkr": "Roupie srilankaise",
+  "@currency_name_lkr": {
+    "description": "Name of the LKR currency, shown in the currency selector"
+  },
+  "currency_name_lrd": "Dollar libérien",
+  "@currency_name_lrd": {
+    "description": "Name of the LRD currency, shown in the currency selector"
+  },
+  "currency_name_lsl": "Loti lesothan",
+  "@currency_name_lsl": {
+    "description": "Name of the LSL currency, shown in the currency selector"
+  },
+  "currency_name_lyd": "Dinar libyen",
+  "@currency_name_lyd": {
+    "description": "Name of the LYD currency, shown in the currency selector"
+  },
+  "currency_name_mad": "Dirham marocain",
+  "@currency_name_mad": {
+    "description": "Name of the MAD currency, shown in the currency selector"
+  },
+  "currency_name_mdl": "Leu moldave",
+  "@currency_name_mdl": {
+    "description": "Name of the MDL currency, shown in the currency selector"
+  },
+  "currency_name_mga": "Ariary malgache",
+  "@currency_name_mga": {
+    "description": "Name of the MGA currency, shown in the currency selector"
+  },
+  "currency_name_mkd": "Denar macédonien",
+  "@currency_name_mkd": {
+    "description": "Name of the MKD currency, shown in the currency selector"
+  },
+  "currency_name_mmk": "Kyat birman",
+  "@currency_name_mmk": {
+    "description": "Name of the MMK currency, shown in the currency selector"
+  },
+  "currency_name_mnt": "Tugrik mongol",
+  "@currency_name_mnt": {
+    "description": "Name of the MNT currency, shown in the currency selector"
+  },
+  "currency_name_mop": "Pataca macanaise",
+  "@currency_name_mop": {
+    "description": "Name of the MOP currency, shown in the currency selector"
+  },
+  "currency_name_mru": "Ouguiya mauritanien",
+  "@currency_name_mru": {
+    "description": "Name of the MRU currency, shown in the currency selector"
+  },
+  "currency_name_mur": "Roupie mauricienne",
+  "@currency_name_mur": {
+    "description": "Name of the MUR currency, shown in the currency selector"
+  },
+  "currency_name_mvr": "Rufiyaa maldivienne",
+  "@currency_name_mvr": {
+    "description": "Name of the MVR currency, shown in the currency selector"
+  },
+  "currency_name_mwk": "Kwacha malawien",
+  "@currency_name_mwk": {
+    "description": "Name of the MWK currency, shown in the currency selector"
+  },
+  "currency_name_mxn": "Peso mexicain",
+  "@currency_name_mxn": {
+    "description": "Name of the MXN currency, shown in the currency selector"
+  },
+  "currency_name_myr": "Ringgit malaisien",
+  "@currency_name_myr": {
+    "description": "Name of the MYR currency, shown in the currency selector"
+  },
+  "currency_name_mzn": "Metical mozambicain",
+  "@currency_name_mzn": {
+    "description": "Name of the MZN currency, shown in the currency selector"
+  },
+  "currency_name_nad": "Dollar namibien",
+  "@currency_name_nad": {
+    "description": "Name of the NAD currency, shown in the currency selector"
+  },
+  "currency_name_ngn": "Naira nigérian",
+  "@currency_name_ngn": {
+    "description": "Name of the NGN currency, shown in the currency selector"
+  },
+  "currency_name_nio": "Córdoba nicaraguayen",
+  "@currency_name_nio": {
+    "description": "Name of the NIO currency, shown in the currency selector"
+  },
+  "currency_name_nok": "Couronne norvégienne",
+  "@currency_name_nok": {
+    "description": "Name of the NOK currency, shown in the currency selector"
+  },
+  "currency_name_npr": "Roupie népalaise",
+  "@currency_name_npr": {
+    "description": "Name of the NPR currency, shown in the currency selector"
+  },
+  "currency_name_nzd": "Dollar néo-zélandais",
+  "@currency_name_nzd": {
+    "description": "Name of the NZD currency, shown in the currency selector"
+  },
+  "currency_name_omr": "Rial omanais",
+  "@currency_name_omr": {
+    "description": "Name of the OMR currency, shown in the currency selector"
+  },
+  "currency_name_pab": "Balboa panaméen",
+  "@currency_name_pab": {
+    "description": "Name of the PAB currency, shown in the currency selector"
+  },
+  "currency_name_pen": "Sol péruvien",
+  "@currency_name_pen": {
+    "description": "Name of the PEN currency, shown in the currency selector"
+  },
+  "currency_name_pgk": "Kina papouan-néo-guinéen",
+  "@currency_name_pgk": {
+    "description": "Name of the PGK currency, shown in the currency selector"
+  },
+  "currency_name_php": "Peso philippin",
+  "@currency_name_php": {
+    "description": "Name of the PHP currency, shown in the currency selector"
+  },
+  "currency_name_pkr": "Roupie pakistanaise",
+  "@currency_name_pkr": {
+    "description": "Name of the PKR currency, shown in the currency selector"
+  },
+  "currency_name_pln": "Zloty polonais",
+  "@currency_name_pln": {
+    "description": "Name of the PLN currency, shown in the currency selector"
+  },
+  "currency_name_pyg": "Guaraní paraguayen",
+  "@currency_name_pyg": {
+    "description": "Name of the PYG currency, shown in the currency selector"
+  },
+  "currency_name_qar": "Rial qatari",
+  "@currency_name_qar": {
+    "description": "Name of the QAR currency, shown in the currency selector"
+  },
+  "currency_name_ron": "Leu roumain",
+  "@currency_name_ron": {
+    "description": "Name of the RON currency, shown in the currency selector"
+  },
+  "currency_name_rsd": "Dinar serbe",
+  "@currency_name_rsd": {
+    "description": "Name of the RSD currency, shown in the currency selector"
+  },
+  "currency_name_rub": "Rouble russe",
+  "@currency_name_rub": {
+    "description": "Name of the RUB currency, shown in the currency selector"
+  },
+  "currency_name_rwf": "Franc rwandais",
+  "@currency_name_rwf": {
+    "description": "Name of the RWF currency, shown in the currency selector"
+  },
+  "currency_name_sar": "Riyal saoudien",
+  "@currency_name_sar": {
+    "description": "Name of the SAR currency, shown in the currency selector"
+  },
+  "currency_name_sbd": "Dollar des îles Salomon",
+  "@currency_name_sbd": {
+    "description": "Name of the SBD currency, shown in the currency selector"
+  },
+  "currency_name_scr": "Roupie seychelloise",
+  "@currency_name_scr": {
+    "description": "Name of the SCR currency, shown in the currency selector"
+  },
+  "currency_name_sdg": "Livre soudanaise",
+  "@currency_name_sdg": {
+    "description": "Name of the SDG currency, shown in the currency selector"
+  },
+  "currency_name_sek": "Couronne suédoise",
+  "@currency_name_sek": {
+    "description": "Name of the SEK currency, shown in the currency selector"
+  },
+  "currency_name_sgd": "Dollar de Singapour",
+  "@currency_name_sgd": {
+    "description": "Name of the SGD currency, shown in the currency selector"
+  },
+  "currency_name_shp": "Livre de Sainte-Hélène",
+  "@currency_name_shp": {
+    "description": "Name of the SHP currency, shown in the currency selector"
+  },
+  "currency_name_sle": "Leone sierra-léonais",
+  "@currency_name_sle": {
+    "description": "Name of the SLE currency, shown in the currency selector"
+  },
+  "currency_name_sos": "Shilling somalien",
+  "@currency_name_sos": {
+    "description": "Name of the SOS currency, shown in the currency selector"
+  },
+  "currency_name_srd": "Dollar surinamais",
+  "@currency_name_srd": {
+    "description": "Name of the SRD currency, shown in the currency selector"
+  },
+  "currency_name_ssp": "Livre sud-soudanaise",
+  "@currency_name_ssp": {
+    "description": "Name of the SSP currency, shown in the currency selector"
+  },
+  "currency_name_stn": "Dobra santoméen",
+  "@currency_name_stn": {
+    "description": "Name of the STN currency, shown in the currency selector"
+  },
+  "currency_name_svc": "Colón salvadorien",
+  "@currency_name_svc": {
+    "description": "Name of the SVC currency, shown in the currency selector"
+  },
+  "currency_name_syp": "Livre syrienne",
+  "@currency_name_syp": {
+    "description": "Name of the SYP currency, shown in the currency selector"
+  },
+  "currency_name_szl": "Lilangeni swazi",
+  "@currency_name_szl": {
+    "description": "Name of the SZL currency, shown in the currency selector"
+  },
+  "currency_name_thb": "Baht thaïlandais",
+  "@currency_name_thb": {
+    "description": "Name of the THB currency, shown in the currency selector"
+  },
+  "currency_name_tjs": "Somoni tadjik",
+  "@currency_name_tjs": {
+    "description": "Name of the TJS currency, shown in the currency selector"
+  },
+  "currency_name_tmt": "Manat turkmène",
+  "@currency_name_tmt": {
+    "description": "Name of the TMT currency, shown in the currency selector"
+  },
+  "currency_name_tnd": "Dinar tunisien",
+  "@currency_name_tnd": {
+    "description": "Name of the TND currency, shown in the currency selector"
+  },
+  "currency_name_top": "Pa'anga tongien",
+  "@currency_name_top": {
+    "description": "Name of the TOP currency, shown in the currency selector"
+  },
+  "currency_name_try": "Livre turque",
+  "@currency_name_try": {
+    "description": "Name of the TRY currency, shown in the currency selector"
+  },
+  "currency_name_ttd": "Dollar de Trinité-et-Tobago",
+  "@currency_name_ttd": {
+    "description": "Name of the TTD currency, shown in the currency selector"
+  },
+  "currency_name_twd": "Nouveau dollar taïwanais",
+  "@currency_name_twd": {
+    "description": "Name of the TWD currency, shown in the currency selector"
+  },
+  "currency_name_tzs": "Shilling tanzanien",
+  "@currency_name_tzs": {
+    "description": "Name of the TZS currency, shown in the currency selector"
+  },
+  "currency_name_uah": "Hryvnia ukrainienne",
+  "@currency_name_uah": {
+    "description": "Name of the UAH currency, shown in the currency selector"
+  },
+  "currency_name_ugx": "Shilling ougandais",
+  "@currency_name_ugx": {
+    "description": "Name of the UGX currency, shown in the currency selector"
+  },
+  "currency_name_usd": "Dollar américain",
+  "@currency_name_usd": {
+    "description": "Name of the USD currency, shown in the currency selector"
+  },
+  "currency_name_uyu": "Peso uruguayen",
+  "@currency_name_uyu": {
+    "description": "Name of the UYU currency, shown in the currency selector"
+  },
+  "currency_name_uzs": "Sum ouzbek",
+  "@currency_name_uzs": {
+    "description": "Name of the UZS currency, shown in the currency selector"
+  },
+  "currency_name_ves": "Bolivar vénézuélien",
+  "@currency_name_ves": {
+    "description": "Name of the VES currency, shown in the currency selector"
+  },
+  "currency_name_vnd": "Dong vietnamien",
+  "@currency_name_vnd": {
+    "description": "Name of the VND currency, shown in the currency selector"
+  },
+  "currency_name_vuv": "Vatu vanuatuan",
+  "@currency_name_vuv": {
+    "description": "Name of the VUV currency, shown in the currency selector"
+  },
+  "currency_name_wst": "Tala samoan",
+  "@currency_name_wst": {
+    "description": "Name of the WST currency, shown in the currency selector"
+  },
+  "currency_name_xaf": "Franc CFA (BEAC)",
+  "@currency_name_xaf": {
+    "description": "Name of the XAF currency, shown in the currency selector"
+  },
+  "currency_name_xcd": "Dollar des Caraïbes orientales",
+  "@currency_name_xcd": {
+    "description": "Name of the XCD currency, shown in the currency selector"
+  },
+  "currency_name_xof": "Franc CFA (BCEAO)",
+  "@currency_name_xof": {
+    "description": "Name of the XOF currency, shown in the currency selector"
+  },
+  "currency_name_xpf": "Franc CFP",
+  "@currency_name_xpf": {
+    "description": "Name of the XPF currency, shown in the currency selector"
+  },
+  "currency_name_yer": "Rial yéménite",
+  "@currency_name_yer": {
+    "description": "Name of the YER currency, shown in the currency selector"
+  },
+  "currency_name_zar": "Rand sud-africain",
+  "@currency_name_zar": {
+    "description": "Name of the ZAR currency, shown in the currency selector"
+  },
+  "currency_name_zmw": "Kwacha zambien",
+  "@currency_name_zmw": {
+    "description": "Name of the ZMW currency, shown in the currency selector"
+  },
   "language_selector_title": "Sélectionnez votre langue :",
   "@language_selector_title": {
     "description": "Label written as the title of the dialog to select the user language"
