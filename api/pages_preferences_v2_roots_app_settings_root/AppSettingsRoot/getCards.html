@@ -83,6 +83,11 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
       ? theme.primaryColor
       : Colors.white;
 
+  final CurrencySelectorHelper currencyHelper = CurrencySelectorHelper();
+  final Currency selectedCurrency = currencyHelper.getSelected(
+    userPreferences.userCurrencyCode,
+  );
+
   return &lt;PreferenceCard&gt;[
     PreferenceCard(
       title:
@@ -96,7 +101,13 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
       tiles: &lt;PreferenceTile&gt;[
         _buildLanguageTile(appLocalizations),
         _buildCountryTile(appLocalizations),
-        _buildCurrencyTile(appLocalizations),
+        _buildCurrencyTile(
+          appLocalizations,
+          selectedCurrency,
+          currencyHelper,
+          context,
+          iconColor,
+        ),
       ],
     ),
     PreferenceCard(
