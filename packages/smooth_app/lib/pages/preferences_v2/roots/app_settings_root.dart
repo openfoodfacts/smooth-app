@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/city_postcode_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/country_selector/country_selector_tile.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/currency_selector/currency_selector_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/language_selector/language_selector_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/multiple_choices_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/toggle_preference_tile.dart';
-import 'package:smooth_app/pages/prices/currency_extension.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -34,11 +32,6 @@ class AppSettingsRoot extends PreferencesRoot {
         ? theme.primaryColor
         : Colors.white;
 
-    final CurrencySelectorHelper currencyHelper = CurrencySelectorHelper();
-    final Currency selectedCurrency = currencyHelper.getSelected(
-      userPreferences.userCurrencyCode,
-    );
-
     return <PreferenceCard>[
       PreferenceCard(
         title:
@@ -52,6 +45,7 @@ class AppSettingsRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           _buildLanguageTile(appLocalizations),
           _buildCountryTile(appLocalizations),
+       feat/open-prices-saved-location
           CityPostcodeTile(
             title: appLocalizations.preferences_city_or_postcode_title,
           ),
@@ -62,6 +56,9 @@ class AppSettingsRoot extends PreferencesRoot {
             context,
             iconColor,
           ),
+
+          _buildCurrencyTile(appLocalizations),
+     develop
         ],
       ),
       PreferenceCard(
@@ -146,22 +143,10 @@ class AppSettingsRoot extends PreferencesRoot {
     );
   }
 
-  PreferenceTile _buildCurrencyTile(
-    AppLocalizations appLocalizations,
-    Currency selectedCurrency,
-    CurrencySelectorHelper currencyHelper,
-    BuildContext context,
-    Color iconColor,
-  ) {
-    return PreferenceTile(
-      leading: icons.Currency(color: iconColor),
+  CurrencySelectorTile _buildCurrencyTile(AppLocalizations appLocalizations) {
+    return CurrencySelectorTile(
       title: appLocalizations.currency_picker_label,
-      subtitleText: selectedCurrency.getFullName(),
-      onTap: () => currencyHelper.openCurrencySelector(
-        context: context,
-        selected: selectedCurrency,
-      ),
-      trailing: icons.Edit(color: iconColor, size: 18.0),
+      autoValidate: false,
     );
   }
 
