@@ -113,7 +113,10 @@ Widget build(BuildContext context) {
     return EMPTY_WIDGET;
   }
 
+  final DiscountType? discountType = price.discountType;
+
   return _PriceDataContainer(
+    icon: discountType?.iconData,
     value: NumberFormat(&#39;#0%&#39;).format(
       (price.price - price.priceWithoutDiscount!) &#47;
           price.priceWithoutDiscount!,

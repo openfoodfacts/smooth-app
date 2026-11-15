@@ -145,14 +145,20 @@ Widget build(BuildContext context) {
             ],
           )
         : null,
-    contentPadding: const EdgeInsetsDirectional.symmetric(
-      horizontal: SMALL_SPACE,
-      vertical: MEDIUM_SPACE,
-    ),
+    &#47;&#47; The padding is inside the children, so the ripple covers the whole card
+    contentPadding: EdgeInsetsDirectional.zero,
     child: SizedBox(
       width: double.infinity,
       child: location == null
-          ? _PriceLocationCardEmptyLocation(onTap: () =&gt; _onTap(context))
+          ? Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: SMALL_SPACE,
+                vertical: MEDIUM_SPACE,
+              ),
+              child: _PriceLocationCardEmptyLocation(
+                onTap: () =&gt; _onTap(context),
+              ),
+            )
           : _PriceLocationCardWithLocation(
               location: location,
               onTap: () =&gt; _onTap(context),

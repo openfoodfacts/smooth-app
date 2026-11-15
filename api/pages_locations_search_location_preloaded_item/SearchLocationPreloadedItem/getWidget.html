@@ -95,6 +95,15 @@ Widget getWidget(
   final String? address = _address;
   final String title = name ?? street ?? address ?? osmLocation.primaryKey;
 
+  final _SearchLocationMenu menu = _SearchLocationMenu(
+    osmLocation: osmLocation,
+    title: title,
+    popFirst: popFirst,
+    onSelect: () =&gt; _select(context),
+    onDeleteItem: onDeleteItem,
+    onFavoriteChanged: onFavoriteChanged,
+  );
+
   return SmoothCard(
     elevation: 5.0,
     elevationColor: Colors.black26,
@@ -108,6 +117,7 @@ Widget getWidget(
     child: InkWell(
       borderRadius: ROUNDED_BORDER_RADIUS,
       onTap: () =&gt; _select(context),
+      onLongPress: () =&gt; menu.show(context),
       child: DefaultTextStyle.merge(
         style: TextStyle(color: extension.primaryBlack, fontSize: 15.0),
         child: IconTheme.merge(
@@ -171,13 +181,7 @@ Widget getWidget(
                                       ),
                                 ),
                         ),
-                        _SearchLocationMenu(
-                          osmLocation: osmLocation,
-                          title: title,
-                          popFirst: popFirst,
-                          onSelect: () =&gt; _select(context),
-                          onDeleteItem: onDeleteItem,
-                        ),
+                        menu,
                       ],
                     ),
                   ],
