@@ -60,14 +60,20 @@ class PriceLocationCard extends StatelessWidget {
               ],
             )
           : null,
-      contentPadding: const EdgeInsetsDirectional.symmetric(
-        horizontal: SMALL_SPACE,
-        vertical: MEDIUM_SPACE,
-      ),
+      // The padding is inside the children, so the ripple covers the whole card
+      contentPadding: EdgeInsetsDirectional.zero,
       child: SizedBox(
         width: double.infinity,
         child: location == null
-            ? _PriceLocationCardEmptyLocation(onTap: () => _onTap(context))
+            ? Padding(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: SMALL_SPACE,
+                  vertical: MEDIUM_SPACE,
+                ),
+                child: _PriceLocationCardEmptyLocation(
+                  onTap: () => _onTap(context),
+                ),
+              )
             : _PriceLocationCardWithLocation(
                 location: location,
                 onTap: () => _onTap(context),
@@ -143,53 +149,59 @@ class _PriceLocationCardWithLocation extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        start: MEDIUM_SPACE,
-        end: SMALL_SPACE,
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: RichText(
-              text: TextSpan(
-                children: <TextSpan>[
-                  if (location.name != null)
-                    TextSpan(
-                      text: '${location.name}\n',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
+    return InkWell(
+      onTap: onTap,
+      borderRadius: ROUNDED_BORDER_RADIUS,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          start: SMALL_SPACE + MEDIUM_SPACE,
+          end: 2 * SMALL_SPACE,
+          top: MEDIUM_SPACE,
+          bottom: MEDIUM_SPACE,
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: RichText(
+                text: TextSpan(
+                  children: <TextSpan>[
+                    if (location.name != null)
+                      TextSpan(
+                        text: '${location.name}\n',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                        ),
                       ),
-                    ),
-                  if (location.street != null)
-                    TextSpan(text: '${location.street}\n'),
-                  if (location.city != null)
-                    TextSpan(
-                      text:
-                          '${location.postcode != null ? '${location.postcode} ' : ''}${location.city ?? ''}\n',
-                    ),
-                  if (location.country != null)
-                    TextSpan(text: location.country),
-                ],
-                style: DefaultTextStyle.of(context).style,
+                    if (location.street != null)
+                      TextSpan(text: '${location.street}\n'),
+                    if (location.city != null)
+                      TextSpan(
+                        text:
+                            '${location.postcode != null ? '${location.postcode} ' : ''}${location.city ?? ''}\n',
+                      ),
+                    if (location.country != null)
+                      TextSpan(text: location.country),
+                  ],
+                  style: DefaultTextStyle.of(context).style,
+                ),
               ),
             ),
-          ),
-          DecoratedBox(
-            decoration: BoxDecoration(
-              color: colorScheme.secondary,
-              borderRadius: ANGULAR_BORDER_RADIUS,
-            ),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-              child: IconTheme.merge(
-                data: IconThemeData(color: colorScheme.onSecondary),
-                child: OsmLocationKind.of(location).icon,
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: colorScheme.secondary,
+                borderRadius: ANGULAR_BORDER_RADIUS,
+              ),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+                child: IconTheme.merge(
+                  data: IconThemeData(color: colorScheme.onSecondary),
+                  child: OsmLocationKind.of(location).icon,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

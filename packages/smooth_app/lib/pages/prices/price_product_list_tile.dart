@@ -16,6 +16,7 @@ class PriceProductListTile extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size screenSize = MediaQuery.sizeOf(context);
     final double size = screenSize.width * 0.20;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,

@@ -107,45 +107,39 @@ class _SearchPageState extends State<SearchPage> {
             ),
             backButtonType: widget.backButtonType,
           ),
-          body: Column(
-            children: <Widget>[
-              Expanded(
-                child: Consumer<SearchHelper>(
-                  builder: (BuildContext context, SearchHelper searchHelper, _) {
-                    /// Show the history when there is no search
-                    if (searchHelper.value == null) {
-                      return SearchHistoryView(
-                        focusNode: _searchFocusNode,
-                        onTap: (String query) =>
-                            widget.searchHelper.searchWithController(
-                              context,
-                              query,
-                              _searchTextController,
-                              _searchFocusNode,
-                            ),
-                        searchHelper: widget.searchHelper,
-                        preloadedList:
-                            widget.preloadedList ?? <SearchPreloadedItem>[],
-                      );
-                    } else {
-                      /// A custom [Navigator] is used to intercept the World
-                      /// results to be embedded in this part of the screen and
-                      /// not on a new one.
-                      return Navigator(
-                        key: _navigatorKey,
-                        pages: <MaterialPage<dynamic>>[
-                          MaterialPage<void>(child: searchHelper.value!.widget),
-                        ],
-                        onDidRemovePage: (_) {
-                          /// Mandatory to provide this method
-                          /// The event is intercepted by the [WillPopScope2]
-                        },
-                      );
-                    }
+          body: Consumer<SearchHelper>(
+            builder: (BuildContext context, SearchHelper searchHelper, _) {
+              /// Show the history when there is no search
+              if (searchHelper.value == null) {
+                return SearchHistoryView(
+                  focusNode: _searchFocusNode,
+                  onTap: (String query) =>
+                      widget.searchHelper.searchWithController(
+                        context,
+                        query,
+                        _searchTextController,
+                        _searchFocusNode,
+                      ),
+                  searchHelper: widget.searchHelper,
+                  preloadedList:
+                      widget.preloadedList ?? <SearchPreloadedItem>[],
+                );
+              } else {
+                /// A custom [Navigator] is used to intercept the World
+                /// results to be embedded in this part of the screen and
+                /// not on a new one.
+                return Navigator(
+                  key: _navigatorKey,
+                  pages: <MaterialPage<dynamic>>[
+                    MaterialPage<void>(child: searchHelper.value!.widget),
+                  ],
+                  onDidRemovePage: (_) {
+                    /// Mandatory to provide this method
+                    /// The event is intercepted by the [WillPopScope2]
                   },
-                ),
-              ),
-            ],
+                );
+              }
+            },
           ),
         ),
       ),

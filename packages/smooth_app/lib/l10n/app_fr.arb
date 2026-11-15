@@ -646,7 +646,7 @@
   "@search_location_favorite_add": {
     "description": "Tooltip of the heart of a location in the search history, when it is not a favorite"
   },
-  "search_location_favorite_remove": "Supprimer des favoris",
+  "search_location_favorite_remove": "Retirer des favoris",
   "@search_location_favorite_remove": {
     "description": "Tooltip of the heart of a location in the search history, when it is a favorite"
   },
@@ -2842,6 +2842,38 @@
   "prices_discount_type_pick_it_yourself": "Cueillez-les vous-même",
   "prices_discount_type_second_hand": "Occasion",
   "prices_discount_type_other": "Autre",
+  "prices_discount_type_quantity_subtitle": "Prix dégressif, lot, 2ème à -50%",
+  "@prices_discount_type_quantity_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_sale_subtitle": "Opérations spéciales, 1 acheté = 1 offert",
+  "@prices_discount_type_sale_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_seasonal_subtitle": "Fin de série, soldes, arrivage ponctuel",
+  "@prices_discount_type_seasonal_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_loyalty_program_subtitle": "Avantage carte, cagnottage, prix fidélité",
+  "@prices_discount_type_loyalty_program_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_expires_soon_subtitle": "Date courte, anti-gaspi, déstockage",
+  "@prices_discount_type_expires_soon_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_pick_it_yourself_subtitle": "Récolte sur place, direct producteur",
+  "@prices_discount_type_pick_it_yourself_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_second_hand_subtitle": "Seconde main, reconditionné, déjà utilisé",
+  "@prices_discount_type_second_hand_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_other_subtitle": "Autre motif de réduction tarifaire",
+  "@prices_discount_type_other_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
   "dev_preferences_import_history_result_success": "Fait",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
