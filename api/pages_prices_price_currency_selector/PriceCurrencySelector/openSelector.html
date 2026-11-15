@@ -70,15 +70,28 @@
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; openSelector({required BuildContext context}) async {
   final PriceModel model = context.read&lt;PriceModel&gt;();
 
-  final CurrencySelectorHelper helper = CurrencySelectorHelper();
-  final Currency? currency = await helper.openCurrencySelector(
-    context: context,
-    selected: model.currency,
-  );
-
-  if (currency != null) {
-    model.currency = currency;
+  &#47;&#47; With a proof, the currency comes from the proof.
+  if (model.proof != null) {
+    return;
   }
+
+  final UserPreferences preferences = context.read&lt;UserPreferences&gt;();
+
+  await Navigator.of(context).push&lt;Currency&gt;(
+    smoothSelectorRoute&lt;Currency&gt;(
+      (_) =&gt; ChangeNotifierProvider&lt;CurrencySelectorProvider&gt;(
+        create: (_) =&gt; CurrencySelectorProvider(
+          preferences: preferences,
+          autoValidate: true,
+          currentCode: () =&gt; model.currency.name,
+          onSave: (Currency currency) async =&gt; model.currency = currency,
+        ),
+        builder: (BuildContext context, _) =&gt; CurrencySelectorScreen(
+          provider: context.read&lt;CurrencySelectorProvider&gt;(),
+        ),
+      ),
+    ),
+  );
 }</code></pre>
 </section>
 
