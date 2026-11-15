@@ -307,11 +307,11 @@ class _ProductListPageState extends State<ProductListPage>
   }
 
   double _computeModalInitHeight(BuildContext context) =>
-    switch (SmoothResponsive(context).deviceType) {
-      DeviceType.small => 0.7,
-      DeviceType.smartphone => 0.55,
-      DeviceType.tablet || DeviceType.large => 0.45,
-    };
+      switch (SmoothResponsive(context).deviceType) {
+        DeviceType.small => 0.7,
+        DeviceType.smartphone => 0.55,
+        DeviceType.tablet || DeviceType.large => 0.45,
+      };
 
   Widget _buildItem(
     bool dismissible,

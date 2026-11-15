@@ -158,10 +158,10 @@ class SmoothAlertDialog extends StatelessWidget {
   );
 
   static EdgeInsetsDirectional defaultContentPadding(BuildContext context) =>
-    switch (SmoothResponsive(context).deviceType) {
-      DeviceType.small => _smallContentPadding,
-      _ => _contentPadding,
-    };
+      switch (SmoothResponsive(context).deviceType) {
+        DeviceType.small => _smallContentPadding,
+        _ => _contentPadding,
+      };
 }
 
 class _SmoothDialogTitle extends StatelessWidget {
@@ -345,10 +345,10 @@ class SmoothActionButtonsBar extends StatelessWidget {
 
   /// On "small devices", prefer a vertical layout by default.
   Axis _findDefaultAxis(BuildContext context) =>
-    switch (SmoothResponsive(context).deviceType) {
-      DeviceType.small => Axis.vertical,
-      _ => Axis.horizontal,
-    };
+      switch (SmoothResponsive(context).deviceType) {
+        DeviceType.small => Axis.vertical,
+        _ => Axis.horizontal,
+      };
 }
 
 /// Generates Actions buttons with:

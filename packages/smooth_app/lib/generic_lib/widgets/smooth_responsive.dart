@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SmoothResponsive {
-  SmoothResponsive(final BuildContext context) {
+  SmoothResponsive(BuildContext context) {
     width = MediaQuery.widthOf(context);
   }
 
@@ -40,16 +40,16 @@ class SmoothResponsiveBuilder extends StatelessWidget {
     final SmoothResponsive responsive = SmoothResponsive(context);
 
     return switch (responsive.deviceType) {
-      DeviceType.small => smallDeviceBuilder?.call(context) 
-        ?? defaultDeviceBuilder(context),
+      DeviceType.small =>
+        smallDeviceBuilder?.call(context) ?? defaultDeviceBuilder(context),
 
       DeviceType.smartphone => defaultDeviceBuilder(context),
 
-      DeviceType.tablet => tabletDeviceBuilder?.call(context)
-        ?? defaultDeviceBuilder(context),
+      DeviceType.tablet =>
+        tabletDeviceBuilder?.call(context) ?? defaultDeviceBuilder(context),
 
-      DeviceType.large => largeDeviceBuilder?.call(context)
-        ?? defaultDeviceBuilder(context),
+      DeviceType.large =>
+        largeDeviceBuilder?.call(context) ?? defaultDeviceBuilder(context),
     };
   }
 }
