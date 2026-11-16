@@ -75,31 +75,31 @@
   "@food_preferences_page_title_introduction": {
     "description": "Title for the introduction page of the food preferences wizard"
   },
-  "food_preferences_page_title_diets": "Diets",
+  "food_preferences_page_title_diets": "Diæter",
   "@food_preferences_page_title_diets": {
     "description": "Title for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_title_allergies": "Allergies",
+  "food_preferences_page_title_allergies": "Allergier",
   "@food_preferences_page_title_allergies": {
     "description": "Title for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "food_preferences_page_title_unwanted_foods": "Hvad jeg ikke spiser",
   "@food_preferences_page_title_unwanted_foods": {
     "description": "Title for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "food_preferences_page_title_foods_to_avoid": "Hvad jeg helst undgår",
   "@food_preferences_page_title_foods_to_avoid": {
     "description": "Title for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_title_environment": "Environmental preferences",
+  "food_preferences_page_title_environment": "Miljøpræferencer",
   "@food_preferences_page_title_environment": {
     "description": "Title for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_page_title_summary": "Profile ready",
+  "food_preferences_page_title_summary": "Profil klar",
   "@food_preferences_page_title_summary": {
     "description": "Title for the summary/confirmation page of the food preferences wizard"
   },
-  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "food_preferences_step_prefix": "Trin {stepNumber}: ",
   "@food_preferences_step_prefix": {
     "description": "Step number prefix shown before the page title in the food preferences wizard",
     "placeholders": {
@@ -109,11 +109,11 @@
       }
     }
   },
-  "food_preferences_no_selection": "No selection",
+  "food_preferences_no_selection": "Intet valgt",
   "@food_preferences_no_selection": {
     "description": "Text shown when no preferences are selected in a category on the summary page"
   },
-  "food_preferences_empty_state": "No attributes available for this category.",
+  "food_preferences_empty_state": "Ingen attributter tilgængelige for denne kategori.",
   "@food_preferences_empty_state": {
     "description": "Text shown when a preference category has no attributes available"
   },
@@ -121,7 +121,7 @@
   "@food_preferences_error_loading": {
     "description": "Error message shown when the food preferences fail to load from the server"
   },
-  "food_preferences_summary_description": "Here is your profile:",
+  "food_preferences_summary_description": "Her er din profil:",
   "@food_preferences_summary_description": {
     "description": "Description text shown at the top of the preferences summary page"
   },
@@ -133,27 +133,27 @@
   "@food_preferences_page_description_diets": {
     "description": "Description for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "food_preferences_page_description_allergies": "Vælg de allergener, du skal undgå af hensyn til din fødevaresikkerhed.",
   "@food_preferences_page_description_allergies": {
     "description": "Description for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "food_preferences_page_description_unwanted_foods": "Angiv de fødevarer eller ingredienser, du ikke spiser.",
   "@food_preferences_page_description_unwanted_foods": {
     "description": "Description for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "food_preferences_page_description_foods_to_avoid": "Vælg de fødevarer, du foretrækker at undgå, uden at det er et strengt forbud.",
   "@food_preferences_page_description_foods_to_avoid": {
     "description": "Description for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "food_preferences_page_description_environment": "Angiv dine miljømæssige præferencer for at få mere bæredygtige anbefalinger.",
   "@food_preferences_page_description_environment": {
     "description": "Description for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "food_preferences_search_ingredients_hint": "Søg efter ingredienser",
   "@food_preferences_search_ingredients_hint": {
     "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
   },
-  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "food_preferences_ingredient_already_added": "Ingrediens allerede tilføjet",
   "@food_preferences_ingredient_already_added": {
     "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Navn",
   "sign_up_page_display_name_error_empty": "Angiv det navn, der ønskes vist",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_error_empty": "E-mail er påkrævet",
   "sign_up_page_email_error_invalid": "Ugyldig e-mail",
   "sign_up_page_username_hint": "Brugernavn: Offentligt synligt",
   "sign_up_page_username_error_empty": "Indtast et brugernavn",
@@ -539,7 +539,7 @@
   "myPreferences_profile_subtitle": "Administrer din Open Food Facts bidragyderkonto.",
   "myPreferences_settings_title": "App-indstillinger",
   "myPreferences_settings_subtitle": "Mørk tilstand, Sprog…",
-  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
+  "myPreferences_not_configured_yet": "Du har ikke angivet nogen præference endnu.",
   "myPreferences_food_title": "Fødevarepræferencer",
   "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
   "myPreferences_food_compatibility_explainer": "Vælg de fødevareoplysninger med størst betydning for dig, for at kunne rangere dem efter dine præferencer, se de oplysninger, du finder interessante først, samt få en kompatibilitetsoversigt.",
@@ -547,12 +547,12 @@
   "@myPreferences_food_privacy": {
     "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
   },
-  "myPreferences_beauty_title": "Preferences for cosmetics",
-  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
-  "myPreferences_product_title": "Preferences for other products",
-  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
-  "myPreferences_pet_food_title": "Preferences for pet food",
-  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
+  "myPreferences_beauty_title": "Præferencer for kosmetik",
+  "myPreferences_beauty_subtitle": "Vælg hvilke oplysninger om kosmetikprodukter, der er vigtigst for dig.",
+  "myPreferences_product_title": "Præferencer for andre produkter",
+  "myPreferences_product_subtitle": "Vælg hvilke oplysninger om andre produkter, der er vigtigst for dig.",
+  "myPreferences_pet_food_title": "Præferencer for kæledyrsfoder",
+  "myPreferences_pet_food_subtitle": "Vælg hvilke oplysninger om kæledyrsfoder, der er vigtigst for dig.",
   "confirmResetPreferences": "Nulstil dine fødevarepræferencer?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -624,15 +624,15 @@
     "description": "Title of the OxF selector."
   },
   "search_history": "Søgehistorik",
-  "search_history_locations": "Location history",
+  "search_history_locations": "Placeringshistorik",
   "@search_history_locations": {
     "description": "Title of the list of the locations previously selected, displayed above the search history"
   },
-  "search_location_select": "Select this shop",
+  "search_location_select": "Vælg denne butik",
   "@search_location_select": {
     "description": "Menu entry of a location in the search history: selects it as the search result"
   },
-  "search_location_menu_title": "Shop: {name}",
+  "search_location_menu_title": "Butik: {name}",
   "@search_location_menu_title": {
     "description": "Title of the menu of a location in the search history",
     "placeholders": {
@@ -641,7 +641,7 @@
       }
     }
   },
-  "search_location_remove": "Remove from history",
+  "search_location_remove": "Fjern fra historik",
   "@search_location_remove": {
     "description": "Menu entry of a location in the search history: removes it from the history"
   },
@@ -1014,7 +1014,7 @@
   "@more_photos": {},
   "view_more_photo_button": "Se alle eksisterende billeder for dette produkt",
   "@view_more_photo_button": {},
-  "no_settings_found": "No settings found",
+  "no_settings_found": "Ingen indstillinger fundet",
   "@no_settings_found": {},
   "no_product_found": "Intet produkt fundet",
   "@no_product_found": {},
@@ -1059,7 +1059,7 @@
   },
   "product_image_outdated": "Dette billede kan være forældet",
   "product_image_outdated_explanations_title": "Dette billede kan være forældet",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "Dette billede blev taget for mere end et år siden.\n**Kontroller venligst, at det stadig er opdateret**.\n\nDette er **bare en advarsel**. Hvis indholdet stadig er det samme, kan du ignorere denne besked.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1150,7 +1150,7 @@
   "tagline_app_review_button_negative": "Ikke rigtigt…",
   "tagline_app_review_button_later": "Spørg mig senere",
   "tagline_feed_news_button": "Lær mere",
-  "tagline_feed_funding_goal": "of {goal}",
+  "tagline_feed_funding_goal": "af {goal}",
   "@tagline_feed_funding_goal": {
     "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
     "placeholders": {
@@ -1160,7 +1160,7 @@
       }
     }
   },
-  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "tagline_feed_funding_shortfall": "{shortfall} mangler",
   "@tagline_feed_funding_shortfall": {
     "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
     "placeholders": {
@@ -2772,15 +2772,15 @@
   "prices_amount_no_product": "Et produkt mangler!",
   "prices_amount_price_incorrect": "Forkert værdi",
   "prices_amount_price_mandatory": "Obligatorisk værdi",
-  "prices_amount_update_currency": "Update currency",
+  "prices_amount_update_currency": "Opdater valuta",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Dato",
   "prices_location_subtitle": "Butik",
   "prices_location_find": "Find en butik",
   "prices_location_mandatory": "Du skal vælge en butik!",
   "prices_location_search_broader": "Kunne du ikke finde det, du ledte efter? Lad os prøve en bredere søgning!",
-  "prices_location_open_map": "View the shop on the map",
-  "prices_location_edit": "Select another shop",
+  "prices_location_open_map": "Se butikken på kortet",
+  "prices_location_edit": "Vælg en anden butik",
   "prices_proof_subtitle": "Bevis",
   "prices_proof_empty_title": "Intet bevis endnu!",
   "prices_proof_empty_explanation": "Start med at tilføje et billede af en **kvittering** eller et **prisskilt**!",
@@ -2837,7 +2837,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "Rabattype",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Mængderabat",
   "prices_discount_type_sale": "Udsalg",
   "prices_discount_type_seasonal": "Sæson",
   "prices_discount_type_loyalty_program": "Loyalitetsprogram",
@@ -2849,7 +2849,7 @@
   "@prices_discount_type_quantity_subtitle": {
     "description": "Short description of a discount type, under its name in the discount type menu"
   },
-  "prices_discount_type_sale_subtitle": "Special offers, buy 1 get 1 free",
+  "prices_discount_type_sale_subtitle": "Særlige tilbud, købe 1 få 1 gratis",
   "@prices_discount_type_sale_subtitle": {
     "description": "Short description of a discount type, under its name in the discount type menu"
   },
@@ -2986,7 +2986,7 @@
       }
     }
   },
-  "proof_action_open_external": "Open the image in an external browser",
+  "proof_action_open_external": "Åbn billedet i en ekstern browser",
   "proof_action_experimental_assistant": "Experimental - open proof assistant",
   "user_any_search_prices_title": "Bidragyderpriser: {user}",
   "@user_any_search_prices_title": {
@@ -3821,7 +3821,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Send os manuelt en e-mail til",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail kopieret til udklipsholder!",
   "select_accent_color": "Vælg fremhævningsfarve",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -4011,7 +4011,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "{num} produkter til øjeblikkelig scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -5101,11 +5101,11 @@
   "@photo_viewer_zoom_button": {
     "description": "Tooltip of the button that opens the full size photo, to zoom in on it"
   },
-  "photo_viewer_copy_url": "Copy the photo URL",
+  "photo_viewer_copy_url": "Kopiér billedets URL",
   "@photo_viewer_copy_url": {
     "description": "Tooltip of the button on the full size photo page that copies the URL of the full size photo to the clipboard"
   },
-  "photo_viewer_url_copied": "Photo URL copied to the clipboard!",
+  "photo_viewer_url_copied": "Billedets URL kopieret til udklipsholder!",
   "@photo_viewer_url_copied": {
     "description": "Snackbar message shown after copying the URL of the full size photo to the clipboard"
   },
@@ -5141,7 +5141,7 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "photo_viewer_details_original_title": "View original image",
+  "photo_viewer_details_original_title": "Se originalt billede",
   "@photo_viewer_details_original_title": {
     "description": "Label for the button to view the original full resolution image in browser"
   },
@@ -5270,7 +5270,7 @@
       }
     }
   },
-  "barcode_probably_invalid": "Probably invalid barcode",
+  "barcode_probably_invalid": "Sandsynligvis ugyldig stregkode",
   "@barcode_probably_invalid": {
     "description": "Warning message. Keep it short."
   },
@@ -6598,31 +6598,31 @@
       }
     }
   },
-  "donation_page_headline": "Open Food Facts is funded by the people who use it",
+  "donation_page_headline": "Open Food Facts er finansieret af de mennesker, der bruger det",
   "@donation_page_headline": {
     "description": "Headline at the top of the donation page"
   },
-  "donation_where_it_goes_title": "Where it goes",
+  "donation_where_it_goes_title": "Hvor det går hen",
   "@donation_where_it_goes_title": {
     "description": "Title of the block listing what a donation pays for"
   },
-  "donation_where_it_goes_servers": "Servers and storage",
+  "donation_where_it_goes_servers": "Servere og lagring",
   "@donation_where_it_goes_servers": {
     "description": "First thing a donation pays for"
   },
-  "donation_where_it_goes_engineer": "One full-time engineer",
+  "donation_where_it_goes_engineer": "Én fuldtidsingeniør",
   "@donation_where_it_goes_engineer": {
     "description": "Second thing a donation pays for"
   },
-  "donation_where_it_goes_services": "Services and tooling",
+  "donation_where_it_goes_services": "Serviceydelser og værktøj",
   "@donation_where_it_goes_services": {
     "description": "Third thing a donation pays for"
   },
-  "donation_tiers_title": "Monthly, cancel any time",
+  "donation_tiers_title": "Månedlig, opsiges når som helst",
   "@donation_tiers_title": {
     "description": "Title of the block listing the monthly donation amounts"
   },
-  "donation_tier_amount_monthly": "{amount} a month",
+  "donation_tier_amount_monthly": "{amount} om måneden",
   "@donation_tier_amount_monthly": {
     "description": "A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own",
     "placeholders": {
@@ -6631,7 +6631,7 @@
       }
     }
   },
-  "donation_tier_scans": "pays for {scans} scans",
+  "donation_tier_scans": "betaler for {scans} scanninger",
   "@donation_tier_scans": {
     "description": "How many product scans a monthly donation covers, as an approximation",
     "placeholders": {
@@ -6640,19 +6640,19 @@
       }
     }
   },
-  "donation_custom_amount_hint": "Custom amount",
+  "donation_custom_amount_hint": "Tilpasset beløb",
   "@donation_custom_amount_hint": {
     "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
   },
-  "donation_custom_amount_error": "Enter an amount",
+  "donation_custom_amount_error": "Indtast et beløb",
   "@donation_custom_amount_error": {
     "description": "Error shown under the donation amount field when what the donor typed cannot be read as an amount"
   },
-  "donation_cta_monthly": "Support monthly",
+  "donation_cta_monthly": "Støt månedligt",
   "@donation_cta_monthly": {
     "description": "Main button of the donation page, opens the donation form with the selected monthly amount"
   },
-  "donation_cta_one_off": "Give once instead",
+  "donation_cta_one_off": "Giv én gang i stedet",
   "@donation_cta_one_off": {
     "description": "Secondary link of the donation page, opens the donation form for a single gift"
   },
@@ -6660,7 +6660,7 @@
   "@donation_already_donated": {
     "description": "Quiet link under the donation buttons; tapping it stops the app asking for a donation for a year"
   },
-  "donation_already_donated_thanks": "Thank you! We won't ask again for a year.",
+  "donation_already_donated_thanks": "Tak! Vi spørger ikke igen i et år.",
   "@donation_already_donated_thanks": {
     "description": "Confirmation shown after tapping 'I already donated'"
   },
@@ -6678,7 +6678,7 @@
   "@donation_reminder_title_generic": {
     "description": "Headline of the donation reminder sheet when the feed carries no usable donor count"
   },
-  "donation_reminder_body": "A non-profit, built by volunteers, with no ads and no investors. A small monthly gift keeps it free for everyone.",
+  "donation_reminder_body": "En nonprofitorganisation, bygget af frivillige, uden reklamer og uden investorer. En lille månedlig gave gør den gratis for alle.",
   "@donation_reminder_body": {
     "description": "Body line of the donation reminder sheet"
   },
@@ -6686,7 +6686,7 @@
   "@donation_reminder_not_now": {
     "description": "Quiet button on the donation reminder sheet that closes it without changing anything"
   },
-  "donation_reminder_cta": "Give {amount} a month",
+  "donation_reminder_cta": "Giv {amount} en måned",
   "@donation_reminder_cta": {
     "description": "Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency",
     "placeholders": {
@@ -6696,7 +6696,7 @@
       }
     }
   },
-  "donation_tier_scans_short": "{scans} scans",
+  "donation_tier_scans_short": "{scans} scanninger",
   "@donation_tier_scans_short": {
     "description": "Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers",
     "placeholders": {
@@ -6706,7 +6706,7 @@
       }
     }
   },
-  "donation_tier_chip_amount": "**{amount}** /month",
+  "donation_tier_chip_amount": "**{amount}** /måned",
   "@donation_tier_chip_amount": {
     "description": "Tier chip on the donation reminder sheet: a monthly amount, already formatted with its currency. The part between ** is shown large; keep the ** around the amount.",
     "placeholders": {
@@ -6716,7 +6716,7 @@
       }
     }
   },
-  "donation_reminder_funding": "**{raised}** of {goal}",
+  "donation_reminder_funding": "**{raised}** af {goal}",
   "@donation_reminder_funding": {
     "description": "Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.",
     "placeholders": {
