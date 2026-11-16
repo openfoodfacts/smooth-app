@@ -14,10 +14,10 @@ dependencies:
     sdk: flutter
 
   async: 2.13.1
-  go_router: 17.4.0
+  go_router: 18.1.4
   barcode_widget: 2.0.4
   carousel_slider: 5.1.2
-  cupertino_icons: 1.0.9
+  cupertino_icons: 2.0.0
   flutter_svg: 2.3.2
   vector_graphics: 1.2.6
   flutter_map: 8.3.2
@@ -40,7 +40,7 @@ dependencies:
   uuid: 4.6.0
   provider: 6.1.5+1
   sentry_flutter: 10.3.0
-  sqflite: 2.4.5
+  sqflite: 2.4.6
   sqflite_common_ffi: 2.4.5
   url_launcher: 6.3.3
   visibility_detector: 0.4.0+2
@@ -65,7 +65,7 @@ dependencies:
   webview_flutter: 4.14.1
   flutter_custom_tabs: 2.6.0
   flutter_image_compress: 2.5.1
-  connectivity_plus: 7.3.1
+  connectivity_plus: 7.3.2
   dart_ping: 10.0.1
   flutter_animation_progress_bar: 2.3.1
   email_validator: 3.0.0

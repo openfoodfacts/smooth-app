@@ -1142,6 +1142,72 @@ class Debug extends AppIcon {
   }) : super._(_IconsFont.debug);
 }
 
+class Discount extends AppIcon {
+  const Discount.loyalty({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_loyalty);
+
+  const Discount.other({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_other);
+
+  const Discount.pickIt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_pick_it);
+
+  const Discount.quantity({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_quantity);
+
+  const Discount.sale({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_sale);
+
+  const Discount.seasonal({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_seasonal);
+
+  const Discount.secondHand({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_second_hand);
+
+  const Discount.soon({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_soon);
+}
+
 class Discover extends AppIcon {
   const Discover({
     super.color,

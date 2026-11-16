@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/strike_through_text_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/prices/discount_type_extension.dart';
 import 'package:smooth_app/pages/prices/price_per_extension.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -93,7 +94,10 @@ class PriceDataDiscountedValue extends StatelessWidget {
       return EMPTY_WIDGET;
     }
 
+    final DiscountType? discountType = price.discountType;
+
     return _PriceDataContainer(
+      icon: discountType?.iconData,
       value: NumberFormat('#0%').format(
         (price.price - price.priceWithoutDiscount!) /
             price.priceWithoutDiscount!,
@@ -112,9 +116,11 @@ class _PriceDataContainer extends StatelessWidget {
     required this.backgroundColor,
     required this.textColor,
     this.strikeThroughColor,
+    this.icon,
   });
 
   final String value;
+  final IconData? icon;
   final Color backgroundColor;
   final Color textColor;
   final Color? strikeThroughColor;
@@ -133,14 +139,22 @@ class _PriceDataContainer extends StatelessWidget {
           top: 3.0,
           bottom: VERY_SMALL_SPACE,
         ),
-        child: StrikeThroughText(
-          value,
-          style: TextStyle(fontWeight: FontWeight.bold, color: textColor),
-          strikeThroughType: strikeThroughColor != null
-              ? StrikeThroughTextType.horizontal
-              : StrikeThroughTextType.none,
-          strikeThroughThickness: 1.5,
-          strikeThroughColor: strikeThroughColor,
+        child: Row(
+          crossAxisAlignment: .center,
+          mainAxisAlignment: .center,
+          spacing: SMALL_SPACE,
+          children: <Widget>[
+            if (icon != null) Icon(icon, size: 14.0, color: textColor),
+            StrikeThroughText(
+              value,
+              style: TextStyle(fontWeight: FontWeight.bold, color: textColor),
+              strikeThroughType: strikeThroughColor != null
+                  ? StrikeThroughTextType.horizontal
+                  : StrikeThroughTextType.none,
+              strikeThroughThickness: 1.5,
+              strikeThroughColor: strikeThroughColor,
+            ),
+          ],
         ),
       ),
     );
