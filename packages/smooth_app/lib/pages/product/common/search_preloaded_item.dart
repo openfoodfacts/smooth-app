@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Common search preloaded list item.
 abstract class SearchPreloadedItem {

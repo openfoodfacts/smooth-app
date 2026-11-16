@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A custom [Hero] widget that allows to listen to the end of the animation.
 /// This code is mainly a copy/paste from the Flutter widget, but some methods

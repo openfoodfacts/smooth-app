@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:html/dom.dart' as dom;
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_factory.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';

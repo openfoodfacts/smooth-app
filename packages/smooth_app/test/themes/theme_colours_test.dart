@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
+import 'package:smooth_app/helpers/app_localizations_delegates.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -82,7 +83,7 @@ void main() {
       for (final MapEntry<Grade, CardEvaluation> m in grades.entries) {
         await tester.pumpWidget(
           MaterialApp(
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            localizationsDelegates: appLocalizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             theme: ThemeData(
               brightness: brightness,

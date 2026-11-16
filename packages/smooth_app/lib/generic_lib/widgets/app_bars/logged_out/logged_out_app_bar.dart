@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_app_bar_content.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_app_bar_title.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/profile_app_bar.dart';

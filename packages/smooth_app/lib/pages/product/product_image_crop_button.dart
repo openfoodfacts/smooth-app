@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:crop_image/crop_image.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';

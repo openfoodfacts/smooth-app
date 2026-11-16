@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_autosize_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_sheet_route.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';

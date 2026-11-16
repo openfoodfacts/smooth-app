@@ -111,15 +111,15 @@ Full list of features on the wiki: https://wiki.openfoodfacts.org/Mobile_App/Fea
 
 - Make sure you have installed Flutter and all the requirements
     - [Official Flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently, the app uses the following version of Flutter: **3.47.9**.
+- Currently, the app uses the following version of Flutter: **3.50.0**.
 - **Setting Up Your Environment with FVM**
     - To manage Flutter versions easily, download and install **FVM (Flutter Version Management)**:
         - Install FVM by following
           the [official FVM installation guide](https://fvm.app/documentation/getting-started/installation).
-        - Once FVM is installed, run the following commands to set Flutter to version 3.47.9:
+        - Once FVM is installed, run the following commands to set Flutter to version 3.50.0:
           ```bash
-          fvm install 3.47.9
-          fvm use 3.47.9
+          fvm install 3.50.0
+          fvm use 3.50.0
           ```
         - Verify the Flutter version with:
           ```bash
