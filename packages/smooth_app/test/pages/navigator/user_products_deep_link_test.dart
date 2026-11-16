@@ -34,6 +34,16 @@ void main() {
       );
     });
 
+    test('works for a username that looks like a barcode', () {
+      expect(
+        userSearchTypeFromDeepLink(
+          '/editor/12345678',
+          loggedInUserId: '12345678',
+        ),
+        UserSearchType.INFORMER,
+      );
+    });
+
     test('stays on the website for another user', () {
       expect(
         userSearchTypeFromDeepLink(

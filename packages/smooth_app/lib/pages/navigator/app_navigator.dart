@@ -239,7 +239,12 @@ class _SmoothGoRouter {
                   return ErrorPage(url: state.uri.toString());
                 }
 
-                return UserProductQueryLoaderPage(type: type);
+                // The key forces a new State when the type changes, as the page
+                // is cached in the State
+                return UserProductQueryLoaderPage(
+                  key: ValueKey<UserSearchType>(type),
+                  type: type,
+                );
               },
             ),
             GoRoute(
@@ -393,7 +398,11 @@ class _SmoothGoRouter {
                   : null,
             );
 
-            if (barcode != null) {
+            // Checked first: a username made of 8+ digits looks like a barcode
+            if (userSearchType != null) {
+              AnalyticsHelper.trackEvent(AnalyticsEvent.genericDeepLink);
+              return AppRoutes.USER_PRODUCTS(userSearchType);
+            } else if (barcode != null) {
               AnalyticsHelper.trackEvent(
                 AnalyticsEvent.productDeepLink,
                 barcode: barcode,
@@ -404,9 +413,6 @@ class _SmoothGoRouter {
               } else {
                 return AppRoutes.PRODUCT_LOADER(barcode);
               }
-            } else if (userSearchType != null) {
-              AnalyticsHelper.trackEvent(AnalyticsEvent.genericDeepLink);
-              return AppRoutes.USER_PRODUCTS(userSearchType);
             } else if (path == _ExternalRoutes.PRODUCT_EDITION) {
               // Support cgi/product.pl?type=edit&code=XXXX
               final String? barcode = state.uri.queryParameters['code'];
