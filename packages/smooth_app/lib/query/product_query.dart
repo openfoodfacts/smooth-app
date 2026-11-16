@@ -11,6 +11,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/preferences/country_selector/country.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:uuid/uuid.dart';
 
 // ignore: avoid_classes_with_only_static_members
@@ -333,14 +334,46 @@ abstract class ProductQuery {
     ProductField.TRACES_TAGS_IN_LANGUAGES,
   ];
 
+  static const String _PRICE_TOKEN_PREFIX = 'priceBearerToken:';
+
+  @visibleForTesting
+  static String getPriceTokenCacheKey(String userId, String domain) =>
+      '$_PRICE_TOKEN_PREFIX$userId|$domain';
+
+  /// Deletes the cached Prices tokens whose key embeds the user's secret
+  /// (`<prefix><userId>|<secret>|<domain>`), as Android backs up the secure
+  /// storage key names.
+  ///
+  /// New keys only have one `|`, so the sweep is idempotent. A password may
+  /// itself contain `|`, hence "at least two" rather than "exactly two".
+  static Future<void> removeLegacyPriceTokens() async {
+    try {
+      final Map<String, String> all = await DaoSecuredString.getAll();
+
+      for (final String key in all.keys.toList()) {
+        if (key.startsWith(_PRICE_TOKEN_PREFIX) &&
+            '|'.allMatches(key).length >= 2) {
+          try {
+            await DaoSecuredString.remove(key: key);
+          } catch (e) {
+            // The other keys must still be removed.
+            Logs.e('Legacy price token removal failed (${e.runtimeType})');
+          }
+        }
+      }
+    } catch (e) {
+      // Must never prevent the app from starting.
+      Logs.e('Legacy price tokens cleanup failed (${e.runtimeType})');
+    }
+  }
+
   /// Returns the token for Prices, as cached or just downloaded.
   static Future<MaybeError<String>> getPriceToken(
     User user,
     LocalDatabase localDatabase,
   ) async {
     final UriProductHelper uriHelper = ProductQuery.uriPricesHelper;
-    final String key =
-        'priceBearerToken:${user.userId}|${user.password}|${uriHelper.domain}';
+    final String key = getPriceTokenCacheKey(user.userId, uriHelper.domain);
     final String? cached = await DaoSecuredString.get(key);
     if (cached != null) {
       // token still valid?
@@ -349,10 +382,14 @@ abstract class ProductQuery {
             bearerToken: cached,
             uriHelper: uriHelper,
           );
-      if (session.isError) {
-        await DaoSecuredString.remove(key: key);
+
+      // Only a rejection proves that the token is invalid: not, for instance,
+      // a server error.
+      if (session.statusCode != 401 && session.statusCode != 403) {
+        return MaybeError<String>.value(cached);
       }
-      return MaybeError<String>.value(cached);
+
+      await DaoSecuredString.remove(key: key);
     }
     final MaybeError<String> token =
         await OpenPricesAPIClient.getAuthenticationToken(

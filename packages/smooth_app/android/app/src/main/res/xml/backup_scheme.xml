@@ -9,6 +9,12 @@
         <exclude
                 domain="sharedpref"
                 path="com.google.mlkit.internal.xml" />
+        <exclude
+                domain="sharedpref"
+                path="FlutterSecureStorage.xml" />
+        <exclude
+                domain="sharedpref"
+                path="FlutterSecureKeyStorage.xml" />
         <include
                 domain="database"
                 path="smoothie.db" />
@@ -16,9 +22,6 @@
         <include
                 domain="root"
                 path="app_flutter/barcodelists.hive" />
-        <include
-                domain="root"
-                path="app_flutter/instantstring.hive" />
         <include
                 domain="root"
                 path="app_flutter/int.hive" />

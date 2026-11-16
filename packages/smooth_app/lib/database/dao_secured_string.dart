@@ -6,10 +6,17 @@ class DaoSecuredString {
 
   static FlutterSecureStorage get _getStorage => const FlutterSecureStorage();
 
-  static Future<String?> get(String key) async => _getStorage.read(key: key);
+  /// [iOptions] only applies to iOS, e.g. to choose when the item is readable.
+  static Future<String?> get(String key, {IOSOptions? iOptions}) async =>
+      _getStorage.read(key: key, iOptions: iOptions);
 
-  static Future<void> put({required String key, required String value}) async =>
-      _getStorage.write(key: key, value: value);
+  static Future<void> put({
+    required String key,
+    required String value,
+    IOSOptions? iOptions,
+  }) async => _getStorage.write(key: key, value: value, iOptions: iOptions);
+
+  static Future<Map<String, String>> getAll() async => _getStorage.readAll();
 
   static Future<bool> remove({required String key}) async {
     await _getStorage.delete(key: key);
