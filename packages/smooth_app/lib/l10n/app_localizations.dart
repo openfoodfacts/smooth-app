@@ -11125,7 +11125,7 @@ abstract class AppLocalizations {
   /// Privacy explanation for the locally saved city or postcode
   ///
   /// In en, this message translates to:
-  /// **'Saved on this device only. Not synced or shared with Open Food Facts.'**
+  /// **'Saved on this device only. Used to prefill Open Prices store search and sent to OpenStreetMap only when you submit a search.'**
   String get preferences_city_or_postcode_privacy;
 
   /// Title for the app settings products card

@@ -390,7 +390,6 @@ class UserPreferences extends ChangeNotifier {
   String? get userCountryCode =>
       _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE);
 
- feat/open-prices-saved-location
   String? get userCityOrPostcode =>
       _sharedPreferences.getString(_TAG_USER_CITY_OR_POSTCODE);
 
@@ -408,8 +407,6 @@ class UserPreferences extends ChangeNotifier {
   }
 
   Future<void> setUserCurrencyCode(final String code) async {
-  Future<void> setUserCurrencyCode(String code) async{
-    develop
     await _sharedPreferences.setString(_TAG_USER_CURRENCY_CODE, code);
     notifyListeners();
   }
