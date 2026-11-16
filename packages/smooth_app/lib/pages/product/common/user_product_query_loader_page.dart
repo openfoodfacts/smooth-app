@@ -74,7 +74,10 @@ class _UserProductQueryLoaderPageState
 
         return SmoothScaffold(
           body: Center(
-            child: snapshot.hasError
+            // The previous error is kept until a retry completes
+            child:
+                snapshot.hasError &&
+                    snapshot.connectionState == ConnectionState.done
                 ? _UserProductQueryErrorState(onRetry: _retry)
                 : const CircularProgressIndicator.adaptive(),
           ),
