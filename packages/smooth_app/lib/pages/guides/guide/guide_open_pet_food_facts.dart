@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/food_preferences/food_preferences_page.dart';
 import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
+import 'package:smooth_app/pages/guides/helpers/guides_extra.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
-import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:vector_graphics/vector_graphics.dart';
@@ -115,7 +114,6 @@ class _OpenPetFoodFactsSection2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeData theme = Theme.of(context);
 
     return GuidesParagraph(
       title: appLocalizations.guide_open_pet_food_facts_features_title,
@@ -126,39 +124,8 @@ class _OpenPetFoodFactsSection2 extends StatelessWidget {
           text: appLocalizations
               .guide_open_pet_food_facts_features_arg1_paragraph1,
         ),
-        Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: VERY_LARGE_SPACE,
-          ),
-          child: ClipRRect(
-            borderRadius: ROUNDED_BORDER_RADIUS,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                borderRadius: ROUNDED_BORDER_RADIUS,
-                border: Border.all(color: theme.colorScheme.primary),
-              ),
-              child: PreferenceTile(
-                leading: PreferencesPageProjects.pets.getLeadingIcon(
-                  context.lightTheme(),
-                ),
-                title: PreferencesPageProjects.pets.getTitle(appLocalizations),
-                subtitleText: PreferencesPageProjects.pets.getSubtitle(
-                  appLocalizations,
-                ),
-                borderRadius: ROUNDED_BORDER_RADIUS,
-                onTap: () {
-                  Navigator.of(context, rootNavigator: true).push(
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) =>
-                          const FoodPreferencesPage(
-                            project: PreferencesPageProjects.pets,
-                          ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
+        const GuidesProjectPreferences(
+          project: PreferencesPageProjects.pets,
         ),
       ],
     );
