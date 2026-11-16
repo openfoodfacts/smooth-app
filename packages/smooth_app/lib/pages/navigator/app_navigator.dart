@@ -25,9 +25,11 @@ import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
 import 'package:smooth_app/pages/navigator/external_page_webview.dart';
 import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
+import 'package:smooth_app/pages/navigator/user_products_deep_link.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
+import 'package:smooth_app/pages/product/common/user_product_query_loader_page.dart';
 import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
@@ -36,6 +38,7 @@ import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
+import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
 
@@ -112,6 +115,7 @@ class AppNavigator extends InheritedWidget {
 /// -   _product_creator      Create a new product
 /// -   _preferences          User preferences
 /// -   _search               Search for a product
+/// -   _user_products        Products of the logged in user (eg: edited)
 /// -   _guides/              List of guides
 /// -   _donate               Donation screen
 /// -   _external             Open an external link on the OFF website
@@ -220,6 +224,22 @@ class _SmoothGoRouter {
               builder: (BuildContext context, GoRouterState state) {
                 final String barcode = state.pathParameters['productId']!;
                 return AddNewProductPage.fromBarcode(barcode);
+              },
+            ),
+            GoRoute(
+              path: _InternalAppRoutes.USER_PRODUCTS_PAGE,
+              builder: (BuildContext context, GoRouterState state) {
+                final UserSearchType? type = UserSearchType.values
+                    .firstWhereOrNull(
+                      (UserSearchType type) =>
+                          type.name == state.uri.queryParameters['type'],
+                    );
+
+                if (type == null) {
+                  return ErrorPage(url: state.uri.toString());
+                }
+
+                return UserProductQueryLoaderPage(type: type);
               },
             ),
             GoRoute(
@@ -366,6 +386,12 @@ class _SmoothGoRouter {
 
           if (subPaths > 1) {
             final String? barcode = _extractProductBarcode(path);
+            final UserSearchType? userSearchType = userSearchTypeFromDeepLink(
+              path,
+              loggedInUserId: ProductQuery.isLoggedIn()
+                  ? ProductQuery.getWriteUser().userId
+                  : null,
+            );
 
             if (barcode != null) {
               AnalyticsHelper.trackEvent(
@@ -378,6 +404,9 @@ class _SmoothGoRouter {
               } else {
                 return AppRoutes.PRODUCT_LOADER(barcode);
               }
+            } else if (userSearchType != null) {
+              AnalyticsHelper.trackEvent(AnalyticsEvent.genericDeepLink);
+              return AppRoutes.USER_PRODUCTS(userSearchType);
             } else if (path == _ExternalRoutes.PRODUCT_EDITION) {
               // Support cgi/product.pl?type=edit&code=XXXX
               final String? barcode = state.uri.queryParameters['code'];
@@ -505,6 +534,7 @@ class _InternalAppRoutes {
   static const String PRODUCT_LOADER_PAGE = '_product_loader';
   static const String PRODUCT_CREATOR_PAGE = '_product_creator';
   static const String PRODUCT_EDITOR_PAGE = '_product_editor';
+  static const String USER_PRODUCTS_PAGE = '_user_products';
   static const String PREFERENCES_PAGE = '_preferences';
   static const String SEARCH_PAGE = '_search';
   static const String EXTERNAL_PAGE = '_external';
@@ -567,6 +597,10 @@ class AppRoutes {
   // Product creator or "add product" feature
   static String PRODUCT_EDITOR(String barcode) =>
       '/${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/${Uri.encodeComponent(barcode)}';
+
+  // Products of the logged in user (eg: "Products I edited")
+  static String USER_PRODUCTS(UserSearchType type) =>
+      '/${_InternalAppRoutes.USER_PRODUCTS_PAGE}?type=${type.name}';
 
   // App preferences
   static String get FOOD_PREFERENCES =>
