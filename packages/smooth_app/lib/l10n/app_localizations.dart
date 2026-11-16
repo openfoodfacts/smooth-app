@@ -5633,7 +5633,7 @@ abstract class AppLocalizations {
   /// Short description of a discount type, under its name in the discount type menu
   ///
   /// In en, this message translates to:
-  /// **'Special offers, buy 1 get 1 free'**
+  /// **'Special offers'**
   String get prices_discount_type_sale_subtitle;
 
   /// Short description of a discount type, under its name in the discount type menu
@@ -5657,7 +5657,7 @@ abstract class AppLocalizations {
   /// Short description of a discount type, under its name in the discount type menu
   ///
   /// In en, this message translates to:
-  /// **'On-site harvest, direct from the producer'**
+  /// **'On-site harvest, direct from the producer, 5% off for pick-up (click & collect)'**
   String get prices_discount_type_pick_it_yourself_subtitle;
 
   /// Short description of a discount type, under its name in the discount type menu
