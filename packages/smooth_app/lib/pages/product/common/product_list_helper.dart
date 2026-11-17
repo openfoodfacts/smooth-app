@@ -6,7 +6,6 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/helpers/barcode_utils.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 class ProductListHelper {
@@ -96,5 +95,15 @@ class ProductListHelper {
     return barcodes;
   }
 
-  static bool isBarcodeValid(String barcode) => barcode.isBarcode;
+  static bool isBarcodeValid(String barcode) {
+    switch (barcode.length) {
+      case 8:
+      case 12:
+      case 13:
+      case 14:
+        return int.tryParse(barcode) != null;
+      default:
+        return false;
+    }
+  }
 }

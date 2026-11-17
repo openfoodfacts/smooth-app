@@ -27,16 +27,28 @@ void main() {
       expect(ProductListHelper.isBarcodeValid('00012345678905'), isTrue);
     });
 
-    test('rejects numeric strings shorter than 8 digits', () {
+    test('rejects numeric strings with non-standard lengths', () {
       expect(ProductListHelper.isBarcodeValid(''), isFalse);
       expect(ProductListHelper.isBarcodeValid('1234567'), isFalse);
       expect(ProductListHelper.isBarcodeValid('0'), isFalse);
+      expect(ProductListHelper.isBarcodeValid('123456789'), isFalse);
+      expect(ProductListHelper.isBarcodeValid('1234567890'), isFalse);
+      expect(ProductListHelper.isBarcodeValid('12345678901'), isFalse);
+      expect(ProductListHelper.isBarcodeValid('123456789012345'), isFalse);
     });
 
-    test('rejects non-numeric barcodes without GS1 structure', () {
+    test('rejects non-numeric strings, URLs, and bracketed GS1 codes', () {
       expect(ProductListHelper.isBarcodeValid('12345678a'), isFalse);
       expect(ProductListHelper.isBarcodeValid('not-a-barcode'), isFalse);
       expect(ProductListHelper.isBarcodeValid('1234 5678'), isFalse);
+      expect(
+        ProductListHelper.isBarcodeValid('(01)04044782317112(17)270101'),
+        isFalse,
+      );
+      expect(
+        ProductListHelper.isBarcodeValid('https://openfoodfacts.org'),
+        isFalse,
+      );
     });
   });
 
