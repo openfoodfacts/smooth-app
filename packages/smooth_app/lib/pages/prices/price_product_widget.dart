@@ -7,9 +7,14 @@ import 'package:smooth_app/pages/prices/price_header_container.dart';
 ///
 /// See also [PriceCategoryWidget], that deals with "no barcode" products.
 class PriceProductWidget extends StatelessWidget {
-  const PriceProductWidget(this.priceProduct);
+  const PriceProductWidget(
+    this.priceProduct, {
+    this.padding,
+    super.key,
+  });
 
   final PriceProduct priceProduct;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +37,7 @@ class PriceProductWidget extends StatelessWidget {
       line3: quantity,
       count: priceCount,
       warningIndicator: unknown,
+      padding: padding ?? PriceHeaderContainer.defaultPadding,
       semanticsLabel: _generateSemanticsLabel(
         appLocalizations,
         name,

@@ -9,20 +9,33 @@ class PriceHeaderContainer extends StatelessWidget {
     required this.line1,
     required this.semanticsLabel,
     this.imageProvider,
+    this.placeholder,
     this.line2,
     this.line3,
     this.count,
     this.warningIndicator = false,
+    this.padding = defaultPadding,
+    this.borderRadius,
     super.key,
   });
 
+  static const EdgeInsetsDirectional defaultPadding =
+      EdgeInsetsDirectional.only(
+        start: VERY_SMALL_SPACE,
+        end: VERY_SMALL_SPACE,
+        top: VERY_SMALL_SPACE,
+      );
+
   final ImageProvider? imageProvider;
+  final Widget? placeholder;
   final String line1;
   final String? line2;
   final String? line3;
   final int? count;
   final String semanticsLabel;
   final bool warningIndicator;
+  final EdgeInsetsGeometry padding;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +44,7 @@ class PriceHeaderContainer extends StatelessWidget {
       container: true,
       excludeSemantics: true,
       child: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          start: VERY_SMALL_SPACE,
-          end: VERY_SMALL_SPACE,
-          top: VERY_SMALL_SPACE,
-        ),
+        padding: padding,
         child: IntrinsicHeight(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -44,6 +53,8 @@ class PriceHeaderContainer extends StatelessWidget {
               PriceImageContainer(
                 size: const Size.square(80.0),
                 imageProvider: imageProvider,
+                placeholder: placeholder,
+                borderRadius: borderRadius,
                 count: count,
               ),
               const SizedBox(width: SMALL_SPACE),
@@ -83,7 +94,12 @@ class PriceHeaderContainer extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
-                    if (line3 != null) Text(line3!),
+                    if (line3 != null)
+                      Text(
+                        line3!,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                   ],
                 ),
               ),
