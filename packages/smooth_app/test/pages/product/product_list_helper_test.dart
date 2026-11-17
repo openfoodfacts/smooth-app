@@ -60,6 +60,7 @@ void main() {
       final List<String> extracted = helper.fileToBarcodes(file);
 
       expect(extracted, <String>[
+        'Barcode',
         '12345678',
         '012345678905',
         '1234567890123',
