@@ -17,7 +17,7 @@ kotlin {
 
 android {
     namespace = "org.openfoodfacts.app"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = maxOf(flutter.compileSdkVersion, 37)
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
