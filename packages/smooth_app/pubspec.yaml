@@ -51,7 +51,7 @@ dependencies:
   audioplayers: 6.8.1
   flutter_email_sender: 11.2.0
   flutter_native_splash: 2.4.8
-  image: 4.12.0
+  image: 4.13.1
   crop_image: 1.0.17
   shared_preferences: 2.5.6
   intl: 0.20.3

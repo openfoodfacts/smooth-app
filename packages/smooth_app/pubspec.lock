@@ -951,10 +951,10 @@ packages:
     dependency: "direct main"
     description:
       name: image
-      sha256: "89ed75b2f8231fe676808c5564f9590d728024ded7ac782a7ed8474f1c95b72a"
+      sha256: bc13f61f0f5cb77936e78ae5dae3800f442718dac5d2bc4654f03c239230ed0c
       url: "https://pub.dev"
     source: hosted
-    version: "4.12.0"
+    version: "4.13.1"
   image_picker:
     dependency: "direct main"
     description:
