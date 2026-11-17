@@ -9461,7 +9461,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_pet_food_facts_features_arg1_paragraph1.
   ///
   /// In en, this message translates to:
-  /// **'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!'**
+  /// **'Is your pet allergic to any ingredients? You can set a list of pet food ingredients to avoid, right in the app!'**
   String get guide_open_pet_food_facts_features_arg1_paragraph1;
 
   /// No description provided for @guide_open_pet_food_facts_tips_title.
@@ -9587,7 +9587,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_beauty_facts_features_arg1_paragraph1.
   ///
   /// In en, this message translates to:
-  /// **'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!'**
+  /// **'Are you allergic to any ingredients? Want to avoid comedogenic substances? Want to steer away from controversial components? You can set a list of cosmetic ingredients to avoid, right in the app!'**
   String get guide_open_beauty_facts_features_arg1_paragraph1;
 
   /// No description provided for @guide_open_beauty_facts_tips_title.
