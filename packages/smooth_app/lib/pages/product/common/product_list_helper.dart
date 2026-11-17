@@ -96,14 +96,9 @@ class ProductListHelper {
   }
 
   static bool isBarcodeValid(String barcode) {
-    switch (barcode.length) {
-      case 8:
-      case 12:
-      case 13:
-      case 14:
-        return int.tryParse(barcode) != null;
-      default:
-        return false;
-    }
+    return switch (barcode.length) {
+      8 || 12 || 13 || 14 => int.tryParse(barcode) != null,
+      _ => false,
+    };
   }
 }
