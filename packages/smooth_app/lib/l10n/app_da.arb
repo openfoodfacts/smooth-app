@@ -2849,7 +2849,7 @@
   "@prices_discount_type_quantity_subtitle": {
     "description": "Short description of a discount type, under its name in the discount type menu"
   },
-  "prices_discount_type_sale_subtitle": "Særlige tilbud, købe 1 få 1 gratis",
+  "prices_discount_type_sale_subtitle": "Special offers",
   "@prices_discount_type_sale_subtitle": {
     "description": "Short description of a discount type, under its name in the discount type menu"
   },
@@ -2865,7 +2865,7 @@
   "@prices_discount_type_expires_soon_subtitle": {
     "description": "Short description of a discount type, under its name in the discount type menu"
   },
-  "prices_discount_type_pick_it_yourself_subtitle": "On-site harvest, direct from the producer",
+  "prices_discount_type_pick_it_yourself_subtitle": "On-site harvest, direct from the producer, 5% off for pick-up (click & collect)",
   "@prices_discount_type_pick_it_yourself_subtitle": {
     "description": "Short description of a discount type, under its name in the discount type menu"
   },
