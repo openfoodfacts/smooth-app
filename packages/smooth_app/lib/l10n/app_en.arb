@@ -5840,9 +5840,13 @@
   "@preferences_city_or_postcode_title": {
     "description": "Title for the setting to save a city or postcode on the device"
   },
-  "preferences_city_or_postcode_privacy": "Saved on this device only. Used to prefill Open Prices store search and sent to OpenStreetMap only when you submit a search.",
+  "preferences_city_or_postcode_privacy": "Saved on this device only. Used to prefill Open Prices store search.",
   "@preferences_city_or_postcode_privacy": {
     "description": "Privacy explanation for the locally saved city or postcode"
+  },
+  "preferences_city_or_postcode_openstreetmap_privacy": "Sent to OpenStreetMap only when you submit a search.",
+  "@preferences_city_or_postcode_openstreetmap_privacy": {
+    "description": "Explains when the city or postcode is sent to OpenStreetMap"
   },
   "preferences_card_about": "About",
   "@preferences_card_about": {

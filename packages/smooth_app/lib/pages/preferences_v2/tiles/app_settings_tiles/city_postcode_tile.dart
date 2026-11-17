@@ -19,6 +19,9 @@ class CityPostcodeTile extends PreferenceTile {
       spacing: SMALL_SPACE,
       children: <Widget>[
         Text(appLocalizations.preferences_city_or_postcode_privacy),
+        Text(
+          appLocalizations.preferences_city_or_postcode_openstreetmap_privacy,
+        ),
       ],
     );
 

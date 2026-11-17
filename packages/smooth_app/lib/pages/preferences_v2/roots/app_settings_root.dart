@@ -45,20 +45,10 @@ class AppSettingsRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           _buildLanguageTile(appLocalizations),
           _buildCountryTile(appLocalizations),
-       feat/open-prices-saved-location
           CityPostcodeTile(
             title: appLocalizations.preferences_city_or_postcode_title,
           ),
-          _buildCurrencyTile(
-            appLocalizations,
-            selectedCurrency,
-            currencyHelper,
-            context,
-            iconColor,
-          ),
-
           _buildCurrencyTile(appLocalizations),
-     develop
         ],
       ),
       PreferenceCard(
