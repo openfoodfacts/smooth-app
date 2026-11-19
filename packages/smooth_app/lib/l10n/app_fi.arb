@@ -1282,21 +1282,55 @@
   "@currency_chooser_label": {
     "description": "Label shown above a selector where the user can select their currency (in the preferences)"
   },
-  "country_change_message": "Olet juuri vaihtanut maata.",
-  "@country_change_message": {
-    "description": "Message stating the change of countries"
+  "currency_change_sheet_title": "Change currency?",
+  "@currency_change_sheet_title": {
+    "description": "Title of the sheet proposing to change the currency after the user changed the country"
   },
-  "currency_auto_change_message": "Haluatko vaihtaa valuutan {previousCurrency} arvoon {possibleCurrency}?",
-  "@currency_auto_change_message": {
-    "description": "Message asking to confirm the change of currencies",
+  "currency_change_sheet_country": "Your country is now set to **{country}**.",
+  "@currency_change_sheet_country": {
+    "description": "Message of the currency change sheet, stating the new country (shown in bold with the ** markers)",
     "placeholders": {
-      "previousCurrency": {
+      "country": {
         "type": "String",
-        "description": "Current currency"
+        "description": "Localized name of the new country"
+      }
+    }
+  },
+  "currency_change_sheet_question": "Would you like to change the default currency in the app:",
+  "@currency_change_sheet_question": {
+    "description": "Question of the currency change sheet, shown above the current and the new currencies"
+  },
+  "currency_change_sheet_action_approve": "Use {newCurrency}",
+  "@currency_change_sheet_action_approve": {
+    "description": "Action of the currency change sheet to switch to the currency of the new country",
+    "placeholders": {
+      "newCurrency": {
+        "type": "String",
+        "description": "Currency code of the new country (eg: EUR)"
+      }
+    }
+  },
+  "currency_change_sheet_action_keep": "Continue with {currency}",
+  "@currency_change_sheet_action_keep": {
+    "description": "Action of the currency change sheet to keep the current currency",
+    "placeholders": {
+      "currency": {
+        "type": "String",
+        "description": "Currency code currently used (eg: USD)"
+      }
+    }
+  },
+  "currency_change_sheet_summary_semantics": "From {currency} to {newCurrency}",
+  "@currency_change_sheet_summary_semantics": {
+    "description": "Screen reader label of the row showing the current and the new currencies in the currency change sheet",
+    "placeholders": {
+      "currency": {
+        "type": "String",
+        "description": "Currency code currently used (eg: USD)"
       },
-      "possibleCurrency": {
+      "newCurrency": {
         "type": "String",
-        "description": "Possible currency"
+        "description": "Currency code of the new country (eg: EUR)"
       }
     }
   },
