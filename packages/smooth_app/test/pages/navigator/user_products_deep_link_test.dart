@@ -93,6 +93,17 @@ void main() {
       expect(isUserSearchDeepLink('/editor/12345678/2'), isTrue);
     });
 
+    test('does not throw on a malformed escape in an unrelated path', () {
+      expect(isUserSearchDeepLink('/product/3017620422003/caf%E9'), isFalse);
+      expect(
+        userSearchTypeFromDeepLink(
+          '/product/3017620422003/caf%E9',
+          loggedInUserId: 'teolemon',
+        ),
+        isNull,
+      );
+    });
+
     test('ignores other paths', () {
       expect(isUserSearchDeepLink('/product/3017620422003'), isFalse);
       expect(isUserSearchDeepLink('/editor'), isFalse);

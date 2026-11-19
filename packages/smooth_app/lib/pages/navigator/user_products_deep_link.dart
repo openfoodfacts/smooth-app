@@ -45,6 +45,7 @@ bool isUserSearchDeepLink(String path) {
   return segments.length > 1 && _USER_SEARCH_PATHS.containsKey(segments.first);
 }
 
-List<String> _pathSegments(String path) => Uri.parse(
-  path,
-).pathSegments.where((String segment) => segment.isNotEmpty).toList();
+/// Splits without decoding: decoding throws on malformed escapes (eg: `%E9`),
+/// which must not break the routing of unrelated links such as products.
+List<String> _pathSegments(String path) =>
+    path.split('/').where((String segment) => segment.isNotEmpty).toList();
