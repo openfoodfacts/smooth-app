@@ -51,6 +51,7 @@ extension ProductNutritionExtension on Product {
         ? null
         : NutritionValue(
             value: value,
+            valueString: nutritionValue.valueString,
             unit: nutritionValue.unit,
             modifier: nutritionValue.modifier,
           );

@@ -258,20 +258,25 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       );
       return false;
     }
+    if (changedProducts.isEmpty) {
+      return true;
+    }
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.nutrition_Facts,
       upToDateProduct,
       true,
     );
+    bool first = true;
     for (final Product changedProduct in changedProducts) {
       await BackgroundTaskDetails.addTask(
         changedProduct,
         context: context,
         stamp: BackgroundTaskDetailsStamp.nutrition,
         productType: upToDateProduct.productType,
-        showSnackBar: changedProduct == changedProducts.first,
+        showSnackBar: first,
       );
+      first = false;
     }
     return true;
   }

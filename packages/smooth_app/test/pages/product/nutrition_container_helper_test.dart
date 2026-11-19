@@ -247,16 +247,51 @@ void main() {
       );
     });
 
-    test('ignores text that is not a number', () {
+    test('sends the text as typed', () {
       final NutritionContainerHelper helper = _helper(sets);
-      _type(helper, Nutrient.fat, '1.2.3');
-      expect(helper.getChangedProducts('1'), isEmpty);
+      _type(helper, Nutrient.iron, ' 6.50 ');
+      expect(
+        _body(helper),
+        contains('"iron":{"unit":"mg","value_string":"6.50"}'),
+      );
+      helper.setNutrientValueText(
+        Nutrient.iron,
+        '6,50',
+        NutritionContainerHelper.getNumberFormat('fr'),
+      );
+      expect(
+        _body(helper),
+        contains('"iron":{"unit":"mg","value_string":"6.50"}'),
+      );
     });
 
-    test('clears a nutrient that is not specified', () {
+    test('keeps the stored text on a unit change', () {
+      final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
+        _inputSet(_packaging, '100g', <String, Map<String, dynamic>>{
+          'fat': _value('g', '0.50'),
+          'vitamin-b9': <String, dynamic>{
+            'unit': 'g',
+            'value': 3.1e-05,
+            'value_string': '3.1e-05',
+          },
+        }),
+      ]);
+      helper.setNutrientUnit(Nutrient.fat, Unit.MILLI_G);
+      helper.setNutrientUnit(Nutrient.vitaminB9, Unit.MILLI_G);
+      final String body = _body(helper)!;
+      expect(body, contains('"fat":{"unit":"mg","value_string":"0.50"}'));
+      expect(
+        body,
+        contains('"vitamin-b9":{"unit":"mg","value_string":"0.000031"}'),
+      );
+    });
+
+    test('ignores text that is not a number', () {
       final NutritionContainerHelper helper = _helper(sets);
-      _type(helper, Nutrient.fat, '-');
-      expect(_body(helper), contains('"fat":{"unit":"g","value_string":""}'));
+      for (final String text in <String>['1.2.3', '-']) {
+        _type(helper, Nutrient.fat, text);
+        expect(helper.getChangedProducts('1'), isEmpty);
+      }
     });
 
     test('clears a nutrient with an empty value string', () {

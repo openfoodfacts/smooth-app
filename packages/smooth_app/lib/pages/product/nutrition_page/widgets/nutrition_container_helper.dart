@@ -34,6 +34,7 @@ class NutritionContainerHelper extends ChangeNotifier {
     return orderedNutrient.nutrient;
   }
 
+  // TODO(UrbanFercec): all the units, not only weights.
   static const Map<Unit, Unit> _nextWeightUnits = <Unit, Unit>{
     Unit.G: Unit.MILLI_G,
     Unit.MILLI_G: Unit.MICRO_G,
@@ -46,21 +47,19 @@ class NutritionContainerHelper extends ChangeNotifier {
   List<OrderedNutrient> get allNutrients => _nutrients;
 
   /// Nutrient values.
-  final Map<Nutrient, num> _values = <Nutrient, num>{};
+  final Map<Nutrient, NutritionValue> _values = <Nutrient, NutritionValue>{};
 
-  /// Values typed by the end-user and different from the loaded ones.
+  /// Texts typed by the end-user, with a dot as decimal separator, and
+  /// different from the loaded values.
   ///
-  /// A null value means that the end-user cleared the nutrient.
-  final Map<Nutrient, num?> _edited = <Nutrient, num?>{};
+  /// An empty text means that the end-user cleared the nutrient.
+  final Map<Nutrient, String> _edited = <Nutrient, String>{};
 
   /// Nutrient units.
   final Map<Nutrient, Unit> _units = <Nutrient, Unit>{};
 
   /// Initial nutrient units.
   final Map<Nutrient, Unit> _initialUnits = <Nutrient, Unit>{};
-
-  final Map<Nutrient, NutrientModifier> _modifiers =
-      <Nutrient, NutrientModifier>{};
 
   /// Nutrients added by the end-user.
   final Set<Nutrient> _added = <Nutrient>{};
@@ -180,12 +179,11 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   /// Returns the stored product nutrient's value.
-  num? getValue(Nutrient nutrient) => _values[nutrient];
+  num? getValue(Nutrient nutrient) => _values[nutrient]?.value;
 
   /// Stores the end-user input when it differs from the loaded value.
   ///
-  /// Empty text and "-" (not specified) clear the value; any other text that
-  /// can't be parsed is ignored.
+  /// Empty text clears the value; text that can't be parsed is ignored.
   void setNutrientValueText(
     Nutrient nutrient,
     String? text,
@@ -193,21 +191,24 @@ class NutritionContainerHelper extends ChangeNotifier {
   ) {
     num? value;
     final String trimmed = text?.trim() ?? '';
-    if (trimmed.isNotEmpty && trimmed != '-') {
+    if (trimmed.isNotEmpty) {
       value = numberFormat.tryParse(trimmed);
       if (value == null) {
         _edited.remove(nutrient);
         return;
       }
     }
-    final num? loaded = _values[nutrient];
+    final num? loaded = getValue(nutrient);
     final bool unchanged = value == null || loaded == null
         ? value == loaded
         : numberFormat.format(value) == numberFormat.format(loaded);
     if (unchanged) {
       _edited.remove(nutrient);
     } else {
-      _edited[nutrient] = value;
+      _edited[nutrient] = trimmed.replaceAll(
+        numberFormat.symbols.DECIMAL_SEP,
+        '.',
+      );
     }
   }
 
@@ -338,10 +339,7 @@ class NutritionContainerHelper extends ChangeNotifier {
       _units[nutrient] = unit;
       _initialUnits[nutrient] = unit;
       if (nutritionValue != null) {
-        _values[nutrient] = nutritionValue.value!;
-        if (nutritionValue.modifier != null) {
-          _modifiers[nutrient] = nutritionValue.modifier!;
-        }
+        _values[nutrient] = nutritionValue;
       }
     }
   }
@@ -368,6 +366,18 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   static final NumberFormat _writeFormat = getNumberFormat('en');
 
+  /// Returns the loaded value as it was entered, without exponent.
+  static String? _getValueString(NutritionValue? nutritionValue) {
+    final String? valueString = nutritionValue?.valueString;
+    if (valueString != null &&
+        valueString.isNotEmpty &&
+        !valueString.contains('e')) {
+      return valueString;
+    }
+    final num? value = nutritionValue?.value;
+    return value == null ? null : _writeFormat.format(value);
+  }
+
   /// Returns the packaging nutrition sets with only the changed nutrients.
   ///
   /// When the end-user changes the per size, all the values move to the new
@@ -380,8 +390,8 @@ class NutritionContainerHelper extends ChangeNotifier {
         <Nutrient, NutritionValue>{};
     for (final OrderedNutrient orderedNutrient in _nutrients) {
       final Nutrient nutrient = getNutrient(orderedNutrient)!;
-      final num? loaded = _values[nutrient];
-      final bool edited = _edited.containsKey(nutrient);
+      final NutritionValue? loaded = _values[nutrient];
+      final String? edited = _edited[nutrient];
       final Unit unit = _units[nutrient]!;
       if (perSizeChanged && loaded != null) {
         removedValues[nutrient] = NutritionValue(
@@ -389,17 +399,20 @@ class NutritionContainerHelper extends ChangeNotifier {
           valueString: '',
         );
       }
-      if (!perSizeChanged && !edited && unit == _initialUnits[nutrient]) {
+      if (!perSizeChanged &&
+          edited == null &&
+          unit == _initialUnits[nutrient]) {
         continue;
       }
-      final num? value = edited ? _edited[nutrient] : loaded;
-      if (value == null && (loaded == null || perSizeChanged)) {
+      final String? valueString = edited ?? _getValueString(loaded);
+      if (valueString == null ||
+          (valueString.isEmpty && (loaded == null || perSizeChanged))) {
         continue;
       }
       nutritionValues[nutrient] = NutritionValue(
         unit: unit,
-        valueString: value == null ? '' : _writeFormat.format(value),
-        modifier: edited ? null : _modifiers[nutrient],
+        valueString: valueString,
+        modifier: edited == null ? loaded?.modifier : null,
       );
     }
     NutritionSet getPackagingSet(
@@ -423,8 +436,8 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   /// Returns the minimal products to save, with only the changed data.
   ///
-  /// The "no nutrition data" flag can't be saved in the same request as the
-  /// nutrition values, hence a separate product.
+  /// The nutrition values are saved in V3, which doesn't save the "no nutrition
+  /// data" flag, hence a separate product.
   List<Product> getChangedProducts(String barcode) {
     final List<Product> result = <Product>[];
     final Product nutritionProduct = Product(barcode: barcode);
