@@ -85,4 +85,18 @@ void main() {
       );
     });
   });
+
+  group('isUserSearchDeepLink', () {
+    test('matches the pages of any user, whatever the page', () {
+      expect(isUserSearchDeepLink('/editor/teolemon'), isTrue);
+      expect(isUserSearchDeepLink('/editor/teolemon/2'), isTrue);
+      expect(isUserSearchDeepLink('/editor/12345678/2'), isTrue);
+    });
+
+    test('ignores other paths', () {
+      expect(isUserSearchDeepLink('/product/3017620422003'), isFalse);
+      expect(isUserSearchDeepLink('/editor'), isFalse);
+      expect(isUserSearchDeepLink(''), isFalse);
+    });
+  });
 }

@@ -404,6 +404,10 @@ class _SmoothGoRouter {
             if (userSearchType != null) {
               AnalyticsHelper.trackEvent(AnalyticsEvent.genericDeepLink);
               return AppRoutes.USER_PRODUCTS(userSearchType);
+            } else if (isUserSearchDeepLink(path)) {
+              // Other users, other pages, logged out: not a product either,
+              // even if the user id looks like a barcode
+              externalLink = true;
             } else if (barcode != null) {
               AnalyticsHelper.trackEvent(
                 AnalyticsEvent.productDeepLink,

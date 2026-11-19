@@ -19,9 +19,7 @@ UserSearchType? userSearchTypeFromDeepLink(
     return null;
   }
 
-  final List<String> segments = Uri.parse(
-    path,
-  ).pathSegments.where((String segment) => segment.isNotEmpty).toList();
+  final List<String> segments = _pathSegments(path);
 
   if (segments.length != 2) {
     return null;
@@ -35,3 +33,18 @@ UserSearchType? userSearchTypeFromDeepLink(
 
   return type;
 }
+
+/// Whether [path] belongs to the website pages listing the products of a user
+/// (eg: `/editor/<userId>/2`), whoever the user is.
+///
+/// Such a path never targets a product, even when its user id looks like a
+/// barcode.
+bool isUserSearchDeepLink(String path) {
+  final List<String> segments = _pathSegments(path);
+
+  return segments.length > 1 && _USER_SEARCH_PATHS.containsKey(segments.first);
+}
+
+List<String> _pathSegments(String path) => Uri.parse(
+  path,
+).pathSegments.where((String segment) => segment.isNotEmpty).toList();
