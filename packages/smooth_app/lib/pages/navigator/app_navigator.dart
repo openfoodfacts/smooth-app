@@ -235,7 +235,9 @@ class _SmoothGoRouter {
                           type.name == state.uri.queryParameters['type'],
                     );
 
-                if (type == null) {
+                // Internal routes skip the redirect, and without a logged in
+                // user the query would silently use the test user
+                if (type == null || !ProductQuery.isLoggedIn()) {
                   return ErrorPage(url: state.uri.toString());
                 }
 
