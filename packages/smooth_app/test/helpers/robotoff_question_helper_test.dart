@@ -6,15 +6,15 @@ void main() {
   group('RobotoffQuestionsEquality', () {
     final RobotoffQuestionsEquality equality = RobotoffQuestionsEquality();
 
-    final RobotoffQuestion question1 = RobotoffQuestion(
+    const RobotoffQuestion question1 = RobotoffQuestion(
       insightId: 'id-1',
       barcode: '12345678',
     );
-    final RobotoffQuestion question1Duplicate = RobotoffQuestion(
+    const RobotoffQuestion question1Duplicate = RobotoffQuestion(
       insightId: 'id-1',
       barcode: '99999999',
     );
-    final RobotoffQuestion question2 = RobotoffQuestion(
+    const RobotoffQuestion question2 = RobotoffQuestion(
       insightId: 'id-2',
       barcode: '12345678',
     );
@@ -26,7 +26,10 @@ void main() {
     });
 
     test('hash', () {
-      expect(equality.hash(question1), equals(equality.hash(question1Duplicate)));
+      expect(
+        equality.hash(question1),
+        equals(equality.hash(question1Duplicate)),
+      );
       expect(equality.hash(question1), equals('id-1'.hashCode));
     });
 
@@ -42,28 +45,40 @@ void main() {
   });
 
   group('RobotoffQuestionHelper extension', () {
-    final RobotoffQuestion q1 = RobotoffQuestion(insightId: 'id-1');
-    final RobotoffQuestion q2 = RobotoffQuestion(insightId: 'id-2');
-    final RobotoffQuestion q3 = RobotoffQuestion(insightId: 'id-3');
+    const RobotoffQuestion q1 = RobotoffQuestion(insightId: 'id-1');
+    const RobotoffQuestion q2 = RobotoffQuestion(insightId: 'id-2');
+    const RobotoffQuestion q3 = RobotoffQuestion(insightId: 'id-3');
 
     test('areSameAs with empty lists', () {
       expect(<RobotoffQuestion>[].areSameAs(<RobotoffQuestion>[]), isTrue);
     });
 
     test('areSameAs with identical questions', () {
-      expect(<RobotoffQuestion>[q1, q2].areSameAs(<RobotoffQuestion>[q1, q2]), isTrue);
+      expect(
+        <RobotoffQuestion>[q1, q2].areSameAs(<RobotoffQuestion>[q1, q2]),
+        isTrue,
+      );
     });
 
     test('areSameAs with different order', () {
-      expect(<RobotoffQuestion>[q1, q2].areSameAs(<RobotoffQuestion>[q2, q1]), isFalse);
+      expect(
+        <RobotoffQuestion>[q1, q2].areSameAs(<RobotoffQuestion>[q2, q1]),
+        isFalse,
+      );
     });
 
     test('areSameAs with different lengths', () {
-      expect(<RobotoffQuestion>[q1, q2].areSameAs(<RobotoffQuestion>[q1]), isFalse);
+      expect(
+        <RobotoffQuestion>[q1, q2].areSameAs(<RobotoffQuestion>[q1]),
+        isFalse,
+      );
     });
 
     test('areSameAs with different questions', () {
-      expect(<RobotoffQuestion>[q1, q2].areSameAs(<RobotoffQuestion>[q1, q3]), isFalse);
+      expect(
+        <RobotoffQuestion>[q1, q2].areSameAs(<RobotoffQuestion>[q1, q3]),
+        isFalse,
+      );
     });
   });
 }
