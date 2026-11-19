@@ -13,7 +13,7 @@ dependencies:
   camera: ^0.12.2
   flutter_zxing: ^3.1.1
   visibility_detector: ^0.4.0+2
-  material_ui: ^1.10.0
+  material_ui: ^1.11.1
   scanner_shared:
     path: ../shared
 
