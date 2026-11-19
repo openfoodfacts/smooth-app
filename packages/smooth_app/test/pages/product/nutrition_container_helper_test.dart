@@ -288,10 +288,14 @@ void main() {
 
     test('ignores text that is not a number', () {
       final NutritionContainerHelper helper = _helper(sets);
-      for (final String text in <String>['1.2.3', '-']) {
-        _type(helper, Nutrient.fat, text);
-        expect(helper.getChangedProducts('1'), isEmpty);
-      }
+      _type(helper, Nutrient.fat, '1.2.3');
+      expect(helper.getChangedProducts('1'), isEmpty);
+    });
+
+    test('clears a nutrient marked as missing', () {
+      final NutritionContainerHelper helper = _helper(sets);
+      _type(helper, Nutrient.fat, '-');
+      expect(_body(helper), contains('"fat":{"unit":"g","value_string":""}'));
     });
 
     test('clears a nutrient with an empty value string', () {

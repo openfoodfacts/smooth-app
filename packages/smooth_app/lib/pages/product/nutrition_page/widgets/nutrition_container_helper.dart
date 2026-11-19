@@ -183,7 +183,8 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   /// Stores the end-user input when it differs from the loaded value.
   ///
-  /// Empty text clears the value; text that can't be parsed is ignored.
+  /// Empty text and the editor's "-" (missing value) clear the value; any
+  /// other text that can't be parsed is ignored.
   void setNutrientValueText(
     Nutrient nutrient,
     String? text,
@@ -191,7 +192,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   ) {
     num? value;
     final String trimmed = text?.trim() ?? '';
-    if (trimmed.isNotEmpty) {
+    if (trimmed.isNotEmpty && trimmed != '-') {
       value = numberFormat.tryParse(trimmed);
       if (value == null) {
         _edited.remove(nutrient);
@@ -205,10 +206,9 @@ class NutritionContainerHelper extends ChangeNotifier {
     if (unchanged) {
       _edited.remove(nutrient);
     } else {
-      _edited[nutrient] = trimmed.replaceAll(
-        numberFormat.symbols.DECIMAL_SEP,
-        '.',
-      );
+      _edited[nutrient] = value == null
+          ? ''
+          : trimmed.replaceAll(numberFormat.symbols.DECIMAL_SEP, '.');
     }
   }
 
@@ -366,7 +366,8 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   static final NumberFormat _writeFormat = getNumberFormat('en');
 
-  /// Returns the loaded value as it was entered, without exponent.
+  /// Returns the stored value string, or the formatted value when it is
+  /// missing or has an exponent.
   static String? _getValueString(NutritionValue? nutritionValue) {
     final String? valueString = nutritionValue?.valueString;
     if (valueString != null &&
