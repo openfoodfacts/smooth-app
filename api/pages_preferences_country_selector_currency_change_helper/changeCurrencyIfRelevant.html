@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the changeCurrencyIfRelevant function from the currency_change_helper library, for the Dart programming language.">
+  <title>changeCurrencyIfRelevant function - currency_change_helper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../pages_preferences_country_selector_currency_change_helper/">pages&#47;preferences&#47;country_selector&#47;currency_change_helper.dart</a></li>
+    <li class="self-crumb">changeCurrencyIfRelevant function</li>
+  </ol>
+  <div class="self-name">changeCurrencyIfRelevant</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="pages_preferences_country_selector_currency_change_helper&#47;pages_preferences_country_selector_currency_change_helper-library-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-function">changeCurrencyIfRelevant</span> function 
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">changeCurrencyIfRelevant</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="changeCurrencyIfRelevant-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="changeCurrencyIfRelevant-param-country"><span class="type-annotation"><a href="../pages_preferences_country_selector_country/Country.html">Country</a></span> <span class="parameter-name">country</span>, {</span></li>
+<li><span class="parameter" id="changeCurrencyIfRelevant-param-forceCurrencyChange"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceCurrencyChange</span>, </span></li>
+</ol>})
+
+        
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Saves the currency of <code>country</code>, after asking the user when it differs from
+the current one. Only an explicit approval of the sheet changes it.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; changeCurrencyIfRelevant(
+  BuildContext context,
+  Country country, {
+  required bool forceCurrencyChange,
+}) async {
+  &#47;&#47; The selector route has just been popped: its context may be gone.
+  if (!context.mounted) {
+    return;
+  }
+
+  final UserPreferences userPreferences = context.read&lt;UserPreferences&gt;();
+  final String? newCurrencyCode = country.currency?.name;
+
+  if (newCurrencyCode == null) {
+    return;
+  }
+
+  bool? changeCurrency;
+  final String? currentCurrencyCode = userPreferences.userCurrencyCode;
+
+  if (currentCurrencyCode == null || forceCurrencyChange) {
+    changeCurrency = true;
+  } else if (currentCurrencyCode != newCurrencyCode) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool lightTheme = context.lightTheme(listen: false);
+    final SmoothColorsThemeExtension extension = context
+        .extension&lt;SmoothColorsThemeExtension&gt;();
+    final TextStyle? bodyStyle = Theme.of(context).textTheme.bodyLarge
+        ?.copyWith(fontWeight: FontWeight.w500);
+
+    changeCurrency = await showSmoothAlertModalSheet&lt;bool&gt;(
+      context: context,
+      title: appLocalizations.currency_change_sheet_title,
+      message: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: &lt;Widget&gt;[
+          TextWithBoldParts(
+            text: appLocalizations.currency_change_sheet_country(
+              country.localizedName,
+            ),
+            textStyle: bodyStyle,
+          ),
+          const SizedBox(height: SMALL_SPACE),
+          Text(
+            appLocalizations.currency_change_sheet_question,
+            style: bodyStyle,
+          ),
+          const SizedBox(height: MEDIUM_SPACE),
+          SizedBox(
+            width: double.infinity,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: lightTheme
+                    ? extension.primaryLight
+                    : extension.primaryDark.darken(0.1),
+                borderRadius: ROUNDED_BORDER_RADIUS,
+              ),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  vertical: MEDIUM_SPACE,
+                ),
+                child: CurrencyChangeSummary(
+                  currency: currentCurrencyCode,
+                  newCurrency: newCurrencyCode,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      actionLabels: &lt;String&gt;[
+        appLocalizations.currency_change_sheet_action_approve(newCurrencyCode),
+        appLocalizations.currency_change_sheet_action_keep(currentCurrencyCode),
+      ],
+      actionIcons: &lt;Widget&gt;[
+        Icon(Icons.check_circle_rounded, color: extension.success),
+        Icon(Icons.cancel_rounded, color: extension.error),
+      ],
+      actionValues: const &lt;bool&gt;[true, false],
+      &#47;&#47; Transparent: the body of the sheet shows through, like behind the actions.
+      messageBackgroundColor: lightTheme ? Colors.white : Colors.transparent,
+    );
+  }
+
+  if (changeCurrency == true) {
+    await userPreferences.setUserCurrencyCode(newCurrencyCode);
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../pages_preferences_country_selector_currency_change_helper/">currency_change_helper</a></li>
+    <li class="self-crumb">changeCurrencyIfRelevant function</li>
+</ol>
+
+    <h5>currency_change_helper library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

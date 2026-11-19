@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the currency_auto_change_message method from the AppLocalizations class, for the Dart programming language.">
-  <title>currency_auto_change_message method - AppLocalizations class - app_localizations library - Dart API</title>
+  <meta name="description" content="API docs for the currency_change_sheet_country method from the AppLocalizations class, for the Dart programming language.">
+  <title>currency_change_sheet_country method - AppLocalizations class - app_localizations library - Dart API</title>
 
 
   
@@ -27,9 +27,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../l10n_app_localizations/">l10n&#47;app_localizations.dart</a></li>
     <li><a href="../../l10n_app_localizations/AppLocalizations-class.html">AppLocalizations</a></li>
-    <li class="self-crumb">currency_auto_change_message abstract method</li>
+    <li class="self-crumb">currency_change_sheet_country abstract method</li>
   </ol>
-  <div class="self-name">currency_auto_change_message</div>
+  <div class="self-name">currency_change_sheet_country</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -49,14 +49,13 @@
     data-above-sidebar="l10n_app_localizations&#47;AppLocalizations-class-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-method">currency_auto_change_message</span> abstract method 
+<h1><span class="kind-method">currency_change_sheet_country</span> abstract method 
 </h1></div>
 
     <section class="multi-line-signature">
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
-<span class="name ">currency_auto_change_message</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="currency_auto_change_message-param-previousCurrency"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">previousCurrency</span>, </span></li>
-<li><span class="parameter" id="currency_auto_change_message-param-possibleCurrency"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">possibleCurrency</span></span></li>
+<span class="name ">currency_change_sheet_country</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="currency_change_sheet_country-param-country"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">country</span></span></li>
 </ol>)
 
       
@@ -64,19 +63,16 @@
     </section>
     
 <section class="desc markdown">
-  <p>Message asking to confirm the change of currencies</p>
+  <p>Message of the currency change sheet, stating the new country (shown in bold with the ** markers)</p>
 <p>In en, this message translates to:
-<strong>'Do you want to change the currency from {previousCurrency} to {possibleCurrency}?'</strong></p>
+<strong>'Your country is now set to <strong>{country}</strong>.'</strong></p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String currency_auto_change_message(
-  String previousCurrency,
-  String possibleCurrency,
-);</code></pre>
+  <pre class="language-dart"><code class="language-dart">String currency_change_sheet_country(String country);</code></pre>
 </section>
 
 
@@ -92,7 +88,7 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../l10n_app_localizations/">app_localizations</a></li>
     <li><a href="../../l10n_app_localizations/AppLocalizations-class.html">AppLocalizations</a></li>
-    <li class="self-crumb">currency_auto_change_message abstract method</li>
+    <li class="self-crumb">currency_change_sheet_country abstract method</li>
 </ol>
 
     <h5>AppLocalizations class</h5>

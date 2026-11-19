@@ -63,6 +63,7 @@
 <li><span class="parameter" id="showSmoothAlertModalSheet-param-actionIcons"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>&gt;</span></span> <span class="parameter-name">actionIcons</span>, </span></li>
 <li><span class="parameter" id="showSmoothAlertModalSheet-param-type"><span class="type-annotation"><a href="../generic_lib_bottom_sheets_smooth_bottom_sheet/SmoothModalSheetType.html">SmoothModalSheetType</a></span> <span class="parameter-name">type</span> = <span class="default-value">SmoothModalSheetType.info</span>, </span></li>
 <li><span class="parameter" id="showSmoothAlertModalSheet-param-safeArea"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">safeArea</span> = <span class="default-value">true</span>, </span></li>
+<li><span class="parameter" id="showSmoothAlertModalSheet-param-messageBackgroundColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">messageBackgroundColor</span>, </span></li>
 </ol>})
 
         
@@ -86,19 +87,24 @@
   required List&lt;Widget&gt; actionIcons,
   SmoothModalSheetType type = SmoothModalSheetType.info,
   bool safeArea = true,
+  Color? messageBackgroundColor,
 }) {
   final bool lightTheme = context.lightTheme(listen: false);
-  final Color headerBackgroundColor = switch (type) {
-    SmoothModalSheetType.error when lightTheme =&gt;
-      SmoothModalSheetHeader.ERROR_COLOR.lighten(0.55),
-    SmoothModalSheetType.error =&gt; SmoothModalSheetHeader.ERROR_COLOR.darken(
-      0.3,
-    ),
-    SmoothModalSheetType.info when lightTheme =&gt;
-      context.extension&lt;SmoothColorsThemeExtension&gt;().primaryLight,
-    SmoothModalSheetType.info =&gt;
-      context.extension&lt;SmoothColorsThemeExtension&gt;().primaryDark.darken(0.1),
-  };
+  final Color headerBackgroundColor =
+      messageBackgroundColor ??
+      switch (type) {
+        SmoothModalSheetType.error when lightTheme =&gt;
+          SmoothModalSheetHeader.ERROR_COLOR.lighten(0.55),
+        SmoothModalSheetType.error =&gt; SmoothModalSheetHeader.ERROR_COLOR.darken(
+          0.3,
+        ),
+        SmoothModalSheetType.info when lightTheme =&gt;
+          context.extension&lt;SmoothColorsThemeExtension&gt;().primaryLight,
+        SmoothModalSheetType.info =&gt;
+          context.extension&lt;SmoothColorsThemeExtension&gt;().primaryDark.darken(
+            0.1,
+          ),
+      };
 
   return showSmoothListOfChoicesModalSheet&lt;T&gt;(
     context: context,

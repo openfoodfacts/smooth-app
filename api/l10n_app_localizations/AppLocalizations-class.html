@@ -2756,18 +2756,6 @@ property.</p>
 
 </dd>
 
-        <dt id="country_change_message" class="property">
-  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/country_change_message.html">country_change_message</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
-  
-
-</dt>
-<dd>
-  Message stating the change of countries
-  <div class="features"><span class="feature">no setter</span></div>
-
-</dd>
-
         <dt id="country_chooser_label" class="property">
   <span class="name"><a href="../l10n_app_localizations/AppLocalizations/country_chooser_label.html">country_chooser_label</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
@@ -2968,6 +2956,30 @@ property.</p>
 </dt>
 <dd>
   Title of a dialog warning the user that the image is too small for upload
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="currency_change_sheet_question" class="property">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/currency_change_sheet_question.html">currency_change_sheet_question</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Question of the currency change sheet, shown above the current and the new currencies
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="currency_change_sheet_title" class="property">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/currency_change_sheet_title.html">currency_change_sheet_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title of the sheet proposing to change the currency after the user changed the country
   <div class="features"><span class="feature">no setter</span></div>
 
 </dd>
@@ -22449,15 +22461,54 @@ property.</p>
 
 </dd>
 
-        <dt id="currency_auto_change_message" class="callable">
-  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/currency_auto_change_message.html">currency_auto_change_message</a></span><span class="signature">(<wbr><span class="parameter" id="currency_auto_change_message-param-previousCurrency"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">previousCurrency</span>, </span><span class="parameter" id="currency_auto_change_message-param-possibleCurrency"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">possibleCurrency</span></span>)
+        <dt id="currency_change_sheet_action_approve" class="callable">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/currency_change_sheet_action_approve.html">currency_change_sheet_action_approve</a></span><span class="signature">(<wbr><span class="parameter" id="currency_change_sheet_action_approve-param-newCurrency"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">newCurrency</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
   </span>
   
 
 </dt>
 <dd>
-  Message asking to confirm the change of currencies
+  Action of the currency change sheet to switch to the currency of the new country
+  
+
+</dd>
+
+        <dt id="currency_change_sheet_action_keep" class="callable">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/currency_change_sheet_action_keep.html">currency_change_sheet_action_keep</a></span><span class="signature">(<wbr><span class="parameter" id="currency_change_sheet_action_keep-param-currency"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">currency</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Action of the currency change sheet to keep the current currency
+  
+
+</dd>
+
+        <dt id="currency_change_sheet_country" class="callable">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/currency_change_sheet_country.html">currency_change_sheet_country</a></span><span class="signature">(<wbr><span class="parameter" id="currency_change_sheet_country-param-country"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">country</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Message of the currency change sheet, stating the new country (shown in bold with the ** markers)
+  
+
+</dd>
+
+        <dt id="currency_change_sheet_summary_semantics" class="callable">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/currency_change_sheet_summary_semantics.html">currency_change_sheet_summary_semantics</a></span><span class="signature">(<wbr><span class="parameter" id="currency_change_sheet_summary_semantics-param-currency"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">currency</span>, </span><span class="parameter" id="currency_change_sheet_summary_semantics-param-newCurrency"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">newCurrency</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Screen reader label of the row showing the current and the new currencies in the currency change sheet
   
 
 </dd>
