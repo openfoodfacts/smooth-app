@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/cards/category_cards/null_cache.dart';
 import 'package:smooth_app/cards/category_cards/raster_cache.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:camera/camera.dart'
     show CameraDescription, FlashMode, availableCameras;
-import 'package:flutter/material.dart';
 import 'package:flutter_zxing/flutter_zxing.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 

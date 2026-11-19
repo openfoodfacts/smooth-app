@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_zxing/flutter_zxing.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:scanner_zxing/scanner_zxing.dart';
 

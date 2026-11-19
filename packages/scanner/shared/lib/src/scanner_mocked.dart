@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 
 /// A [Scanner] without camera: barcodes are typed or picked from a list.

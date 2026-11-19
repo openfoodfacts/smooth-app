@@ -1,7 +1,7 @@
 import 'package:diacritic/diacritic.dart' as lib;
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// An extension on [String]
 extension StringExtension on String {

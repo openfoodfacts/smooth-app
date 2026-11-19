@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_autosize_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_sheet_route.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -252,19 +252,24 @@ Future<T?> showSmoothAlertModalSheet<T>({
   required List<Widget> actionIcons,
   SmoothModalSheetType type = SmoothModalSheetType.info,
   bool safeArea = true,
+  Color? messageBackgroundColor,
 }) {
   final bool lightTheme = context.lightTheme(listen: false);
-  final Color headerBackgroundColor = switch (type) {
-    SmoothModalSheetType.error when lightTheme =>
-      SmoothModalSheetHeader.ERROR_COLOR.lighten(0.55),
-    SmoothModalSheetType.error => SmoothModalSheetHeader.ERROR_COLOR.darken(
-      0.3,
-    ),
-    SmoothModalSheetType.info when lightTheme =>
-      context.extension<SmoothColorsThemeExtension>().primaryLight,
-    SmoothModalSheetType.info =>
-      context.extension<SmoothColorsThemeExtension>().primaryDark.darken(0.1),
-  };
+  final Color headerBackgroundColor =
+      messageBackgroundColor ??
+      switch (type) {
+        SmoothModalSheetType.error when lightTheme =>
+          SmoothModalSheetHeader.ERROR_COLOR.lighten(0.55),
+        SmoothModalSheetType.error => SmoothModalSheetHeader.ERROR_COLOR.darken(
+          0.3,
+        ),
+        SmoothModalSheetType.info when lightTheme =>
+          context.extension<SmoothColorsThemeExtension>().primaryLight,
+        SmoothModalSheetType.info =>
+          context.extension<SmoothColorsThemeExtension>().primaryDark.darken(
+            0.1,
+          ),
+      };
 
   return showSmoothListOfChoicesModalSheet<T>(
     context: context,

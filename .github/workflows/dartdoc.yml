@@ -51,7 +51,7 @@ jobs:
       - name: Remove generated localization files before dartdoc
         run: rm -f packages/smooth_app/lib/l10n/app_localizations_*.dart
 
-      # dartdoc 9.0.6 bundled with Flutter 3.47.9 has a known RangeError bug in _stripDocImports (dart-lang/dartdoc#4180).
+      # dartdoc 9.0.6, bundled with older Flutter SDKs, has a known RangeError bug in _stripDocImports (dart-lang/dartdoc#4180).
       # Globally activating dartdoc installs >=9.0.8 with the fix (PR #4289).
       - name: Run Dartdoc
         run: |
