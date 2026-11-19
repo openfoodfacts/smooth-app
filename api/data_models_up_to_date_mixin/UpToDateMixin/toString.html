@@ -88,9 +88,8 @@ mainly for debugging or logging.</p>
 String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
   String? fullString;
   assert(() {
-    fullString = toDiagnosticsNode(
-      style: DiagnosticsTreeStyle.singleLine,
-    ).toString(minLevel: minLevel);
+    fullString = toDiagnosticsNode(style: DiagnosticsTreeStyle.singleLine)
+        .toString(minLevel: minLevel);
     return true;
   }());
   return fullString ?? toStringShort();

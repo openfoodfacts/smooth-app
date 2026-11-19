@@ -73,11 +73,11 @@ object may have changed. Listeners that are added during this iteration
 will not be visited. Listeners that are removed during this iteration will
 not be visited after they are removed.</p>
 <p>Exceptions thrown by listeners will be caught and reported using
-<a href="https://api.flutter.dev/flutter/foundation/FlutterError/reportError.html">FlutterError.reportError</a>.</p>
-<p>This method must not be called after <a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier/dispose.html">dispose</a> has been called.</p>
+<a href="https://pub.dev/documentation/listen/1.0.1/listen/Listenable/onError.html">Listenable.onError</a>.</p>
+<p>This method must not be called after <a href="https://pub.dev/documentation/listen/1.0.1/listen/ChangeNotifier/dispose.html">dispose</a> has been called.</p>
 <p>Surprising behavior can result when reentrantly removing a listener (e.g.
 in response to a notification) that has been registered multiple times.
-See the discussion at <a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier/removeListener.html">removeListener</a>.</p>
+See the discussion at <a href="https://pub.dev/documentation/listen/1.0.1/listen/ChangeNotifier/removeListener.html">removeListener</a>.</p>
 </section>
 
 

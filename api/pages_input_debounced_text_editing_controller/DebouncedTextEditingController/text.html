@@ -109,10 +109,12 @@ position and the composing state. For production code, <strong>consider using th
 <a href="../../pages_input_debounced_text_editing_controller/DebouncedTextEditingController/value.html">value</a> setter to update the <a href="../../pages_input_debounced_text_editing_controller/DebouncedTextEditingController/text.html">text</a> value instead</strong>, and specify a
 reasonable selection range within the new <a href="../../pages_input_debounced_text_editing_controller/DebouncedTextEditingController/text.html">text</a>.</p>
 <p>Setting this notifies all the listeners of this <a href="https://api.flutter.dev/flutter/widgets/TextEditingController-class.html">TextEditingController</a>
-that they need to update (it calls <a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier/notifyListeners.html">notifyListeners</a>). For this reason,
+that they need to update (it calls <a href="https://pub.dev/documentation/listen/1.0.1/listen/ChangeNotifier/notifyListeners.html">notifyListeners</a>). For this reason,
 this value should only be set between frames, e.g. in response to user
 actions, not during the build, layout, or paint phases. This property can
 be set from a listener added to this <a href="https://api.flutter.dev/flutter/widgets/TextEditingController-class.html">TextEditingController</a>.</p>
+<p>Setting this does not run <a href="https://api.flutter.dev/flutter/services/TextInputFormatter-class.html">TextInputFormatter</a>s. Apply them manually if
+needed.</p>
 </section>
 
     

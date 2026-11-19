@@ -80,7 +80,7 @@ implicit animations).</p>
 <p>The framework always calls <a href="https://api.flutter.dev/flutter/widgets/State/build.html">build</a> after calling <a href="https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html">didUpdateWidget</a>, which
 means any calls to <a href="https://api.flutter.dev/flutter/widgets/State/setState.html">setState</a> in <a href="https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html">didUpdateWidget</a> are redundant.</p>
 <p>If a <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a>'s <a href="https://api.flutter.dev/flutter/widgets/State/build.html">build</a> method depends on an object that can itself
-change state, for example a <a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html">ChangeNotifier</a> or <a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a>, or some
+change state, for example a <a href="https://pub.dev/documentation/listen/1.0.1/listen/ChangeNotifier-class.html">ChangeNotifier</a> or <a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a>, or some
 other object to which one can subscribe to receive notifications, then
 be sure to subscribe and unsubscribe properly in <a href="../../data_models_up_to_date_product_list_mixin/UpToDateProductListMixin/initState.html">initState</a>,
 <a href="https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html">didUpdateWidget</a>, and <a href="../../data_models_up_to_date_product_list_mixin/UpToDateProductListMixin/dispose.html">dispose</a>:</p>

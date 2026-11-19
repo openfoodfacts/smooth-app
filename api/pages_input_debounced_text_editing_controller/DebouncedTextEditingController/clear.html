@@ -71,9 +71,11 @@
 <p>After calling this function, <a href="../../pages_input_debounced_text_editing_controller/DebouncedTextEditingController/text.html">text</a> will be the empty string and the
 selection will be collapsed at zero offset.</p>
 <p>Calling this will notify all the listeners of this <a href="https://api.flutter.dev/flutter/widgets/TextEditingController-class.html">TextEditingController</a>
-that they need to update (it calls <a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier/notifyListeners.html">notifyListeners</a>). For this reason,
+that they need to update (it calls <a href="https://pub.dev/documentation/listen/1.0.1/listen/ChangeNotifier/notifyListeners.html">notifyListeners</a>). For this reason,
 this method should only be called between frames, e.g. in response to user
 actions, not during the build, layout, or paint phases.</p>
+<p>Calling this method does not run <a href="https://api.flutter.dev/flutter/services/TextInputFormatter-class.html">TextInputFormatter</a>s. Apply them
+manually if needed.</p>
 </section>
 
 

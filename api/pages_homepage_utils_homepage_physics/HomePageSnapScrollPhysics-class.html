@@ -113,6 +113,19 @@ response to a call to <a href="https://api.flutter.dev/flutter/rendering/RenderO
 
 </dd>
 
+        <dt id="allowSelectionEdgeScrolling" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics/allowSelectionEdgeScrolling.html">allowSelectionEdgeScrolling</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether a viewport may scroll to reveal more content when a selection
+gesture extends past the visible area, i.e. the viewport's edge.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
         <dt id="allowUserScrolling" class="property inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics/allowUserScrolling.html">allowUserScrolling</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
@@ -415,6 +428,20 @@ deferred.
   Whether the scrollable should let the user adjust the scroll offset, for
 example by dragging. If <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics/allowUserScrolling.html">allowUserScrolling</a> is false, the scrollable
 will never allow user input to change the scroll position.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="shouldUpdate" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics/shouldUpdate.html">shouldUpdate</a></span><span class="signature">(<wbr><span class="parameter" id="shouldUpdate-param-old"><span>covariant</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a></span> <span class="parameter-name">old</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called whenever a <a href="https://api.flutter.dev/flutter/widgets/Scrollable-class.html">Scrollable</a> is rebuilt with a new <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a>
+of the same <a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a>.
   <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
