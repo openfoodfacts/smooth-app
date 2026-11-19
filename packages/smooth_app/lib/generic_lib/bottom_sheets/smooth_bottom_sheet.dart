@@ -342,9 +342,15 @@ Future<T?> showSmoothListOfItemsModalSheet<T>({
     context: context,
     builder: (BuildContext lContext) {
       final bool lightTheme = lContext.lightTheme();
+      // A TextStyle given to a ListTileTheme does not inherit the font of the
+      // theme.
+      final String? fontFamily = Theme.of(
+        lContext,
+      ).textTheme.bodyLarge?.fontFamily;
 
       return ListTileTheme.merge(
         titleTextStyle: TextStyle(
+          fontFamily: fontFamily,
           color: lightTheme
               ? extension.primaryUltraBlack
               : extension.primaryLight,
@@ -352,6 +358,7 @@ Future<T?> showSmoothListOfItemsModalSheet<T>({
           fontSize: 16.0,
         ),
         subtitleTextStyle: TextStyle(
+          fontFamily: fontFamily,
           color: lightTheme ? extension.primaryTone : extension.primaryNormal,
           fontSize: 14.5,
         ),
