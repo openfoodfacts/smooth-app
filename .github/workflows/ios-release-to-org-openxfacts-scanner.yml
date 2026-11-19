@@ -90,9 +90,7 @@ jobs:
         uses: actions/cache@v6
         with:
           path: ~/Library/Caches/org.swift.swiftpm
-          key: spm-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
-          restore-keys: |
-            spm-${{ runner.os }}-
+          key: spm-v2-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
 
       - name: Enable MLKit dependency
         run: chmod +x ci/dependencies/scanner/enable_mlkit_dependency.sh && ci/dependencies/scanner/enable_mlkit_dependency.sh
