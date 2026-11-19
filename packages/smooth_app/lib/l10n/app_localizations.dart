@@ -3059,19 +3059,43 @@ abstract class AppLocalizations {
   /// **'Please choose a currency'**
   String get currency_chooser_label;
 
-  /// Message stating the change of countries
+  /// Title of the sheet proposing to change the currency after the user changed the country
   ///
   /// In en, this message translates to:
-  /// **'You have just changed countries.'**
-  String get country_change_message;
+  /// **'Change currency?'**
+  String get currency_change_sheet_title;
 
-  /// Message asking to confirm the change of currencies
+  /// Message of the currency change sheet, stating the new country (shown in bold with the ** markers)
   ///
   /// In en, this message translates to:
-  /// **'Do you want to change the currency from {previousCurrency} to {possibleCurrency}?'**
-  String currency_auto_change_message(
-    String previousCurrency,
-    String possibleCurrency,
+  /// **'Your country is now set to **{country}**.'**
+  String currency_change_sheet_country(String country);
+
+  /// Question of the currency change sheet, shown above the current and the new currencies
+  ///
+  /// In en, this message translates to:
+  /// **'Would you like to change the default currency in the app:'**
+  String get currency_change_sheet_question;
+
+  /// Action of the currency change sheet to switch to the currency of the new country
+  ///
+  /// In en, this message translates to:
+  /// **'Use {newCurrency}'**
+  String currency_change_sheet_action_approve(String newCurrency);
+
+  /// Action of the currency change sheet to keep the current currency
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with {currency}'**
+  String currency_change_sheet_action_keep(String currency);
+
+  /// Screen reader label of the row showing the current and the new currencies in the currency change sheet
+  ///
+  /// In en, this message translates to:
+  /// **'From {currency} to {newCurrency}'**
+  String currency_change_sheet_summary_semantics(
+    String currency,
+    String newCurrency,
   );
 
   /// The label shown above a selector where the user can select their country (in the onboarding)

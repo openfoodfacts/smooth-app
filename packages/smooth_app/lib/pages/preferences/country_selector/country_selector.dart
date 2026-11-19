@@ -3,10 +3,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/country_selector/country.dart';
+import 'package:smooth_app/pages/preferences/country_selector/currency_change_helper.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
@@ -199,53 +199,11 @@ class _CountrySelectorButton extends StatelessWidget {
     if (newCountry == null) {
       context.read<_CountrySelectorProvider>().dismissSelectedItem();
     } else if (newCountry is Country) {
-      _changeCurrencyIfRelevant(context, newCountry);
-    }
-  }
-
-  // TODO(g123k): move this to a dedicated Provider
-  Future<void> _changeCurrencyIfRelevant(
-    BuildContext context,
-    Country country,
-  ) async {
-    final UserPreferences userPreferences = context.read<UserPreferences>();
-    final String? possibleCurrencyCode = country.currency?.name;
-
-    if (possibleCurrencyCode == null) {
-      return;
-    }
-
-    bool? changeCurrency;
-    final String? currentCurrencyCode = userPreferences.userCurrencyCode;
-
-    if (currentCurrencyCode == null) {
-      changeCurrency = true;
-    } else if (forceCurrencyChange) {
-      changeCurrency = true;
-    } else if (currentCurrencyCode != possibleCurrencyCode) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      changeCurrency = await showDialog<bool>(
-        context: context,
-        builder: (BuildContext context) => SmoothAlertDialog(
-          body: Text(
-            '${appLocalizations.country_change_message}'
-            '\n'
-            '${appLocalizations.currency_auto_change_message(currentCurrencyCode, possibleCurrencyCode)}',
-          ),
-          negativeAction: SmoothActionButton(
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
-            text: appLocalizations.no,
-          ),
-          positiveAction: SmoothActionButton(
-            onPressed: () =>
-                Navigator.of(context, rootNavigator: true).pop(true),
-            text: appLocalizations.yes,
-          ),
-        ),
+      changeCurrencyIfRelevant(
+        context,
+        newCountry,
+        forceCurrencyChange: forceCurrencyChange,
       );
-    }
-    if (changeCurrency == true) {
-      await userPreferences.setUserCurrencyCode(possibleCurrencyCode);
     }
   }
 }
