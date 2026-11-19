@@ -5131,18 +5131,6 @@
   "@photo_viewer_details_button_accessibility_label": {
     "description": "Accessibility label for the Details button on a photo"
   },
-  "photo_viewer_zoom_button": "Zoomer sur la photo en taille réelle",
-  "@photo_viewer_zoom_button": {
-    "description": "Tooltip of the button that opens the full size photo, to zoom in on it"
-  },
-  "photo_viewer_copy_url": "Copier l'URL de la photo",
-  "@photo_viewer_copy_url": {
-    "description": "Tooltip of the button on the full size photo page that copies the URL of the full size photo to the clipboard"
-  },
-  "photo_viewer_url_copied": "URL de la photo copiée dans le presse-papiers !",
-  "@photo_viewer_url_copied": {
-    "description": "Snackbar message shown after copying the URL of the full size photo to the clipboard"
-  },
   "photo_viewer_details_title": "Détails de la photo",
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
