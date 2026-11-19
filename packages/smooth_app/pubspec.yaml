@@ -18,7 +18,7 @@ dependencies:
   barcode_widget: 2.0.4
   carousel_slider: 5.1.2
   cupertino_icons: 2.0.0
-  cupertino_ui: 1.1.6
+  cupertino_ui: 1.1.7
   material_ui: 1.10.0
   flutter_svg: 2.4.0
   vector_graphics: 1.3.1
