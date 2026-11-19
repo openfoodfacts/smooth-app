@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// The five conditions that gate the donation reminder sheet, computed once
 /// per product page so [PopScope.canPop] never re-evaluates mid-visit.

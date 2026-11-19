@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_fake_button.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_marker_chip.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_marker_decimal.dart';

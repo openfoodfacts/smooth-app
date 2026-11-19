@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/homepage/camera/view/ui/camera_view.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';

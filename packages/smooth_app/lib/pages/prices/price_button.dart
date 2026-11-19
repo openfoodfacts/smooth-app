@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Simple price button: displaying data with optional action.
 class PriceButton extends StatelessWidget {

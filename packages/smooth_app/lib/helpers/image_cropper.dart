@@ -3,10 +3,10 @@ import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image/image.dart' as image;
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 
