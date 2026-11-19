@@ -44,7 +44,7 @@ env:
 jobs:
   testflight-release:
     name: Build and deploy to TestFlight testers (${{ inputs.APP_IDENTIFIER }})
-    runs-on: macos-26
+    runs-on: xcode-27
     steps:
       - name: Checkout sources
         uses: actions/checkout@v7
