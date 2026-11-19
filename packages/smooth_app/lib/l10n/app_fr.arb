@@ -1279,24 +1279,12 @@
   "@currency_chooser_label": {
     "description": "Label shown above a selector where the user can select their currency (in the preferences)"
   },
-  "country_change_message": "Vous venez de changer de pays.",
-  "@country_change_message": {
-    "description": "Message stating the change of countries"
-  },
-  "currency_auto_change_message": "Voulez-vous changer la devise de {previousCurrency} à {possibleCurrency}?",
-  "@currency_auto_change_message": {
-    "description": "Message asking to confirm the change of currencies",
-    "placeholders": {
-      "previousCurrency": {
-        "type": "String",
-        "description": "Current currency"
-      },
-      "possibleCurrency": {
-        "type": "String",
-        "description": "Possible currency"
-      }
-    }
-  },
+  "currency_change_sheet_title": "Changer de devise\u202F?",
+  "currency_change_sheet_country": "Votre pays est maintenant défini sur **{country}**.",
+  "currency_change_sheet_question": "Souhaitez-vous changer la devise par défaut de l'application\u00A0:",
+  "currency_change_sheet_action_approve": "Utiliser {newCurrency}",
+  "currency_change_sheet_action_keep": "Continuer avec {currency}",
+  "currency_change_sheet_summary_semantics": "De {currency} à {newCurrency}",
   "onboarding_country_chooser_label": "Veuillez sélectionner un pays :",
   "@onboarding_country_chooser_label": {
     "description": "The label shown above a selector where the user can select their country (in the onboarding)"

@@ -252,19 +252,24 @@ Future<T?> showSmoothAlertModalSheet<T>({
   required List<Widget> actionIcons,
   SmoothModalSheetType type = SmoothModalSheetType.info,
   bool safeArea = true,
+  Color? messageBackgroundColor,
 }) {
   final bool lightTheme = context.lightTheme(listen: false);
-  final Color headerBackgroundColor = switch (type) {
-    SmoothModalSheetType.error when lightTheme =>
-      SmoothModalSheetHeader.ERROR_COLOR.lighten(0.55),
-    SmoothModalSheetType.error => SmoothModalSheetHeader.ERROR_COLOR.darken(
-      0.3,
-    ),
-    SmoothModalSheetType.info when lightTheme =>
-      context.extension<SmoothColorsThemeExtension>().primaryLight,
-    SmoothModalSheetType.info =>
-      context.extension<SmoothColorsThemeExtension>().primaryDark.darken(0.1),
-  };
+  final Color headerBackgroundColor =
+      messageBackgroundColor ??
+      switch (type) {
+        SmoothModalSheetType.error when lightTheme =>
+          SmoothModalSheetHeader.ERROR_COLOR.lighten(0.55),
+        SmoothModalSheetType.error => SmoothModalSheetHeader.ERROR_COLOR.darken(
+          0.3,
+        ),
+        SmoothModalSheetType.info when lightTheme =>
+          context.extension<SmoothColorsThemeExtension>().primaryLight,
+        SmoothModalSheetType.info =>
+          context.extension<SmoothColorsThemeExtension>().primaryDark.darken(
+            0.1,
+          ),
+      };
 
   return showSmoothListOfChoicesModalSheet<T>(
     context: context,
