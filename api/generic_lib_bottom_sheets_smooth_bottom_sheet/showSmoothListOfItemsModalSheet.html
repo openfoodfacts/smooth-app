@@ -83,9 +83,15 @@
     context: context,
     builder: (BuildContext lContext) {
       final bool lightTheme = lContext.lightTheme();
+      &#47;&#47; A TextStyle given to a ListTileTheme does not inherit the font of the
+      &#47;&#47; theme.
+      final String? fontFamily = Theme.of(
+        lContext,
+      ).textTheme.bodyLarge?.fontFamily;
 
       return ListTileTheme.merge(
         titleTextStyle: TextStyle(
+          fontFamily: fontFamily,
           color: lightTheme
               ? extension.primaryUltraBlack
               : extension.primaryLight,
@@ -93,6 +99,7 @@
           fontSize: 16.0,
         ),
         subtitleTextStyle: TextStyle(
+          fontFamily: fontFamily,
           color: lightTheme ? extension.primaryTone : extension.primaryNormal,
           fontSize: 14.5,
         ),
