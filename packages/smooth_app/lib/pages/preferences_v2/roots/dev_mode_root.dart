@@ -521,7 +521,7 @@ class DevModeRoot extends PreferencesRoot {
     UserPreferences userPreferences,
   ) {
     return TogglePreferenceTile(
-      title: 'Enable new Home Page',
+      title: appLocalizations.preferences_dev_mode_new_home_page_title,
       icon: const icons.Search.offRounded(),
       state:
           userPreferences.getFlag(
