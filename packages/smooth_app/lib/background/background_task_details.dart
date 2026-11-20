@@ -157,7 +157,9 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       localDatabase,
     );
     final Product product = getProductChange();
-    if (product.packagings != null || product.packagingsComplete != null) {
+    if (product.packagings != null ||
+        product.packagingsComplete != null ||
+        product.nutrition != null) {
       // For the moment, some fields can only be saved in V3,
       // and V3 can only save those fields.
       final ProductResultV3 result =
@@ -166,6 +168,8 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
             product.barcode!,
             packagings: product.packagings,
             packagingsComplete: product.packagingsComplete,
+            nutritionInputSets: NutritionHelper().getInputSets(product),
+            servingSize: product.servingSize,
             language: getLanguage(),
             country: getCountry(),
             uriHelper: uriProductHelper,
@@ -211,6 +215,11 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       );
     }
   }
+
+  /// Nutrition tasks carry only the delta, so none is obsolete.
+  @override
+  bool isDeduplicable() =>
+      stamp != getStamp(barcode, BackgroundTaskDetailsStamp.nutrition.tag);
 
   String _getIncompleteUserData() {
     final User user = getUser();

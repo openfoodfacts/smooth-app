@@ -46,6 +46,46 @@ class UpToDateChanges {
   void terminate(String operationKey) =>
       _daoTransientProduct.delete(operationKey);
 
+  /// Returns the [initial] nutrition with the input sets of [change] on top.
+  ///
+  /// A cleared nutrient keeps its empty `value_string` until the refresh.
+  // TODO(monsieurtanuki): move to off-dart.
+  static Map<String, dynamic> mergeNutrition(
+    Map<String, dynamic>? initial,
+    Map<String, dynamic> change,
+  ) {
+    final List<Map<String, dynamic>> inputSets = <Map<String, dynamic>>[
+      for (final dynamic inputSet in initial?['input_sets'] ?? <dynamic>[])
+        Map<String, dynamic>.of(inputSet as Map<String, dynamic>),
+    ];
+    final dynamic changedSets = change['input_sets'];
+    if (changedSets != null) {
+      for (final dynamic changedSet in changedSets) {
+        final Map<String, dynamic> newSet = changedSet as Map<String, dynamic>;
+        final NutritionSetKey? newKey = NutritionSetKey.fromJson(newSet);
+        final int index = inputSets.indexWhere((
+          Map<String, dynamic> inputSet,
+        ) {
+          final NutritionSetKey? key = NutritionSetKey.fromJson(inputSet);
+          return key != null &&
+              newKey != null &&
+              key.source == newKey.source &&
+              key.preparation == newKey.preparation &&
+              key.perSize == newKey.perSize;
+        });
+        if (index < 0) {
+          inputSets.add(Map<String, dynamic>.of(newSet));
+          continue;
+        }
+        inputSets[index]['nutrients'] = <String, dynamic>{
+          ...?inputSets[index]['nutrients'] as Map<String, dynamic>?,
+          ...?newSet['nutrients'] as Map<String, dynamic>?,
+        };
+      }
+    }
+    return <String, dynamic>{...?initial, 'input_sets': inputSets};
+  }
+
   /// Overwrite the [initial] product with the non-null fields of [change].
   ///
   /// Currently limited to the fields modified by
@@ -87,8 +127,13 @@ class UpToDateChanges {
     // cf. https://github.com/openfoodfacts/smooth-app/issues/4627
     // If we don't check if nutriments is empty, most of the time we overwrite
     // potentially existing nutriments with an empty map.
+    // ignore: deprecated_member_use
     if (change.nutriments != null && !change.nutriments!.isEmpty()) {
+      // ignore: deprecated_member_use
       initial.nutriments = change.nutriments;
+    }
+    if (change.nutrition != null) {
+      initial.nutrition = mergeNutrition(initial.nutrition, change.nutrition!);
     }
     if (change.servingSize != null) {
       initial.servingSize = change.servingSize;
