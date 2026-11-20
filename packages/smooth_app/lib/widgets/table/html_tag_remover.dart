@@ -6,6 +6,7 @@ import 'package:html/parser.dart';
 class HtmlTagRemover extends TreeVisitor {
   String extract(String html) {
     _buffer.clear();
+    _needsSeparator = false;
     final Document document = parse(html);
     visit(document);
     return _buffer.toString();
@@ -32,8 +33,20 @@ class HtmlTagRemover extends TreeVisitor {
     'h6',
   };
 
+  /// Whether the text written so far ends with something else than a space or
+  /// a line break (so that a separator is needed).
+  bool _needsSeparator = false;
+
   @override
-  void visitText(Text node) => _buffer.write(node.data);
+  void visitText(Text node) {
+    final String data = node.data;
+    if (data.isEmpty) {
+      return;
+    }
+    _buffer.write(data);
+    final String last = data[data.length - 1];
+    _needsSeparator = last != ' ' && last != '\n';
+  }
 
   @override
   void visitElement(Element node) {
@@ -49,9 +62,9 @@ class HtmlTagRemover extends TreeVisitor {
 
   /// Adds a space, unless the text is empty or already ends with a whitespace.
   void _writeSeparator() {
-    final String text = _buffer.toString();
-    if (text.isNotEmpty && !text.endsWith(' ') && !text.endsWith('\n')) {
+    if (_needsSeparator) {
       _buffer.write(' ');
+      _needsSeparator = false;
     }
   }
 }
