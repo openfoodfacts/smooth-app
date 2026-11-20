@@ -55,7 +55,7 @@
     <section class="multi-line-signature">
       
 <span class="returntype">void</span>
-<span class="name ">setNutrientValueText</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="setNutrientValueText-param-nutrient"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Nutrient.html">Nutrient</a></span> <span class="parameter-name">nutrient</span>, </span></li>
+<span class="name ">setNutrientValueText</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="setNutrientValueText-param-nutrient"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/Nutrient.html">Nutrient</a></span> <span class="parameter-name">nutrient</span>, </span></li>
 <li><span class="parameter" id="setNutrientValueText-param-text"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">text</span>, </span></li>
 <li><span class="parameter" id="setNutrientValueText-param-numberFormat"><span class="type-annotation"><a href="https://pub.dev/documentation/intl/0.20.3/intl/NumberFormat-class.html">NumberFormat</a></span> <span class="parameter-name">numberFormat</span></span></li>
 </ol>)
@@ -65,7 +65,9 @@
     </section>
     
 <section class="desc markdown">
-  <p>Stores the text from the end-user input.</p>
+  <p>Stores the end-user input when it differs from the loaded value.</p>
+<p>Empty text and the editor's "-" (missing value) clear the value; any
+other text that can't be parsed is ignored.</p>
 </section>
 
 
@@ -78,14 +80,25 @@
   NumberFormat numberFormat,
 ) {
   num? value;
-  if (text?.isNotEmpty == true) {
-    try {
-      value = numberFormat.parse(text!);
-    } catch (e) {
-      &#47;&#47;
+  final String trimmed = text?.trim() ?? &#39;&#39;;
+  if (trimmed.isNotEmpty &amp;&amp; trimmed != &#39;-&#39;) {
+    value = numberFormat.tryParse(trimmed);
+    if (value == null) {
+      _edited.remove(nutrient);
+      return;
     }
   }
-  _values[nutrient] = value?.toDouble();
+  final num? loaded = getValue(nutrient);
+  final bool unchanged = value == null || loaded == null
+      ? value == loaded
+      : numberFormat.format(value) == numberFormat.format(loaded);
+  if (unchanged) {
+    _edited.remove(nutrient);
+  } else {
+    _edited[nutrient] = value == null
+        ? &#39;&#39;
+        : trimmed.replaceAll(numberFormat.symbols.DECIMAL_SEP, &#39;.&#39;);
+  }
 }</code></pre>
 </section>
 

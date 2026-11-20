@@ -54,8 +54,8 @@
 
     <section class="multi-line-signature">
       
-      <span class="name ">NutritionContainerHelper</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="param-orderedNutrients"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OrderedNutrients-class.html">OrderedNutrients</a></span> <span class="parameter-name">orderedNutrients</span>, </span></li>
-<li><span class="parameter" id="param-product"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Product-class.html">Product</a></span> <span class="parameter-name">product</span>, </span></li>
+      <span class="name ">NutritionContainerHelper</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="param-orderedNutrients"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/OrderedNutrients-class.html">OrderedNutrients</a></span> <span class="parameter-name">orderedNutrients</span>, </span></li>
+<li><span class="parameter" id="param-product"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/Product-class.html">Product</a></span> <span class="parameter-name">product</span>, </span></li>
 </ol>})
     </section>
     
@@ -69,15 +69,15 @@
   required Product product,
 }) {
   _initialPerSize = _perSize =
-      PerSize.fromOffTag(product.nutrimentDataPer) ?? PerSize.oneHundredGrams;
+      product.getNutritionValues(PerSize.oneHundredGrams).isEmpty &amp;&amp;
+          product.getNutritionValues(PerSize.serving).isNotEmpty
+      ? PerSize.serving
+      : PerSize.oneHundredGrams;
   _loadNutrients(orderedNutrients.nutrients);
-  _loadUnits();
-  if (product.nutriments != null) {
-    _loadValues(product.nutriments!);
-  }
+  _loadValues(product);
   setServingText(product.servingSize);
-  _initialNoNutritionData = _noNutritionData =
-      product.noNutritionData ?? false;
+  _initialServingSize = servingSize;
+  _initialNoNutritionData = _noNutritionData = product.hasNoNutritionData;
 }</code></pre>
 </section>
 

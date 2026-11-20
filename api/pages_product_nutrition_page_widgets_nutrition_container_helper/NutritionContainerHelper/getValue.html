@@ -54,8 +54,8 @@
 
     <section class="multi-line-signature">
       
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>
-<span class="name ">getValue</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getValue-param-nutrient"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Nutrient.html">Nutrient</a></span> <span class="parameter-name">nutrient</span></span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/num-class.html">num</a>?</span>
+<span class="name ">getValue</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getValue-param-nutrient"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/Nutrient.html">Nutrient</a></span> <span class="parameter-name">nutrient</span></span></li>
 </ol>)
 
       
@@ -70,7 +70,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">double? getValue(Nutrient nutrient) =&gt; _values[nutrient];</code></pre>
+  <pre class="language-dart"><code class="language-dart">num? getValue(Nutrient nutrient) =&gt; _values[nutrient]?.value;</code></pre>
 </section>
 
 

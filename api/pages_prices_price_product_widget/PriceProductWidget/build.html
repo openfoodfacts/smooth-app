@@ -117,9 +117,11 @@ Widget build(BuildContext context) {
   final List&lt;String&gt;? brands = priceProduct.brands == &#39;&#39;
       ? null
       : priceProduct.brands?.split(&#39;,&#39;);
-  final String? quantity = priceProduct.quantity == null
+  final String? quantity = priceProduct.quantityString?.isNotEmpty == true
+      ? priceProduct.quantityString
+      : (priceProduct.productQuantity ?? 0) == 0
       ? null
-      : &#39;${priceProduct.quantity} ${priceProduct.quantityUnit ?? &#39;g&#39;}&#39;;
+      : &#39;${priceProduct.productQuantity} ${priceProduct.quantityUnit ?? &#39;g&#39;}&#39;;
 
   return PriceHeaderContainer(
     imageProvider: imageURL != null ? NetworkImage(imageURL) : null,

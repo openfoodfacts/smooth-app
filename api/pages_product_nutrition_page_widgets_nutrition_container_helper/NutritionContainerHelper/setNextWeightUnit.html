@@ -55,7 +55,7 @@
     <section class="multi-line-signature">
       
 <span class="returntype">void</span>
-<span class="name ">setNextWeightUnit</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="setNextWeightUnit-param-orderedNutrient"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OrderedNutrient-class.html">OrderedNutrient</a></span> <span class="parameter-name">orderedNutrient</span></span></li>
+<span class="name ">setNextWeightUnit</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="setNextWeightUnit-param-orderedNutrient"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/OrderedNutrient-class.html">OrderedNutrient</a></span> <span class="parameter-name">orderedNutrient</span></span></li>
 </ol>)
 
       
@@ -63,7 +63,7 @@
     </section>
     
 <section class="desc markdown">
-  <p>Typical use-case: <a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Unit.html">Unit</a> button action.</p>
+  <p>Typical use-case: <a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/Unit.html">Unit</a> button action.</p>
 </section>
 
 
@@ -73,7 +73,7 @@
   <pre class="language-dart"><code class="language-dart">void setNextWeightUnit(OrderedNutrient orderedNutrient) {
   final Nutrient nutrient = orderedNutrient.nutrient!;
   final Unit unit = getUnit(nutrient);
-  _setUnit(nutrient, _nextWeightUnits[unit] ?? unit, init: false);
+  setNutrientUnit(nutrient, _nextWeightUnits[unit] ?? unit);
 }</code></pre>
 </section>
 
