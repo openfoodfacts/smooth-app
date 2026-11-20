@@ -1180,10 +1180,10 @@ packages:
     dependency: "direct main"
     description:
       name: material_ui
-      sha256: a30f5d0625b6b83770f53ca3f7aafd6fd9d147cb3853f54a70668541046fe5d6
+      sha256: a6b19012df437a356cbc01f8ea22a105e07194c47c9a6009da0032a0ce35c4ab
       url: "https://pub.dev"
     source: hosted
-    version: "1.10.0"
+    version: "1.11.1"
   matomo_tracker:
     dependency: "direct main"
     description:
@@ -1284,10 +1284,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "51bb760342865523a207d1df72e0a022d131a10a9ea0b5b663ed7be93837c561"
+      sha256: "20875cc92af0dbff93e78487949aea1ccef4d0f3f5acd5b014355238dc3589cf"
       url: "https://pub.dev"
     source: hosted
-    version: "3.30.2"
+    version: "3.32.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
