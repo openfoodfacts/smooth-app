@@ -2042,7 +2042,7 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
-  "edit_product_form_item_traces_title": "Traces",
+  "edit_product_form_item_traces_title": "Jäljed",
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
