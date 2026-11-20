@@ -1,30 +1,43 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
 
-/// Nutrition facts of a [Product]: the packaging values, as sold.
+/// Nutrition facts of a [Product]: the as sold values.
 // TODO(monsieurtanuki): move to off-dart.
 extension ProductNutritionExtension on Product {
+  /// Sources in the server's priority order.
+  static const List<String> _sources = <String>[
+    NutritionSetKey.sourceManufacturer,
+    NutritionSetKey.sourcePackaging,
+  ];
+
   /// Returns the value and unit of [nutrient] for [perSize], or null.
   NutritionValue? getNutrientValue(Nutrient nutrient, PerSize perSize) =>
       getNutritionValues(perSize)[nutrient];
 
-  /// Returns the packaging as sold values for [perSize].
+  /// Returns the as sold values for [perSize], each one from the first of
+  /// [sources] that has it.
   ///
   /// Old `nutriments` values are converted, and overridden by the new ones.
-  // TODO(UrbanFercec): also read the manufacturer, per 100ml and per serving sets.
-  Map<Nutrient, NutritionValue> getNutritionValues(PerSize perSize) {
+  // TODO(UrbanFercec): also read the per 100ml and per serving sets.
+  Map<Nutrient, NutritionValue> getNutritionValues(
+    PerSize perSize, {
+    List<String> sources = _sources,
+  }) {
     final Map<Nutrient, NutritionValue> result = <Nutrient, NutritionValue>{};
+    final List<NutritionSet> inputSets =
+        NutritionHelper().getInputSets(this) ?? <NutritionSet>[];
     <Nutrient, NutritionValue>{
       ..._getOldNutritionValues(perSize),
-      ...?NutritionHelper()
-          .getNutritionSet(
-            NutritionHelper().getInputSets(this) ?? <NutritionSet>[],
-            NutritionSetKey(
-              source: NutritionSetKey.sourcePackaging,
-              preparation: NutritionSetKey.preparationAsSold,
-              perSize: perSize,
-            ),
-          )
-          ?.nutritionValues,
+      for (final String source in sources.reversed)
+        ...?NutritionHelper()
+            .getNutritionSet(
+              inputSets,
+              NutritionSetKey(
+                source: source,
+                preparation: NutritionSetKey.preparationAsSold,
+                perSize: perSize,
+              ),
+            )
+            ?.nutritionValues,
     }.forEach((Nutrient nutrient, NutritionValue nutritionValue) {
       final NutritionValue? numberValue = _getNumber(nutritionValue);
       if (numberValue != null) {
