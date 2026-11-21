@@ -6035,6 +6035,10 @@
   "@preferences_dev_mode_product_list_import_title": {
     "description": "Title for product list import feature"
   },
+  "preferences_dev_mode_new_home_page_title": "Enable new Home Page",
+  "@preferences_dev_mode_new_home_page_title": {
+    "description": "Title for enabling the new home page feature"
+  },
   "preferences_faq_scores_methodologies_title": "Оценки и методологии",
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
@@ -6046,6 +6050,10 @@
   "preferences_faq_nutriscore_v2_subtitle": "Откройте для себя основные изменения в методологии",
   "@preferences_faq_nutriscore_v2_subtitle": {
     "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_traffic_lights_subtitle": "Discover the UK FSA methodology",
+  "@preferences_faq_traffic_lights_subtitle": {
+    "description": "Subtitle for Traffic Lights in FAQ"
   },
   "preferences_faq_discover_project_title": "Откройте для себя проект",
   "@preferences_faq_discover_project_title": {
