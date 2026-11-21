@@ -11122,6 +11122,22 @@ abstract class AppLocalizations {
   /// **'Products'**
   String get preferences_app_settings_products;
 
+  /// Title for the setting to save a city or postcode on the device
+  ///
+  /// In en, this message translates to:
+  /// **'Your city or postcode'**
+  String get preferences_city_or_postcode_title;
+
+  /// Privacy explanation for the locally saved city or postcode
+  ///
+  /// In en, this message translates to:
+  /// **'Saved on this device only. Used to prefill Open Prices store search.'**
+  String get preferences_city_or_postcode_privacy;
+
+  /// In en, this message translates to:
+  /// **'Sent to OpenStreetMap only when you submit a search.'**
+  String get preferences_city_or_postcode_openstreetmap_privacy;
+
   /// Title for the app settings products card
   ///
   /// In en, this message translates to:
