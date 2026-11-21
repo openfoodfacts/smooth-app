@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -310,7 +310,7 @@ class ProductListPopupImport extends ProductListPopupItem {
     required LocalDatabase localDatabase,
     required BuildContext context,
   }) async {
-    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+    final PlatformFile? result = await FilePicker.pickFile(
       type: FileType.custom,
       allowedExtensions: <String>['csv'],
     );
@@ -322,7 +322,7 @@ class ProductListPopupImport extends ProductListPopupItem {
     await ProductListHelper(
       list: productList,
       localDatabase: localDatabase,
-    ).importFileToList(File(result.files.single.path!));
+    ).importFileToList(File(result.path!));
 
     return productList;
   }

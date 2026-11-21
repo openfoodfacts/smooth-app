@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:smooth_app/helpers/app_localizations_delegates.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// Test to ensure all localizations properly include placeholder variables.
@@ -32,7 +33,7 @@ void main() {
     const List<Locale> locales = AppLocalizations.supportedLocales;
 
     const List<LocalizationsDelegate<dynamic>> delegates =
-        AppLocalizations.localizationsDelegates;
+        appLocalizationsDelegates;
 
     for (final Locale locale in locales) {
       testWidgets('plural test $locale', (WidgetTester tester) async {

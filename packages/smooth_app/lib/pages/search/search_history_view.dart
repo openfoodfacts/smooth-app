@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -101,6 +101,13 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       appLocalizations,
     );
 
+    final bool showPasteFromClipboard =
+        widget.searchHelper.showPasteFromClipboard;
+    final double bottomPadding = math.max(
+      MediaQuery.viewPaddingOf(context).bottom,
+      MediaQuery.viewInsetsOf(context).bottom,
+    );
+
     return ListTileTheme(
       data: ListTileThemeData(
         titleTextStyle: const TextStyle(fontSize: 18.0),
@@ -155,25 +162,22 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
                     ),
                   ),
                 _buildQueries(),
+                // Inside the list, so the cards scroll under the system bar
+                if (!showPasteFromClipboard)
+                  SliverToBoxAdapter(child: SizedBox(height: bottomPadding)),
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsetsDirectional.only(
-              top: widget.searchHelper.showPasteFromClipboard
-                  ? SMALL_SPACE
-                  : 0.0,
-              bottom: math.max(
-                MediaQuery.viewPaddingOf(context).bottom,
-                MediaQuery.viewInsetsOf(context).bottom,
+          if (showPasteFromClipboard)
+            Padding(
+              padding: EdgeInsetsDirectional.only(
+                top: SMALL_SPACE,
+                bottom: bottomPadding,
+              ),
+              child: _SearchItemPasteFromClipboard(
+                onData: (String data) => widget.onTap.call(data),
               ),
             ),
-            child: widget.searchHelper.showPasteFromClipboard
-                ? _SearchItemPasteFromClipboard(
-                    onData: (String data) => widget.onTap.call(data),
-                  )
-                : EMPTY_WIDGET,
-          ),
         ],
       ),
     );

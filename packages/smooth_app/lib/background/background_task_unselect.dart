@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
@@ -138,7 +138,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
     );
     final OpenFoodFactsLanguage language = getLanguage();
     try {
-      return await OpenFoodAPIClient.unselectProductImage(
+      await OpenFoodAPIClient.unselectProductImage(
         barcode: barcode,
         imageField: ImageField.fromOffTag(imageField)!,
         language: language,

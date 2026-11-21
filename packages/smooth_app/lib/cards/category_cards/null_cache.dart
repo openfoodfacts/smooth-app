@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 
 /// Empty image cache: the url was null, there is not much we can display.

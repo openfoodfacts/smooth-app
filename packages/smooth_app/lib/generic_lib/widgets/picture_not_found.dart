@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class PictureNotFound extends StatelessWidget {

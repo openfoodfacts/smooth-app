@@ -17,7 +17,7 @@ kotlin {
 
 android {
     namespace = "org.openfoodfacts.app"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = maxOf(flutter.compileSdkVersion, 37)
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -28,13 +28,9 @@ android {
 
     defaultConfig {
         applicationId = "org.openfoodfacts.scanner"
-        // In debug builds, bump minSdk to at least 24 (Android 7.0+) unless explicitly overridden.
-        // This avoids legacy MultiDex dexing passes and heavy Java desugaring transformations,
-        // drastically speeding up incremental and cold debug builds.
-        // Release builds retain flutter.minSdkVersion (API 21) for full backwards compatibility.
-        val isDebugTask = gradle.startParameter.taskNames.any { it.contains("Debug", ignoreCase = true) }
+        // sentry_flutter 10+ requires Android API 26+ (Android 8.0) for both debug and release builds.
         val minSdkOverride = project.findProperty("minSdk")?.toString()?.toIntOrNull()
-        minSdk = minSdkOverride ?: if (isDebugTask) maxOf(flutter.minSdkVersion, 24) else flutter.minSdkVersion
+        minSdk = minSdkOverride ?: maxOf(flutter.minSdkVersion, 26)
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

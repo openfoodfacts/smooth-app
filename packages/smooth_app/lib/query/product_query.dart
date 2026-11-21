@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -17,7 +17,8 @@ import 'package:uuid/uuid.dart';
 abstract class ProductQuery {
   const ProductQuery._();
 
-  static const ProductQueryVersion productQueryVersion = ProductQueryVersion.v3;
+  static const ProductQueryVersion productQueryVersion =
+      ProductQueryVersion.v3_5;
 
   static late OpenFoodFactsCountry _country;
 
@@ -297,11 +298,8 @@ abstract class ProductQuery {
     ProductField.PACKAGING_TAGS,
     ProductField.PACKAGING_TEXT_ALL_LANGUAGES,
     ProductField.NO_NUTRITION_DATA,
-    ProductField.NUTRIMENT_DATA_PER,
-    ProductField.NUTRITION_DATA,
-    ProductField.NUTRIMENTS,
+    ProductField.NUTRITION,
     ProductField.NUTRIENT_LEVELS,
-    ProductField.NUTRIMENT_ENERGY_UNIT,
     ProductField.ADDITIVES,
     ProductField.INGREDIENTS_ANALYSIS_TAGS,
     ProductField.INGREDIENTS_TEXT,

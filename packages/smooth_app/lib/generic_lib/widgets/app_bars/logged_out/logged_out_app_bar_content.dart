@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/app_bar_authentication_button.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';

@@ -4,12 +4,13 @@ version: 1.0.0
 publish_to: "none"
 
 environment:
-  sdk: ^3.13.0
+  sdk: ^3.14.0
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^2.2.3
+  flutter_svg: ^2.4.0
+  material_ui: ^1.10.0
   visibility_detector: ^0.4.0+2
   provider: ^6.1.5+1
 
