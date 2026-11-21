@@ -71,7 +71,7 @@ class UserPreferences extends ChangeNotifier {
 
   /// The current version of preferences
   static const String _TAG_VERSION = 'prefs_version';
-  static const int _PREFS_CURRENT_VERSION = 4;
+  static const int _PREFS_CURRENT_VERSION = 5;
   static const String _TAG_APP_LAUNCHES = 'appLaunches';
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
@@ -136,10 +136,12 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_USER_KNOWLEDGE_PANEL_ORDER =
       'userKnowledgePanelOrder';
 
-  /// Tagline feed (news displayed / clicked)
+  /// Tagline feed (news displayed / clicked / dismissed)
   static const String _TAG_TAGLINE_FEED_NEWS_DISPLAYED =
       'taglineFeedNewsDisplayed';
   static const String _TAG_TAGLINE_FEED_NEWS_CLICKED = 'taglineFeedNewsClicked';
+  static const String _TAG_TAGLINE_FEED_NEWS_DISMISSED =
+      'taglineFeedNewsDismissed';
 
   /// Donation asks (home card, reminders)
   static const String _TAG_DONATION_ASKS_MUTED_UNTIL = 'donationAsksMutedUntil';
@@ -657,6 +659,10 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getStringList(_TAG_TAGLINE_FEED_NEWS_CLICKED) ??
       <String>[];
 
+  List<String> get taglineFeedDismissedNews =>
+      _sharedPreferences.getStringList(_TAG_TAGLINE_FEED_NEWS_DISMISSED) ??
+      <String>[];
+
   final Set<String> taglineFeedSessionImpressions = <String>{};
   final Set<String> taglineFeedSessionClicks = <String>{};
 
@@ -702,6 +708,27 @@ class UserPreferences extends ChangeNotifier {
         clickedNews,
       );
     }
+  }
+
+  Future<bool> taglineFeedDismissNews(String newsId) async {
+    if (newsId.isEmpty) {
+      return false;
+    }
+    if (taglineFeedDismissedNews.contains(newsId)) {
+      return true;
+    }
+    final List<String> dismissedNews = List<String>.of(
+      taglineFeedDismissedNews,
+    );
+    dismissedNews.add(newsId);
+    final bool success = await _sharedPreferences.setStringList(
+      _TAG_TAGLINE_FEED_NEWS_DISMISSED,
+      dismissedNews,
+    );
+    if (success) {
+      notifyListeners();
+    }
+    return success;
   }
 
   DateTime? get donationAsksMutedUntil {

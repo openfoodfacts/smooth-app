@@ -40,6 +40,7 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
   Timer? _timer;
   int _index = -1;
   bool _visible = false;
+  final Set<String> _dismissingNewsIds = <String>{};
 
   @override
   void initState() {
@@ -116,6 +117,35 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
         titleBackgroundColor: currentNews.style?.titleBackground,
         titleIndicatorColor: currentNews.style?.titleIndicatorColor,
         titleColor: currentNews.style?.titleTextColor,
+        closeTooltip: AppLocalizations.of(context)
+            .scan_tagline_news_item_dismiss,
+        onClose: () async {
+          final String newsId = currentNews.id;
+          if (_dismissingNewsIds.contains(newsId)) {
+            return;
+          }
+          _dismissingNewsIds.add(newsId);
+          try {
+            final UserPreferences preferences = context.read<UserPreferences>();
+            final bool success = await preferences.taglineFeedDismissNews(
+              newsId,
+            );
+            if (!success) {
+              if (mounted) {
+                _dismissingNewsIds.remove(newsId);
+              }
+              return;
+            }
+            AnalyticsHelper.trackTaglineNewsEvent(
+              AnalyticsEvent.taglineNewsDismissed,
+              newsId,
+            );
+          } catch (_) {
+            if (mounted) {
+              _dismissingNewsIds.remove(newsId);
+            }
+          }
+        },
         body: InkWell(
           borderRadius: const BorderRadius.vertical(bottom: radius),
           onTap: () {

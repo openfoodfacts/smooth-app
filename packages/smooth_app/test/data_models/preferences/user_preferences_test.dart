@@ -12,6 +12,7 @@ const String _tagStripHiddenUntil = 'donationStripHiddenUntil';
 const String _tagProductsLookedUp = 'productsLookedUpSinceAsk';
 const String _tagLastCountedBarcode = 'lastCountedBarcode';
 const String _tagLastReminderShownAt = 'lastReminderShownAt';
+const String _tagDismissedNews = 'taglineFeedNewsDismissed';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +33,7 @@ void main() {
     await sharedPreferences.remove(_tagProductsLookedUp);
     await sharedPreferences.remove(_tagLastCountedBarcode);
     await sharedPreferences.remove(_tagLastReminderShownAt);
+    await sharedPreferences.remove(_tagDismissedNews);
   });
 
   group('donationAsksMuted', () {
@@ -162,5 +164,50 @@ void main() {
       shownAt!.difference(before).abs(),
       lessThan(const Duration(seconds: 5)),
     );
+  });
+
+  group('taglineFeedDismissNews', () {
+    test('is empty by default', () {
+      expect(userPreferences.taglineFeedDismissedNews, isEmpty);
+    });
+
+    test('ignores empty id', () async {
+      int notified = 0;
+      void onChanged() => notified++;
+      userPreferences.addListener(onChanged);
+      addTearDown(() => userPreferences.removeListener(onChanged));
+
+      await userPreferences.taglineFeedDismissNews('');
+      expect(userPreferences.taglineFeedDismissedNews, isEmpty);
+      expect(notified, 0);
+    });
+
+    test('stores id and notifies listeners once per new id', () async {
+      int notified = 0;
+      void onChanged() => notified++;
+      userPreferences.addListener(onChanged);
+      addTearDown(() => userPreferences.removeListener(onChanged));
+
+      await userPreferences.taglineFeedDismissNews('news-1');
+      expect(userPreferences.taglineFeedDismissedNews, <String>['news-1']);
+      expect(notified, 1);
+
+      // Idempotency: dismissing same id again does nothing
+      await userPreferences.taglineFeedDismissNews('news-1');
+      expect(userPreferences.taglineFeedDismissedNews, <String>['news-1']);
+      expect(notified, 1);
+
+      // Dismissing another id appends and notifies
+      await userPreferences.taglineFeedDismissNews('news-2');
+      expect(
+        userPreferences.taglineFeedDismissedNews,
+        <String>['news-1', 'news-2'],
+      );
+      expect(notified, 2);
+
+      // Displayed and clicked lists remain unchanged
+      expect(userPreferences.taglineFeedDisplayedNews, isEmpty);
+      expect(userPreferences.taglineFeedClickedNews, isEmpty);
+    });
   });
 }

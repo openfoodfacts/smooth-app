@@ -176,6 +176,10 @@ enum AnalyticsEvent {
     tag: 'tagline news clicked',
     category: AnalyticsCategory.taglineFeed,
   ),
+  taglineNewsDismissed(
+    tag: 'tagline news dismissed',
+    category: AnalyticsCategory.taglineFeed,
+  ),
   donationPageOpened(
     tag: 'donation page opened',
     category: AnalyticsCategory.donation,

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
@@ -14,6 +15,9 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
   ScanNewsFeedProvider(BuildContext context)
     : _newsFeedProvider = context.read<AppNewsProvider>(),
       _userPreferences = context.read<UserPreferences>(),
+      _dismissedNews = List<String>.of(
+        context.read<UserPreferences>().taglineFeedDismissedNews,
+      ),
       super(const ScanTagLineStateLoading()) {
     _newsFeedProvider.addListener(_onNewsFeedStateChanged);
     _userPreferences.addListener(_onPreferencesChanged);
@@ -26,6 +30,7 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
 
   bool _donationMuted = false;
   bool _donationStripHidden = false;
+  List<String> _dismissedNews = <String>[];
 
   bool get _donationMutedNow =>
       _userPreferences.donationAsksMuted(DateTime.now());
@@ -34,8 +39,12 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
       _userPreferences.donationStripHidden(DateTime.now());
 
   void _onPreferencesChanged() {
+    final List<String> currentDismissed =
+        _userPreferences.taglineFeedDismissedNews;
     if (_donationMutedNow != _donationMuted ||
-        _donationStripHiddenNow != _donationStripHidden) {
+        _donationStripHiddenNow != _donationStripHidden ||
+        !listEquals(currentDismissed, _dismissedNews)) {
+      _dismissedNews = List<String>.of(currentDismissed);
       _onNewsFeedStateChanged();
     }
   }
@@ -67,10 +76,14 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
         donation != null &&
         !_donationMuted &&
         !_donationStripHidden;
+    final List<String> taglineFeedDismissedNews =
+        _userPreferences.taglineFeedDismissedNews;
+    _dismissedNews = List<String>.of(taglineFeedDismissedNews);
     final List<AppNewsFeedItem> feed = tagLine.feed.news
         .where(
           (AppNewsFeedItem feedItem) =>
-              !(_donationMuted || reminderArm) || !feedItem.news.isDonation,
+              (!(_donationMuted || reminderArm) || !feedItem.news.isDonation) &&
+              !taglineFeedDismissedNews.contains(feedItem.id),
         )
         .toList();
     if (feed.isEmpty && !donationStrip) {

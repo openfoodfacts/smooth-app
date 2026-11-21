@@ -35,6 +35,7 @@ const String _tagMutedUntil = 'donationAsksMutedUntil';
 const String _tagStripHiddenUntil = 'donationStripHiddenUntil';
 const String _tagDisplayed = 'taglineFeedNewsDisplayed';
 const String _tagClicked = 'taglineFeedNewsClicked';
+const String _tagDismissed = 'taglineFeedNewsDismissed';
 
 const String _alreadyDonated = 'I already donated';
 const String _stripHeadline =
@@ -238,6 +239,7 @@ void main() {
     await prefs.remove(_tagStripHiddenUntil);
     await prefs.setStringList(_tagDisplayed, <String>[]);
     await prefs.setStringList(_tagClicked, <String>[]);
+    await prefs.setStringList(_tagDismissed, <String>[]);
     userPreferences.taglineFeedSessionImpressions.clear();
     userPreferences.taglineFeedSessionClicks.clear();
     VisibilityDetectorController.instance.updateInterval = Duration.zero;
@@ -309,6 +311,77 @@ void main() {
       await tester.pump();
       expect(_ids(provider), hasLength(2));
     });
+
+    testWidgets('dismissed item is dropped from the feed', (
+      WidgetTester tester,
+    ) async {
+      await userPreferences.taglineFeedDismissNews(_other.id);
+
+      final ScanNewsFeedProvider provider = await _pumpProvider(
+        tester,
+        userPreferences,
+        <AppNewsItem>[_donation, _other],
+      );
+
+      expect(_ids(provider), <String>[_donation.id]);
+    });
+
+    testWidgets(
+      'dismissing an item updates the provider without a feed reload',
+      (
+        WidgetTester tester,
+      ) async {
+        final ScanNewsFeedProvider provider = await _pumpProvider(
+          tester,
+          userPreferences,
+          <AppNewsItem>[_donation, _other],
+        );
+        expect(_ids(provider), hasLength(2));
+
+        await userPreferences.taglineFeedDismissNews(_other.id);
+        await tester.pump();
+        expect(_ids(provider), <String>[_donation.id]);
+      },
+    );
+
+    testWidgets(
+      'dismissing all items transitions to ScanTagLineStateNoContent',
+      (
+        WidgetTester tester,
+      ) async {
+        final ScanNewsFeedProvider provider = await _pumpProvider(
+          tester,
+          userPreferences,
+          <AppNewsItem>[_other],
+        );
+        expect(_ids(provider), hasLength(1));
+
+        await userPreferences.taglineFeedDismissNews(_other.id);
+        await tester.pump();
+        expect(provider.value, isA<ScanTagLineStateNoContent>());
+      },
+    );
+
+    testWidgets(
+      'dismissed item remains hidden when recreating provider with same store',
+      (WidgetTester tester) async {
+        await userPreferences.taglineFeedDismissNews(_other.id);
+
+        ScanNewsFeedProvider provider = await _pumpProvider(
+          tester,
+          userPreferences,
+          <AppNewsItem>[_donation, _other],
+        );
+        expect(_ids(provider), <String>[_donation.id]);
+
+        provider = await _pumpProvider(
+          tester,
+          userPreferences,
+          <AppNewsItem>[_donation, _other],
+        );
+        expect(_ids(provider), <String>[_donation.id]);
+      },
+    );
   });
 
   group('ScanNewsFeedProvider on the reminder side of the donation test', () {
