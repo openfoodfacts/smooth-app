@@ -23,7 +23,14 @@ enum AnalyticsCategory {
   list(tag: 'list'),
   deepLink(tag: 'deep link'),
   hungerGame(tag: 'hunger game'),
-  appRating(tag: 'app rating');
+  appRating(tag: 'app rating'),
+  taglineFeed(tag: 'tagline feed'),
+  donation(tag: 'donation'),
+  lifecycle(tag: 'lifecycle'),
+  onboarding(tag: 'onboarding'),
+  knowledgePanel(tag: 'knowledge panel'),
+  navigation(tag: 'navigation'),
+  foodPreferences(tag: 'food preferences');
 
   const AnalyticsCategory({required this.tag});
 
@@ -101,6 +108,10 @@ enum AnalyticsEvent {
     tag: 'closed new product page without any input',
     category: AnalyticsCategory.productFastTrackEdit,
   ),
+  closeFastTrackProductPage(
+    tag: 'closed fast-track product edit page',
+    category: AnalyticsCategory.productFastTrackEdit,
+  ),
   openNewProductPage(
     tag: 'opened new product page',
     category: AnalyticsCategory.newProduct,
@@ -123,6 +134,10 @@ enum AnalyticsEvent {
   ),
   closeEmptyNewProductPage(
     tag: 'closed new product page without any input',
+    category: AnalyticsCategory.newProduct,
+  ),
+  closeNewProductPage(
+    tag: 'closed new product page',
     category: AnalyticsCategory.newProduct,
   ),
   shareList(tag: 'shared a list', category: AnalyticsCategory.list),
@@ -152,6 +167,81 @@ enum AnalyticsEvent {
   appRatingNotSatisfied(
     tag: 'not satisfied',
     category: AnalyticsCategory.appRating,
+  ),
+  taglineNewsDisplayed(
+    tag: 'tagline news displayed',
+    category: AnalyticsCategory.taglineFeed,
+  ),
+  taglineNewsClicked(
+    tag: 'tagline news clicked',
+    category: AnalyticsCategory.taglineFeed,
+  ),
+  donationPageOpened(
+    tag: 'donation page opened',
+    category: AnalyticsCategory.donation,
+  ),
+  donationHandoff(
+    tag: 'donation handoff',
+    category: AnalyticsCategory.donation,
+  ),
+  donationAlreadyDonated(
+    tag: 'donation already donated',
+    category: AnalyticsCategory.donation,
+  ),
+  donationReminderShown(
+    tag: 'donation reminder shown',
+    category: AnalyticsCategory.donation,
+  ),
+  donationReminderHandoff(
+    tag: 'donation reminder handoff',
+    category: AnalyticsCategory.donation,
+  ),
+  donationReminderNotNow(
+    tag: 'donation reminder not now',
+    category: AnalyticsCategory.donation,
+  ),
+  donationStripShown(
+    tag: 'donation strip shown',
+    category: AnalyticsCategory.donation,
+  ),
+  donationStripClosed(
+    tag: 'donation strip closed',
+    category: AnalyticsCategory.donation,
+  ),
+  appFirstOpen(tag: 'app first open', category: AnalyticsCategory.lifecycle),
+  onboardingPageVisited(
+    tag: 'onboarding page visited',
+    category: AnalyticsCategory.onboarding,
+  ),
+  knowledgePanelOpen(
+    tag: 'knowledge panel open',
+    category: AnalyticsCategory.knowledgePanel,
+  ),
+  appOpen(tag: 'app open', category: AnalyticsCategory.lifecycle),
+  productPageTabSelected(
+    tag: 'product page tab selected',
+    category: AnalyticsCategory.navigation,
+  ),
+  bottomTabSelected(
+    tag: 'bottom tab selected',
+    category: AnalyticsCategory.navigation,
+  ),
+  foodPreferenceSaved(
+    tag: 'food preference saved',
+    category: AnalyticsCategory.foodPreferences,
+  ),
+  questionAnswered(
+    tag: 'question answered',
+    category: AnalyticsCategory.hungerGame,
+  ),
+  cameraPermissionRefused(
+    tag: 'camera permission refused',
+    category: AnalyticsCategory.scanning,
+  ),
+  userListCreated(tag: 'user list created', category: AnalyticsCategory.list),
+  userListProductAdded(
+    tag: 'product added to user list',
+    category: AnalyticsCategory.list,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});
@@ -231,12 +321,12 @@ class AnalyticsHelper {
   }
 
   static Future<void> initSentry({required Function()? appRunner}) async {
-    await SentryFlutter.init((SentryOptions options) {
+    await SentryFlutter.init((SentryFlutterOptions options) {
       options
-        ..dsn =
-            'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
+        ..dsn = 'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
         // To set a uniform sample rate
         ..tracesSampleRate = 1.0
+        ..enableTombstone = true
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
         ..environment =
@@ -246,12 +336,12 @@ class AnalyticsHelper {
 
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
-  static void _setCrashReports(final bool crashReports) =>
+  static void _setCrashReports(bool crashReports) =>
       _crashReports = crashReports;
 
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
-  static void _setAnalyticsReports(final bool allow) {
+  static void _setAnalyticsReports(bool allow) {
     if (allow) {
       _analyticsReporting = _AnalyticsTrackingMode.enabled;
     } else {
@@ -285,9 +375,8 @@ class AnalyticsHelper {
   /// default [PersistenceFilter] of [DispatchSettings.persistent] drops
   /// anything older than 23h59m59s when the queue is loaded.
   static Future<void> initMatomo(
-    final bool screenshotMode, {
-    final DispatchSettings dispatchSettings =
-        const DispatchSettings.persistent(),
+    bool screenshotMode, {
+    DispatchSettings dispatchSettings = const DispatchSettings.persistent(),
   }) async {
     _packageInfo = await PackageInfo.fromPlatform();
     if (screenshotMode) {
@@ -331,15 +420,32 @@ class AnalyticsHelper {
   static String get _uniqueLetter =>
       String.fromCharCode('A'.codeUnitAt(0) + _uniqueRandom % 26);
 
+  static const Duration _visitTimeout = Duration(minutes: 30);
+
+  static void trackAppOpen(
+    UserPreferences userPreferences, {
+    Duration? backgroundedFor,
+  }) {
+    if (userPreferences.lastVisitedOnboardingPage.isOnboardingNotStarted()) {
+      return;
+    }
+    if (backgroundedFor != null && backgroundedFor < _visitTimeout) {
+      return;
+    }
+    trackEvent(AnalyticsEvent.appOpen);
+  }
+
   static void trackEvent(
     AnalyticsEvent msg, {
     int? eventValue,
     String? barcode,
+    String? action,
   }) => trackCustomEvent(
     msg.name,
     msg.category.tag,
     eventValue: eventValue,
     barcode: barcode,
+    action: action,
   );
 
   // Used by code which is outside of the core:smooth_app code
@@ -352,6 +458,9 @@ class AnalyticsHelper {
     String? action,
     ProductType? productType,
   }) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final Map<String, String> dimensions = <String, String>{
       'dimension1': ProductQuery.getLanguage().offTag,
       'dimension2': ProductQuery.getCountry().offTag,
@@ -406,19 +515,22 @@ class AnalyticsHelper {
     productType: product.productType ?? ProductType.food,
   );
 
+  static void trackTaglineNewsEvent(AnalyticsEvent msg, String newsId) =>
+      trackCustomEvent(msg.name, msg.category.tag, action: newsId);
+
   static void trackSearch({
     required String search,
     String? searchCategory,
     int? searchCount,
   }) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final String searchString = '$search,$searchCategory,$searchCount';
-
     if (searchString == latestSearch) {
       return;
     }
-
     latestSearch = searchString;
-
     MatomoTracker.instance.trackSearch(
       searchKeyword: search,
       searchCount: searchCount,
@@ -426,8 +538,12 @@ class AnalyticsHelper {
     );
   }
 
-  static void trackOutlink({required String url}) =>
-      MatomoTracker.instance.trackOutlink(link: url);
+  static void trackOutlink({required String url}) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
+    MatomoTracker.instance.trackOutlink(link: url);
+  }
 
   static int? _formatBarcode(String? barcode) {
     if (barcode == null) {
@@ -445,8 +561,6 @@ class AnalyticsHelper {
   static void sendException(dynamic throwable, {dynamic stackTrace}) {
     unawaited(Sentry.captureException(throwable, stackTrace: stackTrace));
   }
-
-  static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;
 }
 
 enum _AnalyticsTrackingMode {

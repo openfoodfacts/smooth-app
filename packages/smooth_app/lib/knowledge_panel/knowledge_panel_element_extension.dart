@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panel_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_action_card.dart';
@@ -6,18 +6,19 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_image_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square/knowledge_panel_square_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_text_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/widgets/table/scrollable_table_widget.dart';
+import 'package:smooth_app/widgets/table/smooth_table.dart';
 
 /// Extension on KnowledgePanelElement.
 extension KnowledgePanelElementExtension on KnowledgePanelElement {
   /// Returns true if the element has something to display.
   ///
   /// cf. [getElementWidget].
-  bool hasSomethingToDisplay(final Product product) {
+  bool hasSomethingToDisplay(Product product) {
     switch (elementType) {
       case KnowledgePanelElementType.TEXT:
       case KnowledgePanelElementType.IMAGE:
@@ -42,12 +43,12 @@ extension KnowledgePanelElementExtension on KnowledgePanelElement {
   ///
   /// cf. [hasSomethingToDisplay].
   Widget? getElementWidget({
-    required final Product product,
-    required final bool isInitiallyExpanded,
-    required final bool isClickable,
-    required final bool isTextSelectable,
-    required final int position,
-    required final bool simplified,
+    required Product product,
+    required bool isInitiallyExpanded,
+    required bool isClickable,
+    required bool isTextSelectable,
+    required int position,
+    required bool simplified,
   }) {
     switch (elementType) {
       case KnowledgePanelElementType.TEXT:
@@ -110,11 +111,7 @@ extension KnowledgePanelElementExtension on KnowledgePanelElement {
         );
 
       case KnowledgePanelElementType.TABLE:
-        return KnowledgePanelTableCard(
-          tableElement: tableElement!,
-          isInitiallyExpanded: isInitiallyExpanded,
-          product: product,
-        );
+        return ScrollableTableWidget(SmoothTable.fromKP(tableElement!));
 
       case KnowledgePanelElementType.MAP:
         return KnowledgePanelWorldMapCard(mapElement!);
@@ -127,7 +124,7 @@ extension KnowledgePanelElementExtension on KnowledgePanelElement {
     }
   }
 
-  List<KnowledgePanel> lookForSquarePanels(final Product product) {
+  List<KnowledgePanel> lookForSquarePanels(Product product) {
     if (elementType == KnowledgePanelElementType.PANEL_GROUP) {
       final List<String>? panelIds = panelGroupElement?.panelIds;
       final List<KnowledgePanel> result = <KnowledgePanel>[];
@@ -159,4 +156,11 @@ extension KnowledgePanelElementExtension on KnowledgePanelElement {
 
     return panel.getSquarePanels(product);
   }
+
+  /// Returns the ids of the panels this element directly refers to.
+  List<String> getPanelIds() => switch (elementType) {
+    KnowledgePanelElementType.PANEL => <String>[panelElement!.panelId],
+    KnowledgePanelElementType.PANEL_GROUP => panelGroupElement!.panelIds,
+    _ => const <String>[],
+  };
 }

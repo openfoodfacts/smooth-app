@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path/path.dart';
 import 'package:provider/provider.dart';
@@ -17,10 +17,9 @@ import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/helpers/image_compute_container.dart';
+import 'package:smooth_app/helpers/image_cropper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
-import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/prices/eraser_model.dart';
 import 'package:smooth_app/pages/prices/eraser_painter.dart';
 
@@ -68,24 +67,23 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   }
 
   // cf. https://github.com/openfoodfacts/smooth-app/issues/4219
-  static bool isPictureBigEnough(final num width, final num height) =>
+  static bool isPictureBigEnough(num width, num height) =>
       width >= ImageHelper.minimumWidth || height >= ImageHelper.minimumHeight;
 
   /// Adds the background task about uploading a product image.
   static Future<void> addTask(
-    final String barcode, {
-    required final ProductType? productType,
-    required final OpenFoodFactsLanguage language,
-    required final ImageField imageField,
-    required final File fullFile,
-    required final File croppedFile,
-    required final int rotation,
-    required final int x1,
-    required final int y1,
-    required final int x2,
-    required final int y2,
-    required final List<double> eraserCoordinates,
-    required final BuildContext context,
+    String barcode, {
+    required ProductType? productType,
+    required OpenFoodFactsLanguage language,
+    required ImageField imageField,
+    required File croppedFile,
+    required int rotation,
+    required int x1,
+    required int y1,
+    required int x2,
+    required int y2,
+    required List<double> eraserCoordinates,
+    required BuildContext context,
   }) async {
     if (BackgroundTaskBarcode.isBarcodeToBeIgnored(barcode, context)) {
       return;
@@ -100,7 +98,6 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       barcode,
       productType ?? ProductType.food,
       imageField,
-      fullFile,
       croppedFile,
       uniqueId,
       rotation,
@@ -122,31 +119,30 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => null;
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskImage _getNewTask(
-    final OpenFoodFactsLanguage language,
-    final String barcode,
-    final ProductType productType,
-    final ImageField imageField,
-    final File fullFile,
-    final File croppedFile,
-    final String uniqueId,
-    final int rotationDegrees,
-    final int cropX1,
-    final int cropY1,
-    final int cropX2,
-    final int cropY2,
-    final List<double>? eraserCoordinates,
+    OpenFoodFactsLanguage language,
+    String barcode,
+    ProductType productType,
+    ImageField imageField,
+    File croppedFile,
+    String uniqueId,
+    int rotationDegrees,
+    int cropX1,
+    int cropY1,
+    int cropX2,
+    int cropY2,
+    List<double>? eraserCoordinates,
   ) => BackgroundTaskImage._(
     uniqueId: uniqueId,
     barcode: barcode,
     productType: productType,
     processName: _operationType.processName,
     imageField: imageField.offTag,
-    fullPath: fullFile.path,
+    fullPath: croppedFile.path,
     croppedPath: croppedFile.path,
     rotationDegrees: rotationDegrees,
     cropX1: cropX1,
@@ -178,8 +174,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   // TODO(monsieurtanuki): we may also need to remove old files that were not removed from some reason
   @override
   Future<void> postExecute(
-    final LocalDatabase localDatabase,
-    final bool success,
+    LocalDatabase localDatabase,
+    bool success,
   ) async {
     await super.postExecute(localDatabase, success);
     try {
@@ -210,29 +206,28 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   }
 
   /// Returns an image loaded from data.
-  static Future<ui.Image> loadUiImage(final Uint8List list) async {
+  static Future<ui.Image> loadUiImage(Uint8List list) async {
     final Completer<ui.Image> completer = Completer<ui.Image>();
     ui.decodeImageFromList(list, completer.complete);
     return completer.future;
   }
 
   /// Returns [source] with all corners multiplied by a [factor].
-  static Rect getResizedRect(final Rect source, final num factor) =>
-      Rect.fromLTRB(
-        source.left * factor,
-        source.top * factor,
-        source.right * factor,
-        source.bottom * factor,
-      );
+  static Rect getResizedRect(Rect source, num factor) => Rect.fromLTRB(
+    source.left * factor,
+    source.top * factor,
+    source.right * factor,
+    source.bottom * factor,
+  );
 
-  static Rect getUpsizedRect(final Rect source) =>
+  static Rect getUpsizedRect(Rect source) =>
       getResizedRect(source, _cropConversionFactor);
 
   static Rect getDownsizedRect(
-    final int cropX1,
-    final int cropY1,
-    final int cropX2,
-    final int cropY2,
+    int cropX1,
+    int cropY1,
+    int cropX2,
+    int cropY2,
   ) => getResizedRect(
     Rect.fromLTRB(
       cropX1.toDouble(),
@@ -253,15 +248,14 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// Returns null if the image (cropped or not) is too small.
   /// [maxSize] is the max pixel size for width or height (e.g. 2000)
   static Future<BackgroundCropResult> cropIfNeeded({
-    required final String fullPath,
-    required final int rotationDegrees,
-    required final int cropX1,
-    required final int cropY1,
-    required final int cropX2,
-    required final int cropY2,
-    required final bool forceCompression,
-    required final List<double>? eraserCoordinates,
-    final int? maxSize,
+    required String fullPath,
+    required int rotationDegrees,
+    required int cropX1,
+    required int cropY1,
+    required int cropX2,
+    required int cropY2,
+    required bool forceCompression,
+    required List<double>? eraserCoordinates,
   }) async {
     final String croppedPath = await getCroppedPath(fullPath);
 
@@ -281,16 +275,20 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
             ),
           );
     final File fullFile = await BackgroundTaskUpload.getFile(fullPath);
+    // TODO(monsieurtanuki): send full image width and height instead of recomputing them
     final ui.Image full = await loadUiImage(await fullFile.readAsBytes());
+    final int fullWidth = full.width;
+    final int fullHeight = full.height;
+    full.dispose();
     if (!forceCompression) {
       if (cropX1 == 0 &&
           cropY1 == 0 &&
           cropX2 == _cropConversionFactor &&
           cropY2 == _cropConversionFactor &&
           rotationDegrees == 0) {
-        if (!isPictureBigEnough(full.width, full.height)) {
+        if (!isPictureBigEnough(fullWidth, fullHeight)) {
           return BackgroundCropResult.error(
-            'Picture too small (${full.width} x ${full.height})',
+            'Picture too small ($fullWidth x $fullHeight)',
           );
         }
         // in that case, no need to crop
@@ -298,8 +296,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
           return BackgroundCropResult.success(
             filePath: fullPath,
             fileSize: await fullFile.length(),
-            width: full.width,
-            height: full.height,
+            width: fullWidth,
+            height: fullHeight,
             message: 'Full image "as-is"',
           );
         }
@@ -311,16 +309,10 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       switch (CropRotationExtension.fromDegrees(rotationDegrees)!) {
         case CropRotation.up:
         case CropRotation.down:
-          return Size(
-            cropRect.width * full.height,
-            cropRect.height * full.width,
-          );
+          return Size(cropRect.width * fullHeight, cropRect.height * fullWidth);
         case CropRotation.left:
         case CropRotation.right:
-          return Size(
-            cropRect.width * full.width,
-            cropRect.height * full.height,
-          );
+          return Size(cropRect.width * fullWidth, cropRect.height * fullHeight);
       }
     }
 
@@ -330,30 +322,25 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         'Cropped picture too small (${croppedSize.width} x ${croppedSize.height})',
       );
     }
-    final ui.Image cropped = await CropController.getCroppedBitmap(
+    final File croppedFile = await BackgroundTaskUpload.getFile(croppedPath);
+    final ImageCropper imageCropper = ImageCropper(
+      inputFile: fullFile,
+      outputFile: croppedFile,
       crop: getDownsizedRect(cropX1, cropY1, cropX2, cropY2),
       rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
-      image: full,
-      maxSize: maxSize?.toDouble(),
-      quality: FilterQuality.high,
       overlayPainter: overlayPainter,
     );
-    final File croppedFile = await BackgroundTaskUpload.getFile(croppedPath);
-    await saveJpeg(
-      file: croppedFile,
-      source: cropped,
-      quality: ImagePickerConstants.imageQuality,
-    );
+    final (int, int) size = await imageCropper.saveCroppedJpeg();
     return BackgroundCropResult.success(
       filePath: croppedPath,
       fileSize: await croppedFile.length(),
-      width: cropped.width,
-      height: cropped.height,
+      width: size.$1,
+      height: size.$2,
       message: 'Cropped',
     );
   }
 
-  static Future<String> getCroppedPath(final String fullPath) async {
+  static Future<String> getCroppedPath(String fullPath) async {
     final String croppedPath = '$fullPath.cropped.jpg';
 
     if (_isFileWritable(File(croppedPath))) {
@@ -374,7 +361,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
   /// Uploads the product image.
   @override
-  Future<void> upload(final LocalDatabase localDatabase) async {
+  Future<void> upload(LocalDatabase localDatabase) async {
     final UriProductHelper uriProductHelper = await getUriProductHelper(
       localDatabase,
     );
@@ -385,10 +372,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       final OpenFoodFactsLanguage language = getLanguage();
       final User user = getUser();
 
-      Future<Status> addImage({
-        required bool force,
-        required int maxSize,
-      }) async {
+      Future<Status> addImage({required bool force}) async {
         cropResult = await cropIfNeeded(
           fullPath: fullPath,
           rotationDegrees: rotationDegrees,
@@ -398,7 +382,6 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
           cropY2: cropY2,
           forceCompression: force,
           eraserCoordinates: eraserCoordinates,
-          maxSize: maxSize,
         );
         final String? path = cropResult!.filePath;
         if (path == null) {
@@ -420,17 +403,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
       Status status;
       try {
-        status = await addImage(
-          force: false,
-          maxSize: ImagePickerConstants.maxSize.toInt(),
-        );
+        status = await addImage(force: false);
       } catch (e) {
         if (e.toString().contains('413') ||
             e.toString().contains('Request Entity Too Large')) {
-          status = await addImage(
-            force: true,
-            maxSize: ImagePickerConstants.maxSizeFallback.toInt(),
-          );
+          status = await addImage(force: true);
         } else {
           rethrow;
         }

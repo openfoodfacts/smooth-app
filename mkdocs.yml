@@ -6,6 +6,7 @@ repo_url: https://github.com/openfoodfacts/smooth-app
 edit_uri: blob/develop/docs/
 
 site_name: Open Food Facts mobile app
+site_url: https://openfoodfacts.github.io/smooth-app/
 site_dir: gh_pages
 
 theme:
@@ -13,7 +14,7 @@ theme:
   palette:
     primary: beige
     text: black
-  logo: assets/app/logo_text_black.svg
+  logo: assets/logo.svg
   features:
     - content.action.edit
 markdown_extensions:

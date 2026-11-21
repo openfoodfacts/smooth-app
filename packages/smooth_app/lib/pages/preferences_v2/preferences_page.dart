@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -8,11 +8,12 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_app_bar.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/food_preferences/food_preferences_page.dart';
 import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/banner/new_nutriscore_header.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/footer/preferences_social_networks.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
@@ -34,7 +35,6 @@ import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/wiki
 import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/square_preference_tile.dart';
-import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -57,6 +57,9 @@ class PreferencesPage extends StatelessWidget {
 
     final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
     final bool lightTheme = context.lightTheme();
+    final PricesRoot pricesRoot = PricesRoot(
+      title: appLocalizations.preferences_prices_title,
+    );
 
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
@@ -65,7 +68,7 @@ class PreferencesPage extends StatelessWidget {
             ? LoggedInAppBar(userId: userId)
             : const LoggedOutAppBar(),
         cards: <PreferenceCard>[
-          _buildContributeCard(context, appLocalizations),
+          _buildContributeCard(context, appLocalizations, pricesRoot),
           PreferenceCard(
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
@@ -90,7 +93,7 @@ class PreferencesPage extends StatelessWidget {
             title: appLocalizations.preferences_card_project,
             tiles: <PreferenceTile>[
               _buildContributeProjectTile(appLocalizations),
-              _buildSupportTile(appLocalizations),
+              _buildSupportTile(context, appLocalizations),
             ],
           ),
           PreferenceCard(
@@ -114,6 +117,7 @@ class PreferencesPage extends StatelessWidget {
             ],
           ),
         ],
+        searchRoots: <PreferencesRoot>[pricesRoot],
         externalSearchTiles: const <ExternalSearchPreferenceTile>[
           WikiSearchPreferenceTile(),
           GithubSearchPreferenceTile(),
@@ -142,13 +146,19 @@ class PreferencesPage extends StatelessWidget {
   PreferenceCard _buildContributeCard(
     BuildContext context,
     AppLocalizations appLocalizations,
+    PricesRoot pricesRoot,
   ) {
     final AutoSizeGroup autoSizeGroup = AutoSizeGroup();
 
     return PreferenceCard(
       grid: true,
       tiles: <PreferenceTile>[
-        _buildPricesContributionTile(context, appLocalizations, autoSizeGroup),
+        _buildPricesContributionTile(
+          context,
+          appLocalizations,
+          autoSizeGroup,
+          pricesRoot,
+        ),
         _buildHungerGamesTile(context, autoSizeGroup),
         _buildCompleteProductsTile(context, appLocalizations, autoSizeGroup),
       ],
@@ -159,6 +169,7 @@ class PreferencesPage extends StatelessWidget {
     BuildContext context,
     AppLocalizations appLocalizations,
     AutoSizeGroup autoSizeGroup,
+    PricesRoot pricesRoot,
   ) {
     return SquarePreferenceTile(
       title: appLocalizations.preferences_add_prices,
@@ -172,9 +183,7 @@ class PreferencesPage extends StatelessWidget {
             builder: (BuildContext context) =>
                 ChangeNotifierProvider<PreferencesRootSearchController>(
                   create: (_) => PreferencesRootSearchController(),
-                  child: PricesRoot(
-                    title: appLocalizations.preferences_prices_title,
-                  ),
+                  child: pricesRoot,
                 ),
           ),
         );
@@ -260,14 +269,17 @@ class PreferencesPage extends StatelessWidget {
     );
   }
 
-  UrlPreferenceTile _buildSupportTile(AppLocalizations appLocalizations) {
-    return UrlPreferenceTile(
+  PreferenceTile _buildSupportTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
       leading: const icons.Donate(),
       title: appLocalizations.preferences_support_title,
       subtitleText: appLocalizations.preferences_support_subtitle,
-      // the donate page includes javascript, not well accepted by webviews
-      url: 'using onTap instead',
-      onTap: () async => LaunchUrlHelper.launchURL(appLocalizations.donate_url),
+      onTap: () => AppNavigator.of(
+        context,
+      ).push(AppRoutes.DONATE(DonationSource.settings)),
     );
   }
 

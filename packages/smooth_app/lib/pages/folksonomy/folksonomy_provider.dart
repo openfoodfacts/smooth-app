@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_folksonomy.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
@@ -125,7 +125,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  void _updateDisplayableTags(final List<ProductTag> tags) {
+  void _updateDisplayableTags(List<ProductTag> tags) {
     if (_equals(tags)) {
       if (value is! FolksonomyStateLoaded) {
         value = FolksonomyStateLoaded(tags: _tags);
@@ -138,7 +138,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     value = FolksonomyStateLoaded(tags: _tags);
   }
 
-  bool _equals(final List<ProductTag> tags) {
+  bool _equals(List<ProductTag> tags) {
     final List<ProductTag> sortedTags = List<ProductTag>.from(tags);
     _sortTags(sortedTags);
     return const DeepCollectionEquality().equals(_tags, sortedTags);
@@ -201,7 +201,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     await BackgroundTaskFolksonomy.addTask(barcode, _localDatabase);
   }
 
-  List<FolksonomyOperation>? _getPendingOperations(final String barcode) =>
+  List<FolksonomyOperation>? _getPendingOperations(String barcode) =>
       _daoTransientFolksonomy.get(barcode);
 }
 

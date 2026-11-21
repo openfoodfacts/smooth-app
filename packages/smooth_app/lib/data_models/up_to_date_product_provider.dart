@@ -30,7 +30,7 @@ class UpToDateProductProvider {
   final UpToDateInterest _interest = UpToDateInterest();
 
   /// Returns true if at least one barcode was refreshed after the [timestamp].
-  bool needsRefresh(final int? latestTimestamp, final List<String> barcodes) {
+  bool needsRefresh(int? latestTimestamp, List<String> barcodes) {
     if (latestTimestamp == null) {
       // no need to "refresh", need to start instead!
       return false;
@@ -47,12 +47,12 @@ class UpToDateProductProvider {
   /// Shows an interest for a barcode.
   ///
   /// Typically, to be used by a widget in `initState`.
-  void showInterest(final String barcode) => _interest.add(barcode);
+  void showInterest(String barcode) => _interest.add(barcode);
 
   /// Loses interest for a barcode.
   ///
   /// Typically, to be used by a widget in `dispose`.
-  void loseInterest(final String barcode) {
+  void loseInterest(String barcode) {
     final bool lostInterest = _interest.remove(barcode);
     if (!lostInterest) {
       return;
@@ -63,8 +63,8 @@ class UpToDateProductProvider {
 
   /// Typical use-case: a product page is refreshed through a pull-gesture.
   void setLatestDownloadedProduct(
-    final Product product, {
-    final bool notify = true,
+    Product product, {
+    bool notify = true,
   }) {
     _latestDownloadedProducts[product.barcode!] = product;
     _timestamps[product.barcode!] = LocalDatabase.nowInMillis();
@@ -74,7 +74,7 @@ class UpToDateProductProvider {
   }
 
   /// Typical use-case: a product list page is refreshed through a pull-gesture.
-  void setLatestDownloadedProducts(final Iterable<Product> products) {
+  void setLatestDownloadedProducts(Iterable<Product> products) {
     if (_interest.isEmpty) {
       return;
     }
@@ -91,7 +91,7 @@ class UpToDateProductProvider {
   }
 
   /// Returns the [product] with all the local pending changes on top.
-  Product getLocalUpToDate(final Product initialProduct) {
+  Product getLocalUpToDate(Product initialProduct) {
     final String barcode = initialProduct.barcode!;
     Product result = copy(_latestDownloadedProducts[barcode] ?? initialProduct);
     result = _changes.getUpToDateProduct(result);
@@ -99,18 +99,18 @@ class UpToDateProductProvider {
   }
 
   /// Returns true if there are pending operations for that [barcode].
-  bool hasPendingChanges(final String barcode) =>
+  bool hasPendingChanges(String barcode) =>
       _changes.hasNotTerminatedOperations(barcode);
 
   // TODO(monsieurtanuki): move code to off-dart Product?
-  Product copy(final Product source) => Product.fromJson(
+  Product copy(Product source) => Product.fromJson(
     jsonDecode(jsonEncode(source.toJson())) as Map<String, dynamic>,
   );
 
   /// Adds a minimalist local change to pending ones.
   Future<void> addChange(
-    final String key,
-    final Product minimalistProduct,
+    String key,
+    Product minimalistProduct,
   ) async {
     final String barcode = minimalistProduct.barcode!;
     await _changes.add(key, minimalistProduct);
@@ -120,11 +120,11 @@ class UpToDateProductProvider {
 
   /// Returns the local pending change ids related to a [barcode].
   Iterable<TransientOperation>? getSortedChangeOperations(
-    final String barcode,
+    String barcode,
   ) => _changes.getSortedOperations(barcode);
 
   /// Closes a single operation, successful or failed.
-  void terminate(final String operationKey) {
+  void terminate(String operationKey) {
     _changes.terminate(operationKey);
     localDatabase.notifyListeners();
   }

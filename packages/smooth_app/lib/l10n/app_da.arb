@@ -1189,7 +1189,7 @@
     "description": "The product data couldn't be refreshed"
   },
   "product_internet_error_modal_title": "Der opstod en fejl!",
-  "product_internet_error_modal_message": "Vi kan ikke hente oplysninger om dette produkt grundet en netværksfejl. Tjek venligst din internetforbindelse og prøv igen.",
+  "product_internet_error_modal_message": "Vi kan ikke hente oplysninger om dette produkt grundet en netværksfejl. Tjek venligst din internetforbindelse og prøv igen.\n\nIntern fejl:\n{error}",
   "@product_internet_error_modal_message": {
     "placeholders": {
       "error": {
@@ -4735,11 +4735,11 @@
   "nutriscore_not_applicable": "Nutri-Score er ikke tilgængeligt",
   "nutriscore_not_applicable_new_formula": "Nutri-Score er ikke tilgængeligt (Ny beregning)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Grøn-Score A",
-  "environmental_score_b_new": "Grøn-Score B",
-  "environmental_score_c_new": "Grøn-Score C",
-  "environmental_score_d_new": "Grøn-Score D",
-  "environmental_score_e_new": "Grøn-Score E",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "Ukendt Green-Score",
   "environmental_score_not_applicable_new": "Green-Score er ikke relevant",
   "nova_group_generic_new": "Ultraforarbejdede fødevarer - NOVA-grupper",

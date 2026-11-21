@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
@@ -16,6 +15,9 @@ import 'package:vector_graphics/vector_graphics.dart';
 
 class FaqRoot extends PreferencesRoot {
   const FaqRoot({required super.title});
+
+  @override
+  String get actionName => 'Opened faq_page';
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {
@@ -108,7 +110,7 @@ class FaqRoot extends PreferencesRoot {
   PreferenceTile _buildTrafficLightsTile(AppLocalizations appLocalizations) {
     return _createScoreTile(
       title: appLocalizations.nutrition_facts,
-      subtitleText: 'Discover the UK FSA methodology',
+      subtitleText: appLocalizations.preferences_faq_traffic_lights_subtitle,
       url: 'https://world.openfoodfacts.org/traffic-lights',
       svg: 'assets/cache/low.svg',
     );
@@ -213,7 +215,7 @@ class FaqRoot extends PreferencesRoot {
     return UrlPreferenceTile(
       leading: const icons.Faq(),
       title: appLocalizations.preferences_faq_faq_title,
-      url: _getFAQUrl(),
+      url: ProductQuery.replaceSubdomain('https://world.openfoodfacts.org/faq'),
     );
   }
 
@@ -266,22 +268,5 @@ class FaqRoot extends PreferencesRoot {
       subtitleText: subtitleText,
       url: ProductQuery.replaceSubdomain(url),
     );
-  }
-
-  String _getFAQUrl() {
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-
-    // TODO(teolemon): regularly check for additional translations
-    return switch (language) {
-      OpenFoodFactsLanguage.FRENCH =>
-        'https://support.openfoodfacts.org/help/fr-fr',
-      OpenFoodFactsLanguage.ITALIAN =>
-        'https://support.openfoodfacts.org/help/it-it',
-      OpenFoodFactsLanguage.GERMAN =>
-        'https://support.openfoodfacts.org/help/de-de',
-      OpenFoodFactsLanguage.SPANISH =>
-        'https://support.openfoodfacts.org/help/es-es',
-      _ => 'https://support.openfoodfacts.org/help',
-    };
   }
 }

@@ -9,6 +9,7 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -107,7 +108,7 @@ class AppNewsProvider extends ChangeNotifier {
       final _TagLineJSON tagLineJSON = _TagLineJSON.fromJson(
         jsonDecode(json) as Map<dynamic, dynamic>,
       );
-      return tagLineJSON.toTagLine(locale, appVersion, appLaunches);
+      return await tagLineJSON.toTagLine(locale, appVersion, appLaunches);
     } catch (_) {
       return null;
     }
@@ -160,7 +161,7 @@ class AppNewsProvider extends ChangeNotifier {
     (Directory dir) => File(join(dir.path, 'tagline.json')),
   );
 
-  Future<File> _saveNewsToCache(final String json) async {
+  Future<File> _saveNewsToCache(String json) async {
     final File file = await _newsCacheFile;
     return file.writeAsString(json);
   }

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// An extension on [TextStyle] that allows to have "well spaced" variant
 extension TextStyleExtension on TextStyle {

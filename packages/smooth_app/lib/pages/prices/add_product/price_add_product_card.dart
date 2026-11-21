@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -22,7 +22,7 @@ class PriceAddProductCard extends StatelessWidget {
       child: Column(
         children: priceAddProductActions
             .map(
-              (final PriceAddProductAction action) => Padding(
+              (PriceAddProductAction action) => Padding(
                 padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
                 child: SmoothLargeButtonWithIcon(
                   text: action.label(appLocalizations),

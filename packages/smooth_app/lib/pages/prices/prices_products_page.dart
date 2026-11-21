@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -27,11 +27,14 @@ class PricesProductsPage extends StatefulWidget {
 
 class _PricesProductsPageState extends State<PricesProductsPage>
     with TraceableClientMixin {
+  @override
+  String get actionName => 'Opened prices_products_page';
+
   final _InfiniteScrollProductManager _productManager =
       _InfiniteScrollProductManager();
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SmoothScaffold(
@@ -71,7 +74,7 @@ class _InfiniteScrollProductManager
       ];
 
   @override
-  Future<void> fetchData(final int pageNumber) async {
+  Future<void> fetchData(int pageNumber) async {
     final MaybeError<GetPriceProductsResult> result =
         await OpenPricesAPIClient.getPriceProducts(
           GetPriceProductsParameters()

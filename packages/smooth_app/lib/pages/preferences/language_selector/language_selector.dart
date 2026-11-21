@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' hide Listener;
+import 'package:material_ui/material_ui.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_language_refresh.dart';
@@ -71,7 +71,7 @@ class LanguageSelector extends StatelessWidget {
     );
   }
 
-  static String _getCompleteName(final OpenFoodFactsLanguage language) {
+  static String _getCompleteName(OpenFoodFactsLanguage language) {
     final String nameInLanguage = Languages().getNameInLanguage(language);
     final String nameInEnglish = Languages().getNameInEnglish(language);
     return '$nameInLanguage ($nameInEnglish)';

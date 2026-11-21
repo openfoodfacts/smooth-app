@@ -6,7 +6,7 @@ import 'package:smooth_app/pages/locations/osm_location.dart';
 
 /// Asynchronously loads locations.
 abstract class LocationListSupplier {
-  static LocationListSupplier getBestInitialSupplier(final String query) {
+  static LocationListSupplier getBestInitialSupplier(String query) {
     int? osmId = int.tryParse(query);
     if (osmId != null) {
       final List<String> queries = <String>[];

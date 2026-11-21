@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
 
@@ -174,8 +174,11 @@ class _SmoothAnimatedListState<T> extends State<SmoothAnimatedList<T>> {
   }
 }
 
-typedef SmoothSliverListItemBuilder<T> =
-    Widget Function(BuildContext context, T object, int index);
+typedef SmoothSliverListItemBuilder<T> = Widget Function(
+  BuildContext context,
+  T object,
+  int index,
+);
 
 class _MovingOverlayItem extends StatefulWidget {
   const _MovingOverlayItem({

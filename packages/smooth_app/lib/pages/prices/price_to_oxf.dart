@@ -14,10 +14,10 @@ import 'package:smooth_app/query/product_query.dart';
 class PriceToOxF {
   PriceToOxF._(this._name, this._helper);
 
-  PriceToOxF._store(final Location location)
+  PriceToOxF._store(Location location)
     : this._(location.name?.trim(), SimpleInputPageStoreHelper());
 
-  PriceToOxF._country(final Location location)
+  PriceToOxF._country(Location location)
     : this._(
         OpenFoodFactsCountry.fromOffTag(location.countryCode?.trim())?.name,
         SimpleInputPageCountryHelper(null),
@@ -27,10 +27,10 @@ class PriceToOxF {
   final AbstractSimpleInputPageHelper _helper;
 
   static Future<void> updateOxF({
-    required final LocalDatabase localDatabase,
-    required final List<String> initialBarcodes,
-    required final int locationOSMId,
-    required final LocationOSMType locationOSMType,
+    required LocalDatabase localDatabase,
+    required List<String> initialBarcodes,
+    required int locationOSMId,
+    required LocationOSMType locationOSMType,
   }) async {
     final List<String> actualBarcodes = <String>[];
     for (final String barcode in initialBarcodes) {
@@ -119,8 +119,8 @@ class PriceToOxF {
   }
 
   Future<void> _addTaskIfChanged({
-    required final Product product,
-    required final LocalDatabase localDatabase,
+    required Product product,
+    required LocalDatabase localDatabase,
   }) async {
     if (!_isOk()) {
       return;

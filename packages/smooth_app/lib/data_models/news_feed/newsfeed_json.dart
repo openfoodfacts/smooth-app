@@ -124,6 +124,12 @@ class _TagLineItemNewsItem {
     required this.raised,
     required this.goal,
     required this.currency,
+    required this.donationAmounts,
+    required this.donationScansPerUnit,
+    required this.count,
+    required this.donationReminderEvery,
+    required this.donationAbNewPercent,
+    required this.donationStripHideDays,
     this.minLaunches,
     this.startDate,
     this.endDate,
@@ -158,6 +164,12 @@ class _TagLineItemNewsItem {
       raised = json['raised'] as num?,
       goal = json['goal'] as num?,
       currency = json['currency'],
+      donationAmounts = DonationOffer.feedList<num>(json['donation_amounts']),
+      donationScansPerUnit = json['donation_scans_per_unit'] as num?,
+      count = json['count'] as num?,
+      donationReminderEvery = json['donation_reminder_every'] as num?,
+      donationAbNewPercent = json['donation_ab_new_percent'] as num?,
+      donationStripHideDays = json['donation_strip_hide_days'] as num?,
       startDate = DateTime.tryParse(json['start_date']),
       endDate = DateTime.tryParse(json['end_date']),
       minVersion = json['min_version'],
@@ -178,6 +190,12 @@ class _TagLineItemNewsItem {
   final num? raised;
   final num? goal;
   final String? currency;
+  final List<num>? donationAmounts;
+  final num? donationScansPerUnit;
+  final num? count;
+  final num? donationReminderEvery;
+  final num? donationAbNewPercent;
+  final num? donationStripHideDays;
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
     _TagLineItemNewsTranslation? translation;
@@ -216,6 +234,13 @@ class _TagLineItemNewsItem {
       raised: raised,
       goal: goal,
       currency: currency,
+      donationAmounts: donationAmounts,
+      donationScansPerUnit: donationScansPerUnit,
+      count: count,
+      donationReminderEvery: donationReminderEvery,
+      donationAbNewPercent: donationAbNewPercent,
+      donationStripHideDays: donationStripHideDays,
+      donationWhereItGoes: translation.donationWhereItGoes,
       image: translation.image?.overridesContent == true
           ? translation.image?.toTagLineImage()
           : null,
@@ -237,6 +262,12 @@ class _TagLineItemNewsItem {
     num? raised,
     num? goal,
     String? currency,
+    List<num>? donationAmounts,
+    num? donationScansPerUnit,
+    num? count,
+    num? donationReminderEvery,
+    num? donationAbNewPercent,
+    num? donationStripHideDays,
   }) {
     return _TagLineItemNewsItem._(
       id: id,
@@ -252,6 +283,14 @@ class _TagLineItemNewsItem {
       raised: raised ?? this.raised,
       goal: goal ?? this.goal,
       currency: currency ?? this.currency,
+      donationAmounts: donationAmounts ?? this.donationAmounts,
+      donationScansPerUnit: donationScansPerUnit ?? this.donationScansPerUnit,
+      count: count ?? this.count,
+      donationReminderEvery:
+          donationReminderEvery ?? this.donationReminderEvery,
+      donationAbNewPercent: donationAbNewPercent ?? this.donationAbNewPercent,
+      donationStripHideDays:
+          donationStripHideDays ?? this.donationStripHideDays,
     );
   }
 }
@@ -266,6 +305,7 @@ class _TagLineItemNewsTranslation {
     this.buttonLabel,
     this.image,
     this.darkImage,
+    this.donationWhereItGoes,
   });
 
   _TagLineItemNewsTranslation.fromJson(Map<dynamic, dynamic> json)
@@ -285,13 +325,17 @@ class _TagLineItemNewsTranslation {
           : _TagLineNewsImage.fromJson(json['image']),
       darkImage = json['image_dark'] == null
           ? null
-          : _TagLineNewsImage.fromJson(json['image_dark']);
+          : _TagLineNewsImage.fromJson(json['image_dark']),
+      donationWhereItGoes = DonationOffer.feedList<String>(
+        json['donation_where_it_goes'],
+      );
   final String? title;
   final String? message;
   final String? url;
   final String? buttonLabel;
   final _TagLineNewsImage? image;
   final _TagLineNewsImage? darkImage;
+  final List<String>? donationWhereItGoes;
 
   _TagLineItemNewsTranslation copyWith({
     String? title,
@@ -300,6 +344,7 @@ class _TagLineItemNewsTranslation {
     String? buttonLabel,
     _TagLineNewsImage? image,
     _TagLineNewsImage? darkImage,
+    List<String>? donationWhereItGoes,
   }) {
     return _TagLineItemNewsTranslation._(
       title: title ?? this.title,
@@ -308,6 +353,7 @@ class _TagLineItemNewsTranslation {
       buttonLabel: buttonLabel ?? this.buttonLabel,
       image: image ?? this.image,
       darkImage: darkImage ?? this.darkImage,
+      donationWhereItGoes: donationWhereItGoes ?? this.donationWhereItGoes,
     );
   }
 
@@ -323,6 +369,7 @@ class _TagLineItemNewsTranslation {
       buttonLabel: other.buttonLabel,
       image: other.image,
       darkImage: other.darkImage,
+      donationWhereItGoes: other.donationWhereItGoes,
     );
   }
 }
@@ -342,6 +389,12 @@ class _TagLineItemNewsTranslationDefault extends _TagLineItemNewsTranslation {
                 .isNotEmpty,
       ),
       super.fromJson();
+
+  /// Ignored in `default`, honoured in a real locale block: unlike [title] and
+  /// [message] these lines replace strings the app already ships translated, so
+  /// a `default`-only edit would push one language over 127 translations.
+  @override
+  List<String>? get donationWhereItGoes => null;
 }
 
 class _TagLineNewsImage {

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -126,7 +126,7 @@ class RiveAnimationsLoader extends StatelessWidget {
     return Provider<FileLoader>(
       create: (_) => FileLoader.fromAsset(
         'assets/animations/off.riv',
-        riveFactory: Factory.rive,
+        riveFactory: Factory.flutter,
       ),
       dispose: (_, FileLoader fileLoader) => fileLoader.dispose(),
       child: child,

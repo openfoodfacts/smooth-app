@@ -3469,7 +3469,7 @@
       }
     }
   },
-  "share_product_text_beauty": "Посмотрите этот продукт на Open Beauty Facts:",
+  "share_product_text_beauty": "Посмотрите этот продукт на Open Beauty Facts: {url}",
   "@share_product_text_beauty": {
     "description": "The content which is send, when sharing a 'beauty' product",
     "placeholders": {
@@ -3983,7 +3983,7 @@
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Загрузите лучшие {count,plural,  one {}  few {{count} продукты}  many {{count} продукты}other{{count} продукты}} в вашей стране для мгновенного сканирования",
+  "download_top_n_products": "Загрузите лучшие {count,plural,  one {{count} продукт}  few {{count} продукта}  many {{count} продуктов}other{{count} продуктов}} в вашей стране для мгновенного сканирования",
   "@download_top_n_products": {
     "placeholders": {
       "count": {
@@ -6523,7 +6523,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Открытые лаборатории фактов о продуктах питания",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

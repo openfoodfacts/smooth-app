@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
@@ -19,7 +20,7 @@ class ProductIncompleteCard extends StatelessWidget {
   final Product product;
   final bool isLoggedInMandatory;
 
-  static bool isProductIncomplete(final Product product) {
+  static bool isProductIncomplete(Product product) {
     if (product.productType != null &&
         product.productType != ProductType.food) {
       return false;
@@ -46,7 +47,7 @@ class ProductIncompleteCard extends StatelessWidget {
         product.categoriesTagsInLanguages!.isEmpty) {
       return true;
     }
-    if (product.nutriments == null || product.nutriments!.isEmpty()) {
+    if (!product.hasNutritionData) {
       return true;
     }
     if (product.ingredientsTextInLanguages == null ||
@@ -56,18 +57,18 @@ class ProductIncompleteCard extends StatelessWidget {
     return false;
   }
 
-  static bool _isNutriscoreNotApplicable(final Product product) =>
+  static bool _isNutriscoreNotApplicable(Product product) =>
       _isScoreNotApplicable(product, 'nutriscore');
 
-  static bool _isEnvironmentalScoreNotApplicable(final Product product) =>
+  static bool _isEnvironmentalScoreNotApplicable(Product product) =>
       _isScoreNotApplicable(product, 'ecoscore');
 
-  static bool _isScoreNotApplicable(final Product product, final String tag) =>
+  static bool _isScoreNotApplicable(Product product, String tag) =>
       _getAttribute(product, tag)?.iconUrl ==
       'https://static.openfoodfacts.org/images/attributes/dist/$tag-not-applicable.svg';
 
   // TODO(monsieurtanuki): move to off-dart (or find it there)
-  static Attribute? _getAttribute(final Product product, final String id) {
+  static Attribute? _getAttribute(Product product, String id) {
     if (product.attributeGroups == null) {
       return null;
     }

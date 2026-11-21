@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 import 'package:smooth_app/cards/category_cards/raster_async_asset.dart';
@@ -21,21 +21,20 @@ class RasterCache extends AbstractCache {
       fit: BoxFit.contain,
       loadingBuilder:
           (
-            final BuildContext context,
-            final Widget child,
-            final ImageChunkEvent? loadingProgress,
+            BuildContext context,
+            Widget child,
+            ImageChunkEvent? loadingProgress,
           ) {
             if (loadingProgress == null) {
               return child;
             }
             return _localAssetWidget(fullFilenames);
           },
-      errorBuilder:
-          (
-            final BuildContext context,
-            final Object error,
-            final StackTrace? stackTrace,
-          ) => _localAssetWidget(fullFilenames),
+      errorBuilder: (
+        BuildContext context,
+        Object error,
+        StackTrace? stackTrace,
+      ) => _localAssetWidget(fullFilenames),
     );
   }
 

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -10,6 +10,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.da
 import 'package:smooth_app/pages/preferences/user_preferences_food_search_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/widgets/text/text_style_extensions.dart';
 
 /// Collapsed/expanded display of attribute groups for the preferences page.
@@ -54,7 +55,7 @@ class UserPreferencesFood {
     // we don't want this on the onboarding
     UserPreferencesItemSimple(
       labels: <String>[appLocalizations.reset_food_prefs],
-      builder: (final BuildContext context) => ListTile(
+      builder: (BuildContext context) => ListTile(
         title: Text(appLocalizations.reset_food_prefs),
         onTap: () async => _confirmReset(),
         leading: Icon(
@@ -63,7 +64,7 @@ class UserPreferencesFood {
         ),
       ),
     ),
-    ..._getOnboardingBody(collapsed: false),
+    ..._getOnboardingBody(),
   ];
 
   List<AttributeGroup> _reorderGroups(List<AttributeGroup> groups) {
@@ -123,16 +124,28 @@ class UserPreferencesFood {
     return result;
   }
 
-  List<UserPreferencesItem> _getOnboardingBody({final bool? collapsed}) {
+  List<UserPreferencesItem> _getOnboardingBody({bool? collapsed}) {
     final List<AttributeGroup> groups = _reorderGroups(
       productPreferences.attributeGroups!,
     );
     final List<UserPreferencesItem> result = <UserPreferencesItem>[
       UserPreferencesItemSimple(
-        labels: <String>[appLocalizations.myPreferences_food_comment],
+        labels: <String>[
+          appLocalizations.myPreferences_food_compatibility_explainer,
+        ],
         builder: (_) => ListTile(
           title: Text(
-            appLocalizations.myPreferences_food_comment,
+            appLocalizations.myPreferences_food_compatibility_explainer,
+            style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+          ),
+        ),
+      ),
+      UserPreferencesItemSimple(
+        labels: <String>[appLocalizations.myPreferences_food_privacy],
+        builder: (_) => ListTile(
+          leading: const Password.lock(),
+          title: Text(
+            appLocalizations.myPreferences_food_privacy,
             style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
           ),
         ),
@@ -147,7 +160,7 @@ class UserPreferencesFood {
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
           themeData: themeData,
-        ).getItems(collapsed: collapsed),
+        ).getItems(isCollapsed: collapsed),
       );
     }
     return result;
@@ -165,7 +178,8 @@ class UserPreferencesFood {
     if (helper.matches(<String?>[
       appLocalizations.myPreferences_food_title,
       appLocalizations.myPreferences_food_subtitle,
-      appLocalizations.myPreferences_food_comment,
+      appLocalizations.myPreferences_food_compatibility_explainer,
+      appLocalizations.myPreferences_food_privacy,
     ])) {
       result.add(
         helper.getPreferenceTile(

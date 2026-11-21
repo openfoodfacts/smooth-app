@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -9,9 +11,12 @@ import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -40,7 +45,11 @@ class CompareProducts3Page extends StatefulWidget {
   State<CompareProducts3Page> createState() => _CompareProducts3PageState();
 }
 
-class _CompareProducts3PageState extends State<CompareProducts3Page> {
+class _CompareProducts3PageState extends State<CompareProducts3Page>
+    with TraceableClientMixin {
+  @override
+  String get actionName => 'Opened compare_products_page';
+
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
 
   static const List<String> _sortedImportances = <String>[
@@ -140,13 +149,20 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     final NutritionContainerHelper backBone = _nutritionContainers.first;
     for (final OrderedNutrient orderedNutrient in backBone.allNutrients) {
       final Nutrient nutrient = _getNutrient(orderedNutrient);
-      final List<double?> values = <double?>[];
+      final List<NutritionValue?> values = <NutritionValue?>[];
       bool notNull = false;
       for (final NutritionContainerHelper nutritionContainer
           in _nutritionContainers) {
-        final double? value = nutritionContainer.getValue(nutrient);
-        values.add(value);
-        if (value != null) {
+        final num? value = nutritionContainer.getValue(nutrient);
+        if (value == null) {
+          values.add(null);
+        } else {
+          values.add(
+            NutritionValue(
+              value: value,
+              unit: nutritionContainer.getUnit(nutrient),
+            ),
+          );
           notNull = true;
         }
       }
@@ -187,11 +203,11 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     );
   }
 
-  Row _getTextRow(final List<String> texts) => _getWidgetRow(<Widget>[
+  Row _getTextRow(List<String> texts) => _getWidgetRow(<Widget>[
     for (final String text in texts) Expanded(child: Text(text)),
   ]);
 
-  Row _getWidgetRow(final List<Widget> widgets) {
+  Row _getWidgetRow(List<Widget> widgets) {
     final List<Widget> children = <Widget>[];
     bool first = true;
     for (final Widget widget in widgets) {
@@ -208,7 +224,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     );
   }
 
-  Nutrient? _getAttributeNutrient(final String attributeId) {
+  Nutrient? _getAttributeNutrient(String attributeId) {
     switch (attributeId) {
       case Attribute.ATTRIBUTE_LOW_FAT:
         return Nutrient.fat;
@@ -222,13 +238,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     return null;
   }
 
-  Widget? _getChild(final Attribute attribute, final Product product) {
+  Widget? _getChild(Attribute attribute, Product product) {
     final Nutrient? nutrient = _getAttributeNutrient(attribute.id!);
     if (nutrient != null) {
-      if (product.nutriments == null) {
-        return null;
-      }
-      final double? value = product.nutriments!.getValue(
+      final NutritionValue? value = product.getNutrientValue(
         nutrient,
         PerSize.oneHundredGrams,
       );
@@ -236,7 +249,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
         return null;
       }
       return Text(
-        '${value.toStringAsFixed(2)} ${UnitHelper.unitToString(nutrient.typicalUnit)}',
+        _formatValue(value),
         style: const TextStyle(fontWeight: FontWeight.w500),
       );
     }
@@ -250,9 +263,9 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
   }
 
   Widget _getAttributeRow({
-    required final List<List<Attribute>> attributesArray,
-    required final int index,
-    required final List<Product> products,
+    required List<List<Attribute>> attributesArray,
+    required int index,
+    required List<Product> products,
   }) {
     final List<Widget> children = <Widget>[];
     late String title;
@@ -264,7 +277,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
       child = Expanded(
         child: Container(
           height: 36,
-          color: getAttributeDisplayBackgroundColor(attribute),
+          color: getAttributeDisplayBackgroundColor(
+            attribute,
+            context.extension<SmoothColorsThemeExtension>(),
+          ),
           child: child,
         ),
       );
@@ -289,17 +305,24 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     );
   }
 
+  final NumberFormat _numberFormat = NutritionContainerHelper.getNumberFormat(
+    ProductQuery.getLocaleString(),
+  );
+
+  String _formatValue(NutritionValue value) =>
+      '${_numberFormat.format(value.value)} ${UnitHelper.unitToString(value.unit)}';
+
   Widget _getNutrientRow({
-    required final List<double?> values,
-    required final Nutrient nutrient,
+    required List<NutritionValue?> values,
+    required Nutrient nutrient,
   }) {
     final List<Widget> children = <Widget>[];
-    for (final double? value in values) {
+    for (final NutritionValue? value in values) {
       Widget? child = value == null
           ? null
           : Center(
               child: Text(
-                '${value.toStringAsFixed(2)} ${UnitHelper.unitToString(nutrient.typicalUnit)}',
+                _formatValue(value),
                 style: const TextStyle(fontWeight: FontWeight.w500),
               ),
             );
@@ -321,7 +344,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     );
   }
 
-  Nutrient _getNutrient(final OrderedNutrient orderedNutrient) {
+  Nutrient _getNutrient(OrderedNutrient orderedNutrient) {
     if (orderedNutrient.nutrient != null) {
       return orderedNutrient.nutrient!;
     }

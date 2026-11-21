@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:crop_image/crop_image.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
@@ -20,49 +20,36 @@ class ProofCropHelper extends CropHelper {
   bool isNewImage() => true;
 
   @override
-  String getPageTitle(final AppLocalizations appLocalizations) =>
+  String getPageTitle(AppLocalizations appLocalizations) =>
       model.proofType.getTitle(appLocalizations);
 
   @override
   Widget getProcessIcon() => const icons.Check();
 
   @override
-  String getProcessLabel(final AppLocalizations appLocalizations) =>
+  String getProcessLabel(AppLocalizations appLocalizations) =>
       appLocalizations.okay;
 
   @override
   bool get enableEraser => true;
 
   @override
-  Future<CropParameters?> process({
-    required final BuildContext context,
-    required final CropController controller,
-    required final File inputFile,
-    required final int inputFullWidth,
-    required final int inputFullHeight,
-    required final File smallCroppedFile,
-    required final Directory directory,
-    required final int sequenceNumber,
-    required final List<Offset> offsets,
+  Future<CropParameters> process({
+    required BuildContext context,
+    required CropController controller,
+    required File inputFile,
+    required int inputFullWidth,
+    required int inputFullHeight,
+    required File preCroppedFile,
+    required Directory directory,
+    required int sequenceNumber,
+    required List<Offset> offsets,
   }) async {
     // It's a brand new picture, with crop parameters.
-    // For performance reasons, we do not crop the image full-size here,
-    // but in the background task.
     // For privacy reasons, we won't send the full image to the server and
     // let it crop it: we'll send the cropped image directly.
-    final File fullFile = await copyFullImageFile(
-      directory,
-      sequenceNumber,
-      inputFile,
-    );
-    if (!context.mounted) {
-      return null;
-    }
-    return getCropParameters(
-      controller: controller,
-      fullFile: fullFile,
-      smallCroppedFile: smallCroppedFile,
-      offsets: offsets,
-    );
+
+    // here we already have a full size cropped image, in smallCroppedFile
+    return CropParameters.asIs(preCroppedFile);
   }
 }

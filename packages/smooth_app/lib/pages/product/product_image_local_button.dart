@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -22,12 +22,12 @@ class ProductImageLocalButton extends ProductImageButton {
   Widget getIcon() => const icons.Camera.add();
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) => imageExists
+  String getLabel(AppLocalizations appLocalizations) => imageExists
       ? appLocalizations.capture
       : appLocalizations.capture_new_picture;
 
   @override
-  Future<void> action(final BuildContext context) async {
+  Future<void> action(BuildContext context) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
       isLoggedInMandatory: isLoggedInMandatory,

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 
@@ -31,7 +31,7 @@ class ThemeProvider with ChangeNotifier {
 
   String get currentTheme => _forceLight ? THEME_LIGHT : _theme;
 
-  void setOnboardingComplete(final bool onboardingComplete) {
+  void setOnboardingComplete(bool onboardingComplete) {
     _forceLight = !onboardingComplete;
   }
 

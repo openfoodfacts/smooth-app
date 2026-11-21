@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:rive/rive.dart';
 
 class RiveAnimationPlayer extends StatefulWidget {
@@ -30,7 +30,7 @@ class _RiveAnimationPlayerState extends State<RiveAnimationPlayer> {
   }
 
   Future<void> initRive() async {
-    _file = (await File.asset(widget.path, riveFactory: Factory.rive))!;
+    _file = (await File.asset(widget.path, riveFactory: Factory.flutter))!;
     _controller = RiveWidgetController(_file);
     setState(() => _isInitialized = true);
   }

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -38,6 +38,9 @@ class OnboardingHomePage extends StatelessWidget {
                   /// (Can be disabled by the user later in the settings)
                   await userPreferences.setCrashReports(true);
                   await userPreferences.setUserTracking(true);
+
+                  /// Consent now exists, so the first open can be reported.
+                  await userPreferences.trackFirstOpenAfterConsent();
 
                   if (context.mounted) {
                     await OnboardingLoader(

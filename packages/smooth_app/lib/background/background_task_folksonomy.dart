@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_queue.dart';
@@ -36,8 +36,8 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
   }
 
   static Future<void> addTask(
-    final String barcode,
-    final LocalDatabase localDatabase,
+    String barcode,
+    LocalDatabase localDatabase,
   ) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
@@ -48,8 +48,8 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
   }
 
   static BackgroundTask _getNewTask(
-    final String uniqueId,
-    final String barcode,
+    String uniqueId,
+    String barcode,
   ) => BackgroundTaskFolksonomy._(
     processName: _operationType.processName,
     uniqueId: uniqueId,

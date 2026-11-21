@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
@@ -137,7 +137,7 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
   /// after the product disappeared and before the whole carousel is refreshed.
   /// In those cases, we don't want the app to crash and display a Container
   /// instead in the meanwhile.
-  Widget _getWidget(final int index) {
+  Widget _getWidget(int index) {
     if (index >= barcodes.length) {
       return EMPTY_WIDGET;
     }
@@ -146,19 +146,15 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final bool dense =
-            constraints.maxHeight <= 400.0 ||
-            MediaQuery.textScalerOf(context).scale(1.0) >= 1.30;
-
-        return Provider<ScanCardDensity>(
-          create: (_) => dense ? ScanCardDensity.DENSE : ScanCardDensity.NORMAL,
+        return Provider<ScanCardDensity>.value(
+          value: ScanCardDensity.getDensity(context, constraints),
           child: _cardWidget(barcode),
         );
       },
     );
   }
 
-  Widget _cardWidget(final String barcode) {
+  Widget _cardWidget(String barcode) {
     switch (_model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
@@ -204,4 +200,17 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
   }
 }
 
-enum ScanCardDensity { DENSE, NORMAL }
+enum ScanCardDensity {
+  DENSE,
+  NORMAL;
+
+  static ScanCardDensity getDensity(
+    BuildContext context,
+    BoxConstraints constraints,
+  ) {
+    final bool dense =
+        constraints.maxHeight <= 400.0 ||
+        MediaQuery.textScalerOf(context).scale(1.0) >= 1.30;
+    return dense ? ScanCardDensity.DENSE : ScanCardDensity.NORMAL;
+  }
+}

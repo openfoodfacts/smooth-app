@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +26,7 @@ class ProofBulkAddPage extends StatefulWidget {
   final PriceModel model;
 
   static Future<PriceModel?> _getPriceModel({
-    required final BuildContext context,
+    required BuildContext context,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -51,7 +51,7 @@ class ProofBulkAddPage extends StatefulWidget {
     );
   }
 
-  static Future<void> showPage({required final BuildContext context}) async {
+  static Future<void> showPage({required BuildContext context}) async {
     final PriceModel? priceModel = await _getPriceModel(context: context);
     if (priceModel == null) {
       return;
@@ -79,7 +79,7 @@ class _ProofBulkAddPageState extends State<ProofBulkAddPage>
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PriceModel>.value(
       value: widget.model,
-      builder: (final BuildContext context, final Widget? child) {
+      builder: (BuildContext context, Widget? child) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final PriceModel model = Provider.of<PriceModel>(context);
         return Form(
