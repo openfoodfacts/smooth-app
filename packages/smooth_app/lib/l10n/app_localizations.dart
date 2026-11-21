@@ -2771,6 +2771,12 @@ abstract class AppLocalizations {
   /// **'Latest news: {news_title}'**
   String scan_tagline_news_item_accessibility(String news_title);
 
+  /// Tooltip and accessibility action to dismiss a news item from the tagline feed on the scan card
+  ///
+  /// In en, this message translates to:
+  /// **'Dismiss this news'**
+  String get scan_tagline_news_item_dismiss;
+
   /// No description provided for @tagline_app_review.
   ///
   /// In en, this message translates to:

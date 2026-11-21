@@ -1145,6 +1145,10 @@
       }
     }
   },
+  "scan_tagline_news_item_dismiss": "Dismiss this news",
+  "@scan_tagline_news_item_dismiss": {
+    "description": "Tooltip and accessibility action to dismiss a news item from the tagline feed on the scan card"
+  },
   "tagline_app_review": "Do you like the app?",
   "tagline_app_review_button_positive": "I love it! 😍",
   "tagline_app_review_button_negative": "Not really…",

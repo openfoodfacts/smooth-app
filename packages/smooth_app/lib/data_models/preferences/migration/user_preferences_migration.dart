@@ -11,6 +11,7 @@ class UserPreferencesMigrationTool {
         const _UserPreferencesMigrationV2(),
         const _UserPreferencesMigrationV3(),
         const _UserPreferencesMigrationV4(),
+        const _UserPreferencesMigrationV5(),
       ];
 
   static Future<void> onUpgrade(
@@ -122,4 +123,20 @@ class _UserPreferencesMigrationV4 extends UserPreferencesMigration {
 
   @override
   int get version => 4;
+}
+
+class _UserPreferencesMigrationV5 extends UserPreferencesMigration {
+  const _UserPreferencesMigrationV5();
+
+  @override
+  Future<void> onUpgrade(
+    UserPreferences preferences,
+    int? oldVersion,
+    int newVersion,
+  ) async {
+    /// With version < 5, [_TAG_TAGLINE_FEED_NEWS_DISMISSED] is missing
+  }
+
+  @override
+  int get version => 5;
 }

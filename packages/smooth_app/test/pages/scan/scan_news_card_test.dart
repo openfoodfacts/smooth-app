@@ -32,6 +32,7 @@ import '../../tests_utils/mocks.dart';
 // cached instance is what actually isolates each test.
 const String _tagDisplayed = 'taglineFeedNewsDisplayed';
 const String _tagClicked = 'taglineFeedNewsClicked';
+const String _tagDismissed = 'taglineFeedNewsDismissed';
 
 const AppNewsItem _item0 = AppNewsItem(
   id: 'news-0',
@@ -181,6 +182,7 @@ void main() {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(_tagDisplayed, <String>[]);
     await prefs.setStringList(_tagClicked, <String>[]);
+    await prefs.setStringList(_tagDismissed, <String>[]);
 
     // The analytics de-dup is session-scoped and `UserPreferences` is a
     // per-isolate singleton, so one test's session has to end before the next.
@@ -195,6 +197,56 @@ void main() {
 
   // No `forget()` in `tearDown`: the widget does it in `dispose()`, which is
   // what keeps a remounted card from inheriting a stale visibility entry.
+
+  group('ScanNewsCard dismissal', () {
+    testWidgets('tapping close dismisses the news item and stores its id', (
+      WidgetTester tester,
+    ) async {
+      final UserPreferences preferences = await _pumpCard(
+        tester,
+        'Light',
+        <AppNewsItem>[_item0, _item1],
+      );
+
+      expect(preferences.taglineFeedDismissedNews, isEmpty);
+
+      final Finder closeButton = find.byTooltip('Dismiss this news');
+      expect(closeButton, findsOneWidget);
+
+      await tester.tap(closeButton);
+      await tester.pump();
+
+      expect(preferences.taglineFeedDismissedNews, <String>[_item0.id]);
+      expect(preferences.taglineFeedClickedNews, isEmpty);
+      expect(_eventsNamed('taglineNewsClicked'), isEmpty);
+      final List<Map<String, String>> dismissedEvents = _eventsNamed(
+        'taglineNewsDismissed',
+      );
+      expect(dismissedEvents, hasLength(1));
+      expect(dismissedEvents.single['e_a'], _item0.id);
+
+      // Double tap only records dismissal once
+      await tester.tap(closeButton);
+      await tester.pump();
+      expect(preferences.taglineFeedDismissedNews, <String>[_item0.id]);
+      expect(_eventsNamed('taglineNewsDismissed'), hasLength(1));
+    });
+
+    testWidgets('close control and title have correct semantics', (
+      WidgetTester tester,
+    ) async {
+      await _pumpCard(tester, 'Light', <AppNewsItem>[_item0]);
+
+      expect(
+        find.bySemanticsLabel('Dismiss this news'),
+        findsOneWidget,
+      );
+      expect(
+        find.bySemanticsLabel('Latest news: First news'),
+        findsOneWidget,
+      );
+    });
+  });
 
   group('ScanNewsCard with campaign figures', () {
     for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {

@@ -91,6 +91,7 @@ class ScanBottomCardContainer extends StatelessWidget {
     this.titleIndicatorColor,
     this.titleColor,
     this.backgroundColor,
+    this.closeTooltip,
     this.onClose,
     super.key,
   });
@@ -101,6 +102,7 @@ class ScanBottomCardContainer extends StatelessWidget {
   final Color? titleIndicatorColor;
   final Color? titleColor;
   final Color? backgroundColor;
+  final String? closeTooltip;
   final VoidCallback? onClose;
 
   // Default values seem weird
@@ -140,6 +142,7 @@ class ScanBottomCardContainer extends StatelessWidget {
               backgroundColor: titleBackgroundColor,
               indicatorColor: titleIndicatorColor,
               titleColor: titleColor,
+              closeTooltip: closeTooltip,
               onClose: onClose,
             ),
           ),
@@ -179,6 +182,7 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
     this.backgroundColor,
     this.indicatorColor,
     this.titleColor,
+    this.closeTooltip,
     this.onClose,
   });
 
@@ -186,6 +190,7 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
   final Color? backgroundColor;
   final Color? indicatorColor;
   final Color? titleColor;
+  final String? closeTooltip;
   final VoidCallback? onClose;
 
   @override
@@ -194,25 +199,27 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
         context.read<ScanBottomCardDensity>() == ScanBottomCardDensity.dense;
 
     final AppLocalizations localizations = AppLocalizations.of(context);
+    final String tooltip =
+        closeTooltip ?? MaterialLocalizations.of(context).closeButtonTooltip;
 
-    return Semantics(
-      label: localizations.scan_tagline_news_item_accessibility(title),
-      excludeSemantics: true,
-      child: ConstrainedBox(
-        constraints: BoxConstraints(minHeight: dense ? 28.0 : 30.0),
-        child: Row(
-          children: <Widget>[
-            SizedBox.square(
-              dimension: 11.0,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: indicatorColor ?? Colors.white,
-                  borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
-                ),
+    return ConstrainedBox(
+      constraints: BoxConstraints(minHeight: dense ? 28.0 : 30.0),
+      child: Row(
+        children: <Widget>[
+          SizedBox.square(
+            dimension: 11.0,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: indicatorColor ?? Colors.white,
+                borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
               ),
             ),
-            const SizedBox(width: BALANCED_SPACE),
-            Expanded(
+          ),
+          const SizedBox(width: BALANCED_SPACE),
+          Expanded(
+            child: Semantics(
+              label: localizations.scan_tagline_news_item_accessibility(title),
+              excludeSemantics: true,
               child: AutoSizeText(
                 title,
                 maxLines: 1,
@@ -225,17 +232,19 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
                 ),
               ),
             ),
-            if (onClose != null) ...<Widget>[
-              const SizedBox(width: VERY_SMALL_SPACE),
-              Material(
-                type: MaterialType.transparency,
-                child: InkWell(
-                  onTap: onClose,
-                  customBorder: const CircleBorder(),
-                  child: Tooltip(
-                    message: MaterialLocalizations.of(
-                      context,
-                    ).closeButtonTooltip,
+          ),
+          if (onClose != null) ...<Widget>[
+            const SizedBox(width: VERY_SMALL_SPACE),
+            Semantics(
+              button: true,
+              label: tooltip,
+              child: Tooltip(
+                message: tooltip,
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: InkResponse(
+                    onTap: onClose,
+                    customBorder: const CircleBorder(),
                     child: Padding(
                       padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
                       child: icons.Close.bold(
@@ -246,9 +255,9 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
+            ),
           ],
-        ),
+        ],
       ),
     );
   }
