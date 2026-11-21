@@ -167,7 +167,6 @@ class _SmoothAutocompleteTextFieldState
             AutocompleteOnSelected<String> onSelected,
             Iterable<String> options,
           ) {
-            final double screenHeight = MediaQuery.sizeOf(context).height;
             String input = '';
 
             for (final String key in _suggestions.keys) {
@@ -187,11 +186,34 @@ class _SmoothAutocompleteTextFieldState
               options: options,
               // Width = Row width - horizontal padding
               maxOptionsWidth: widget.constraints.maxWidth - (LARGE_SPACE * 2),
-              maxOptionsHeight: screenHeight / 3,
+              maxOptionsHeight: _getMaxOptionsHeight(),
               search: input,
             );
           },
     );
+  }
+
+  /// Max height that keeps the options above the bottom of the scrollable.
+  double _getMaxOptionsHeight() {
+    final double maxHeight = MediaQuery.sizeOf(context).height / 3;
+    final RenderBox? field = context.findRenderObject() as RenderBox?;
+    final RenderBox? scrollable =
+        Scrollable.maybeOf(
+              context,
+              axis: Axis.vertical,
+            )?.context.findRenderObject()
+            as RenderBox?;
+    if (field == null || scrollable == null) {
+      return maxHeight;
+    }
+    final double available =
+        (scrollable.localToGlobal(Offset.zero) & scrollable.size).bottom -
+        (field.localToGlobal(Offset.zero) & field.size).bottom;
+    // Not even two rows: overlapping what's below beats unusable options.
+    if (available < MINIMUM_TOUCH_SIZE * 2) {
+      return maxHeight;
+    }
+    return available > maxHeight ? maxHeight : available;
   }
 
   String get _searchInput => widget.controller.text.trim();
