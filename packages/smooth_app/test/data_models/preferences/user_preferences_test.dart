@@ -12,6 +12,8 @@ const String _tagStripHiddenUntil = 'donationStripHiddenUntil';
 const String _tagProductsLookedUp = 'productsLookedUpSinceAsk';
 const String _tagLastCountedBarcode = 'lastCountedBarcode';
 const String _tagLastReminderShownAt = 'lastReminderShownAt';
+const String _tagUserPictureSource = 'userPictureSource';
+const String _tagLastPictureSource = 'lastPictureSource';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +34,8 @@ void main() {
     await sharedPreferences.remove(_tagProductsLookedUp);
     await sharedPreferences.remove(_tagLastCountedBarcode);
     await sharedPreferences.remove(_tagLastReminderShownAt);
+    await sharedPreferences.remove(_tagUserPictureSource);
+    await sharedPreferences.remove(_tagLastPictureSource);
   });
 
   group('donationAsksMuted', () {
@@ -161,6 +165,100 @@ void main() {
     expect(
       shownAt!.difference(before).abs(),
       lessThan(const Duration(seconds: 5)),
+    );
+  });
+
+  group('picture source preferences and precedence', () {
+    test('initial state has no explicit preference and no last source', () {
+      expect(userPreferences.explicitUserPictureSource, isNull);
+      expect(userPreferences.lastPictureSource, isNull);
+      expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+    });
+
+    test('setLastPictureSource persists and notifies', () async {
+      int notified = 0;
+      void listener() => notified++;
+      userPreferences.addListener(listener);
+      addTearDown(() => userPreferences.removeListener(listener));
+
+      await userPreferences.setLastPictureSource(UserPictureSource.CAMERA);
+      expect(userPreferences.lastPictureSource, UserPictureSource.CAMERA);
+      expect(sharedPreferences.getString(_tagLastPictureSource), 'C');
+      expect(notified, 1);
+
+      await userPreferences.setLastPictureSource(UserPictureSource.GALLERY);
+      expect(userPreferences.lastPictureSource, UserPictureSource.GALLERY);
+      expect(sharedPreferences.getString(_tagLastPictureSource), 'G');
+      expect(notified, 2);
+
+      // Setting SELECT as last source is a no-op
+      await userPreferences.setLastPictureSource(UserPictureSource.SELECT);
+      expect(userPreferences.lastPictureSource, UserPictureSource.GALLERY);
+      expect(sharedPreferences.getString(_tagLastPictureSource), 'G');
+      expect(notified, 2);
+
+      await sharedPreferences.remove(_tagLastPictureSource);
+      expect(userPreferences.lastPictureSource, isNull);
+      expect(sharedPreferences.getString(_tagLastPictureSource), isNull);
+    });
+
+    test('explicitUserPictureSource reads saved explicit preference', () async {
+      await sharedPreferences.setString(_tagUserPictureSource, 'C');
+      expect(
+        userPreferences.explicitUserPictureSource,
+        UserPictureSource.CAMERA,
+      );
+
+      await sharedPreferences.setString(_tagUserPictureSource, 'G');
+      expect(
+        userPreferences.explicitUserPictureSource,
+        UserPictureSource.GALLERY,
+      );
+
+      await sharedPreferences.setString(_tagUserPictureSource, 'S');
+      expect(
+        userPreferences.explicitUserPictureSource,
+        UserPictureSource.SELECT,
+      );
+
+      await sharedPreferences.setString(_tagUserPictureSource, 'INVALID');
+      expect(userPreferences.explicitUserPictureSource, isNull);
+    });
+
+    test('setUserPictureSource updates explicit preference', () async {
+      await userPreferences.setUserPictureSource(UserPictureSource.CAMERA);
+      expect(
+        userPreferences.explicitUserPictureSource,
+        UserPictureSource.CAMERA,
+      );
+      expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
+
+      await sharedPreferences.remove(_tagUserPictureSource);
+      expect(userPreferences.explicitUserPictureSource, isNull);
+      expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+    });
+
+    test(
+      'precedence: explicit preference overrides lastPictureSource',
+      () async {
+        await userPreferences.setLastPictureSource(UserPictureSource.CAMERA);
+
+        // 1. Explicit GALLERY overrides last CAMERA
+        await userPreferences.setUserPictureSource(UserPictureSource.GALLERY);
+        expect(userPreferences.userPictureSource, UserPictureSource.GALLERY);
+
+        // 2. Explicit SELECT ("Ask each time") overrides last CAMERA
+        await userPreferences.setUserPictureSource(UserPictureSource.SELECT);
+        expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+
+        // 3. Without explicit preference, last source is used
+        await sharedPreferences.remove(_tagUserPictureSource);
+        expect(userPreferences.userPictureSource, UserPictureSource.CAMERA);
+
+        // 4. Without explicit preference and without last source, defaults to SELECT
+        await sharedPreferences.remove(_tagLastPictureSource);
+        expect(userPreferences.userPictureSource, UserPictureSource.SELECT);
+      },
     );
   });
 }
