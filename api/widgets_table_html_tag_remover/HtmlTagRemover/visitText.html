@@ -73,7 +73,15 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-void visitText(Text node) =&gt; _buffer.write(node.data);</code></pre>
+void visitText(Text node) {
+  final String data = node.data;
+  if (data.isEmpty) {
+    return;
+  }
+  _buffer.write(data);
+  final String last = data[data.length - 1];
+  _needsSeparator = last != &#39; &#39; &amp;&amp; last != &#39;\n&#39;;
+}</code></pre>
 </section>
 
 

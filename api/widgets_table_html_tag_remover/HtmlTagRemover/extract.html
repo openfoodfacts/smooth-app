@@ -69,6 +69,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String extract(String html) {
   _buffer.clear();
+  _needsSeparator = false;
   final Document document = parse(html);
   visit(document);
   return _buffer.toString();
