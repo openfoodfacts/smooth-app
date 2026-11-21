@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
@@ -117,8 +117,8 @@ class QuestionCard extends StatelessWidget {
   }
 
   Future<FetchedProduct> _getProduct(
-    final String barcode,
-    final LocalDatabase localDatabase,
+    String barcode,
+    LocalDatabase localDatabase,
   ) async {
     final Product? result = await DaoProduct(localDatabase).get(barcode);
     if (result != null) {

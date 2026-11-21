@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -20,6 +20,9 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class ContributionsRoot extends PreferencesRoot {
   const ContributionsRoot({required super.title});
+
+  @override
+  String get actionName => 'Opened contributions_page';
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {

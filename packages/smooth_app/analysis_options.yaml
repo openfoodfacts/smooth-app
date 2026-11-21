@@ -1,2 +1,15 @@
 # Shared rules
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - windows/**
+    - macos/**
+    - linux/**
+    # flutter gen-l10n (3.50) still generates the deprecated flutter_localizations delegates.
+    # Remove this exclusion once the generated file uses the material_ui delegates.
+    - lib/l10n/app_localizations.dart
 include: package:openfoodfacts_flutter_lints/flutter.yaml
+formatter:
+  trailing_commas: preserve

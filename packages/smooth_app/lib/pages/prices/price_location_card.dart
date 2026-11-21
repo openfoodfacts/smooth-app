@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/location_map_page.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
+import 'package:smooth_app/pages/locations/osm_location_kind.dart';
 import 'package:smooth_app/pages/locations/search_location_helper.dart';
 import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
@@ -59,14 +60,20 @@ class PriceLocationCard extends StatelessWidget {
               ],
             )
           : null,
-      contentPadding: const EdgeInsetsDirectional.symmetric(
-        horizontal: SMALL_SPACE,
-        vertical: MEDIUM_SPACE,
-      ),
+      // The padding is inside the children, so the ripple covers the whole card
+      contentPadding: EdgeInsetsDirectional.zero,
       child: SizedBox(
         width: double.infinity,
         child: location == null
-            ? _PriceLocationCardEmptyLocation(onTap: () => _onTap(context))
+            ? Padding(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: SMALL_SPACE,
+                  vertical: MEDIUM_SPACE,
+                ),
+                child: _PriceLocationCardEmptyLocation(
+                  onTap: () => _onTap(context),
+                ),
+              )
             : _PriceLocationCardWithLocation(
                 location: location,
                 onTap: () => _onTap(context),
@@ -122,7 +129,7 @@ class _PriceLocationCardEmptyLocation extends StatelessWidget {
 
     return SmoothLargeButtonWithIcon(
       text: appLocalizations.prices_location_find,
-      leadingIcon: const icons.Location(),
+      leadingIcon: const icons.Map.marker(),
       trailingIcon: const icons.Chevron.right(size: 10.0),
       onPressed: onTap,
     );
@@ -142,50 +149,59 @@ class _PriceLocationCardWithLocation extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        start: MEDIUM_SPACE,
-        end: SMALL_SPACE,
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: RichText(
-              text: TextSpan(
-                children: <TextSpan>[
-                  if (location.name != null)
-                    TextSpan(
-                      text: '${location.name}\n',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
+    return InkWell(
+      onTap: onTap,
+      borderRadius: ROUNDED_BORDER_RADIUS,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          start: SMALL_SPACE + MEDIUM_SPACE,
+          end: 2 * SMALL_SPACE,
+          top: MEDIUM_SPACE,
+          bottom: MEDIUM_SPACE,
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: RichText(
+                text: TextSpan(
+                  children: <TextSpan>[
+                    if (location.name != null)
+                      TextSpan(
+                        text: '${location.name}\n',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                        ),
                       ),
-                    ),
-                  if (location.street != null)
-                    TextSpan(text: '${location.street}\n'),
-                  if (location.city != null)
-                    TextSpan(
-                      text:
-                          '${location.postcode != null ? '${location.postcode} ' : ''}${location.city ?? ''}\n',
-                    ),
-                  if (location.country != null)
-                    TextSpan(text: location.country),
-                ],
-                style: DefaultTextStyle.of(context).style,
+                    if (location.street != null)
+                      TextSpan(text: '${location.street}\n'),
+                    if (location.city != null)
+                      TextSpan(
+                        text:
+                            '${location.postcode != null ? '${location.postcode} ' : ''}${location.city ?? ''}\n',
+                      ),
+                    if (location.country != null)
+                      TextSpan(text: location.country),
+                  ],
+                  style: DefaultTextStyle.of(context).style,
+                ),
               ),
             ),
-          ),
-          DecoratedBox(
-            decoration: BoxDecoration(
-              color: colorScheme.secondary,
-              borderRadius: ANGULAR_BORDER_RADIUS,
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: colorScheme.secondary,
+                borderRadius: ANGULAR_BORDER_RADIUS,
+              ),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+                child: IconTheme.merge(
+                  data: IconThemeData(color: colorScheme.onSecondary),
+                  child: OsmLocationKind.of(location).icon,
+                ),
+              ),
             ),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-              child: icons.Shop(color: colorScheme.onSecondary),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

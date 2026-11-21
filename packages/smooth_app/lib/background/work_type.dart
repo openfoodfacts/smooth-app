@@ -16,10 +16,9 @@ enum WorkType {
   final String tag;
   final String englishLabel;
 
-  String getWorkTag(final ProductType productType) =>
-      '$tag:${productType.offTag}';
+  String getWorkTag(ProductType productType) => '$tag:${productType.offTag}';
 
-  static (WorkType, ProductType)? extract(final String string) {
+  static (WorkType, ProductType)? extract(String string) {
     if (string.isEmpty) {
       return null;
     }
@@ -37,7 +36,7 @@ enum WorkType {
     return (workType, productType);
   }
 
-  static WorkType? fromTag(final String tag) {
+  static WorkType? fromTag(String tag) {
     for (final WorkType workType in values) {
       if (workType.tag == tag) {
         return workType;

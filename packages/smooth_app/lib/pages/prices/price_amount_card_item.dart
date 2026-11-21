@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -74,13 +74,13 @@ class _PriceAmountCardItemState extends State<PriceAmountCardItem> {
             value: model.product.pricePer,
             items: PricePer.values
                 .map(
-                  (final PricePer pricePer) => SmoothDropdownItem<PricePer>(
+                  (PricePer pricePer) => SmoothDropdownItem<PricePer>(
                     value: pricePer,
                     label: pricePer.getTitle(appLocalizations),
                   ),
                 )
                 .toList(),
-            onChanged: (final PricePer? value) {
+            onChanged: (PricePer? value) {
               if (value == null) {
                 return;
               }
@@ -89,16 +89,15 @@ class _PriceAmountCardItemState extends State<PriceAmountCardItem> {
           ),
         SwitchListTile(
           value: model.promo,
-          onChanged: (final bool value) =>
-              setState(() => model.promo = !model.promo),
+          onChanged: (bool value) => setState(() => model.promo = !model.promo),
           title: Text(appLocalizations.prices_amount_is_discounted),
           controlAffinity: ListTileControlAffinity.leading,
           contentPadding: EdgeInsetsDirectional.zero,
         ),
         if (model.promo)
-          PriceDiscountTypeDropdown(
+          PriceDiscountTypeSelector(
             value: model.discountType,
-            onChanged: (final DiscountType? value) {
+            onChanged: (DiscountType? value) {
               setState(() => model.discountType = value);
             },
           ),

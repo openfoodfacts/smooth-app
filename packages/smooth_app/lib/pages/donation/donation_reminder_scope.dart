@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
@@ -46,15 +46,17 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
   bool _isEligibleNow(DonationOffer offer) {
     final UserPreferences preferences = context.read<UserPreferences>();
     final DateTime now = DateTime.now();
-    return DonationReminderConditions(
-      campaignLive: _liveDonation() != null,
-      productsLookedUp: preferences.productsLookedUpSinceAsk,
-      every: offer.reminderEvery,
-      muted: preferences.donationAsksMuted(now),
-      appLaunches: preferences.appLaunches,
-      lastShownAt: preferences.lastReminderShownAt,
-      now: now,
-    ).eligible;
+    return offer.arm(preferences.getDonationTestBucket()) ==
+            DonationTestArm.reminder &&
+        DonationReminderConditions(
+          campaignLive: _liveDonation() != null,
+          productsLookedUp: preferences.productsLookedUpSinceAsk,
+          every: offer.reminderEvery,
+          muted: preferences.donationAsksMuted(now),
+          appLaunches: preferences.appLaunches,
+          lastShownAt: preferences.lastReminderShownAt,
+          now: now,
+        ).eligible;
   }
 
   @override
@@ -79,6 +81,7 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
         AnalyticsHelper.trackEvent(
           AnalyticsEvent.donationReminderShown,
           eventValue: offer.reminderEvery,
+          action: DonationTestArm.reminder.action(DonationSource.reminder),
         );
         await preferences.markDonationReminderShown();
         if (!context.mounted) {

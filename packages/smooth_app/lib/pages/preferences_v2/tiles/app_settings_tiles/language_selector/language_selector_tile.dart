@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_language_refresh.dart';
@@ -17,6 +17,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';
+import 'package:smooth_app/widgets/selector_screen/smooth_selector_route.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 part 'language_selector_provider.dart';
@@ -106,7 +107,7 @@ class LanguageSelectorTile extends PreferenceTile {
     );
   }
 
-  static String _getCompleteName(final OpenFoodFactsLanguage language) {
+  static String _getCompleteName(OpenFoodFactsLanguage language) {
     final String nameInLanguage = Languages().getNameInLanguage(language);
     final String nameInEnglish = Languages().getNameInEnglish(language);
     return '$nameInLanguage ($nameInEnglish)';
@@ -115,34 +116,10 @@ class LanguageSelectorTile extends PreferenceTile {
   Future<void> _openLanguageSelector(BuildContext context) async {
     final dynamic newLanguage = await Navigator.of(context, rootNavigator: true)
         .push(
-          PageRouteBuilder<dynamic>(
-            pageBuilder: (_, _, _) => _LanguageSelectorScreen(
+          smoothSelectorRoute<dynamic>(
+            (_) => _LanguageSelectorScreen(
               provider: context.read<_LanguageSelectorProvider>(),
             ),
-            transitionsBuilder:
-                (
-                  BuildContext context,
-                  Animation<double> animation,
-                  Animation<double> secondaryAnimation,
-                  Widget child,
-                ) {
-                  final Tween<Offset> tween = Tween<Offset>(
-                    begin: const Offset(0.0, 1.0),
-                    end: Offset.zero,
-                  );
-                  final CurvedAnimation curvedAnimation = CurvedAnimation(
-                    parent: animation,
-                    curve: Curves.easeInOut,
-                  );
-                  final Animation<Offset> position = tween.animate(
-                    curvedAnimation,
-                  );
-
-                  return SlideTransition(
-                    position: position,
-                    child: FadeTransition(opacity: animation, child: child),
-                  );
-                },
           ),
         );
 

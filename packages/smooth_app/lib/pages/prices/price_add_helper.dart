@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -28,8 +28,8 @@ class PriceAddHelper {
 
   /// Returns true if the basic checks passed.
   Future<bool> check(
-    final PriceModel model,
-    final GlobalKey<FormState> formKey,
+    PriceModel model,
+    GlobalKey<FormState> formKey,
   ) async {
     if (!formKey.currentState!.validate()) {
       return false;
@@ -118,7 +118,7 @@ class PriceAddHelper {
     }
   }
 
-  Future<bool?> doesAcceptWarning({required final bool justInfo}) async {
+  Future<bool?> doesAcceptWarning({required bool justInfo}) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     const Color color = Color(0xFFB81D1D);
     final SmoothColorsThemeExtension extension = context

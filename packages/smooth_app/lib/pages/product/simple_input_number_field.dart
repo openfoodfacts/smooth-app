@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -28,14 +28,13 @@ class SimpleInputNumberField extends StatelessWidget {
   final bool withClearButton;
 
   // we admit both decimal points (anyway, the keyboard will only show one)
-  static RegExp getNumberRegExp({required final bool decimal}) =>
+  static RegExp getNumberRegExp({required bool decimal}) =>
       decimal ? RegExp(r'[\d,.]') : RegExp(r'\d');
 
-  static NumberFormat getNumberFormat({required final bool decimal}) =>
-      NumberFormat(
-        decimal ? '####0.#####' : '######0',
-        ProductQuery.getLocaleString(),
-      );
+  static NumberFormat getNumberFormat({required bool decimal}) => NumberFormat(
+    decimal ? '####0.#####' : '######0',
+    ProductQuery.getLocaleString(),
+  );
 
   @override
   Widget build(BuildContext context) => Padding(

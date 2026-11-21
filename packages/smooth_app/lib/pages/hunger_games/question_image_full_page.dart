@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
@@ -50,7 +50,7 @@ class QuestionImageFullPage extends StatelessWidget {
   );
 
   // cf. https://github.com/openfoodfacts/smooth-app/issues/3065
-  String? _getBetterUrl(final String url) {
+  String? _getBetterUrl(String url) {
     const int ascii0 = 48;
     const int ascii9 = 57;
 

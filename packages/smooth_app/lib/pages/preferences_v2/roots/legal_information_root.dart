@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -17,6 +17,9 @@ import 'package:vector_graphics/vector_graphics.dart';
 
 class LegalInformationRoot extends PreferencesRoot {
   const LegalInformationRoot({required super.title});
+
+  @override
+  String get actionName => 'Opened legal_information_page';
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {

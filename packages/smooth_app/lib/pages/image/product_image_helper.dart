@@ -6,7 +6,7 @@ class _ProductImageHelper {
 
   /// An image is considered outdated/expired after 1 year.
   /// Note: the value will be sent in the future by the backend.
-  static bool isExpired(final DateTime? uploadedDate) {
+  static bool isExpired(DateTime? uploadedDate) {
     if (uploadedDate == null) {
       return false;
     }

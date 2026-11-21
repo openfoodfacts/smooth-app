@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart' hide Listener;
 import 'package:intl/intl.dart';
+import 'package:material_ui/material_ui.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -25,7 +25,6 @@ import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_contai
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_facts_editor.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_serving_size.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_serving_switch.dart';
-import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_animations.dart';
@@ -81,8 +80,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     _servingController.selection = TextSelection.collapsed(
       offset: _servingController.text.length - 1,
     );
-    _decimalNumberFormat = SimpleInputNumberField.getNumberFormat(
-      decimal: true,
+    _decimalNumberFormat = NutritionContainerHelper.getNumberFormat(
+      ProductQuery.getLocaleString(),
     );
   }
 
@@ -195,7 +194,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     return _nutritionContainer.isEdited();
   }
 
-  Product? _getChangedProduct(Product product) {
+  List<Product>? _getChangedProducts() {
     if (!_formKey.currentState!.validate()) {
       return null;
     }
@@ -209,7 +208,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       );
     }
     _nutritionContainer.setServingText(_servingController.text);
-    return _nutritionContainer.getChangedProduct(product);
+    return _nutritionContainer.getChangedProducts(barcode);
   }
 
   void _onChanged() {
@@ -217,7 +216,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   }
 
   /// Exits the page if the [flag] is `true`.
-  void _exitPage(final bool flag) {
+  void _exitPage(bool flag) {
     if (flag) {
       Navigator.of(context).pop();
     }
@@ -227,7 +226,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
-  Future<bool> _mayExitPage({required final bool saving}) async {
+  Future<bool> _mayExitPage({required bool saving}) async {
     if (!_isEdited()) {
       return true;
     }
@@ -246,10 +245,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       }
     }
 
-    final Product? changedProduct = _getChangedProduct(
-      Product(barcode: barcode),
-    );
-    if (changedProduct == null) {
+    final List<Product>? changedProducts = _getChangedProducts();
+    if (changedProducts == null) {
       if (!mounted) {
         return false;
       }
@@ -261,18 +258,26 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       );
       return false;
     }
+    if (changedProducts.isEmpty) {
+      return true;
+    }
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.nutrition_Facts,
       upToDateProduct,
       true,
     );
-    await BackgroundTaskDetails.addTask(
-      changedProduct,
-      context: context,
-      stamp: BackgroundTaskDetailsStamp.nutrition,
-      productType: upToDateProduct.productType,
-    );
+    bool first = true;
+    for (final Product changedProduct in changedProducts) {
+      await BackgroundTaskDetails.addTask(
+        changedProduct,
+        context: context,
+        stamp: BackgroundTaskDetailsStamp.nutrition,
+        productType: upToDateProduct.productType,
+        showSnackBar: first,
+      );
+      first = false;
+    }
     return true;
   }
 
@@ -382,7 +387,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
           context.watch<Map<Nutrient, TextEditingControllerWithHistory>>();
 
       if (controllers[nutrient] == null) {
-        final double? value = nutritionContainer.getValue(nutrient);
+        final num? value = nutritionContainer.getValue(nutrient);
         controllers[nutrient] = TextEditingControllerWithHistory(
           text: value == null ? '' : decimalNumberFormat.format(value),
         )..addListener(widget.onNutrientChanged);
@@ -405,7 +410,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
 
     widgets.add(
       NutritionAddNutrientButton(
-        onNutrientSelected: (final OrderedNutrient nutrient) {
+        onNutrientSelected: (OrderedNutrient nutrient) {
           setState(() => _nutrientToHighlight = nutrient);
         },
       ),
@@ -520,7 +525,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             NutritionAddNutrientHeaderButton(
-              onNutrientSelected: (final OrderedNutrient nutrient) {
+              onNutrientSelected: (OrderedNutrient nutrient) {
                 setState(() => _nutrientToHighlight = nutrient);
               },
             ),
@@ -591,7 +596,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
 }
 
 // cf. https://github.com/openfoodfacts/smooth-app/issues/3387
-Nutrient getNutrient(final OrderedNutrient orderedNutrient) {
+Nutrient getNutrient(OrderedNutrient orderedNutrient) {
   if (orderedNutrient.nutrient != null) {
     return orderedNutrient.nutrient!;
   }

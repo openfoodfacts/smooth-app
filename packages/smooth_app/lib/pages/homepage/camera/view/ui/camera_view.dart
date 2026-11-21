@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';

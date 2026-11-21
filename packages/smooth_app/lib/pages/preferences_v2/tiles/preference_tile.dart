@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';

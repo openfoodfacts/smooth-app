@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_unselect.dart';
@@ -26,11 +26,11 @@ class ProductImageUnselectButton extends ProductImageButton {
   Widget getIcon() => const icons.Unselect();
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) =>
+  String getLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_photo_unselect_button_label;
 
   @override
-  Future<void> action(final BuildContext context) async {
+  Future<void> action(BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     if (!await ProductRefresher().checkIfLoggedIn(

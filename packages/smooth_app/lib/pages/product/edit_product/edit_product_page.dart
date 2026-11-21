@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -269,7 +269,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     );
   }
 
-  Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) {
+  Widget _getSimpleListTileItem(AbstractSimpleInputPageHelper helper) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return _ListTitleItem(
@@ -283,7 +283,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
   }
 
   Widget _getMultipleListTileItem(
-    final List<AbstractSimpleInputPageHelper> helpers,
+    List<AbstractSimpleInputPageHelper> helpers,
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<String> titles = <String>[];

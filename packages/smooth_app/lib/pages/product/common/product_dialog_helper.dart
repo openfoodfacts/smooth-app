@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -161,7 +161,7 @@ class ProductDialogHelper {
     SmoothHapticFeedback.tadam();
   }
 
-  static Widget getErrorMessage(final String message) => Row(
+  static Widget getErrorMessage(String message) => Row(
     children: <Widget>[
       const Icon(Icons.error_outline, color: Colors.red),
       const SizedBox(width: SMALL_SPACE),
@@ -169,7 +169,7 @@ class ProductDialogHelper {
     ],
   );
 
-  void _openErrorMessage(final String message) => showDialog<void>(
+  void _openErrorMessage(String message) => showDialog<void>(
     context: context,
     builder: (BuildContext context) {
       final AppLocalizations localizations = AppLocalizations.of(context);
@@ -186,7 +186,7 @@ class ProductDialogHelper {
   );
 
   /// Opens an error dialog; to be used only if the status is not ok.
-  void openError(final FetchedProduct fetchedProduct) {
+  void openError(FetchedProduct fetchedProduct) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:

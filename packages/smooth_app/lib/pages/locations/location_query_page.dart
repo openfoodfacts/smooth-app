@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/location_list_supplier.dart';
@@ -92,9 +92,9 @@ class _LocationQueryPageState extends State<LocationQueryPage>
   }
 
   Widget _getNotEmptyScreen(
-    final Size screenSize,
-    final ThemeData themeData,
-    final AppLocalizations appLocalizations,
+    Size screenSize,
+    ThemeData themeData,
+    AppLocalizations appLocalizations,
   ) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
@@ -159,9 +159,9 @@ class _LocationQueryPageState extends State<LocationQueryPage>
   }
 
   Widget _getErrorWidget(
-    final Size screenSize,
-    final ThemeData themeData,
-    final String errorMessage,
+    Size screenSize,
+    ThemeData themeData,
+    String errorMessage,
   ) {
     return SearchEmptyScreen(
       name: widget.query,
@@ -176,8 +176,8 @@ class _LocationQueryPageState extends State<LocationQueryPage>
   }
 
   Widget _getEmptyText(
-    final ThemeData themeData,
-    final String message,
+    ThemeData themeData,
+    String message,
   ) => Padding(
     padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
     child: Column(

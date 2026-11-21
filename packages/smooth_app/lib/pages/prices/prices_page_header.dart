@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';

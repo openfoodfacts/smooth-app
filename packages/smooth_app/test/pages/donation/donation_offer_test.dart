@@ -9,6 +9,8 @@ AppNewsItem _newsItem({
   num? donationScansPerUnit,
   List<String>? donationWhereItGoes,
   num? donationReminderEvery,
+  num? donationAbNewPercent,
+  num? donationStripHideDays,
   num? count,
 }) => AppNewsItem(
   id: 'donation_campaign_2026',
@@ -20,6 +22,8 @@ AppNewsItem _newsItem({
   donationScansPerUnit: donationScansPerUnit,
   donationWhereItGoes: donationWhereItGoes,
   donationReminderEvery: donationReminderEvery,
+  donationAbNewPercent: donationAbNewPercent,
+  donationStripHideDays: donationStripHideDays,
   count: count,
 );
 
@@ -160,6 +164,48 @@ void main() {
           _newsItem(donationReminderEvery: 15.0),
         ).reminderEvery,
         15,
+      );
+    });
+  });
+
+  group('DonationOffer.arm', () {
+    DonationOffer offer(num? percent) =>
+        DonationOffer.fromNews(_newsItem(donationAbNewPercent: percent));
+
+    test('puts buckets below the percent on the reminder side', () {
+      expect(offer(50).arm(49), DonationTestArm.reminder);
+      expect(offer(50).arm(50), DonationTestArm.homeCard);
+    });
+
+    test('keeps everyone on the home card when the feed says nothing', () {
+      expect(offer(null).arm(0), DonationTestArm.homeCard);
+      expect(DonationOffer.fromNews(null).arm(0), DonationTestArm.homeCard);
+    });
+
+    test('puts everyone on the reminder side at 100', () {
+      expect(offer(100).arm(99), DonationTestArm.reminder);
+    });
+  });
+
+  group('DonationOffer.stripHideDays', () {
+    test('falls back to 14 for every unusable value', () {
+      for (final num? value in <num?>[null, 0, -3, 0.5, 366, double.infinity]) {
+        expect(
+          DonationOffer.fromNews(
+            _newsItem(donationStripHideDays: value),
+          ).stripHideDays,
+          14,
+          reason: '$value',
+        );
+      }
+    });
+
+    test('takes what the feed declares', () {
+      expect(
+        DonationOffer.fromNews(
+          _newsItem(donationStripHideDays: 7),
+        ).stripHideDays,
+        7,
       );
     });
   });
@@ -325,12 +371,13 @@ void main() {
     });
   });
 
-  group('DonationOffer.amountFormat / numberFormat', () {
+  group('DonationOffer.amountFormat / numberFormat / percentFormat', () {
     test('falls back to en for a locale intl ships no symbols for', () {
       final DonationOffer offer = DonationOffer.fromNews(null);
 
       expect(offer.amountFormat('brx').format(3), '€3');
       expect(offer.numberFormat('brx').format(1300), '1,300');
+      expect(offer.percentFormat('brx').format(0.3), '30%');
     });
 
     test('uses the locale intl does support', () {
@@ -356,7 +403,7 @@ void main() {
         DonationSource.values
             .map((DonationSource source) => source.analyticsValue)
             .toList(),
-        <int>[1, 2, 3],
+        <int>[1, 2, 3, 4],
       );
     });
 
@@ -391,6 +438,33 @@ void main() {
       );
     });
 
+    test('the arm is appended to utm_content on both URL shapes', () {
+      final DonationOffer offer = DonationOffer.fromNews(null);
+
+      expect(
+        offer
+            .tier(3)
+            .url(source: DonationSource.strip, arm: DonationTestArm.reminder),
+        '$_campaign?amount=3&default_interval=m&currency=eur'
+        '$_utm&utm_content=donation-screen-strip:new',
+      );
+      expect(
+        offer.oneOffUrl(
+          source: DonationSource.tagline,
+          arm: DonationTestArm.homeCard,
+        ),
+        '$_campaign?currency=eur$_utm&utm_content=donation-screen-tagline:old',
+      );
+    });
+
+    test('names the entry and the arm as the event action', () {
+      expect(
+        DonationTestArm.reminder.action(DonationSource.strip),
+        'strip:new',
+      );
+      expect(DonationTestArm.homeCard.action(null), 'none:old');
+    });
+
     test('is carried by the route', () {
       expect(
         AppRoutes.DONATE(DonationSource.settings),
@@ -404,6 +478,7 @@ void main() {
         AppRoutes.DONATE(DonationSource.reminder),
         '/_donate?source=reminder',
       );
+      expect(AppRoutes.DONATE(DonationSource.strip), '/_donate?source=strip');
     });
   });
 }

@@ -6,15 +6,15 @@ import 'package:smooth_app/query/product_query.dart';
 abstract class PriceTaxonomyRepository<T> {
   /// Downloads the taxonomy for the given [tags].
   @protected
-  Future<Map<String, T>?> download(final List<String> tags);
+  Future<Map<String, T>?> download(List<String> tags);
 
   @protected
-  Map<OpenFoodFactsLanguage, String>? getTaxonomyNames(final T item);
+  Map<OpenFoodFactsLanguage, String>? getTaxonomyNames(T item);
 
   @protected
   Map<String, String> getCachedMap();
 
-  Future<String?> getDownloadedName(final String tag) async {
+  Future<String?> getDownloadedName(String tag) async {
     final List<String>? result = await getDownloadedNames(<String>[tag]);
     if (result == null) {
       return null;
@@ -22,7 +22,7 @@ abstract class PriceTaxonomyRepository<T> {
     return result.firstOrNull;
   }
 
-  Future<List<String>?> getDownloadedNames(final List<String> tags) async {
+  Future<List<String>?> getDownloadedNames(List<String> tags) async {
     if (tags.isEmpty) {
       return null;
     }
@@ -53,10 +53,10 @@ abstract class PriceTaxonomyRepository<T> {
     return result;
   }
 
-  void _setCachedName(final String tag, final String label) =>
+  void _setCachedName(String tag, String label) =>
       getCachedMap()[_getKey(getLanguage(), getCountry(), tag)] = label;
 
-  String? getCachedName(final String tag) {
+  String? getCachedName(String tag) {
     final List<String>? result = getCachedNames(<String>[tag]);
     if (result == null) {
       return null;
@@ -65,7 +65,7 @@ abstract class PriceTaxonomyRepository<T> {
   }
 
   /// Returns the cached names if all are present, or null.
-  List<String>? getCachedNames(final List<String> tags) {
+  List<String>? getCachedNames(List<String> tags) {
     final Map<String, String> map = getCachedMap();
     final OpenFoodFactsLanguage language = getLanguage();
     final OpenFoodFactsCountry country = getCountry();
@@ -88,8 +88,8 @@ abstract class PriceTaxonomyRepository<T> {
   OpenFoodFactsCountry getCountry() => ProductQuery.getCountry();
 
   String _getKey(
-    final OpenFoodFactsLanguage language,
-    final OpenFoodFactsCountry country,
-    final String tag,
+    OpenFoodFactsLanguage language,
+    OpenFoodFactsCountry country,
+    String tag,
   ) => '${language.offTag}_${country.offTag}:$tag';
 }

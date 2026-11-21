@@ -20,8 +20,8 @@ class DaoString extends AbstractDao {
 
   LazyBox<String> _getBox() => Hive.lazyBox<String>(_hiveBoxName);
 
-  Future<String?> get(final String key) async => _getBox().get(key);
+  Future<String?> get(String key) async => _getBox().get(key);
 
-  Future<void> put(final String key, final String? value) async =>
+  Future<void> put(String key, String? value) async =>
       value == null ? _getBox().delete(key) : _getBox().put(key, value);
 }

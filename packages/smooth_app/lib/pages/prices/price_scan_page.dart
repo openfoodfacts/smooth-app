@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -63,7 +63,7 @@ class _PriceScanPageState extends State<PriceScanPage>
               icon: const Icon(Icons.add),
             ),
       body: GlobalVars.barcodeScanner.getScanner(
-        onScan: (final String barcode) async {
+        onScan: (String barcode) async {
           // for some reason, the scanner sometimes returns immediately the
           // previously scanned barcode.
           if (_latestScannedBarcode == barcode) {
@@ -109,7 +109,7 @@ class _PriceScanPageState extends State<PriceScanPage>
     );
   }
 
-  void _pop(final BuildContext context) {
+  void _pop(BuildContext context) {
     Navigator.of(context).pop(_barcodes);
   }
 }
