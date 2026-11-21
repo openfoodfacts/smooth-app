@@ -12,9 +12,17 @@ class NutritionContainerHelper extends ChangeNotifier {
     required OrderedNutrients orderedNutrients,
     required Product product,
   }) {
+    bool hasValues(PerSize perSize, List<String> sources) =>
+        product.getNutritionValues(perSize, sources: sources).isNotEmpty;
+    // The end-user's own per size wins over the manufacturer's.
+    final List<String> perSizeSources =
+        hasValues(PerSize.oneHundredGrams, _packaging) ||
+            hasValues(PerSize.serving, _packaging)
+        ? _packaging
+        : _sources;
     _initialPerSize = _perSize =
-        product.getNutritionValues(PerSize.oneHundredGrams).isEmpty &&
-            product.getNutritionValues(PerSize.serving).isNotEmpty
+        !hasValues(PerSize.oneHundredGrams, perSizeSources) &&
+            hasValues(PerSize.serving, perSizeSources)
         ? PerSize.serving
         : PerSize.oneHundredGrams;
     _loadNutrients(orderedNutrients.nutrients);
@@ -33,6 +41,16 @@ class NutritionContainerHelper extends ChangeNotifier {
     }
     return orderedNutrient.nutrient;
   }
+
+  /// Edits go to the packaging set, shown over the manufacturer one.
+  static const List<String> _sources = <String>[
+    NutritionSetKey.sourcePackaging,
+    NutritionSetKey.sourceManufacturer,
+  ];
+
+  static const List<String> _packaging = <String>[
+    NutritionSetKey.sourcePackaging,
+  ];
 
   // TODO(UrbanFercec): all the units, not only weights.
   static const Map<Unit, Unit> _nextWeightUnits = <Unit, Unit>{
@@ -60,6 +78,9 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   /// Initial nutrient units.
   final Map<Nutrient, Unit> _initialUnits = <Nutrient, Unit>{};
+
+  /// Nutrients whose loaded value comes from the manufacturer.
+  final Set<Nutrient> _fromManufacturer = <Nutrient>{};
 
   /// Nutrients added by the end-user.
   final Set<Nutrient> _added = <Nutrient>{};
@@ -180,6 +201,10 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   /// Returns the stored product nutrient's value.
   num? getValue(Nutrient nutrient) => _values[nutrient]?.value;
+
+  /// Returns true if the loaded value of [nutrient] comes from the manufacturer.
+  bool isFromManufacturer(Nutrient nutrient) =>
+      _fromManufacturer.contains(nutrient);
 
   /// Stores the end-user input when it differs from the loaded value.
   ///
@@ -319,18 +344,24 @@ class NutritionContainerHelper extends ChangeNotifier {
     Unit.MICRO_G: 1E6,
   };
 
-  /// Loads the values and units of the packaging as sold nutrition.
+  /// Loads the values and units of the as sold nutrition.
   ///
   /// Needs nutrients to be loaded first.
   void _loadValues(Product product) {
     final Map<Nutrient, NutritionValue> nutritionValues = product
-        .getNutritionValues(_perSize);
+        .getNutritionValues(_perSize, sources: _sources);
+    final Map<Nutrient, NutritionValue> packagingValues = product
+        .getNutritionValues(_perSize, sources: _packaging);
     final num? kCal = nutritionValues[Nutrient.energyKCal]?.value;
     if (nutritionValues[Nutrient.energyKJ] == null && kCal != null) {
       nutritionValues[Nutrient.energyKJ] = NutritionValue(
         value: NutrimentsHelper.fromKCalToKJ(kCal.toDouble()).round(),
         unit: Unit.KJ,
       );
+      if (packagingValues[Nutrient.energyKCal] != null) {
+        packagingValues[Nutrient.energyKJ] =
+            nutritionValues[Nutrient.energyKJ]!;
+      }
     }
     for (final OrderedNutrient orderedNutrient in _nutrients) {
       final Nutrient nutrient = getNutrient(orderedNutrient)!;
@@ -340,6 +371,9 @@ class NutritionContainerHelper extends ChangeNotifier {
       _initialUnits[nutrient] = unit;
       if (nutritionValue != null) {
         _values[nutrient] = nutritionValue;
+        if (packagingValues[nutrient] == null) {
+          _fromManufacturer.add(nutrient);
+        }
       }
     }
   }
@@ -392,9 +426,10 @@ class NutritionContainerHelper extends ChangeNotifier {
     for (final OrderedNutrient orderedNutrient in _nutrients) {
       final Nutrient nutrient = getNutrient(orderedNutrient)!;
       final NutritionValue? loaded = _values[nutrient];
+      final bool fromManufacturer = _fromManufacturer.contains(nutrient);
       final String? edited = _edited[nutrient];
       final Unit unit = _units[nutrient]!;
-      if (perSizeChanged && loaded != null) {
+      if (perSizeChanged && loaded != null && !fromManufacturer) {
         removedValues[nutrient] = NutritionValue(
           unit: _initialUnits[nutrient],
           valueString: '',
@@ -405,15 +440,20 @@ class NutritionContainerHelper extends ChangeNotifier {
           unit == _initialUnits[nutrient]) {
         continue;
       }
-      final String? valueString = edited ?? _getValueString(loaded);
+      // A manufacturer value is for its own per size only.
+      final NutritionValue? kept = perSizeChanged && fromManufacturer
+          ? null
+          : loaded;
+      final String? valueString = edited ?? _getValueString(kept);
       if (valueString == null ||
-          (valueString.isEmpty && (loaded == null || perSizeChanged))) {
+          (valueString.isEmpty &&
+              (kept == null || fromManufacturer || perSizeChanged))) {
         continue;
       }
       nutritionValues[nutrient] = NutritionValue(
         unit: unit,
         valueString: valueString,
-        modifier: edited == null ? loaded?.modifier : null,
+        modifier: edited == null ? kept?.modifier : null,
       );
     }
     NutritionSet getPackagingSet(
