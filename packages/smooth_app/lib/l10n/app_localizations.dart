@@ -11380,6 +11380,12 @@ abstract class AppLocalizations {
   /// **'Product list import'**
   String get preferences_dev_mode_product_list_import_title;
 
+  /// Title for enabling the new home page feature
+  ///
+  /// In en, this message translates to:
+  /// **'Enable new Home Page'**
+  String get preferences_dev_mode_new_home_page_title;
+
   /// Title for scores and methodologies card in FAQ
   ///
   /// In en, this message translates to:
@@ -11397,6 +11403,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Discover the main changes to the methodology'**
   String get preferences_faq_nutriscore_v2_subtitle;
+
+  /// Subtitle for Traffic Lights in FAQ
+  ///
+  /// In en, this message translates to:
+  /// **'Discover the UK FSA methodology'**
+  String get preferences_faq_traffic_lights_subtitle;
 
   /// Title for discover the project card in FAQ
   ///
