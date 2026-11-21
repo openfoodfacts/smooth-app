@@ -127,7 +127,15 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
           _dismissingNewsIds.add(newsId);
           try {
             final UserPreferences preferences = context.read<UserPreferences>();
-            await preferences.taglineFeedDismissNews(newsId);
+            final bool success = await preferences.taglineFeedDismissNews(
+              newsId,
+            );
+            if (!success) {
+              if (mounted) {
+                _dismissingNewsIds.remove(newsId);
+              }
+              return;
+            }
             AnalyticsHelper.trackTaglineNewsEvent(
               AnalyticsEvent.taglineNewsDismissed,
               newsId,

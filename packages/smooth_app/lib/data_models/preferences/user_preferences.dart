@@ -710,22 +710,25 @@ class UserPreferences extends ChangeNotifier {
     }
   }
 
-  Future<void> taglineFeedDismissNews(String newsId) async {
+  Future<bool> taglineFeedDismissNews(String newsId) async {
     if (newsId.isEmpty) {
-      return;
+      return false;
+    }
+    if (taglineFeedDismissedNews.contains(newsId)) {
+      return true;
     }
     final List<String> dismissedNews = List<String>.of(
       taglineFeedDismissedNews,
     );
-
-    if (!dismissedNews.contains(newsId)) {
-      dismissedNews.add(newsId);
-      await _sharedPreferences.setStringList(
-        _TAG_TAGLINE_FEED_NEWS_DISMISSED,
-        dismissedNews,
-      );
+    dismissedNews.add(newsId);
+    final bool success = await _sharedPreferences.setStringList(
+      _TAG_TAGLINE_FEED_NEWS_DISMISSED,
+      dismissedNews,
+    );
+    if (success) {
       notifyListeners();
     }
+    return success;
   }
 
   DateTime? get donationAsksMutedUntil {
