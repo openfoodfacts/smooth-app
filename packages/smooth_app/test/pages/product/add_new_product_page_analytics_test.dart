@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,7 +23,7 @@ class _UpToDateProductProvider extends UpToDateProductProvider {
   _UpToDateProductProvider(super.localDatabase);
 
   @override
-  Product getLocalUpToDate(final Product initialProduct) => initialProduct;
+  Product getLocalUpToDate(Product initialProduct) => initialProduct;
 }
 
 class _LocalDatabase extends MockLocalDatabase {

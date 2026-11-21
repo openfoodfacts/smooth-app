@@ -108,7 +108,7 @@ class AppNewsProvider extends ChangeNotifier {
       final _TagLineJSON tagLineJSON = _TagLineJSON.fromJson(
         jsonDecode(json) as Map<dynamic, dynamic>,
       );
-      return tagLineJSON.toTagLine(locale, appVersion, appLaunches);
+      return await tagLineJSON.toTagLine(locale, appVersion, appLaunches);
     } catch (_) {
       return null;
     }
@@ -161,7 +161,7 @@ class AppNewsProvider extends ChangeNotifier {
     (Directory dir) => File(join(dir.path, 'tagline.json')),
   );
 
-  Future<File> _saveNewsToCache(final String json) async {
+  Future<File> _saveNewsToCache(String json) async {
     final File file = await _newsCacheFile;
     return file.writeAsString(json);
   }

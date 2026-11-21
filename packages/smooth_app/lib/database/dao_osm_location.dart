@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -41,9 +42,9 @@ class DaoOsmLocation extends AbstractSqlDao {
   ];
 
   static FutureOr<void> onUpgrade(
-    final Database db,
-    final int oldVersion,
-    final int newVersion,
+    Database db,
+    int oldVersion,
+    int newVersion,
   ) async {
     if (oldVersion < 6) {
       await db.execute(
@@ -67,8 +68,8 @@ class DaoOsmLocation extends AbstractSqlDao {
 
     /// Not brilliant, but for historical reasons we have to catch that here.
     bool isDuplicateColumnException(
-      final DatabaseException e,
-      final String column,
+      DatabaseException e,
+      String column,
     ) => e.toString().startsWith(
       'DatabaseException(duplicate column name: $column (code 1 SQLITE_ERROR',
     );
@@ -94,7 +95,7 @@ class DaoOsmLocation extends AbstractSqlDao {
   }
 
   /// Deletes the [OsmLocation] that matches the key.
-  Future<int> delete(final OsmLocation osmLocation) async =>
+  Future<int> delete(OsmLocation osmLocation) async =>
       localDatabase.database.delete(
         _table,
         where: '$_columnId = ? AND $_columnType = ?',
@@ -115,7 +116,7 @@ class DaoOsmLocation extends AbstractSqlDao {
     return result;
   }
 
-  Future<int> put(final OsmLocation osmLocation) async =>
+  Future<int> put(OsmLocation osmLocation) async =>
       localDatabase.database.insert(_table, <String, Object?>{
         _columnId: osmLocation.osmId,
         _columnType: osmLocation.osmType.offTag,
@@ -132,7 +133,7 @@ class DaoOsmLocation extends AbstractSqlDao {
         _columnLastAccess: LocalDatabase.nowInMillis(),
       });
 
-  OsmLocation? _getItemFromQueryResult(final Map<String, dynamic> row) {
+  OsmLocation? _getItemFromQueryResult(Map<String, dynamic> row) {
     final LocationOSMType? type = LocationOSMType.fromOffTag(
       row[_columnType] as String,
     );

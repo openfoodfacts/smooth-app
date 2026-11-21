@@ -18,7 +18,7 @@ class OsmLocation {
     this.osmValue,
   });
 
-  OsmLocation.fromPrice(final Location location)
+  OsmLocation.fromPrice(Location location)
     : osmId = location.osmId!,
       osmType = location.type!,
       longitude = location.longitude ?? 0,

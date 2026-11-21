@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -46,7 +46,7 @@ class _BarcodeScannerViewState extends State<_BarcodeScannerView>
       children: <Widget>[
         Positioned.fill(
           child: GlobalVars.barcodeScanner.getScanner(
-            onScan: (final String barcode) async {
+            onScan: (String barcode) async {
               Navigator.of(context).pop(barcode);
               return true;
             },

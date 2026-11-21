@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
@@ -15,8 +15,8 @@ class OnboardingLoader {
   ///
   /// The [page] parameter refers to the current page (before the next).
   Future<void> runAtNextTime(
-    final OnboardingPage page,
-    final BuildContext context,
+    OnboardingPage page,
+    BuildContext context,
   ) async {
     switch (page) {
       case OnboardingPage.WELCOME:

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/pages/homepage/camera/peak_view/peak_view.dart';

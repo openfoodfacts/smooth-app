@@ -47,10 +47,10 @@ class SearchProductsManager {
   SearchProductsManager._();
 
   static Future<SearchResult> searchProducts(
-    final User? user,
-    final AbstractQueryConfiguration configuration, {
-    required final UriProductHelper uriHelper,
-    required final SearchProductsType type,
+    User? user,
+    AbstractQueryConfiguration configuration, {
+    required UriProductHelper uriHelper,
+    required SearchProductsType type,
   }) async {
     await type.waitIfNeeded();
 
@@ -67,7 +67,7 @@ class SearchProductsManager {
   }
 
   static Future<SearchResult> _decodeProducts(
-    final String responseBody,
+    String responseBody,
   ) async => SearchResult.fromJson(
     HttpHelper().jsonDecode(_replaceQuotes(responseBody)),
   );
@@ -83,8 +83,8 @@ class SearchProductsManager {
 
   // TODO(monsieurtanuki): somehow move to/make public in off-dart
   static void _removeImages(
-    final SearchResult searchResult,
-    final AbstractQueryConfiguration configuration,
+    SearchResult searchResult,
+    AbstractQueryConfiguration configuration,
   ) {
     if (searchResult.products != null) {
       searchResult.products!.asMap().forEach((int index, Product product) {

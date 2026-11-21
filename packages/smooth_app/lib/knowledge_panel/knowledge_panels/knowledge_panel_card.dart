@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -28,7 +28,7 @@ class KnowledgePanelCard extends StatelessWidget {
   static const String PANEL_INGREDIENTS_ID = 'ingredients';
 
   /// Returns the preferences tag we use for the flag related to that [panelId].
-  static String getExpandFlagTag(final String panelId) => 'expand_$panelId';
+  static String getExpandFlagTag(String panelId) => 'expand_$panelId';
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class KnowledgePanelCard extends StatelessWidget {
     );
   }
 
-  bool _isExpandedByUser(final UserPreferences userPreferences) {
+  bool _isExpandedByUser(UserPreferences userPreferences) {
     final List<String> expandedPanelIds = <String>[
       PANEL_NUTRITION_TABLE_ID,
       PANEL_INGREDIENTS_ID,

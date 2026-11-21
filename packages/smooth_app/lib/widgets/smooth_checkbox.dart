@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A [Checkbox.adaptive] that ensures that the Cupertino variant follows
 /// the same theme as the Material variant.

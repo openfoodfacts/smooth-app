@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A [TextEditingController] that saves the value passed to the constructor
 /// and persists the previous value.

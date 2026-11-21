@@ -28,7 +28,9 @@ enum AnalyticsCategory {
   donation(tag: 'donation'),
   lifecycle(tag: 'lifecycle'),
   onboarding(tag: 'onboarding'),
-  knowledgePanel(tag: 'knowledge panel');
+  knowledgePanel(tag: 'knowledge panel'),
+  navigation(tag: 'navigation'),
+  foodPreferences(tag: 'food preferences');
 
   const AnalyticsCategory({required this.tag});
 
@@ -215,7 +217,32 @@ enum AnalyticsEvent {
     tag: 'knowledge panel open',
     category: AnalyticsCategory.knowledgePanel,
   ),
-  appOpen(tag: 'app open', category: AnalyticsCategory.lifecycle);
+  appOpen(tag: 'app open', category: AnalyticsCategory.lifecycle),
+  productPageTabSelected(
+    tag: 'product page tab selected',
+    category: AnalyticsCategory.navigation,
+  ),
+  bottomTabSelected(
+    tag: 'bottom tab selected',
+    category: AnalyticsCategory.navigation,
+  ),
+  foodPreferenceSaved(
+    tag: 'food preference saved',
+    category: AnalyticsCategory.foodPreferences,
+  ),
+  questionAnswered(
+    tag: 'question answered',
+    category: AnalyticsCategory.hungerGame,
+  ),
+  cameraPermissionRefused(
+    tag: 'camera permission refused',
+    category: AnalyticsCategory.scanning,
+  ),
+  userListCreated(tag: 'user list created', category: AnalyticsCategory.list),
+  userListProductAdded(
+    tag: 'product added to user list',
+    category: AnalyticsCategory.list,
+  );
 
   const AnalyticsEvent({required this.tag, required this.category});
 
@@ -296,8 +323,7 @@ class AnalyticsHelper {
   static Future<void> initSentry({required Function()? appRunner}) async {
     await SentryFlutter.init((SentryFlutterOptions options) {
       options
-        ..dsn =
-            'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
+        ..dsn = 'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
         // To set a uniform sample rate
         ..tracesSampleRate = 1.0
         ..enableTombstone = true
@@ -310,12 +336,12 @@ class AnalyticsHelper {
 
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
-  static void _setCrashReports(final bool crashReports) =>
+  static void _setCrashReports(bool crashReports) =>
       _crashReports = crashReports;
 
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
-  static void _setAnalyticsReports(final bool allow) {
+  static void _setAnalyticsReports(bool allow) {
     if (allow) {
       _analyticsReporting = _AnalyticsTrackingMode.enabled;
     } else {
@@ -349,9 +375,8 @@ class AnalyticsHelper {
   /// default [PersistenceFilter] of [DispatchSettings.persistent] drops
   /// anything older than 23h59m59s when the queue is loaded.
   static Future<void> initMatomo(
-    final bool screenshotMode, {
-    final DispatchSettings dispatchSettings =
-        const DispatchSettings.persistent(),
+    bool screenshotMode, {
+    DispatchSettings dispatchSettings = const DispatchSettings.persistent(),
   }) async {
     _packageInfo = await PackageInfo.fromPlatform();
     if (screenshotMode) {
@@ -398,8 +423,8 @@ class AnalyticsHelper {
   static const Duration _visitTimeout = Duration(minutes: 30);
 
   static void trackAppOpen(
-    final UserPreferences userPreferences, {
-    final Duration? backgroundedFor,
+    UserPreferences userPreferences, {
+    Duration? backgroundedFor,
   }) {
     if (userPreferences.lastVisitedOnboardingPage.isOnboardingNotStarted()) {
       return;

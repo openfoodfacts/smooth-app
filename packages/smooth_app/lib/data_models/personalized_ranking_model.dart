@@ -31,7 +31,7 @@ class PersonalizedRankingModel with ChangeNotifier {
   }
 
   /// Refreshes the computations.
-  Future<void> refresh(final ProductPreferences productPreferences) async {
+  Future<void> refresh(ProductPreferences productPreferences) async {
     _clear();
     _asyncLoad(localDatabase, productPreferences);
   }
@@ -55,7 +55,7 @@ class PersonalizedRankingModel with ChangeNotifier {
   }
 
   /// Removes a barcode from the barcodes and from the scores.
-  void dismiss(final String barcode) {
+  void dismiss(String barcode) {
     localDatabase.upToDate.loseInterest(barcode);
     initialBarcodes.remove(barcode);
     int? index;
@@ -74,8 +74,8 @@ class PersonalizedRankingModel with ChangeNotifier {
 
   /// Computes the scores from the [Product]s extracted one by one from the db.
   Future<bool> _asyncLoad(
-    final LocalDatabase localDatabase,
-    final ProductPreferences productPreferences,
+    LocalDatabase localDatabase,
+    ProductPreferences productPreferences,
   ) async {
     try {
       final DaoProduct daoProduct = DaoProduct(localDatabase);

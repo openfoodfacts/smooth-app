@@ -47,11 +47,11 @@ class DaoStringList extends AbstractDao {
 
   Box<List<String>> _getBox() => Hive.box<List<String>>(_hiveBoxName);
 
-  List<String> getAll(final String key) =>
+  List<String> getAll(String key) =>
       _getBox().get(key, defaultValue: <String>[])!;
 
   /// Adds a unique value to the end. Removes is before if it pre-existed.
-  Future<void> add(final String key, final String string) async {
+  Future<void> add(String key, String string) async {
     final List<String> value = getAll(key);
     value.remove(string);
     value.add(string);
@@ -65,7 +65,7 @@ class DaoStringList extends AbstractDao {
     localDatabase.notifyListeners();
   }
 
-  Future<bool> remove(final String key, final String item) async {
+  Future<bool> remove(String key, String item) async {
     final List<String> list = getAll(key);
     if (list.remove(item)) {
       await _getBox().put(key, list);

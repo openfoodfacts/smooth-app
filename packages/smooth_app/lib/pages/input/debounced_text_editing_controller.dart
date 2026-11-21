@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Wraps a TextEditingController and debounces its changes.
 class DebouncedTextEditingController extends TextEditingController {

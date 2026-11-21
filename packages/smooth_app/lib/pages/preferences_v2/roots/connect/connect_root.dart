@@ -1,7 +1,7 @@
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -269,12 +269,12 @@ class ConnectRoot extends PreferencesRoot {
   };
 
   Future<void> _sendEmail({
-    required final BuildContext context,
-    required final String recipient,
-    required final AppLocalizations appLocalizations,
-    final String body = '',
-    final String subject = '',
-    final List<String>? attachmentPaths,
+    required BuildContext context,
+    required String recipient,
+    required AppLocalizations appLocalizations,
+    String body = '',
+    String subject = '',
+    List<String>? attachmentPaths,
   }) async {
     final Email email = Email(
       body: body,

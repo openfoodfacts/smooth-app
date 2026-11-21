@@ -17,7 +17,7 @@ kotlin {
 
 android {
     namespace = "org.openfoodfacts.app"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = maxOf(flutter.compileSdkVersion, 37)
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -28,11 +28,12 @@ android {
 
     defaultConfig {
         applicationId = "org.openfoodfacts.scanner"
-        minSdk = flutter.minSdkVersion
+        // sentry_flutter 10+ requires Android API 26+ (Android 8.0) for both debug and release builds.
+        val minSdkOverride = project.findProperty("minSdk")?.toString()?.toIntOrNull()
+        minSdk = minSdkOverride ?: maxOf(flutter.minSdkVersion, 26)
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        multiDexEnabled = true
     }
 
     signingConfigs {
@@ -63,6 +64,5 @@ flutter {
 }
 
 dependencies {
-    implementation("androidx.multidex:multidex:2.0.1")
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.2")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 }

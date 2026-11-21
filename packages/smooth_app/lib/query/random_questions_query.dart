@@ -8,8 +8,8 @@ import 'package:smooth_app/query/questions_query.dart';
 class RandomQuestionsQuery extends QuestionsQuery {
   @override
   Future<List<RobotoffQuestion>> getQuestions(
-    final LocalDatabase localDatabase,
-    final int count,
+    LocalDatabase localDatabase,
+    int count,
   ) async {
     final RobotoffQuestionResult result = await RobotoffAPIClient.getQuestions(
       ProductQuery.getLanguage(),

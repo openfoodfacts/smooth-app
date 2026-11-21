@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_header_container.dart';
@@ -21,9 +21,11 @@ class PriceProductWidget extends StatelessWidget {
     final List<String>? brands = priceProduct.brands == ''
         ? null
         : priceProduct.brands?.split(',');
-    final String? quantity = priceProduct.quantity == null
+    final String? quantity = priceProduct.quantityString?.isNotEmpty == true
+        ? priceProduct.quantityString
+        : (priceProduct.productQuantity ?? 0) == 0
         ? null
-        : '${priceProduct.quantity} ${priceProduct.quantityUnit ?? 'g'}';
+        : '${priceProduct.productQuantity} ${priceProduct.quantityUnit ?? 'g'}';
 
     return PriceHeaderContainer(
       imageProvider: imageURL != null ? NetworkImage(imageURL) : null,

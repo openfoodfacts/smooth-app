@@ -41,7 +41,7 @@ env:
 jobs:
   testflight-release:  
     name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
-    runs-on: macos-26
+    runs-on: xcode-27
     steps:
       - name: Checkout sources
         uses: actions/checkout@v7
@@ -51,6 +51,11 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
           working-directory: packages/smooth_app/ios
+      - name: Setup Java JDK
+        uses: actions/setup-java@v6.3.0
+        with:
+          distribution: 'zulu'
+          java-version: ${{ env.JAVA_VERSION }}
 
       # Get the flutter version from ./flutter-version.txt
       - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
@@ -68,7 +73,7 @@ jobs:
         run: flutter --version
 
       - name: Cache Pub dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.pub-cache
           key: pub-cache-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
@@ -76,7 +81,7 @@ jobs:
             pub-cache-${{ runner.os }}-
 
       - name: Cache SwiftPM
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/Library/Caches/org.swift.swiftpm
           key: spm-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}

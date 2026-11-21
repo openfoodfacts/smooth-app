@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 extension StringExtensions on String {
   /// Returns a list containing all positions of a [charCode]

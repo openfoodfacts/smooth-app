@@ -3,7 +3,7 @@ default_platform(:ios)
 
 before_all do
   xcodes(
-    version: '26.3',
+    version: '27.2',
     select_for_current_build_only: true,
   )
   has_ios_sdk = system("xcodebuild -showsdks | grep -q 'iOS SDKs:'")

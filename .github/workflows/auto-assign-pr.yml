@@ -6,7 +6,7 @@ on:
     types: [opened, reopened]
     
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -16,5 +16,5 @@ jobs:
   assign-author:
     runs-on: ubuntu-slim
     steps:
-      - uses: toshimaru/auto-author-assign@v3.1.0
+      - uses: toshimaru/auto-author-assign@v3.1.1
   

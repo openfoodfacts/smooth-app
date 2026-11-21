@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
-import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/helpers/app_localizations_delegates.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -55,7 +55,7 @@ void main() {
       ChangeNotifierProvider<ThemeProvider>(
         create: (_) => ThemeProvider(prefs),
         child: MaterialApp(
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          localizationsDelegates: appLocalizationsDelegates,
           locale: const Locale('en'),
           home: SmoothScaffold(
             body: SmoothErrorCard(

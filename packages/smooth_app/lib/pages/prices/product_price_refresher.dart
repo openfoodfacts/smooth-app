@@ -90,10 +90,10 @@ class ProductPriceRefresher {
   static final Map<String, int> _latestUpdates = <String, int>{};
   static final Map<String, int> _latestRefreshes = <String, int>{};
 
-  static void setLatestUpdate(final String barcode) =>
+  static void setLatestUpdate(String barcode) =>
       _latestUpdates[barcode] = _getTimestamp();
 
-  static void _setLatestRefresh(final String barcode) =>
+  static void _setLatestRefresh(String barcode) =>
       _latestRefreshes[barcode] = _getTimestamp();
 
   static int _getTimestamp() => LocalDatabase.nowInMillis();

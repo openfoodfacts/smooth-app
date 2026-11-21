@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -122,7 +122,7 @@ class AboutAppRoot extends PreferencesRoot {
       subtitleText: appLocalizations.contribute_develop_dev_mode_subtitle,
       icon: const icons.Contribute(),
       state: userPreferences.devMode != 0,
-      onToggle: (final bool devMode) async =>
+      onToggle: (bool devMode) async =>
           userPreferences.setDevMode(devMode ? 1 : 0),
     );
   }

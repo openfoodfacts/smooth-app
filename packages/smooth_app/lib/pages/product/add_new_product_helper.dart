@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -168,12 +168,12 @@ class AddNewProductScoreIcon extends StatelessWidget {
 /// Helper for the "Add new product" page.
 class AddNewProductHelper {
   bool isMainImagePopulated(
-    final ProductImageData productImageData,
-    final Product product,
+    ProductImageData productImageData,
+    Product product,
   ) =>
       getProductImageLanguages(product, productImageData.imageField).isNotEmpty;
 
-  bool isOneMainImagePopulated(final Product product) {
+  bool isOneMainImagePopulated(Product product) {
     final List<ProductImageData> productImagesData = getProductMainImagesData(
       product,
       // TODO(monsieurtanuki): check somehow with all languages
