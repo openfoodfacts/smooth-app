@@ -11,7 +11,8 @@ import 'package:smooth_app/services/smooth_services.dart';
 
 class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
-  static const String _PASSWORD = 'pasword';
+  static const String _PASSWORD = 'user_password';
+  static const String _LEGACY_PASSWORD = 'pasword';
   static const String _COOKIE = 'user_cookie';
 
   /// Checks credentials and conditionally saves them.
@@ -34,9 +35,10 @@ class UserManagementProvider with ChangeNotifier {
   /// Deletes saved credentials from storage
   Future<bool> logout() async {
     OpenFoodAPIConfiguration.globalUser = null;
-    DaoSecuredString.remove(key: _USER_ID);
-    DaoSecuredString.remove(key: _PASSWORD);
-    DaoSecuredString.remove(key: _COOKIE);
+    await DaoSecuredString.remove(key: _USER_ID);
+    await DaoSecuredString.remove(key: _PASSWORD);
+    await DaoSecuredString.remove(key: _LEGACY_PASSWORD);
+    await DaoSecuredString.remove(key: _COOKIE);
     notifyListeners();
     final bool contains = await credentialsInStorage();
     return !contains;
@@ -53,16 +55,34 @@ class UserManagementProvider with ChangeNotifier {
     String? effectivePassword;
     String? effectiveCookie;
 
+    // Kept apart from the logout handler below: a transient failure during the
+    // migration must never delete the legacy key.
+    try {
+      await _migrateLegacyPassword();
+    } catch (e) {
+      Logs.e('Password key migration failed (${e.runtimeType})');
+    }
+
+    await ProductQuery.removeLegacyPriceTokens();
+
     try {
       effectiveUserId = userId ?? await DaoSecuredString.get(_USER_ID);
-      effectivePassword = password ?? await DaoSecuredString.get(_PASSWORD);
+      effectivePassword =
+          password ??
+          await DaoSecuredString.get(_PASSWORD) ??
+          await _getLegacyPassword();
       effectiveCookie = await DaoSecuredString.get(_COOKIE);
     } on PlatformException {
       /// Decrypting the values can go wrong if, for example, the app was
       /// manually overwritten from an external apk.
-      DaoSecuredString.remove(key: _USER_ID);
-      DaoSecuredString.remove(key: _PASSWORD);
-      DaoSecuredString.remove(key: _COOKIE);
+      try {
+        await DaoSecuredString.remove(key: _USER_ID);
+        await DaoSecuredString.remove(key: _PASSWORD);
+        await DaoSecuredString.remove(key: _COOKIE);
+      } catch (e) {
+        // The storage is already failing: the app must still start.
+        Logs.e('Credentials cleanup failed (${e.runtimeType})');
+      }
       Logs.e('Credentials query failed, you have been logged out');
     }
 
@@ -76,6 +96,46 @@ class UserManagementProvider with ChangeNotifier {
       cookie: effectiveCookie,
     );
     OpenFoodAPIConfiguration.globalUser = user;
+  }
+
+  /// Returns the password still stored under the legacy key, which happens
+  /// when its migration failed.
+  ///
+  /// Never throws: an unreadable legacy key must not log the user out.
+  static Future<String?> _getLegacyPassword() async {
+    try {
+      return await DaoSecuredString.get(_LEGACY_PASSWORD);
+    } catch (e) {
+      Logs.e('Legacy password read failed (${e.runtimeType})');
+
+      return null;
+    }
+  }
+
+  /// Moves the password from the misspelled legacy key to the current one.
+  ///
+  /// The legacy key is only deleted once the current one is verified, and an
+  /// existing current value is never overwritten (the password may have been
+  /// changed since). A crash in between leaves both keys: the next launch
+  /// finishes the cleanup.
+  static Future<void> _migrateLegacyPassword() async {
+    final String? current = await DaoSecuredString.get(_PASSWORD);
+    final String? legacy = await DaoSecuredString.get(_LEGACY_PASSWORD);
+
+    if (legacy == null) {
+      return;
+    }
+
+    if (current == null) {
+      await DaoSecuredString.put(key: _PASSWORD, value: legacy);
+
+      if (await DaoSecuredString.get(_PASSWORD) != legacy) {
+        return;
+      }
+    }
+
+    // The returned value of [DaoSecuredString.remove] is not reliable.
+    await DaoSecuredString.remove(key: _LEGACY_PASSWORD);
   }
 
   /// Checks if any credentials exist in storage
@@ -94,7 +154,7 @@ class UserManagementProvider with ChangeNotifier {
     if (user.cookie != null) {
       await DaoSecuredString.put(key: _COOKIE, value: user.cookie!);
     } else {
-      DaoSecuredString.remove(key: _COOKIE);
+      await DaoSecuredString.remove(key: _COOKIE);
     }
     notifyListeners();
   }

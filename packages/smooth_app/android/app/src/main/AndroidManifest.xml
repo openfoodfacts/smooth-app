@@ -24,6 +24,7 @@
         android:hasFragileUserData="true"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_scheme"
+        android:dataExtractionRules="@xml/data_extraction_rules"
         tools:targetApi="q">
 
         <property
