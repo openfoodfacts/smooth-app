@@ -6,6 +6,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 AppNewsItem _newsItem({
   String? currency,
   List<num>? donationAmounts,
+  Map<String, List<int>>? donationOffers,
   num? donationScansPerUnit,
   List<String>? donationWhereItGoes,
   num? donationReminderEvery,
@@ -19,6 +20,7 @@ AppNewsItem _newsItem({
   url: 'https://world.openfoodfacts.org/',
   currency: currency,
   donationAmounts: donationAmounts,
+  donationOffers: donationOffers,
   donationScansPerUnit: donationScansPerUnit,
   donationWhereItGoes: donationWhereItGoes,
   donationReminderEvery: donationReminderEvery,
@@ -136,6 +138,57 @@ void main() {
         ).scansPerUnit,
         270,
       );
+    });
+
+    test('adopts supported local currency profile for user currency', () {
+      final DonationOffer jpyOffer = DonationOffer.fromNews(
+        null,
+        userCurrencyCode: 'JPY',
+      );
+      expect(jpyOffer.currency, 'JPY');
+      expect(jpyOffer.amounts, <int>[500, 1000, 2000]);
+      expect(jpyOffer.scansPerUnit, 2);
+      expect(jpyOffer.defaultAmount, 1000);
+
+      final DonationOffer usdOffer = DonationOffer.fromNews(
+        null,
+        userCurrencyCode: 'usd',
+      );
+      expect(usdOffer.currency, 'USD');
+      expect(usdOffer.amounts, <int>[3, 5, 10]);
+      expect(usdOffer.scansPerUnit, 250);
+
+      final DonationOffer gbpOffer = DonationOffer.fromNews(
+        null,
+        userCurrencyCode: 'GBP',
+      );
+      expect(gbpOffer.currency, 'GBP');
+      expect(gbpOffer.amounts, <int>[3, 5, 10]);
+      expect(gbpOffer.scansPerUnit, 300);
+    });
+
+    test('prefers feed donation_offers for user currency if present', () {
+      final DonationOffer offer = DonationOffer.fromNews(
+        _newsItem(
+          donationOffers: <String, List<int>>{
+            'JPY': <int>[600, 1200, 2400],
+          },
+        ),
+        userCurrencyCode: 'JPY',
+      );
+      expect(offer.currency, 'JPY');
+      expect(offer.amounts, <int>[600, 1200, 2400]);
+      expect(offer.scansPerUnit, 2);
+    });
+
+    test('falls back to EUR when user currency is unsupported or unknown', () {
+      final DonationOffer offer = DonationOffer.fromNews(
+        null,
+        userCurrencyCode: 'XYZ',
+      );
+      expect(offer.currency, 'EUR');
+      expect(offer.amounts, <int>[3, 5, 10]);
+      expect(offer.scansPerUnit, 270);
     });
   });
 

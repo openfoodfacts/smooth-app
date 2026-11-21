@@ -125,6 +125,7 @@ class _TagLineItemNewsItem {
     required this.goal,
     required this.currency,
     required this.donationAmounts,
+    this.donationOffers,
     required this.donationScansPerUnit,
     required this.count,
     required this.donationReminderEvery,
@@ -165,6 +166,7 @@ class _TagLineItemNewsItem {
       goal = json['goal'] as num?,
       currency = json['currency'],
       donationAmounts = DonationOffer.feedList<num>(json['donation_amounts']),
+      donationOffers = _parseDonationOffers(json['donation_offers']),
       donationScansPerUnit = json['donation_scans_per_unit'] as num?,
       count = json['count'] as num?,
       donationReminderEvery = json['donation_reminder_every'] as num?,
@@ -191,11 +193,36 @@ class _TagLineItemNewsItem {
   final num? goal;
   final String? currency;
   final List<num>? donationAmounts;
+  final Map<String, List<int>>? donationOffers;
   final num? donationScansPerUnit;
   final num? count;
   final num? donationReminderEvery;
   final num? donationAbNewPercent;
   final num? donationStripHideDays;
+
+  static Map<String, List<int>>? _parseDonationOffers(dynamic value) {
+    if (value is! Map) {
+      return null;
+    }
+    final Map<String, List<int>> result = <String, List<int>>{};
+    for (final MapEntry<dynamic, dynamic> entry in value.entries) {
+      final String code = entry.key.toString().toUpperCase().trim();
+      if (code.length != 3) {
+        continue;
+      }
+      List<num>? rawAmounts;
+      if (entry.value is List) {
+        rawAmounts = DonationOffer.feedList<num>(entry.value);
+      } else if (entry.value is Map && entry.value['amounts'] is List) {
+        rawAmounts = DonationOffer.feedList<num>(entry.value['amounts']);
+      }
+      final List<int> amounts = DonationOffer.ladder(rawAmounts);
+      if (amounts.isNotEmpty) {
+        result[code] = amounts;
+      }
+    }
+    return result.isEmpty ? null : result;
+  }
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
     _TagLineItemNewsTranslation? translation;
@@ -235,6 +262,7 @@ class _TagLineItemNewsItem {
       goal: goal,
       currency: currency,
       donationAmounts: donationAmounts,
+      donationOffers: donationOffers,
       donationScansPerUnit: donationScansPerUnit,
       count: count,
       donationReminderEvery: donationReminderEvery,

@@ -55,6 +55,7 @@ class AppNewsItem {
     this.goal,
     this.currency,
     this.donationAmounts,
+    this.donationOffers,
     this.donationScansPerUnit,
     this.count,
     this.donationReminderEvery,
@@ -80,6 +81,7 @@ class AppNewsItem {
   final num? goal;
   final String? currency;
   final List<num>? donationAmounts;
+  final Map<String, List<int>>? donationOffers;
   final num? donationScansPerUnit;
   final num? count;
   final num? donationReminderEvery;

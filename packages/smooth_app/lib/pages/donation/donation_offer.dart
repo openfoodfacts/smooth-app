@@ -60,22 +60,102 @@ class DonationOffer {
 
   /// Falls back field by field, so a feed carrying none of this renders the
   /// screen exactly as it shipped.
-  factory DonationOffer.fromNews(AppNewsItem? item) {
-    final String? currency = item?.currency;
-    final List<int> amounts = _ladder(item?.donationAmounts);
-    final num? scansPerUnit = item?.donationScansPerUnit;
+  factory DonationOffer.fromNews(
+    AppNewsItem? item, {
+    String? userCurrencyCode,
+  }) {
+    final String? normalizedUserCurrency =
+        userCurrencyCode != null && userCurrencyCode.trim().length == 3
+            ? userCurrencyCode.trim().toUpperCase()
+            : null;
+
+    final String? feedCurrency = item?.currency;
+    final List<int> feedAmounts = _ladder(item?.donationAmounts);
+    final num? feedScansPerUnit = item?.donationScansPerUnit;
     final num? reminderEvery = item?.donationReminderEvery;
     final num? donorCount = item?.count;
     final num? newArmPercent = item?.donationAbNewPercent;
     final num? stripHideDays = item?.donationStripHideDays;
 
+    // 1. If the remote feed provides explicit donation_offers for the user's currency:
+    if (normalizedUserCurrency != null && item?.donationOffers != null) {
+      final List<int>? customAmounts =
+          item!.donationOffers![normalizedUserCurrency];
+      if (customAmounts != null && customAmounts.isNotEmpty) {
+        final _CurrencyProfile? profile =
+            _defaultCurrencyProfiles[normalizedUserCurrency];
+        return DonationOffer(
+          currency: normalizedUserCurrency,
+          amounts: customAmounts,
+          scansPerUnit: profile?.scansPerUnit ?? _fallbackScansPerUnit,
+          whereItGoes: item.donationWhereItGoes ?? const <String>[],
+          reminderEvery:
+              reminderEvery != null && _isUsableCount(reminderEvery)
+                  ? reminderEvery.toInt()
+                  : _fallbackReminderEvery,
+          newArmPercent: newArmPercent != null && newArmPercent.isFinite
+              ? newArmPercent.toInt()
+              : 0,
+          stripHideDays:
+              stripHideDays != null &&
+                      _isUsableCount(stripHideDays) &&
+                      stripHideDays <= 365
+                  ? stripHideDays.toInt()
+                  : _fallbackStripHideDays,
+          donorCount: donorCount != null && _isUsableCount(donorCount)
+              ? donorCount.toInt()
+              : null,
+          funding: item.funding,
+          monthsLeft: item.monthsLeft,
+        );
+      }
+    }
+
+    // 2. If the user's currency matches one of our supported local currency profiles:
+    if (normalizedUserCurrency != null &&
+        _defaultCurrencyProfiles.containsKey(normalizedUserCurrency)) {
+      final _CurrencyProfile profile =
+          _defaultCurrencyProfiles[normalizedUserCurrency]!;
+      final List<int> amounts =
+          feedCurrency == normalizedUserCurrency && feedAmounts.isNotEmpty
+              ? feedAmounts
+              : profile.amounts;
+      return DonationOffer(
+        currency: normalizedUserCurrency,
+        amounts: amounts,
+        scansPerUnit: feedScansPerUnit != null && _isUsable(feedScansPerUnit)
+            ? feedScansPerUnit.toInt()
+            : profile.scansPerUnit,
+        whereItGoes: item?.donationWhereItGoes ?? const <String>[],
+        reminderEvery:
+            reminderEvery != null && _isUsableCount(reminderEvery)
+                ? reminderEvery.toInt()
+                : _fallbackReminderEvery,
+        newArmPercent: newArmPercent != null && newArmPercent.isFinite
+            ? newArmPercent.toInt()
+            : 0,
+        stripHideDays:
+            stripHideDays != null &&
+                    _isUsableCount(stripHideDays) &&
+                    stripHideDays <= 365
+                ? stripHideDays.toInt()
+                : _fallbackStripHideDays,
+        donorCount: donorCount != null && _isUsableCount(donorCount)
+            ? donorCount.toInt()
+            : null,
+        funding: item?.funding,
+        monthsLeft: item?.monthsLeft,
+      );
+    }
+
+    // 3. Fallback: use feed-declared currency or fallback EUR
     return DonationOffer(
-      currency: currency != null && currency.length == 3
-          ? currency
+      currency: feedCurrency != null && feedCurrency.length == 3
+          ? feedCurrency
           : _fallbackCurrency,
-      amounts: amounts.isEmpty ? _fallbackAmounts : amounts,
-      scansPerUnit: scansPerUnit != null && _isUsable(scansPerUnit)
-          ? scansPerUnit.toInt()
+      amounts: feedAmounts.isEmpty ? _fallbackAmounts : feedAmounts,
+      scansPerUnit: feedScansPerUnit != null && _isUsable(feedScansPerUnit)
+          ? feedScansPerUnit.toInt()
           : _fallbackScansPerUnit,
       whereItGoes: item?.donationWhereItGoes ?? const <String>[],
       reminderEvery: reminderEvery != null && _isUsableCount(reminderEvery)
@@ -115,6 +195,41 @@ class DonationOffer {
   static const int _fallbackReminderEvery = 10;
 
   static const int _fallbackStripHideDays = 14;
+
+  /// Default amount ladders and scan anchors for supported local currencies.
+  static const Map<String, _CurrencyProfile> _defaultCurrencyProfiles =
+      <String, _CurrencyProfile>{
+    'EUR': _CurrencyProfile(amounts: <int>[3, 5, 10], scansPerUnit: 270),
+    'USD': _CurrencyProfile(amounts: <int>[3, 5, 10], scansPerUnit: 250),
+    'GBP': _CurrencyProfile(amounts: <int>[3, 5, 10], scansPerUnit: 300),
+    'CHF': _CurrencyProfile(amounts: <int>[3, 5, 10], scansPerUnit: 280),
+    'CAD': _CurrencyProfile(amounts: <int>[5, 10, 20], scansPerUnit: 180),
+    'AUD': _CurrencyProfile(amounts: <int>[5, 10, 20], scansPerUnit: 170),
+    'JPY': _CurrencyProfile(amounts: <int>[500, 1000, 2000], scansPerUnit: 2),
+    'INR': _CurrencyProfile(amounts: <int>[200, 500, 1000], scansPerUnit: 3),
+    'BRL': _CurrencyProfile(amounts: <int>[15, 30, 50], scansPerUnit: 45),
+    'MXN': _CurrencyProfile(amounts: <int>[50, 100, 200], scansPerUnit: 12),
+    'PLN': _CurrencyProfile(amounts: <int>[15, 25, 50], scansPerUnit: 60),
+    'SEK': _CurrencyProfile(amounts: <int>[35, 60, 120], scansPerUnit: 25),
+    'NOK': _CurrencyProfile(amounts: <int>[35, 60, 120], scansPerUnit: 25),
+    'DKK': _CurrencyProfile(amounts: <int>[25, 40, 75], scansPerUnit: 36),
+    'CZK': _CurrencyProfile(amounts: <int>[75, 125, 250], scansPerUnit: 11),
+    'HUF': _CurrencyProfile(amounts: <int>[1000, 2000, 4000], scansPerUnit: 1),
+    'NZD': _CurrencyProfile(amounts: <int>[5, 10, 20], scansPerUnit: 160),
+    'SGD': _CurrencyProfile(amounts: <int>[5, 10, 20], scansPerUnit: 190),
+  };
+
+  /// Set of currencies that have default donation tiers.
+  static Set<String> get supportedCurrencies =>
+      _defaultCurrencyProfiles.keys.toSet();
+
+  /// Whether a currency code has a default local donation profile.
+  static bool hasLocalProfile(String? currencyCode) =>
+      currencyCode != null &&
+      _defaultCurrencyProfiles.containsKey(currencyCode.trim().toUpperCase());
+
+  /// Public accessor for ladder sorting and deduplication.
+  static List<int> ladder(List<num>? amounts) => _ladder(amounts);
 
   /// Sorted and deduplicated: the slider walks the ladder by index, so an
   /// unordered feed makes dragging right ask for less money, and a repeated
@@ -216,4 +331,14 @@ class DonationTier {
   String url({DonationSource? source, DonationTestArm? arm}) =>
       '$_campaignUrl?amount=$amount&default_interval=m'
       '&currency=${currency.toLowerCase()}&${_utm(source, arm)}';
+}
+
+class _CurrencyProfile {
+  const _CurrencyProfile({
+    required this.amounts,
+    required this.scansPerUnit,
+  });
+
+  final List<int> amounts;
+  final int scansPerUnit;
 }

@@ -15,6 +15,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/donation/donation_ladder_outline.dart';
 import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/donation/donation_tier_row.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -51,11 +52,15 @@ class _DonationPageState extends State<DonationPage> {
     super.initState();
 
     final AppNewsState? news = context.read<AppNewsProvider?>()?.state;
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+    final String? userCurrency = userPreferences.userCurrencyCode ??
+        ProductQuery.getCountry().currency?.name;
     _offer = DonationOffer.fromNews(
       news is AppNewsStateLoaded ? news.content.donation : null,
+      userCurrencyCode: userCurrency,
     );
 
-    _arm = _offer.arm(context.read<UserPreferences>().getDonationTestBucket());
+    _arm = _offer.arm(userPreferences.getDonationTestBucket());
 
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationPageOpened,

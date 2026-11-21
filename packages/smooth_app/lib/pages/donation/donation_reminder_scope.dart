@@ -10,6 +10,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/donation/donation_reminder_conditions.dart';
 import 'package:smooth_app/pages/donation/donation_reminder_sheet.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Wraps a product page: counts the lookup, and - if the visit is the one
 /// that crosses the threshold - shows the reminder sheet on the way out
@@ -35,7 +36,14 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
     final UserPreferences preferences = context.read<UserPreferences>();
     unawaited(preferences.countProductLookedUp(widget.barcode));
 
-    _eligible = _isEligibleNow(DonationOffer.fromNews(_liveDonation()));
+    final String? userCurrency = preferences.userCurrencyCode ??
+        ProductQuery.getCountry().currency?.name;
+    _eligible = _isEligibleNow(
+      DonationOffer.fromNews(
+        _liveDonation(),
+        userCurrencyCode: userCurrency,
+      ),
+    );
   }
 
   AppNewsItem? _liveDonation() {
@@ -69,15 +77,20 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
         }
         _asked = true;
 
+        final UserPreferences preferences = context.read<UserPreferences>();
+        final String? userCurrency = preferences.userCurrencyCode ??
+            ProductQuery.getCountry().currency?.name;
         // A product page opened from this one may have shown the sheet (or
         // muted it) since [initState], and the feed may have reloaded.
-        final DonationOffer offer = DonationOffer.fromNews(_liveDonation());
+        final DonationOffer offer = DonationOffer.fromNews(
+          _liveDonation(),
+          userCurrencyCode: userCurrency,
+        );
         if (!_isEligibleNow(offer)) {
           Navigator.of(context).pop();
           return;
         }
 
-        final UserPreferences preferences = context.read<UserPreferences>();
         AnalyticsHelper.trackEvent(
           AnalyticsEvent.donationReminderShown,
           eventValue: offer.reminderEvery,
