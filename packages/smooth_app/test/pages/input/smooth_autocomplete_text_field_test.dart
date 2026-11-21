@@ -16,7 +16,7 @@ import '../../tests_utils/mocks.dart';
 
 class _FakeAutocompleter implements Autocompleter {
   @override
-  Future<List<String>> getSuggestions(final String input) async =>
+  Future<List<String>> getSuggestions(String input) async =>
       List<String>.generate(15, (int i) => '$input $i');
 }
 
@@ -24,7 +24,7 @@ void main() {
   const Key barKey = Key('bar');
 
   /// Returns the options box, for a field [top] pixels down the list.
-  Future<Rect> showOptions(WidgetTester tester, final double top) async {
+  Future<Rect> showOptions(WidgetTester tester, double top) async {
     SharedPreferences.setMockInitialValues(mockSharedPreferences());
     final UserPreferences prefs = await UserPreferences.getUserPreferences();
     final ThemeProvider themeProvider = ThemeProvider(prefs);
