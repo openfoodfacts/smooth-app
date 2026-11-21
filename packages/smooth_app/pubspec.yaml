@@ -74,7 +74,7 @@ dependencies:
   sliver_tools: 0.2.12
   cached_network_image: 4.0.7
 
-  file_picker: 13.3.3
+  file_picker: 13.4.0
   animated_line_through: 1.0.5
   mobkit_dashed_border: 0.0.8
 
