@@ -1,9 +1,14 @@
-import 'package:flutter/material.dart';
+import 'dart:math' as math;
+
+import 'package:flutter/scheduler.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:provider/provider.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:photo_view/photo_view_gallery.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -12,6 +17,7 @@ import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
+import 'package:smooth_app/pages/product/helpers/pinch_to_zoom_indicator.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -27,7 +33,7 @@ class ProductImageOtherPage extends StatefulWidget {
     required this.images,
     required this.currentImage,
     this.heroTag,
-  });
+  }) : assert(images.length > 0);
 
   final Product product;
   final OpenFoodFactsLanguage language;
@@ -39,10 +45,10 @@ class ProductImageOtherPage extends StatefulWidget {
   State<ProductImageOtherPage> createState() => _ProductImageOtherPageState();
 
   static Future<ProductImagePageResult?> usePhotoAs({
-    required final BuildContext context,
-    required final Product product,
-    required final OpenFoodFactsLanguage language,
-    required final ProductImage productImage,
+    required BuildContext context,
+    required Product product,
+    required OpenFoodFactsLanguage language,
+    required ProductImage productImage,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final SmoothColorsThemeExtension extension = context
@@ -70,7 +76,7 @@ class ProductImageOtherPage extends StatefulWidget {
       ),
       padding: const EdgeInsetsDirectional.only(start: 15.0, end: 19.0),
       labels: imageFields
-          .map((final ImageField imageField) {
+          .map((ImageField imageField) {
             return switch (imageField) {
               ImageField.FRONT => appLocalizations.photo_field_front,
               ImageField.INGREDIENTS =>
@@ -83,7 +89,7 @@ class ProductImageOtherPage extends StatefulWidget {
           .toList(growable: false),
       values: imageFields,
       prefixIcons: imageFields
-          .map((final ImageField imageField) {
+          .map((ImageField imageField) {
             return switch (imageField) {
               ImageField.FRONT => const icons.Milk.happy(),
               ImageField.INGREDIENTS => const icons.Ingredients.alt(),
@@ -94,7 +100,7 @@ class ProductImageOtherPage extends StatefulWidget {
           })
           .toList(growable: false),
       suffixIcons: imageFields
-          .map((final ImageField imageField) {
+          .map((ImageField imageField) {
             final bool exists = TransientFile.fromProduct(
               product,
               imageField,
@@ -129,65 +135,151 @@ class ProductImageOtherPage extends StatefulWidget {
   }
 }
 
+// Tuned so the text of a nutrition table is readable.
+const double _MAX_ZOOM_FACTOR = 4.0;
+
 class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
-  late PageController _pageController;
+  late final PageController _pageController;
+  late int _currentIndex;
+  Set<int> _zoomedIndexes = const <int>{};
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(
-      initialPage: widget.images.indexOf(widget.currentImage),
-    );
+    _currentIndex = math.max(0, widget.images.indexOf(widget.currentImage));
+    _pageController = PageController(initialPage: _currentIndex);
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension colors = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
+    final ProductImage currentImage = widget.images[_currentIndex];
 
-    return ChangeNotifierProvider<PageController>.value(
-      value: _pageController,
-      child: SmoothScaffold(
-        appBar: buildEditProductAppBar(
-          context: context,
-          title: appLocalizations.edit_product_form_item_photos_title,
-          product: widget.product,
-          actions: <Widget>[
-            IconButton(
-              onPressed: () => _usePhotoAs(),
-              tooltip: appLocalizations.photo_viewer_action_use_picture_as,
-              icon: const Icon(Icons.more_vert_rounded),
+    return SmoothScaffold(
+      appBar: buildEditProductAppBar(
+        context: context,
+        title: appLocalizations.edit_product_form_item_photos_title,
+        product: widget.product,
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => _usePhotoAs(),
+            tooltip: appLocalizations.photo_viewer_action_use_picture_as,
+            icon: const Icon(Icons.more_vert_rounded),
+          ),
+        ],
+      ),
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: <Widget>[
+          Positioned.fill(
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return PhotoViewGallery.builder(
+                  pageController: _pageController,
+                  itemCount: widget.images.length,
+                  backgroundDecoration: const BoxDecoration(
+                    color: Colors.transparent,
+                  ),
+                  onPageChanged: (int index) =>
+                      setState(() => _currentIndex = index),
+                  scaleStateChangedCallback: _onScaleStateChanged,
+                  builder: (BuildContext context, int index) =>
+                      _buildPage(index, constraints.biggest),
+                );
+              },
             ),
-          ],
-        ),
-        body: Stack(
-          alignment: Alignment.bottomCenter,
-          children: <Widget>[
-            Positioned.fill(
-              child: PageView(
-                controller: _pageController,
-                children: widget.images
-                    .map((final ProductImage image) {
-                      return _ProductImageViewer(
-                        image: image,
-                        barcode: widget.product.barcode!,
-                        language: widget.language,
-                        heroTag: widget.currentImage == image
-                            ? widget.heroTag
-                            : null,
-                        productType: widget.product.productType,
-                      );
-                    })
-                    .toList(growable: false),
+          ),
+          Positioned(
+            top: SMALL_SPACE,
+            child: _ProductImagePageIndicator(
+              index: _currentIndex,
+              items: widget.images.length,
+            ),
+          ),
+          Positioned(
+            bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+            left: SMALL_SPACE,
+            right: SMALL_SPACE,
+            child: IntrinsicHeight(
+              child: Row(
+                children: <Widget>[
+                  _ProductImageDetailsButton(
+                    image: currentImage,
+                    barcode: widget.product.barcode!,
+                    productType: widget.product.productType,
+                  ),
+                  if (currentImage.expired)
+                    Expanded(
+                      child: Align(
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: _ProductImageOutdatedLabel(colors: colors),
+                      ),
+                    )
+                  else
+                    const Spacer(),
+                  const SizedBox(width: SMALL_SPACE),
+                  const PinchToZoomExplainer(),
+                ],
               ),
             ),
-            Positioned(
-              top: SMALL_SPACE,
-              child: _ProductImagePageIndicator(items: widget.images.length),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  PhotoViewGalleryPageOptions _buildPage(int index, Size viewport) {
+    final ProductImage image = widget.images[index];
+    final String? heroTag = widget.heroTag;
+
+    return PhotoViewGalleryPageOptions.customChild(
+      child: _ProductImageZoomablePage(
+        image: image,
+        barcode: widget.product.barcode!,
+        productType: widget.product.productType,
+        showOriginal: _zoomedIndexes.contains(index),
+      ),
+      childSize: _computeChildSize(image, viewport),
+      // Zooming out below the fit would block the swipe to the next photo.
+      minScale: PhotoViewComputedScale.contained,
+      maxScale: PhotoViewComputedScale.covered * _MAX_ZOOM_FACTOR,
+      heroAttributes:
+          image == widget.currentImage && heroTag != null && heroTag.isNotEmpty
+          ? PhotoViewHeroAttributes(tag: heroTag)
+          : null,
+    );
+  }
+
+  // The gallery shares one callback between all the pages, without the page
+  // index: the current page is the only one a gesture can zoom.
+  void _onScaleStateChanged(PhotoViewScaleState state) {
+    final int index = _currentIndex;
+    if (state == PhotoViewScaleState.initial ||
+        _zoomedIndexes.contains(index)) {
+      return;
+    }
+
+    // This callback can be called while the gallery is laid out.
+    if (WidgetsBinding.instance.schedulerPhase ==
+        SchedulerPhase.persistentCallbacks) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _markZoomed(index));
+    } else {
+      _markZoomed(index);
+    }
+  }
+
+  void _markZoomed(int index) {
+    if (mounted && !_zoomedIndexes.contains(index)) {
+      setState(() => _zoomedIndexes = <int>{..._zoomedIndexes, index});
+    }
   }
 
   Future<void> _usePhotoAs() async {
@@ -195,7 +287,7 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
       context: context,
       product: widget.product,
       language: widget.language,
-      productImage: widget.currentImage,
+      productImage: widget.images[_currentIndex],
     );
 
     if (mounted && res != null) {
@@ -204,88 +296,98 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
   }
 }
 
-class _ProductImageViewer extends StatelessWidget {
-  const _ProductImageViewer({
+/// The size of the photo when it fits the [viewport].
+///
+/// It only depends on the photo ratio: the spinner and the error message are
+/// part of the zoomable child, so a pixel size would shrink them.
+/// Returns null when the photo size is unknown (the child then fills the
+/// viewport).
+Size? _computeChildSize(ProductImage image, Size viewport) {
+  final int? width = image.width;
+  final int? height = image.height;
+
+  if (width == null ||
+      height == null ||
+      width <= 0 ||
+      height <= 0 ||
+      viewport.isEmpty) {
+    return null;
+  }
+
+  return applyBoxFit(
+    BoxFit.contain,
+    Size(width.toDouble(), height.toDouble()),
+    viewport,
+  ).destination;
+}
+
+/// A resized photo, then the original one once the page has been zoomed.
+///
+/// Both layers share the same layout: the gallery keeps the zoom when the
+/// original arrives only if the child size does not change.
+class _ProductImageZoomablePage extends StatelessWidget {
+  const _ProductImageZoomablePage({
     required this.image,
     required this.barcode,
-    required this.language,
     required this.productType,
-    this.heroTag,
+    required this.showOriginal,
   });
 
   final ProductImage image;
   final String barcode;
-  final OpenFoodFactsLanguage language;
-  final String? heroTag;
   final ProductType? productType;
+  final bool showOriginal;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final UriProductHelper uriHelper = ProductQuery.getUriProductHelper(
+      productType: productType,
+    );
 
     return Stack(
+      fit: StackFit.expand,
       children: <Widget>[
-        Positioned.fill(
-          child: HeroMode(
-            enabled: heroTag?.isNotEmpty == true,
-            child: Hero(
-              tag: heroTag ?? '',
-              child: Image(
-                image: NetworkImage(
-                  image.getUrl(
-                    barcode,
-                    uriHelper: ProductQuery.getUriProductHelper(
-                      productType: productType,
-                    ),
-                  ),
-                ),
-                fit: BoxFit.contain,
-                loadingBuilder:
-                    (
-                      _,
-                      final Widget child,
-                      final ImageChunkEvent? loadingProgress,
-                    ) {
-                      if (loadingProgress != null) {
-                        return const Center(
-                          child: CircularProgressIndicator.adaptive(),
-                        );
-                      } else {
-                        return child;
-                      }
-                    },
-                errorBuilder: (_, _, _) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const icons.Warning(size: 48.0, color: Colors.red),
-                    const SizedBox(height: SMALL_SPACE),
-                    Text(AppLocalizations.of(context).error_loading_photo),
-                  ],
-                ),
-              ),
-            ),
+        Image.network(
+          image.getUrl(barcode, uriHelper: uriHelper),
+          fit: BoxFit.contain,
+          loadingBuilder: (_, Widget child, ImageChunkEvent? loadingProgress) {
+            if (loadingProgress != null) {
+              return const Center(child: CircularProgressIndicator.adaptive());
+            } else {
+              return child;
+            }
+          },
+          errorBuilder: (_, _, _) => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const icons.Warning(size: 48.0, color: Colors.red),
+              const SizedBox(height: SMALL_SPACE),
+              Text(AppLocalizations.of(context).error_loading_photo),
+            ],
           ),
         ),
-        Positioned(
-          bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
-          left: SMALL_SPACE,
-          right: SMALL_SPACE,
-          child: IntrinsicHeight(
-            child: Row(
-              children: <Widget>[
-                _ProductImageDetailsButton(
-                  image: image,
-                  barcode: barcode,
-                  productType: productType,
-                ),
-                const Spacer(),
-                if (image.expired) _ProductImageOutdatedLabel(colors: colors),
-              ],
+        if (showOriginal)
+          Image.network(
+            image.getUrl(
+              barcode,
+              uriHelper: uriHelper,
+              imageSize: ImageSize.ORIGINAL,
             ),
+            fit: BoxFit.contain,
+            frameBuilder:
+                (_, Widget child, int? frame, bool wasSynchronouslyLoaded) {
+                  if (wasSynchronouslyLoaded) {
+                    return child;
+                  }
+
+                  return AnimatedOpacity(
+                    opacity: frame == null ? 0.0 : 1.0,
+                    duration: SmoothAnimationsDuration.short,
+                    child: child,
+                  );
+                },
+            errorBuilder: (_, _, _) => EMPTY_WIDGET,
           ),
-        ),
       ],
     );
   }
@@ -309,12 +411,17 @@ class _ProductImageOutdatedLabel extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(SMALL_SPACE),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 const icons.Outdated(size: 18.0, color: Colors.white),
                 const SizedBox(width: SMALL_SPACE),
-                Text(
-                  AppLocalizations.of(context).product_image_outdated,
-                  style: const TextStyle(fontSize: 13.0, color: Colors.white),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).product_image_outdated,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontSize: 13.0, color: Colors.white),
+                  ),
                 ),
               ],
             ),
@@ -439,48 +546,35 @@ class _ProductImageDetailsButton extends StatelessWidget {
 }
 
 class _ProductImagePageIndicator extends StatelessWidget {
-  const _ProductImagePageIndicator({required this.items});
+  const _ProductImagePageIndicator({required this.index, required this.items});
 
+  final int index;
   final int items;
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.5),
-        borderRadius: CIRCULAR_BORDER_RADIUS,
-      ),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.symmetric(
-          horizontal: BALANCED_SPACE,
-          vertical: SMALL_SPACE,
-        ),
-        child: Selector<PageController, int>(
-          selector: (_, PageController value) {
-            if (!value.position.hasPixels) {
-              return 0;
-            }
+    final String label = '${index + 1} / $items';
 
-            final int page = (value.offset / value.position.viewportDimension)
-                .round();
-            if (page < 0) {
-              return 0;
-            } else if (page > items - 1) {
-              return items - 1;
-            } else {
-              return page;
-            }
-          },
-          shouldRebuild: (int previous, int next) => previous != next,
-          builder: (BuildContext context, int progress, _) {
-            return Text(
-              '${progress + 1} / $items',
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-              ),
-            );
-          },
+    return Semantics(
+      value: label,
+      excludeSemantics: true,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: 0.5),
+          borderRadius: CIRCULAR_BORDER_RADIUS,
+        ),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: BALANCED_SPACE,
+            vertical: SMALL_SPACE,
+          ),
+          child: Text(
+            label,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ),
       ),
     );

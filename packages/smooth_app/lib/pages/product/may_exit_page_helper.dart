@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -12,9 +12,9 @@ class MayExitPageHelper {
   /// * `true` means the user wants to save the changes and leave.
   /// * `false` means the user wants to ignore the changes and leave.
   Future<bool?> openSaveBeforeLeavingDialog(
-    final BuildContext context, {
-    final String? title,
-    final bool unfocus = true,
+    BuildContext context, {
+    String? title,
+    bool unfocus = true,
   }) async {
     if (unfocus) {
       FocusManager.instance.primaryFocus?.unfocus();

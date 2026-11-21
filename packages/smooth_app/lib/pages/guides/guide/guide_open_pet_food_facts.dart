@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_extra.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
@@ -123,7 +124,9 @@ class _OpenPetFoodFactsSection2 extends StatelessWidget {
           text: appLocalizations
               .guide_open_pet_food_facts_features_arg1_paragraph1,
         ),
-        const GuidesComingSoonLabel(),
+        const GuidesProjectPreferences(
+          project: PreferencesPageProjects.pets,
+        ),
       ],
     );
   }

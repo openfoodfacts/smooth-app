@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
@@ -81,7 +81,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
       backgroundColor: Colors.black,
       appBar: SmoothAppBar(
         backgroundColor: Colors.black,
-        foregroundColor: WHITE_COLOR,
+        foregroundColor: Colors.white,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         elevation: 0,
         centerTitle: false,
@@ -114,7 +114,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
           imageField: _imageFields[index],
           isInitialImageViewed: widget.initialImageIndex == index,
           language: _currentLanguage,
-          setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
+          setLanguage: (OpenFoodFactsLanguage? newLanguage) async {
             if (newLanguage == null || newLanguage == _currentLanguage) {
               return;
             }

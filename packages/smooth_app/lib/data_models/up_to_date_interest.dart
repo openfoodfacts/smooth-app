@@ -4,7 +4,7 @@ class UpToDateInterest {
   final Map<String, int> _interestCounts = <String, int>{};
 
   /// Shows an interest for a key.
-  void add(final String key) {
+  void add(String key) {
     final int result = (_interestCounts[key] ?? 0) + 1;
     _interestCounts[key] = result;
   }
@@ -12,7 +12,7 @@ class UpToDateInterest {
   /// Loses an interest for a key.
   ///
   /// Returns true if completely lost interest.
-  bool remove(final String key) {
+  bool remove(String key) {
     final int result = (_interestCounts[key] ?? 0) - 1;
     if (result <= 0) {
       _interestCounts.remove(key);
@@ -24,5 +24,5 @@ class UpToDateInterest {
 
   bool get isEmpty => _interestCounts.isEmpty;
 
-  bool containsKey(final String key) => _interestCounts.containsKey(key);
+  bool containsKey(String key) => _interestCounts.containsKey(key);
 }

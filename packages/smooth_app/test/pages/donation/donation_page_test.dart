@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -270,6 +270,7 @@ void main() {
       );
       expect(events, hasLength(1));
       expect(events.single['e_v'], '${source.analyticsValue}');
+      expect(events.single['e_a'], '${source.name}:old');
       expect(tester, meetsGuideline(textContrastGuideline));
     });
   }

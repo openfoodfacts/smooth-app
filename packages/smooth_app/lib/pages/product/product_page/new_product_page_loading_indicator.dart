@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
