@@ -182,7 +182,7 @@ class _FavoriteLocationsPageState extends State<FavoriteLocationsPage> {
     });
   }
 
-  Future<void> _update(final Future<void> Function() action) async {
+  Future<void> _update(Future<void> Function() action) async {
     setState(() => _busy = true);
     try {
       await action();

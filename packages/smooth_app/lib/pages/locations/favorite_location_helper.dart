@@ -38,7 +38,7 @@ class FavoriteLocationHelper {
 
   /// Returns favorites in saved order, including keys without cached details.
   Future<Map<String, OsmLocation?>> getFavorites(
-    final LocalDatabase localDatabase,
+    LocalDatabase localDatabase,
   ) async {
     final List<OsmLocation> locations = await DaoOsmLocation(
       localDatabase,
@@ -54,8 +54,8 @@ class FavoriteLocationHelper {
   }
 
   Future<void> removeFavorite(
-    final LocalDatabase localDatabase,
-    final String locationKey,
+    LocalDatabase localDatabase,
+    String locationKey,
   ) async {
     await DaoStringList(localDatabase).remove(_key, locationKey);
   }
