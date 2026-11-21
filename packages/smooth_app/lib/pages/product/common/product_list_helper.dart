@@ -96,7 +96,9 @@ class ProductListHelper {
   }
 
   static bool isBarcodeValid(String barcode) {
-    return (barcode.length == 8 || barcode.length == 13) &&
-        int.tryParse(barcode) != null;
+    return switch (barcode.length) {
+      8 || 12 || 13 || 14 => int.tryParse(barcode) != null,
+      _ => false,
+    };
   }
 }
