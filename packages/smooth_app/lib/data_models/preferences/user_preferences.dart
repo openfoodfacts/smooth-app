@@ -717,11 +717,9 @@ class UserPreferences extends ChangeNotifier {
     if (taglineFeedDismissedNews.contains(newsId)) {
       return true;
     }
-    final List<String> previousDismissed = List<String>.of(
+    final List<String> dismissedNews = List<String>.of(
       taglineFeedDismissedNews,
-    );
-    final List<String> dismissedNews = List<String>.of(previousDismissed)
-      ..add(newsId);
+    )..add(newsId);
     bool success = false;
     try {
       success = await _sharedPreferences.setStringList(
@@ -732,11 +730,14 @@ class UserPreferences extends ChangeNotifier {
       success = false;
     }
     if (!success) {
-      // Revert in-memory state on failed write so retry remains possible
+      // Revert only the failed newsId from in-memory cache so retry remains possible
+      // without overwriting any other dismissals that succeeded concurrently
       try {
+        final List<String> current = List<String>.of(taglineFeedDismissedNews)
+          ..remove(newsId);
         await _sharedPreferences.setStringList(
           _TAG_TAGLINE_FEED_NEWS_DISMISSED,
-          previousDismissed,
+          current,
         );
       } catch (_) {}
       return false;
