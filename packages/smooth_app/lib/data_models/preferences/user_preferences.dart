@@ -717,18 +717,32 @@ class UserPreferences extends ChangeNotifier {
     if (taglineFeedDismissedNews.contains(newsId)) {
       return true;
     }
-    final List<String> dismissedNews = List<String>.of(
+    final List<String> previousDismissed = List<String>.of(
       taglineFeedDismissedNews,
     );
-    dismissedNews.add(newsId);
-    final bool success = await _sharedPreferences.setStringList(
-      _TAG_TAGLINE_FEED_NEWS_DISMISSED,
-      dismissedNews,
-    );
-    if (success) {
-      notifyListeners();
+    final List<String> dismissedNews = List<String>.of(previousDismissed)
+      ..add(newsId);
+    bool success = false;
+    try {
+      success = await _sharedPreferences.setStringList(
+        _TAG_TAGLINE_FEED_NEWS_DISMISSED,
+        dismissedNews,
+      );
+    } catch (_) {
+      success = false;
     }
-    return success;
+    if (!success) {
+      // Revert in-memory state on failed write so retry remains possible
+      try {
+        await _sharedPreferences.setStringList(
+          _TAG_TAGLINE_FEED_NEWS_DISMISSED,
+          previousDismissed,
+        );
+      } catch (_) {}
+      return false;
+    }
+    notifyListeners();
+    return true;
   }
 
   DateTime? get donationAsksMutedUntil {
