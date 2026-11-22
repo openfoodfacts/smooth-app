@@ -740,6 +740,7 @@ class UserPreferences extends ChangeNotifier {
           current,
         );
       } catch (_) {}
+      notifyListeners();
       return false;
     }
     notifyListeners();
