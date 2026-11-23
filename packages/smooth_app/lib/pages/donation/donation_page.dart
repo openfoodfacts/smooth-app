@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:intl/intl.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
@@ -307,7 +309,7 @@ class _TierList extends StatelessWidget {
 /// A nested [Theme] rather than a new parameter on a field with 50 other call
 /// sites: its `filled: true` picks up the primary-button fill, and its unset
 /// state borders would draw a second ring inside [DonationLadderOutline].
-class _CustomAmountField extends StatelessWidget {
+class _CustomAmountField extends StatefulWidget {
   const _CustomAmountField({
     required this.active,
     required this.controller,
@@ -323,6 +325,21 @@ class _CustomAmountField extends StatelessWidget {
   final ValueChanged<int?> onCustomAmount;
 
   @override
+  State<_CustomAmountField> createState() => _CustomAmountFieldState();
+}
+
+class _CustomAmountFieldState extends State<_CustomAmountField> {
+  static const double _baseMinInputWidth = 60.0;
+
+  final FocusNode _focusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
@@ -333,7 +350,7 @@ class _CustomAmountField extends StatelessWidget {
     );
 
     return DonationLadderOutline(
-      active: active,
+      active: widget.active,
       child: Theme(
         data: theme.copyWith(
           inputDecorationTheme: theme.inputDecorationTheme.copyWith(
@@ -343,33 +360,94 @@ class _CustomAmountField extends StatelessWidget {
             focusedErrorBorder: blank,
           ),
         ),
-        child: SmoothTextFormField(
-          type: TextFieldTypes.PLAIN_TEXT,
-          controller: controller,
-          hintText: appLocalizations.donation_custom_amount_hint,
-          textInputType: TextInputType.number,
-          maxLines: 1,
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          validator: (String? value) =>
-              value == null ||
-                  value.isEmpty ||
-                  _amountOf(numberFormat, value) != null
-              ? null
-              : appLocalizations.donation_custom_amount_error,
-          suffixIcon: Center(
-            widthFactor: 1.0,
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
-              child: Text(
-                appLocalizations.donation_tier_amount_monthly(currencySymbol),
-              ),
-            ),
-          ),
-          onChanged: (String? value) =>
-              onCustomAmount(_amountOf(numberFormat, value ?? '')),
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            final TextScaler textScaler = MediaQuery.textScalerOf(context);
+            final String suffix = appLocalizations.donation_tier_amount_monthly(
+              widget.currencySymbol,
+            );
+            final double minInputWidth = math.max(
+              _baseMinInputWidth,
+              textScaler.scale(_baseMinInputWidth),
+            );
+            final double inlineSuffixWidth = math.max(
+              MINIMUM_TOUCH_SIZE,
+              _measureSingleLineWidth(context, suffix) + MEDIUM_SPACE,
+            );
+            final bool stackSuffix =
+                constraints.maxWidth - inlineSuffixWidth - LARGE_SPACE * 2 <
+                minInputWidth;
+
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SmoothTextFormField(
+                  type: TextFieldTypes.PLAIN_TEXT,
+                  controller: widget.controller,
+                  focusNode: _focusNode,
+                  hintText: appLocalizations.donation_custom_amount_hint,
+                  textInputType: TextInputType.number,
+                  maxLines: 1,
+                  borderRadius: ROUNDED_BORDER_RADIUS,
+                  validator: (String? value) =>
+                      value == null ||
+                          value.isEmpty ||
+                          _amountOf(widget.numberFormat, value) != null
+                      ? null
+                      : appLocalizations.donation_custom_amount_error,
+                  suffixIcon: stackSuffix
+                      ? null
+                      : Center(
+                          widthFactor: 1.0,
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.only(
+                              end: MEDIUM_SPACE,
+                            ),
+                            child: Text(suffix),
+                          ),
+                        ),
+                  onChanged: (String? value) => widget.onCustomAmount(
+                    _amountOf(widget.numberFormat, value ?? ''),
+                  ),
+                ),
+                if (stackSuffix)
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    excludeFromSemantics: true,
+                    onTap: _focusNode.requestFocus,
+                    child: Align(
+                      alignment: AlignmentDirectional.centerStart,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                          LARGE_SPACE,
+                          0.0,
+                          LARGE_SPACE,
+                          MEDIUM_SPACE,
+                        ),
+                        child: Text(suffix),
+                      ),
+                    ),
+                  ),
+              ],
+            );
+          },
         ),
       ),
     );
+  }
+
+  static double _measureSingleLineWidth(BuildContext context, String text) {
+    final TextPainter painter = TextPainter(
+      text: TextSpan(text: text, style: DefaultTextStyle.of(context).style),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+      locale: Localizations.maybeLocaleOf(context),
+      maxLines: 1,
+    )..layout();
+    final double width = painter.width;
+    painter.dispose();
+    return width;
   }
 
   /// The locale's own format first, because [int.tryParse] reads nothing at all

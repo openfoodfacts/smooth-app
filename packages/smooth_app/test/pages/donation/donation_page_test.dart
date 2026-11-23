@@ -12,6 +12,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/pages/donation/donation_ladder_outline.dart';
 import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/donation/donation_page.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
@@ -105,6 +106,53 @@ String _selectedAmount(WidgetTester tester) => tester
       ),
     )
     .title;
+
+Finder _expectCustomAmountTypableAndUnclipped(
+  WidgetTester tester,
+  String expectedUnit,
+) {
+  expect(
+    tester.getSize(find.byType(EditableText)).width,
+    greaterThan(60.0),
+    reason: 'the suffix has squeezed the input too far to type an amount',
+  );
+
+  final Finder customAmountBox = find.ancestor(
+    of: find.byType(TextField),
+    matching: find.byType(DonationLadderOutline),
+  );
+  final Finder unitFinder = find.descendant(
+    of: customAmountBox,
+    matching: find.text(expectedUnit),
+  );
+  expect(unitFinder, findsOneWidget);
+
+  final String? hint = tester
+      .widget<TextField>(find.byType(TextField))
+      .decoration!
+      .hintText;
+
+  // Whatever language the suffix ends up in, it must not be what clips.
+  int checked = 0;
+  for (final Element element
+      in find
+          .descendant(of: customAmountBox, matching: find.byType(RichText))
+          .evaluate()) {
+    final RenderParagraph paragraph = element.renderObject! as RenderParagraph;
+    if (paragraph.text.toPlainText() == hint) {
+      continue;
+    }
+    checked++;
+    expect(
+      paragraph.didExceedMaxLines,
+      isFalse,
+      reason: '"${paragraph.text.toPlainText()}" is truncated',
+    );
+  }
+  expect(checked, greaterThanOrEqualTo(1));
+
+  return unitFinder;
+}
 
 Future<void> _pumpDonationPage(
   WidgetTester tester, {
@@ -506,41 +554,46 @@ void main() {
 
     await _pumpDonationPage(tester, locale: const Locale('de'));
 
-    // ⚠️ These keys are new, so Crowdin has not translated them and `de` still
-    // renders the English suffix. What this covers today is German number
-    // formatting at 2.0; it becomes a real test of a long translated suffix the
-    // moment translations land, which is why it is worth having now.
-    //
-    // The suffix lays out *inside* the field, so the field's own width never
-    // moves and asserting on it proves nothing. What a longer suffix eats is
-    // the editable box - 70.9 px here - so floor that.
-    expect(
-      tester.getSize(find.byType(EditableText)).width,
-      greaterThan(60.0),
-      reason: 'the suffix has squeezed the input too far to type an amount',
-    );
-
-    // Whatever language the suffix ends up in, it must not be what clips.
-    for (final Element element
-        in find
-            .descendant(
-              of: find.byType(TextField),
-              matching: find.byType(RichText),
-            )
-            .evaluate()) {
-      final RenderParagraph paragraph =
-          element.renderObject! as RenderParagraph;
-      if (paragraph.text.toPlainText() == _hint) {
-        continue;
-      }
-      expect(
-        paragraph.didExceedMaxLines,
-        isFalse,
-        reason: '"${paragraph.text.toPlainText()}" is truncated',
-      );
-    }
+    // When the suffix fits inline it eats into the editable box; when it
+    // would squeeze EditableText too far, it stacks below inside the same
+    // DonationLadderOutline so the input stays typable.
+    _expectCustomAmountTypableAndUnclipped(tester, '€ pro Monat');
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+    'custom amount stays typable and focusable in Danish at textScaler 2.0',
+    (WidgetTester tester) async {
+      tester.platformDispatcher.textScaleFactorTestValue = 2.0;
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+
+      await _pumpDonationPage(tester, locale: const Locale('da'));
+
+      final Finder unitFinder = _expectCustomAmountTypableAndUnclipped(
+        tester,
+        '€ om måneden',
+      );
+
+      await tester.ensureVisible(unitFinder);
+      await tester.pump();
+      await tester.tap(unitFinder);
+      await tester.pump();
+
+      expect(
+        tester
+            .widget<EditableText>(find.byType(EditableText))
+            .focusNode
+            .hasFocus,
+        isTrue,
+      );
+
+      await tester.enterText(find.byType(TextFormField), '7');
+      await tester.pump();
+
+      expect(_selectedCheckBox, findsNothing);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets(
     'the custom-amount hint shortens gracefully rather than clipping',
