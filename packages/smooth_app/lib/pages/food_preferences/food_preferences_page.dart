@@ -82,6 +82,9 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
       attributeGroups: _attributeGroups!,
       showIntroduction: true,
       showSummary: true,
+      startAtSummary:
+          widget.project == PreferencesPageProjects.food &&
+          userPreferences.hasCompletedFoodPreferencesWizard,
     )..addListener(_onControllerChanged);
 
     _pendingPreferences = PendingPreferences(
@@ -149,7 +152,10 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
             final int pageIndex = _controller.getPageIndexForGroupIndex(
               groupIndex,
             );
-            _controller.goToPage(pageIndex);
+            _controller.goToPage(
+              pageIndex,
+              animate: widget.project != PreferencesPageProjects.food,
+            );
           },
         ),
       );
@@ -257,7 +263,18 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
   }
 
   Future<void> _onFinish() async {
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+    final bool isFood = widget.project == PreferencesPageProjects.food;
+    if (isFood && !userPreferences.hasCompletedFoodPreferencesWizard) {
+      // Keep an interrupted first save from looking like a completed wizard
+      await userPreferences.setFoodPreferencesWizardCompleted(
+        completed: false,
+      );
+    }
     await _pendingPreferences.saveAll();
+    if (isFood) {
+      await userPreferences.setFoodPreferencesWizardCompleted(completed: true);
+    }
     AnalyticsHelper.trackEvent(AnalyticsEvent.foodPreferenceSaved);
     if (mounted) {
       Navigator.of(context).pop();

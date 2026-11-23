@@ -59,17 +59,20 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
 class _SmoothTopBar2State extends State<SmoothTopBar2> {
   late double _progress = 0.0;
   late double _elevation = 0.0;
+  ScrollController? _scrollController;
 
   @override
   void initState() {
     super.initState();
 
     if (widget.elevationOnScroll || widget.reducedHeightOnScroll) {
-      WidgetsBinding.instance.addPostFrameCallback(
-        (_) => PrimaryScrollController.maybeOf(
-          context,
-        )?.addListener(() => _onScroll()),
-      );
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) {
+          return;
+        }
+        _scrollController = PrimaryScrollController.maybeOf(context);
+        _scrollController?.addListener(_onScroll);
+      });
     }
 
     if (!widget.elevationOnScroll) {
@@ -78,7 +81,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
   }
 
   void _onScroll() {
-    final double? offset = PrimaryScrollController.maybeOf(context)?.offset;
+    final double? offset = _scrollController?.offset;
     if (offset == null) {
       return;
     }
@@ -98,6 +101,12 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
         }
       });
     }
+  }
+
+  @override
+  void dispose() {
+    _scrollController?.removeListener(_onScroll);
+    super.dispose();
   }
 
   @override

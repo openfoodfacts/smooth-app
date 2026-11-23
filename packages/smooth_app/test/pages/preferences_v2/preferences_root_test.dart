@@ -10,7 +10,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/pages/food_preferences/pages/introduction_page.dart';
 import 'package:smooth_app/pages/food_preferences/pages/summary_page.dart';
+import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
+import 'package:smooth_app/pages/food_preferences/widgets/attribute_group_page.dart';
 import 'package:smooth_app/pages/food_preferences/widgets/food_preferences_navigation_bar.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/preferences_page.dart';
@@ -21,6 +24,7 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
 import '../../tests_utils/local_database_mock.dart';
 import '../../tests_utils/mocks.dart';
@@ -94,6 +98,60 @@ void main() {
     expect(_screenViews(), isEmpty);
   });
 
+  testWidgets('removed top bar stops listening to scrolling', (
+    WidgetTester tester,
+  ) async {
+    final UserPreferences userPreferences =
+        await UserPreferences.getUserPreferences();
+    final ProductPreferences productPreferences = ProductPreferences(
+      ProductPreferencesSelection(
+        setImportance: userPreferences.setImportance,
+        getImportance: userPreferences.getImportance,
+        notify: () {},
+      ),
+    );
+    final ScrollController scrollController = ScrollController();
+    final ValueNotifier<bool> showTopBar = ValueNotifier<bool>(true);
+    addTearDown(scrollController.dispose);
+    addTearDown(showTopBar.dispose);
+
+    await tester.pumpWidget(
+      MockSmoothApp(
+        userPreferences,
+        UserManagementProvider(),
+        productPreferences,
+        ThemeProvider(userPreferences),
+        TextContrastProvider(userPreferences),
+        ColorProvider(userPreferences),
+        PrimaryScrollController(
+          controller: scrollController,
+          child: ValueListenableBuilder<bool>(
+            valueListenable: showTopBar,
+            builder: (BuildContext context, bool show, Widget? child) =>
+                Scaffold(
+                  appBar: show
+                      ? const SmoothTopBar2(
+                          title: 'Preferences',
+                          productType: ProductType.food,
+                        )
+                      : null,
+                  body: ListView(
+                    controller: scrollController,
+                    children: const <Widget>[SizedBox(height: 2000)],
+                  ),
+                ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    showTopBar.value = false;
+    await tester.pumpAndSettle();
+    scrollController.jumpTo(100);
+    await tester.pump();
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets(
     'reopening completed food preferences shows the editable summary',
     (
@@ -122,6 +180,12 @@ void main() {
       await userPreferences.init(productPreferences);
       await ProductQuery.setCountry(userPreferences, 'fr');
       ProductQuery.setLanguage(null, userPreferences, languageCode: 'en');
+      await userPreferences.setImportanceForProject(
+        'test_cosmetic_attribute',
+        PreferenceImportance.ID_MANDATORY,
+        PreferencesPageProjects.beauty,
+      );
+      expect(userPreferences.hasCompletedFoodPreferencesWizard, isFalse);
       await tester.pumpWidget(
         MockSmoothApp(
           userPreferences,
@@ -139,36 +203,73 @@ void main() {
       final Finder foodTile = find.text('Food Preferences');
       await tester.tap(foodTile);
       await tester.pumpAndSettle();
+      expect(find.byType(IntroductionPage), findsOneWidget);
 
-      // loop up to the number of attribute groups + introduction page
-      for (int i = 0; i <= productPreferences.attributeGroups!.length; i++) {
-        final FoodPreferencesNavigationBar navigation = tester.widget(
-          find.byType(FoodPreferencesNavigationBar),
-        );
-        if (navigation.isSummaryPage) {
-          break;
+      // Leaving without validating must not mark the wizard as complete.
+      tester.state<NavigatorState>(find.byType(Navigator).last).pop();
+      await tester.pumpAndSettle();
+      await tester.tap(foodTile);
+      await tester.pumpAndSettle();
+      expect(find.byType(IntroductionPage), findsOneWidget);
+
+      Future<void> goToSummary() async {
+        // Loop up to the number of attribute groups + introduction page.
+        for (int i = 0; i <= productPreferences.attributeGroups!.length; i++) {
+          final FoodPreferencesNavigationBar navigation = tester.widget(
+            find.byType(FoodPreferencesNavigationBar),
+          );
+          if (navigation.isSummaryPage) {
+            break;
+          }
+          await tester.tap(
+            find.byKey(FoodPreferencesNavigationBar.positiveButtonKey),
+          );
+          await tester.pumpAndSettle();
         }
-        // find and tap 'continue' button
-        await tester.tap(
-          find.byKey(FoodPreferencesNavigationBar.positiveButtonKey),
-        );
-        await tester.pumpAndSettle();
+        expect(find.byType(SummaryPage), findsOneWidget);
       }
-      expect(find.byType(SummaryPage), findsOneWidget);
+
+      await goToSummary();
+      tester.state<NavigatorState>(find.byType(Navigator).last).pop();
+      await tester.pumpAndSettle();
+      await tester.tap(foodTile);
+      await tester.pumpAndSettle();
+      expect(find.byType(IntroductionPage), findsOneWidget);
+      await goToSummary();
+      expect(
+        userPreferences.hasCompletedFoodPreferencesWizard,
+        isFalse,
+      );
 
       // find and tap validate button on summary page that closes the wizard
       await tester.tap(
         find.byKey(FoodPreferencesNavigationBar.positiveButtonKey),
       );
       await tester.pumpAndSettle();
-
+      expect(
+        userPreferences.hasCompletedFoodPreferencesWizard,
+        isTrue,
+      );
+      expect(
+        (await SharedPreferences.getInstance()).getBool(
+          'preferences_wizard_completed_food',
+        ),
+        isTrue,
+      );
       // reopening completed food preferences
       await tester.tap(foodTile);
       await tester.pumpAndSettle();
       expect(find.byType(SummaryPage), findsOneWidget);
       await tester.tap(find.byTooltip('Edit').first);
-      await tester.pumpAndSettle();
+      await tester.pump();
       expect(find.byType(SummaryPage), findsNothing);
+      expect(find.byType(AttributeGroupPage), findsOneWidget);
+      expect(
+        tester
+            .widget<AttributeGroupPage>(find.byType(AttributeGroupPage))
+            .attributeGroup,
+        productPreferences.attributeGroups!.first,
+      );
     },
   );
 }
