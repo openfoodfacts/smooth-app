@@ -131,11 +131,16 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
 }
 
 class SmoothActionButton2 {
-  SmoothActionButton2({required this.text, required this.onPressed, this.icon})
-    : assert(text.isNotEmpty);
+  SmoothActionButton2({
+    required this.text,
+    required this.onPressed,
+    this.icon,
+    this.key,
+  }) : assert(text.isNotEmpty);
 
   final String text;
   final Widget? icon;
+  final Key? key;
   final VoidCallback? onPressed;
 }
 
@@ -192,6 +197,7 @@ class _SmoothBaseButton2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
+      key: data.key,
       style: TextButton.styleFrom(
         backgroundColor: backgroundColor,
         foregroundColor: foregroundColor,
