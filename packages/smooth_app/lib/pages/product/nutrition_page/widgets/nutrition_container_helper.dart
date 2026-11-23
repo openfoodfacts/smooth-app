@@ -350,26 +350,37 @@ class NutritionContainerHelper extends ChangeNotifier {
   void _loadValues(Product product) {
     final Map<Nutrient, NutritionValue> nutritionValues = product
         .getNutritionValues(_perSize, sources: _sources);
-    final Map<Nutrient, NutritionValue> packagingValues = product
-        .getNutritionValues(_perSize, sources: _packaging);
-    NutritionValue? computeKJ(Map<Nutrient, NutritionValue> values) {
+    Map<Nutrient, NutritionValue> getSetValues(String source) =>
+        product.getNutritionValues(
+          _perSize,
+          sources: <String>[source],
+          withOldValues: false,
+        );
+    final Map<Nutrient, NutritionValue> packagingValues = getSetValues(
+      NutritionSetKey.sourcePackaging,
+    );
+    final Map<Nutrient, NutritionValue> manufacturerValues = getSetValues(
+      NutritionSetKey.sourceManufacturer,
+    );
+    for (final Map<Nutrient, NutritionValue> values
+        in <Map<Nutrient, NutritionValue>>[
+          packagingValues,
+          manufacturerValues,
+          nutritionValues,
+        ]) {
       final num? kCal = values[Nutrient.energyKCal]?.value;
-      return values[Nutrient.energyKJ] != null || kCal == null
-          ? null
-          : NutritionValue(
-              value: NutrimentsHelper.fromKCalToKJ(kCal.toDouble()).round(),
-              unit: Unit.KJ,
-            );
+      if (values[Nutrient.energyKJ] == null && kCal != null) {
+        values[Nutrient.energyKJ] = NutritionValue(
+          value: NutrimentsHelper.fromKCalToKJ(kCal.toDouble()).round(),
+          unit: Unit.KJ,
+        );
+      }
     }
-
-    final NutritionValue? packagingKJ = computeKJ(packagingValues);
-    if (packagingKJ != null) {
-      packagingValues[Nutrient.energyKJ] = packagingKJ;
-      nutritionValues[Nutrient.energyKJ] = packagingKJ;
-    }
-    final NutritionValue? kJ = computeKJ(nutritionValues);
-    if (kJ != null) {
-      nutritionValues[Nutrient.energyKJ] = kJ;
+    final NutritionValue? setKJ =
+        packagingValues[Nutrient.energyKJ] ??
+        manufacturerValues[Nutrient.energyKJ];
+    if (setKJ != null) {
+      nutritionValues[Nutrient.energyKJ] = setKJ;
     }
     for (final OrderedNutrient orderedNutrient in _nutrients) {
       final Nutrient nutrient = getNutrient(orderedNutrient)!;
@@ -379,10 +390,8 @@ class NutritionContainerHelper extends ChangeNotifier {
       _initialUnits[nutrient] = unit;
       if (nutritionValue != null) {
         _values[nutrient] = nutritionValue;
-        // Also has the old values, which are under the manufacturer ones.
-        final NutritionValue? packagingValue = packagingValues[nutrient];
-        if (packagingValue?.value != nutritionValue.value ||
-            packagingValue?.unit != nutritionValue.unit) {
+        if (packagingValues[nutrient] == null &&
+            manufacturerValues[nutrient] != null) {
           _fromManufacturer.add(nutrient);
         }
       }

@@ -16,17 +16,19 @@ extension ProductNutritionExtension on Product {
   /// Returns the as sold values for [perSize], each one from the first of
   /// [sources] that has it.
   ///
-  /// Old `nutriments` values are converted, and overridden by the new ones.
+  /// Old `nutriments` values, if [withOldValues], are converted and overridden
+  /// by the new ones.
   // TODO(UrbanFercec): also read the per 100ml and per serving sets.
   Map<Nutrient, NutritionValue> getNutritionValues(
     PerSize perSize, {
     List<String> sources = _sources,
+    bool withOldValues = true,
   }) {
     final Map<Nutrient, NutritionValue> result = <Nutrient, NutritionValue>{};
     final List<NutritionSet> inputSets =
         NutritionHelper().getInputSets(this) ?? <NutritionSet>[];
     <Nutrient, NutritionValue>{
-      ..._getOldNutritionValues(perSize),
+      if (withOldValues) ..._getOldNutritionValues(perSize),
       for (final String source in sources.reversed)
         ...?NutritionHelper()
             .getNutritionSet(

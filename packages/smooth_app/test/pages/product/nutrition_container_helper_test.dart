@@ -214,28 +214,49 @@ void main() {
       expect(helper.isFromManufacturer(Nutrient.energyKJ), isFalse);
     });
 
+    NutritionContainerHelper oldValuesHelper(
+      Map<String, Map<String, dynamic>> manufacturer,
+      Map<String, num> oldValues,
+    ) => NutritionContainerHelper(
+      orderedNutrients: _orderedNutrients,
+      product:
+          Product.fromJson(<String, dynamic>{
+              'code': '1',
+              'nutriments': oldValues,
+            })
+            ..nutrition = <String, dynamic>{
+              'input_sets': <Map<String, dynamic>>[
+                _inputSet(_manufacturer, '100g', manufacturer),
+              ],
+            },
+    );
+
     test('reads a manufacturer value over an old value', () {
-      final NutritionContainerHelper helper = NutritionContainerHelper(
-        orderedNutrients: _orderedNutrients,
-        product: Product(barcode: '1')
-          ..nutrition = <String, dynamic>{
-            'input_sets': <Map<String, dynamic>>[
-              _inputSet(_manufacturer, '100g', <String, Map<String, dynamic>>{
-                'fat': _value('g', '3'),
-              }),
-            ],
-          }
-          // ignore: deprecated_member_use
-          ..nutriments = (Nutriments.empty()
-            ..setValue(Nutrient.fat, PerSize.oneHundredGrams, 12)
-            ..setValue(Nutrient.sugars, PerSize.oneHundredGrams, 5)),
+      final NutritionContainerHelper helper = oldValuesHelper(
+        <String, Map<String, dynamic>>{
+          'fat': _value('g', '3'),
+          'energy-kj': _value('kJ', '837'),
+        },
+        <String, num>{'fat_100g': 3, 'sugars_100g': 5, 'energy-kcal_100g': 100},
       );
       expect(helper.getValue(Nutrient.fat), 3);
       expect(helper.isFromManufacturer(Nutrient.fat), isTrue);
+      expect(helper.getValue(Nutrient.energyKJ), 837);
+      expect(helper.isFromManufacturer(Nutrient.energyKJ), isTrue);
       expect(helper.isFromManufacturer(Nutrient.sugars), isFalse);
       helper.perSize = PerSize.serving;
       expect(_body(helper), isNot(contains('"fat"')));
+      expect(_body(helper), isNot(contains('"energy-kj"')));
       expect(_body(helper), contains('"sugars"'));
+    });
+
+    test('computes energy in kJ from manufacturer kcal over old kJ', () {
+      final NutritionContainerHelper helper = oldValuesHelper(
+        <String, Map<String, dynamic>>{'energy-kcal': _value('kcal', '100')},
+        <String, num>{'energy-kj_100g': 837},
+      );
+      expect(helper.getValue(Nutrient.energyKJ), 419);
+      expect(helper.isFromManufacturer(Nutrient.energyKJ), isTrue);
     });
 
     test('reads the no nutrition data flag', () {
