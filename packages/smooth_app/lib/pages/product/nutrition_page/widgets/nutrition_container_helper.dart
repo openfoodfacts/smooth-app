@@ -352,16 +352,24 @@ class NutritionContainerHelper extends ChangeNotifier {
         .getNutritionValues(_perSize, sources: _sources);
     final Map<Nutrient, NutritionValue> packagingValues = product
         .getNutritionValues(_perSize, sources: _packaging);
-    final num? kCal = nutritionValues[Nutrient.energyKCal]?.value;
-    if (nutritionValues[Nutrient.energyKJ] == null && kCal != null) {
-      nutritionValues[Nutrient.energyKJ] = NutritionValue(
-        value: NutrimentsHelper.fromKCalToKJ(kCal.toDouble()).round(),
-        unit: Unit.KJ,
-      );
-      if (packagingValues[Nutrient.energyKCal] != null) {
-        packagingValues[Nutrient.energyKJ] =
-            nutritionValues[Nutrient.energyKJ]!;
-      }
+    NutritionValue? computeKJ(Map<Nutrient, NutritionValue> values) {
+      final num? kCal = values[Nutrient.energyKCal]?.value;
+      return values[Nutrient.energyKJ] != null || kCal == null
+          ? null
+          : NutritionValue(
+              value: NutrimentsHelper.fromKCalToKJ(kCal.toDouble()).round(),
+              unit: Unit.KJ,
+            );
+    }
+
+    final NutritionValue? packagingKJ = computeKJ(packagingValues);
+    if (packagingKJ != null) {
+      packagingValues[Nutrient.energyKJ] = packagingKJ;
+      nutritionValues[Nutrient.energyKJ] = packagingKJ;
+    }
+    final NutritionValue? kJ = computeKJ(nutritionValues);
+    if (kJ != null) {
+      nutritionValues[Nutrient.energyKJ] = kJ;
     }
     for (final OrderedNutrient orderedNutrient in _nutrients) {
       final Nutrient nutrient = getNutrient(orderedNutrient)!;
@@ -371,7 +379,10 @@ class NutritionContainerHelper extends ChangeNotifier {
       _initialUnits[nutrient] = unit;
       if (nutritionValue != null) {
         _values[nutrient] = nutritionValue;
-        if (packagingValues[nutrient] == null) {
+        // Also has the old values, which are under the manufacturer ones.
+        final NutritionValue? packagingValue = packagingValues[nutrient];
+        if (packagingValue?.value != nutritionValue.value ||
+            packagingValue?.unit != nutritionValue.unit) {
           _fromManufacturer.add(nutrient);
         }
       }
