@@ -72,10 +72,28 @@ class DonationOffer {
     final String? feedCurrency = item?.currency;
     final List<int> feedAmounts = _ladder(item?.donationAmounts);
     final num? feedScansPerUnit = item?.donationScansPerUnit;
-    final num? reminderEvery = item?.donationReminderEvery;
-    final num? donorCount = item?.count;
-    final num? newArmPercent = item?.donationAbNewPercent;
-    final num? stripHideDays = item?.donationStripHideDays;
+
+    final int reminderEvery =
+        item?.donationReminderEvery != null &&
+            _isUsableCount(item!.donationReminderEvery!)
+        ? item.donationReminderEvery!.toInt()
+        : _fallbackReminderEvery;
+    final int newArmPercent =
+        item?.donationAbNewPercent != null &&
+            item!.donationAbNewPercent!.isFinite
+        ? item.donationAbNewPercent!.toInt()
+        : 0;
+    final int stripHideDays =
+        item?.donationStripHideDays != null &&
+            _isUsableCount(item!.donationStripHideDays!) &&
+            item.donationStripHideDays! <= 365
+        ? item.donationStripHideDays!.toInt()
+        : _fallbackStripHideDays;
+    final int? donorCount = item?.count != null && _isUsableCount(item!.count!)
+        ? item.count!.toInt()
+        : null;
+    final List<String> whereItGoes =
+        item?.donationWhereItGoes ?? const <String>[];
 
     // 1. If the remote feed provides explicit donation_offers for the user's currency:
     if (normalizedUserCurrency != null && item?.donationOffers != null) {
@@ -84,34 +102,26 @@ class DonationOffer {
       if (customAmounts != null && customAmounts.isNotEmpty) {
         final _CurrencyProfile? profile =
             _defaultCurrencyProfiles[normalizedUserCurrency];
-        return DonationOffer(
-          currency: normalizedUserCurrency,
-          amounts: customAmounts,
-          scansPerUnit:
-              feedCurrency == normalizedUserCurrency &&
-                  feedScansPerUnit != null &&
-                  _isUsable(feedScansPerUnit)
-              ? feedScansPerUnit.toInt()
-              : (profile?.scansPerUnit ?? _fallbackScansPerUnit),
-          whereItGoes: item.donationWhereItGoes ?? const <String>[],
-          reminderEvery: reminderEvery != null && _isUsableCount(reminderEvery)
-              ? reminderEvery.toInt()
-              : _fallbackReminderEvery,
-          newArmPercent: newArmPercent != null && newArmPercent.isFinite
-              ? newArmPercent.toInt()
-              : 0,
-          stripHideDays:
-              stripHideDays != null &&
-                  _isUsableCount(stripHideDays) &&
-                  stripHideDays <= 365
-              ? stripHideDays.toInt()
-              : _fallbackStripHideDays,
-          donorCount: donorCount != null && _isUsableCount(donorCount)
-              ? donorCount.toInt()
-              : null,
-          funding: item.funding,
-          monthsLeft: item.monthsLeft,
-        );
+        final int? anchor =
+            feedCurrency == normalizedUserCurrency &&
+                feedScansPerUnit != null &&
+                _isUsableCount(feedScansPerUnit)
+            ? feedScansPerUnit.toInt()
+            : profile?.scansPerUnit;
+        if (anchor != null) {
+          return DonationOffer(
+            currency: normalizedUserCurrency,
+            amounts: customAmounts,
+            scansPerUnit: anchor,
+            whereItGoes: whereItGoes,
+            reminderEvery: reminderEvery,
+            newArmPercent: newArmPercent,
+            stripHideDays: stripHideDays,
+            donorCount: donorCount,
+            funding: item.funding,
+            monthsLeft: item.monthsLeft,
+          );
+        }
       }
     }
 
@@ -124,31 +134,21 @@ class DonationOffer {
           feedCurrency == normalizedUserCurrency && feedAmounts.isNotEmpty
           ? feedAmounts
           : profile.amounts;
+      final int anchor =
+          feedCurrency == normalizedUserCurrency &&
+              feedScansPerUnit != null &&
+              _isUsableCount(feedScansPerUnit)
+          ? feedScansPerUnit.toInt()
+          : profile.scansPerUnit;
       return DonationOffer(
         currency: normalizedUserCurrency,
         amounts: amounts,
-        scansPerUnit:
-            feedCurrency == normalizedUserCurrency &&
-                feedScansPerUnit != null &&
-                _isUsable(feedScansPerUnit)
-            ? feedScansPerUnit.toInt()
-            : profile.scansPerUnit,
-        whereItGoes: item?.donationWhereItGoes ?? const <String>[],
-        reminderEvery: reminderEvery != null && _isUsableCount(reminderEvery)
-            ? reminderEvery.toInt()
-            : _fallbackReminderEvery,
-        newArmPercent: newArmPercent != null && newArmPercent.isFinite
-            ? newArmPercent.toInt()
-            : 0,
-        stripHideDays:
-            stripHideDays != null &&
-                _isUsableCount(stripHideDays) &&
-                stripHideDays <= 365
-            ? stripHideDays.toInt()
-            : _fallbackStripHideDays,
-        donorCount: donorCount != null && _isUsableCount(donorCount)
-            ? donorCount.toInt()
-            : null,
+        scansPerUnit: anchor,
+        whereItGoes: whereItGoes,
+        reminderEvery: reminderEvery,
+        newArmPercent: newArmPercent,
+        stripHideDays: stripHideDays,
+        donorCount: donorCount,
         funding: item?.funding,
         monthsLeft: item?.monthsLeft,
       );
@@ -160,25 +160,14 @@ class DonationOffer {
           ? feedCurrency
           : _fallbackCurrency,
       amounts: feedAmounts.isEmpty ? _fallbackAmounts : feedAmounts,
-      scansPerUnit: feedScansPerUnit != null && _isUsable(feedScansPerUnit)
+      scansPerUnit: feedScansPerUnit != null && _isUsableCount(feedScansPerUnit)
           ? feedScansPerUnit.toInt()
           : _fallbackScansPerUnit,
-      whereItGoes: item?.donationWhereItGoes ?? const <String>[],
-      reminderEvery: reminderEvery != null && _isUsableCount(reminderEvery)
-          ? reminderEvery.toInt()
-          : _fallbackReminderEvery,
-      newArmPercent: newArmPercent != null && newArmPercent.isFinite
-          ? newArmPercent.toInt()
-          : 0,
-      stripHideDays:
-          stripHideDays != null &&
-              _isUsableCount(stripHideDays) &&
-              stripHideDays <= 365
-          ? stripHideDays.toInt()
-          : _fallbackStripHideDays,
-      donorCount: donorCount != null && _isUsableCount(donorCount)
-          ? donorCount.toInt()
-          : null,
+      whereItGoes: whereItGoes,
+      reminderEvery: reminderEvery,
+      newArmPercent: newArmPercent,
+      stripHideDays: stripHideDays,
+      donorCount: donorCount,
       funding: item?.funding,
       monthsLeft: item?.monthsLeft,
     );

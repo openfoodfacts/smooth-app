@@ -221,6 +221,41 @@ void main() {
       },
     );
 
+    test(
+      'handles custom offers for unsupported currencies with and without matching feed anchor',
+      () {
+        // Custom offer for KRW (not in profiles) with matching KRW feed and anchor: uses KRW
+        final DonationOffer matchedKrw = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'KRW',
+            donationOffers: <String, List<int>>{
+              'KRW': <int>[5000, 10000, 20000],
+            },
+            donationScansPerUnit: 1,
+          ),
+          userCurrencyCode: 'KRW',
+        );
+        expect(matchedKrw.currency, 'KRW');
+        expect(matchedKrw.amounts, <int>[5000, 10000, 20000]);
+        expect(matchedKrw.scansPerUnit, 1);
+
+        // Custom offer for KRW without matching anchor: skips custom offer to avoid inflating scans
+        final DonationOffer unmatchedKrw = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'EUR',
+            donationOffers: <String, List<int>>{
+              'KRW': <int>[5000, 10000, 20000],
+            },
+            donationScansPerUnit: 270,
+          ),
+          userCurrencyCode: 'KRW',
+        );
+        expect(unmatchedKrw.currency, 'EUR');
+        expect(unmatchedKrw.amounts, <int>[3, 5, 10]);
+        expect(unmatchedKrw.scansPerUnit, 270);
+      },
+    );
+
     test('falls back to EUR when user currency is unsupported or unknown', () {
       final DonationOffer offer = DonationOffer.fromNews(
         null,
