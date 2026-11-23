@@ -90,6 +90,19 @@ void main() {
       );
     });
 
+    test(
+      'reads the packaging value under a manufacturer one without a number',
+      () {
+        final Product product = _product(<Map<String, dynamic>>[
+          _inputSet(<String, Map<String, dynamic>>{'fat': _value('g', '3')}),
+          _inputSet(<String, Map<String, dynamic>>{
+            'fat': _value('g', ''),
+          }, source: 'manufacturer'),
+        ]);
+        expect(_get(product, Nutrient.fat), <Object?>[3, Unit.G]);
+      },
+    );
+
     test('has data with only manufacturer values', () {
       final Product product = _product(<Map<String, dynamic>>[
         _inputSet(<String, Map<String, dynamic>>{

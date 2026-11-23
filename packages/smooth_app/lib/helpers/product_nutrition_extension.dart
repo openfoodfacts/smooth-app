@@ -20,7 +20,7 @@ extension ProductNutritionExtension on Product {
       getNutritionValues(perSize)[nutrient];
 
   /// Returns the as sold values for [perSize], each one from the first of
-  /// [sources] that has it.
+  /// [sources] that has a number.
   ///
   /// Old `nutriments` values, if [withOldValues], are converted and overridden
   /// by the new ones.
@@ -31,27 +31,38 @@ extension ProductNutritionExtension on Product {
     bool withOldValues = true,
   }) {
     final Map<Nutrient, NutritionValue> result = <Nutrient, NutritionValue>{};
+    final Set<Nutrient> inputNutrients = <Nutrient>{};
     final List<NutritionSet> inputSets =
         NutritionHelper().getInputSets(this) ?? <NutritionSet>[];
-    <Nutrient, NutritionValue>{
-      if (withOldValues) ..._getOldNutritionValues(perSize),
-      for (final String source in sources.reversed)
-        ...?NutritionHelper()
-            .getNutritionSet(
-              inputSets,
-              NutritionSetKey(
-                source: source,
-                preparation: NutritionSetKey.preparationAsSold,
-                perSize: perSize,
-              ),
-            )
-            ?.nutritionValues,
-    }.forEach((Nutrient nutrient, NutritionValue nutritionValue) {
-      final NutritionValue? numberValue = _getNumber(nutritionValue);
-      if (numberValue != null) {
-        result[nutrient] = numberValue;
-      }
-    });
+    for (final String source in sources) {
+      NutritionHelper()
+          .getNutritionSet(
+            inputSets,
+            NutritionSetKey(
+              source: source,
+              preparation: NutritionSetKey.preparationAsSold,
+              perSize: perSize,
+            ),
+          )
+          ?.nutritionValues
+          ?.forEach((Nutrient nutrient, NutritionValue nutritionValue) {
+            inputNutrients.add(nutrient);
+            final NutritionValue? numberValue = _getNumber(nutritionValue);
+            if (numberValue != null) {
+              result.putIfAbsent(nutrient, () => numberValue);
+            }
+          });
+    }
+    if (withOldValues) {
+      _getOldNutritionValues(perSize).forEach((
+        Nutrient nutrient,
+        NutritionValue nutritionValue,
+      ) {
+        if (!inputNutrients.contains(nutrient)) {
+          result[nutrient] = nutritionValue;
+        }
+      });
+    }
     return result;
   }
 
