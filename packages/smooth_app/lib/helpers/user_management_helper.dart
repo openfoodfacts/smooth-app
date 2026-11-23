@@ -8,16 +8,15 @@ class UserManagementHelper {
   static const String _userPattern = r'^[a-z0-9]+$';
   static final RegExp _userRegex = RegExp(_userPattern);
 
-  static bool isEmailValid(final String email) =>
-      EmailValidator.validate(email);
+  static bool isEmailValid(String email) => EmailValidator.validate(email);
 
-  static bool isUsernameValid(final String username) =>
+  static bool isUsernameValid(String username) =>
       username.isNotEmpty && _userRegex.hasMatch(username);
 
-  static bool isUsernameLengthValid(final String username) =>
+  static bool isUsernameLengthValid(String username) =>
       username.length <= OpenFoodAPIClient.USER_NAME_MAX_LENGTH;
 
-  static bool isPasswordValid(final String password) => password.length >= 6;
+  static bool isPasswordValid(String password) => password.length >= 6;
 }
 
 extension UserManagementTextController on TextEditingController {

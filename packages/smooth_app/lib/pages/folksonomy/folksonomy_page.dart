@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart' hide Listener;
+import 'package:material_ui/material_ui.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -326,9 +326,11 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
           },
       separatorBuilder: (_, _, Animation<double> animation) =>
           SizeTransition(sizeFactor: animation, child: const Divider()),
-      removedSeparatorBuilder:
-          (BuildContext context, int index, Animation<double> animation) =>
-              SizeTransition(sizeFactor: animation, child: const Divider()),
+      removedSeparatorBuilder: (
+        BuildContext context,
+        int index,
+        Animation<double> animation,
+      ) => SizeTransition(sizeFactor: animation, child: const Divider()),
     );
   }
 

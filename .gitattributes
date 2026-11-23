@@ -1,0 +1,3 @@
+# Ensure LF line endings for Dart code across all platforms
+* text=auto eol=lf
+*.dart text eol=lf

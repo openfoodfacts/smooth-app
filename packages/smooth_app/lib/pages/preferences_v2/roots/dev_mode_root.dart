@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/background/background_task_language_refresh.dart';
@@ -521,7 +521,7 @@ class DevModeRoot extends PreferencesRoot {
     UserPreferences userPreferences,
   ) {
     return TogglePreferenceTile(
-      title: 'Enable new Home Page',
+      title: appLocalizations.preferences_dev_mode_new_home_page_title,
       icon: const icons.Search.offRounded(),
       state:
           userPreferences.getFlag(

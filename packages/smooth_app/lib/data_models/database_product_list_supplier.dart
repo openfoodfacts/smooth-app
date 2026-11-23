@@ -8,7 +8,7 @@ class DatabaseProductListSupplier extends ProductListSupplier {
   DatabaseProductListSupplier(
     super.pagedProductQuery,
     super.localDatabase,
-    final int timestamp,
+    int timestamp,
   ) : super(timestamp: timestamp);
 
   /// Loads all results page after page.

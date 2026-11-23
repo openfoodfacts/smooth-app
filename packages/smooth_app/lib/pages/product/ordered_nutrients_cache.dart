@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_string.dart';
@@ -24,8 +24,8 @@ class OrderedNutrientsCache {
 
   /// Returns an app-local/downloaded cache, or null if it failed.
   static Future<OrderedNutrientsCache?> getCache(
-    final BuildContext context,
-    final ProductType? productType,
+    BuildContext context,
+    ProductType? productType,
   ) async {
     final OrderedNutrientsCache cache = OrderedNutrientsCache._(productType);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -74,7 +74,7 @@ class OrderedNutrientsCache {
 
   /// Returns the ordered nutrients cached in the database.
   Future<OrderedNutrients?> _getDatabaseVersion(
-    final LocalDatabase localDatabase,
+    LocalDatabase localDatabase,
   ) async {
     final String key = _getKey();
     final DaoString daoString = DaoString(localDatabase);
@@ -98,7 +98,7 @@ class OrderedNutrientsCache {
   );
 
   /// Downloads the ordered nutrients and caches them in the database.
-  Future<OrderedNutrients> _download(final LocalDatabase localDatabase) async {
+  Future<OrderedNutrients> _download(LocalDatabase localDatabase) async {
     final String string = await OpenFoodAPIClient.getOrderedNutrientsJsonString(
       country: ProductQuery.getCountry(),
       language: ProductQuery.getLanguage(),

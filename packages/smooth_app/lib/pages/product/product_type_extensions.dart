@@ -47,14 +47,14 @@ extension ProductTypeExtension on ProductType {
     ProductType.product => 'openproductsfacts',
   };
 
-  String getLabel(final AppLocalizations appLocalizations) => switch (this) {
+  String getLabel(AppLocalizations appLocalizations) => switch (this) {
     ProductType.food => appLocalizations.product_type_label_food,
     ProductType.beauty => appLocalizations.product_type_label_beauty,
     ProductType.petFood => appLocalizations.product_type_label_pet_food,
     ProductType.product => appLocalizations.product_type_label_product,
   };
 
-  String getRoadToScoreLabel(final AppLocalizations appLocalizations) =>
+  String getRoadToScoreLabel(AppLocalizations appLocalizations) =>
       switch (this) {
         ProductType.food => appLocalizations.hey_incomplete_product_message,
         ProductType.beauty =>
@@ -66,8 +66,8 @@ extension ProductTypeExtension on ProductType {
       };
 
   String getShareProductLabel(
-    final AppLocalizations appLocalizations,
-    final String url,
+    AppLocalizations appLocalizations,
+    String url,
   ) => switch (this) {
     ProductType.food => appLocalizations.share_product_text(url),
     ProductType.beauty => appLocalizations.share_product_text_beauty(url),

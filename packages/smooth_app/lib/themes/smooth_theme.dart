@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
@@ -14,10 +14,10 @@ class SmoothTheme {
   static const double SECONDARY_COLOR_SHADE_VALUE = 0.4;
 
   static ThemeData getThemeData(
-    final Brightness brightness,
-    final ThemeProvider themeProvider,
-    final ColorProvider Function() colorProvider,
-    final TextContrastProvider Function() textContrastProvider,
+    Brightness brightness,
+    ThemeProvider themeProvider,
+    ColorProvider Function() colorProvider,
+    TextContrastProvider Function() textContrastProvider,
   ) {
     final bool lightTheme = brightness == Brightness.light;
     ColorScheme myColorScheme;
@@ -50,7 +50,7 @@ class SmoothTheme {
 
     return ThemeData(
       fontFamily: 'OpenSans',
-      primaryColor: DARK_BROWN_COLOR,
+      primaryColor: smoothExtension.primaryBlack,
       extensions: <ThemeExtension<dynamic>>[smoothExtension],
       colorScheme: myColorScheme,
       canvasColor: themeProvider.currentTheme == THEME_AMOLED

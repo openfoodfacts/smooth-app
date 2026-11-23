@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart' hide Listener;
+import 'package:material_ui/material_ui.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/edit_language_tabbar.dart';

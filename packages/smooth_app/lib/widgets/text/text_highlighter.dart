@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -144,7 +144,7 @@ class TextHighlighter extends StatelessWidget {
     String filterWithoutDiacritics,
   ) {
     final String subText = text.substring(startPosition);
-    if (subText.startsWith(filterWithoutDiacritics)) {
+    if (subText.toLowerCase().startsWith(filterWithoutDiacritics)) {
       return endPosition;
     }
 

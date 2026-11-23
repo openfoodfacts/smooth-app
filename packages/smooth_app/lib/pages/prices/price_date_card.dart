@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -36,7 +36,7 @@ class PriceDateCard extends StatelessWidget {
                   locale: Locale(ProductQuery.getLanguage().offTag),
                   firstDate: model.firstDate,
                   lastDate: model.today,
-                  builder: (final BuildContext context, final Widget? child) {
+                  builder: (BuildContext context, Widget? child) {
                     // for some reason we don't have a fine display without that theme.
                     // cf. https://stackoverflow.com/questions/50321182/how-to-customize-a-date-picker
                     final ThemeData themeData =

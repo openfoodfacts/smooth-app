@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
@@ -40,8 +40,8 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
 
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider<ProductModel>(
-    create: (final BuildContext context) => _model,
-    builder: (final BuildContext context, _) {
+    create: (BuildContext context) => _model,
+    builder: (BuildContext context, _) {
       context.watch<ProductModel>();
       context.watch<LocalDatabase>();
       _model.setLocalUpToDate();
@@ -80,7 +80,7 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
     },
   );
 
-  String _getErrorMessage(final AppLocalizations appLocalizations) =>
+  String _getErrorMessage(AppLocalizations appLocalizations) =>
       _model.loadingError?.getErrorTitle(appLocalizations) ??
       appLocalizations.error_occurred;
 }

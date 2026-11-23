@@ -12,7 +12,7 @@ extension OpenFoodFactsCountryLocalization on OpenFoodFactsCountry {
   static final Map<String, Map<OpenFoodFactsCountry, String>> _translations =
       <String, Map<OpenFoodFactsCountry, String>>{};
 
-  static void setLocale(final String? languageCode) {
+  static void setLocale(String? languageCode) {
     if (languageCode != null) {
       _latestLanguageCode = languageCode;
     }
@@ -50,7 +50,7 @@ extension OpenFoodFactsCountryLocalization on OpenFoodFactsCountry {
   }
 
   static Map<OpenFoodFactsCountry, String> _translate(
-    final String languageCode,
+    String languageCode,
   ) {
     final Map<Country, String> result = <Country, String>{};
     _iso3s ??= _getIso3s();
@@ -92,9 +92,9 @@ extension OpenFoodFactsCountryLocalization on OpenFoodFactsCountry {
   /// Reorder countries alphabetically, bring user's locale country to top.
   static void reorderCountries(
     List<Country> countries,
-    final String? userCountryCode,
+    String? userCountryCode,
   ) {
-    countries.sort((final Country a, final Country b) {
+    countries.sort((Country a, Country b) {
       if (a.offTag == userCountryCode) {
         return -1;
       }

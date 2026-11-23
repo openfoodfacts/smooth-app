@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -298,8 +298,7 @@ class PricesRoot extends PreferencesRoot {
       title: appLocalizations.prices_validation_assistant,
       subtitleText:
           appLocalizations.preferences_prices_validation_assistant_subtitle,
-      url:
-          'https://prices.openfoodfacts.org/experiments/price-validation-assistant',
+      url: 'https://prices.openfoodfacts.org/experiments/price-validation-assistant',
     );
   }
 

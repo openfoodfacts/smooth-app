@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -121,6 +121,7 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
       color: lightTheme ? null : extension.primaryUltraBlack,
       child: InkWell(
         onTap: () => _showOptionsMenu(context, item),
+        onLongPress: () => _showOptionsMenu(context, item),
         borderRadius: ROUNDED_BORDER_RADIUS,
         child: Padding(
           padding: const EdgeInsetsDirectional.all(SMALL_SPACE),

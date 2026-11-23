@@ -27,10 +27,10 @@ class _PriceAddProductActionBarcodeInput extends PriceAddProductAction {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return showDialog<String>(
       context: context,
-      builder: (final BuildContext context) => StatefulBuilder(
+      builder: (BuildContext context) => StatefulBuilder(
         builder:
             (
-              final BuildContext context,
+              BuildContext context,
               void Function(VoidCallback fn) setState,
             ) => SmoothAlertDialog(
               title: appLocalizations.prices_add_an_item,
@@ -64,10 +64,10 @@ class _PriceAddProductActionBarcodeInput extends PriceAddProductAction {
     );
   }
 
-  bool _isValidBarcode(final String barcode) => barcode.length >= 8;
+  bool _isValidBarcode(String barcode) => barcode.length >= 8;
 
   // Probably there's a regexp for that, but at least it's readable code.
-  String _getCleanBarcode(final String input) {
+  String _getCleanBarcode(String input) {
     const int ascii0 = 48;
     const int ascii9 = 48 + 10 - 1;
 

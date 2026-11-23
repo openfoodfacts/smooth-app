@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/login_result.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -16,8 +16,8 @@ class UserManagementProvider with ChangeNotifier {
 
   /// Checks credentials and conditionally saves them.
   Future<LoginResult> login(
-    final User user,
-    final UserPreferences preferences,
+    User user,
+    UserPreferences preferences,
   ) async {
     final LoginResult loginResult = await LoginResult.getLoginResult(
       user,

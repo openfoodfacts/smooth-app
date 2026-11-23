@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
@@ -69,7 +69,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
         actions: <Widget>[
           if (isMyProof && widget.proof.type == ProofType.receipt)
             SmoothPopupMenuButton<int>(
-              onSelected: (final int action) async {
+              onSelected: (int action) async {
                 switch (action) {
                   case 0:
                     return LaunchUrlHelper.launchURL(url);
@@ -77,8 +77,8 @@ class _PriceProofPageState extends State<PriceProofPage> {
                     return LaunchUrlHelper.launchURL(
                       OpenPricesAPIClient.getUri(
                         path: 'experiments/receipt-assistant',
-                        queryParameters: <String, dynamic>{
-                          'proof_ids': widget.proof.id,
+                        queryParameters: <String, String>{
+                          'proof_ids': '${widget.proof.id}',
                         },
                         uriHelper: ProductQuery.uriPricesHelper,
                       ).toString(),
@@ -211,7 +211,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
     );
   }
 
-  String _getUrl(final bool isThumbnail) => widget.proof
+  String _getUrl(bool isThumbnail) => widget.proof
       .getFileUrl(
         uriProductHelper: ProductQuery.uriPricesHelper,
         isThumbnail: isThumbnail,

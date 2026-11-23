@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
@@ -54,8 +54,8 @@ class _ProductImageViewerState extends State<ProductImageViewer>
   }
 
   Widget _getImageButton(
-    final ProductImageButtonType type,
-    final bool imageExists,
+    ProductImageButtonType type,
+    bool imageExists,
   ) => Padding(
     padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
     child: type.getButton(
