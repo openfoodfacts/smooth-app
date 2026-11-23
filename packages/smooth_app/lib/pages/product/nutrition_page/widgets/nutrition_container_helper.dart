@@ -12,17 +12,36 @@ class NutritionContainerHelper extends ChangeNotifier {
     required OrderedNutrients orderedNutrients,
     required Product product,
   }) {
-    bool hasValues(PerSize perSize, List<String> sources) =>
-        product.getNutritionValues(perSize, sources: sources).isNotEmpty;
+    bool hasValues(
+      PerSize perSize,
+      List<String> sources, {
+      bool withOldValues = false,
+    }) => product
+        .getNutritionValues(
+          perSize,
+          sources: sources,
+          withOldValues: withOldValues,
+        )
+        .isNotEmpty;
+    bool hasSetValues(List<String> sources) =>
+        hasValues(PerSize.oneHundredGrams, sources) ||
+        hasValues(PerSize.serving, sources);
     // The end-user's own per size wins over the manufacturer's.
-    final List<String> perSizeSources =
-        hasValues(PerSize.oneHundredGrams, _packaging) ||
-            hasValues(PerSize.serving, _packaging)
+    final List<String> perSizeSources = hasSetValues(_packaging)
         ? _packaging
         : _sources;
+    final bool withOldValues = !hasSetValues(_sources);
     _initialPerSize = _perSize =
-        !hasValues(PerSize.oneHundredGrams, perSizeSources) &&
-            hasValues(PerSize.serving, perSizeSources)
+        !hasValues(
+              PerSize.oneHundredGrams,
+              perSizeSources,
+              withOldValues: withOldValues,
+            ) &&
+            hasValues(
+              PerSize.serving,
+              perSizeSources,
+              withOldValues: withOldValues,
+            )
         ? PerSize.serving
         : PerSize.oneHundredGrams;
     _loadNutrients(orderedNutrients.nutrients);

@@ -216,8 +216,9 @@ void main() {
 
     NutritionContainerHelper oldValuesHelper(
       Map<String, Map<String, dynamic>> manufacturer,
-      Map<String, num> oldValues,
-    ) => NutritionContainerHelper(
+      Map<String, num> oldValues, {
+      String per = '100g',
+    }) => NutritionContainerHelper(
       orderedNutrients: _orderedNutrients,
       product:
           Product.fromJson(<String, dynamic>{
@@ -226,10 +227,32 @@ void main() {
             })
             ..nutrition = <String, dynamic>{
               'input_sets': <Map<String, dynamic>>[
-                _inputSet(_manufacturer, '100g', manufacturer),
+                if (manufacturer.isNotEmpty)
+                  _inputSet(_manufacturer, per, manufacturer),
               ],
             },
     );
+
+    test('opens on the manufacturer per size over old values', () {
+      final NutritionContainerHelper helper = oldValuesHelper(
+        <String, Map<String, dynamic>>{'fat': _value('g', '3')},
+        <String, num>{'fat_100g': 10, 'fat_serving': 3},
+        per: 'serving',
+      );
+      expect(helper.perSize, PerSize.serving);
+      expect(helper.getValue(Nutrient.fat), 3);
+      expect(helper.isFromManufacturer(Nutrient.fat), isTrue);
+    });
+
+    test('opens on the per size of old values only', () {
+      final NutritionContainerHelper helper = oldValuesHelper(
+        <String, Map<String, dynamic>>{},
+        <String, num>{'fat_serving': 3},
+      );
+      expect(helper.perSize, PerSize.serving);
+      expect(helper.getValue(Nutrient.fat), 3);
+      expect(helper.isFromManufacturer(Nutrient.fat), isFalse);
+    });
 
     test('reads a manufacturer value over an old value', () {
       final NutritionContainerHelper helper = oldValuesHelper(
