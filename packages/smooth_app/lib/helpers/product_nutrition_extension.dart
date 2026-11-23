@@ -4,9 +4,15 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 // TODO(monsieurtanuki): move to off-dart.
 extension ProductNutritionExtension on Product {
   /// Sources in the server's priority order.
-  static const List<String> _sources = <String>[
+  static const List<String> serverSources = <String>[
     NutritionSetKey.sourceManufacturer,
     NutritionSetKey.sourcePackaging,
+  ];
+
+  /// Sources in the editor's priority order: the end-user's values first.
+  static const List<String> editorSources = <String>[
+    NutritionSetKey.sourcePackaging,
+    NutritionSetKey.sourceManufacturer,
   ];
 
   /// Returns the value and unit of [nutrient] for [perSize], or null.
@@ -21,7 +27,7 @@ extension ProductNutritionExtension on Product {
   // TODO(UrbanFercec): also read the per 100ml and per serving sets.
   Map<Nutrient, NutritionValue> getNutritionValues(
     PerSize perSize, {
-    List<String> sources = _sources,
+    List<String> sources = serverSources,
     bool withOldValues = true,
   }) {
     final Map<Nutrient, NutritionValue> result = <Nutrient, NutritionValue>{};

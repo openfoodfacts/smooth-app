@@ -23,14 +23,22 @@ class NutritionContainerHelper extends ChangeNotifier {
           withOldValues: withOldValues,
         )
         .isNotEmpty;
-    bool hasSetValues(List<String> sources) =>
-        hasValues(PerSize.oneHundredGrams, sources) ||
-        hasValues(PerSize.serving, sources);
+    bool hasSetValues(String source) =>
+        hasValues(PerSize.oneHundredGrams, <String>[source]) ||
+        hasValues(PerSize.serving, <String>[source]);
+    final bool hasPackagingValues = hasSetValues(
+      NutritionSetKey.sourcePackaging,
+    );
     // The end-user's own per size wins over the manufacturer's.
-    final List<String> perSizeSources = hasSetValues(_packaging)
-        ? _packaging
-        : _sources;
-    final bool withOldValues = !hasSetValues(_sources);
+    final List<String> perSizeSources = hasPackagingValues
+        ? <String>[NutritionSetKey.sourcePackaging]
+        : ProductNutritionExtension.editorSources;
+    final bool withOldValues =
+        !hasValues(
+          PerSize.oneHundredGrams,
+          ProductNutritionExtension.editorSources,
+        ) &&
+        !hasValues(PerSize.serving, ProductNutritionExtension.editorSources);
     _initialPerSize = _perSize =
         !hasValues(
               PerSize.oneHundredGrams,
@@ -60,16 +68,6 @@ class NutritionContainerHelper extends ChangeNotifier {
     }
     return orderedNutrient.nutrient;
   }
-
-  /// Edits go to the packaging set, shown over the manufacturer one.
-  static const List<String> _sources = <String>[
-    NutritionSetKey.sourcePackaging,
-    NutritionSetKey.sourceManufacturer,
-  ];
-
-  static const List<String> _packaging = <String>[
-    NutritionSetKey.sourcePackaging,
-  ];
 
   // TODO(UrbanFercec): all the units, not only weights.
   static const Map<Unit, Unit> _nextWeightUnits = <Unit, Unit>{
@@ -368,7 +366,10 @@ class NutritionContainerHelper extends ChangeNotifier {
   /// Needs nutrients to be loaded first.
   void _loadValues(Product product) {
     final Map<Nutrient, NutritionValue> nutritionValues = product
-        .getNutritionValues(_perSize, sources: _sources);
+        .getNutritionValues(
+          _perSize,
+          sources: ProductNutritionExtension.editorSources,
+        );
     Map<Nutrient, NutritionValue> getSetValues(String source) =>
         product.getNutritionValues(
           _perSize,
