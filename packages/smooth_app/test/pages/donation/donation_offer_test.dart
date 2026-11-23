@@ -181,6 +181,46 @@ void main() {
       expect(offer.scansPerUnit, 2);
     });
 
+    test(
+      'uses feed scan anchor only when feed currency matches user currency',
+      () {
+        // Feed is EUR with 270 scans/unit, user is JPY: should keep JPY profile scansPerUnit (2)
+        final DonationOffer mismatchedOffer = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'EUR',
+            donationScansPerUnit: 270,
+          ),
+          userCurrencyCode: 'JPY',
+        );
+        expect(mismatchedOffer.currency, 'JPY');
+        expect(mismatchedOffer.scansPerUnit, 2);
+
+        // Feed is JPY with 5 scans/unit, user is JPY: should use feed scansPerUnit (5)
+        final DonationOffer matchedOffer = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'JPY',
+            donationScansPerUnit: 5,
+          ),
+          userCurrencyCode: 'JPY',
+        );
+        expect(matchedOffer.currency, 'JPY');
+        expect(matchedOffer.scansPerUnit, 5);
+
+        // Feed is JPY with custom offers and 6 scans/unit: should use 6
+        final DonationOffer customMatchedOffer = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'JPY',
+            donationOffers: <String, List<int>>{
+              'JPY': <int>[700, 1400, 2800],
+            },
+            donationScansPerUnit: 6,
+          ),
+          userCurrencyCode: 'JPY',
+        );
+        expect(customMatchedOffer.scansPerUnit, 6);
+      },
+    );
+
     test('falls back to EUR when user currency is unsupported or unknown', () {
       final DonationOffer offer = DonationOffer.fromNews(
         null,

@@ -125,12 +125,12 @@ class _TagLineItemNewsItem {
     required this.goal,
     required this.currency,
     required this.donationAmounts,
-    this.donationOffers,
     required this.donationScansPerUnit,
     required this.count,
     required this.donationReminderEvery,
     required this.donationAbNewPercent,
     required this.donationStripHideDays,
+    this.donationOffers,
     this.minLaunches,
     this.startDate,
     this.endDate,
@@ -211,13 +211,17 @@ class _TagLineItemNewsItem {
         continue;
       }
       List<num>? rawAmounts;
-      if (entry.value is List) {
-        rawAmounts = DonationOffer.feedList<num>(entry.value);
-      } else if (entry.value is Map && entry.value['amounts'] is List) {
-        rawAmounts = DonationOffer.feedList<num>(entry.value['amounts']);
+      final Object? val = entry.value;
+      if (val is List<dynamic>) {
+        rawAmounts = DonationOffer.feedList<num>(val);
+      } else if (val is Map<dynamic, dynamic>) {
+        final Object? amountsVal = val['amounts'];
+        if (amountsVal is List<dynamic>) {
+          rawAmounts = DonationOffer.feedList<num>(amountsVal);
+        }
       }
       final List<int> amounts = DonationOffer.ladder(rawAmounts);
-      if (amounts.isNotEmpty) {
+      if (amounts.isNotEmpty && amounts.every((int a) => a > 0)) {
         result[code] = amounts;
       }
     }
@@ -291,6 +295,7 @@ class _TagLineItemNewsItem {
     num? goal,
     String? currency,
     List<num>? donationAmounts,
+    Map<String, List<int>>? donationOffers,
     num? donationScansPerUnit,
     num? count,
     num? donationReminderEvery,
@@ -312,6 +317,7 @@ class _TagLineItemNewsItem {
       goal: goal ?? this.goal,
       currency: currency ?? this.currency,
       donationAmounts: donationAmounts ?? this.donationAmounts,
+      donationOffers: donationOffers ?? this.donationOffers,
       donationScansPerUnit: donationScansPerUnit ?? this.donationScansPerUnit,
       count: count ?? this.count,
       donationReminderEvery:

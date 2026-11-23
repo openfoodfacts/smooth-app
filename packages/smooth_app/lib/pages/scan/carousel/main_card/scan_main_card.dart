@@ -103,7 +103,8 @@ class _DonationStripState extends State<_DonationStrip> {
     final AppNewsFunding? funding = donation?.funding;
     final DonationOffer offer = DonationOffer.fromNews(
       donation,
-      userCurrencyCode: context.read<UserPreferences>().userCurrencyCode ??
+      userCurrencyCode:
+          context.read<UserPreferences>().userCurrencyCode ??
           ProductQuery.getCountry().currency?.name,
     );
 

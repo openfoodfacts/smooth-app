@@ -36,7 +36,8 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
     final UserPreferences preferences = context.read<UserPreferences>();
     unawaited(preferences.countProductLookedUp(widget.barcode));
 
-    final String? userCurrency = preferences.userCurrencyCode ??
+    final String? userCurrency =
+        preferences.userCurrencyCode ??
         ProductQuery.getCountry().currency?.name;
     _eligible = _isEligibleNow(
       DonationOffer.fromNews(
@@ -78,7 +79,8 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
         _asked = true;
 
         final UserPreferences preferences = context.read<UserPreferences>();
-        final String? userCurrency = preferences.userCurrencyCode ??
+        final String? userCurrency =
+            preferences.userCurrencyCode ??
             ProductQuery.getCountry().currency?.name;
         // A product page opened from this one may have shown the sheet (or
         // muted it) since [initState], and the feed may have reloaded.

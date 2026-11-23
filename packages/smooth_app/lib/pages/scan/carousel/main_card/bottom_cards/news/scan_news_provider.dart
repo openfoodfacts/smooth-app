@@ -61,7 +61,8 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
     final bool reminderArm =
         DonationOffer.fromNews(
           donation,
-          userCurrencyCode: _userPreferences.userCurrencyCode ??
+          userCurrencyCode:
+              _userPreferences.userCurrencyCode ??
               ProductQuery.getCountry().currency?.name,
         ).arm(_userPreferences.getDonationTestBucket()) ==
         DonationTestArm.reminder;

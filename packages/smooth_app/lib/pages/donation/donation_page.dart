@@ -53,7 +53,8 @@ class _DonationPageState extends State<DonationPage> {
 
     final AppNewsState? news = context.read<AppNewsProvider?>()?.state;
     final UserPreferences userPreferences = context.read<UserPreferences>();
-    final String? userCurrency = userPreferences.userCurrencyCode ??
+    final String? userCurrency =
+        userPreferences.userCurrencyCode ??
         ProductQuery.getCountry().currency?.name;
     _offer = DonationOffer.fromNews(
       news is AppNewsStateLoaded ? news.content.donation : null,

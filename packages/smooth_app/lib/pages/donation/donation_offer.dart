@@ -66,8 +66,8 @@ class DonationOffer {
   }) {
     final String? normalizedUserCurrency =
         userCurrencyCode != null && userCurrencyCode.trim().length == 3
-            ? userCurrencyCode.trim().toUpperCase()
-            : null;
+        ? userCurrencyCode.trim().toUpperCase()
+        : null;
 
     final String? feedCurrency = item?.currency;
     final List<int> feedAmounts = _ladder(item?.donationAmounts);
@@ -87,21 +87,25 @@ class DonationOffer {
         return DonationOffer(
           currency: normalizedUserCurrency,
           amounts: customAmounts,
-          scansPerUnit: profile?.scansPerUnit ?? _fallbackScansPerUnit,
+          scansPerUnit:
+              feedCurrency == normalizedUserCurrency &&
+                  feedScansPerUnit != null &&
+                  _isUsable(feedScansPerUnit)
+              ? feedScansPerUnit.toInt()
+              : (profile?.scansPerUnit ?? _fallbackScansPerUnit),
           whereItGoes: item.donationWhereItGoes ?? const <String>[],
-          reminderEvery:
-              reminderEvery != null && _isUsableCount(reminderEvery)
-                  ? reminderEvery.toInt()
-                  : _fallbackReminderEvery,
+          reminderEvery: reminderEvery != null && _isUsableCount(reminderEvery)
+              ? reminderEvery.toInt()
+              : _fallbackReminderEvery,
           newArmPercent: newArmPercent != null && newArmPercent.isFinite
               ? newArmPercent.toInt()
               : 0,
           stripHideDays:
               stripHideDays != null &&
-                      _isUsableCount(stripHideDays) &&
-                      stripHideDays <= 365
-                  ? stripHideDays.toInt()
-                  : _fallbackStripHideDays,
+                  _isUsableCount(stripHideDays) &&
+                  stripHideDays <= 365
+              ? stripHideDays.toInt()
+              : _fallbackStripHideDays,
           donorCount: donorCount != null && _isUsableCount(donorCount)
               ? donorCount.toInt()
               : null,
@@ -118,28 +122,30 @@ class DonationOffer {
           _defaultCurrencyProfiles[normalizedUserCurrency]!;
       final List<int> amounts =
           feedCurrency == normalizedUserCurrency && feedAmounts.isNotEmpty
-              ? feedAmounts
-              : profile.amounts;
+          ? feedAmounts
+          : profile.amounts;
       return DonationOffer(
         currency: normalizedUserCurrency,
         amounts: amounts,
-        scansPerUnit: feedScansPerUnit != null && _isUsable(feedScansPerUnit)
+        scansPerUnit:
+            feedCurrency == normalizedUserCurrency &&
+                feedScansPerUnit != null &&
+                _isUsable(feedScansPerUnit)
             ? feedScansPerUnit.toInt()
             : profile.scansPerUnit,
         whereItGoes: item?.donationWhereItGoes ?? const <String>[],
-        reminderEvery:
-            reminderEvery != null && _isUsableCount(reminderEvery)
-                ? reminderEvery.toInt()
-                : _fallbackReminderEvery,
+        reminderEvery: reminderEvery != null && _isUsableCount(reminderEvery)
+            ? reminderEvery.toInt()
+            : _fallbackReminderEvery,
         newArmPercent: newArmPercent != null && newArmPercent.isFinite
             ? newArmPercent.toInt()
             : 0,
         stripHideDays:
             stripHideDays != null &&
-                    _isUsableCount(stripHideDays) &&
-                    stripHideDays <= 365
-                ? stripHideDays.toInt()
-                : _fallbackStripHideDays,
+                _isUsableCount(stripHideDays) &&
+                stripHideDays <= 365
+            ? stripHideDays.toInt()
+            : _fallbackStripHideDays,
         donorCount: donorCount != null && _isUsableCount(donorCount)
             ? donorCount.toInt()
             : null,
@@ -197,8 +203,8 @@ class DonationOffer {
   static const int _fallbackStripHideDays = 14;
 
   /// Default amount ladders and scan anchors for supported local currencies.
-  static const Map<String, _CurrencyProfile> _defaultCurrencyProfiles =
-      <String, _CurrencyProfile>{
+  static const Map<String, _CurrencyProfile>
+  _defaultCurrencyProfiles = <String, _CurrencyProfile>{
     'EUR': _CurrencyProfile(amounts: <int>[3, 5, 10], scansPerUnit: 270),
     'USD': _CurrencyProfile(amounts: <int>[3, 5, 10], scansPerUnit: 250),
     'GBP': _CurrencyProfile(amounts: <int>[3, 5, 10], scansPerUnit: 300),
