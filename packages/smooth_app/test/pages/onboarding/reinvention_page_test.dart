@@ -1,13 +1,14 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/helpers/app_localizations_delegates.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/reinvention_page.dart';
 import 'package:smooth_app/themes/color_provider.dart';
@@ -96,7 +97,7 @@ void main() {
           value: _NoRiveFile(),
           child: MaterialApp(
             locale: const Locale('de'),
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            localizationsDelegates: appLocalizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             theme: SmoothTheme.getThemeData(
               Brightness.light,

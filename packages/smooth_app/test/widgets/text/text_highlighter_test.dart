@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 // Nonlinear at every size: small text grows more than large text.
