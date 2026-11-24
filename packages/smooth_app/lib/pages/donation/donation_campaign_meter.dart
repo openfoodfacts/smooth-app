@@ -11,18 +11,25 @@ class DonationCampaignMeter extends StatelessWidget {
   const DonationCampaignMeter({
     required this.funding,
     required this.monthsLeft,
-    required this.amountFormat,
+    super.key,
   });
 
   final AppNewsFunding funding;
   final int? monthsLeft;
-  final NumberFormat amountFormat;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextStyle? small = Theme.of(context).textTheme.bodySmall;
     final int? months = monthsLeft;
+    final String locale = NumberFormat.localeExists(appLocalizations.localeName)
+        ? appLocalizations.localeName
+        : 'en';
+    final NumberFormat currencyFormat = NumberFormat.simpleCurrency(
+      locale: locale,
+      name: funding.currency,
+      decimalDigits: 0,
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -36,8 +43,8 @@ class DonationCampaignMeter extends StatelessWidget {
           children: <Widget>[
             TextWithBoldParts(
               text: appLocalizations.donation_reminder_funding(
-                amountFormat.format(funding.raised),
-                amountFormat.format(funding.goal),
+                currencyFormat.format(funding.raised),
+                currencyFormat.format(funding.goal),
               ),
               textStyle: small,
               boldTextStyle: Theme.of(

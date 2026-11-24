@@ -140,84 +140,74 @@ void main() {
       );
     });
 
-    test('adopts supported local currency profile for user currency', () {
+    test('falls back to EUR when feed has no matching local offer', () {
       final DonationOffer jpyOffer = DonationOffer.fromNews(
         null,
         userCurrencyCode: 'JPY',
       );
-      expect(jpyOffer.currency, 'JPY');
-      expect(jpyOffer.amounts, <int>[500, 1000, 2000]);
-      expect(jpyOffer.scansPerUnit, 2);
-      expect(jpyOffer.defaultAmount, 1000);
+      expect(jpyOffer.currency, 'EUR');
+      expect(jpyOffer.amounts, <int>[3, 5, 10]);
+      expect(jpyOffer.scansPerUnit, 270);
+      expect(jpyOffer.defaultAmount, 5);
 
       final DonationOffer usdOffer = DonationOffer.fromNews(
         null,
         userCurrencyCode: 'usd',
       );
-      expect(usdOffer.currency, 'USD');
+      expect(usdOffer.currency, 'EUR');
       expect(usdOffer.amounts, <int>[3, 5, 10]);
-      expect(usdOffer.scansPerUnit, 250);
-
-      final DonationOffer gbpOffer = DonationOffer.fromNews(
-        null,
-        userCurrencyCode: 'GBP',
-      );
-      expect(gbpOffer.currency, 'GBP');
-      expect(gbpOffer.amounts, <int>[3, 5, 10]);
-      expect(gbpOffer.scansPerUnit, 300);
+      expect(usdOffer.scansPerUnit, 270);
     });
 
-    test('prefers feed donation_offers for user currency if present', () {
-      final DonationOffer offer = DonationOffer.fromNews(
-        _newsItem(
-          donationOffers: <String, List<int>>{
-            'JPY': <int>[600, 1200, 2400],
-          },
-        ),
-        userCurrencyCode: 'JPY',
-      );
-      expect(offer.currency, 'JPY');
-      expect(offer.amounts, <int>[600, 1200, 2400]);
-      expect(offer.scansPerUnit, 2);
-    });
+    test(
+      'prefers feed donation_offers for user currency if anchor matches',
+      () {
+        final DonationOffer offer = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'JPY',
+            donationScansPerUnit: 2,
+            donationOffers: <String, List<int>>{
+              'JPY': <int>[600, 1200, 2400],
+            },
+          ),
+          userCurrencyCode: 'JPY',
+        );
+        expect(offer.currency, 'JPY');
+        expect(offer.amounts, <int>[600, 1200, 2400]);
+        expect(offer.scansPerUnit, 2);
+      },
+    );
 
     test(
       'uses feed scan anchor only when feed currency matches user currency',
       () {
-        // Feed is EUR with 270 scans/unit, user is JPY: should keep JPY profile scansPerUnit (2)
+        // Feed is EUR with 270 scans/unit, user is JPY: should fall back to EUR
         final DonationOffer mismatchedOffer = DonationOffer.fromNews(
           _newsItem(
             currency: 'EUR',
             donationScansPerUnit: 270,
+            donationOffers: <String, List<int>>{
+              'JPY': <int>[600, 1200, 2400],
+            },
           ),
           userCurrencyCode: 'JPY',
         );
-        expect(mismatchedOffer.currency, 'JPY');
-        expect(mismatchedOffer.scansPerUnit, 2);
+        expect(mismatchedOffer.currency, 'EUR');
+        expect(mismatchedOffer.scansPerUnit, 270);
 
         // Feed is JPY with 5 scans/unit, user is JPY: should use feed scansPerUnit (5)
         final DonationOffer matchedOffer = DonationOffer.fromNews(
           _newsItem(
             currency: 'JPY',
             donationScansPerUnit: 5,
+            donationOffers: <String, List<int>>{
+              'JPY': <int>[700, 1400, 2800],
+            },
           ),
           userCurrencyCode: 'JPY',
         );
         expect(matchedOffer.currency, 'JPY');
         expect(matchedOffer.scansPerUnit, 5);
-
-        // Feed is JPY with custom offers and 6 scans/unit: should use 6
-        final DonationOffer customMatchedOffer = DonationOffer.fromNews(
-          _newsItem(
-            currency: 'JPY',
-            donationOffers: <String, List<int>>{
-              'JPY': <int>[700, 1400, 2800],
-            },
-            donationScansPerUnit: 6,
-          ),
-          userCurrencyCode: 'JPY',
-        );
-        expect(customMatchedOffer.scansPerUnit, 6);
       },
     );
 
