@@ -43,7 +43,13 @@ void main() {
     expect(find.text('Paris'), findsOneWidget);
     expect(
       find.text(
-        'Saved on this device only. Used to prefill Open Prices store search and sent to OpenStreetMap only when you submit a search.',
+        'Saved on this device only. Used to prefill Open Prices store search.',
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.text(
+        'Sent to OpenStreetMap only when you submit a search.',
       ),
       findsOneWidget,
     );
@@ -65,6 +71,30 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(userPreferences.userCityOrPostcode, 'Paris');
+  });
+
+  testWidgets('clearing the value removes the saved city or postcode', (
+    WidgetTester tester,
+  ) async {
+    await userPreferences.setUserCityOrPostcode('Paris');
+    await _pumpTile(tester, userPreferences, themeProvider);
+
+    await tester.tap(find.text('Your city or postcode'));
+    await tester.pumpAndSettle();
+
+    final TextField textField = tester.widget<TextField>(
+      find.byType(TextField),
+    );
+    expect(textField.controller!.text, 'Paris');
+
+    await tester.enterText(find.byType(TextField), '');
+    final AppLocalizations appLocalizations = AppLocalizations.of(
+      tester.element(find.byType(CityPostcodeTile)),
+    );
+    await tester.tap(find.text(appLocalizations.okay.toUpperCase()));
+    await tester.pumpAndSettle();
+
+    expect(userPreferences.userCityOrPostcode, isNull);
   });
 }
 

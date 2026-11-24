@@ -31,6 +31,7 @@ class SearchPage extends StatefulWidget {
         extra.searchHelper,
         preloadedList: extra.preloadedList,
         autofocus: extra.autofocus ?? true,
+        initialQuery: extra.initialQuery,
         heroTag: extra.heroTag,
         backButtonType: extra.backButtonType,
       );
@@ -51,6 +52,7 @@ class SearchPageExtra {
     required this.searchHelper,
     this.preloadedList,
     this.autofocus,
+    this.initialQuery,
     this.heroTag,
     this.backButtonType,
   });
@@ -60,6 +62,7 @@ class SearchPageExtra {
 
   /// If not passed, will default to [false]
   final bool? autofocus;
+  final String? initialQuery;
   final String? heroTag;
 
   final BackButtonType? backButtonType;
