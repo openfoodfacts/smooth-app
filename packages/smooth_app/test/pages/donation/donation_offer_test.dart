@@ -179,6 +179,24 @@ void main() {
     );
 
     test(
+      'selects feed donation_offers ladder when userCurrencyCode is null',
+      () {
+        final DonationOffer offer = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'JPY',
+            donationScansPerUnit: 2,
+            donationOffers: <String, List<int>>{
+              'JPY': <int>[600, 1200, 2400],
+            },
+          ),
+        );
+        expect(offer.currency, 'JPY');
+        expect(offer.amounts, <int>[600, 1200, 2400]);
+        expect(offer.scansPerUnit, 2);
+      },
+    );
+
+    test(
       'uses feed scan anchor only when feed currency matches user currency',
       () {
         // Feed is EUR with 270 scans/unit, user is JPY: should fall back to EUR

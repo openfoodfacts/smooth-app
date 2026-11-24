@@ -95,21 +95,26 @@ class DonationOffer {
     final List<String> whereItGoes =
         item?.donationWhereItGoes ?? const <String>[];
 
-    // 1. If the remote feed provides explicit donation_offers for the user's currency
+    final String? lookupCurrency =
+        normalizedUserCurrency ??
+        (feedCurrency != null && feedCurrency.length == 3
+            ? feedCurrency
+            : null);
+
+    // 1. If the remote feed provides explicit donation_offers for the target currency
     // and a matching usable feed anchor exists:
-    if (normalizedUserCurrency != null && item?.donationOffers != null) {
-      final List<int>? customAmounts =
-          item!.donationOffers![normalizedUserCurrency];
+    if (lookupCurrency != null && item?.donationOffers != null) {
+      final List<int>? customAmounts = item!.donationOffers![lookupCurrency];
       if (customAmounts != null && customAmounts.isNotEmpty) {
         final int? anchor =
-            feedCurrency == normalizedUserCurrency &&
+            feedCurrency == lookupCurrency &&
                 feedScansPerUnit != null &&
                 _isUsableCount(feedScansPerUnit)
             ? feedScansPerUnit.toInt()
             : null;
         if (anchor != null) {
           return DonationOffer(
-            currency: normalizedUserCurrency,
+            currency: lookupCurrency,
             amounts: customAmounts,
             scansPerUnit: anchor,
             whereItGoes: whereItGoes,
