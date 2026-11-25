@@ -2,24 +2,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
-import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
+import 'package:smooth_app/pages/prices/prices_list_scaffold.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
-import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 /// Page that displays the top prices products with infinite scrolling.
 class PricesProductsPage extends StatefulWidget {
-  const PricesProductsPage();
+  const PricesProductsPage({this.productsResult});
+
+  final GetPriceProductsResult? productsResult;
 
   @override
   State<PricesProductsPage> createState() => _PricesProductsPageState();
@@ -30,32 +27,23 @@ class _PricesProductsPageState extends State<PricesProductsPage>
   @override
   String get actionName => 'Opened prices_products_page';
 
-  final _InfiniteScrollProductManager _productManager =
-      _InfiniteScrollProductManager();
+  late final _InfiniteScrollProductManager _productManager;
+
+  @override
+  void initState() {
+    super.initState();
+    _productManager = _InfiniteScrollProductManager(
+      productsResult: widget.productsResult,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return SmoothScaffold(
-      appBar: SmoothAppBar(
-        centerTitle: false,
-        leading: const SmoothBackButton(),
-        title: Text(appLocalizations.all_search_prices_top_product_title),
-        actions: <Widget>[
-          IconButton(
-            tooltip: appLocalizations.prices_app_button,
-            icon: const Icon(Icons.open_in_new),
-            onPressed: () async => LaunchUrlHelper.launchURL(
-              OpenPricesAPIClient.getUri(
-                path: 'products',
-                uriHelper: ProductQuery.uriPricesHelper,
-              ).toString(),
-            ),
-          ),
-        ],
-      ),
-      body: InfiniteScrollList<PriceProduct>(manager: _productManager),
+    return PricesListScaffold<PriceProduct>(
+      title: appLocalizations.all_search_prices_top_product_title,
+      manager: _productManager,
     );
   }
 }
@@ -63,6 +51,13 @@ class _PricesProductsPageState extends State<PricesProductsPage>
 /// A manager for handling product data with infinite scrolling
 class _InfiniteScrollProductManager
     extends InfiniteScrollManager<PriceProduct> {
+  _InfiniteScrollProductManager({GetPriceProductsResult? productsResult})
+    : super(
+        initialItems: productsResult?.items,
+        totalItems: productsResult?.total,
+        totalPages: productsResult?.numberOfPages,
+      );
+
   static const int _pageSize = 10;
 
   static const List<OrderBy<GetPriceProductsOrderField>> _orderBy =
@@ -102,20 +97,18 @@ class _InfiniteScrollProductManager
     required BuildContext context,
     required PriceProduct item,
   }) {
-    return SmoothCard(
-      child: InkWell(
-        onTap: () async => Navigator.of(context).push<void>(
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => PricesPage(
-              GetPricesModel.product(
-                product: PriceMetaProduct.priceProduct(item),
-                context: context,
-              ),
+    return PricesListCard(
+      onTap: () async => Navigator.of(context).push<void>(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => PricesPage(
+            GetPricesModel.product(
+              product: PriceMetaProduct.priceProduct(item),
+              context: context,
             ),
           ),
         ),
-        child: PriceProductWidget(item),
       ),
+      child: PriceProductWidget(item),
     );
   }
 
