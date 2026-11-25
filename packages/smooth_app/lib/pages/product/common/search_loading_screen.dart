@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -18,21 +20,51 @@ class SearchLoadingScreen extends StatelessWidget {
     return SearchEmptyScreen(
       name: title,
       includeAppBar: false,
-      emptiness: FractionallySizedBox(
-        widthFactor: 0.75,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            SearchEyeAnimation(size: MediaQuery.sizeOf(context).width * 0.2),
-            const SizedBox(height: VERY_LARGE_SPACE * 2),
-            TextHighlighter(
-              text: appLocalizations.product_search_loading_message(title),
-              filter: title,
-              softWrap: true,
-              textAlign: TextAlign.center,
+      emptiness: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          final double animationSize = constraints.hasBoundedHeight
+              ? math.min(
+                  constraints.maxWidth * 0.2,
+                  math.max(48.0, constraints.maxHeight * 0.35),
+                )
+              : constraints.maxWidth * 0.2;
+
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minWidth: constraints.maxWidth,
+                minHeight: constraints.hasBoundedHeight
+                    ? constraints.maxHeight
+                    : 0.0,
+              ),
+              child: Center(
+                child: FractionallySizedBox(
+                  widthFactor: 0.75,
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: MEDIUM_SPACE,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        SearchEyeAnimation(size: animationSize),
+                        const SizedBox(height: VERY_LARGE_SPACE * 2),
+                        TextHighlighter(
+                          text: appLocalizations.product_search_loading_message(
+                            title,
+                          ),
+                          filter: title,
+                          softWrap: true,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

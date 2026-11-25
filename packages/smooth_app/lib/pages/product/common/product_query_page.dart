@@ -339,132 +339,167 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
-    return Column(
-      mainAxisAlignment: .center,
-      crossAxisAlignment: .center,
-      children: <Widget>[
-        Expanded(
-          child: FractionallySizedBox(
-            widthFactor: 0.75,
-            child: Column(
-              mainAxisAlignment: .center,
-              spacing: LARGE_SPACE,
-              children: <Widget>[
-                Material(
-                  color: theme.errorBackground,
-                  shape: const CircleBorder(),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.symmetric(
-                      horizontal: 40.0,
-                      vertical: 35.0,
-                    ),
-                    child: Column(
-                      spacing: LARGE_SPACE,
-                      children: <Widget>[
-                        icons.Milk.unhappy(size: 65.0, color: theme.error),
-                      ],
-                    ),
-                  ),
-                ),
-                TextWithBoldParts(
-                  text: message,
-                  textAlign: TextAlign.center,
-                  textStyle: const TextStyle(fontSize: 15.5),
-                ),
-              ],
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: constraints.maxWidth,
+              minHeight: constraints.hasBoundedHeight
+                  ? constraints.maxHeight
+                  : 0.0,
             ),
-          ),
-        ),
-        if (worldQuery != null)
-          Material(
-            color: lightTheme ? theme.primaryBlack : theme.primaryUltraBlack,
-            elevation: 4.0,
-            child: SafeArea(
-              child: Padding(
-                padding: const EdgeInsetsDirectional.symmetric(
-                  horizontal: MEDIUM_SPACE,
-                  vertical: LARGE_SPACE,
-                ),
-                child: Column(
-                  spacing: VERY_LARGE_SPACE,
-                  children: <Widget>[
-                    Row(
-                      crossAxisAlignment: .start,
+            child: Column(
+              mainAxisAlignment: worldQuery != null
+                  ? MainAxisAlignment.spaceBetween
+                  : MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                if (worldQuery != null) EMPTY_WIDGET,
+                Padding(
+                  padding: const EdgeInsetsDirectional.symmetric(
+                    vertical: LARGE_SPACE,
+                  ),
+                  child: FractionallySizedBox(
+                    widthFactor: 0.75,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       spacing: LARGE_SPACE,
                       children: <Widget>[
                         Material(
+                          color: theme.errorBackground,
                           shape: const CircleBorder(),
-                          color: theme.secondaryVibrant,
-                          child: const Padding(
-                            padding: EdgeInsetsDirectional.all(SMALL_SPACE),
-                            child: icons.LightBulb(color: Colors.white),
-                          ),
-                        ),
-                        Expanded(
-                          child: TextWithBoldParts(
-                            text: appLocalizations
-                                .no_product_found_try_world_results,
-                            textStyle: const TextStyle(
-                              fontSize: 15.0,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    FractionallySizedBox(
-                      widthFactor: 0.9,
-                      child: Material(
-                        type: MaterialType.button,
-                        color: lightTheme ? theme.primaryBlack : Colors.black26,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: ROUNDED_BORDER_RADIUS,
-                          side: BorderSide(color: Colors.white54),
-                        ),
-                        child: InkWell(
-                          borderRadius: ROUNDED_BORDER_RADIUS,
-                          onTap: () async =>
-                              ProductQueryPageHelper.openBestChoice(
-                                productQuery: worldQuery,
-                                localDatabase: context.read<LocalDatabase>(),
-                                name: widget.name,
-                                context: context,
-                                editableAppBarTitle: widget.includeAppBar,
-                              ),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.symmetric(
-                              horizontal: LARGE_SPACE,
-                              vertical: SMALL_SPACE,
+                              horizontal: 40.0,
+                              vertical: 35.0,
                             ),
-                            child: Row(
+                            child: Column(
+                              spacing: LARGE_SPACE,
                               children: <Widget>[
-                                Expanded(
-                                  child: Text(
-                                    appLocalizations.world_results_action,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                                icons.CircledArrow.horizontalDirectional(
-                                  context,
-                                  type: icons.CircledArrowType.thin,
-                                  size: 30.0,
-                                  color: Colors.white,
+                                icons.Milk.unhappy(
+                                  size: 65.0,
+                                  color: theme.error,
                                 ),
                               ],
                             ),
                           ),
                         ),
+                        TextWithBoldParts(
+                          text: message,
+                          textAlign: TextAlign.center,
+                          textStyle: const TextStyle(fontSize: 15.5),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                if (worldQuery != null)
+                  Material(
+                    color: lightTheme
+                        ? theme.primaryBlack
+                        : theme.primaryUltraBlack,
+                    elevation: 4.0,
+                    child: SafeArea(
+                      top: false,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.symmetric(
+                          horizontal: MEDIUM_SPACE,
+                          vertical: LARGE_SPACE,
+                        ),
+                        child: Column(
+                          spacing: VERY_LARGE_SPACE,
+                          children: <Widget>[
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              spacing: LARGE_SPACE,
+                              children: <Widget>[
+                                Material(
+                                  shape: const CircleBorder(),
+                                  color: theme.secondaryVibrant,
+                                  child: const Padding(
+                                    padding: EdgeInsetsDirectional.all(
+                                      SMALL_SPACE,
+                                    ),
+                                    child: icons.LightBulb(color: Colors.white),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: TextWithBoldParts(
+                                    text: appLocalizations
+                                        .no_product_found_try_world_results,
+                                    textStyle: const TextStyle(
+                                      fontSize: 15.0,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            FractionallySizedBox(
+                              widthFactor: 0.9,
+                              child: Material(
+                                type: MaterialType.button,
+                                color: lightTheme
+                                    ? theme.primaryBlack
+                                    : Colors.black26,
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: ROUNDED_BORDER_RADIUS,
+                                  side: BorderSide(color: Colors.white54),
+                                ),
+                                child: InkWell(
+                                  borderRadius: ROUNDED_BORDER_RADIUS,
+                                  onTap: () async =>
+                                      ProductQueryPageHelper.openBestChoice(
+                                        productQuery: worldQuery,
+                                        localDatabase: context
+                                            .read<LocalDatabase>(),
+                                        name: widget.name,
+                                        context: context,
+                                        editableAppBarTitle:
+                                            widget.includeAppBar,
+                                      ),
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsetsDirectional.symmetric(
+                                          horizontal: LARGE_SPACE,
+                                          vertical: SMALL_SPACE,
+                                        ),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: Text(
+                                            appLocalizations
+                                                .world_results_action,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ),
+                                        icons
+                                            .CircledArrow.horizontalDirectional(
+                                          context,
+                                          type: icons.CircledArrowType.thin,
+                                          size: 30.0,
+                                          color: Colors.white,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ],
-                ),
-              ),
+                  ),
+              ],
             ),
           ),
-      ],
+        );
+      },
     );
   }
 
