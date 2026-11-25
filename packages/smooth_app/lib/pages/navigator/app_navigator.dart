@@ -35,6 +35,7 @@ import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
+import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
@@ -72,6 +73,14 @@ class AppNavigator extends InheritedWidget {
   bool updateShouldNotify(AppNavigator oldWidget) {
     return oldWidget._router != _router;
   }
+
+  @visibleForTesting
+  static String? resolveExternalDeepLink(Uri uri, {Object? extra}) =>
+      _SmoothGoRouter.resolveExternalRedirect(
+        path: uri.path,
+        uri: uri,
+        extra: extra,
+      );
 
   // Router to use with a [WidgetsApp]
   RouterConfig<Object> get router => _router.router;
@@ -316,6 +325,12 @@ class _SmoothGoRouter {
               builder: (_, _) => const SignUpPage(),
             ),
             GoRoute(
+              path: _InternalAppRoutes.FORGOT_PASSWORD_PAGE,
+              builder: (_, GoRouterState state) => ForgotPasswordPage(
+                initialEmail: state.uri.queryParameters['email'],
+              ),
+            ),
+            GoRoute(
               path: _InternalAppRoutes.DONATE_PAGE,
               builder: (_, GoRouterState state) => DonationPage(
                 source: DonationSource.values.firstWhereOrNull(
@@ -358,66 +373,89 @@ class _SmoothGoRouter {
           return null;
         }
 
-        bool externalLink = false;
-
-        // If a barcode is in the URL, ensure to manually fetch the product
-        if (path.isNotEmpty) {
-          final int subPaths = path.count('/');
-
-          if (subPaths > 1) {
-            final String? barcode = _extractProductBarcode(path);
-
-            if (barcode != null) {
-              AnalyticsHelper.trackEvent(
-                AnalyticsEvent.productDeepLink,
-                barcode: barcode,
-              );
-
-              if (state.extra is Product) {
-                return AppRoutes.PRODUCT(barcode, useHeroAnimation: false);
-              } else {
-                return AppRoutes.PRODUCT_LOADER(barcode);
-              }
-            } else if (path == _ExternalRoutes.PRODUCT_EDITION) {
-              // Support cgi/product.pl?type=edit&code=XXXX
-              final String? barcode = state.uri.queryParameters['code'];
-
-              if (barcode != null &&
-                  state.uri.queryParameters['type'] == 'edit') {
-                return AppRoutes.PRODUCT_LOADER(barcode, edit: true);
-              } else {
-                externalLink = true;
-              }
-            } else {
-              externalLink = true;
-            }
-          } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
-            return AppRoutes.HOME();
-          } else if (path == _ExternalRoutes.GUIDE_GREEN_SCORE) {
-            return AppRoutes.GUIDE_GREEN_SCORE;
-          } else if (path == _ExternalRoutes.GUIDE_NOVA_SCORE) {
-            return AppRoutes.GUIDE_NOVA;
-          } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
-            return AppRoutes.GUIDE_NUTRISCORE_V2;
-          } else if (path == _ExternalRoutes.SIGNUP) {
-            return AppRoutes.SIGNUP;
-          } else if (path != _InternalAppRoutes.HOME_PAGE) {
-            externalLink = true;
-          }
-        }
-
-        if (externalLink) {
-          return _openExternalLink(state.uri.toString());
-        } else if (path.isEmpty) {
-          // Force the Homepage
-          return _InternalAppRoutes.HOME_PAGE;
-        } else {
-          return state.uri.toString();
-        }
+        return resolveExternalRedirect(
+          path: path,
+          uri: state.uri,
+          extra: state.extra,
+        );
       },
       errorBuilder: (_, GoRouterState state) =>
           ErrorPage(url: state.uri.toString()),
     );
+  }
+
+  /// Resolves an external (non-internal) deep-link path to an internal route.
+  @visibleForTesting
+  static String resolveExternalRedirect({
+    required String path,
+    required Uri uri,
+    Object? extra,
+  }) {
+    bool externalLink = false;
+
+    // If a barcode is in the URL, ensure to manually fetch the product
+    if (path.isNotEmpty) {
+      final int subPaths = path.count('/');
+
+      if (subPaths > 1) {
+        final String? barcode = _extractProductBarcode(path);
+
+        if (barcode != null) {
+          AnalyticsHelper.trackEvent(
+            AnalyticsEvent.productDeepLink,
+            barcode: barcode,
+          );
+
+          if (extra is Product) {
+            return AppRoutes.PRODUCT(barcode, useHeroAnimation: false);
+          } else {
+            return AppRoutes.PRODUCT_LOADER(barcode);
+          }
+        } else if (path == _ExternalRoutes.PRODUCT_EDITION) {
+          // Support cgi/product.pl?type=edit&code=XXXX
+          final String? barcode = uri.queryParameters['code'];
+
+          if (barcode != null && uri.queryParameters['type'] == 'edit') {
+            return AppRoutes.PRODUCT_LOADER(barcode, edit: true);
+          } else {
+            externalLink = true;
+          }
+        } else if (path == _ExternalRoutes.RESET_PASSWORD) {
+          // Support cgi/reset_password.pl when no web reset token is present
+          if (uri.queryParameters.containsKey('code') ||
+              uri.queryParameters.containsKey('token')) {
+            externalLink = true;
+          } else {
+            return AppRoutes.FORGOT_PASSWORD(
+              email: uri.queryParameters['email'],
+            );
+          }
+        } else {
+          externalLink = true;
+        }
+      } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
+        return AppRoutes.HOME();
+      } else if (path == _ExternalRoutes.GUIDE_GREEN_SCORE) {
+        return AppRoutes.GUIDE_GREEN_SCORE;
+      } else if (path == _ExternalRoutes.GUIDE_NOVA_SCORE) {
+        return AppRoutes.GUIDE_NOVA;
+      } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
+        return AppRoutes.GUIDE_NUTRISCORE_V2;
+      } else if (path == _ExternalRoutes.SIGNUP) {
+        return AppRoutes.SIGNUP;
+      } else if (path != _InternalAppRoutes.HOME_PAGE) {
+        externalLink = true;
+      }
+    }
+
+    if (externalLink) {
+      return _openExternalLink(uri.toString());
+    } else if (path.isEmpty) {
+      // Force the Homepage
+      return _InternalAppRoutes.HOME_PAGE;
+    } else {
+      return uri.toString();
+    }
   }
 
   bool _appLanguageInitialized = false;
@@ -433,7 +471,7 @@ class _SmoothGoRouter {
     return context.read<ProductPreferences>().refresh();
   }
 
-  String _openExternalLink(String path) {
+  static String _openExternalLink(String path) {
     AnalyticsHelper.trackEvent(AnalyticsEvent.genericDeepLink);
 
     // Unsupported link -> open the browser
@@ -448,7 +486,7 @@ class _SmoothGoRouter {
   /// Some examples:
   /// - produit/156164894948
   /// - product/3017620422003/nutella-ferrero
-  String? _extractProductBarcode(String path) {
+  static String? _extractProductBarcode(String path) {
     if (path.isEmpty) {
       return null;
     }
@@ -510,6 +548,7 @@ class _InternalAppRoutes {
   static const String EXTERNAL_PAGE = '_external';
   static const String EXTERNAL_WEBVIEW_PAGE = '_external_webview';
   static const String SIGNUP_PAGE = '_signup';
+  static const String FORGOT_PASSWORD_PAGE = '_forgot_password';
   static const String DONATE_PAGE = '_donate';
 
   static const String _GUIDES = '_guides';
@@ -526,6 +565,7 @@ class _InternalAppRoutes {
 class _ExternalRoutes {
   static const String MOBILE_APP_DOWNLOAD = '/open-food-facts-mobile-app';
   static const String PRODUCT_EDITION = '/cgi/product.pl';
+  static const String RESET_PASSWORD = '/cgi/reset_password.pl';
   static const String GUIDE_GREEN_SCORE = '/green-score';
   static const String GUIDE_NOVA_SCORE = '/nova';
   static const String GUIDE_NUTRISCORE_V2 = '/nutriscore-v2';
@@ -611,6 +651,11 @@ class AppRoutes {
       '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_OPEN_PRICES_PAGE}';
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
+
+  static String FORGOT_PASSWORD({String? email}) =>
+      email == null || email.isEmpty
+      ? '/${_InternalAppRoutes.FORGOT_PASSWORD_PAGE}'
+      : '/${_InternalAppRoutes.FORGOT_PASSWORD_PAGE}?email=${Uri.encodeQueryComponent(email)}';
 
   // Donation screen, keeping the entry point attributable
   static String DONATE(DonationSource source) =>
