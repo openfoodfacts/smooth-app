@@ -154,9 +154,11 @@ class _OrangeErrorAnimationState extends State<OrangeErrorAnimation> {
             _vmi?.trigger('Trigger')!.trigger();
             SmoothHapticFeedback.click();
           },
-          child: RiveAnimation(
-            artboard: 'Orange error',
-            onDataBindAvailable: (ViewModelInstance vmi) => _vmi = vmi,
+          child: ClipRect(
+            child: RiveAnimation(
+              artboard: 'Orange error',
+              onDataBindAvailable: (ViewModelInstance vmi) => _vmi = vmi,
+            ),
           ),
         ),
       ),
