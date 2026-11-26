@@ -259,10 +259,7 @@ class DaoProductList extends AbstractDao {
     await _put(getKey(productList), newList);
   }
 
-  Future<ProductList> rename(
-    ProductList initialList,
-    String newName,
-  ) async {
+  Future<ProductList> rename(ProductList initialList, String newName) async {
     final ProductList newList = ProductList.user(newName);
     final _BarcodeList list =
         await _get(initialList) ?? _BarcodeList.now(<String>[]);

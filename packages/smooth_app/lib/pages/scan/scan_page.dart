@@ -55,9 +55,8 @@ class _ScanPageState extends State<ScanPage> {
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension themeExtension = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension themeExtension = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
     final TextDirection direction = Directionality.of(context);
     final bool hasACamera = CameraHelper.hasACamera;
 

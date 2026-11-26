@@ -204,19 +204,15 @@ class UserPreferences extends ChangeNotifier {
   String _getImportanceTag(String variable) =>
       _TAG_PREFIX_IMPORTANCE + variable;
 
-  String _getImportancePrefixForProject(
-    PreferencesPageProjects project,
-  ) => '$_TAG_PREFIX_IMPORTANCE${project.projectKey}_';
+  String _getImportancePrefixForProject(PreferencesPageProjects project) =>
+      '$_TAG_PREFIX_IMPORTANCE${project.projectKey}_';
 
   String _getImportanceTagForProject(
     String variable,
     PreferencesPageProjects project,
   ) => '${_getImportancePrefixForProject(project)}$variable';
 
-  Future<void> setImportance(
-    String attributeId,
-    String importanceId,
-  ) async {
+  Future<void> setImportance(String attributeId, String importanceId) async {
     await _sharedPreferences.setString(
       _getImportanceTag(attributeId),
       importanceId,

@@ -75,9 +75,9 @@ class HomePageHeaderSuffixButton extends StatelessWidget {
                 );
               },
             ),
-            onPressed: () => HomePage.of(
-              context,
-            ).expandCamera(duration: const Duration(milliseconds: 1500)),
+            onPressed: () =>
+                HomePage.of(context)
+                    .expandCamera(duration: const Duration(milliseconds: 1500)),
             style: ButtonStyle(
               backgroundColor: WidgetStateProperty.all(
                 lightTheme ? Colors.white : theme.primaryLight,

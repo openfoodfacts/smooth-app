@@ -109,9 +109,9 @@ class _DonationStripState extends State<_DonationStrip> {
       borderRadius: _radius,
       child: InkWell(
         borderRadius: _radius,
-        onTap: () => AppNavigator.of(
-          context,
-        ).push(AppRoutes.DONATE(DonationSource.strip)),
+        onTap: () =>
+            AppNavigator.of(context)
+                .push(AppRoutes.DONATE(DonationSource.strip)),
         child: Padding(
           padding: const EdgeInsetsDirectional.only(
             start: MEDIUM_SPACE,
@@ -135,9 +135,8 @@ class _DonationStripState extends State<_DonationStrip> {
                   ),
                   const icons.Chevron.right(size: 14.0),
                   IconButton(
-                    tooltip: MaterialLocalizations.of(
-                      context,
-                    ).closeButtonTooltip,
+                    tooltip: MaterialLocalizations.of(context)
+                        .closeButtonTooltip,
                     icon: const icons.Close(size: 14.0),
                     onPressed: () => _close(context, offer),
                   ),

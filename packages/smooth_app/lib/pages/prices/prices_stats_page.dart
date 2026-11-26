@@ -282,7 +282,7 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
 
   static String? _formatDateTime(DateTime? dateTime) => dateTime == null
       ? null
-      : DateFormat.yMd(
-          ProductQuery.getLanguage().offTag,
-        ).add_jms().format(dateTime);
+      : DateFormat.yMd(ProductQuery.getLanguage().offTag)
+            .add_jms()
+            .format(dateTime);
 }

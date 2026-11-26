@@ -88,11 +88,8 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
     }
   }
 
-  static String getStamp(
-    String barcode,
-    String imageField,
-    String language,
-  ) => '$barcode;image;$imageField;$language';
+  static String getStamp(String barcode, String imageField, String language) =>
+      '$barcode;image;$imageField;$language';
 
   static Future<Directory> getDirectory() async =>
       getApplicationSupportDirectory();

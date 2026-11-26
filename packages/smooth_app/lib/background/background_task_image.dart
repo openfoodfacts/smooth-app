@@ -173,10 +173,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
   // TODO(monsieurtanuki): we may also need to remove old files that were not removed from some reason
   @override
-  Future<void> postExecute(
-    LocalDatabase localDatabase,
-    bool success,
-  ) async {
+  Future<void> postExecute(LocalDatabase localDatabase, bool success) async {
     await super.postExecute(localDatabase, success);
     try {
       (await BackgroundTaskUpload.getFile(fullPath)).deleteSync();
@@ -189,9 +186,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       // not likely, but let's not spoil the task for that either.
     }
     try {
-      (await BackgroundTaskUpload.getFile(
-        await getCroppedPath(fullPath),
-      )).deleteSync();
+      (await BackgroundTaskUpload.getFile(await getCroppedPath(fullPath)))
+          .deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }

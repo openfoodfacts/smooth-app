@@ -58,9 +58,8 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
     _donationStripHidden = _donationStripHiddenNow;
     final AppNewsItem? donation = tagLine.donation;
     final bool reminderArm =
-        DonationOffer.fromNews(
-          donation,
-        ).arm(_userPreferences.getDonationTestBucket()) ==
+        DonationOffer.fromNews(donation)
+            .arm(_userPreferences.getDonationTestBucket()) ==
         DonationTestArm.reminder;
     final bool donationStrip =
         reminderArm &&

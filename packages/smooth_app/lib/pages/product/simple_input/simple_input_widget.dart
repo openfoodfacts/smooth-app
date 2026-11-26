@@ -292,9 +292,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
       ScaffoldMessenger.of(context).showSnackBar(
         SmoothFloatingSnackbar.error(
           context: context,
-          text: AppLocalizations.of(
-            context,
-          ).edit_product_form_item_error_existing,
+          text: AppLocalizations.of(context)
+              .edit_product_form_item_error_existing,
         ),
       );
 

@@ -257,9 +257,8 @@ class _ModalProductListItemCounter extends StatelessWidget {
             context,
           ).scale(DefaultTextStyle.of(context).style.fontSize! * digits * 0.75),
           child: Text(
-            NumberFormat.decimalPattern(
-              ProductQuery.getLanguage().offTag,
-            ).format(count),
+            NumberFormat.decimalPattern(ProductQuery.getLanguage().offTag)
+                .format(count),
             textAlign: TextAlign.center,
             style: const TextStyle(fontWeight: FontWeight.w600),
           ),

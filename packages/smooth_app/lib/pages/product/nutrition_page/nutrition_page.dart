@@ -109,9 +109,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           child: Theme(
             data: Theme.of(context).copyWith(
               scaffoldBackgroundColor: context.lightTheme()
-                  ? Theme.of(
-                      context,
-                    ).extension<SmoothColorsThemeExtension>()!.primaryLight
+                  ? Theme.of(context)
+                        .extension<SmoothColorsThemeExtension>()!
+                        .primaryLight
                   : null,
             ),
             child: SmoothScaffold(

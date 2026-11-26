@@ -128,9 +128,8 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
               );
             }
             if (currentNews.isDonation) {
-              AppNavigator.of(
-                context,
-              ).push(AppRoutes.DONATE(DonationSource.tagline));
+              AppNavigator.of(context)
+                  .push(AppRoutes.DONATE(DonationSource.tagline));
             } else {
               LaunchUrlHelper.launchURLAndFollowDeepLinks(
                 context,
@@ -224,9 +223,8 @@ class _TagLineFundingMeter extends StatelessWidget {
       name: funding.currency,
       decimalDigits: 0,
     );
-    final String percent = NumberFormat.percentPattern(
-      locale,
-    ).format(funding.ratio);
+    final String percent = NumberFormat.percentPattern(locale)
+        .format(funding.ratio);
     final int? months = monthsLeft;
     final String deadline = months == null || months < 1 || months > 12
         ? ''
@@ -404,9 +402,8 @@ class _TagLineContentButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension theme = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension theme = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: SMALL_SPACE),

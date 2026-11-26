@@ -45,16 +45,12 @@ abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
       DaoStringList(localDatabase).getAll(historyKey).reversed.toList();
 
   /// Adds a query to the history.
-  Future<void> addQuery(
-    LocalDatabase localDatabase,
-    String query,
-  ) async => DaoStringList(localDatabase).add(historyKey, query);
+  Future<void> addQuery(LocalDatabase localDatabase, String query) async =>
+      DaoStringList(localDatabase).add(historyKey, query);
 
   /// Removes a query from the history.
-  Future<bool> removeQuery(
-    LocalDatabase localDatabase,
-    String query,
-  ) async => DaoStringList(localDatabase).remove(historyKey, query);
+  Future<bool> removeQuery(LocalDatabase localDatabase, String query) async =>
+      DaoStringList(localDatabase).remove(historyKey, query);
 
   /// Typical search when we have a controller+focus.
   void searchWithController(

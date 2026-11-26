@@ -277,9 +277,9 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Donate(),
       title: appLocalizations.preferences_support_title,
       subtitleText: appLocalizations.preferences_support_subtitle,
-      onTap: () => AppNavigator.of(
-        context,
-      ).push(AppRoutes.DONATE(DonationSource.settings)),
+      onTap: () =>
+          AppNavigator.of(context)
+              .push(AppRoutes.DONATE(DonationSource.settings)),
     );
   }
 

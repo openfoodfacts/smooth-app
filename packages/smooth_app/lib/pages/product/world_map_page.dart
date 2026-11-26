@@ -35,9 +35,8 @@ class WorldMapPage extends StatelessWidget {
               showFlutterMapAttribution: false,
               attributions: <SourceAttribution>[
                 TextSourceAttribution(
-                  AppLocalizations.of(
-                    context,
-                  ).open_street_map_contributor_attribution,
+                  AppLocalizations.of(context)
+                      .open_street_map_contributor_attribution,
                   onTap: () => LaunchUrlHelper.launchURL(
                     'https://www.openstreetmap.org/copyright',
                   ),

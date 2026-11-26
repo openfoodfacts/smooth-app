@@ -350,9 +350,8 @@ class TextWithBubbleParts extends StatelessWidget {
   }
 
   Iterable<(String, bool)> _extractChunks() {
-    final Iterable<RegExpMatch> matches = RegExp(
-      r'\*\*(.*?)\*\*',
-    ).allMatches(text);
+    final Iterable<RegExpMatch> matches = RegExp(r'\*\*(.*?)\*\*')
+        .allMatches(text);
 
     if (matches.isEmpty) {
       return <(String, bool)>[(text, false)];

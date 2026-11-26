@@ -19,9 +19,8 @@ class DonationLadderOutline extends StatelessWidget {
           // opacity moves, so choosing never shifts the list.
           border: Border.all(
             width: 2.0,
-            color: Theme.of(
-              context,
-            ).colorScheme.primary.withValues(alpha: active ? 1.0 : 0.25),
+            color: Theme.of(context).colorScheme.primary
+                .withValues(alpha: active ? 1.0 : 0.25),
           ),
         ),
         child: child,

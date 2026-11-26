@@ -261,10 +261,8 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
     ),
   );
 
-  TransientFile _getTransientFile(
-    Product product,
-    ImageField imageField,
-  ) => TransientFile.fromProduct(product, imageField, widget.language);
+  TransientFile _getTransientFile(Product product, ImageField imageField) =>
+      TransientFile.fromProduct(product, imageField, widget.language);
 }
 
 class _PhotoRowIndicator extends StatelessWidget {

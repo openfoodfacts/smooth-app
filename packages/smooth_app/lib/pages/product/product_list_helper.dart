@@ -288,9 +288,8 @@ class _AddToProductListAddNewListState
   }
 
   void _initAnimation() {
-    final SmoothColorsThemeExtension extension = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
     final bool lightTheme = context.lightTheme(listen: false);
 
     _colorAnimation =
@@ -320,15 +319,13 @@ class _AddToProductListAddNewListState
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
     final bool lightTheme = context.lightTheme();
 
     final Color iconColor = lightTheme
-        ? Theme.of(context).checkboxTheme.fillColor!.resolve(<WidgetState>{
-            WidgetState.selected,
-          })!
+        ? Theme.of(context).checkboxTheme.fillColor!
+              .resolve(<WidgetState>{WidgetState.selected})!
         : Colors.white;
 
     return IconTheme(
@@ -412,9 +409,8 @@ class _AddToProductListAddNewListState
                         IconButton(
                           icon: const Icon(Icons.cancel),
                           onPressed: () => setState(() => _editMode = false),
-                          tooltip: MaterialLocalizations.of(
-                            context,
-                          ).cancelButtonLabel,
+                          tooltip: MaterialLocalizations.of(context)
+                              .cancelButtonLabel,
                         ),
                       if (_editMode)
                         IconButton(
@@ -481,9 +477,8 @@ class _AddToProductListDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(horizontal: LARGE_SPACE),
       child: CustomPaint(

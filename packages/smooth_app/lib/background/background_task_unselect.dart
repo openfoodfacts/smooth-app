@@ -115,10 +115,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
       TransientFile(ImageField.fromOffTag(imageField)!, barcode, getLanguage());
 
   @override
-  Future<void> postExecute(
-    LocalDatabase localDatabase,
-    bool success,
-  ) async {
+  Future<void> postExecute(LocalDatabase localDatabase, bool success) async {
     await super.postExecute(localDatabase, success);
     // TODO(monsieurtanuki): we should also remove the hypothetical transient file, shouldn't we?
     if (success) {

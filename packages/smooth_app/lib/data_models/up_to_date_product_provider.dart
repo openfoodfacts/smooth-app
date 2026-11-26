@@ -62,10 +62,7 @@ class UpToDateProductProvider {
   }
 
   /// Typical use-case: a product page is refreshed through a pull-gesture.
-  void setLatestDownloadedProduct(
-    Product product, {
-    bool notify = true,
-  }) {
+  void setLatestDownloadedProduct(Product product, {bool notify = true}) {
     _latestDownloadedProducts[product.barcode!] = product;
     _timestamps[product.barcode!] = LocalDatabase.nowInMillis();
     if (notify) {
@@ -108,10 +105,7 @@ class UpToDateProductProvider {
   );
 
   /// Adds a minimalist local change to pending ones.
-  Future<void> addChange(
-    String key,
-    Product minimalistProduct,
-  ) async {
+  Future<void> addChange(String key, Product minimalistProduct) async {
     final String barcode = minimalistProduct.barcode!;
     await _changes.add(key, minimalistProduct);
     _timestamps[barcode] = LocalDatabase.nowInMillis();
@@ -119,9 +113,8 @@ class UpToDateProductProvider {
   }
 
   /// Returns the local pending change ids related to a [barcode].
-  Iterable<TransientOperation>? getSortedChangeOperations(
-    String barcode,
-  ) => _changes.getSortedOperations(barcode);
+  Iterable<TransientOperation>? getSortedChangeOperations(String barcode) =>
+      _changes.getSortedOperations(barcode);
 
   /// Closes a single operation, successful or failed.
   void terminate(String operationKey) {

@@ -254,9 +254,8 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
               color: color,
               radius: borderRadius?.topRight ?? ROUNDED_RADIUS,
               shadowElevation:
-                  SmoothCardWithRoundedHeaderTopShadowProvider.of(
-                    context,
-                  )?.shadow ??
+                  SmoothCardWithRoundedHeaderTopShadowProvider.of(context)
+                      ?.shadow ??
                   0.0,
             ),
             child: Padding(

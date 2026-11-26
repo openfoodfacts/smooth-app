@@ -65,13 +65,13 @@ extension ProductTypeExtension on ProductType {
           appLocalizations.hey_incomplete_product_message_product,
       };
 
-  String getShareProductLabel(
-    AppLocalizations appLocalizations,
-    String url,
-  ) => switch (this) {
-    ProductType.food => appLocalizations.share_product_text(url),
-    ProductType.beauty => appLocalizations.share_product_text_beauty(url),
-    ProductType.petFood => appLocalizations.share_product_text_pet_food(url),
-    ProductType.product => appLocalizations.share_product_text_product(url),
-  };
+  String getShareProductLabel(AppLocalizations appLocalizations, String url) =>
+      switch (this) {
+        ProductType.food => appLocalizations.share_product_text(url),
+        ProductType.beauty => appLocalizations.share_product_text_beauty(url),
+        ProductType.petFood => appLocalizations.share_product_text_pet_food(
+          url,
+        ),
+        ProductType.product => appLocalizations.share_product_text_product(url),
+      };
 }

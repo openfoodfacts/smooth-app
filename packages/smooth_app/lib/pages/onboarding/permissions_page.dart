@@ -126,16 +126,14 @@ class _PermissionsPageState extends State<PermissionsPage> {
     if (!context.mounted) {
       return;
     }
-    await OnboardingLoader(
-      context.read<LocalDatabase>(),
-    ).runAtNextTime(_onboardingPage, context);
+    await OnboardingLoader(context.read<LocalDatabase>())
+        .runAtNextTime(_onboardingPage, context);
 
     if (!context.mounted) {
       return;
     }
-    await OnboardingFlowNavigator(
-      context.read<UserPreferences>(),
-    ).navigateToPage(context, _onboardingPage.getNextPage());
+    await OnboardingFlowNavigator(context.read<UserPreferences>())
+        .navigateToPage(context, _onboardingPage.getNextPage());
   }
 }
 

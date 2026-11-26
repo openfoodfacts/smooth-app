@@ -61,48 +61,41 @@ class _ProductImageGalleryOtherViewState
     final double squareSize = _getSquareSize(context);
     return FutureBuilder<FetchedProduct>(
       future: _loadOtherPics(product),
-      builder:
-          (
-            BuildContext context,
-            AsyncSnapshot<FetchedProduct> snapshot,
-          ) {
-            if (snapshot.connectionState != ConnectionState.done) {
-              return SliverToBoxAdapter(
-                child: Center(
-                  child: SizedBox(
-                    width: squareSize,
-                    height: squareSize,
-                    child: const CircularProgressIndicator.adaptive(),
-                  ),
-                ),
-              );
-            }
-            if (snapshot.data == null) {
-              return SliverToBoxAdapter(
-                child: Text(
-                  snapshot.error?.toString() ??
-                      appLocalizations.loading_dialog_default_error_message,
-                ),
-              );
-            }
-            final FetchedProduct fetchedProduct = snapshot.data!;
-            if (fetchedProduct.product != null) {
-              rawImages = getRawProductImages(
-                fetchedProduct.product!,
-                ImageSize.DISPLAY,
-              );
-            }
-            if (rawImages.isNotEmpty) {
-              widget.onPhotosAvailable(true);
-              return _RawGridGallery(
-                fetchedProduct.product ?? product,
-                rawImages,
-              );
-            }
+      builder: (BuildContext context, AsyncSnapshot<FetchedProduct> snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return SliverToBoxAdapter(
+            child: Center(
+              child: SizedBox(
+                width: squareSize,
+                height: squareSize,
+                child: const CircularProgressIndicator.adaptive(),
+              ),
+            ),
+          );
+        }
+        if (snapshot.data == null) {
+          return SliverToBoxAdapter(
+            child: Text(
+              snapshot.error?.toString() ??
+                  appLocalizations.loading_dialog_default_error_message,
+            ),
+          );
+        }
+        final FetchedProduct fetchedProduct = snapshot.data!;
+        if (fetchedProduct.product != null) {
+          rawImages = getRawProductImages(
+            fetchedProduct.product!,
+            ImageSize.DISPLAY,
+          );
+        }
+        if (rawImages.isNotEmpty) {
+          widget.onPhotosAvailable(true);
+          return _RawGridGallery(fetchedProduct.product ?? product, rawImages);
+        }
 
-            widget.onPhotosAvailable(false);
-            return const SliverToBoxAdapter(child: EMPTY_WIDGET);
-          },
+        widget.onPhotosAvailable(false);
+        return const SliverToBoxAdapter(child: EMPTY_WIDGET);
+      },
     );
   }
 }
@@ -169,9 +162,8 @@ class _RawGridGallery extends StatelessWidget {
                   top: 0.0,
                   end: 0.0,
                   child: Tooltip(
-                    message: AppLocalizations.of(
-                      context,
-                    ).photo_viewer_use_picture_as_tooltip,
+                    message: AppLocalizations.of(context)
+                        .photo_viewer_use_picture_as_tooltip,
                     child: Material(
                       type: MaterialType.transparency,
                       child: InkWell(

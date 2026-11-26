@@ -76,9 +76,8 @@ class _SimpleInputListSuggestionItem extends StatelessWidget {
           ),
         ),
         Tooltip(
-          message: AppLocalizations.of(
-            context,
-          ).edit_product_form_item_add_suggestion,
+          message: AppLocalizations.of(context)
+              .edit_product_form_item_add_suggestion,
           child: IconButton(
             onPressed: onSelected,
             icon: const icons.Add(size: 20.0),

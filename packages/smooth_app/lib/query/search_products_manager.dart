@@ -66,11 +66,10 @@ class SearchProductsManager {
     return result;
   }
 
-  static Future<SearchResult> _decodeProducts(
-    String responseBody,
-  ) async => SearchResult.fromJson(
-    HttpHelper().jsonDecode(_replaceQuotes(responseBody)),
-  );
+  static Future<SearchResult> _decodeProducts(String responseBody) async =>
+      SearchResult.fromJson(
+        HttpHelper().jsonDecode(_replaceQuotes(responseBody)),
+      );
 
   // TODO(monsieurtanuki): somehow move to/make public in off-dart
   static String _replaceQuotes(String str) {

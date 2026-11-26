@@ -187,9 +187,8 @@ class ContinuousScanModel with ChangeNotifier {
     if (product != null) {
       try {
         // We try to load the fresh copy of product from the server
-        final FetchedProduct fetchedProduct = await _queryBarcode(
-          barcode,
-        ).timeout(SnackBarDuration.long);
+        final FetchedProduct fetchedProduct = await _queryBarcode(barcode)
+            .timeout(SnackBarDuration.long);
         if (fetchedProduct.product != null) {
           if (fetchedProduct.isValid) {
             _addProduct(barcode, ScannedProductState.CACHED);
@@ -272,10 +271,7 @@ class ContinuousScanModel with ChangeNotifier {
     }
   }
 
-  Future<void> _addProduct(
-    String barcode,
-    ScannedProductState state,
-  ) async {
+  Future<void> _addProduct(String barcode, ScannedProductState state) async {
     if (_latestFoundBarcode != barcode) {
       _latestFoundBarcode = barcode;
       await _daoProductList.push(productList, _latestFoundBarcode!);

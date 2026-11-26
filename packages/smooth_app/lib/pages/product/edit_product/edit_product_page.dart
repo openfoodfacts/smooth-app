@@ -68,9 +68,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       upToDateProduct,
       appLocalizations,
     );
-    final bool hasUploadIndicator = UpToDateChanges(
-      localDatabase,
-    ).hasNotTerminatedOperations(upToDateProduct.barcode!);
+    final bool hasUploadIndicator = UpToDateChanges(localDatabase)
+        .hasNotTerminatedOperations(upToDateProduct.barcode!);
 
     return Provider<Product>.value(
       value: upToDateProduct,
@@ -276,15 +275,13 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       leading: helper.getIcon(),
       title: helper.getTitle(appLocalizations),
       subtitle: helper.getSubtitle(appLocalizations),
-      onTap: () async => ProductFieldSimpleEditor(
-        helper,
-      ).edit(context: context, product: upToDateProduct),
+      onTap: () async =>
+          ProductFieldSimpleEditor(helper)
+              .edit(context: context, product: upToDateProduct),
     );
   }
 
-  Widget _getMultipleListTileItem(
-    List<AbstractSimpleInputPageHelper> helpers,
-  ) {
+  Widget _getMultipleListTileItem(List<AbstractSimpleInputPageHelper> helpers) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<String> titles = <String>[];
     for (final AbstractSimpleInputPageHelper element in helpers) {

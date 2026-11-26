@@ -120,78 +120,70 @@ class _EditLanguageTabBarState extends State<EditLanguageTabBar>
           child: ChangeNotifierProvider<_EditLanguageProvider>(
             create: (_) => _provider,
             child: Consumer<_EditLanguageProvider>(
-              builder:
-                  (
-                    BuildContext context,
-                    _EditLanguageProvider provider,
-                    _,
-                  ) {
-                    if (provider.value.languages == null) {
-                      return const Center(
-                        child: CircularProgressIndicator.adaptive(),
-                      );
-                    }
+              builder: (BuildContext context, _EditLanguageProvider provider, _) {
+                if (provider.value.languages == null) {
+                  return const Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  );
+                }
 
-                    final SmoothColorsThemeExtension theme = context
-                        .extension<SmoothColorsThemeExtension>();
-                    final bool lightTheme = context.lightTheme();
+                final SmoothColorsThemeExtension theme = context
+                    .extension<SmoothColorsThemeExtension>();
+                final bool lightTheme = context.lightTheme();
 
-                    /// We need a Stack to have to tab bar shadow below the button
-                    return Stack(
-                      children: <Widget>[
-                        PositionedDirectional(
-                          top: 0.0,
-                          start: 0.0,
-                          bottom: 0.0,
-                          end: 40.0,
-                          child: SmoothTabBar<OpenFoodFactsLanguage>(
-                            tabController: _tabController!,
-                            items: provider.value.languages!.map(
-                              (OpenFoodFactsLanguage language) =>
-                                  SmoothTabBarItem<OpenFoodFactsLanguage>(
-                                    label: Languages().getNameInLanguage(
-                                      language,
-                                    ),
-                                    value: language,
-                                  ),
-                            ),
-                            leadingItems: widget.showLanguageIndicator
-                                ? provider.value.languagesStates!.map((
-                                    OpenFoodFactsLanguageState state,
-                                  ) {
-                                    switch (state) {
-                                      case OpenFoodFactsLanguageState.normal:
-                                        return widget.languageIndicatorNormal;
-                                      case OpenFoodFactsLanguageState.warning:
-                                        return widget
-                                                .languageIndicatorWarning ??
-                                            const icons.Warning();
-                                      case OpenFoodFactsLanguageState.error:
-                                        return widget.languageIndicatorError ??
-                                            const icons.Warning();
-                                    }
-                                  })
-                                : null,
-                            onTabChanged: (OpenFoodFactsLanguage value) {
-                              widget.onTabChanged.call(value);
-                            },
-                            padding: widget.padding.add(
-                              const EdgeInsetsDirectional.only(end: 20.0),
-                            ),
-                            overflowMainColor: lightTheme
-                                ? theme.primaryLight
-                                : theme.primaryDark,
-                          ),
+                /// We need a Stack to have to tab bar shadow below the button
+                return Stack(
+                  children: <Widget>[
+                    PositionedDirectional(
+                      top: 0.0,
+                      start: 0.0,
+                      bottom: 0.0,
+                      end: 40.0,
+                      child: SmoothTabBar<OpenFoodFactsLanguage>(
+                        tabController: _tabController!,
+                        items: provider.value.languages!.map(
+                          (OpenFoodFactsLanguage language) =>
+                              SmoothTabBarItem<OpenFoodFactsLanguage>(
+                                label: Languages().getNameInLanguage(language),
+                                value: language,
+                              ),
                         ),
-                        const PositionedDirectional(
-                          top: 0.0,
-                          end: 0.0,
-                          bottom: 0.0,
-                          child: _EditLanguageTabBarAddLanguageButton(),
+                        leadingItems: widget.showLanguageIndicator
+                            ? provider.value.languagesStates!.map((
+                                OpenFoodFactsLanguageState state,
+                              ) {
+                                switch (state) {
+                                  case OpenFoodFactsLanguageState.normal:
+                                    return widget.languageIndicatorNormal;
+                                  case OpenFoodFactsLanguageState.warning:
+                                    return widget.languageIndicatorWarning ??
+                                        const icons.Warning();
+                                  case OpenFoodFactsLanguageState.error:
+                                    return widget.languageIndicatorError ??
+                                        const icons.Warning();
+                                }
+                              })
+                            : null,
+                        onTabChanged: (OpenFoodFactsLanguage value) {
+                          widget.onTabChanged.call(value);
+                        },
+                        padding: widget.padding.add(
+                          const EdgeInsetsDirectional.only(end: 20.0),
                         ),
-                      ],
-                    );
-                  },
+                        overflowMainColor: lightTheme
+                            ? theme.primaryLight
+                            : theme.primaryDark,
+                      ),
+                    ),
+                    const PositionedDirectional(
+                      top: 0.0,
+                      end: 0.0,
+                      bottom: 0.0,
+                      child: _EditLanguageTabBarAddLanguageButton(),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ),
@@ -398,12 +390,10 @@ class _EditLanguageProvider
   (List<OpenFoodFactsLanguage>, List<OpenFoodFactsLanguageState>)
   _extractLanguages() {
     final List<ProductLanguageWithState> imageLanguagesWithState =
-        languagesProvider(product!)..sort((
-          ProductLanguageWithState a,
-          ProductLanguageWithState b,
-        ) {
-          return a.code.compareTo(b.code);
-        });
+        languagesProvider(product!)
+          ..sort((ProductLanguageWithState a, ProductLanguageWithState b) {
+            return a.code.compareTo(b.code);
+          });
 
     final List<OpenFoodFactsLanguage> imageLanguages =
         <OpenFoodFactsLanguage>[];

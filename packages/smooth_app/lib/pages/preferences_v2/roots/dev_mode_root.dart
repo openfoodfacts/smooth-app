@@ -212,9 +212,9 @@ class DevModeRoot extends PreferencesRoot {
     return ValueEditionPreferenceTile(
       title: appLocalizations.dev_preferences_test_environment_title,
       dialogAction: appLocalizations.dev_preferences_test_environment_subtitle(
-        ProductQuery.getTestUriProductHelper(
-          userPreferences,
-        ).getPostUri(path: '').toString(),
+        ProductQuery.getTestUriProductHelper(userPreferences)
+            .getPostUri(path: '')
+            .toString(),
       ),
       onNewValue: (String newServer) async {
         await userPreferences.setDevModeString(

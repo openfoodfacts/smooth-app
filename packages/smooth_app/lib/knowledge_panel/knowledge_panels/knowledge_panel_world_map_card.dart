@@ -68,9 +68,8 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
       child: Semantics(
-        label: AppLocalizations.of(
-          context,
-        ).knowledge_panel_world_map_accessibility_label(kpTitle ?? '?'),
+        label: AppLocalizations.of(context)
+            .knowledge_panel_world_map_accessibility_label(kpTitle ?? '?'),
         image: true,
         button: true,
         child: SizedBox(

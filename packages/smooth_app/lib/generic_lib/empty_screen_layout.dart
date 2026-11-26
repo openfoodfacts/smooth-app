@@ -23,9 +23,8 @@ class EmptyScreenLayout extends StatelessWidget {
         .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
-    final TextStyle textStyle = DefaultTextStyle.of(
-      context,
-    ).style.copyWith(fontSize: 15.0);
+    final TextStyle textStyle = DefaultTextStyle.of(context).style
+        .copyWith(fontSize: 15.0);
 
     return Center(
       child: FractionallySizedBox(

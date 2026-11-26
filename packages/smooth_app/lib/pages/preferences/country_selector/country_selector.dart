@@ -140,9 +140,8 @@ class _CountrySelectorButton extends StatelessWidget {
                           child: Text(
                             country?.localizedName ??
                                 AppLocalizations.of(context).loading,
-                            style: Theme.of(
-                              context,
-                            ).textTheme.displaySmall?.merge(textStyle),
+                            style: Theme.of(context).textTheme.displaySmall
+                                ?.merge(textStyle),
                           ),
                         ),
                         icon ?? const Icon(Icons.arrow_drop_down),

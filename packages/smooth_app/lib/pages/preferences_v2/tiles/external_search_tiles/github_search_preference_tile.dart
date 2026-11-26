@@ -8,9 +8,8 @@ class GithubSearchPreferenceTile extends ExternalSearchPreferenceTile {
 
   @override
   String buildTitle(BuildContext context, String keyword) =>
-      AppLocalizations.of(
-        context,
-      ).external_search_tile_title('GitHub', keyword);
+      AppLocalizations.of(context)
+          .external_search_tile_title('GitHub', keyword);
 
   @override
   String getSearchUrl(BuildContext context, String keyword) =>

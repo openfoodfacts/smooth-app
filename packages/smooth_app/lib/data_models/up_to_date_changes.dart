@@ -63,9 +63,7 @@ class UpToDateChanges {
       for (final dynamic changedSet in changedSets) {
         final Map<String, dynamic> newSet = changedSet as Map<String, dynamic>;
         final NutritionSetKey? newKey = NutritionSetKey.fromJson(newSet);
-        final int index = inputSets.indexWhere((
-          Map<String, dynamic> inputSet,
-        ) {
+        final int index = inputSets.indexWhere((Map<String, dynamic> inputSet) {
           final NutritionSetKey? key = NutritionSetKey.fromJson(inputSet);
           return key != null &&
               newKey != null &&

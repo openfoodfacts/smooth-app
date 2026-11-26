@@ -52,10 +52,8 @@ String? _clearString(String? string) {
   return string.trim();
 }
 
-String getProductName(
-  Product product,
-  AppLocalizations appLocalizations,
-) => getProductNameWithLanguage(product, appLocalizations).$2;
+String getProductName(Product product, AppLocalizations appLocalizations) =>
+    getProductNameWithLanguage(product, appLocalizations).$2;
 
 (OpenFoodFactsLanguage, String) getProductNameWithLanguage(
   Product product,
@@ -84,10 +82,7 @@ String getProductName(
   );
 }
 
-String getProductBrands(
-  Product product,
-  AppLocalizations appLocalizations,
-) {
+String getProductBrands(Product product, AppLocalizations appLocalizations) {
   final String? brands = _clearString(product.brands);
   if (brands == null) {
     return appLocalizations.unknownBrand;
@@ -168,9 +163,8 @@ class _ProductSmoothCardTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
     final EdgeInsetsGeometry effectivePadding =
         padding ??
         const EdgeInsetsDirectional.symmetric(vertical: MEDIUM_SPACE);
@@ -433,10 +427,7 @@ Iterable<OpenFoodFactsLanguage> getProductImageLanguages(
 }
 
 /// Returns an id-sorted list of raw images matching the imageSize if possible.
-List<ProductImage> getRawProductImages(
-  Product product,
-  ImageSize imageSize,
-) {
+List<ProductImage> getRawProductImages(Product product, ImageSize imageSize) {
   final List<ProductImage>? rawImages = product.getRawImages();
   if (rawImages == null) {
     return <ProductImage>[];

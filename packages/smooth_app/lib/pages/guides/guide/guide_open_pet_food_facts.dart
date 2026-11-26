@@ -124,9 +124,7 @@ class _OpenPetFoodFactsSection2 extends StatelessWidget {
           text: appLocalizations
               .guide_open_pet_food_facts_features_arg1_paragraph1,
         ),
-        const GuidesProjectPreferences(
-          project: PreferencesPageProjects.pets,
-        ),
+        const GuidesProjectPreferences(project: PreferencesPageProjects.pets),
       ],
     );
   }

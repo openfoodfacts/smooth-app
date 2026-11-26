@@ -283,10 +283,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     return result;
   }
 
-  bool _isPackagingDifferent(
-    ProductPackaging p1,
-    ProductPackaging p2,
-  ) =>
+  bool _isPackagingDifferent(ProductPackaging p1, ProductPackaging p2) =>
       p1.shape?.lcName != p2.shape?.lcName ||
       p1.material?.lcName != p2.material?.lcName ||
       p1.recycling?.lcName != p2.recycling?.lcName ||

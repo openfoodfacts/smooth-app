@@ -62,9 +62,8 @@ enum OperationType {
     String? work,
     ProductType? productType,
   }) async {
-    final int sequentialId = await DaoInt(
-      localDatabase,
-    ).getNextSequenceNumber(_uniqueSequenceKey);
+    final int sequentialId = await DaoInt(localDatabase)
+        .getNextSequenceNumber(_uniqueSequenceKey);
     return '$header'
         '$_transientHeaderSeparator$sequentialId'
         '$_transientHeaderSeparator$barcode'

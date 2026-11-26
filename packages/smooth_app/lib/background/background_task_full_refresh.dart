@@ -50,15 +50,13 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
     AlignmentDirectional.bottomCenter,
   );
 
-  static BackgroundTaskFullRefresh _getNewTask(
-    String uniqueId,
-    int pageSize,
-  ) => BackgroundTaskFullRefresh._(
-    processName: _operationType.processName,
-    uniqueId: uniqueId,
-    stamp: ';fullRefresh',
-    pageSize: pageSize,
-  );
+  static BackgroundTaskFullRefresh _getNewTask(String uniqueId, int pageSize) =>
+      BackgroundTaskFullRefresh._(
+        processName: _operationType.processName,
+        uniqueId: uniqueId,
+        stamp: ';fullRefresh',
+        pageSize: pageSize,
+      );
 
   @override
   Future<void> execute(LocalDatabase localDatabase) async {

@@ -40,9 +40,8 @@ class _PreferencesPageState extends State<PreferencesPage> {
   }
 
   Future<void> _init() async =>
-      _product = await OnboardingDataProduct.forProduct(
-        widget._localDatabase,
-      ).getData(rootBundle);
+      _product = await OnboardingDataProduct.forProduct(widget._localDatabase)
+          .getData(rootBundle);
 
   @override
   Widget build(BuildContext context) => FutureBuilder<void>(

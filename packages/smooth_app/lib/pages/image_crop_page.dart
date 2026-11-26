@@ -114,9 +114,7 @@ Future<XFile?> pickImageFile(
 }
 
 /// Returns the picture source selected by the user.
-Future<UserPictureSource?> _getUserPictureSource(
-  BuildContext context,
-) async {
+Future<UserPictureSource?> _getUserPictureSource(BuildContext context) async {
   if (!CameraHelper.hasACamera) {
     return UserPictureSource.GALLERY;
   }

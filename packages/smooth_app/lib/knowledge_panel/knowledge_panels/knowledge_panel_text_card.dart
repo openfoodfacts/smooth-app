@@ -19,9 +19,8 @@ class KnowledgePanelTextCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String warningLabel = AppLocalizations.of(
-      context,
-    ).knowledge_panel_warning_text;
+    final String warningLabel = AppLocalizations.of(context)
+        .knowledge_panel_warning_text;
     final RegExp regExp = RegExp('$warningLabel\\s?:\\s?');
 
     final Widget text;

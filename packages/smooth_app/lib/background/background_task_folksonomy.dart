@@ -47,15 +47,13 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
     await task.addToManager(localDatabase, queue: BackgroundTaskQueue.fast);
   }
 
-  static BackgroundTask _getNewTask(
-    String uniqueId,
-    String barcode,
-  ) => BackgroundTaskFolksonomy._(
-    processName: _operationType.processName,
-    uniqueId: uniqueId,
-    stamp: '$barcode;folksonomy;',
-    barcode: barcode,
-  );
+  static BackgroundTask _getNewTask(String uniqueId, String barcode) =>
+      BackgroundTaskFolksonomy._(
+        processName: _operationType.processName,
+        uniqueId: uniqueId,
+        stamp: '$barcode;folksonomy;',
+        barcode: barcode,
+      );
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(

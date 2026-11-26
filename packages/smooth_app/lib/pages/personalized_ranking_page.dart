@@ -59,9 +59,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final bool? added = await ProductListUserDialogHelper(
-      daoProductList,
-    ).showUserAddProductsDialog(context, widget.barcodes.toSet());
+    final bool? added = await ProductListUserDialogHelper(daoProductList)
+        .showUserAddProductsDialog(context, widget.barcodes.toSet());
     if (!context.mounted) {
       return;
     }
@@ -255,9 +254,9 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     },
     child: ProductListItemSimple(
       barcode: matchedProduct.barcode,
-      backgroundColor: ProductCompatibilityHelper.status(
-        matchedProduct.status,
-      ).getColor(context).withAlpha(_backgroundAlpha),
+      backgroundColor: ProductCompatibilityHelper.status(matchedProduct.status)
+          .getColor(context)
+          .withAlpha(_backgroundAlpha),
     ),
   );
 }

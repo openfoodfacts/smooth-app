@@ -29,9 +29,8 @@ class OnboardingBottomHills extends StatelessWidget {
     }
 
     final double maxHeight = OnboardingBottomHills.height(context);
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
 
     return Positioned(
       top: null,

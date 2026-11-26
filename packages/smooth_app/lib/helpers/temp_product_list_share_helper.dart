@@ -2,10 +2,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 // TODO(m123): Move this to off-dart
-Uri shareProductList(
-  List<String> barcodes,
-  ProductType productType,
-) {
+Uri shareProductList(List<String> barcodes, ProductType productType) {
   final StringBuffer barcodesString = StringBuffer();
   for (final String barcode in barcodes) {
     if (barcodesString.isNotEmpty) {

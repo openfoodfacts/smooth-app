@@ -53,9 +53,8 @@ class _PriceProofPageState extends State<PriceProofPage> {
 
     final String url = _getUrl(false);
 
-    final DateFormat dateFormat = DateFormat.yMd(
-      ProductQuery.getLocaleString(),
-    ).add_Hms();
+    final DateFormat dateFormat = DateFormat.yMd(ProductQuery.getLocaleString())
+        .add_Hms();
     return SmoothScaffold(
       appBar: SmoothAppBar(
         title: Text(title),

@@ -15,10 +15,7 @@ class UserManagementProvider with ChangeNotifier {
   static const String _COOKIE = 'user_cookie';
 
   /// Checks credentials and conditionally saves them.
-  Future<LoginResult> login(
-    User user,
-    UserPreferences preferences,
-  ) async {
+  Future<LoginResult> login(User user, UserPreferences preferences) async {
     final LoginResult loginResult = await LoginResult.getLoginResult(
       user,
       preferences,

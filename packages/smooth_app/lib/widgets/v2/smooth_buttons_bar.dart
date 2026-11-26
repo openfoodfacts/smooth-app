@@ -52,9 +52,8 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
     final double viewPadding = widget.addViewPadding
         ? MediaQuery.viewPaddingOf(context).bottom
         : 0.0;
-    final SmoothColorsThemeExtension? colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension? colors = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>();
 
     final Widget positiveButtonWidget = _SmoothPositiveButton2(
       data: widget.positiveButton,

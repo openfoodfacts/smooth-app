@@ -67,9 +67,8 @@ class ScanProductBaseCard extends StatelessWidget {
               borderRadius: ROUNDED_BORDER_RADIUS,
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: Theme.of(context).shadowColor.withValues(
-                    alpha: context.lightTheme() ? 0.08 : 0.3,
-                  ),
+                  color: Theme.of(context).shadowColor
+                      .withValues(alpha: context.lightTheme() ? 0.08 : 0.3),
                   offset: const Offset(0.0, 2.0),
                   blurRadius: 5.0,
                   spreadRadius: 1.0,
@@ -148,9 +147,8 @@ class _SmoothProductCardHeader extends StatelessWidget {
     final Color bgColor =
         backgroundColor ??
         context.extension<SmoothColorsThemeExtension>().primarySemiDark;
-    final String closeTooltip = AppLocalizations.of(
-      context,
-    ).carousel_close_tooltip;
+    final String closeTooltip = AppLocalizations.of(context)
+        .carousel_close_tooltip;
     final bool dense = context.read<ScanCardDensity>() == ScanCardDensity.DENSE;
 
     return ConstrainedBox(

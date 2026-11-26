@@ -54,9 +54,8 @@ class HomePageScannerPeakView extends StatelessWidget {
                   FractionallySizedBox(
                     widthFactor: 0.75,
                     child: TextWithBoldParts(
-                      text: AppLocalizations.of(
-                        context,
-                      ).homepage_scanner_overlay_message,
+                      text: AppLocalizations.of(context)
+                          .homepage_scanner_overlay_message,
                       textAlign: TextAlign.center,
                       textStyle: DefaultTextStyle.of(context).style.copyWith(
                         color: Colors.white,

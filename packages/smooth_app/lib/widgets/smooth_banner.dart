@@ -126,9 +126,8 @@ class SmoothBanner extends StatelessWidget {
                               crossColor: Colors.white,
                               circleSize: 26.0,
                               crossSize: 12.0,
-                              tooltip: AppLocalizations.of(
-                                context,
-                              ).owner_field_info_close_button,
+                              tooltip: AppLocalizations.of(context)
+                                  .owner_field_info_close_button,
                             ),
                           ],
                         ],

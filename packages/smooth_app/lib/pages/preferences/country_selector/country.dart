@@ -49,9 +49,7 @@ extension OpenFoodFactsCountryLocalization on OpenFoodFactsCountry {
     return result;
   }
 
-  static Map<OpenFoodFactsCountry, String> _translate(
-    String languageCode,
-  ) {
+  static Map<OpenFoodFactsCountry, String> _translate(String languageCode) {
     final Map<Country, String> result = <Country, String>{};
     _iso3s ??= _getIso3s();
     CountriesLocaleMapper().localize(

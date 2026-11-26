@@ -122,9 +122,8 @@ class SmoothScaffoldState extends ScaffoldState {
       value: _overlayStyle,
       child: Theme(
         data: Theme.of(context).copyWith(
-          appBarTheme: AppBarTheme.of(
-            context,
-          ).copyWith(systemOverlayStyle: _overlayStyle),
+          appBarTheme: AppBarTheme.of(context)
+              .copyWith(systemOverlayStyle: _overlayStyle),
         ),
         child: child,
       ),

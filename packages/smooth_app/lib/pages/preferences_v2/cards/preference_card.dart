@@ -61,9 +61,8 @@ class PreferenceCard extends StatelessWidget {
         vertical: 14.0,
         horizontal: LARGE_SPACE,
       ),
-      titleTextStyle: Theme.of(
-        context,
-      ).textTheme.displaySmall!.copyWith(fontSize: 16.5),
+      titleTextStyle: Theme.of(context).textTheme.displaySmall!
+          .copyWith(fontSize: 16.5),
       titleBackgroundColor:
           titleBackgroundColor ??
           context.nullableColorThemeValue(

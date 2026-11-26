@@ -161,14 +161,12 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   /// Returns the not interesting nutrients, for a "Please add me!" list.
-  Iterable<OrderedNutrient> getLeftoverNutrients() => _nutrients.where(
-    (OrderedNutrient element) => _isNotRelevant(element),
-  );
+  Iterable<OrderedNutrient> getLeftoverNutrients() =>
+      _nutrients.where((OrderedNutrient element) => _isNotRelevant(element));
 
   /// Returns the interesting nutrients that need to be displayed.
-  Iterable<OrderedNutrient> getDisplayableNutrients() => _nutrients.where(
-    (OrderedNutrient element) => !_isNotRelevant(element),
-  );
+  Iterable<OrderedNutrient> getDisplayableNutrients() =>
+      _nutrients.where((OrderedNutrient element) => !_isNotRelevant(element));
 
   /// Returns true if the [OrderedNutrient] is not relevant.
   bool _isNotRelevant(OrderedNutrient orderedNutrient) {

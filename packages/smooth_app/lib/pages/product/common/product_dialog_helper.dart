@@ -137,9 +137,8 @@ class ProductDialogHelper {
                     child: SmoothButtonWithArrow(
                       text: appLocalizations.new_product_found_button,
                       onTap: () async {
-                        await AppNavigator.of(
-                          context,
-                        ).push(AppRoutes.PRODUCT_CREATOR(barcode));
+                        await AppNavigator.of(context)
+                            .push(AppRoutes.PRODUCT_CREATOR(barcode));
                         if (context.mounted) {
                           Navigator.of(context).pop();
                         }

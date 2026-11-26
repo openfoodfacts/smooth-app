@@ -240,9 +240,8 @@ class _PriceProofListItem extends StatelessWidget {
                 children: <Widget>[
                   PriceDataEntry(
                     icon: const icons.Clock.alt(size: 19.0),
-                    label: DateFormat.yMd(
-                      locale,
-                    ).format(proof.date ?? proof.created),
+                    label: DateFormat.yMd(locale)
+                        .format(proof.date ?? proof.created),
                   ),
                   PriceDataEntry(
                     icon: const icons.Shop(size: 20.0),

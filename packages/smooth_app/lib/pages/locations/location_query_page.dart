@@ -100,9 +100,9 @@ class _LocationQueryPageState extends State<LocationQueryPage>
 
     return SmoothScaffold(
       backgroundColor: context.lightTheme()
-          ? Theme.of(
-              context,
-            ).extension<SmoothColorsThemeExtension>()!.primaryLight
+          ? Theme.of(context)
+                .extension<SmoothColorsThemeExtension>()!
+                .primaryLight
           : null,
       appBar: SmoothAppBar(
         elevation: 2.0,
@@ -175,10 +175,7 @@ class _LocationQueryPageState extends State<LocationQueryPage>
     );
   }
 
-  Widget _getEmptyText(
-    ThemeData themeData,
-    String message,
-  ) => Padding(
+  Widget _getEmptyText(ThemeData themeData, String message) => Padding(
     padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,

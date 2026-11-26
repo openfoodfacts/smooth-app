@@ -99,9 +99,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     return result;
   }
 
-  static List<double?>? _fromJsonListNullableDouble(
-    List<dynamic>? input,
-  ) {
+  static List<double?>? _fromJsonListNullableDouble(List<dynamic>? input) {
     if (input == null) {
       return null;
     }
@@ -123,9 +121,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     return result;
   }
 
-  static List<List<String>>? _fromJsonListListString(
-    List<dynamic>? input,
-  ) {
+  static List<List<String>>? _fromJsonListListString(List<dynamic>? input) {
     if (input == null) {
       return null;
     }

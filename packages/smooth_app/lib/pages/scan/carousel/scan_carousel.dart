@@ -104,9 +104,8 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
                   ),
                 );
               },
-          carouselController: ExternalScanCarouselManager.watch(
-            context,
-          ).controller,
+          carouselController: ExternalScanCarouselManager.watch(context)
+              .controller,
           options: CarouselOptions(
             enlargeCenterPage: false,
             viewportFraction: _computeViewPortFraction(),

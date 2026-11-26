@@ -19,9 +19,8 @@ class SmoothLeadingButton extends StatelessWidget {
     final MaterialLocalizations localizations = MaterialLocalizations.of(
       context,
     );
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
 
     final String message = getMessage(localizations);
     final Color color =

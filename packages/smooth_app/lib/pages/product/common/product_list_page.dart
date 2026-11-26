@@ -498,9 +498,8 @@ class _ProductListPageState extends State<ProductListPage>
             fresh = false;
             break;
           }
-          await DaoProduct(
-            localDatabase,
-          ).putAll(freshProducts, language, productType: entry.key);
+          await DaoProduct(localDatabase)
+              .putAll(freshProducts, language, productType: entry.key);
           localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
         }
       }
@@ -532,9 +531,9 @@ class _ProductListPageState extends State<ProductListPage>
                 child: icons.Add(),
               ),
               tooltip: appLocalizations.product_list_create_tooltip,
-              onTap: () async => ProductListUserDialogHelper(
-                daoProductList,
-              ).showCreateUserListDialog(context),
+              onTap: () async =>
+                  ProductListUserDialogHelper(daoProductList)
+                      .showCreateUserListDialog(context),
             ),
           ),
           bodyBuilder: (BuildContext context) =>

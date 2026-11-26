@@ -26,9 +26,7 @@ class PriceDiscountTypeSelector extends StatelessWidget {
     return TextButton(
       onPressed: () => _showDiscountMenu(context),
       style: ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll<Color>(
-          theme.primarySemiDark,
-        ),
+        backgroundColor: WidgetStatePropertyAll<Color>(theme.primarySemiDark),
         padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
           EdgeInsetsDirectional.symmetric(
             vertical: SMALL_SPACE,

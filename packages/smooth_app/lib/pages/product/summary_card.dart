@@ -490,9 +490,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       attribute.panelId != null;
 
   /// Ensures [_isAttributeClickable] is called before this method
-  Future<void> _openFullKnowledgePanel({
-    required Attribute attribute,
-  }) async {
+  Future<void> _openFullKnowledgePanel({required Attribute attribute}) async {
     await Navigator.push<void>(
       context,
       MaterialPageRoute<void>(

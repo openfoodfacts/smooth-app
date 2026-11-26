@@ -128,34 +128,33 @@ void main() {
       },
     );
 
-    testWidgets(
-      '3. html null + action: current localized label',
-      (WidgetTester tester) async {
-        const KnowledgePanelActionElement element = KnowledgePanelActionElement(
-          html: null,
-          actions: <String>['add_ingredients_image'],
-        );
+    testWidgets('3. html null + action: current localized label', (
+      WidgetTester tester,
+    ) async {
+      const KnowledgePanelActionElement element = KnowledgePanelActionElement(
+        html: null,
+        actions: <String>['add_ingredients_image'],
+      );
 
-        await tester.pumpWidget(createWidget(element, testProduct));
-        await tester.pumpAndSettle();
+      await tester.pumpWidget(createWidget(element, testProduct));
+      await tester.pumpAndSettle();
 
-        expect(find.byType(SmoothHtmlWidget), findsNothing);
-        expect(find.byType(SmoothLargeButtonWithIcon), findsOneWidget);
-        final BuildContext context = tester.element(
-          find.byType(KnowledgePanelActionCard),
-        );
-        final String defaultLabel = AppLocalizations.of(context)
-            .score_add_missing_ingredients;
-        expect(
-          tester
-              .widget<SmoothLargeButtonWithIcon>(
-                find.byType(SmoothLargeButtonWithIcon),
-              )
-              .text,
-          defaultLabel,
-        );
-      },
-    );
+      expect(find.byType(SmoothHtmlWidget), findsNothing);
+      expect(find.byType(SmoothLargeButtonWithIcon), findsOneWidget);
+      final BuildContext context = tester.element(
+        find.byType(KnowledgePanelActionCard),
+      );
+      final String defaultLabel = AppLocalizations.of(context)
+          .score_add_missing_ingredients;
+      expect(
+        tester
+            .widget<SmoothLargeButtonWithIcon>(
+              find.byType(SmoothLargeButtonWithIcon),
+            )
+            .text,
+        defaultLabel,
+      );
+    });
 
     testWidgets(
       '4. html whitespace-only: treated as empty, current behavior unchanged',

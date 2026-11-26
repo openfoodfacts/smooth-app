@@ -105,9 +105,8 @@ class OnboardingBottomButton extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: Theme.of(
-          context,
-        ).textTheme.displaySmall?.copyWith(color: foregroundColor),
+        style: Theme.of(context).textTheme.displaySmall
+            ?.copyWith(color: foregroundColor),
       ),
     ),
   );

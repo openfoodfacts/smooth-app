@@ -129,9 +129,7 @@ class _OpenBeautyFactsSection2 extends StatelessWidget {
           text:
               appLocalizations.guide_open_beauty_facts_features_arg1_paragraph1,
         ),
-        const GuidesProjectPreferences(
-          project: PreferencesPageProjects.beauty,
-        ),
+        const GuidesProjectPreferences(project: PreferencesPageProjects.beauty),
       ],
     );
   }

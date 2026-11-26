@@ -175,10 +175,7 @@ void main() {
   }
 
   Future<void> swipeToNextPhoto(WidgetTester tester) async {
-    await tester.drag(
-      find.byType(PhotoViewGallery),
-      const Offset(-600.0, 0.0),
-    );
+    await tester.drag(find.byType(PhotoViewGallery), const Offset(-600.0, 0.0));
     await tester.pumpAndSettle();
   }
 
@@ -348,10 +345,7 @@ void main() {
     await tester.tap(find.text('Details'));
     await tester.pumpAndSettle();
 
-    expect(
-      find.textContaining(originalUrl(threePhotos[1])),
-      findsOneWidget,
-    );
+    expect(find.textContaining(originalUrl(threePhotos[1])), findsOneWidget);
   });
 
   group('hero', () {
@@ -374,9 +368,7 @@ void main() {
       ('a null tag', null),
       ('an empty tag', ''),
     ]) {
-      testWidgets('no Hero with ${tag.$1}', (
-        WidgetTester tester,
-      ) async {
+      testWidgets('no Hero with ${tag.$1}', (WidgetTester tester) async {
         await pumpPage(tester, threePhotos, heroTag: tag.$2);
 
         expect(heroes(tester), isEmpty);

@@ -20,9 +20,7 @@ class QueryProductListSupplier extends ProductListSupplier {
         partialProductList.add(productList);
         final DaoProduct daoProduct = DaoProduct(localDatabase);
         final Map<String, Product> localProducts = await daoProduct.getAll(
-          searchResult.products!.map(
-            (Product product) => product.barcode!,
-          ),
+          searchResult.products!.map((Product product) => product.barcode!),
           languageFilter: productQuery.language,
         );
         // Search results usually come without knowledge panels: we keep the

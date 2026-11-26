@@ -35,9 +35,8 @@ class ProductListHelper {
       return isBarcodeValid(barcode);
     }).toList();
 
-    final Map<String, Product> products = await DaoProduct(
-      localDatabase,
-    ).getAll(validBarcodes);
+    final Map<String, Product> products = await DaoProduct(localDatabase)
+        .getAll(validBarcodes);
 
     for (final MapEntry<String, Product> entry in products.entries) {
       final String barcode = entry.key;
@@ -71,9 +70,8 @@ class ProductListHelper {
         ) ??
         <String>[];
 
-    await DaoProductList(
-      localDatabase,
-    ).bulkSet(list, existingBarcodes, include: true);
+    await DaoProductList(localDatabase)
+        .bulkSet(list, existingBarcodes, include: true);
     return existingBarcodes;
   }
 

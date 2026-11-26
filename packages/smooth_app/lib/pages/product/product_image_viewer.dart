@@ -53,19 +53,17 @@ class _ProductImageViewerState extends State<ProductImageViewer>
     initUpToDate(widget.product, context.read<LocalDatabase>());
   }
 
-  Widget _getImageButton(
-    ProductImageButtonType type,
-    bool imageExists,
-  ) => Padding(
-    padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-    child: type.getButton(
-      product: upToDateProduct,
-      imageField: widget.imageField,
-      imageExists: imageExists,
-      language: widget.language,
-      isLoggedInMandatory: widget.isLoggedInMandatory,
-    ),
-  );
+  Widget _getImageButton(ProductImageButtonType type, bool imageExists) =>
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+        child: type.getButton(
+          product: upToDateProduct,
+          imageField: widget.imageField,
+          imageExists: imageExists,
+          language: widget.language,
+          isLoggedInMandatory: widget.isLoggedInMandatory,
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {

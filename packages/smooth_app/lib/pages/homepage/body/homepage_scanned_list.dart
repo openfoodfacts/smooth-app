@@ -179,9 +179,8 @@ class _LastHistoryItem extends StatelessWidget {
                   ),
                   Text(
                     label ??
-                        AppLocalizations.of(
-                          context,
-                        ).homepage_horizontal_list_view_more_button,
+                        AppLocalizations.of(context)
+                            .homepage_horizontal_list_view_more_button,
                     style: const TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.w500,

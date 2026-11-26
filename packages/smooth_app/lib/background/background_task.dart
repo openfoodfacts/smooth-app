@@ -98,10 +98,8 @@ abstract class BackgroundTask {
   /// 1. everything is fine and we may have to do something more than cleaning
   /// 2. something bad happened and we just need to clear the task
   @mustCallSuper
-  Future<void> postExecute(
-    LocalDatabase localDatabase,
-    bool success,
-  ) async => localDatabase.upToDate.terminate(uniqueId);
+  Future<void> postExecute(LocalDatabase localDatabase, bool success) async =>
+      localDatabase.upToDate.terminate(uniqueId);
 
   /// Returns true if the task may run now.
   ///

@@ -247,9 +247,8 @@ class _ProductCompatibilityScore extends StatelessWidget {
     final ProductPageCompatibility compatibility = context
         .watch<ProductPageCompatibility>();
 
-    final String tooltipMessage = AppLocalizations.of(
-      context,
-    ).product_page_compatibility_score_tooltip(compatibility.score!);
+    final String tooltipMessage = AppLocalizations.of(context)
+        .product_page_compatibility_score_tooltip(compatibility.score!);
 
     return Semantics(
       excludeSemantics: true,
@@ -286,9 +285,8 @@ class _ProductCompatibilityScore extends StatelessWidget {
     BuildContext context,
     ProductPageCompatibility compatibility,
   ) {
-    final String compatibilityLabel = AppLocalizations.of(
-      context,
-    ).product_page_compatibility_score;
+    final String compatibilityLabel = AppLocalizations.of(context)
+        .product_page_compatibility_score;
 
     return IntrinsicHeight(
       child: Row(

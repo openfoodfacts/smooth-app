@@ -42,9 +42,7 @@ class PortionHelper {
   String getValue(int index) => _table[index][1];
 
   /// Recursively populates nutrients' portion values.
-  void _populateFactoredNutrients(
-    List<OrderedNutrient> orderedNutrients,
-  ) {
+  void _populateFactoredNutrients(List<OrderedNutrient> orderedNutrients) {
     for (final OrderedNutrient orderedNutrient in orderedNutrients) {
       final Nutrient? nutrient = NutritionContainerHelper.getNutrient(
         orderedNutrient,
@@ -65,10 +63,7 @@ class PortionHelper {
   }
 
   /// Populates for a single nutrient the portion value.
-  void _populateFactoredNutrient(
-    Nutrient nutrient,
-    String nutrientName,
-  ) {
+  void _populateFactoredNutrient(Nutrient nutrient, String nutrientName) {
     final NutritionValue? nutritionValue = product.getNutrientValue(
       nutrient,
       PerSize.oneHundredGrams,

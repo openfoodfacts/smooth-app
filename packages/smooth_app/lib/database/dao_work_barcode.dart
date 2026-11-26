@@ -50,10 +50,7 @@ class DaoWorkBarcode extends AbstractSqlDao {
   }
 
   /// Returns the next barcodes for that work.
-  Future<List<String>> getNextPage(
-    String work,
-    int pageSize,
-  ) async {
+  Future<List<String>> getNextPage(String work, int pageSize) async {
     final List<String> result = <String>[];
     final List<Map<String, dynamic>> queryResults = await localDatabase.database
         .query(
@@ -70,12 +67,11 @@ class DaoWorkBarcode extends AbstractSqlDao {
   }
 
   /// Returns the number of inserted rows.
-  Future<int> putAll(
-    String work,
-    Iterable<String> barcodes,
-  ) async => localDatabase.database.transaction(
-    (Transaction transaction) async => _bulkInsert(transaction, work, barcodes),
-  );
+  Future<int> putAll(String work, Iterable<String> barcodes) async =>
+      localDatabase.database.transaction(
+        (Transaction transaction) async =>
+            _bulkInsert(transaction, work, barcodes),
+      );
 
   /// Returns the number of inserted rows by optimized bulk insert.
   Future<int> _bulkInsert(
@@ -126,12 +122,11 @@ class DaoWorkBarcode extends AbstractSqlDao {
   /// Deletes all barcodes for a given work.
   ///
   /// Returns the number of rows deleted.
-  Future<int> deleteBarcodes(
-    String work,
-    Iterable<String> barcodes,
-  ) async => localDatabase.database.transaction(
-    (Transaction transaction) async => _bulkDelete(transaction, work, barcodes),
-  );
+  Future<int> deleteBarcodes(String work, Iterable<String> barcodes) async =>
+      localDatabase.database.transaction(
+        (Transaction transaction) async =>
+            _bulkDelete(transaction, work, barcodes),
+      );
 
   /// Returns the number of deleted rows by optimized bulk delete.
   Future<int> _bulkDelete(

@@ -155,10 +155,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
   );
 
   @override
-  Future<void> postExecute(
-    LocalDatabase localDatabase,
-    bool success,
-  ) async {
+  Future<void> postExecute(LocalDatabase localDatabase, bool success) async {
     await super.postExecute(localDatabase, success);
     try {
       (await BackgroundTaskUpload.getFile(croppedPath)).deleteSync();

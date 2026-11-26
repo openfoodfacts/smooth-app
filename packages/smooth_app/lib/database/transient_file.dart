@@ -85,10 +85,8 @@ class TransientFile {
       '${_getImageKeyPrefix(imageField, barcode)}${language.code}';
 
   /// Returns the key prefix of the transient image (without language).
-  static String _getImageKeyPrefix(
-    ImageField imageField,
-    String barcode,
-  ) => '$barcode;$imageField;';
+  static String _getImageKeyPrefix(ImageField imageField, String barcode) =>
+      '$barcode;$imageField;';
 
   /// Returns a way to display the image, either locally or from the server.
   ImageProvider? getImageProvider() {

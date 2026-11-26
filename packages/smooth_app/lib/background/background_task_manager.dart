@@ -73,9 +73,8 @@ class BackgroundTaskManager {
   /// Adds a task to the pending task list.
   Future<void> add(BackgroundTask task) async {
     final String taskId = task.uniqueId;
-    await DaoInstantString(
-      localDatabase,
-    ).put(_taskIdToDaoInstantStringKey(taskId), jsonEncode(task.toJson()));
+    await DaoInstantString(localDatabase)
+        .put(_taskIdToDaoInstantStringKey(taskId), jsonEncode(task.toJson()));
     await DaoStringList(localDatabase).add(queue.tagTaskQueue, taskId);
     await task.preExecute(localDatabase);
     _run(forceNowIfPossible: true);
@@ -88,10 +87,7 @@ class BackgroundTaskManager {
   /// * removing a task from the task lists.
   /// Most of the time this method is used for garbage collecting, that's why
   /// the [success] parameter is set to `false` by default.
-  Future<void> _finishTask(
-    String taskId, {
-    bool success = false,
-  }) async {
+  Future<void> _finishTask(String taskId, {bool success = false}) async {
     final BackgroundTask? task = _get(taskId);
     if (task != null) {
       await task.postExecute(localDatabase, success);
@@ -112,9 +108,8 @@ class BackgroundTaskManager {
   /// Returns the related task, or null but that is unexpected.
   BackgroundTask? _get(String taskId) {
     try {
-      final String? json = DaoInstantString(
-        localDatabase,
-      ).get(_taskIdToDaoInstantStringKey(taskId));
+      final String? json = DaoInstantString(localDatabase)
+          .get(_taskIdToDaoInstantStringKey(taskId));
       if (json == null) {
         // unexpected
         return null;
@@ -264,10 +259,7 @@ class BackgroundTaskManager {
     _running = false;
   }
 
-  Future<void> _setTaskErrorStatus(
-    String taskId,
-    String status,
-  ) async {
+  Future<void> _setTaskErrorStatus(String taskId, String status) async {
     _debugPrint('setStatus - $taskId: $status');
 
     final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
@@ -297,9 +289,8 @@ class BackgroundTaskManager {
   /// Returns true if managed to remove the task immediately.
   /// Returns false if the task will be removed next time it's possible.
   Future<bool> removeTaskAsap(String taskId) async {
-    final String? status = DaoInstantString(
-      localDatabase,
-    ).get(taskIdToErrorDaoInstantStringKey(taskId));
+    final String? status = DaoInstantString(localDatabase)
+        .get(taskIdToErrorDaoInstantStringKey(taskId));
     if (status == taskStatusStarted) {
       // that value will be detected later
       await _setTaskErrorStatus(taskId, taskStatusStopAsap);

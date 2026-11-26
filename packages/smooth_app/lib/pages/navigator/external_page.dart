@@ -97,9 +97,8 @@ class _ExternalPageState extends State<ExternalPage> {
         Logs.e('Unable to open an external link', ex: e);
         if (mounted) {
           SmoothFloatingMessage(
-            message: AppLocalizations.of(
-              context,
-            ).url_not_supported(widget.path),
+            message: AppLocalizations.of(context)
+                .url_not_supported(widget.path),
             type: SmoothFloatingMessageType.error,
           ).show(
             context,

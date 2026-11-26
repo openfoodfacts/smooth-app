@@ -141,9 +141,7 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
-  Future<(bool, PriceMetaProduct?)> _mayExitPage({
-    required bool saving,
-  }) async {
+  Future<(bool, PriceMetaProduct?)> _mayExitPage({required bool saving}) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (!_hasChanged) {
       if (saving) {

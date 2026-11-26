@@ -14,18 +14,14 @@ class OnboardingLoader {
   /// To be called first thing when we click on "next" during onboarding.
   ///
   /// The [page] parameter refers to the current page (before the next).
-  Future<void> runAtNextTime(
-    OnboardingPage page,
-    BuildContext context,
-  ) async {
+  Future<void> runAtNextTime(OnboardingPage page, BuildContext context) async {
     switch (page) {
       case OnboardingPage.WELCOME:
         await LoadingDialog.run<bool>(
           context: context,
           future: _downloadData().timeout(const Duration(seconds: 4)),
-          title: AppLocalizations.of(
-            context,
-          ).onboarding_welcome_loading_dialog_title,
+          title: AppLocalizations.of(context)
+              .onboarding_welcome_loading_dialog_title,
           dismissible: false,
         );
         return;

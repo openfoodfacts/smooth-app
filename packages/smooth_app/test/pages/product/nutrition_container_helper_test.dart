@@ -63,11 +63,8 @@ NutritionContainerHelper _helper(
     },
 );
 
-void _type(
-  NutritionContainerHelper helper,
-  Nutrient nutrient,
-  String text,
-) => helper.setNutrientValueText(nutrient, text, _format);
+void _type(NutritionContainerHelper helper, Nutrient nutrient, String text) =>
+    helper.setNutrientValueText(nutrient, text, _format);
 
 String? _body(NutritionContainerHelper helper) {
   final List<Product> products = helper.getChangedProducts('1');

@@ -221,9 +221,8 @@ class _ExplanationBannerLearnMoreButton extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsetsDirectional.only(top: 1.5),
                   child: Text(
-                    AppLocalizations.of(
-                      context,
-                    ).explanation_card_learn_more_button,
+                    AppLocalizations.of(context)
+                        .explanation_card_learn_more_button,
                     textAlign: TextAlign.end,
                     style: const TextStyle(
                       fontSize: 14.5,

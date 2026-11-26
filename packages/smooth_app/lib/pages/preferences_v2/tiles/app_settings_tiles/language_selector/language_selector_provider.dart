@@ -70,10 +70,7 @@ class _LanguageSelectorProvider
       OpenFoodFactsLanguage.fromOffTag(userAppLanguageCode)!,
     );
 
-    languagesList.sort((
-      OpenFoodFactsLanguage a,
-      OpenFoodFactsLanguage b,
-    ) {
+    languagesList.sort((OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) {
       final String aName = languages.getNameInEnglish(a);
       final String bName = languages.getNameInEnglish(b);
 

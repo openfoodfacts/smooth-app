@@ -186,9 +186,8 @@ class _ProductActionBarModalItemEditorState
     if (widget.entry.visible != oldWidget.entry.visible) {
       _controller.stop();
 
-      final SmoothColorsThemeExtension extension = Theme.of(
-        context,
-      ).extension<SmoothColorsThemeExtension>()!;
+      final SmoothColorsThemeExtension extension = Theme.of(context)
+          .extension<SmoothColorsThemeExtension>()!;
       _colorAnimation =
           ColorTween(
             begin: _invisibleColor(extension),
@@ -219,9 +218,8 @@ class _ProductActionBarModalItemEditorState
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
 
     return AnimatedContainer(
       duration: SmoothAnimationsDuration.medium,
@@ -376,15 +374,13 @@ class _ProductActionBarModalItemActionMoveUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
 
     return _ProductActionBarModalItemAction(
       icon: const icons.Chevron.up(size: 14.0),
-      semanticsLabel: AppLocalizations.of(
-        context,
-      ).product_page_action_bar_item_move_up,
+      semanticsLabel: AppLocalizations.of(context)
+          .product_page_action_bar_item_move_up,
       enabled: enabled,
       visible: visible,
       disabledColor: visible ? extension.primaryLight : extension.primaryMedium,
@@ -406,16 +402,14 @@ class _ProductActionBarModalItemActionMoveDown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
 
     return _ProductActionBarModalItemAction(
       icon: const icons.Chevron.down(size: 14.0),
       padding: const EdgeInsetsDirectional.only(top: 1.0),
-      semanticsLabel: AppLocalizations.of(
-        context,
-      ).product_page_action_bar_item_move_down,
+      semanticsLabel: AppLocalizations.of(context)
+          .product_page_action_bar_item_move_down,
       enabled: enabled,
       visible: visible,
       disabledColor: visible ? extension.primaryLight : extension.primaryMedium,
@@ -500,9 +494,8 @@ class _ProductActionBarModalItemActionState
   void didUpdateWidget(covariant _ProductActionBarModalItemAction oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    final SmoothColorsThemeExtension extension = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
 
     Color? initColor;
     Color? endColor;
@@ -539,9 +532,8 @@ class _ProductActionBarModalItemActionState
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
 
     return Semantics(
       label: widget.semanticsLabel,

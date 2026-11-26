@@ -86,9 +86,8 @@ void main() {
   test('a refusal after a trip to the settings sends one event', () async {
     answer = PermissionStatus.permanentlyDenied;
 
-    await PermissionListener(
-      permission: Permission.camera,
-    ).askPermission(onRationaleNotAvailable: () async => true);
+    await PermissionListener(permission: Permission.camera)
+        .askPermission(onRationaleNotAvailable: () async => true);
 
     final Map<String, String> event = MatomoTracker.instance.queue.single;
     expect(event['e_n'], 'cameraPermissionRefused');

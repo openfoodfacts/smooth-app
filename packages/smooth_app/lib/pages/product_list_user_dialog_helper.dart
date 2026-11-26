@@ -16,9 +16,7 @@ class ProductListUserDialogHelper {
   final DaoProductList daoProductList;
 
   /// Shows a "create list" dialog; returns the new [ProductList] if relevant.
-  Future<ProductList?> showCreateUserListDialog(
-    BuildContext context,
-  ) async {
+  Future<ProductList?> showCreateUserListDialog(BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextEditingController textEditingController = TextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -300,9 +298,8 @@ class _UserListsState extends State<_UserLists> {
       positiveAction: SmoothActionButton(
         text: appLocalizations.save,
         onPressed: () async {
-          Navigator.of(
-            context,
-          ).pop(await widget.onListsSubmitted(selectedLists));
+          Navigator.of(context)
+              .pop(await widget.onListsSubmitted(selectedLists));
         },
       ),
       body: Column(

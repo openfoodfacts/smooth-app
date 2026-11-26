@@ -221,10 +221,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   ) => displaySnackbar ? super.getFloatingMessage(appLocalizations) : null;
 
   @override
-  Future<void> postExecute(
-    LocalDatabase localDatabase,
-    bool success,
-  ) async {
+  Future<void> postExecute(LocalDatabase localDatabase, bool success) async {
     await super.postExecute(localDatabase, success);
     try {
       (await BackgroundTaskUpload.getFile(fullPath)).deleteSync();
