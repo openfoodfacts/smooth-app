@@ -110,13 +110,47 @@ void main() {
       expect(helper.getUnit(Nutrient.sugars), Unit.G);
     });
 
-    test('ignores the manufacturer set', () {
+    test('reads a manufacturer value under the packaging one', () {
+      final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
+        _inputSet(_manufacturer, '100g', <String, Map<String, dynamic>>{
+          'fat': _value('g', '2'),
+          'iron': _value('mg', '3'),
+          'energy-kcal': _value('kcal', '100'),
+        }),
+        _inputSet(_packaging, '100g', <String, Map<String, dynamic>>{
+          'fat': _value('g', '1'),
+        }),
+      ]);
+      expect(helper.getValue(Nutrient.fat), 1);
+      expect(helper.isFromManufacturer(Nutrient.fat), isFalse);
+      expect(helper.getValue(Nutrient.iron), 3);
+      expect(helper.getUnit(Nutrient.iron), Unit.MILLI_G);
+      expect(helper.isFromManufacturer(Nutrient.iron), isTrue);
+      expect(helper.getValue(Nutrient.energyKJ), 419);
+      expect(helper.isFromManufacturer(Nutrient.energyKJ), isTrue);
+    });
+
+    test('opens on the per size of the packaging values', () {
       final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
         _inputSet(_manufacturer, '100g', <String, Map<String, dynamic>>{
           'fat': _value('g', '2'),
         }),
+        _inputSet(_packaging, 'serving', <String, Map<String, dynamic>>{
+          'fat': _value('g', '8'),
+        }),
       ]);
-      expect(helper.getValue(Nutrient.fat), isNull);
+      expect(helper.perSize, PerSize.serving);
+      expect(helper.getValue(Nutrient.fat), 8);
+    });
+
+    test('opens on the manufacturer serving set', () {
+      final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
+        _inputSet(_manufacturer, 'serving', <String, Map<String, dynamic>>{
+          'fat': _value('g', '8'),
+        }),
+      ]);
+      expect(helper.perSize, PerSize.serving);
+      expect(helper.getValue(Nutrient.fat), 8);
     });
 
     test('ignores prepared and estimate sets', () {
@@ -159,8 +193,93 @@ void main() {
         _inputSet(_packaging, '100g', <String, Map<String, dynamic>>{
           'energy-kcal': _value('kcal', '100'),
         }),
+        _inputSet(_manufacturer, '100g', <String, Map<String, dynamic>>{
+          'energy-kcal': _value('kcal', '200'),
+        }),
       ]);
       expect(helper.getValue(Nutrient.energyKJ), 419);
+      expect(helper.isFromManufacturer(Nutrient.energyKJ), isFalse);
+    });
+
+    test('computes energy in kJ from packaging kcal over manufacturer kJ', () {
+      final NutritionContainerHelper helper = _helper(<Map<String, dynamic>>[
+        _inputSet(_packaging, '100g', <String, Map<String, dynamic>>{
+          'energy-kcal': _value('kcal', '100'),
+        }),
+        _inputSet(_manufacturer, '100g', <String, Map<String, dynamic>>{
+          'energy-kj': _value('kJ', '837'),
+        }),
+      ]);
+      expect(helper.getValue(Nutrient.energyKJ), 419);
+      expect(helper.isFromManufacturer(Nutrient.energyKJ), isFalse);
+    });
+
+    NutritionContainerHelper oldValuesHelper(
+      Map<String, Map<String, dynamic>> manufacturer,
+      Map<String, num> oldValues, {
+      String per = '100g',
+    }) => NutritionContainerHelper(
+      orderedNutrients: _orderedNutrients,
+      product:
+          Product.fromJson(<String, dynamic>{
+              'code': '1',
+              'nutriments': oldValues,
+            })
+            ..nutrition = <String, dynamic>{
+              'input_sets': <Map<String, dynamic>>[
+                if (manufacturer.isNotEmpty)
+                  _inputSet(_manufacturer, per, manufacturer),
+              ],
+            },
+    );
+
+    test('opens on the manufacturer per size over old values', () {
+      final NutritionContainerHelper helper = oldValuesHelper(
+        <String, Map<String, dynamic>>{'fat': _value('g', '3')},
+        <String, num>{'fat_100g': 10, 'fat_serving': 3},
+        per: 'serving',
+      );
+      expect(helper.perSize, PerSize.serving);
+      expect(helper.getValue(Nutrient.fat), 3);
+      expect(helper.isFromManufacturer(Nutrient.fat), isTrue);
+    });
+
+    test('opens on the per size of old values only', () {
+      final NutritionContainerHelper helper = oldValuesHelper(
+        <String, Map<String, dynamic>>{},
+        <String, num>{'fat_serving': 3},
+      );
+      expect(helper.perSize, PerSize.serving);
+      expect(helper.getValue(Nutrient.fat), 3);
+      expect(helper.isFromManufacturer(Nutrient.fat), isFalse);
+    });
+
+    test('reads a manufacturer value over an old value', () {
+      final NutritionContainerHelper helper = oldValuesHelper(
+        <String, Map<String, dynamic>>{
+          'fat': _value('g', '3'),
+          'energy-kj': _value('kJ', '837'),
+        },
+        <String, num>{'fat_100g': 3, 'sugars_100g': 5, 'energy-kcal_100g': 100},
+      );
+      expect(helper.getValue(Nutrient.fat), 3);
+      expect(helper.isFromManufacturer(Nutrient.fat), isTrue);
+      expect(helper.getValue(Nutrient.energyKJ), 837);
+      expect(helper.isFromManufacturer(Nutrient.energyKJ), isTrue);
+      expect(helper.isFromManufacturer(Nutrient.sugars), isFalse);
+      helper.perSize = PerSize.serving;
+      expect(_body(helper), isNot(contains('"fat"')));
+      expect(_body(helper), isNot(contains('"energy-kj"')));
+      expect(_body(helper), contains('"sugars"'));
+    });
+
+    test('computes energy in kJ from manufacturer kcal over old kJ', () {
+      final NutritionContainerHelper helper = oldValuesHelper(
+        <String, Map<String, dynamic>>{'energy-kcal': _value('kcal', '100')},
+        <String, num>{'energy-kj_100g': 837},
+      );
+      expect(helper.getValue(Nutrient.energyKJ), 419);
+      expect(helper.isFromManufacturer(Nutrient.energyKJ), isTrue);
     });
 
     test('reads the no nutrition data flag', () {
@@ -302,6 +421,39 @@ void main() {
       final NutritionContainerHelper helper = _helper(sets);
       _type(helper, Nutrient.fat, '');
       expect(_body(helper), contains('"fat":{"unit":"g","value_string":""}'));
+    });
+
+    test('sends a typed manufacturer value to the packaging set', () {
+      final NutritionContainerHelper helper = _helper(sets);
+      _type(helper, Nutrient.copper, '0.6');
+      expect(
+        _body(helper),
+        _expected(<Map<String, dynamic>>[
+          <String, dynamic>{
+            'per': '100g',
+            'preparation': 'as_sold',
+            'source': 'packaging',
+            'nutrients': <String, dynamic>{
+              'copper': <String, dynamic>{'unit': 'mg', 'value_string': '0.6'},
+            },
+          },
+        ]),
+      );
+    });
+
+    test('sends the new unit with an unchanged manufacturer value', () {
+      final NutritionContainerHelper helper = _helper(sets);
+      helper.setNutrientUnit(Nutrient.copper, Unit.MICRO_G);
+      expect(
+        _body(helper),
+        contains('"copper":{"unit":"µg","value_string":"0.5"}'),
+      );
+    });
+
+    test('does not clear a manufacturer value', () {
+      final NutritionContainerHelper helper = _helper(sets);
+      _type(helper, Nutrient.copper, '');
+      expect(helper.getChangedProducts('1'), isEmpty);
     });
 
     test('ignores a unit change on an empty nutrient', () {

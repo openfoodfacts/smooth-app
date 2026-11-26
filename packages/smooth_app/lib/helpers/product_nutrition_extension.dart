@@ -1,36 +1,68 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
 
-/// Nutrition facts of a [Product]: the packaging values, as sold.
+/// Nutrition facts of a [Product]: the as sold values.
 // TODO(monsieurtanuki): move to off-dart.
 extension ProductNutritionExtension on Product {
+  /// Sources in the server's priority order.
+  static const List<String> serverSources = <String>[
+    NutritionSetKey.sourceManufacturer,
+    NutritionSetKey.sourcePackaging,
+  ];
+
+  /// Sources in the editor's priority order: the end-user's values first.
+  static const List<String> editorSources = <String>[
+    NutritionSetKey.sourcePackaging,
+    NutritionSetKey.sourceManufacturer,
+  ];
+
   /// Returns the value and unit of [nutrient] for [perSize], or null.
   NutritionValue? getNutrientValue(Nutrient nutrient, PerSize perSize) =>
       getNutritionValues(perSize)[nutrient];
 
-  /// Returns the packaging as sold values for [perSize].
+  /// Returns the as sold values for [perSize], each one from the first of
+  /// [sources] that has a number.
   ///
-  /// Old `nutriments` values are converted, and overridden by the new ones.
-  // TODO(UrbanFercec): also read the manufacturer, per 100ml and per serving sets.
-  Map<Nutrient, NutritionValue> getNutritionValues(PerSize perSize) {
+  /// Old `nutriments` values, if [withOldValues], are converted and overridden
+  /// by the new ones.
+  // TODO(UrbanFercec): also read the per 100ml and per serving sets.
+  Map<Nutrient, NutritionValue> getNutritionValues(
+    PerSize perSize, {
+    List<String> sources = serverSources,
+    bool withOldValues = true,
+  }) {
     final Map<Nutrient, NutritionValue> result = <Nutrient, NutritionValue>{};
-    <Nutrient, NutritionValue>{
-      ..._getOldNutritionValues(perSize),
-      ...?NutritionHelper()
+    final Set<Nutrient> inputNutrients = <Nutrient>{};
+    final List<NutritionSet> inputSets =
+        NutritionHelper().getInputSets(this) ?? <NutritionSet>[];
+    for (final String source in sources) {
+      NutritionHelper()
           .getNutritionSet(
-            NutritionHelper().getInputSets(this) ?? <NutritionSet>[],
+            inputSets,
             NutritionSetKey(
-              source: NutritionSetKey.sourcePackaging,
+              source: source,
               preparation: NutritionSetKey.preparationAsSold,
               perSize: perSize,
             ),
           )
-          ?.nutritionValues,
-    }.forEach((Nutrient nutrient, NutritionValue nutritionValue) {
-      final NutritionValue? numberValue = _getNumber(nutritionValue);
-      if (numberValue != null) {
-        result[nutrient] = numberValue;
-      }
-    });
+          ?.nutritionValues
+          ?.forEach((Nutrient nutrient, NutritionValue nutritionValue) {
+            inputNutrients.add(nutrient);
+            final NutritionValue? numberValue = _getNumber(nutritionValue);
+            if (numberValue != null) {
+              result.putIfAbsent(nutrient, () => numberValue);
+            }
+          });
+    }
+    if (withOldValues) {
+      _getOldNutritionValues(perSize).forEach((
+        Nutrient nutrient,
+        NutritionValue nutritionValue,
+      ) {
+        if (!inputNutrients.contains(nutrient)) {
+          result[nutrient] = nutritionValue;
+        }
+      });
+    }
     return result;
   }
 

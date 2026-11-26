@@ -67,11 +67,54 @@ void main() {
       ]);
     });
 
-    test('reads only the packaging set, as sold', () {
+    test('reads the manufacturer value first', () {
+      final Product product = _product(<Map<String, dynamic>>[
+        _inputSet(<String, Map<String, dynamic>>{
+          'fat': _value('g', '2'),
+          'sugars': _value('g', '2'),
+        }),
+        _inputSet(<String, Map<String, dynamic>>{
+          'fat': _value('g', '3'),
+        }, source: 'manufacturer'),
+      ]);
+      expect(_get(product, Nutrient.fat), <Object?>[3, Unit.G]);
+      expect(_get(product, Nutrient.sugars), <Object?>[2, Unit.G]);
+      expect(
+        product
+            .getNutritionValues(
+              PerSize.oneHundredGrams,
+              sources: <String>['packaging'],
+            )[Nutrient.fat]
+            ?.value,
+        2,
+      );
+    });
+
+    test(
+      'reads the packaging value under a manufacturer one without a number',
+      () {
+        final Product product = _product(<Map<String, dynamic>>[
+          _inputSet(<String, Map<String, dynamic>>{'fat': _value('g', '3')}),
+          _inputSet(<String, Map<String, dynamic>>{
+            'fat': _value('g', ''),
+          }, source: 'manufacturer'),
+        ]);
+        expect(_get(product, Nutrient.fat), <Object?>[3, Unit.G]);
+      },
+    );
+
+    test('has data with only manufacturer values', () {
       final Product product = _product(<Map<String, dynamic>>[
         _inputSet(<String, Map<String, dynamic>>{
           'fat': _value('g', '1'),
         }, source: 'manufacturer'),
+      ]);
+      expect(_get(product, Nutrient.fat), <Object?>[1, Unit.G]);
+      expect(product.hasNutritionData, isTrue);
+    });
+
+    test('reads only the as sold sets of the per size', () {
+      final Product product = _product(<Map<String, dynamic>>[
         _inputSet(<String, Map<String, dynamic>>{
           'fat': _value('g', '2'),
         }, source: 'estimate'),
