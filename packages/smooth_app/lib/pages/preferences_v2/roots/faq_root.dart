@@ -191,6 +191,7 @@ class FaqRoot extends PreferencesRoot {
     bool lightTheme,
   ) {
     return PreferenceTile(
+      key: const Key('guide_open_prices'),
       leading: createLeadingIcon(
         'assets/guides/open_prices/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
         padding: const EdgeInsetsDirectional.only(start: 2.0),
