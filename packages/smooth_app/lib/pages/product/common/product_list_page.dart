@@ -222,28 +222,41 @@ class _ProductListPageState extends State<ProductListPage>
         ],
       ),
       body: products.isEmpty
-          ? Center(
-              child: Padding(
-                padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    SvgPicture.asset(
-                      'assets/misc/empty-list.svg',
-                      package: AppHelper.APP_PACKAGE,
-                      width: MediaQuery.sizeOf(context).width / 2,
+          ? LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minWidth: constraints.maxWidth,
+                      minHeight: constraints.maxHeight,
                     ),
-                    Text(
-                      appLocalizations.product_list_empty_message,
-                      textAlign: TextAlign.center,
-                      style: themeData.textTheme.bodyMedium?.apply(
-                        color: themeData.colorScheme.onSurface,
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'assets/misc/empty-list.svg',
+                            package: AppHelper.APP_PACKAGE,
+                            width: min(
+                              constraints.maxWidth / 2,
+                              constraints.maxHeight * 0.45,
+                            ),
+                          ),
+                          Text(
+                            appLocalizations.product_list_empty_message,
+                            textAlign: TextAlign.center,
+                            style: themeData.textTheme.bodyMedium?.apply(
+                              color: themeData.colorScheme.onSurface,
+                            ),
+                          ),
+                          EMPTY_WIDGET,
+                        ],
                       ),
                     ),
-                    EMPTY_WIDGET,
-                  ],
-                ),
-              ),
+                  ),
+                );
+              },
             )
           : WillPopScope2(
               onWillPop: () async => (await _handleUserBacktap(), null),
