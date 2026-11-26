@@ -276,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
+  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -544,6 +544,9 @@
   "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
   "myPreferences_food_compatibility_explainer": "Choisissez les informations sur les aliments qui vous intéressent le plus, afin de classer les aliments en fonction de vos préférences, de voir les informations qui vous intéressent en premier et d'obtenir un résumé de compatibilité.",
   "myPreferences_food_privacy": "Ces préférences alimentaires restent sur votre appareil et ne sont pas associées à votre compte contributeur Open Food Facts si vous en avez un.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Préférences en matière de cosmétiques",
   "myPreferences_beauty_subtitle": "Choisissez les informations sur les produits cosmétiques qui vous importent le plus.",
   "myPreferences_product_title": "Préférences pour d'autres produits",
@@ -629,7 +632,7 @@
   "@search_location_select": {
     "description": "Menu entry of a location in the search history: selects it as the search result"
   },
-  "search_location_menu_title": "Magasin\u00A0: {name}",
+  "search_location_menu_title": "Magasin : {name}",
   "@search_location_menu_title": {
     "description": "Title of the menu of a location in the search history",
     "placeholders": {
@@ -687,7 +690,7 @@
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
-  "outdated_image_accessibility_label": "ma traduction",
+  "outdated_image_accessibility_label": "{imageType} (cette image est peut-être obsolète)",
   "@outdated_image_accessibility_label": {
     "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
     "placeholders": {
@@ -1279,12 +1282,58 @@
   "@currency_chooser_label": {
     "description": "Label shown above a selector where the user can select their currency (in the preferences)"
   },
-  "currency_change_sheet_title": "Changer de devise\u202F?",
+  "currency_change_sheet_title": "Changer de devise ?",
+  "@currency_change_sheet_title": {
+    "description": "Title of the sheet proposing to change the currency after the user changed the country"
+  },
   "currency_change_sheet_country": "Votre pays est maintenant défini sur **{country}**.",
-  "currency_change_sheet_question": "Souhaitez-vous changer la devise par défaut de l'application\u00A0:",
+  "@currency_change_sheet_country": {
+    "description": "Message of the currency change sheet, stating the new country (shown in bold with the ** markers)",
+    "placeholders": {
+      "country": {
+        "type": "String",
+        "description": "Localized name of the new country"
+      }
+    }
+  },
+  "currency_change_sheet_question": "Souhaitez-vous changer la devise par défaut de l'application :",
+  "@currency_change_sheet_question": {
+    "description": "Question of the currency change sheet, shown above the current and the new currencies"
+  },
   "currency_change_sheet_action_approve": "Utiliser {newCurrency}",
+  "@currency_change_sheet_action_approve": {
+    "description": "Action of the currency change sheet to switch to the currency of the new country",
+    "placeholders": {
+      "newCurrency": {
+        "type": "String",
+        "description": "Currency code of the new country (eg: EUR)"
+      }
+    }
+  },
   "currency_change_sheet_action_keep": "Continuer avec {currency}",
+  "@currency_change_sheet_action_keep": {
+    "description": "Action of the currency change sheet to keep the current currency",
+    "placeholders": {
+      "currency": {
+        "type": "String",
+        "description": "Currency code currently used (eg: USD)"
+      }
+    }
+  },
   "currency_change_sheet_summary_semantics": "De {currency} à {newCurrency}",
+  "@currency_change_sheet_summary_semantics": {
+    "description": "Screen reader label of the row showing the current and the new currencies in the currency change sheet",
+    "placeholders": {
+      "currency": {
+        "type": "String",
+        "description": "Currency code currently used (eg: USD)"
+      },
+      "newCurrency": {
+        "type": "String",
+        "description": "Currency code of the new country (eg: EUR)"
+      }
+    }
+  },
   "onboarding_country_chooser_label": "Veuillez sélectionner un pays :",
   "@onboarding_country_chooser_label": {
     "description": "The label shown above a selector where the user can select their country (in the onboarding)"
@@ -2971,6 +3020,8 @@
       }
     }
   },
+  "proof_action_open_external": "Ouvrir l'image dans un navigateur externe",
+  "proof_action_experimental_assistant": "Expérimental - ouvrir l'assistant de preuve",
   "user_any_search_prices_title": "Prix contributeur : {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
@@ -5984,6 +6035,10 @@
   "@preferences_dev_mode_product_list_import_title": {
     "description": "Title for product list import feature"
   },
+  "preferences_dev_mode_new_home_page_title": "Enable new Home Page",
+  "@preferences_dev_mode_new_home_page_title": {
+    "description": "Title for enabling the new home page feature"
+  },
   "preferences_faq_scores_methodologies_title": "Scores et méthodologies",
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
@@ -5995,6 +6050,10 @@
   "preferences_faq_nutriscore_v2_subtitle": "Découvrez les principaux changements apportés à la méthodologie",
   "@preferences_faq_nutriscore_v2_subtitle": {
     "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_traffic_lights_subtitle": "Discover the UK FSA methodology",
+  "@preferences_faq_traffic_lights_subtitle": {
+    "description": "Subtitle for Traffic Lights in FAQ"
   },
   "preferences_faq_discover_project_title": "Découvrez le projet",
   "@preferences_faq_discover_project_title": {
@@ -6272,7 +6331,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -6480,7 +6539,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
+  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -6566,6 +6625,138 @@
     "placeholders": {
       "percent": {
         "type": "String"
+      }
+    }
+  },
+  "donation_page_headline": "Open Food Facts est financé par les personnes qui l'utilisent",
+  "@donation_page_headline": {
+    "description": "Headline at the top of the donation page"
+  },
+  "donation_where_it_goes_title": "Où cela va",
+  "@donation_where_it_goes_title": {
+    "description": "Title of the block listing what a donation pays for"
+  },
+  "donation_where_it_goes_servers": "Serveurs et stockage",
+  "@donation_where_it_goes_servers": {
+    "description": "First thing a donation pays for"
+  },
+  "donation_where_it_goes_engineer": "Un ingénieur à temps plein",
+  "@donation_where_it_goes_engineer": {
+    "description": "Second thing a donation pays for"
+  },
+  "donation_where_it_goes_services": "Services et outils",
+  "@donation_where_it_goes_services": {
+    "description": "Third thing a donation pays for"
+  },
+  "donation_tiers_title": "Mensuel, annulez à tout moment",
+  "@donation_tiers_title": {
+    "description": "Title of the block listing the monthly donation amounts"
+  },
+  "donation_tier_amount_monthly": "{amount} par mois",
+  "@donation_tier_amount_monthly": {
+    "description": "A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "donation_tier_scans": "finance {scans} scans",
+  "@donation_tier_scans": {
+    "description": "How many product scans a monthly donation covers, as an approximation",
+    "placeholders": {
+      "scans": {
+        "type": "String"
+      }
+    }
+  },
+  "donation_custom_amount_hint": "Montant personnalisé",
+  "@donation_custom_amount_hint": {
+    "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
+  },
+  "donation_custom_amount_error": "Entrez un montant",
+  "@donation_custom_amount_error": {
+    "description": "Error shown under the donation amount field when what the donor typed cannot be read as an amount"
+  },
+  "donation_cta_monthly": "Soutenir mensuellement",
+  "@donation_cta_monthly": {
+    "description": "Main button of the donation page, opens the donation form with the selected monthly amount"
+  },
+  "donation_cta_one_off": "Donner une fois à la place",
+  "@donation_cta_one_off": {
+    "description": "Secondary link of the donation page, opens the donation form for a single gift"
+  },
+  "donation_already_donated": "J'ai déjà fait un don",
+  "@donation_already_donated": {
+    "description": "Quiet link under the donation buttons; tapping it stops the app asking for a donation for a year"
+  },
+  "donation_already_donated_thanks": "Merci ! Nous ne vous solliciterons plus pendant un an.",
+  "@donation_already_donated_thanks": {
+    "description": "Confirmation shown after tapping 'I already donated'"
+  },
+  "donation_reminder_title": "{count, plural, one{Rejoignez la {count} personne qui maintient Open Food Facts gratuit.} other{Rejoignez les {count} personnes qui maintiennent Open Food Facts gratuit.}}",
+  "@donation_reminder_title": {
+    "description": "Headline of the donation reminder sheet, with the number of donors from the feed",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "768"
+      }
+    }
+  },
+  "donation_reminder_title_generic": "Rejoignez les personnes qui permettent à Open Food Facts de rester gratuit.",
+  "@donation_reminder_title_generic": {
+    "description": "Headline of the donation reminder sheet when the feed carries no usable donor count"
+  },
+  "donation_reminder_body": "Une association à but non lucratif, construite par des bénévoles, sans publicité ni investisseurs. Un petit don mensuel la maintient gratuite pour tous.",
+  "@donation_reminder_body": {
+    "description": "Body line of the donation reminder sheet"
+  },
+  "donation_reminder_not_now": "Pas maintenant",
+  "@donation_reminder_not_now": {
+    "description": "Quiet button on the donation reminder sheet that closes it without changing anything"
+  },
+  "donation_reminder_cta": "Donner {amount} par mois",
+  "@donation_reminder_cta": {
+    "description": "Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_tier_scans_short": "{scans} scans",
+  "@donation_tier_scans_short": {
+    "description": "Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers",
+    "placeholders": {
+      "scans": {
+        "type": "String",
+        "example": "1,300"
+      }
+    }
+  },
+  "donation_tier_chip_amount": "**{amount}** /mois",
+  "@donation_tier_chip_amount": {
+    "description": "Tier chip on the donation reminder sheet: a monthly amount, already formatted with its currency. The part between ** is shown large; keep the ** around the amount.",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_reminder_funding": "**{raised}** sur {goal}",
+  "@donation_reminder_funding": {
+    "description": "Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.",
+    "placeholders": {
+      "raised": {
+        "type": "String",
+        "example": "€47,673"
+      },
+      "goal": {
+        "type": "String",
+        "example": "€170,000"
       }
     }
   }
