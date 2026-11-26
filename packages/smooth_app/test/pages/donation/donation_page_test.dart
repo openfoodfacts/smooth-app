@@ -12,6 +12,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/pages/donation/donation_ladder_outline.dart';
 import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/donation/donation_page.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
@@ -489,12 +490,20 @@ void main() {
     // Deliberately a bare symbol in `{amount} a month`, not a formatted amount:
     // the field is where the donor supplies the number, so the suffix supplies
     // only the unit. Pinned because nothing else asserts on this text.
+    final Finder suffix = find.text('€ a month');
+    expect(suffix, findsOneWidget);
+
+    // The test font is about twice as wide as Roboto: on the phone-sized view
+    // the suffix wraps even in English, so widen the view to where it fits.
+    tester.view.physicalSize = const Size(2100, 2424);
+    await tester.pumpAndSettle();
     expect(
-      find.descendant(
-        of: find.byType(TextField),
-        matching: find.text('€ a month'),
+      tester.getCenter(suffix).dy,
+      moreOrLessEquals(
+        tester.getCenter(find.byType(EditableText)).dy,
+        epsilon: 4.0,
       ),
-      findsOneWidget,
+      reason: 'a suffix that fits beside the input stays on its row',
     );
   });
 
@@ -506,31 +515,41 @@ void main() {
 
     await _pumpDonationPage(tester, locale: const Locale('de'));
 
-    // ⚠️ These keys are new, so Crowdin has not translated them and `de` still
-    // renders the English suffix. What this covers today is German number
-    // formatting at 2.0; it becomes a real test of a long translated suffix the
-    // moment translations land, which is why it is worth having now.
-    //
-    // The suffix lays out *inside* the field, so the field's own width never
-    // moves and asserting on it proves nothing. What a longer suffix eats is
-    // the editable box - 70.9 px here - so floor that.
+    // `de` renders the suffix as "€ pro Monat": however long it gets, it must
+    // not squeeze the editable box below room for an amount.
     expect(
       tester.getSize(find.byType(EditableText)).width,
       greaterThan(60.0),
       reason: 'the suffix has squeezed the input too far to type an amount',
     );
+    final Finder suffix = find.text('€ pro Monat');
+    expect(suffix, findsOneWidget);
+    expect(
+      tester.getCenter(suffix).dy,
+      greaterThan(tester.getCenter(find.byType(EditableText)).dy),
+      reason: 'a suffix too wide to sit beside the input wraps under it',
+    );
 
-    // Whatever language the suffix ends up in, it must not be what clips.
+    // Whatever language the suffix ends up in, it must not be what clips. The
+    // hint is skipped in every language: the test font is about twice as wide
+    // as Roboto, so even a hint that fits on a device ellipsizes here.
+    final String hint = tester
+        .widget<TextField>(find.byType(TextField))
+        .decoration!
+        .hintText!;
     for (final Element element
         in find
             .descendant(
-              of: find.byType(TextField),
+              of: find.ancestor(
+                of: find.byType(TextField),
+                matching: find.byType(DonationLadderOutline),
+              ),
               matching: find.byType(RichText),
             )
             .evaluate()) {
       final RenderParagraph paragraph =
           element.renderObject! as RenderParagraph;
-      if (paragraph.text.toPlainText() == _hint) {
+      if (paragraph.text.toPlainText() == hint) {
         continue;
       }
       expect(
