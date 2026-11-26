@@ -83,7 +83,6 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
               DonationCampaignMeter(
                 funding: funding,
                 monthsLeft: offer.monthsLeft,
-                amountFormat: amountFormat,
               ),
             ],
             const SizedBox(height: VERY_LARGE_SPACE),

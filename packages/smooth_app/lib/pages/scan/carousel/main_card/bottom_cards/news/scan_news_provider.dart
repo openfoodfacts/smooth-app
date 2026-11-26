@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/donation/donation_offer.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Listen to [AppNewsProvider] feed and provide a list of [AppNewsItem]
 /// randomly sorted by unread, then displayed and clicked news.
@@ -60,6 +61,9 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
     final bool reminderArm =
         DonationOffer.fromNews(
           donation,
+          userCurrencyCode:
+              _userPreferences.userCurrencyCode ??
+              ProductQuery.getCountry().currency?.name,
         ).arm(_userPreferences.getDonationTestBucket()) ==
         DonationTestArm.reminder;
     final bool donationStrip =

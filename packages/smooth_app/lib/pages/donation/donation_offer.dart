@@ -60,39 +60,89 @@ class DonationOffer {
 
   /// Falls back field by field, so a feed carrying none of this renders the
   /// screen exactly as it shipped.
-  factory DonationOffer.fromNews(AppNewsItem? item) {
-    final String? currency = item?.currency;
-    final List<int> amounts = _ladder(item?.donationAmounts);
-    final num? scansPerUnit = item?.donationScansPerUnit;
-    final num? reminderEvery = item?.donationReminderEvery;
-    final num? donorCount = item?.count;
-    final num? newArmPercent = item?.donationAbNewPercent;
-    final num? stripHideDays = item?.donationStripHideDays;
+  factory DonationOffer.fromNews(
+    AppNewsItem? item, {
+    String? userCurrencyCode,
+  }) {
+    final String? normalizedUserCurrency =
+        userCurrencyCode != null && userCurrencyCode.trim().length == 3
+        ? userCurrencyCode.trim().toUpperCase()
+        : null;
 
+    final String? feedCurrency = item?.currency;
+    final List<int> feedAmounts = _ladder(item?.donationAmounts);
+    final num? feedScansPerUnit = item?.donationScansPerUnit;
+
+    final int reminderEvery =
+        item?.donationReminderEvery != null &&
+            _isUsableCount(item!.donationReminderEvery!)
+        ? item.donationReminderEvery!.toInt()
+        : _fallbackReminderEvery;
+    final int newArmPercent =
+        item?.donationAbNewPercent != null &&
+            item!.donationAbNewPercent!.isFinite
+        ? item.donationAbNewPercent!.toInt()
+        : 0;
+    final int stripHideDays =
+        item?.donationStripHideDays != null &&
+            _isUsableCount(item!.donationStripHideDays!) &&
+            item.donationStripHideDays! <= 365
+        ? item.donationStripHideDays!.toInt()
+        : _fallbackStripHideDays;
+    final int? donorCount = item?.count != null && _isUsableCount(item!.count!)
+        ? item.count!.toInt()
+        : null;
+    final List<String> whereItGoes =
+        item?.donationWhereItGoes ?? const <String>[];
+
+    final String? lookupCurrency =
+        normalizedUserCurrency ??
+        (feedCurrency != null && feedCurrency.length == 3
+            ? feedCurrency
+            : null);
+
+    // 1. If the remote feed provides explicit donation_offers for the target currency
+    // and a matching usable feed anchor exists:
+    if (lookupCurrency != null && item?.donationOffers != null) {
+      final List<int>? customAmounts = item!.donationOffers![lookupCurrency];
+      if (customAmounts != null && customAmounts.isNotEmpty) {
+        final int? anchor =
+            feedCurrency == lookupCurrency &&
+                feedScansPerUnit != null &&
+                _isUsableCount(feedScansPerUnit)
+            ? feedScansPerUnit.toInt()
+            : null;
+        if (anchor != null) {
+          return DonationOffer(
+            currency: lookupCurrency,
+            amounts: customAmounts,
+            scansPerUnit: anchor,
+            whereItGoes: whereItGoes,
+            reminderEvery: reminderEvery,
+            newArmPercent: newArmPercent,
+            stripHideDays: stripHideDays,
+            donorCount: donorCount,
+            funding: item.funding,
+            monthsLeft: item.monthsLeft,
+          );
+        }
+      }
+    }
+
+    // 2. Fallback: use feed-declared currency or fallback EUR
     return DonationOffer(
-      currency: currency != null && currency.length == 3
-          ? currency
+      currency: feedCurrency != null && feedCurrency.length == 3
+          ? feedCurrency
           : _fallbackCurrency,
-      amounts: amounts.isEmpty ? _fallbackAmounts : amounts,
-      scansPerUnit: scansPerUnit != null && _isUsable(scansPerUnit)
-          ? scansPerUnit.toInt()
+      amounts: feedAmounts.isEmpty ? _fallbackAmounts : feedAmounts,
+      scansPerUnit: feedScansPerUnit != null && _isUsableCount(feedScansPerUnit)
+          ? feedScansPerUnit.toInt()
           : _fallbackScansPerUnit,
-      whereItGoes: item?.donationWhereItGoes ?? const <String>[],
-      reminderEvery: reminderEvery != null && _isUsableCount(reminderEvery)
-          ? reminderEvery.toInt()
-          : _fallbackReminderEvery,
-      newArmPercent: newArmPercent != null && newArmPercent.isFinite
-          ? newArmPercent.toInt()
-          : 0,
-      stripHideDays:
-          stripHideDays != null &&
-              _isUsableCount(stripHideDays) &&
-              stripHideDays <= 365
-          ? stripHideDays.toInt()
-          : _fallbackStripHideDays,
-      donorCount: donorCount != null && _isUsableCount(donorCount)
-          ? donorCount.toInt()
-          : null,
+      whereItGoes: whereItGoes,
+      reminderEvery: reminderEvery,
+      newArmPercent: newArmPercent,
+      stripHideDays: stripHideDays,
+      donorCount: donorCount,
       funding: item?.funding,
       monthsLeft: item?.monthsLeft,
     );
@@ -115,6 +165,9 @@ class DonationOffer {
   static const int _fallbackReminderEvery = 10;
 
   static const int _fallbackStripHideDays = 14;
+
+  /// Public accessor for ladder sorting and deduplication.
+  static List<int> ladder(List<num>? amounts) => _ladder(amounts);
 
   /// Sorted and deduplicated: the slider walks the ladder by index, so an
   /// unordered feed makes dragging right ask for less money, and a repeated

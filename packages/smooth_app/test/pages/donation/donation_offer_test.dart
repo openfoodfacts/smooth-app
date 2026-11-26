@@ -6,6 +6,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 AppNewsItem _newsItem({
   String? currency,
   List<num>? donationAmounts,
+  Map<String, List<int>>? donationOffers,
   num? donationScansPerUnit,
   List<String>? donationWhereItGoes,
   num? donationReminderEvery,
@@ -19,6 +20,7 @@ AppNewsItem _newsItem({
   url: 'https://world.openfoodfacts.org/',
   currency: currency,
   donationAmounts: donationAmounts,
+  donationOffers: donationOffers,
   donationScansPerUnit: donationScansPerUnit,
   donationWhereItGoes: donationWhereItGoes,
   donationReminderEvery: donationReminderEvery,
@@ -136,6 +138,140 @@ void main() {
         ).scansPerUnit,
         270,
       );
+    });
+
+    test('falls back to EUR when feed has no matching local offer', () {
+      final DonationOffer jpyOffer = DonationOffer.fromNews(
+        null,
+        userCurrencyCode: 'JPY',
+      );
+      expect(jpyOffer.currency, 'EUR');
+      expect(jpyOffer.amounts, <int>[3, 5, 10]);
+      expect(jpyOffer.scansPerUnit, 270);
+      expect(jpyOffer.defaultAmount, 5);
+
+      final DonationOffer usdOffer = DonationOffer.fromNews(
+        null,
+        userCurrencyCode: 'usd',
+      );
+      expect(usdOffer.currency, 'EUR');
+      expect(usdOffer.amounts, <int>[3, 5, 10]);
+      expect(usdOffer.scansPerUnit, 270);
+    });
+
+    test(
+      'prefers feed donation_offers for user currency if anchor matches',
+      () {
+        final DonationOffer offer = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'JPY',
+            donationScansPerUnit: 2,
+            donationOffers: <String, List<int>>{
+              'JPY': <int>[600, 1200, 2400],
+            },
+          ),
+          userCurrencyCode: 'JPY',
+        );
+        expect(offer.currency, 'JPY');
+        expect(offer.amounts, <int>[600, 1200, 2400]);
+        expect(offer.scansPerUnit, 2);
+      },
+    );
+
+    test(
+      'selects feed donation_offers ladder when userCurrencyCode is null',
+      () {
+        final DonationOffer offer = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'JPY',
+            donationScansPerUnit: 2,
+            donationOffers: <String, List<int>>{
+              'JPY': <int>[600, 1200, 2400],
+            },
+          ),
+        );
+        expect(offer.currency, 'JPY');
+        expect(offer.amounts, <int>[600, 1200, 2400]);
+        expect(offer.scansPerUnit, 2);
+      },
+    );
+
+    test(
+      'uses feed scan anchor only when feed currency matches user currency',
+      () {
+        // Feed is EUR with 270 scans/unit, user is JPY: should fall back to EUR
+        final DonationOffer mismatchedOffer = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'EUR',
+            donationScansPerUnit: 270,
+            donationOffers: <String, List<int>>{
+              'JPY': <int>[600, 1200, 2400],
+            },
+          ),
+          userCurrencyCode: 'JPY',
+        );
+        expect(mismatchedOffer.currency, 'EUR');
+        expect(mismatchedOffer.scansPerUnit, 270);
+
+        // Feed is JPY with 5 scans/unit, user is JPY: should use feed scansPerUnit (5)
+        final DonationOffer matchedOffer = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'JPY',
+            donationScansPerUnit: 5,
+            donationOffers: <String, List<int>>{
+              'JPY': <int>[700, 1400, 2800],
+            },
+          ),
+          userCurrencyCode: 'JPY',
+        );
+        expect(matchedOffer.currency, 'JPY');
+        expect(matchedOffer.scansPerUnit, 5);
+      },
+    );
+
+    test(
+      'handles custom offers for unsupported currencies with and without matching feed anchor',
+      () {
+        // Custom offer for KRW (not in profiles) with matching KRW feed and anchor: uses KRW
+        final DonationOffer matchedKrw = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'KRW',
+            donationOffers: <String, List<int>>{
+              'KRW': <int>[5000, 10000, 20000],
+            },
+            donationScansPerUnit: 1,
+          ),
+          userCurrencyCode: 'KRW',
+        );
+        expect(matchedKrw.currency, 'KRW');
+        expect(matchedKrw.amounts, <int>[5000, 10000, 20000]);
+        expect(matchedKrw.scansPerUnit, 1);
+
+        // Custom offer for KRW without matching anchor: skips custom offer to avoid inflating scans
+        final DonationOffer unmatchedKrw = DonationOffer.fromNews(
+          _newsItem(
+            currency: 'EUR',
+            donationOffers: <String, List<int>>{
+              'KRW': <int>[5000, 10000, 20000],
+            },
+            donationScansPerUnit: 270,
+          ),
+          userCurrencyCode: 'KRW',
+        );
+        expect(unmatchedKrw.currency, 'EUR');
+        expect(unmatchedKrw.amounts, <int>[3, 5, 10]);
+        expect(unmatchedKrw.scansPerUnit, 270);
+      },
+    );
+
+    test('falls back to EUR when user currency is unsupported or unknown', () {
+      final DonationOffer offer = DonationOffer.fromNews(
+        null,
+        userCurrencyCode: 'XYZ',
+      );
+      expect(offer.currency, 'EUR');
+      expect(offer.amounts, <int>[3, 5, 10]);
+      expect(offer.scansPerUnit, 270);
     });
   });
 

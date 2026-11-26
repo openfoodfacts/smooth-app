@@ -13,6 +13,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/news/scan_news_provider.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/top_card/scan_search_card.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -100,7 +101,12 @@ class _DonationStripState extends State<_DonationStrip> {
         ? news.content.donation
         : null;
     final AppNewsFunding? funding = donation?.funding;
-    final DonationOffer offer = DonationOffer.fromNews(donation);
+    final DonationOffer offer = DonationOffer.fromNews(
+      donation,
+      userCurrencyCode:
+          context.read<UserPreferences>().userCurrencyCode ??
+          ProductQuery.getCountry().currency?.name,
+    );
 
     return Material(
       color: context.lightTheme()

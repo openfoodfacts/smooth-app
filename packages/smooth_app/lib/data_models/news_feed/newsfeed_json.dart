@@ -130,6 +130,7 @@ class _TagLineItemNewsItem {
     required this.donationReminderEvery,
     required this.donationAbNewPercent,
     required this.donationStripHideDays,
+    this.donationOffers,
     this.minLaunches,
     this.startDate,
     this.endDate,
@@ -165,6 +166,7 @@ class _TagLineItemNewsItem {
       goal = json['goal'] as num?,
       currency = json['currency'],
       donationAmounts = DonationOffer.feedList<num>(json['donation_amounts']),
+      donationOffers = _parseDonationOffers(json['donation_offers']),
       donationScansPerUnit = json['donation_scans_per_unit'] as num?,
       count = json['count'] as num?,
       donationReminderEvery = json['donation_reminder_every'] as num?,
@@ -191,11 +193,40 @@ class _TagLineItemNewsItem {
   final num? goal;
   final String? currency;
   final List<num>? donationAmounts;
+  final Map<String, List<int>>? donationOffers;
   final num? donationScansPerUnit;
   final num? count;
   final num? donationReminderEvery;
   final num? donationAbNewPercent;
   final num? donationStripHideDays;
+
+  static Map<String, List<int>>? _parseDonationOffers(dynamic value) {
+    if (value is! Map) {
+      return null;
+    }
+    final Map<String, List<int>> result = <String, List<int>>{};
+    for (final MapEntry<dynamic, dynamic> entry in value.entries) {
+      final String code = entry.key.toString().toUpperCase().trim();
+      if (code.length != 3) {
+        continue;
+      }
+      List<num>? rawAmounts;
+      final Object? val = entry.value;
+      if (val is List<dynamic>) {
+        rawAmounts = DonationOffer.feedList<num>(val);
+      } else if (val is Map<dynamic, dynamic>) {
+        final Object? amountsVal = val['amounts'];
+        if (amountsVal is List<dynamic>) {
+          rawAmounts = DonationOffer.feedList<num>(amountsVal);
+        }
+      }
+      final List<int> amounts = DonationOffer.ladder(rawAmounts);
+      if (amounts.isNotEmpty && amounts.every((int a) => a > 0)) {
+        result[code] = amounts;
+      }
+    }
+    return result.isEmpty ? null : result;
+  }
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
     _TagLineItemNewsTranslation? translation;
@@ -235,6 +266,7 @@ class _TagLineItemNewsItem {
       goal: goal,
       currency: currency,
       donationAmounts: donationAmounts,
+      donationOffers: donationOffers,
       donationScansPerUnit: donationScansPerUnit,
       count: count,
       donationReminderEvery: donationReminderEvery,
@@ -263,6 +295,7 @@ class _TagLineItemNewsItem {
     num? goal,
     String? currency,
     List<num>? donationAmounts,
+    Map<String, List<int>>? donationOffers,
     num? donationScansPerUnit,
     num? count,
     num? donationReminderEvery,
@@ -284,6 +317,7 @@ class _TagLineItemNewsItem {
       goal: goal ?? this.goal,
       currency: currency ?? this.currency,
       donationAmounts: donationAmounts ?? this.donationAmounts,
+      donationOffers: donationOffers ?? this.donationOffers,
       donationScansPerUnit: donationScansPerUnit ?? this.donationScansPerUnit,
       count: count ?? this.count,
       donationReminderEvery:
