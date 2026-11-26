@@ -420,6 +420,18 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool lightTheme = context.lightTheme();
 
+    final double devicePixelRatio = MediaQuery.devicePixelRatioOf(context);
+
+    final int width = (size.width * devicePixelRatio).ceil();
+    final int height = (size.height * devicePixelRatio).ceil();
+
+    final ImageProvider resizedImageProvider = ResizeImage(
+      imageProvider,
+      width: width > 0 ? width : 1,
+      height: height > 0 ? height : 1,
+      policy: ResizeImagePolicy.fit,
+    );
+
     final Widget image = Semantics(
       label:
           imageField?.getPictureAccessibilityLabel(appLocalizations) ??
@@ -441,13 +453,16 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
                     child: ImageFiltered(
                       imageFilter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
                       enabled: blurFilter,
-                      child: Image(image: imageProvider, fit: BoxFit.cover),
+                      child: Image(
+                        image: resizedImageProvider,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-            Positioned.fill(child: _buildImage()),
+            Positioned.fill(child: _buildImage(resizedImageProvider)),
             if (child != null)
               Positioned.fill(
                 child: Material(
@@ -523,12 +538,12 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
     return image;
   }
 
-  Widget _buildImage() {
+  Widget _buildImage(ImageProvider resizedImageProvider) {
     final Widget image = Image(
       width: size.width,
       height: size.height,
       fit: BoxFit.contain,
-      image: imageProvider,
+      image: resizedImageProvider,
       loadingBuilder:
           (
             BuildContext context,
