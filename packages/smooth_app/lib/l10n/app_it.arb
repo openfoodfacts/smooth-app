@@ -6686,7 +6686,7 @@
   "@donation_cta_one_off": {
     "description": "Secondary link of the donation page, opens the donation form for a single gift"
   },
-  "donation_already_donated": "I already donated",
+  "donation_already_donated": "Ho già donato",
   "@donation_already_donated": {
     "description": "Quiet link under the donation buttons; tapping it stops the app asking for a donation for a year"
   },
@@ -6704,7 +6704,7 @@
       }
     }
   },
-  "donation_reminder_title_generic": "Join the people keeping Open Food Facts free.",
+  "donation_reminder_title_generic": "Unisciti alle persone che mantengono gratuito Open Food Facts.",
   "@donation_reminder_title_generic": {
     "description": "Headline of the donation reminder sheet when the feed carries no usable donor count"
   },
@@ -6712,7 +6712,7 @@
   "@donation_reminder_body": {
     "description": "Body line of the donation reminder sheet"
   },
-  "donation_reminder_not_now": "Not now",
+  "donation_reminder_not_now": "Non ora",
   "@donation_reminder_not_now": {
     "description": "Quiet button on the donation reminder sheet that closes it without changing anything"
   },
