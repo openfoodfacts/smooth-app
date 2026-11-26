@@ -5478,7 +5478,7 @@
   "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_group_good_matches": "Gode kampe",
+  "product_page_for_me_attributes_group_good_matches": "Godt match",
   "@product_page_for_me_attributes_group_good_matches": {
     "description": "Title for the group of attributes that are good matches for the user"
   },
@@ -5486,11 +5486,11 @@
   "@product_page_for_me_attributes_group_average_matches": {
     "description": "Title for the group of attributes that are average matches for the user"
   },
-  "product_page_for_me_attributes_group_bad_matches": "Dårlige matches",
+  "product_page_for_me_attributes_group_bad_matches": "Dårligt match",
   "@product_page_for_me_attributes_group_bad_matches": {
     "description": "Title for the group of attributes that are bad matches for the user"
   },
-  "product_page_for_me_attributes_group_unknown_matches": "Ukendte matches",
+  "product_page_for_me_attributes_group_unknown_matches": "Ukendt match",
   "@product_page_for_me_attributes_group_unknown_matches": {
     "description": "Title for the group of attributes that are unknown matches for the user"
   },
