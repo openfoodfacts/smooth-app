@@ -83,10 +83,6 @@ class SimpleInputList extends StatelessWidget {
       },
       itemCount: localTerms.length,
       onReorderItem: (int oldIndex, int newIndex) {
-        if (oldIndex < newIndex) {
-          newIndex--;
-        }
-
         final String oldValue = localTerms[oldIndex];
         localTerms.removeAt(oldIndex);
         localTerms.insert(newIndex, oldValue);
