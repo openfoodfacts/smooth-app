@@ -10,7 +10,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square/knowledge_panel_square_item.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/color_provider.dart';
@@ -86,6 +88,25 @@ void main() {
             ),
           },
         );
+
+  testWidgets('an expanded card ignores a missing panel', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(
+      wrap(
+        KnowledgePanelExpandedCard(
+          panelId: 'missing',
+          product: buildProductWithPanels(),
+          isInitiallyExpanded: true,
+          isClickable: true,
+          simplified: false,
+        ),
+      ),
+    );
+
+    expect(tester.takeException(), isNull);
+    expect(find.byWidget(EMPTY_WIDGET), findsOneWidget);
+  });
 
   group('KnowledgePanelCard - card -> full page (route 1)', () {
     testWidgets('an unclickable card has a null onTap and fires nothing', (
