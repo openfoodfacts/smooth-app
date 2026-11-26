@@ -9,9 +9,11 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/app_settings_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/default_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/faq_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/city_postcode_tile.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
@@ -87,5 +89,19 @@ void main() {
     );
 
     expect(_screenViews(), isEmpty);
+  });
+
+  testWidgets('app settings include the city or postcode preference', (
+    WidgetTester tester,
+  ) async {
+    await _pumpRoot(tester, const AppSettingsRoot(title: 'App settings'));
+
+    await tester.scrollUntilVisible(
+      find.byType(CityPostcodeTile),
+      200,
+      scrollable: find.byType(Scrollable),
+    );
+
+    expect(find.byType(CityPostcodeTile), findsOneWidget);
   });
 }
