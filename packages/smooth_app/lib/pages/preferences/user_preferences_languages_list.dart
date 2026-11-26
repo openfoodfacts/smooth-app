@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/string_extension.dart';
 
@@ -214,7 +213,7 @@ class Languages {
     return languages;
   }
 
-  String getNameInEnglish(final OpenFoodFactsLanguage language) => language
+  String getNameInEnglish(OpenFoodFactsLanguage language) => language
       .toString()
       .split('.')
       .last
@@ -223,7 +222,7 @@ class Languages {
       .toLowerCase()
       .capitalize();
 
-  String getNameInLanguage(final OpenFoodFactsLanguage language) =>
+  String getNameInLanguage(OpenFoodFactsLanguage language) =>
       _namesInLanguage[language] ??
       _namesInLanguage[OpenFoodFactsLanguage.ENGLISH]!;
 }

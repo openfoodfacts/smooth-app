@@ -10,7 +10,7 @@ import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/main.dart' as app;
 
 Future<void> _initScreenshot(
-  final IntegrationTestWidgetsFlutterBinding binding,
+  IntegrationTestWidgetsFlutterBinding binding,
 ) async {
   if ((!kIsWeb) && Platform.isAndroid) {
     await binding.convertFlutterSurfaceToImage();
@@ -18,9 +18,9 @@ Future<void> _initScreenshot(
 }
 
 Future<void> _takeScreenshot(
-  final WidgetTester tester,
-  final IntegrationTestWidgetsFlutterBinding binding,
-  final String screenshotName,
+  WidgetTester tester,
+  IntegrationTestWidgetsFlutterBinding binding,
+  String screenshotName,
 ) async {
   if ((!kIsWeb) && Platform.isAndroid) {
     await tester.pumpAndSettle();

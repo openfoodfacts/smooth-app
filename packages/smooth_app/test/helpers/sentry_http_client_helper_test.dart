@@ -182,8 +182,10 @@ void main() {
         AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => true;
         AnalyticsHelper.debugIsCrashEnabledOverride = () => true;
         final _RecordingSpan span = _RecordingSpan();
-        SentryHttpClientHelper.debugSpanFactory =
-            (String operation, String description) => span;
+        SentryHttpClientHelper.debugSpanFactory = (
+          String operation,
+          String description,
+        ) => span;
 
         final HttpClient client = SentryHttpClientHelper.wrapHttpClient(
           _FailingHttpClient(),

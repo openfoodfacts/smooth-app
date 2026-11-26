@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panel_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
@@ -27,7 +28,7 @@ class KnowledgePanelCard extends StatelessWidget {
   static const String PANEL_INGREDIENTS_ID = 'ingredients';
 
   /// Returns the preferences tag we use for the flag related to that [panelId].
-  static String getExpandFlagTag(final String panelId) => 'expand_$panelId';
+  static String getExpandFlagTag(String panelId) => 'expand_$panelId';
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class KnowledgePanelCard extends StatelessWidget {
     if (panel == null) {
       return EMPTY_WIDGET;
     }
-    if (_isExpandedByUser(panel, userPreferences) || (panel.expanded == true)) {
+    if (_isExpandedByUser(userPreferences) || (panel.expanded == true)) {
       return KnowledgePanelExpandedCard(
         panelId: panelId,
         product: product,
@@ -61,15 +62,26 @@ class KnowledgePanelCard extends StatelessWidget {
       borderRadius: ANGULAR_BORDER_RADIUS,
       onTap: !improvedIsClickable
           ? null
-          : () async => Navigator.push<Widget>(
-              context,
-              MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => SmoothBrightnessOverride(
-                  brightness: SmoothBrightnessOverride.of(context)?.brightness,
-                  child: KnowledgePanelPage(panelId: panelId, product: product),
+          : () async {
+              AnalyticsHelper.trackEvent(
+                AnalyticsEvent.knowledgePanelOpen,
+                action: panelId,
+              );
+              await Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => SmoothBrightnessOverride(
+                    brightness: SmoothBrightnessOverride.of(
+                      context,
+                    )?.brightness,
+                    child: KnowledgePanelPage(
+                      panelId: panelId,
+                      product: product,
+                    ),
+                  ),
                 ),
-              ),
-            ),
+              );
+            },
       child:
           panel.getPanelSummaryWidget(
             product,
@@ -81,27 +93,13 @@ class KnowledgePanelCard extends StatelessWidget {
     );
   }
 
-  bool _isExpandedByUser(
-    final KnowledgePanel panel,
-    final UserPreferences userPreferences,
-  ) {
+  bool _isExpandedByUser(UserPreferences userPreferences) {
     final List<String> expandedPanelIds = <String>[
       PANEL_NUTRITION_TABLE_ID,
       PANEL_INGREDIENTS_ID,
     ];
-    for (final String panelId in expandedPanelIds) {
-      if (panel.titleElement != null &&
-          panel.titleElement!.title ==
-              KnowledgePanelsBuilder.getKnowledgePanel(
-                product,
-                panelId,
-              )?.titleElement?.title) {
-        if (userPreferences.getFlag(getExpandFlagTag(panelId)) ?? false) {
-          return true;
-        }
-      }
-    }
-    return false;
+    return expandedPanelIds.contains(panelId) &&
+        (userPreferences.getFlag(getExpandFlagTag(panelId)) ?? false);
   }
 
   @override

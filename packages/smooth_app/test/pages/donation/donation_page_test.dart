@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,6 +12,8 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/pages/donation/donation_ladder_outline.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/donation/donation_page.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -27,6 +30,9 @@ const String _whereItGoesTitle = 'Where it goes';
 const String _tiersTitle = 'Monthly, cancel any time';
 const String _ctaMonthly = 'Support monthly';
 const String _ctaOneOff = 'Give once instead';
+const String _alreadyDonated = 'I already donated';
+const String _alreadyDonatedThanks =
+    "Thank you! We won't ask again for a year.";
 
 /// Pinned formats: whole euros, and a grouped scan count.
 const List<String> _amounts = <String>[
@@ -86,6 +92,12 @@ List<String> _recordHaptics() {
   return played;
 }
 
+List<Map<String, String>> _eventsNamed(String name) => MatomoTracker
+    .instance
+    .queue
+    .where((Map<String, String> event) => event['e_n'] == name)
+    .toList();
+
 String _selectedAmount(WidgetTester tester) => tester
     .widget<PreferenceTile>(
       find.ancestor(
@@ -100,6 +112,7 @@ Future<void> _pumpDonationPage(
   String theme = 'Light',
   Locale? locale,
   AppNewsItem? donation,
+  DonationSource? source,
 }) async {
   tester.view.physicalSize = const Size(1080, 2424);
   tester.view.devicePixelRatio = 2.625;
@@ -109,8 +122,6 @@ Future<void> _pumpDonationPage(
     tester.platformDispatcher.localesTestValue = <Locale>[locale];
     addTearDown(tester.platformDispatcher.clearLocalesTestValue);
   }
-
-  SharedPreferences.setMockInitialValues(mockSharedPreferences());
 
   final UserPreferences userPreferences =
       await UserPreferences.getUserPreferences();
@@ -130,7 +141,7 @@ Future<void> _pumpDonationPage(
   // initializes during onboarding.
   await ProductQuery.initCountry(userPreferences);
 
-  Widget page = const DonationPage();
+  Widget page = DonationPage(source: source);
   if (donation != null) {
     final AppNewsProvider news = _FeedNewsProvider(userPreferences, donation);
     addTearDown(news.dispose);
@@ -156,6 +167,19 @@ Future<void> _pumpDonationPage(
 }
 
 void main() {
+  // Once, before anything reads a preference: `UserPreferences` memoizes one
+  // instance per isolate, so a later `setMockInitialValues` reaches nothing.
+  setUpAll(() async {
+    SharedPreferences.setMockInitialValues(mockSharedPreferences());
+    await mockMatomo();
+  });
+
+  setUp(() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('donationAsksMutedUntil');
+    MatomoTracker.instance.dropActions();
+  });
+
   for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
     testWidgets('DonationPage is complete in $theme', (
       WidgetTester tester,
@@ -172,11 +196,15 @@ void main() {
           .getTopLeft(find.byType(SmoothLargeButtonWithIcon))
           .dy;
       final double secondaryCta = tester.getTopLeft(find.text(_ctaOneOff)).dy;
+      final double alreadyDonated = tester
+          .getTopLeft(find.text(_alreadyDonated))
+          .dy;
 
       expect(headline, lessThan(whereItGoes));
       expect(whereItGoes, lessThan(tiers));
       expect(tiers, lessThan(primaryCta));
       expect(primaryCta, lessThan(secondaryCta));
+      expect(secondaryCta, lessThan(alreadyDonated));
 
       // Three categories, and not a single euro figure among them.
       final Finder whereItGoesBlock = find.byKey(DonationPage.whereItGoesKey);
@@ -209,9 +237,42 @@ void main() {
       );
       expect(find.widgetWithText(TextButton, _ctaOneOff), findsOneWidget);
       expect(find.widgetWithText(ElevatedButton, _ctaOneOff), findsNothing);
+      expect(find.widgetWithText(TextButton, _alreadyDonated), findsOneWidget);
 
       expect(tester, meetsGuideline(textContrastGuideline));
       expect(tester, meetsGuideline(labeledTapTargetGuideline));
+    });
+  }
+
+  for (final DonationSource source in DonationSource.values) {
+    testWidgets('"I already donated" from ${source.name} mutes for a year', (
+      WidgetTester tester,
+    ) async {
+      await _pumpDonationPage(tester, source: source);
+      final UserPreferences prefs = await UserPreferences.getUserPreferences();
+      expect(prefs.donationAsksMutedUntil, isNull);
+
+      final DateTime before = DateTime.now();
+      await tester.ensureVisible(find.text(_alreadyDonated));
+      await tester.pump();
+      await tester.tap(find.text(_alreadyDonated));
+      await tester.pump();
+
+      expect(
+        prefs.donationAsksMutedUntil!
+            .difference(before.add(const Duration(days: 365)))
+            .abs(),
+        lessThan(const Duration(seconds: 5)),
+      );
+      expect(find.text(_alreadyDonatedThanks), findsOneWidget);
+      expect(find.byType(DonationPage), findsOneWidget);
+      final List<Map<String, String>> events = _eventsNamed(
+        'donationAlreadyDonated',
+      );
+      expect(events, hasLength(1));
+      expect(events.single['e_v'], '${source.analyticsValue}');
+      expect(events.single['e_a'], '${source.name}:old');
+      expect(tester, meetsGuideline(textContrastGuideline));
     });
   }
 
@@ -429,12 +490,20 @@ void main() {
     // Deliberately a bare symbol in `{amount} a month`, not a formatted amount:
     // the field is where the donor supplies the number, so the suffix supplies
     // only the unit. Pinned because nothing else asserts on this text.
+    final Finder suffix = find.text('€ a month');
+    expect(suffix, findsOneWidget);
+
+    // The test font is about twice as wide as Roboto: on the phone-sized view
+    // the suffix wraps even in English, so widen the view to where it fits.
+    tester.view.physicalSize = const Size(2100, 2424);
+    await tester.pumpAndSettle();
     expect(
-      find.descendant(
-        of: find.byType(TextField),
-        matching: find.text('€ a month'),
+      tester.getCenter(suffix).dy,
+      moreOrLessEquals(
+        tester.getCenter(find.byType(EditableText)).dy,
+        epsilon: 4.0,
       ),
-      findsOneWidget,
+      reason: 'a suffix that fits beside the input stays on its row',
     );
   });
 
@@ -446,31 +515,41 @@ void main() {
 
     await _pumpDonationPage(tester, locale: const Locale('de'));
 
-    // ⚠️ These keys are new, so Crowdin has not translated them and `de` still
-    // renders the English suffix. What this covers today is German number
-    // formatting at 2.0; it becomes a real test of a long translated suffix the
-    // moment translations land, which is why it is worth having now.
-    //
-    // The suffix lays out *inside* the field, so the field's own width never
-    // moves and asserting on it proves nothing. What a longer suffix eats is
-    // the editable box - 70.9 px here - so floor that.
+    // `de` renders the suffix as "€ pro Monat": however long it gets, it must
+    // not squeeze the editable box below room for an amount.
     expect(
       tester.getSize(find.byType(EditableText)).width,
       greaterThan(60.0),
       reason: 'the suffix has squeezed the input too far to type an amount',
     );
+    final Finder suffix = find.text('€ pro Monat');
+    expect(suffix, findsOneWidget);
+    expect(
+      tester.getCenter(suffix).dy,
+      greaterThan(tester.getCenter(find.byType(EditableText)).dy),
+      reason: 'a suffix too wide to sit beside the input wraps under it',
+    );
 
-    // Whatever language the suffix ends up in, it must not be what clips.
+    // Whatever language the suffix ends up in, it must not be what clips. The
+    // hint is skipped in every language: the test font is about twice as wide
+    // as Roboto, so even a hint that fits on a device ellipsizes here.
+    final String hint = tester
+        .widget<TextField>(find.byType(TextField))
+        .decoration!
+        .hintText!;
     for (final Element element
         in find
             .descendant(
-              of: find.byType(TextField),
+              of: find.ancestor(
+                of: find.byType(TextField),
+                matching: find.byType(DonationLadderOutline),
+              ),
               matching: find.byType(RichText),
             )
             .evaluate()) {
       final RenderParagraph paragraph =
           element.renderObject! as RenderParagraph;
-      if (paragraph.text.toPlainText() == _hint) {
+      if (paragraph.text.toPlainText() == hint) {
         continue;
       }
       expect(

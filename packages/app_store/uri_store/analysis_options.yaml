@@ -1,2 +1,7 @@
 # Shared rules
+analyzer:
+  exclude:
+    - build/**
 include: package:openfoodfacts_flutter_lints/flutter.yaml
+formatter:
+  trailing_commas: preserve

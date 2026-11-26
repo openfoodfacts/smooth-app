@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -45,7 +45,7 @@ class PriceAmountField extends StatelessWidget {
         ),
       ),
       maxLines: 1,
-      onChanged: (final String? value) {
+      onChanged: (String? value) {
         if (isPaidPrice) {
           model.paidPrice = value ?? '';
           return;

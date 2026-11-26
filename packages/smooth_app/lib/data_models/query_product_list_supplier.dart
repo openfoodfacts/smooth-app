@@ -18,7 +18,30 @@ class QueryProductListSupplier extends ProductListSupplier {
         productList.setAll(searchResult.products!);
         productList.totalSize = searchResult.count ?? 0;
         partialProductList.add(productList);
-        await DaoProduct(localDatabase).putAll(
+        final DaoProduct daoProduct = DaoProduct(localDatabase);
+        final Map<String, Product> localProducts = await daoProduct.getAll(
+          searchResult.products!.map(
+            (Product product) => product.barcode!,
+          ),
+          languageFilter: productQuery.language,
+        );
+        // Search results usually come without knowledge panels: we keep the
+        // local ones if the product is unchanged and in the same language.
+        // lastModified only catches raw data edits, not recomputed fields:
+        // good enough for now.
+        for (final Product product in searchResult.products!) {
+          if (product.knowledgePanels != null) {
+            continue;
+          }
+          if (product.lastModified == null) {
+            continue;
+          }
+          final Product? localProduct = localProducts[product.barcode];
+          if (product.lastModified == localProduct?.lastModified) {
+            product.knowledgePanels = localProduct!.knowledgePanels;
+          }
+        }
+        await daoProduct.putAll(
           searchResult.products!,
           productQuery.language,
           productType: productQuery.productType,

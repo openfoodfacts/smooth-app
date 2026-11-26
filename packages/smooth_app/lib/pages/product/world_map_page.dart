@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';

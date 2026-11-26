@@ -1,43 +1,49 @@
-import 'dart:io';
-
-import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:flutter/foundation.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 
 class CameraHelper {
   const CameraHelper._();
 
-  static Set<CameraLensType>? _cameraLensTypesBack;
-  static Set<CameraLensType>? _cameraLensTypesFront;
+  static bool? _hasBackCamera;
+  static bool? _hasFrontCamera;
 
   /// Mandatory method to call.
   static Future<void> init() async {
     if (!isSupported) {
-      _cameraLensTypesBack = <CameraLensType>{};
-      _cameraLensTypesFront = <CameraLensType>{};
+      _hasBackCamera = false;
+      _hasFrontCamera = false;
       return;
     }
-    _cameraLensTypesBack = await MobileScannerPlatform.instance
-        .getSupportedLenses(facing: CameraFacing.back);
-    _cameraLensTypesFront = await MobileScannerPlatform.instance
-        .getSupportedLenses(facing: CameraFacing.front);
+    _hasBackCamera = await _hasCamera(front: false);
+    _hasFrontCamera = await _hasCamera(front: true);
+  }
+
+  /// A failing camera query means "no camera", not a failed app start.
+  static Future<bool> _hasCamera({required bool front}) async {
+    try {
+      return await GlobalVars.barcodeScanner.hasCamera(front: front);
+    } catch (_) {
+      return false;
+    }
   }
 
   /// Returns if the device has more than one camera
   static bool get hasMoreThanOneCamera {
-    if (_cameraLensTypesBack == null) {
+    if (_hasBackCamera == null) {
       throw Exception('Please call [init] before!');
     }
-    return _cameraLensTypesBack!.isNotEmpty &&
-        _cameraLensTypesFront!.isNotEmpty;
+    return _hasBackCamera! && _hasFrontCamera!;
   }
 
   /// Returns if the device has at least one camera
   static bool get hasACamera {
-    if (_cameraLensTypesBack == null) {
+    if (_hasBackCamera == null) {
       throw Exception('Please call [init] before!');
     }
-    return _cameraLensTypesBack!.isNotEmpty ||
-        _cameraLensTypesFront!.isNotEmpty;
+    return _hasBackCamera! || _hasFrontCamera!;
   }
 
-  static bool get isSupported => Platform.isAndroid || Platform.isIOS;
+  static bool get isSupported =>
+      defaultTargetPlatform == TargetPlatform.android ||
+      defaultTargetPlatform == TargetPlatform.iOS;
 }

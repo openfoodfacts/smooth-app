@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -75,7 +75,7 @@ class ProductModel with ChangeNotifier {
   /// This is the printed error:
   /// A ProductModel was used after being disposed.
   /// Once you have called dispose() on a ProductModel, it can no longer be used.
-  void _safeNotifyListeners(final ProductLoadingStatus status) {
+  void _safeNotifyListeners(ProductLoadingStatus status) {
     try {
       _loadingStatus = status;
       notifyListeners();

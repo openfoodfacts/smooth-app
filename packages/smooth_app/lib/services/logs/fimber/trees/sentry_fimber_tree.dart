@@ -16,8 +16,8 @@ class SentryFimberTree extends BaseFimberTree {
   }) {
     final SentryLevel sentryLevel = _convertLevel(level);
 
-    // Forward to Sentry Logs (Sentry.logger). No-op unless the SDK was
-    // initialized with enableLogs (debug builds only); safe to call always.
+    // Forward to Sentry Logs (Sentry.logger). The SDK's beforeSendLog callback
+    // drops these in release builds; safe to call always.
     _forwardToSentryLogs(level, message, ex: ex, tag: tag);
 
     if (ex != null || sentryLevel == SentryLevel.error) {

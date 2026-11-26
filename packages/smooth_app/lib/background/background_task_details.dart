@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
@@ -65,7 +65,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   }
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async =>
+  Future<void> preExecute(LocalDatabase localDatabase) async =>
       localDatabase.upToDate.addChange(uniqueId, getProductChange());
 
   /// Adds the background task about changing a product.
@@ -76,12 +76,12 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   /// where [localDatabase] is not null.
   /// At least one of [context] and [localDatabase] must be not null.
   static Future<void> addTask(
-    final Product minimalistProduct, {
+    Product minimalistProduct, {
     required BuildContext? context,
-    required final BackgroundTaskDetailsStamp stamp,
-    required final ProductType? productType,
+    required BackgroundTaskDetailsStamp stamp,
+    required ProductType? productType,
     LocalDatabase? localDatabase,
-    final bool showSnackBar = true,
+    bool showSnackBar = true,
   }) async {
     if (BackgroundTaskBarcode.isBarcodeToBeIgnored(
       minimalistProduct.barcode!,
@@ -119,15 +119,15 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => null;
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskDetails _getNewTask(
-    final Product minimalistProduct,
-    final String uniqueId,
-    final BackgroundTaskDetailsStamp stamp,
-    final ProductType productType,
+    Product minimalistProduct,
+    String uniqueId,
+    BackgroundTaskDetailsStamp stamp,
+    ProductType productType,
   ) => BackgroundTaskDetails._(
     uniqueId: uniqueId,
     processName: _operationType.processName,
@@ -137,7 +137,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
   );
 
-  static String getStamp(final String barcode, final String stamp) =>
+  static String getStamp(String barcode, String stamp) =>
       '$barcode;detail;$stamp';
 
   @override
@@ -152,12 +152,14 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
 
   /// Uploads the product changes.
   @override
-  Future<void> upload(final LocalDatabase localDatabase) async {
+  Future<void> upload(LocalDatabase localDatabase) async {
     final UriProductHelper uriProductHelper = await getUriProductHelper(
       localDatabase,
     );
     final Product product = getProductChange();
-    if (product.packagings != null || product.packagingsComplete != null) {
+    if (product.packagings != null ||
+        product.packagingsComplete != null ||
+        product.nutrition != null) {
       // For the moment, some fields can only be saved in V3,
       // and V3 can only save those fields.
       final ProductResultV3 result =
@@ -166,6 +168,8 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
             product.barcode!,
             packagings: product.packagings,
             packagingsComplete: product.packagingsComplete,
+            nutritionInputSets: NutritionHelper().getInputSets(product),
+            servingSize: product.servingSize,
             language: getLanguage(),
             country: getCountry(),
             uriHelper: uriProductHelper,
@@ -212,22 +216,13 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     }
   }
 
+  /// Nutrition tasks carry only the delta, so none is obsolete.
+  @override
+  bool isDeduplicable() =>
+      stamp != getStamp(barcode, BackgroundTaskDetailsStamp.nutrition.tag);
+
   String _getIncompleteUserData() {
     final User user = getUser();
-    final StringBuffer result = StringBuffer();
-    result.write(' [user:');
-    result.write(user.userId);
-    final int length = user.password.length;
-    result.write(' (');
-    if (length >= 8) {
-      result.write(user.password.substring(0, 2));
-      result.write('*' * (length - 4));
-      result.write(user.password.substring(length - 2));
-    } else {
-      result.write('passwordLength:$length');
-    }
-    result.write(')');
-    result.write('] ');
-    return result.toString();
+    return ' [user:${user.userId} (passwordEmpty:${user.password.isEmpty})] ';
   }
 }

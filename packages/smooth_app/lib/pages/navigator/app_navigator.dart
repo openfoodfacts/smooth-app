@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
@@ -426,7 +426,9 @@ class _SmoothGoRouter {
   Future<void> _initAppLanguage(BuildContext context) {
     // Must be set first to ensure the method is only called once
     _appLanguageInitialized = true;
-    ProductQuery.setLanguage(context, context.read<UserPreferences>());
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+    ProductQuery.setLanguage(context, userPreferences);
+    AnalyticsHelper.trackAppOpen(userPreferences);
     context.read<AppNewsProvider>().loadLatestNews();
     return context.read<ProductPreferences>().refresh();
   }

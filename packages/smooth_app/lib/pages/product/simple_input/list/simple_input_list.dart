@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -120,7 +120,9 @@ class SimpleInputList extends StatelessWidget {
       editable: helper.editable,
       position: position,
       onChanged: (int position, String term) {
+        localTerms[position] = term;
         helper.replaceItem(position, term);
+        setState(() {});
       },
       onRemoveItem: (String term, Widget child) =>
           _onRemoveItem(localTerms, term, child),

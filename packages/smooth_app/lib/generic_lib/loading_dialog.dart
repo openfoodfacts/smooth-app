@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -20,10 +20,10 @@ class LoadingDialog<T> {
 
   /// Runs a future while displaying a stoppable dialog.
   static Future<T?> run<T>({
-    required final BuildContext context,
-    required final Future<T> future,
-    final String? title,
-    final bool? dismissible,
+    required BuildContext context,
+    required Future<T> future,
+    String? title,
+    bool? dismissible,
   }) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return LoadingDialog<T>._()._run(
@@ -38,9 +38,9 @@ class LoadingDialog<T> {
   ///
   /// Typical use-case: when the [run] call failed.
   static Future<void> error({
-    required final BuildContext context,
-    final String? title,
-    final bool shouldOpenNewIssue = false,
+    required BuildContext context,
+    String? title,
+    bool shouldOpenNewIssue = false,
   }) async => showDialog<void>(
     context: context,
     builder: (BuildContext context) {
@@ -91,10 +91,10 @@ class LoadingDialog<T> {
 
   /// Displays "downloading" dialog while actually downloading
   Future<T?> _run({
-    required final BuildContext context,
-    required final Future<T> future,
-    required final String title,
-    final bool? dismissible,
+    required BuildContext context,
+    required Future<T> future,
+    required String title,
+    bool? dismissible,
   }) async => showDialog<T>(
     barrierDismissible: dismissible ?? true,
     context: context,
@@ -104,7 +104,7 @@ class LoadingDialog<T> {
   );
 
   /// Closes the dialog if relevant, pop'ing the [value]
-  void _popDialog(final BuildContext context, final T? value) {
+  void _popDialog(BuildContext context, T? value) {
     if (_popEd) {
       return;
     }
@@ -118,9 +118,9 @@ class LoadingDialog<T> {
 
   /// Displayed dialog during future.
   Widget _getDialog(
-    final BuildContext context,
-    final String title,
-    final Future<T> future,
+    BuildContext context,
+    String title,
+    Future<T> future,
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothAlertDialog(

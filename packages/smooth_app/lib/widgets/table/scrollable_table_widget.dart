@@ -1,9 +1,10 @@
 import 'dart:math';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_cell_width_computer.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/table/html_tag_remover.dart';
 import 'package:smooth_app/widgets/table/smooth_table.dart';
 import 'package:smooth_app/widgets/table/smooth_table_cell.dart';
 import 'package:smooth_app/widgets/table/table_extractor.dart';
@@ -12,7 +13,7 @@ import 'package:smooth_app/widgets/table/table_extractor.dart';
 class ScrollableTableWidget extends StatefulWidget {
   const ScrollableTableWidget(this.smoothTable, {super.key});
 
-  ScrollableTableWidget.fromHtml(final String html)
+  ScrollableTableWidget.fromHtml(String html)
     : this(TableExtractor().extract(html));
 
   final SmoothTable smoothTable;
@@ -53,7 +54,7 @@ class _ScrollableTableWidgetState extends State<ScrollableTableWidget> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (final BuildContext context, final BoxConstraints constraints) {
+      builder: (BuildContext context, BoxConstraints constraints) {
         final List<double> widths = SmoothTable.clampWidths(
           _columnsMaxLength,
           maxColWidth: max(
@@ -92,10 +93,12 @@ class _ScrollableTableWidgetState extends State<ScrollableTableWidget> {
           final List<Widget> rowWidgets = <Widget>[];
           rowWidgets.add(const SizedBox(width: _dividerSize));
           int colIndex = 0;
+          final HtmlTagRemover htmlTagRemover = HtmlTagRemover();
           for (final SmoothTableCell cell in row) {
+            final String withoutHtml = htmlTagRemover.extract(cell.text);
             rowWidgets.add(
               Tooltip(
-                message: cell.text,
+                message: withoutHtml,
                 child: SizedBox(
                   width: widths[colIndex],
                   height: 48,

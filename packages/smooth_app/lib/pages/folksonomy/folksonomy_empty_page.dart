@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/empty_screen_layout.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:vector_graphics/vector_graphics.dart';

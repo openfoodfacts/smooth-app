@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -27,6 +27,9 @@ class PricesLocationsPage extends StatefulWidget {
 
 class _PricesLocationsPageState extends State<PricesLocationsPage>
     with TraceableClientMixin {
+  @override
+  String get actionName => 'Opened prices_locations_page';
+
   final _InfiniteScrollLocationManager _locationManager =
       _InfiniteScrollLocationManager();
 
@@ -60,7 +63,7 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
 /// A manager for handling location data with infinite scrolling
 class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
   @override
-  Future<void> fetchData(final int pageNumber) async {
+  Future<void> fetchData(int pageNumber) async {
     final MaybeError<GetLocationsResult> result =
         await OpenPricesAPIClient.getLocations(
           GetLocationsParameters()

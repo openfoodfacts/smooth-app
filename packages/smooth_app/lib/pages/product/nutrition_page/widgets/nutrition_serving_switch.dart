@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -65,7 +65,7 @@ class NutritionServingSwitch extends StatelessWidget {
                           label: appLocalizations.nutrition_page_per_serving,
                         ),
                       ],
-                      onChanged: (final PerSize? value) {
+                      onChanged: (PerSize? value) {
                         if (value == null) {
                           return;
                         }

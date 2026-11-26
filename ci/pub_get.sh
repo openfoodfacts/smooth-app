@@ -23,6 +23,6 @@ function pub_get() {
   fi
 }
 
-for dir in $(find "$REPO_DIR" -type d -not -path "*/.dart_tool/*"); do
-  pub_get "$dir"
+for pubspec in $(find "$REPO_DIR/packages" -name "pubspec.yaml" -not -path "*/.dart_tool/*" -not -path "*/build/*" -not -path "*/vendor/*" -not -path "*/.symlinks/*" -not -path "*/Pods/*"); do
+  pub_get "$(dirname "$pubspec")"
 done

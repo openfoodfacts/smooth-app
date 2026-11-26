@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 /// A rounded background (useful for icons, etc.)
 class SmoothCircle extends StatelessWidget {

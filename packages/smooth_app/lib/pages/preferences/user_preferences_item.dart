@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Item for preferences, with labels for pre-filtering and widget builder.
 abstract interface class UserPreferencesItem {

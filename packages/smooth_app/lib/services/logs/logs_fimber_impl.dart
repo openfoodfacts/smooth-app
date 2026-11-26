@@ -30,8 +30,8 @@ class FimberLogImpl implements AppLogService {
       Fimber.plantTree(SentryFimberTree(logLevels: LogLevels.allLogLevels));
     } else {
       Fimber.plantTree(DebugFimberTree(logLevels: LogLevels.allLogLevels));
-      // Debug-only: forwards to Sentry Logs (no-op unless enableLogs).
-      // Error events stay consent-gated via _beforeSend as in release.
+      // Debug-only: forwards to Sentry Logs (dropped in release by
+      // beforeSendLog). Error events stay consent-gated via _beforeSend.
       Fimber.plantTree(SentryFimberTree(logLevels: LogLevels.allLogLevels));
 
       _fileTree = FileFimberTree(

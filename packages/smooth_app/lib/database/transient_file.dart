@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -18,7 +18,7 @@ class TransientFile {
   ]) : url = null;
 
   TransientFile.fromProductImageData(
-    final ProductImageData productImageData,
+    ProductImageData productImageData,
     this.barcode,
     this.language, [
     this.uploadedDate,
@@ -26,9 +26,9 @@ class TransientFile {
        url = productImageData.imageUrl;
 
   factory TransientFile.fromProduct(
-    final Product product,
-    final ImageField imageField,
-    final OpenFoodFactsLanguage language,
+    Product product,
+    ImageField imageField,
+    OpenFoodFactsLanguage language,
   ) {
     final ProductImageData productImageData = getProductImageData(
       product,
@@ -43,7 +43,7 @@ class TransientFile {
       product
           .getRawImages()
           ?.firstWhereOrNull(
-            (final ProductImage productImage) =>
+            (ProductImage productImage) =>
                 productImage.imgid == productImageData.imageId,
           )
           ?.uploaded,
@@ -60,13 +60,13 @@ class TransientFile {
   static final Map<String, String> _transientFiles = <String, String>{};
 
   /// Stores locally [file] as a transient image for [imageField] and [barcode].
-  void putImage(final LocalDatabase localDatabase, final File file) {
+  void putImage(LocalDatabase localDatabase, File file) {
     _transientFiles[_getImageKey()] = file.path;
     localDatabase.notifyListeners();
   }
 
   /// Removes the current transient image for [imageField] and [barcode].
-  void removeImage(final LocalDatabase localDatabase) {
+  void removeImage(LocalDatabase localDatabase) {
     _transientFiles.remove(_getImageKey());
     localDatabase.notifyListeners();
   }
@@ -86,8 +86,8 @@ class TransientFile {
 
   /// Returns the key prefix of the transient image (without language).
   static String _getImageKeyPrefix(
-    final ImageField imageField,
-    final String barcode,
+    ImageField imageField,
+    String barcode,
   ) => '$barcode;$imageField;';
 
   /// Returns a way to display the image, either locally or from the server.
@@ -124,8 +124,8 @@ class TransientFile {
 
   /// Returns the languages that have currently transient images.
   static Iterable<OpenFoodFactsLanguage> getImageLanguages(
-    final ImageField imageField,
-    final String barcode,
+    ImageField imageField,
+    String barcode,
   ) {
     final Set<OpenFoodFactsLanguage> result = <OpenFoodFactsLanguage>{};
     final String prefix = _getImageKeyPrefix(imageField, barcode);

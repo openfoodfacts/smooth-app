@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +36,9 @@ class PricesProofsPage extends StatefulWidget {
 
 class _PricesProofsPageState extends State<PricesProofsPage>
     with TraceableClientMixin {
+  @override
+  String get actionName => 'Opened prices_proofs_page';
+
   late final _InfiniteScrollProofManager _proofManager =
       _InfiniteScrollProofManager(selectProof: widget.selectProof);
 
@@ -79,7 +82,7 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
   String? _bearerToken;
 
   @override
-  Future<void> fetchInit(final BuildContext context) async {
+  Future<void> fetchInit(BuildContext context) async {
     if (_bearerToken != null) {
       return;
     }
@@ -98,7 +101,7 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
   }
 
   @override
-  Future<void> fetchData(final int pageNumber) async {
+  Future<void> fetchData(int pageNumber) async {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<GetProofsResult> result =
         await OpenPricesAPIClient.getProofs(

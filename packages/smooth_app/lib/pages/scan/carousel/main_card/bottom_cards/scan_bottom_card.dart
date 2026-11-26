@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
-import 'package:provider/single_child_widget.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -21,17 +20,9 @@ class ScanBottomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: <SingleChildWidget>[
-        ChangeNotifierProvider<ScanNewsFeedProvider>(
-          create: (BuildContext context) => ScanNewsFeedProvider(context),
-        ),
-        Provider<ScanBottomCardDensity>(
-          create: (_) => dense
-              ? ScanBottomCardDensity.dense
-              : ScanBottomCardDensity.normal,
-        ),
-      ],
+    return Provider<ScanBottomCardDensity>(
+      create: (_) =>
+          dense ? ScanBottomCardDensity.dense : ScanBottomCardDensity.normal,
       child: Consumer2<ScanNewsFeedProvider, AppReviewProvider>(
         builder:
             (
@@ -54,7 +45,12 @@ class ScanBottomCard extends StatelessWidget {
               return switch (state) {
                 ScanTagLineStateLoading() => const ScanBottomCardLoading(),
                 ScanTagLineStateNoContent() => EMPTY_WIDGET,
-                ScanTagLineStateLoaded() => ScanNewsCard(news: state.tagLine),
+                // Keyed on the state: the card keeps its rotation index across
+                // rebuilds, and a shorter list would index past its end.
+                ScanTagLineStateLoaded() => KeyedSubtree(
+                  key: ObjectKey(state),
+                  child: ScanNewsCard(news: state.tagLine),
+                ),
               };
             },
       ),

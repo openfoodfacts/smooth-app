@@ -51,7 +51,7 @@ class ProductList {
   });
 
   ProductList.keywordSearch(
-    final String keywords, {
+    String keywords, {
     required int pageSize,
     required int pageNumber,
     required OpenFoodFactsLanguage language,
@@ -68,7 +68,7 @@ class ProductList {
        );
 
   ProductList.categorySearch(
-    final String category, {
+    String category, {
     required int pageSize,
     required int pageNumber,
     required OpenFoodFactsLanguage language,
@@ -85,7 +85,7 @@ class ProductList {
        );
 
   ProductList.contributor(
-    final String userId, {
+    String userId, {
     required int pageSize,
     required int pageNumber,
     required OpenFoodFactsLanguage language,
@@ -100,7 +100,7 @@ class ProductList {
        );
 
   ProductList.informer(
-    final String userId, {
+    String userId, {
     required int pageSize,
     required int pageNumber,
     required OpenFoodFactsLanguage language,
@@ -115,7 +115,7 @@ class ProductList {
        );
 
   ProductList.photographer(
-    final String userId, {
+    String userId, {
     required int pageSize,
     required int pageNumber,
     required OpenFoodFactsLanguage language,
@@ -130,7 +130,7 @@ class ProductList {
        );
 
   ProductList.toBeCompleted(
-    final String userId, {
+    String userId, {
     required int pageSize,
     required int pageNumber,
     required OpenFoodFactsLanguage language,
@@ -165,7 +165,7 @@ class ProductList {
 
   ProductList.scanHistory() : this._(listType: ProductListType.SCAN_HISTORY);
 
-  ProductList.user(final String name)
+  ProductList.user(String name)
     : this._(listType: ProductListType.USER, parameters: name);
 
   final ProductListType listType;
@@ -199,7 +199,7 @@ class ProductList {
   ///
   /// Returns false if not already in the list
   /// Don't forget to update the database afterwards
-  bool remove(final String barcode) {
+  bool remove(String barcode) {
     if (!_barcodes.contains(barcode)) {
       return false;
     }
@@ -208,7 +208,7 @@ class ProductList {
   }
 
   /// Sets all products with the same order as the input list
-  void setAll(final List<Product> products) {
+  void setAll(List<Product> products) {
     final List<String> barcodes = <String>[];
     for (final Product product in products) {
       final String barcode = product.barcode!;
@@ -217,7 +217,7 @@ class ProductList {
     set(barcodes);
   }
 
-  void set(final Iterable<String> barcodes) {
+  void set(Iterable<String> barcodes) {
     _barcodes.clear();
     _barcodes.addAll(barcodes);
   }

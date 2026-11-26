@@ -276,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
+  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -544,6 +544,9 @@
   "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
   "myPreferences_food_compatibility_explainer": "Choisissez les informations sur les aliments qui vous intéressent le plus, afin de classer les aliments en fonction de vos préférences, de voir les informations qui vous intéressent en premier et d'obtenir un résumé de compatibilité.",
   "myPreferences_food_privacy": "Ces préférences alimentaires restent sur votre appareil et ne sont pas associées à votre compte contributeur Open Food Facts si vous en avez un.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Préférences en matière de cosmétiques",
   "myPreferences_beauty_subtitle": "Choisissez les informations sur les produits cosmétiques qui vous importent le plus.",
   "myPreferences_product_title": "Préférences pour d'autres produits",
@@ -621,6 +624,35 @@
     "description": "Title of the OxF selector."
   },
   "search_history": "Historique de recherche",
+  "search_history_locations": "Historique des lieux",
+  "@search_history_locations": {
+    "description": "Title of the list of the locations previously selected, displayed above the search history"
+  },
+  "search_location_select": "Sélectionner ce magasin",
+  "@search_location_select": {
+    "description": "Menu entry of a location in the search history: selects it as the search result"
+  },
+  "search_location_menu_title": "Magasin : {name}",
+  "@search_location_menu_title": {
+    "description": "Title of the menu of a location in the search history",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "search_location_remove": "Supprimer de l'historique",
+  "@search_location_remove": {
+    "description": "Menu entry of a location in the search history: removes it from the history"
+  },
+  "search_location_favorite_add": "Ajouter aux favoris",
+  "@search_location_favorite_add": {
+    "description": "Tooltip of the heart of a location in the search history, when it is not a favorite"
+  },
+  "search_location_favorite_remove": "Retirer des favoris",
+  "@search_location_favorite_remove": {
+    "description": "Tooltip of the heart of a location in the search history, when it is a favorite"
+  },
   "search_store": "Rechercher un magasin",
   "@search_store": {
     "description": "Hint text of a search store text input field"
@@ -658,7 +690,7 @@
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
-  "outdated_image_accessibility_label": "ma traduction",
+  "outdated_image_accessibility_label": "{imageType} (cette image est peut-être obsolète)",
   "@outdated_image_accessibility_label": {
     "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
     "placeholders": {
@@ -1118,7 +1150,7 @@
   "tagline_app_review_button_negative": "Pas vraiment…",
   "tagline_app_review_button_later": "Me demander plus tard",
   "tagline_feed_news_button": "En savoir plus",
-  "tagline_feed_funding_goal": "de {goal}",
+  "tagline_feed_funding_goal": "sur {goal}",
   "@tagline_feed_funding_goal": {
     "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
     "placeholders": {
@@ -1128,7 +1160,7 @@
       }
     }
   },
-  "tagline_feed_funding_shortfall": "{shortfall} court",
+  "tagline_feed_funding_shortfall": "{shortfall} manquants",
   "@tagline_feed_funding_shortfall": {
     "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
     "placeholders": {
@@ -1138,7 +1170,7 @@
       }
     }
   },
-  "tagline_feed_funding_months_left": "{months,plural, one {}=1{Il reste un mois} other{{months} Il reste des mois}}",
+  "tagline_feed_funding_months_left": "{months,plural, =1{Il reste un mois} other{Il reste {months} mois}}",
   "@tagline_feed_funding_months_left": {
     "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
     "placeholders": {
@@ -1250,21 +1282,55 @@
   "@currency_chooser_label": {
     "description": "Label shown above a selector where the user can select their currency (in the preferences)"
   },
-  "country_change_message": "Vous venez de changer de pays.",
-  "@country_change_message": {
-    "description": "Message stating the change of countries"
+  "currency_change_sheet_title": "Changer de devise ?",
+  "@currency_change_sheet_title": {
+    "description": "Title of the sheet proposing to change the currency after the user changed the country"
   },
-  "currency_auto_change_message": "Voulez-vous changer la devise de {previousCurrency} à {possibleCurrency}?",
-  "@currency_auto_change_message": {
-    "description": "Message asking to confirm the change of currencies",
+  "currency_change_sheet_country": "Votre pays est maintenant défini sur **{country}**.",
+  "@currency_change_sheet_country": {
+    "description": "Message of the currency change sheet, stating the new country (shown in bold with the ** markers)",
     "placeholders": {
-      "previousCurrency": {
+      "country": {
         "type": "String",
-        "description": "Current currency"
+        "description": "Localized name of the new country"
+      }
+    }
+  },
+  "currency_change_sheet_question": "Souhaitez-vous changer la devise par défaut de l'application :",
+  "@currency_change_sheet_question": {
+    "description": "Question of the currency change sheet, shown above the current and the new currencies"
+  },
+  "currency_change_sheet_action_approve": "Utiliser {newCurrency}",
+  "@currency_change_sheet_action_approve": {
+    "description": "Action of the currency change sheet to switch to the currency of the new country",
+    "placeholders": {
+      "newCurrency": {
+        "type": "String",
+        "description": "Currency code of the new country (eg: EUR)"
+      }
+    }
+  },
+  "currency_change_sheet_action_keep": "Continuer avec {currency}",
+  "@currency_change_sheet_action_keep": {
+    "description": "Action of the currency change sheet to keep the current currency",
+    "placeholders": {
+      "currency": {
+        "type": "String",
+        "description": "Currency code currently used (eg: USD)"
+      }
+    }
+  },
+  "currency_change_sheet_summary_semantics": "De {currency} à {newCurrency}",
+  "@currency_change_sheet_summary_semantics": {
+    "description": "Screen reader label of the row showing the current and the new currencies in the currency change sheet",
+    "placeholders": {
+      "currency": {
+        "type": "String",
+        "description": "Currency code currently used (eg: USD)"
       },
-      "possibleCurrency": {
+      "newCurrency": {
         "type": "String",
-        "description": "Possible currency"
+        "description": "Currency code of the new country (eg: EUR)"
       }
     }
   },
@@ -2813,6 +2879,38 @@
   "prices_discount_type_pick_it_yourself": "Cueillez-les vous-même",
   "prices_discount_type_second_hand": "Occasion",
   "prices_discount_type_other": "Autre",
+  "prices_discount_type_quantity_subtitle": "Prix dégressif, lot, 2ème à -50%",
+  "@prices_discount_type_quantity_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_sale_subtitle": "Opérations spéciales",
+  "@prices_discount_type_sale_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_seasonal_subtitle": "Fin de série, soldes, arrivage ponctuel",
+  "@prices_discount_type_seasonal_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_loyalty_program_subtitle": "Avantage carte, cagnottage, prix fidélité",
+  "@prices_discount_type_loyalty_program_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_expires_soon_subtitle": "Date courte, anti-gaspi, déstockage",
+  "@prices_discount_type_expires_soon_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_pick_it_yourself_subtitle": "Récolte sur place, direct producteur, 5% de réduction pour un retrait (click & collect)",
+  "@prices_discount_type_pick_it_yourself_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_second_hand_subtitle": "Seconde main, reconditionné, déjà utilisé",
+  "@prices_discount_type_second_hand_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
+  "prices_discount_type_other_subtitle": "Autre motif de réduction tarifaire",
+  "@prices_discount_type_other_subtitle": {
+    "description": "Short description of a discount type, under its name in the discount type menu"
+  },
   "dev_preferences_import_history_result_success": "Fait",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2922,6 +3020,8 @@
       }
     }
   },
+  "proof_action_open_external": "Ouvrir l'image dans un navigateur externe",
+  "proof_action_experimental_assistant": "Expérimental - ouvrir l'assistant de preuve",
   "user_any_search_prices_title": "Prix contributeur : {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
@@ -3961,6 +4061,630 @@
   "currency_selector_title": "Sélectionnez votre devise:",
   "@currency_selector_title": {
     "description": "Label written as the title of the dialog to select the user currency"
+  },
+  "currency_name_aed": "Dirham des Émirats arabes unis",
+  "@currency_name_aed": {
+    "description": "Name of the AED currency, shown in the currency selector"
+  },
+  "currency_name_afn": "Afghani afghan",
+  "@currency_name_afn": {
+    "description": "Name of the AFN currency, shown in the currency selector"
+  },
+  "currency_name_all": "Lek albanais",
+  "@currency_name_all": {
+    "description": "Name of the ALL currency, shown in the currency selector"
+  },
+  "currency_name_amd": "Dram arménien",
+  "@currency_name_amd": {
+    "description": "Name of the AMD currency, shown in the currency selector"
+  },
+  "currency_name_ang": "Florin antillais néerlandais",
+  "@currency_name_ang": {
+    "description": "Name of the ANG currency, shown in the currency selector"
+  },
+  "currency_name_aoa": "Kwanza angolais",
+  "@currency_name_aoa": {
+    "description": "Name of the AOA currency, shown in the currency selector"
+  },
+  "currency_name_ars": "Peso argentin",
+  "@currency_name_ars": {
+    "description": "Name of the ARS currency, shown in the currency selector"
+  },
+  "currency_name_aud": "Dollar australien",
+  "@currency_name_aud": {
+    "description": "Name of the AUD currency, shown in the currency selector"
+  },
+  "currency_name_awg": "Florin arubais",
+  "@currency_name_awg": {
+    "description": "Name of the AWG currency, shown in the currency selector"
+  },
+  "currency_name_azn": "Manat azerbaïdjanais",
+  "@currency_name_azn": {
+    "description": "Name of the AZN currency, shown in the currency selector"
+  },
+  "currency_name_bam": "Mark convertible bosnien",
+  "@currency_name_bam": {
+    "description": "Name of the BAM currency, shown in the currency selector"
+  },
+  "currency_name_bbd": "Dollar barbadien",
+  "@currency_name_bbd": {
+    "description": "Name of the BBD currency, shown in the currency selector"
+  },
+  "currency_name_bdt": "Taka bangladais",
+  "@currency_name_bdt": {
+    "description": "Name of the BDT currency, shown in the currency selector"
+  },
+  "currency_name_bgn": "Lev bulgare",
+  "@currency_name_bgn": {
+    "description": "Name of the BGN currency, shown in the currency selector"
+  },
+  "currency_name_bhd": "Dinar bahreïni",
+  "@currency_name_bhd": {
+    "description": "Name of the BHD currency, shown in the currency selector"
+  },
+  "currency_name_bif": "Franc burundais",
+  "@currency_name_bif": {
+    "description": "Name of the BIF currency, shown in the currency selector"
+  },
+  "currency_name_bmd": "Dollar bermudien",
+  "@currency_name_bmd": {
+    "description": "Name of the BMD currency, shown in the currency selector"
+  },
+  "currency_name_bnd": "Dollar de Brunéi",
+  "@currency_name_bnd": {
+    "description": "Name of the BND currency, shown in the currency selector"
+  },
+  "currency_name_bob": "Boliviano bolivien",
+  "@currency_name_bob": {
+    "description": "Name of the BOB currency, shown in the currency selector"
+  },
+  "currency_name_brl": "Réal brésilien",
+  "@currency_name_brl": {
+    "description": "Name of the BRL currency, shown in the currency selector"
+  },
+  "currency_name_bsd": "Dollar bahaméen",
+  "@currency_name_bsd": {
+    "description": "Name of the BSD currency, shown in the currency selector"
+  },
+  "currency_name_btn": "Ngultrum bhoutanais",
+  "@currency_name_btn": {
+    "description": "Name of the BTN currency, shown in the currency selector"
+  },
+  "currency_name_bwp": "Pula botswanais",
+  "@currency_name_bwp": {
+    "description": "Name of the BWP currency, shown in the currency selector"
+  },
+  "currency_name_byn": "Rouble biélorusse",
+  "@currency_name_byn": {
+    "description": "Name of the BYN currency, shown in the currency selector"
+  },
+  "currency_name_bzd": "Dollar bélizéen",
+  "@currency_name_bzd": {
+    "description": "Name of the BZD currency, shown in the currency selector"
+  },
+  "currency_name_cad": "Dollar canadien",
+  "@currency_name_cad": {
+    "description": "Name of the CAD currency, shown in the currency selector"
+  },
+  "currency_name_cdf": "Franc congolais",
+  "@currency_name_cdf": {
+    "description": "Name of the CDF currency, shown in the currency selector"
+  },
+  "currency_name_chf": "Franc suisse",
+  "@currency_name_chf": {
+    "description": "Name of the CHF currency, shown in the currency selector"
+  },
+  "currency_name_clp": "Peso chilien",
+  "@currency_name_clp": {
+    "description": "Name of the CLP currency, shown in the currency selector"
+  },
+  "currency_name_cny": "Yuan chinois",
+  "@currency_name_cny": {
+    "description": "Name of the CNY currency, shown in the currency selector"
+  },
+  "currency_name_cop": "Peso colombien",
+  "@currency_name_cop": {
+    "description": "Name of the COP currency, shown in the currency selector"
+  },
+  "currency_name_crc": "Colón costaricien",
+  "@currency_name_crc": {
+    "description": "Name of the CRC currency, shown in the currency selector"
+  },
+  "currency_name_cuc": "Peso cubain convertible",
+  "@currency_name_cuc": {
+    "description": "Name of the CUC currency, shown in the currency selector"
+  },
+  "currency_name_cup": "Peso cubain",
+  "@currency_name_cup": {
+    "description": "Name of the CUP currency, shown in the currency selector"
+  },
+  "currency_name_cve": "Escudo cap-verdien",
+  "@currency_name_cve": {
+    "description": "Name of the CVE currency, shown in the currency selector"
+  },
+  "currency_name_czk": "Couronne tchèque",
+  "@currency_name_czk": {
+    "description": "Name of the CZK currency, shown in the currency selector"
+  },
+  "currency_name_djf": "Franc djiboutien",
+  "@currency_name_djf": {
+    "description": "Name of the DJF currency, shown in the currency selector"
+  },
+  "currency_name_dkk": "Couronne danoise",
+  "@currency_name_dkk": {
+    "description": "Name of the DKK currency, shown in the currency selector"
+  },
+  "currency_name_dop": "Peso dominicain",
+  "@currency_name_dop": {
+    "description": "Name of the DOP currency, shown in the currency selector"
+  },
+  "currency_name_dzd": "Dinar algérien",
+  "@currency_name_dzd": {
+    "description": "Name of the DZD currency, shown in the currency selector"
+  },
+  "currency_name_egp": "Livre égyptienne",
+  "@currency_name_egp": {
+    "description": "Name of the EGP currency, shown in the currency selector"
+  },
+  "currency_name_ern": "Nakfa érythréen",
+  "@currency_name_ern": {
+    "description": "Name of the ERN currency, shown in the currency selector"
+  },
+  "currency_name_etb": "Birr éthiopien",
+  "@currency_name_etb": {
+    "description": "Name of the ETB currency, shown in the currency selector"
+  },
+  "currency_name_eur": "Euro",
+  "@currency_name_eur": {
+    "description": "Name of the EUR currency, shown in the currency selector"
+  },
+  "currency_name_fjd": "Dollar fidjien",
+  "@currency_name_fjd": {
+    "description": "Name of the FJD currency, shown in the currency selector"
+  },
+  "currency_name_fkp": "Livre des îles Malouines",
+  "@currency_name_fkp": {
+    "description": "Name of the FKP currency, shown in the currency selector"
+  },
+  "currency_name_gbp": "Livre sterling",
+  "@currency_name_gbp": {
+    "description": "Name of the GBP currency, shown in the currency selector"
+  },
+  "currency_name_gel": "Lari géorgien",
+  "@currency_name_gel": {
+    "description": "Name of the GEL currency, shown in the currency selector"
+  },
+  "currency_name_ghs": "Cédi ghanéen",
+  "@currency_name_ghs": {
+    "description": "Name of the GHS currency, shown in the currency selector"
+  },
+  "currency_name_gip": "Livre de Gibraltar",
+  "@currency_name_gip": {
+    "description": "Name of the GIP currency, shown in the currency selector"
+  },
+  "currency_name_gmd": "Dalasi gambien",
+  "@currency_name_gmd": {
+    "description": "Name of the GMD currency, shown in the currency selector"
+  },
+  "currency_name_gnf": "Franc guinéen",
+  "@currency_name_gnf": {
+    "description": "Name of the GNF currency, shown in the currency selector"
+  },
+  "currency_name_gtq": "Quetzal guatémaltèque",
+  "@currency_name_gtq": {
+    "description": "Name of the GTQ currency, shown in the currency selector"
+  },
+  "currency_name_gyd": "Dollar guyanien",
+  "@currency_name_gyd": {
+    "description": "Name of the GYD currency, shown in the currency selector"
+  },
+  "currency_name_hkd": "Dollar de Hong Kong",
+  "@currency_name_hkd": {
+    "description": "Name of the HKD currency, shown in the currency selector"
+  },
+  "currency_name_hnl": "Lempira hondurien",
+  "@currency_name_hnl": {
+    "description": "Name of the HNL currency, shown in the currency selector"
+  },
+  "currency_name_hrk": "Kuna croate",
+  "@currency_name_hrk": {
+    "description": "Name of the HRK currency, shown in the currency selector"
+  },
+  "currency_name_htg": "Gourde haïtienne",
+  "@currency_name_htg": {
+    "description": "Name of the HTG currency, shown in the currency selector"
+  },
+  "currency_name_huf": "Forint hongrois",
+  "@currency_name_huf": {
+    "description": "Name of the HUF currency, shown in the currency selector"
+  },
+  "currency_name_idr": "Roupie indonésienne",
+  "@currency_name_idr": {
+    "description": "Name of the IDR currency, shown in the currency selector"
+  },
+  "currency_name_ils": "Nouveau shekel israélien",
+  "@currency_name_ils": {
+    "description": "Name of the ILS currency, shown in the currency selector"
+  },
+  "currency_name_inr": "Roupie indienne",
+  "@currency_name_inr": {
+    "description": "Name of the INR currency, shown in the currency selector"
+  },
+  "currency_name_iqd": "Dinar irakien",
+  "@currency_name_iqd": {
+    "description": "Name of the IQD currency, shown in the currency selector"
+  },
+  "currency_name_irr": "Rial iranien",
+  "@currency_name_irr": {
+    "description": "Name of the IRR currency, shown in the currency selector"
+  },
+  "currency_name_isk": "Couronne islandaise",
+  "@currency_name_isk": {
+    "description": "Name of the ISK currency, shown in the currency selector"
+  },
+  "currency_name_jmd": "Dollar jamaïcain",
+  "@currency_name_jmd": {
+    "description": "Name of the JMD currency, shown in the currency selector"
+  },
+  "currency_name_jod": "Dinar jordanien",
+  "@currency_name_jod": {
+    "description": "Name of the JOD currency, shown in the currency selector"
+  },
+  "currency_name_jpy": "Yen japonais",
+  "@currency_name_jpy": {
+    "description": "Name of the JPY currency, shown in the currency selector"
+  },
+  "currency_name_kes": "Shilling kényan",
+  "@currency_name_kes": {
+    "description": "Name of the KES currency, shown in the currency selector"
+  },
+  "currency_name_kgs": "Som kirghize",
+  "@currency_name_kgs": {
+    "description": "Name of the KGS currency, shown in the currency selector"
+  },
+  "currency_name_khr": "Riel cambodgien",
+  "@currency_name_khr": {
+    "description": "Name of the KHR currency, shown in the currency selector"
+  },
+  "currency_name_kmf": "Franc comorien",
+  "@currency_name_kmf": {
+    "description": "Name of the KMF currency, shown in the currency selector"
+  },
+  "currency_name_kpw": "Won nord-coréen",
+  "@currency_name_kpw": {
+    "description": "Name of the KPW currency, shown in the currency selector"
+  },
+  "currency_name_krw": "Won sud-coréen",
+  "@currency_name_krw": {
+    "description": "Name of the KRW currency, shown in the currency selector"
+  },
+  "currency_name_kwd": "Dinar koweïtien",
+  "@currency_name_kwd": {
+    "description": "Name of the KWD currency, shown in the currency selector"
+  },
+  "currency_name_kyd": "Dollar des îles Caïmans",
+  "@currency_name_kyd": {
+    "description": "Name of the KYD currency, shown in the currency selector"
+  },
+  "currency_name_kzt": "Tenge kazakh",
+  "@currency_name_kzt": {
+    "description": "Name of the KZT currency, shown in the currency selector"
+  },
+  "currency_name_lak": "Kip laotien",
+  "@currency_name_lak": {
+    "description": "Name of the LAK currency, shown in the currency selector"
+  },
+  "currency_name_lbp": "Livre libanaise",
+  "@currency_name_lbp": {
+    "description": "Name of the LBP currency, shown in the currency selector"
+  },
+  "currency_name_lkr": "Roupie srilankaise",
+  "@currency_name_lkr": {
+    "description": "Name of the LKR currency, shown in the currency selector"
+  },
+  "currency_name_lrd": "Dollar libérien",
+  "@currency_name_lrd": {
+    "description": "Name of the LRD currency, shown in the currency selector"
+  },
+  "currency_name_lsl": "Loti lesothan",
+  "@currency_name_lsl": {
+    "description": "Name of the LSL currency, shown in the currency selector"
+  },
+  "currency_name_lyd": "Dinar libyen",
+  "@currency_name_lyd": {
+    "description": "Name of the LYD currency, shown in the currency selector"
+  },
+  "currency_name_mad": "Dirham marocain",
+  "@currency_name_mad": {
+    "description": "Name of the MAD currency, shown in the currency selector"
+  },
+  "currency_name_mdl": "Leu moldave",
+  "@currency_name_mdl": {
+    "description": "Name of the MDL currency, shown in the currency selector"
+  },
+  "currency_name_mga": "Ariary malgache",
+  "@currency_name_mga": {
+    "description": "Name of the MGA currency, shown in the currency selector"
+  },
+  "currency_name_mkd": "Denar macédonien",
+  "@currency_name_mkd": {
+    "description": "Name of the MKD currency, shown in the currency selector"
+  },
+  "currency_name_mmk": "Kyat birman",
+  "@currency_name_mmk": {
+    "description": "Name of the MMK currency, shown in the currency selector"
+  },
+  "currency_name_mnt": "Tugrik mongol",
+  "@currency_name_mnt": {
+    "description": "Name of the MNT currency, shown in the currency selector"
+  },
+  "currency_name_mop": "Pataca macanaise",
+  "@currency_name_mop": {
+    "description": "Name of the MOP currency, shown in the currency selector"
+  },
+  "currency_name_mru": "Ouguiya mauritanien",
+  "@currency_name_mru": {
+    "description": "Name of the MRU currency, shown in the currency selector"
+  },
+  "currency_name_mur": "Roupie mauricienne",
+  "@currency_name_mur": {
+    "description": "Name of the MUR currency, shown in the currency selector"
+  },
+  "currency_name_mvr": "Rufiyaa maldivienne",
+  "@currency_name_mvr": {
+    "description": "Name of the MVR currency, shown in the currency selector"
+  },
+  "currency_name_mwk": "Kwacha malawien",
+  "@currency_name_mwk": {
+    "description": "Name of the MWK currency, shown in the currency selector"
+  },
+  "currency_name_mxn": "Peso mexicain",
+  "@currency_name_mxn": {
+    "description": "Name of the MXN currency, shown in the currency selector"
+  },
+  "currency_name_myr": "Ringgit malaisien",
+  "@currency_name_myr": {
+    "description": "Name of the MYR currency, shown in the currency selector"
+  },
+  "currency_name_mzn": "Metical mozambicain",
+  "@currency_name_mzn": {
+    "description": "Name of the MZN currency, shown in the currency selector"
+  },
+  "currency_name_nad": "Dollar namibien",
+  "@currency_name_nad": {
+    "description": "Name of the NAD currency, shown in the currency selector"
+  },
+  "currency_name_ngn": "Naira nigérian",
+  "@currency_name_ngn": {
+    "description": "Name of the NGN currency, shown in the currency selector"
+  },
+  "currency_name_nio": "Córdoba nicaraguayen",
+  "@currency_name_nio": {
+    "description": "Name of the NIO currency, shown in the currency selector"
+  },
+  "currency_name_nok": "Couronne norvégienne",
+  "@currency_name_nok": {
+    "description": "Name of the NOK currency, shown in the currency selector"
+  },
+  "currency_name_npr": "Roupie népalaise",
+  "@currency_name_npr": {
+    "description": "Name of the NPR currency, shown in the currency selector"
+  },
+  "currency_name_nzd": "Dollar néo-zélandais",
+  "@currency_name_nzd": {
+    "description": "Name of the NZD currency, shown in the currency selector"
+  },
+  "currency_name_omr": "Rial omanais",
+  "@currency_name_omr": {
+    "description": "Name of the OMR currency, shown in the currency selector"
+  },
+  "currency_name_pab": "Balboa panaméen",
+  "@currency_name_pab": {
+    "description": "Name of the PAB currency, shown in the currency selector"
+  },
+  "currency_name_pen": "Sol péruvien",
+  "@currency_name_pen": {
+    "description": "Name of the PEN currency, shown in the currency selector"
+  },
+  "currency_name_pgk": "Kina papouan-néo-guinéen",
+  "@currency_name_pgk": {
+    "description": "Name of the PGK currency, shown in the currency selector"
+  },
+  "currency_name_php": "Peso philippin",
+  "@currency_name_php": {
+    "description": "Name of the PHP currency, shown in the currency selector"
+  },
+  "currency_name_pkr": "Roupie pakistanaise",
+  "@currency_name_pkr": {
+    "description": "Name of the PKR currency, shown in the currency selector"
+  },
+  "currency_name_pln": "Zloty polonais",
+  "@currency_name_pln": {
+    "description": "Name of the PLN currency, shown in the currency selector"
+  },
+  "currency_name_pyg": "Guaraní paraguayen",
+  "@currency_name_pyg": {
+    "description": "Name of the PYG currency, shown in the currency selector"
+  },
+  "currency_name_qar": "Rial qatari",
+  "@currency_name_qar": {
+    "description": "Name of the QAR currency, shown in the currency selector"
+  },
+  "currency_name_ron": "Leu roumain",
+  "@currency_name_ron": {
+    "description": "Name of the RON currency, shown in the currency selector"
+  },
+  "currency_name_rsd": "Dinar serbe",
+  "@currency_name_rsd": {
+    "description": "Name of the RSD currency, shown in the currency selector"
+  },
+  "currency_name_rub": "Rouble russe",
+  "@currency_name_rub": {
+    "description": "Name of the RUB currency, shown in the currency selector"
+  },
+  "currency_name_rwf": "Franc rwandais",
+  "@currency_name_rwf": {
+    "description": "Name of the RWF currency, shown in the currency selector"
+  },
+  "currency_name_sar": "Riyal saoudien",
+  "@currency_name_sar": {
+    "description": "Name of the SAR currency, shown in the currency selector"
+  },
+  "currency_name_sbd": "Dollar des îles Salomon",
+  "@currency_name_sbd": {
+    "description": "Name of the SBD currency, shown in the currency selector"
+  },
+  "currency_name_scr": "Roupie seychelloise",
+  "@currency_name_scr": {
+    "description": "Name of the SCR currency, shown in the currency selector"
+  },
+  "currency_name_sdg": "Livre soudanaise",
+  "@currency_name_sdg": {
+    "description": "Name of the SDG currency, shown in the currency selector"
+  },
+  "currency_name_sek": "Couronne suédoise",
+  "@currency_name_sek": {
+    "description": "Name of the SEK currency, shown in the currency selector"
+  },
+  "currency_name_sgd": "Dollar de Singapour",
+  "@currency_name_sgd": {
+    "description": "Name of the SGD currency, shown in the currency selector"
+  },
+  "currency_name_shp": "Livre de Sainte-Hélène",
+  "@currency_name_shp": {
+    "description": "Name of the SHP currency, shown in the currency selector"
+  },
+  "currency_name_sle": "Leone sierra-léonais",
+  "@currency_name_sle": {
+    "description": "Name of the SLE currency, shown in the currency selector"
+  },
+  "currency_name_sos": "Shilling somalien",
+  "@currency_name_sos": {
+    "description": "Name of the SOS currency, shown in the currency selector"
+  },
+  "currency_name_srd": "Dollar surinamais",
+  "@currency_name_srd": {
+    "description": "Name of the SRD currency, shown in the currency selector"
+  },
+  "currency_name_ssp": "Livre sud-soudanaise",
+  "@currency_name_ssp": {
+    "description": "Name of the SSP currency, shown in the currency selector"
+  },
+  "currency_name_stn": "Dobra santoméen",
+  "@currency_name_stn": {
+    "description": "Name of the STN currency, shown in the currency selector"
+  },
+  "currency_name_svc": "Colón salvadorien",
+  "@currency_name_svc": {
+    "description": "Name of the SVC currency, shown in the currency selector"
+  },
+  "currency_name_syp": "Livre syrienne",
+  "@currency_name_syp": {
+    "description": "Name of the SYP currency, shown in the currency selector"
+  },
+  "currency_name_szl": "Lilangeni swazi",
+  "@currency_name_szl": {
+    "description": "Name of the SZL currency, shown in the currency selector"
+  },
+  "currency_name_thb": "Baht thaïlandais",
+  "@currency_name_thb": {
+    "description": "Name of the THB currency, shown in the currency selector"
+  },
+  "currency_name_tjs": "Somoni tadjik",
+  "@currency_name_tjs": {
+    "description": "Name of the TJS currency, shown in the currency selector"
+  },
+  "currency_name_tmt": "Manat turkmène",
+  "@currency_name_tmt": {
+    "description": "Name of the TMT currency, shown in the currency selector"
+  },
+  "currency_name_tnd": "Dinar tunisien",
+  "@currency_name_tnd": {
+    "description": "Name of the TND currency, shown in the currency selector"
+  },
+  "currency_name_top": "Pa'anga tongien",
+  "@currency_name_top": {
+    "description": "Name of the TOP currency, shown in the currency selector"
+  },
+  "currency_name_try": "Livre turque",
+  "@currency_name_try": {
+    "description": "Name of the TRY currency, shown in the currency selector"
+  },
+  "currency_name_ttd": "Dollar de Trinité-et-Tobago",
+  "@currency_name_ttd": {
+    "description": "Name of the TTD currency, shown in the currency selector"
+  },
+  "currency_name_twd": "Nouveau dollar taïwanais",
+  "@currency_name_twd": {
+    "description": "Name of the TWD currency, shown in the currency selector"
+  },
+  "currency_name_tzs": "Shilling tanzanien",
+  "@currency_name_tzs": {
+    "description": "Name of the TZS currency, shown in the currency selector"
+  },
+  "currency_name_uah": "Hryvnia ukrainienne",
+  "@currency_name_uah": {
+    "description": "Name of the UAH currency, shown in the currency selector"
+  },
+  "currency_name_ugx": "Shilling ougandais",
+  "@currency_name_ugx": {
+    "description": "Name of the UGX currency, shown in the currency selector"
+  },
+  "currency_name_usd": "Dollar américain",
+  "@currency_name_usd": {
+    "description": "Name of the USD currency, shown in the currency selector"
+  },
+  "currency_name_uyu": "Peso uruguayen",
+  "@currency_name_uyu": {
+    "description": "Name of the UYU currency, shown in the currency selector"
+  },
+  "currency_name_uzs": "Sum ouzbek",
+  "@currency_name_uzs": {
+    "description": "Name of the UZS currency, shown in the currency selector"
+  },
+  "currency_name_ves": "Bolivar vénézuélien",
+  "@currency_name_ves": {
+    "description": "Name of the VES currency, shown in the currency selector"
+  },
+  "currency_name_vnd": "Dong vietnamien",
+  "@currency_name_vnd": {
+    "description": "Name of the VND currency, shown in the currency selector"
+  },
+  "currency_name_vuv": "Vatu vanuatuan",
+  "@currency_name_vuv": {
+    "description": "Name of the VUV currency, shown in the currency selector"
+  },
+  "currency_name_wst": "Tala samoan",
+  "@currency_name_wst": {
+    "description": "Name of the WST currency, shown in the currency selector"
+  },
+  "currency_name_xaf": "Franc CFA (BEAC)",
+  "@currency_name_xaf": {
+    "description": "Name of the XAF currency, shown in the currency selector"
+  },
+  "currency_name_xcd": "Dollar des Caraïbes orientales",
+  "@currency_name_xcd": {
+    "description": "Name of the XCD currency, shown in the currency selector"
+  },
+  "currency_name_xof": "Franc CFA (BCEAO)",
+  "@currency_name_xof": {
+    "description": "Name of the XOF currency, shown in the currency selector"
+  },
+  "currency_name_xpf": "Franc CFP",
+  "@currency_name_xpf": {
+    "description": "Name of the XPF currency, shown in the currency selector"
+  },
+  "currency_name_yer": "Rial yéménite",
+  "@currency_name_yer": {
+    "description": "Name of the YER currency, shown in the currency selector"
+  },
+  "currency_name_zar": "Rand sud-africain",
+  "@currency_name_zar": {
+    "description": "Name of the ZAR currency, shown in the currency selector"
+  },
+  "currency_name_zmw": "Kwacha zambien",
+  "@currency_name_zmw": {
+    "description": "Name of the ZMW currency, shown in the currency selector"
   },
   "language_selector_title": "Sélectionnez votre langue :",
   "@language_selector_title": {
@@ -5311,6 +6035,10 @@
   "@preferences_dev_mode_product_list_import_title": {
     "description": "Title for product list import feature"
   },
+  "preferences_dev_mode_new_home_page_title": "Enable new Home Page",
+  "@preferences_dev_mode_new_home_page_title": {
+    "description": "Title for enabling the new home page feature"
+  },
   "preferences_faq_scores_methodologies_title": "Scores et méthodologies",
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
@@ -5322,6 +6050,10 @@
   "preferences_faq_nutriscore_v2_subtitle": "Découvrez les principaux changements apportés à la méthodologie",
   "@preferences_faq_nutriscore_v2_subtitle": {
     "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_traffic_lights_subtitle": "Discover the UK FSA methodology",
+  "@preferences_faq_traffic_lights_subtitle": {
+    "description": "Subtitle for Traffic Lights in FAQ"
   },
   "preferences_faq_discover_project_title": "Découvrez le projet",
   "@preferences_faq_discover_project_title": {
@@ -5599,7 +6331,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5807,7 +6539,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
+  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5893,6 +6625,138 @@
     "placeholders": {
       "percent": {
         "type": "String"
+      }
+    }
+  },
+  "donation_page_headline": "Open Food Facts est financé par les personnes qui l'utilisent",
+  "@donation_page_headline": {
+    "description": "Headline at the top of the donation page"
+  },
+  "donation_where_it_goes_title": "Où cela va",
+  "@donation_where_it_goes_title": {
+    "description": "Title of the block listing what a donation pays for"
+  },
+  "donation_where_it_goes_servers": "Serveurs et stockage",
+  "@donation_where_it_goes_servers": {
+    "description": "First thing a donation pays for"
+  },
+  "donation_where_it_goes_engineer": "Un ingénieur à temps plein",
+  "@donation_where_it_goes_engineer": {
+    "description": "Second thing a donation pays for"
+  },
+  "donation_where_it_goes_services": "Services et outils",
+  "@donation_where_it_goes_services": {
+    "description": "Third thing a donation pays for"
+  },
+  "donation_tiers_title": "Mensuel, annulez à tout moment",
+  "@donation_tiers_title": {
+    "description": "Title of the block listing the monthly donation amounts"
+  },
+  "donation_tier_amount_monthly": "{amount} par mois",
+  "@donation_tier_amount_monthly": {
+    "description": "A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "donation_tier_scans": "finance {scans} scans",
+  "@donation_tier_scans": {
+    "description": "How many product scans a monthly donation covers, as an approximation",
+    "placeholders": {
+      "scans": {
+        "type": "String"
+      }
+    }
+  },
+  "donation_custom_amount_hint": "Montant personnalisé",
+  "@donation_custom_amount_hint": {
+    "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
+  },
+  "donation_custom_amount_error": "Entrez un montant",
+  "@donation_custom_amount_error": {
+    "description": "Error shown under the donation amount field when what the donor typed cannot be read as an amount"
+  },
+  "donation_cta_monthly": "Soutenir mensuellement",
+  "@donation_cta_monthly": {
+    "description": "Main button of the donation page, opens the donation form with the selected monthly amount"
+  },
+  "donation_cta_one_off": "Donner une fois à la place",
+  "@donation_cta_one_off": {
+    "description": "Secondary link of the donation page, opens the donation form for a single gift"
+  },
+  "donation_already_donated": "J'ai déjà fait un don",
+  "@donation_already_donated": {
+    "description": "Quiet link under the donation buttons; tapping it stops the app asking for a donation for a year"
+  },
+  "donation_already_donated_thanks": "Merci ! Nous ne vous solliciterons plus pendant un an.",
+  "@donation_already_donated_thanks": {
+    "description": "Confirmation shown after tapping 'I already donated'"
+  },
+  "donation_reminder_title": "{count, plural, one{Rejoignez la {count} personne qui maintient Open Food Facts gratuit.} other{Rejoignez les {count} personnes qui maintiennent Open Food Facts gratuit.}}",
+  "@donation_reminder_title": {
+    "description": "Headline of the donation reminder sheet, with the number of donors from the feed",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "768"
+      }
+    }
+  },
+  "donation_reminder_title_generic": "Rejoignez les personnes qui permettent à Open Food Facts de rester gratuit.",
+  "@donation_reminder_title_generic": {
+    "description": "Headline of the donation reminder sheet when the feed carries no usable donor count"
+  },
+  "donation_reminder_body": "Une association à but non lucratif, construite par des bénévoles, sans publicité ni investisseurs. Un petit don mensuel la maintient gratuite pour tous.",
+  "@donation_reminder_body": {
+    "description": "Body line of the donation reminder sheet"
+  },
+  "donation_reminder_not_now": "Pas maintenant",
+  "@donation_reminder_not_now": {
+    "description": "Quiet button on the donation reminder sheet that closes it without changing anything"
+  },
+  "donation_reminder_cta": "Donner {amount} par mois",
+  "@donation_reminder_cta": {
+    "description": "Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_tier_scans_short": "{scans} scans",
+  "@donation_tier_scans_short": {
+    "description": "Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers",
+    "placeholders": {
+      "scans": {
+        "type": "String",
+        "example": "1,300"
+      }
+    }
+  },
+  "donation_tier_chip_amount": "**{amount}** /mois",
+  "@donation_tier_chip_amount": {
+    "description": "Tier chip on the donation reminder sheet: a monthly amount, already formatted with its currency. The part between ** is shown large; keep the ** around the amount.",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_reminder_funding": "**{raised}** sur {goal}",
+  "@donation_reminder_funding": {
+    "description": "Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.",
+    "placeholders": {
+      "raised": {
+        "type": "String",
+        "example": "€47,673"
+      },
+      "goal": {
+        "type": "String",
+        "example": "€170,000"
       }
     }
   }

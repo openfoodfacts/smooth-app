@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -48,7 +48,7 @@ class _ProductForMeAttributeItem extends StatelessWidget {
     final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
     final bool clickable = attribute.panelId?.isNotEmpty ?? false;
-    final Color color = getAttributeDisplayBackgroundColor(attribute);
+    final Color color = getAttributeDisplayBackgroundColor(attribute, theme);
 
     return InkWell(
       onTap: clickable

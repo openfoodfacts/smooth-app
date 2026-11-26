@@ -1,20 +1,21 @@
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/helpers/product_nutrition_extension.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Helper class that computes the values of each nutrient for a portion.
 class PortionHelper {
   PortionHelper(
-    final List<OrderedNutrient> localizedNutrients,
-    this.productNutriments,
+    List<OrderedNutrient> localizedNutrients,
+    this.product,
     this.grams,
   ) {
     _numberFormat = NumberFormat('####0.###', ProductQuery.getLocaleString());
     _populateFactoredNutrients(localizedNutrients);
   }
 
-  final Nutriments productNutriments;
+  final Product product;
 
   /// Size of the portion, in grams.
   final int grams;
@@ -35,14 +36,14 @@ class PortionHelper {
   int get length => _table.length;
 
   /// Localized name of the [index]th nutrient.
-  String getName(final int index) => _table[index][0];
+  String getName(int index) => _table[index][0];
 
   /// Value + unit of the [index]th nutrient.
-  String getValue(final int index) => _table[index][1];
+  String getValue(int index) => _table[index][1];
 
   /// Recursively populates nutrients' portion values.
   void _populateFactoredNutrients(
-    final List<OrderedNutrient> orderedNutrients,
+    List<OrderedNutrient> orderedNutrients,
   ) {
     for (final OrderedNutrient orderedNutrient in orderedNutrients) {
       final Nutrient? nutrient = NutritionContainerHelper.getNutrient(
@@ -65,18 +66,24 @@ class PortionHelper {
 
   /// Populates for a single nutrient the portion value.
   void _populateFactoredNutrient(
-    final Nutrient nutrient,
-    final String nutrientName,
+    Nutrient nutrient,
+    String nutrientName,
   ) {
-    double? value = productNutriments.getValue(
+    final NutritionValue? nutritionValue = product.getNutrientValue(
       nutrient,
       PerSize.oneHundredGrams,
     );
-    if (value == null) {
+    if (nutritionValue == null) {
       return;
     }
     final Unit unit = nutrient.typicalUnit;
-    value = NutritionContainerHelper.convertWeightFromG(value, unit);
+    double? value = NutritionContainerHelper.convertWeightFromG(
+      NutritionContainerHelper.convertWeightToG(
+        nutritionValue.value!.toDouble(),
+        nutritionValue.unit!,
+      ),
+      unit,
+    );
     if (unit != Unit.PERCENT) {
       // Percents are not impacted by the portion size
       value = value! * grams / 100;

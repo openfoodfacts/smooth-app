@@ -1,23 +1,24 @@
-import 'package:flutter/material.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/country_selector/country_selector_tile.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/currency_selector/currency_selector_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/language_selector/language_selector_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/multiple_choices_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/toggle_preference_tile.dart';
-import 'package:smooth_app/pages/prices/currency_extension.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class AppSettingsRoot extends PreferencesRoot {
   const AppSettingsRoot({required super.title});
+
+  @override
+  String get actionName => 'Opened app_settings_page';
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {
@@ -29,11 +30,6 @@ class AppSettingsRoot extends PreferencesRoot {
     final Color iconColor = context.lightTheme()
         ? theme.primaryColor
         : Colors.white;
-
-    final CurrencySelectorHelper currencyHelper = CurrencySelectorHelper();
-    final Currency selectedCurrency = currencyHelper.getSelected(
-      userPreferences.userCurrencyCode,
-    );
 
     return <PreferenceCard>[
       PreferenceCard(
@@ -48,13 +44,7 @@ class AppSettingsRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           _buildLanguageTile(appLocalizations),
           _buildCountryTile(appLocalizations),
-          _buildCurrencyTile(
-            appLocalizations,
-            selectedCurrency,
-            currencyHelper,
-            context,
-            iconColor,
-          ),
+          _buildCurrencyTile(appLocalizations),
         ],
       ),
       PreferenceCard(
@@ -139,22 +129,10 @@ class AppSettingsRoot extends PreferencesRoot {
     );
   }
 
-  PreferenceTile _buildCurrencyTile(
-    AppLocalizations appLocalizations,
-    Currency selectedCurrency,
-    CurrencySelectorHelper currencyHelper,
-    BuildContext context,
-    Color iconColor,
-  ) {
-    return PreferenceTile(
-      leading: icons.Currency(color: iconColor),
+  CurrencySelectorTile _buildCurrencyTile(AppLocalizations appLocalizations) {
+    return CurrencySelectorTile(
       title: appLocalizations.currency_picker_label,
-      subtitleText: selectedCurrency.getFullName(),
-      onTap: () => currencyHelper.openCurrencySelector(
-        context: context,
-        selected: selectedCurrency,
-      ),
-      trailing: icons.Edit(color: iconColor, size: 18.0),
+      autoValidate: false,
     );
   }
 
@@ -182,7 +160,7 @@ class AppSettingsRoot extends PreferencesRoot {
         UserPictureSource.GALLERY,
       ],
       currentValue: userPreferences.userPictureSource,
-      onChanged: (final UserPictureSource? newValue) async =>
+      onChanged: (UserPictureSource? newValue) async =>
           userPreferences.setUserPictureSource(newValue!),
     );
   }
@@ -204,7 +182,7 @@ class AppSettingsRoot extends PreferencesRoot {
             ),
           ) ??
           false,
-      onToggle: (final bool value) => userPreferences.setFlag(
+      onToggle: (bool value) => userPreferences.setFlag(
         KnowledgePanelCard.getExpandFlagTag(
           KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
         ),
@@ -229,7 +207,7 @@ class AppSettingsRoot extends PreferencesRoot {
             ),
           ) ??
           false,
-      onToggle: (final bool value) => userPreferences.setFlag(
+      onToggle: (bool value) => userPreferences.setFlag(
         KnowledgePanelCard.getExpandFlagTag(
           KnowledgePanelCard.PANEL_INGREDIENTS_ID,
         ),
@@ -249,7 +227,7 @@ class AppSettingsRoot extends PreferencesRoot {
       title: appLocalizations.crash_reporting_toggle_title,
       subtitleText: appLocalizations.crash_reporting_toggle_subtitle,
       state: userPreferences.crashReports,
-      onToggle: (final bool value) => userPreferences.setCrashReports(value),
+      onToggle: (bool value) => userPreferences.setCrashReports(value),
     );
   }
 
@@ -263,7 +241,7 @@ class AppSettingsRoot extends PreferencesRoot {
       title: appLocalizations.send_anonymous_data_toggle_title,
       subtitleText: appLocalizations.send_anonymous_data_toggle_subtitle,
       state: userPreferences.userTracking,
-      onToggle: (final bool value) => userPreferences.setUserTracking(value),
+      onToggle: (bool value) => userPreferences.setUserTracking(value),
     );
   }
 }

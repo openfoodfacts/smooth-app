@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -13,8 +14,8 @@ class ProductQuestionsQuery extends QuestionsQuery {
 
   @override
   Future<List<RobotoffQuestion>> getQuestions(
-    final LocalDatabase localDatabase,
-    final int count,
+    LocalDatabase localDatabase,
+    int count,
   ) async {
     final RobotoffQuestionResult result =
         await RobotoffAPIClient.getProductQuestions(

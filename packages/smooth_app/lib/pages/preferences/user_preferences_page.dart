@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
@@ -21,8 +21,8 @@ class UserPreferencesFoodPage extends StatefulWidget {
   const UserPreferencesFoodPage();
 
   static UserPreferencesFood getUserPreferences({
-    required final UserPreferences userPreferences,
-    required final BuildContext context,
+    required UserPreferences userPreferences,
+    required BuildContext context,
   }) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     BackgroundTaskManager.runAgain(localDatabase);

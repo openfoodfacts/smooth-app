@@ -178,9 +178,11 @@ class _SentryHttpOverrides extends HttpOverrides {
     if (Platform.isAndroid &&
         (_cachedAndroidSdkInt ?? 25) < 25 &&
         _previous == null) {
-      client.badCertificateCallback =
-          (X509Certificate cert, String host, int port) =>
-              _isTrustedOFFHost(host);
+      client.badCertificateCallback = (
+        X509Certificate cert,
+        String host,
+        int port,
+      ) => _isTrustedOFFHost(host);
     }
 
     // Wrap with Sentry tracing if enabled

@@ -1,5 +1,5 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -419,12 +419,6 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     await context.read<UserManagementProvider>().putUser(user);
-    if (!mounted) {
-      return;
-    }
-    final UserPreferences userPreferences =
-        await UserPreferences.getUserPreferences();
-    userPreferences.resetOnboarding();
     if (!mounted) {
       return;
     }
