@@ -28,6 +28,7 @@ import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
+import 'package:smooth_app/pages/product/contributor_products_loader_page.dart';
 import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
@@ -72,6 +73,14 @@ class AppNavigator extends InheritedWidget {
   bool updateShouldNotify(AppNavigator oldWidget) {
     return oldWidget._router != _router;
   }
+
+  @visibleForTesting
+  static String? resolveExternalDeepLink(Uri uri, {Object? extra}) =>
+      _SmoothGoRouter.resolveExternalRedirect(
+        path: uri.path,
+        uri: uri,
+        extra: extra,
+      );
 
   // Router to use with a [WidgetsApp]
   RouterConfig<Object> get router => _router.router;
@@ -223,6 +232,13 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
+              path: '${_InternalAppRoutes.CONTRIBUTOR_PRODUCTS_PAGE}/:userId',
+              builder: (BuildContext context, GoRouterState state) {
+                final String userId = state.pathParameters['userId']!;
+                return ContributorProductsLoaderPage(userId: userId);
+              },
+            ),
+            GoRoute(
               path: '${_InternalAppRoutes.PREFERENCES_PAGE}/food',
               builder: (BuildContext context, GoRouterState state) =>
                   const UserPreferencesFoodPage(),
@@ -358,66 +374,84 @@ class _SmoothGoRouter {
           return null;
         }
 
-        bool externalLink = false;
-
-        // If a barcode is in the URL, ensure to manually fetch the product
-        if (path.isNotEmpty) {
-          final int subPaths = path.count('/');
-
-          if (subPaths > 1) {
-            final String? barcode = _extractProductBarcode(path);
-
-            if (barcode != null) {
-              AnalyticsHelper.trackEvent(
-                AnalyticsEvent.productDeepLink,
-                barcode: barcode,
-              );
-
-              if (state.extra is Product) {
-                return AppRoutes.PRODUCT(barcode, useHeroAnimation: false);
-              } else {
-                return AppRoutes.PRODUCT_LOADER(barcode);
-              }
-            } else if (path == _ExternalRoutes.PRODUCT_EDITION) {
-              // Support cgi/product.pl?type=edit&code=XXXX
-              final String? barcode = state.uri.queryParameters['code'];
-
-              if (barcode != null &&
-                  state.uri.queryParameters['type'] == 'edit') {
-                return AppRoutes.PRODUCT_LOADER(barcode, edit: true);
-              } else {
-                externalLink = true;
-              }
-            } else {
-              externalLink = true;
-            }
-          } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
-            return AppRoutes.HOME();
-          } else if (path == _ExternalRoutes.GUIDE_GREEN_SCORE) {
-            return AppRoutes.GUIDE_GREEN_SCORE;
-          } else if (path == _ExternalRoutes.GUIDE_NOVA_SCORE) {
-            return AppRoutes.GUIDE_NOVA;
-          } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
-            return AppRoutes.GUIDE_NUTRISCORE_V2;
-          } else if (path == _ExternalRoutes.SIGNUP) {
-            return AppRoutes.SIGNUP;
-          } else if (path != _InternalAppRoutes.HOME_PAGE) {
-            externalLink = true;
-          }
-        }
-
-        if (externalLink) {
-          return _openExternalLink(state.uri.toString());
-        } else if (path.isEmpty) {
-          // Force the Homepage
-          return _InternalAppRoutes.HOME_PAGE;
-        } else {
-          return state.uri.toString();
-        }
+        return resolveExternalRedirect(
+          path: path,
+          uri: state.uri,
+          extra: state.extra,
+        );
       },
       errorBuilder: (_, GoRouterState state) =>
           ErrorPage(url: state.uri.toString()),
     );
+  }
+
+  /// Resolves an external (non-internal) deep-link path to an internal route.
+  @visibleForTesting
+  static String resolveExternalRedirect({
+    required String path,
+    required Uri uri,
+    Object? extra,
+  }) {
+    bool externalLink = false;
+
+    // If a barcode is in the URL, ensure to manually fetch the product
+    if (path.isNotEmpty) {
+      final int subPaths = path.count('/');
+
+      if (subPaths > 1) {
+        final String? barcode = _extractProductBarcode(path);
+
+        if (barcode != null) {
+          AnalyticsHelper.trackEvent(
+            AnalyticsEvent.productDeepLink,
+            barcode: barcode,
+          );
+
+          if (extra is Product) {
+            return AppRoutes.PRODUCT(barcode, useHeroAnimation: false);
+          } else {
+            return AppRoutes.PRODUCT_LOADER(barcode);
+          }
+        } else if (path == _ExternalRoutes.PRODUCT_EDITION) {
+          // Support cgi/product.pl?type=edit&code=XXXX
+          final String? barcode = uri.queryParameters['code'];
+
+          if (barcode != null && uri.queryParameters['type'] == 'edit') {
+            return AppRoutes.PRODUCT_LOADER(barcode, edit: true);
+          } else {
+            externalLink = true;
+          }
+        } else {
+          final String? contributorUserId = _extractContributorUserId(path);
+          if (contributorUserId != null) {
+            return AppRoutes.CONTRIBUTOR_PRODUCTS(contributorUserId);
+          } else {
+            externalLink = true;
+          }
+        }
+      } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
+        return AppRoutes.HOME();
+      } else if (path == _ExternalRoutes.GUIDE_GREEN_SCORE) {
+        return AppRoutes.GUIDE_GREEN_SCORE;
+      } else if (path == _ExternalRoutes.GUIDE_NOVA_SCORE) {
+        return AppRoutes.GUIDE_NOVA;
+      } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
+        return AppRoutes.GUIDE_NUTRISCORE_V2;
+      } else if (path == _ExternalRoutes.SIGNUP) {
+        return AppRoutes.SIGNUP;
+      } else if (path != _InternalAppRoutes.HOME_PAGE) {
+        externalLink = true;
+      }
+    }
+
+    if (externalLink) {
+      return _openExternalLink(uri.toString());
+    } else if (path.isEmpty) {
+      // Force the Homepage
+      return _InternalAppRoutes.HOME_PAGE;
+    } else {
+      return uri.toString();
+    }
   }
 
   bool _appLanguageInitialized = false;
@@ -433,7 +467,7 @@ class _SmoothGoRouter {
     return context.read<ProductPreferences>().refresh();
   }
 
-  String _openExternalLink(String path) {
+  static String _openExternalLink(String path) {
     AnalyticsHelper.trackEvent(AnalyticsEvent.genericDeepLink);
 
     // Unsupported link -> open the browser
@@ -448,7 +482,7 @@ class _SmoothGoRouter {
   /// Some examples:
   /// - produit/156164894948
   /// - product/3017620422003/nutella-ferrero
-  String? _extractProductBarcode(String path) {
+  static String? _extractProductBarcode(String path) {
     if (path.isEmpty) {
       return null;
     }
@@ -464,6 +498,18 @@ class _SmoothGoRouter {
       }
     }
 
+    return null;
+  }
+
+  /// Extract contributor user ID from `/contributor/<userId>` paths.
+  static String? _extractContributorUserId(String path) {
+    final List<String> segments = Uri(
+      path: path,
+    ).pathSegments.where((String segment) => segment.isNotEmpty).toList();
+    if (segments.length == 2 &&
+        segments[0] == _ExternalRoutes.CONTRIBUTOR_SEGMENT) {
+      return Uri.decodeComponent(segments[1]);
+    }
     return null;
   }
 
@@ -505,6 +551,7 @@ class _InternalAppRoutes {
   static const String PRODUCT_LOADER_PAGE = '_product_loader';
   static const String PRODUCT_CREATOR_PAGE = '_product_creator';
   static const String PRODUCT_EDITOR_PAGE = '_product_editor';
+  static const String CONTRIBUTOR_PRODUCTS_PAGE = '_contributor';
   static const String PREFERENCES_PAGE = '_preferences';
   static const String SEARCH_PAGE = '_search';
   static const String EXTERNAL_PAGE = '_external';
@@ -526,6 +573,7 @@ class _InternalAppRoutes {
 class _ExternalRoutes {
   static const String MOBILE_APP_DOWNLOAD = '/open-food-facts-mobile-app';
   static const String PRODUCT_EDITION = '/cgi/product.pl';
+  static const String CONTRIBUTOR_SEGMENT = 'contributor';
   static const String GUIDE_GREEN_SCORE = '/green-score';
   static const String GUIDE_NOVA_SCORE = '/nova';
   static const String GUIDE_NUTRISCORE_V2 = '/nutriscore-v2';
@@ -567,6 +615,10 @@ class AppRoutes {
   // Product creator or "add product" feature
   static String PRODUCT_EDITOR(String barcode) =>
       '/${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/${Uri.encodeComponent(barcode)}';
+
+  // Products added by a contributor
+  static String CONTRIBUTOR_PRODUCTS(String userId) =>
+      '/${_InternalAppRoutes.CONTRIBUTOR_PRODUCTS_PAGE}/${Uri.encodeComponent(userId)}';
 
   // App preferences
   static String get FOOD_PREFERENCES =>
