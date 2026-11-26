@@ -181,7 +181,7 @@ _Gs1ParseResult? _tryParseGs1WithCleanedInput(final String input) {
   }
 }
 
-/// Tries to parse [input] as a GS1 barcode, returning null when it isn't one.
+/// The scanner callback supplies no symbology metadata. For ambiguous bare
 /// numeric input, a UPC-A, EAN-8 or EAN-13 with a valid check digit takes
 /// precedence over GS1 parsing. Explicit GS1 formatting (e.g. `(21)`, `]C1`
 /// or FNC1) bypasses this rule. Length alone never selects a traditional code.
