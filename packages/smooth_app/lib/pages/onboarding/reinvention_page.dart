@@ -74,6 +74,13 @@ class _OnboardingWelcomePageContent extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final double fontMultiplier = OnboardingConfig.of(context).fontMultiplier;
     final double hillsHeight = OnboardingBottomHills.height(context);
+    const double sentenceFontSize = 26.0;
+    // Android 14+ grows large sizes less: measure at the sentence's own size.
+    final double textGrowth =
+        MediaQuery.textScalerOf(
+          context,
+        ).clamp(minScaleFactor: 1.0).scale(sentenceFontSize) /
+        sentenceFontSize;
 
     return Padding(
       padding: EdgeInsetsDirectional.only(
@@ -85,45 +92,53 @@ class _OnboardingWelcomePageContent extends StatelessWidget {
         children: <Widget>[
           Expanded(
             flex: 15,
-            child: Text(
-              appLocalizations.onboarding_home_welcome_text1,
-              style: TextStyle(
-                fontSize: 45 * fontMultiplier,
-                fontWeight: FontWeight.bold,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.topCenter,
+              child: Text(
+                appLocalizations.onboarding_home_welcome_text1,
+                style: TextStyle(
+                  fontSize: 45 * fontMultiplier,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           const Expanded(flex: 37, child: _SunAndCloud()),
           Expanded(
-            flex: 45,
-            child: FractionallySizedBox(
-              widthFactor: 0.65,
-              child: Align(
-                alignment: const Alignment(0, -0.2),
-                child: TextWithBubbleParts(
-                  text: appLocalizations.onboarding_home_welcome_text2,
-                  fontMultiplier: fontMultiplier,
-                  backgroundColor: context
-                      .extension<SmoothColorsThemeExtension>()
-                      .secondaryVibrant,
-                  textAlign: TextAlign.center,
-                  textStyle: const TextStyle(
-                    fontSize: 26,
-                    height: 1.48,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  bubblePadding: const EdgeInsetsDirectional.only(
-                    top: 1.0,
-                    bottom: 5.0,
-                    start: 15.0,
-                    end: 15.0,
-                  ),
-                  bubbleTextStyle: const TextStyle(
-                    fontSize: 22,
-                    height: 1.53,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
+            flex: (45 * textGrowth).round(),
+            child: Align(
+              alignment: const Alignment(0, -0.2),
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: SizedBox(
+                  // Widens with the text size, so words do not break.
+                  width: MediaQuery.sizeOf(context).width * 0.65 * textGrowth,
+                  child: TextWithBubbleParts(
+                    text: appLocalizations.onboarding_home_welcome_text2,
+                    fontMultiplier: fontMultiplier,
+                    backgroundColor: context
+                        .extension<SmoothColorsThemeExtension>()
+                        .secondaryVibrant,
+                    textAlign: TextAlign.center,
+                    textStyle: const TextStyle(
+                      fontSize: sentenceFontSize,
+                      height: 1.48,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    bubblePadding: const EdgeInsetsDirectional.only(
+                      top: 1.0,
+                      bottom: 5.0,
+                      start: 15.0,
+                      end: 15.0,
+                    ),
+                    bubbleTextStyle: const TextStyle(
+                      fontSize: 22,
+                      height: 1.53,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
