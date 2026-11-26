@@ -36,6 +36,7 @@ Dependencies:
       - any-glob-to-any-file: 'packages/smooth_app/pubspec.yaml'
       - any-glob-to-any-file: 'packages/data_importer/pubspec.yaml'
       - any-glob-to-any-file: 'packages/scanner/zxing/pubspec.yaml'
+      - any-glob-to-any-file: 'packages/scanner/tapirscan/pubspec.yaml'
       - any-glob-to-any-file: 'packages/scanner/ml_kit/pubspec.yaml'
       - any-glob-to-any-file: 'packages/scanner/shared/pubspec.yaml'
       - any-glob-to-any-file: 'packages/app_store/shared/pubspec.yaml'
