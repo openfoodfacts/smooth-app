@@ -18,7 +18,7 @@ on:
         required: true
       MATCH_GIT_BASIC_AUTHORIZATION: 
         required: true
-      MATCH_GIT_BASIC_AUTHORIZATION_2: 
+      MATCH_GIT_BASIC_AUTHORIZATION_2:
         required: true
       MATCH_GIT_URL:
         required: true
@@ -40,7 +40,7 @@ env:
   RUBY_VERSION: 3.4.10
  
 jobs:
-  testflight-release:  
+  testflight-release:
     name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
     runs-on: xcode-27
     steps:

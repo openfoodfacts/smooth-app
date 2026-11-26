@@ -11,6 +11,7 @@ import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// Management of background tasks: single thread, block, restart, display.
@@ -236,7 +237,13 @@ class BackgroundTaskManager {
         }
         try {
           await _setTaskErrorStatus(taskId, taskStatusStarted);
-          await task.execute(localDatabase);
+          // Feature span (e.g. "Background task HUNGER_GAMES") so the
+          // task's HTTP calls nest under it in Sentry; no-op without
+          // tracing consent and never throws itself.
+          await AnalyticsHelper.traceFeature(
+            'Background task ${task.processName}',
+            () => task.execute(localDatabase),
+          );
           await _finishTask(taskId, success: true);
           if (task.hasImmediateNextTask) {
             runAgain = true;

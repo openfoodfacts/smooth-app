@@ -12,6 +12,41 @@ const String _kMatomoPersistentQueue = 'matomo_persistent_queue';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  group('traceFeature', () {
+    tearDown(() {
+      AnalyticsHelper.debugIsAnalyticsEnabledOverride = null;
+      AnalyticsHelper.debugIsCrashEnabledOverride = null;
+    });
+
+    test('runs action directly without consent', () async {
+      AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => false;
+
+      expect(await AnalyticsHelper.traceFeature('test', () async => 42), 42);
+    });
+
+    test('runs action with consent even without SDK init', () async {
+      AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => true;
+      AnalyticsHelper.debugIsCrashEnabledOverride = () => true;
+
+      expect(
+        await AnalyticsHelper.traceFeature('test', () async => 'ok'),
+        'ok',
+      );
+    });
+
+    test('rethrows action errors unchanged', () async {
+      AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => false;
+
+      await expectLater(
+        AnalyticsHelper.traceFeature(
+          'test',
+          () => Future<void>.error(StateError('nope')),
+        ),
+        throwsStateError,
+      );
+    });
+  });
+
   group('initMatomo', () {
     // Not a widget test: the persistent queue saves through a zero-duration
     // timer, which needs a real event loop.

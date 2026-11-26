@@ -11,7 +11,8 @@ import 'package:smooth_app/services/logs/fimber/trees/sentry_fimber_tree.dart';
 import 'package:smooth_app/services/logs/smooth_log_levels.dart';
 import 'package:smooth_app/services/logs/smooth_logs_service.dart';
 
-/// On debug builds: device logs + file (all levels)
+/// On debug builds: device logs + file (all levels) + Sentry Logs
+/// (all levels, debug-only SDK feature for branch debugging)
 /// On release builds : device logs (only errors), Sentry (all levels) and
 /// file (only errors & info)
 class FimberLogImpl implements AppLogService {
@@ -29,6 +30,9 @@ class FimberLogImpl implements AppLogService {
       Fimber.plantTree(SentryFimberTree(logLevels: LogLevels.allLogLevels));
     } else {
       Fimber.plantTree(DebugFimberTree(logLevels: LogLevels.allLogLevels));
+      // Debug-only: forwards to Sentry Logs (dropped in release by
+      // beforeSendLog). Error events stay consent-gated via _beforeSend.
+      Fimber.plantTree(SentryFimberTree(logLevels: LogLevels.allLogLevels));
 
       _fileTree = FileFimberTree(
         outputFile: await _fileName,

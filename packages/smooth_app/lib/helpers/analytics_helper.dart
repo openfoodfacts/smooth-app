@@ -320,17 +320,38 @@ class AnalyticsHelper {
     });
   }
 
+  /// Initializes Sentry. Must be called after [GlobalVars] are set
+  /// (see [launchSmoothApp] in main.dart) because [SentryOptions.environment]
+  /// and [_beforeSend] read [GlobalVars.storeLabel]/[GlobalVars.scannerLabel].
   static Future<void> initSentry({required Function()? appRunner}) async {
     await SentryFlutter.init((SentryFlutterOptions options) {
       options
         ..dsn = 'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
-        // To set a uniform sample rate
-        ..tracesSampleRate = 1.0
+        ..tracesSampler = (SentrySamplingContext samplingContext) {
+          // HTTP traces are sent only when the user consented to both
+          // analytics and crash reporting (see isTracingEnabled).
+          // samplingContext is currently unused; if URL-based sampling is needed
+          // (e.g. exclude image CDN) inspect samplingContext.transactionContext
+          // or custom samplingContext.custom.
+          return isTracingEnabled ? 1.0 : 0.0;
+        }
         ..enableTombstone = true
         ..beforeSend = _beforeSend
+        ..beforeSendTransaction = _beforeSendTransaction
         ..captureFailedRequests = false
+        // Enable W3C Trace Context propagation so SDK package:http clients
+        // emit the standard `traceparent` header for OTel-compatible
+        // backends. Our custom dart:io wrapper injects `traceparent` manually
+        // (W3C-only, no `sentry-trace`/`baggage`) because sentry-dart ships
+        // no dart:io wrapper.
+        ..propagateTraceparent = true
         ..environment =
-            '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
+            '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}'
+        // Debug-only: forward Fimber app logs to Sentry Logs for branch
+        // debugging. Sentry 10 always enables logs, so drop them before
+        // sending in release builds. Error/trace pipelines stay consent-gated
+        // in both modes.
+        ..beforeSendLog = (SentryLog log, Hint hint) => kDebugMode ? log : null;
     }, appRunner: appRunner);
   }
 
@@ -354,11 +375,86 @@ class AnalyticsHelper {
   }
 
   /// Returns true if analytics reporting is enabled.
+  @visibleForTesting
+  static bool Function()? debugIsAnalyticsEnabledOverride;
+
   static bool get isEnabled =>
+      debugIsAnalyticsEnabledOverride?.call() ??
       _analyticsReporting == _AnalyticsTrackingMode.enabled;
 
+  @visibleForTesting
+  static bool Function()? debugIsCrashEnabledOverride;
+
+  static bool get _crashReportsEffective =>
+      debugIsCrashEnabledOverride?.call() ?? _crashReports;
+
+  /// Returns true only when the user consented to both analytics and crash
+  /// reporting. HTTP performance traces follow this gate, so disabling
+  /// either consent stops all Sentry trace traffic.
+  static bool get isTracingEnabled => isEnabled && _crashReportsEffective;
+
+  /// Runs [action] inside a Sentry span for a user-facing feature.
+  ///
+  /// If a span is already active, creates an `app.feature` child so HTTP
+  /// calls made by [action] nest under it (e.g. "Hunger Games answer
+  /// question" -> `http.client` child). Otherwise starts a standalone
+  /// transaction bound to the scope for the duration of [action] (finished
+  /// automatically, unbinding itself).
+  /// No-op (just runs [action]) when tracing consent is off.
+  /// Never throws itself: tracing failures degrade to running [action]
+  /// directly, and [action]'s own errors are rethrown unchanged.
+  static Future<T> traceFeature<T>(
+    String name,
+    Future<T> Function() action,
+  ) async {
+    if (!isTracingEnabled) {
+      return action();
+    }
+    // Guarded separately so a throwing span factory can never break [action]:
+    // [span] simply stays null and every use below is null-aware.
+    ISentrySpan? span;
+    try {
+      span =
+          Sentry.getSpan()?.startChild('app.feature', description: name) ??
+          Sentry.startTransaction(name, 'app.feature', bindToScope: true);
+    } catch (_) {
+      span = null;
+    }
+    try {
+      final T result = await action();
+      try {
+        span?.status = const SpanStatus.ok();
+        await span?.finish();
+      } catch (_) {}
+      return result;
+    } catch (e) {
+      try {
+        span?.throwable = e;
+        span?.status = const SpanStatus.internalError();
+        await span?.finish();
+      } catch (_) {}
+      rethrow;
+    }
+  }
+
+  @visibleForTesting
+  static bool get debugCrashReportsEnabled => _crashReportsEffective;
+
+  /// Drops transactions sampled before consent was revoked: [tracesSampler]
+  /// decides at transaction start, so an in-flight transaction would
+  /// otherwise still be sent after opt-out.
+  static FutureOr<SentryTransaction?> _beforeSendTransaction(
+    SentryTransaction transaction,
+    Hint hint,
+  ) {
+    if (!isTracingEnabled) {
+      return null;
+    }
+    return transaction;
+  }
+
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event, Hint hint) {
-    if (!_crashReports) {
+    if (!_crashReportsEffective) {
       return null;
     }
     return event

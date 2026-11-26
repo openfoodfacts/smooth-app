@@ -16,6 +16,10 @@ class SentryFimberTree extends BaseFimberTree {
   }) {
     final SentryLevel sentryLevel = _convertLevel(level);
 
+    // Forward to Sentry Logs (Sentry.logger). The SDK's beforeSendLog callback
+    // drops these in release builds; safe to call always.
+    _forwardToSentryLogs(level, message, ex: ex, tag: tag);
+
     if (ex != null || sentryLevel == SentryLevel.error) {
       Sentry.captureException(
         ex,
@@ -34,6 +38,39 @@ class SentryFimberTree extends BaseFimberTree {
         ),
         hint: tag != null ? Hint.withMap(<String, Object>{'tag': tag}) : null,
       );
+    }
+  }
+
+  /// Sends the log to Sentry Logs; silently ignored when the SDK logger
+  /// is a no-op (release builds, or before SDK init).
+  void _forwardToSentryLogs(
+    String fimberLevel,
+    String message, {
+    dynamic ex,
+    String? tag,
+  }) {
+    final Map<String, SentryAttribute>? attributes = tag != null
+        ? <String, SentryAttribute>{'tag': SentryAttribute.string(tag)}
+        : null;
+    try {
+      switch (fimberLevel) {
+        case 'V':
+          Sentry.logger.trace(message, attributes: attributes);
+        case 'D':
+          Sentry.logger.debug(message, attributes: attributes);
+        case 'W':
+          Sentry.logger.warn(message, attributes: attributes);
+        case 'E':
+          Sentry.logger.error(
+            ex != null ? '$message | $ex' : message,
+            attributes: attributes,
+          );
+        case 'I':
+        default:
+          Sentry.logger.info(message, attributes: attributes);
+      }
+    } catch (_) {
+      // Logging must never break the app.
     }
   }
 
