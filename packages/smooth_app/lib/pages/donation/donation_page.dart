@@ -332,79 +332,50 @@ class _CustomAmountField extends StatelessWidget {
       borderSide: BorderSide(color: Colors.transparent, width: 5.0),
     );
 
-    final String suffix = appLocalizations.donation_tier_amount_monthly(
-      currencySymbol,
-    );
-
     return DonationLadderOutline(
       active: active,
-      child: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          final TextPainter suffixPainter = TextPainter(
-            text: TextSpan(
-              text: suffix,
-              style: DefaultTextStyle.of(context).style,
-            ),
-            textScaler: MediaQuery.textScalerOf(context),
-            textDirection: Directionality.of(context),
-          );
-          suffixPainter.layout();
-          // Past half the width, an inline suffix leaves too little room to
-          // type an amount, so it wraps under the input instead.
-          final bool inline = suffixPainter.width <= constraints.maxWidth / 2;
-
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Theme(
-                data: theme.copyWith(
-                  inputDecorationTheme: theme.inputDecorationTheme.copyWith(
-                    fillColor: Colors.transparent,
-                    focusedBorder: blank,
-                    errorBorder: blank,
-                    focusedErrorBorder: blank,
-                  ),
-                ),
-                child: SmoothTextFormField(
-                  type: TextFieldTypes.PLAIN_TEXT,
-                  controller: controller,
-                  hintText: appLocalizations.donation_custom_amount_hint,
-                  textInputType: TextInputType.number,
-                  maxLines: 1,
-                  borderRadius: ROUNDED_BORDER_RADIUS,
-                  validator: (String? value) =>
-                      value == null ||
-                          value.isEmpty ||
-                          _amountOf(numberFormat, value) != null
-                      ? null
-                      : appLocalizations.donation_custom_amount_error,
-                  suffixIcon: inline
-                      ? Center(
-                          widthFactor: 1.0,
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                              end: MEDIUM_SPACE,
-                            ),
-                            child: Text(suffix),
-                          ),
-                        )
-                      : null,
-                  onChanged: (String? value) =>
-                      onCustomAmount(_amountOf(numberFormat, value ?? '')),
+      child: Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: <Widget>[
+          IntrinsicWidth(
+            child: Theme(
+              data: theme.copyWith(
+                inputDecorationTheme: theme.inputDecorationTheme.copyWith(
+                  fillColor: Colors.transparent,
+                  focusedBorder: blank,
+                  errorBorder: blank,
+                  focusedErrorBorder: blank,
                 ),
               ),
-              if (!inline)
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: LARGE_SPACE,
-                    end: LARGE_SPACE,
-                    bottom: SMALL_SPACE,
-                  ),
-                  child: Text(suffix),
-                ),
-            ],
-          );
-        },
+              child: SmoothTextFormField(
+                type: TextFieldTypes.PLAIN_TEXT,
+                controller: controller,
+                hintText: appLocalizations.donation_custom_amount_hint,
+                textInputType: TextInputType.number,
+                maxLines: 1,
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                validator: (String? value) =>
+                    value == null ||
+                        value.isEmpty ||
+                        _amountOf(numberFormat, value) != null
+                    ? null
+                    : appLocalizations.donation_custom_amount_error,
+                onChanged: (String? value) =>
+                    onCustomAmount(_amountOf(numberFormat, value ?? '')),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: LARGE_SPACE,
+              vertical: SMALL_SPACE,
+            ),
+            child: Text(
+              appLocalizations.donation_tier_amount_monthly(currencySymbol),
+            ),
+          ),
+        ],
       ),
     );
   }

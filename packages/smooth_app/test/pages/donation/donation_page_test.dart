@@ -490,18 +490,20 @@ void main() {
     // Deliberately a bare symbol in `{amount} a month`, not a formatted amount:
     // the field is where the donor supplies the number, so the suffix supplies
     // only the unit. Pinned because nothing else asserts on this text.
-    final Finder suffix = find.descendant(
-      of: find.byType(TextField),
-      matching: find.text('€ a month'),
-    );
+    final Finder suffix = find.text('€ a month');
     expect(suffix, findsOneWidget);
+
+    // The test font is about twice as wide as Roboto: on the phone-sized view
+    // the suffix wraps even in English, so widen the view to where it fits.
+    tester.view.physicalSize = const Size(2100, 2424);
+    await tester.pumpAndSettle();
     expect(
       tester.getCenter(suffix).dy,
       moreOrLessEquals(
         tester.getCenter(find.byType(EditableText)).dy,
         epsilon: 4.0,
       ),
-      reason: 'the suffix fits beside the input, so it stays on its row',
+      reason: 'a suffix that fits beside the input stays on its row',
     );
   });
 
