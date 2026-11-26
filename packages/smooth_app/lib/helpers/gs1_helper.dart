@@ -16,7 +16,7 @@ final RegExp _gs1BracketedGroupRegExp = RegExp(
 /// Group boundaries reinsert the GS separator (`\x1D`) where a non-final
 /// variable-length AI requires one; without it the parser would swallow the
 /// following AIs into the variable-length value.
-String? _bracketedHriToElementString(final String input) {
+String? _bracketedHriToElementString(String input) {
   final List<RegExpMatch> matches = _gs1BracketedGroupRegExp
       .allMatches(input)
       .toList();
@@ -49,7 +49,7 @@ String? _bracketedHriToElementString(final String input) {
 /// requiring a GS separator before the next element (except in final
 /// position). Unknown AIs are treated as fixed-length: the subsequent parse
 /// rejects them anyway.
-bool _isVariableLengthAi(final String ai) {
+bool _isVariableLengthAi(String ai) {
   final AIFormatType? type = AI.AIS[ai]?.type;
   return type == AIFormatType.VARIABLE_LENGTH ||
       type == AIFormatType.VARIABLE_LENGTH_WITH_ISO_NUMBERS ||
@@ -64,7 +64,7 @@ bool _isVariableLengthAi(final String ai) {
 /// part of a query) and normalizes FNC1 markers (leading carets, U+241D) to
 /// the GS separator. Anything else, including raw element strings with
 /// parentheses in AI values, is left unchanged.
-String? _cleanGs1Input(final String input) {
+String? _cleanGs1Input(String input) {
   String normalized = input.trim();
   if (normalized.isEmpty) {
     return null;
@@ -109,7 +109,7 @@ final GS1BarcodeParser _gs1Parser = GS1BarcodeParser.defaultParser();
 ///
 /// Parsing must never break the scanning flow: any failure (invalid input,
 /// unknown AI, ...) simply returns null.
-GS1Barcode? tryParseGs1Barcode(final String input) =>
+GS1Barcode? tryParseGs1Barcode(String input) =>
     _tryParseGs1WithCleanedInput(input)?.barcode;
 
 /// Digits-only EAN-13 / EAN-8 guards.
@@ -128,7 +128,7 @@ final RegExp _ean8RegExp = RegExp(r'^\d{8}$');
 /// A GS1 barcode without a GTIN (e.g. a logistics label) falls back to the
 /// cleaned value, so that different formatting of the same label still
 /// deduplicates.
-String normalizeScannedBarcode(final String code) {
+String normalizeScannedBarcode(String code) {
   final String traditionalBarcode = fixTraditionalBarcode(code);
   if (_traditionalLengthRegExp.hasMatch(traditionalBarcode) &&
       _isValidEan13(traditionalBarcode.padLeft(13, '0'))) {
@@ -156,7 +156,7 @@ class _Gs1ParseResult {
 /// Tries to parse [input] as a GS1 barcode, returning both the parsed barcode
 /// and the cleaned input used for parsing. Returns null when [input] isn't a
 /// GS1 barcode.
-_Gs1ParseResult? _tryParseGs1WithCleanedInput(final String input) {
+_Gs1ParseResult? _tryParseGs1WithCleanedInput(String input) {
   final String? normalized = _cleanGs1Input(input);
   if (normalized == null) {
     return null;
@@ -193,7 +193,7 @@ final RegExp _traditionalLengthRegExp = RegExp(
 ///
 /// It trims the value and removes possible dashes, and pads UPC-A barcodes
 /// (12 digits) to EAN-13 by adding a leading zero.
-String fixTraditionalBarcode(final String code) {
+String fixTraditionalBarcode(String code) {
   final String result = code.replaceAll('-', '').trim();
   if (result.length == 12) {
     return '0$result';
@@ -233,7 +233,7 @@ extension GS1BarcodeHelper on GS1Barcode {
 }
 
 /// Whether [code] is a valid EAN-13 (13 digits with a correct check digit).
-bool _isValidEan13(final String code) {
+bool _isValidEan13(String code) {
   if (!_ean13RegExp.hasMatch(code)) {
     return false;
   }
@@ -246,7 +246,7 @@ bool _isValidEan13(final String code) {
 }
 
 /// Whether [code] is a valid EAN-8 (8 digits with a correct check digit).
-bool _isValidEan8(final String code) {
+bool _isValidEan8(String code) {
   if (!_ean8RegExp.hasMatch(code)) {
     return false;
   }
