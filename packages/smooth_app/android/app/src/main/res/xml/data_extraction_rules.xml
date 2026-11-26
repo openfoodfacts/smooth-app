@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <include
+                domain="sharedpref"
+                path="." />
+        <exclude
+                domain="sharedpref"
+                path="login.xml" />
+        <exclude
+                domain="sharedpref"
+                path="com.google.mlkit.internal.xml" />
+        <exclude
+                domain="sharedpref"
+                path="FlutterSecureStorage.xml" />
+        <exclude
+                domain="sharedpref"
+                path="FlutterSecureKeyStorage.xml" />
+        <include
+                domain="database"
+                path="smoothie.db" />
+        <include
+                domain="root"
+                path="app_flutter/barcodelists.hive" />
+        <include
+                domain="root"
+                path="app_flutter/int.hive" />
+        <include
+                domain="root"
+                path="app_flutter/products.hive" />
+        <include
+                domain="root"
+                path="app_flutter/robotoffmap.hive" />
+        <include
+                domain="root"
+                path="app_flutter/string.hive" />
+        <include
+                domain="root"
+                path="app_flutter/stringlist.hive" />
+    </cloud-backup>
+    <device-transfer>
+        <include
+                domain="sharedpref"
+                path="." />
+        <exclude
+                domain="sharedpref"
+                path="login.xml" />
+        <exclude
+                domain="sharedpref"
+                path="com.google.mlkit.internal.xml" />
+        <exclude
+                domain="sharedpref"
+                path="FlutterSecureStorage.xml" />
+        <exclude
+                domain="sharedpref"
+                path="FlutterSecureKeyStorage.xml" />
+        <include
+                domain="database"
+                path="smoothie.db" />
+        <include
+                domain="root"
+                path="app_flutter/barcodelists.hive" />
+        <include
+                domain="root"
+                path="app_flutter/int.hive" />
+        <include
+                domain="root"
+                path="app_flutter/products.hive" />
+        <include
+                domain="root"
+                path="app_flutter/robotoffmap.hive" />
+        <include
+                domain="root"
+                path="app_flutter/string.hive" />
+        <include
+                domain="root"
+                path="app_flutter/stringlist.hive" />
+    </device-transfer>
+</data-extraction-rules>

@@ -142,7 +142,7 @@
 - **Debugging**: There are debug print statements and TODOs indicating areas for potential improvement or more robust logging.
 - **User Feedback**: UI strings note that contributions are saved automatically but not always in real time, reflecting the asynchronous nature and possible delays in background processing.
 - **Legacy Code/Upgrades**: Some classes have logic for backward compatibility (e.g., product type defaults for legacy tasks).
-- **Security**: There's a TODO about not storing passwords in clear text in the task data.
+- **Security**: The `user` field of a task (id, password, cookie) is encrypted (AES-256-GCM) before being stored in Hive, with a random key kept in the secure storage. Tasks stored by older versions are still in clear text until they are executed or removed. A task that cannot be decrypted (lost key, tampered data) is deleted.
 
 ---
 

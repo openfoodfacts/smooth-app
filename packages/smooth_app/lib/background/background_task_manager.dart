@@ -6,6 +6,7 @@ import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/operation_type.dart';
+import 'package:smooth_app/background/task_user_cipher.dart';
 import 'package:smooth_app/data_models/login_result.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
@@ -73,9 +74,19 @@ class BackgroundTaskManager {
   /// Adds a task to the pending task list.
   Future<void> add(BackgroundTask task) async {
     final String taskId = task.uniqueId;
+    final Map<String, dynamic> json = task.toJson();
+
+    // Throws before anything is persisted if the encryption fails: there is
+    // no fallback to clear text.
+    json[BackgroundTask.jsonTagUser] = await TaskUserCipher.encrypt(
+      task.user,
+      taskId,
+      task.processName,
+    );
+
     await DaoInstantString(
       localDatabase,
-    ).put(_taskIdToDaoInstantStringKey(taskId), jsonEncode(task.toJson()));
+    ).put(_taskIdToDaoInstantStringKey(taskId), jsonEncode(json));
     await DaoStringList(localDatabase).add(queue.tagTaskQueue, taskId);
     await task.preExecute(localDatabase);
     _run(forceNowIfPossible: true);
@@ -92,7 +103,7 @@ class BackgroundTaskManager {
     String taskId, {
     bool success = false,
   }) async {
-    final BackgroundTask? task = _get(taskId);
+    final BackgroundTask? task = await _get(taskId);
     if (task != null) {
       await task.postExecute(localDatabase, success);
     }
@@ -110,7 +121,10 @@ class BackgroundTaskManager {
   }
 
   /// Returns the related task, or null but that is unexpected.
-  BackgroundTask? _get(String taskId) {
+  ///
+  /// Tasks stored before the encryption of [BackgroundTask.user] are still
+  /// read as they are. A task that cannot be decrypted is reported as null.
+  Future<BackgroundTask?> _get(String taskId) async {
     try {
       final String? json = DaoInstantString(
         localDatabase,
@@ -121,15 +135,26 @@ class BackgroundTaskManager {
       }
       final Map<String, dynamic> map = jsonDecode(json) as Map<String, dynamic>;
       final String processName = BackgroundTask.getProcessName(map);
+
+      final Object? user = map[BackgroundTask.jsonTagUser];
+      if (user is String && TaskUserCipher.isEncrypted(user)) {
+        map[BackgroundTask.jsonTagUser] = await TaskUserCipher.decrypt(
+          user,
+          BackgroundTask.getUniqueId(map),
+          processName,
+        );
+      }
+
       for (final OperationType operationType in OperationType.values) {
         if (processName == operationType.processName) {
-          _debugPrint('found: $processName, $map');
+          _debugPrint('found: $processName');
           return operationType.fromJson(map);
         }
       }
     } catch (e) {
       // unexpected
-      _debugPrint('_get exception: $e');
+      // Only the type: the message could contain sensitive data.
+      Logs.e('Background task could not be read (${e.runtimeType})');
     }
     return null;
   }
@@ -337,7 +362,7 @@ class BackgroundTaskManager {
       return result;
     }
     for (final String taskId in list) {
-      final BackgroundTask? task = _get(taskId);
+      final BackgroundTask? task = await _get(taskId);
       if (task == null) {
         // unexpected, but let's remove that null task anyway.
         _debugPrint('get all tasks/unexpected/$taskId');

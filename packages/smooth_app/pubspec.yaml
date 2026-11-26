@@ -55,6 +55,7 @@ dependencies:
   flutter_native_splash: 2.4.8
   image: 4.13.1
   crop_image: 1.0.17
+  cryptography: 2.9.0
   shared_preferences: 2.5.6
   intl: 0.20.3
   collection: 1.19.1
