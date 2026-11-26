@@ -334,40 +334,48 @@ class _CustomAmountField extends StatelessWidget {
 
     return DonationLadderOutline(
       active: active,
-      child: Theme(
-        data: theme.copyWith(
-          inputDecorationTheme: theme.inputDecorationTheme.copyWith(
-            fillColor: Colors.transparent,
-            focusedBorder: blank,
-            errorBorder: blank,
-            focusedErrorBorder: blank,
-          ),
-        ),
-        child: SmoothTextFormField(
-          type: TextFieldTypes.PLAIN_TEXT,
-          controller: controller,
-          hintText: appLocalizations.donation_custom_amount_hint,
-          textInputType: TextInputType.number,
-          maxLines: 1,
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          validator: (String? value) =>
-              value == null ||
-                  value.isEmpty ||
-                  _amountOf(numberFormat, value) != null
-              ? null
-              : appLocalizations.donation_custom_amount_error,
-          suffixIcon: Center(
-            widthFactor: 1.0,
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
-              child: Text(
-                appLocalizations.donation_tier_amount_monthly(currencySymbol),
+      child: Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: <Widget>[
+          IntrinsicWidth(
+            child: Theme(
+              data: theme.copyWith(
+                inputDecorationTheme: theme.inputDecorationTheme.copyWith(
+                  fillColor: Colors.transparent,
+                  focusedBorder: blank,
+                  errorBorder: blank,
+                  focusedErrorBorder: blank,
+                ),
+              ),
+              child: SmoothTextFormField(
+                type: TextFieldTypes.PLAIN_TEXT,
+                controller: controller,
+                hintText: appLocalizations.donation_custom_amount_hint,
+                textInputType: TextInputType.number,
+                maxLines: 1,
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                validator: (String? value) =>
+                    value == null ||
+                        value.isEmpty ||
+                        _amountOf(numberFormat, value) != null
+                    ? null
+                    : appLocalizations.donation_custom_amount_error,
+                onChanged: (String? value) =>
+                    onCustomAmount(_amountOf(numberFormat, value ?? '')),
               ),
             ),
           ),
-          onChanged: (String? value) =>
-              onCustomAmount(_amountOf(numberFormat, value ?? '')),
-        ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: LARGE_SPACE,
+              vertical: SMALL_SPACE,
+            ),
+            child: Text(
+              appLocalizations.donation_tier_amount_monthly(currencySymbol),
+            ),
+          ),
+        ],
       ),
     );
   }
