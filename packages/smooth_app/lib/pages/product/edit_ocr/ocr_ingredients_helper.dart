@@ -17,9 +17,8 @@ class OcrIngredientsHelper extends OcrHelper {
       product.ingredientsText = text;
 
   @override
-  Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
-    Product product,
-  ) => product.ingredientsTextInLanguages;
+  Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(Product product) =>
+      product.ingredientsTextInLanguages;
 
   @override
   void setMultilingualTexts(
@@ -94,10 +93,7 @@ class OcrIngredientsHelper extends OcrHelper {
   ImageField getImageField() => ImageField.INGREDIENTS;
 
   @override
-  bool isOwnerField(
-    Product product,
-    OpenFoodFactsLanguage language,
-  ) =>
+  bool isOwnerField(Product product, OpenFoodFactsLanguage language) =>
       product.ownerFields?.containsKey('ingredients_text_${language.offTag}') ??
       false;
 

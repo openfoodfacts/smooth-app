@@ -61,9 +61,8 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
     final bool lightTheme = context.lightTheme();
     _initAnimationsIfNecessary(lightTheme);
 
-    final SmoothColorsThemeExtension theme = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension theme = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
 
     return Semantics(
       label:

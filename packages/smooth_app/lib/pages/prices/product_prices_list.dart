@@ -196,9 +196,8 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
 
     switch (res) {
       case ProductPriceAction.VIEW_PRODUCT:
-        AppNavigator.of(
-          context,
-        ).push(AppRoutes.PRODUCT_LOADER(price.product!.code));
+        AppNavigator.of(context)
+            .push(AppRoutes.PRODUCT_LOADER(price.product!.code));
       case ProductPriceAction.VIEW_PROOF:
         Navigator.of(context).push(
           MaterialPageRoute<void>(
@@ -214,9 +213,8 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
         );
       case ProductPriceAction.VIEW_PRODUCT_PRICES:
         final LocalDatabase localDatabase = context.read<LocalDatabase>();
-        final Product? newProduct = await DaoProduct(
-          localDatabase,
-        ).get(price.product!.code);
+        final Product? newProduct = await DaoProduct(localDatabase)
+            .get(price.product!.code);
         if (!context.mounted) {
           return;
         }

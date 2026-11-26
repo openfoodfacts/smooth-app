@@ -68,10 +68,8 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
         ),
       );
 
-    Future.wait(<Future<void>>[
-      _setUserAgent(),
-      _fixUrl(),
-    ]).then((_) => setState(() {}));
+    Future.wait(<Future<void>>[_setUserAgent(), _fixUrl()])
+        .then((_) => setState(() {}));
   }
 
   Future<void> _fixUrl() async {

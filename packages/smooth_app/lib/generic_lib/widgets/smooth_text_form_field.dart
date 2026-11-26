@@ -83,9 +83,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
   Widget build(BuildContext context) {
     final bool enableSuggestions = widget.type == TextFieldTypes.PLAIN_TEXT;
     final bool autocorrect = widget.type == TextFieldTypes.PLAIN_TEXT;
-    final TextStyle textStyle = DefaultTextStyle.of(
-      context,
-    ).style.copyWith(fontSize: 15.0);
+    final TextStyle textStyle = DefaultTextStyle.of(context).style
+        .copyWith(fontSize: 15.0);
     final double textSize = textStyle.fontSize ?? 20.0;
     final AppLocalizations appLocalization = AppLocalizations.of(context);
     final SmoothColorsThemeExtension themeExtension = context

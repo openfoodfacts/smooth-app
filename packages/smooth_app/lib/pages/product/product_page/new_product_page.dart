@@ -106,9 +106,8 @@ class ProductPageState extends State<ProductPage>
       _productPreferences,
     );
 
-    final bool hasPendingOperations = UpToDateChanges(
-      localDatabase,
-    ).hasNotTerminatedOperations(upToDateProduct.barcode!);
+    final bool hasPendingOperations = UpToDateChanges(localDatabase)
+        .hasNotTerminatedOperations(upToDateProduct.barcode!);
 
     return DonationReminderScope(
       barcode: barcode,
@@ -118,9 +117,8 @@ class ProductPageState extends State<ProductPage>
           Provider<ProductPageState>.value(value: this),
           Provider<ProductPageCompatibility>.value(
             value: ProductPageCompatibility(
-              color: ProductCompatibilityHelper.product(
-                matchedProductV2,
-              ).getColor(context),
+              color: ProductCompatibilityHelper.product(matchedProductV2)
+                  .getColor(context),
               matchedProductV2: matchedProductV2,
             ),
           ),
@@ -259,9 +257,8 @@ class ProductPageCompatibility {
   ProductPageCompatibility({
     required this._color,
     required MatchedProductV2 matchedProductV2,
-  }) : score = ProductCompatibilityHelper.product(
-         matchedProductV2,
-       ).getFormattedScore();
+  }) : score = ProductCompatibilityHelper.product(matchedProductV2)
+           .getFormattedScore();
 
   final Color _color;
   final String? score;

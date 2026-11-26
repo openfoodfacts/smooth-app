@@ -41,10 +41,7 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
     '093270067481501',
   ];
 
-  static bool isBarcodeToBeIgnored(
-    String barcode,
-    BuildContext? context,
-  ) {
+  static bool isBarcodeToBeIgnored(String barcode, BuildContext? context) {
     final bool result = _forbiddenProducts.contains(barcode);
     if (result && context != null) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);

@@ -59,9 +59,8 @@ class _SummaryAttributeGroupHeader extends StatelessWidget {
         ),
         child: Text(
           groupName!,
-          style: Theme.of(
-            context,
-          ).textTheme.bodyMedium!.apply(color: Colors.grey),
+          style: Theme.of(context).textTheme.bodyMedium!
+              .apply(color: Colors.grey),
         ),
       );
     } else if (!isFirstGroup) {

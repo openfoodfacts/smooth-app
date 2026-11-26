@@ -56,9 +56,8 @@ class ProductImageWidget extends StatelessWidget {
       return image;
     }
     final bool expired = productImage.expired;
-    final String date = MaterialLocalizations.of(
-      context,
-    ).formatCompactDate(uploaded);
+    final String date = MaterialLocalizations.of(context)
+        .formatCompactDate(uploaded);
 
     return Semantics(
       label: expired

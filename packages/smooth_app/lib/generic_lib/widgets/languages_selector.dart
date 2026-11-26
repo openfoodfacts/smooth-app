@@ -68,9 +68,8 @@ class LanguagesSelector extends StatelessWidget {
     );
 
     final TextStyle textStyle =
-        Theme.of(
-          context,
-        ).textTheme.bodyMedium?.copyWith(color: foregroundColor) ??
+        Theme.of(context).textTheme.bodyMedium
+            ?.copyWith(color: foregroundColor) ??
         TextStyle(color: foregroundColor);
 
     return Material(
@@ -94,9 +93,8 @@ class LanguagesSelector extends StatelessWidget {
         },
         borderRadius: borderRadius ?? ANGULAR_BORDER_RADIUS,
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: SMALL_SPACE,
-          ).add(padding ?? EdgeInsets.zero),
+          padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE)
+              .add(padding ?? EdgeInsets.zero),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -224,10 +222,7 @@ class LanguagesSelector extends StatelessWidget {
     List<OpenFoodFactsLanguage> languages,
     Languages languagesHelper,
   ) {
-    return languages.sort((
-      OpenFoodFactsLanguage a,
-      OpenFoodFactsLanguage b,
-    ) {
+    return languages.sort((OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) {
       return languagesHelper
           .getNameInEnglish(a)
           .compareTo(languagesHelper.getNameInEnglish(b));
@@ -380,9 +375,8 @@ class _LanguagesListState extends State<_LanguagesList> {
         type == _LanguageType.selectedTitle
             ? appLocalizations.language_selector_section_selected
             : appLocalizations.language_selector_section_frequently_used,
-        style: Theme.of(
-          context,
-        ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
+        style: Theme.of(context).textTheme.bodyLarge
+            ?.copyWith(fontWeight: FontWeight.bold),
       ),
     );
   }

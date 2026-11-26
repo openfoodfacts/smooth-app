@@ -29,37 +29,35 @@ class _PriceAddProductActionBarcodeInput extends PriceAddProductAction {
       context: context,
       builder: (BuildContext context) => StatefulBuilder(
         builder:
-            (
-              BuildContext context,
-              void Function(VoidCallback fn) setState,
-            ) => SmoothAlertDialog(
-              title: appLocalizations.prices_add_an_item,
-              body: SmoothTextFormField(
-                autofocus: true,
-                type: TextFieldTypes.PLAIN_TEXT,
-                controller: controller,
-                hintText: appLocalizations.barcode,
-                textInputType: TextInputType.number,
-                onChanged: (_) {
-                  final String barcode = controller.text;
-                  final String cleanBarcode = _getCleanBarcode(barcode);
-                  setState(() => controller.text = cleanBarcode);
-                },
-                onFieldSubmitted: (_) => !_isValidBarcode(controller.text)
-                    ? null
-                    : Navigator.of(context).pop(controller.text),
-              ),
-              positiveAction: SmoothActionButton(
-                text: appLocalizations.validate,
-                onPressed: !_isValidBarcode(controller.text)
-                    ? null
-                    : () => Navigator.of(context).pop(controller.text),
-              ),
-              negativeAction: SmoothActionButton(
-                text: appLocalizations.cancel,
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            ),
+            (BuildContext context, void Function(VoidCallback fn) setState) =>
+                SmoothAlertDialog(
+                  title: appLocalizations.prices_add_an_item,
+                  body: SmoothTextFormField(
+                    autofocus: true,
+                    type: TextFieldTypes.PLAIN_TEXT,
+                    controller: controller,
+                    hintText: appLocalizations.barcode,
+                    textInputType: TextInputType.number,
+                    onChanged: (_) {
+                      final String barcode = controller.text;
+                      final String cleanBarcode = _getCleanBarcode(barcode);
+                      setState(() => controller.text = cleanBarcode);
+                    },
+                    onFieldSubmitted: (_) => !_isValidBarcode(controller.text)
+                        ? null
+                        : Navigator.of(context).pop(controller.text),
+                  ),
+                  positiveAction: SmoothActionButton(
+                    text: appLocalizations.validate,
+                    onPressed: !_isValidBarcode(controller.text)
+                        ? null
+                        : () => Navigator.of(context).pop(controller.text),
+                  ),
+                  negativeAction: SmoothActionButton(
+                    text: appLocalizations.cancel,
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                ),
       ),
     );
   }

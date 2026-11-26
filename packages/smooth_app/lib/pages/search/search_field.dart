@@ -233,9 +233,8 @@ class SearchFieldUIHelper {
   static TextStyle get textStyle => const TextStyle(color: Colors.black);
 
   static BoxDecoration decoration(BuildContext context) {
-    final SmoothColorsThemeExtension theme = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension theme = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
     final bool lightTheme = context.lightTheme();
 
     return BoxDecoration(

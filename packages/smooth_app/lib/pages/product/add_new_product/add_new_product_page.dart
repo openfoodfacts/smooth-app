@@ -710,30 +710,29 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   }
 
   /// Button specific to OTHER images.
-  Widget _buildOtherImageButton(
-    BuildContext context, {
-    required bool done,
-  }) => AddNewProductButton(
-    ImageField.OTHER.getAddPhotoButtonText(AppLocalizations.of(context)),
-    done
-        ? AddNewProductButton.doneIconData
-        : AddNewProductButton.cameraIconData,
-    () async {
-      final CropParameters? cropParameters = await confirmAndUploadNewPicture(
-        context,
-        barcode: barcode,
-        productType: upToDateProduct.productType,
-        imageField: ImageField.OTHER,
-        language: ProductQuery.getLanguage(),
-        isLoggedInMandatory: widget.isLoggedInMandatory,
+  Widget _buildOtherImageButton(BuildContext context, {required bool done}) =>
+      AddNewProductButton(
+        ImageField.OTHER.getAddPhotoButtonText(AppLocalizations.of(context)),
+        done
+            ? AddNewProductButton.doneIconData
+            : AddNewProductButton.cameraIconData,
+        () async {
+          final CropParameters? cropParameters =
+              await confirmAndUploadNewPicture(
+                context,
+                barcode: barcode,
+                productType: upToDateProduct.productType,
+                imageField: ImageField.OTHER,
+                language: ProductQuery.getLanguage(),
+                isLoggedInMandatory: widget.isLoggedInMandatory,
+              );
+          if (cropParameters != null) {
+            setState(() => ++_otherCount);
+          }
+        },
+        done: done,
+        showTrailing: false,
       );
-      if (cropParameters != null) {
-        setState(() => ++_otherCount);
-      }
-    },
-    done: done,
-    showTrailing: false,
-  );
 
   /// Button specific to one of the main 4 images.
   Widget _buildMainImageButton(

@@ -153,9 +153,9 @@ class ProductListPopupRename extends ProductListPopupItem {
     required ProductList productList,
     required LocalDatabase localDatabase,
     required BuildContext context,
-  }) async => ProductListUserDialogHelper(
-    DaoProductList(localDatabase),
-  ).showRenameUserListDialog(context, productList);
+  }) async =>
+      ProductListUserDialogHelper(DaoProductList(localDatabase))
+          .showRenameUserListDialog(context, productList);
 }
 
 /// Popup menu item for the product list page: share list.

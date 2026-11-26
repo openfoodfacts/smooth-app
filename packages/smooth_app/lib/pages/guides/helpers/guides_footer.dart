@@ -15,9 +15,8 @@ class GuidesFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
 
     return CustomPaint(
       painter: _FooterPainter(

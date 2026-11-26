@@ -83,10 +83,7 @@ class _CurrencyChip extends StatelessWidget {
           horizontal: VERY_LARGE_SPACE * 1.5,
           vertical: SMALL_SPACE,
         ),
-        child: Text(
-          code,
-          style: const TextStyle(fontWeight: FontWeight.w700),
-        ),
+        child: Text(code, style: const TextStyle(fontWeight: FontWeight.w700)),
       ),
     );
   }

@@ -34,10 +34,7 @@ class _PendingPriceModel extends PriceModel {
   String? checkParameters(BuildContext context) => null;
 
   @override
-  Future<void> addTask(
-    BuildContext context, {
-    required bool displaySnackbar,
-  }) {
+  Future<void> addTask(BuildContext context, {required bool displaySnackbar}) {
     saveStarted = true;
     return saved.future;
   }

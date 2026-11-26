@@ -113,9 +113,8 @@ Future<UserPreferences> _pumpCard(
       ? cardWidget
       : Builder(
           builder: (BuildContext context) => MediaQuery(
-            data: MediaQuery.of(
-              context,
-            ).copyWith(textScaler: TextScaler.linear(scaler)),
+            data: MediaQuery.of(context)
+                .copyWith(textScaler: TextScaler.linear(scaler)),
             child: cardWidget,
           ),
         );

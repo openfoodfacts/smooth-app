@@ -92,9 +92,8 @@ class PriceToOxF {
       }
     }
 
-    final Map<String, Product> products = await DaoProduct(
-      localDatabase,
-    ).getAll(refreshedBarcodes);
+    final Map<String, Product> products = await DaoProduct(localDatabase)
+        .getAll(refreshedBarcodes);
 
     for (final Product product in products.values) {
       for (final PriceToOxF priceToOxF in priceToOxFList) {

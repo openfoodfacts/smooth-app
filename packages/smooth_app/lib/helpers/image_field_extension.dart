@@ -5,25 +5,24 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 
 extension ImageFieldSmoothieExtension on ImageField {
-  static List<ImageField> getOrderedMainImageFields(
-    ProductType? productType,
-  ) => switch (productType) {
-    ProductType.product => const <ImageField>[
-      ImageField.FRONT,
-      ImageField.PACKAGING,
-    ],
-    ProductType.beauty => const <ImageField>[
-      ImageField.FRONT,
-      ImageField.INGREDIENTS,
-      ImageField.PACKAGING,
-    ],
-    null || ProductType.food || ProductType.petFood => const <ImageField>[
-      ImageField.FRONT,
-      ImageField.INGREDIENTS,
-      ImageField.NUTRITION,
-      ImageField.PACKAGING,
-    ],
-  };
+  static List<ImageField> getOrderedMainImageFields(ProductType? productType) =>
+      switch (productType) {
+        ProductType.product => const <ImageField>[
+          ImageField.FRONT,
+          ImageField.PACKAGING,
+        ],
+        ProductType.beauty => const <ImageField>[
+          ImageField.FRONT,
+          ImageField.INGREDIENTS,
+          ImageField.PACKAGING,
+        ],
+        null || ProductType.food || ProductType.petFood => const <ImageField>[
+          ImageField.FRONT,
+          ImageField.INGREDIENTS,
+          ImageField.NUTRITION,
+          ImageField.PACKAGING,
+        ],
+      };
 
   void setUrl(Product product, String url) {
     switch (this) {
@@ -83,20 +82,19 @@ extension ImageFieldSmoothieExtension on ImageField {
         ImageField.OTHER => appLocalizations.take_more_photo_button_label,
       };
 
-  String getPictureAccessibilityLabel(
-    AppLocalizations appLocalizations,
-  ) => switch (this) {
-    ImageField.FRONT =>
-      appLocalizations.product_image_front_accessibility_label,
-    ImageField.INGREDIENTS =>
-      appLocalizations.product_image_ingredients_accessibility_label,
-    ImageField.NUTRITION =>
-      appLocalizations.product_image_nutrition_accessibility_label,
-    ImageField.PACKAGING =>
-      appLocalizations.product_image_packaging_accessibility_label,
-    ImageField.OTHER =>
-      appLocalizations.product_image_other_accessibility_label,
-  };
+  String getPictureAccessibilityLabel(AppLocalizations appLocalizations) =>
+      switch (this) {
+        ImageField.FRONT =>
+          appLocalizations.product_image_front_accessibility_label,
+        ImageField.INGREDIENTS =>
+          appLocalizations.product_image_ingredients_accessibility_label,
+        ImageField.NUTRITION =>
+          appLocalizations.product_image_nutrition_accessibility_label,
+        ImageField.PACKAGING =>
+          appLocalizations.product_image_packaging_accessibility_label,
+        ImageField.OTHER =>
+          appLocalizations.product_image_other_accessibility_label,
+      };
 
   Widget getPhotoButton(
     BuildContext context,

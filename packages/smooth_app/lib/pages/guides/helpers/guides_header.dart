@@ -78,9 +78,8 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
     double shrinkOffset,
     bool overlapsContent,
   ) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
     final double progress = shrinkOffset.progressAndClamp(
       0.0,
       maxExtent - minExtent,
@@ -337,9 +336,8 @@ class _BackButton extends StatelessWidget {
                 LayoutId(
                   id: _CloseButtonLayoutId.background,
                   child: Tooltip(
-                    message: MaterialLocalizations.of(
-                      context,
-                    ).closeButtonTooltip,
+                    message: MaterialLocalizations.of(context)
+                        .closeButtonTooltip,
                     child: InkWell(
                       onTap: () => Navigator.of(context).maybePop(true),
                       borderRadius: ROUNDED_BORDER_RADIUS,

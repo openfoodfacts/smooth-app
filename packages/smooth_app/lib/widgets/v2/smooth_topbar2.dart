@@ -66,9 +66,9 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
 
     if (widget.elevationOnScroll || widget.reducedHeightOnScroll) {
       WidgetsBinding.instance.addPostFrameCallback(
-        (_) => PrimaryScrollController.maybeOf(
-          context,
-        )?.addListener(() => _onScroll()),
+        (_) =>
+            PrimaryScrollController.maybeOf(context)
+                ?.addListener(() => _onScroll()),
       );
     }
 

@@ -148,9 +148,8 @@ class _LanguageSelectorButton extends StatelessWidget {
                           Expanded(
                             child: Text(
                               LanguageSelector._getCompleteName(language!),
-                              style: Theme.of(
-                                context,
-                              ).textTheme.displaySmall?.merge(textStyle),
+                              style: Theme.of(context).textTheme.displaySmall
+                                  ?.merge(textStyle),
                             ),
                           ),
                           icon ?? const Icon(Icons.arrow_drop_down),
@@ -268,18 +267,12 @@ class _LanguageSelectorScreen extends StatelessWidget {
               ],
             );
           },
-      itemsFilter:
-          (
-            List<OpenFoodFactsLanguage> list,
-            OpenFoodFactsLanguage? selectedItem,
-            OpenFoodFactsLanguage? selectedItemOverride,
-            String filter,
-          ) => _filterCountries(
-            list,
-            selectedItem,
-            selectedItemOverride,
-            filter,
-          ),
+      itemsFilter: (
+        List<OpenFoodFactsLanguage> list,
+        OpenFoodFactsLanguage? selectedItem,
+        OpenFoodFactsLanguage? selectedItemOverride,
+        String filter,
+      ) => _filterCountries(list, selectedItem, selectedItemOverride, filter),
     );
   }
 

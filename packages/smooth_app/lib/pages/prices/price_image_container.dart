@@ -68,9 +68,8 @@ class _PriceCountBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: PriceCountWidget.getForegroundColor(
-          count,
-        ).withValues(alpha: 0.8),
+        color: PriceCountWidget.getForegroundColor(count)
+            .withValues(alpha: 0.8),
         borderRadius: const BorderRadius.vertical(top: Radius.circular(12.0)),
       ),
       child: Padding(

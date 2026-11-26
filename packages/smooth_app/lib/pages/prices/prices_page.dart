@@ -53,18 +53,13 @@ class PricesPage extends StatelessWidget {
             (UserPreferences? previousValue, UserPreferences currentValue) =>
                 previousValue?.shouldShowPricesFeedbackForm !=
                 currentValue.shouldShowPricesFeedbackForm,
-        builder:
-            (
-              BuildContext context,
-              UserPreferences userPreferences,
-              _,
-            ) {
-              if (!userPreferences.shouldShowPricesFeedbackForm) {
-                return EMPTY_WIDGET;
-              }
+        builder: (BuildContext context, UserPreferences userPreferences, _) {
+          if (!userPreferences.shouldShowPricesFeedbackForm) {
+            return EMPTY_WIDGET;
+          }
 
-              return const _PricesFeedbackForm();
-            },
+          return const _PricesFeedbackForm();
+        },
       ),
       children: <Widget>[
         if (!model.displayEachProduct)
@@ -86,9 +81,8 @@ class _PricesFeedbackForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension? themeExtension = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension? themeExtension = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>();
 
     final double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
 

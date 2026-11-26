@@ -11,9 +11,7 @@ abstract class OcrHelper {
 
   void setMonolingualText(Product product, String text);
 
-  Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
-    Product product,
-  );
+  Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(Product product);
 
   void setMultilingualTexts(
     Product product,
@@ -41,14 +39,10 @@ abstract class OcrHelper {
   String getActionLoadingPhoto(AppLocalizations appLocalizations);
 
   /// Returns the title of the dialog to explain the "loading photo" state
-  String getActionLoadingPhotoDialogTitle(
-    AppLocalizations appLocalizations,
-  );
+  String getActionLoadingPhotoDialogTitle(AppLocalizations appLocalizations);
 
   /// Returns the content of the dialog to explain the "loading photo" state
-  String getActionLoadingPhotoDialogBody(
-    AppLocalizations appLocalizations,
-  );
+  String getActionLoadingPhotoDialogBody(AppLocalizations appLocalizations);
 
   /// Returns the "Extracting data…" button label
   String getActionExtractingData(AppLocalizations appLocalizations);
@@ -82,10 +76,7 @@ abstract class OcrHelper {
 
   /// Returns if a given product has an owner field
   /// (= value provided by the producer).
-  bool isOwnerField(
-    Product product,
-    OpenFoodFactsLanguage language,
-  );
+  bool isOwnerField(Product product, OpenFoodFactsLanguage language);
 
   /// Returns the text that the server OCR managed to extract from the image.
   Future<String?> getExtractedText(

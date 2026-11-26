@@ -202,10 +202,9 @@ void main() {
 
     test('finds the donation item wherever it sits in the feed', () {
       expect(
-        newsWith(<String>[
-          'divinfood_survey_2026',
-          'donation_campaign_2026',
-        ]).donation?.id,
+        newsWith(<String>['divinfood_survey_2026', 'donation_campaign_2026'])
+            .donation
+            ?.id,
         'donation_campaign_2026',
       );
     });

@@ -93,9 +93,8 @@ class QuestionCard extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(bottom: SMALL_SPACE),
             child: Text(
               question.question!,
-              style: Theme.of(
-                context,
-              ).textTheme.headlineMedium!.apply(color: Colors.black),
+              style: Theme.of(context).textTheme.headlineMedium!
+                  .apply(color: Colors.black),
             ),
           ),
           Container(
@@ -106,9 +105,8 @@ class QuestionCard extends StatelessWidget {
             padding: const EdgeInsets.all(SMALL_SPACE),
             child: Text(
               question.value!,
-              style: Theme.of(
-                context,
-              ).textTheme.headlineMedium!.apply(color: Colors.white),
+              style: Theme.of(context).textTheme.headlineMedium!
+                  .apply(color: Colors.white),
             ),
           ),
         ],

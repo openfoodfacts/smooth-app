@@ -21,9 +21,8 @@ class OcrPackagingHelper extends OcrHelper {
       product.packaging = text;
 
   @override
-  Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
-    Product product,
-  ) => product.packagingTextInLanguages;
+  Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(Product product) =>
+      product.packagingTextInLanguages;
 
   @override
   void setMultilingualTexts(

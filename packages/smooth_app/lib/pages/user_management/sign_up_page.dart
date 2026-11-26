@@ -172,9 +172,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                     textInputAction: TextInputAction.next,
                     hintText: appLocalizations.sign_up_page_password_hint,
                     maxLines: 1,
-                    onFieldSubmitted: (_) => FocusScope.of(
-                      context,
-                    ).requestFocus(_password2FocusNode),
+                    onFieldSubmitted: (_) =>
+                        FocusScope.of(context)
+                            .requestFocus(_password2FocusNode),
                     prefixIcon: const icons.Password.lock(size: 18.0),
                     autofillHints: const <String>[AutofillHints.newPassword],
                     validator: (String? value) {

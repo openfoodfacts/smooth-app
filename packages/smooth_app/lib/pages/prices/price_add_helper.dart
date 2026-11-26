@@ -27,10 +27,7 @@ class PriceAddHelper {
   }
 
   /// Returns true if the basic checks passed.
-  Future<bool> check(
-    PriceModel model,
-    GlobalKey<FormState> formKey,
-  ) async {
+  Future<bool> check(PriceModel model, GlobalKey<FormState> formKey) async {
     if (!formKey.currentState!.validate()) {
       return false;
     }
@@ -93,9 +90,8 @@ class PriceAddHelper {
             model.currency.name,
             newCurrency.name,
           ),
-          textStyle: Theme.of(
-            context,
-          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
+          textStyle: Theme.of(context).textTheme.bodyLarge
+              ?.copyWith(fontWeight: FontWeight.w500),
         ),
         actionLabels: <String>[
           appLocalizations.prices_currency_change_proposal_action_approve(
@@ -136,9 +132,8 @@ class PriceAddHelper {
           children: <Widget>[
             TextWithBoldParts(
               text: appLocalizations.prices_privacy_warning_main_message,
-              textStyle: Theme.of(
-                context,
-              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
+              textStyle: Theme.of(context).textTheme.bodyLarge
+                  ?.copyWith(fontWeight: FontWeight.w500),
             ),
             DecoratedBox(
               decoration: BoxDecoration(
@@ -168,9 +163,8 @@ class PriceAddHelper {
             const SizedBox(height: MEDIUM_SPACE),
             Text(
               appLocalizations.prices_privacy_warning_sub_message,
-              style: Theme.of(
-                context,
-              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
+              style: Theme.of(context).textTheme.bodyLarge
+                  ?.copyWith(fontWeight: FontWeight.w500),
             ),
           ],
         ),
@@ -206,9 +200,8 @@ class PriceAddHelper {
         Expanded(
           child: Text(
             text,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+            style: Theme.of(context).textTheme.bodyLarge
+                ?.copyWith(fontWeight: FontWeight.w600),
           ),
         ),
       ],

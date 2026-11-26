@@ -77,9 +77,8 @@ class PriceLocationWidget extends StatelessWidget {
             path: 'locations/$locationId',
             uriHelper: ProductQuery.uriPricesHelper,
           ),
-          title: AppLocalizations.of(
-            context,
-          ).all_search_prices_top_location_single_title,
+          title: AppLocalizations.of(context)
+              .all_search_prices_top_location_single_title,
         ),
       ),
     ),

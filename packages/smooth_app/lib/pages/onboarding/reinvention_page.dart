@@ -43,18 +43,16 @@ class OnboardingHomePage extends StatelessWidget {
                   await userPreferences.trackFirstOpenAfterConsent();
 
                   if (context.mounted) {
-                    await OnboardingLoader(
-                      localDatabase,
-                    ).runAtNextTime(OnboardingPage.HOME_PAGE, context);
+                    await OnboardingLoader(localDatabase)
+                        .runAtNextTime(OnboardingPage.HOME_PAGE, context);
                   }
 
                   if (context.mounted) {
-                    await OnboardingFlowNavigator(
-                      userPreferences,
-                    ).navigateToPage(
-                      context,
-                      OnboardingPage.HOME_PAGE.getNextPage(),
-                    );
+                    await OnboardingFlowNavigator(userPreferences)
+                        .navigateToPage(
+                          context,
+                          OnboardingPage.HOME_PAGE.getNextPage(),
+                        );
                   }
                 },
               ),

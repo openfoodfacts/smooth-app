@@ -25,9 +25,8 @@ class AddSimpleInputButton extends StatelessWidget {
       label ?? helper.getAddButtonLabel(AppLocalizations.of(context)),
       leadingIcon: const icons.Edit(),
       textAlign: TextAlign.center,
-      onPressed: () async => ProductFieldSimpleEditor(
-        helper,
-      ).edit(isLoggedInMandatory: true, context: context, product: product),
+      onPressed: () async => ProductFieldSimpleEditor(helper)
+          .edit(isLoggedInMandatory: true, context: context, product: product),
     );
   }
 }

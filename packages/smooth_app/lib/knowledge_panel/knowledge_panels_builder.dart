@@ -244,10 +244,8 @@ class KnowledgePanelsBuilder {
   }) => getKnowledgePanel(product, simplified ? 'simplified_root' : 'root');
 
   /// Returns the KP that matches the [panelId].
-  static KnowledgePanel? getKnowledgePanel(
-    Product product,
-    String panelId,
-  ) => product.knowledgePanels?.panelIdToPanelMap[panelId];
+  static KnowledgePanel? getKnowledgePanel(Product product, String panelId) =>
+      product.knowledgePanels?.panelIdToPanelMap[panelId];
 
   /// Returns the unique "root" panel element that matches [panelId], or `null`.
   static KnowledgePanelElement? getRootPanelElement(
@@ -266,10 +264,7 @@ class KnowledgePanelsBuilder {
   }
 
   /// Returns true if there are elements to display for that panel.
-  static bool hasSomethingToDisplay(
-    Product product,
-    String panelId,
-  ) {
+  static bool hasSomethingToDisplay(Product product, String panelId) {
     final KnowledgePanel panel = KnowledgePanelsBuilder.getKnowledgePanel(
       product,
       panelId,

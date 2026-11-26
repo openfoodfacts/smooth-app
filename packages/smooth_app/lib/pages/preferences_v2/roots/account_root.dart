@@ -135,9 +135,8 @@ class AccountRoot extends PreferencesRoot {
           ),
           child: Text(
             appLocalizations.sign_out_confirmation,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
+            style: Theme.of(context).textTheme.bodyLarge
+                ?.copyWith(fontWeight: FontWeight.w500),
           ),
         ),
       ),

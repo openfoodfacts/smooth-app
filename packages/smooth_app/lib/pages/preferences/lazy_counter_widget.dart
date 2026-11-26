@@ -64,9 +64,8 @@ class _LazyCounterWidgetState extends State<LazyCounterWidget> {
             children: <Widget>[
               if (count != null)
                 Text(
-                  NumberFormat.decimalPattern(
-                    ProductQuery.getLocaleString(),
-                  ).format(count),
+                  NumberFormat.decimalPattern(ProductQuery.getLocaleString())
+                      .format(count),
                   style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
               if (_loading)

@@ -194,9 +194,8 @@ class _NutrientRowState extends State<NutrientRow>
                       ),
                     ),
                     Tooltip(
-                      message: AppLocalizations.of(
-                        context,
-                      ).edit_product_form_item_add_suggestion,
+                      message: AppLocalizations.of(context)
+                          .edit_product_form_item_add_suggestion,
                       child: IconButton(
                         onPressed: () {
                           controller.text = extractionValue!;

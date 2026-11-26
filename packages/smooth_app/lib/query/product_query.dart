@@ -233,9 +233,7 @@ abstract class ProductQuery {
           );
   }
 
-  static ProductType? extractProductType(
-    UriProductHelper uriProductHelper,
-  ) {
+  static ProductType? extractProductType(UriProductHelper uriProductHelper) {
     final String domain = uriProductHelper.domain;
     for (final ProductType productType in ProductType.values) {
       if (domain.contains(productType.getDomain())) {

@@ -417,10 +417,7 @@ class _SearchHistoryTile extends StatelessWidget {
                 SizedBox(
                   width: _leadingSize,
                   child: Center(
-                    child: SmoothCircle.indicator(
-                      color: iconColor,
-                      size: 10.0,
-                    ),
+                    child: SmoothCircle.indicator(color: iconColor, size: 10.0),
                   ),
                 ),
                 const SizedBox(width: SMALL_SPACE),

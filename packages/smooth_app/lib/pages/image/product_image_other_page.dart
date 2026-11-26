@@ -526,9 +526,9 @@ class _ProductImageDetailsButton extends StatelessWidget {
         ModalSheetItem(
           title: appLocalizations.photo_viewer_details_date_title,
           subTitle: image.uploaded != null
-              ? MaterialLocalizations.of(
-                  context,
-                ).formatFullDate(image.uploaded!).firstLetterInUppercase()
+              ? MaterialLocalizations.of(context)
+                    .formatFullDate(image.uploaded!)
+                    .firstLetterInUppercase()
               : '-',
           leading: const icons.Calendar(),
         ),

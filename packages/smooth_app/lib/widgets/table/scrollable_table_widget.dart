@@ -36,9 +36,8 @@ class _ScrollableTableWidgetState extends State<ScrollableTableWidget> {
     _computer = KnowledgePanelTableCellWidthComputer(
       textScaler: MediaQuery.textScalerOf(context),
       textStyle: DefaultTextStyle.of(context).style,
-      headerTextStyle: DefaultTextStyle.of(
-        context,
-      ).style.merge(const TextStyle(fontWeight: FontWeight.bold)),
+      headerTextStyle: DefaultTextStyle.of(context).style
+          .merge(const TextStyle(fontWeight: FontWeight.bold)),
     );
     _columnsMaxLength = widget.smoothTable.getColumnsMaxLength(_computer);
   }

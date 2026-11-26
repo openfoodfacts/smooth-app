@@ -105,9 +105,8 @@ class _UnwantedIngredientsInputState extends State<UnwantedIngredientsInput> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            AppLocalizations.of(
-              context,
-            ).food_preferences_ingredient_already_added,
+            AppLocalizations.of(context)
+                .food_preferences_ingredient_already_added,
           ),
         ),
       );

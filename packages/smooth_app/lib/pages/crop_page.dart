@@ -109,9 +109,8 @@ class _CropPageState extends State<CropPage> {
     try {
       // may fail, cf. https://github.com/fluttercandies/dart_image_size_getter/pull/56
       final size_getter.Size imageSize =
-          size_getter.ImageSizeGetter.getSizeResult(
-            FileInput(widget.inputFile),
-          ).size;
+          size_getter.ImageSizeGetter.getSizeResult(FileInput(widget.inputFile))
+              .size;
       if (imageSize.needRotate) {
         _fullImageWidth = imageSize.height;
         _fullImageHeight = imageSize.width;
@@ -295,9 +294,7 @@ class _CropPageState extends State<CropPage> {
                                                 ),
                                               ),
                                       onPanEnd: (DragEndDetails details) =>
-                                          setState(
-                                            () => _eraserModel.panEnd(),
-                                          ),
+                                          setState(() => _eraserModel.panEnd()),
                                     ),
                                   ),
                             ),

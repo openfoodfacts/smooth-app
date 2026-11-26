@@ -28,10 +28,7 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
           ProductType.food,
       super.fromJson();
 
-  static List<String> _getStringList(
-    Map<String, dynamic> json,
-    String tag,
-  ) {
+  static List<String> _getStringList(Map<String, dynamic> json, String tag) {
     final List<dynamic> dynamicList =
         json[_jsonTagExcludeBarcodes] as List<dynamic>;
     final List<String> result = <String>[];

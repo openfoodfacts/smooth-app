@@ -69,9 +69,8 @@ class LoadingDialog<T> {
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    style: Theme.of(
-                      context,
-                    ).textTheme.bodyMedium?.copyWith(color: Colors.blue),
+                    style: Theme.of(context).textTheme.bodyMedium
+                        ?.copyWith(color: Colors.blue),
                     text: Status.openNewIssueUrl,
                     recognizer: TapGestureRecognizer()
                       ..onTap = () =>
@@ -117,11 +116,7 @@ class LoadingDialog<T> {
   }
 
   /// Displayed dialog during future.
-  Widget _getDialog(
-    BuildContext context,
-    String title,
-    Future<T> future,
-  ) {
+  Widget _getDialog(BuildContext context, String title, Future<T> future) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothAlertDialog(
       body: FutureBuilder<T>(

@@ -194,18 +194,12 @@ class _LanguageSelectorScreen extends StatelessWidget {
               ],
             );
           },
-      itemsFilter:
-          (
-            List<OpenFoodFactsLanguage> list,
-            OpenFoodFactsLanguage? selectedItem,
-            OpenFoodFactsLanguage? selectedItemOverride,
-            String filter,
-          ) => _filterCountries(
-            list,
-            selectedItem,
-            selectedItemOverride,
-            filter,
-          ),
+      itemsFilter: (
+        List<OpenFoodFactsLanguage> list,
+        OpenFoodFactsLanguage? selectedItem,
+        OpenFoodFactsLanguage? selectedItemOverride,
+        String filter,
+      ) => _filterCountries(list, selectedItem, selectedItemOverride, filter),
     );
   }
 

@@ -186,17 +186,11 @@ class _SimpleInputListRobotoffSuggestionHeaderState
     final InsightAnnotation? annotation = context.watch<InsightAnnotation?>();
 
     return Listener<InsightAnnotation?>(
-      listener:
-          (
-            BuildContext context,
-            InsightAnnotation? previousValue,
-            InsightAnnotation? currentValue,
-          ) => _updateAnimations(
-            context,
-            previousValue,
-            currentValue,
-            lightTheme,
-          ),
+      listener: (
+        BuildContext context,
+        InsightAnnotation? previousValue,
+        InsightAnnotation? currentValue,
+      ) => _updateAnimations(context, previousValue, currentValue, lightTheme),
       child: Material(
         color: Color.lerp(
           (lightTheme ? extension.primaryMedium : extension.primarySemiDark)

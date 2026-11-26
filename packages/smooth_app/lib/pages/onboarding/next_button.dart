@@ -49,9 +49,8 @@ class NextButton extends StatelessWidget {
             ),
       rightButton: OnboardingBottomButton(
         onPressed: () async {
-          await OnboardingLoader(
-            localDatabase,
-          ).runAtNextTime(currentPage, context);
+          await OnboardingLoader(localDatabase)
+              .runAtNextTime(currentPage, context);
           if (context.mounted) {
             await navigator.navigateToPage(context, currentPage.getNextPage());
           }

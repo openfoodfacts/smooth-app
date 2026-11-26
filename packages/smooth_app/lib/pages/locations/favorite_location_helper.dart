@@ -29,10 +29,7 @@ class FavoriteLocationHelper {
   }
 
   /// Returns true if a store was flagged as favorite.
-  bool isFavorite(
-    LocalDatabase localDatabase,
-    OsmLocation location,
-  ) {
+  bool isFavorite(LocalDatabase localDatabase, OsmLocation location) {
     final DaoStringList daoStringList = DaoStringList(localDatabase);
     final List<String> favorites = daoStringList.getAll(_key);
     return _isFavorite(favorites, location);

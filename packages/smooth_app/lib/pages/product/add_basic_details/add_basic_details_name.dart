@@ -239,9 +239,8 @@ class _ProductNameAddNewLanguage extends StatelessWidget {
         await LanguagesSelector.openLanguageSelector(
           context,
           disabledLanguages: selectedLanguages,
-          title: AppLocalizations.of(
-            context,
-          ).add_basic_details_product_name_add_translation,
+          title: AppLocalizations.of(context)
+              .add_basic_details_product_name_add_translation,
         );
 
     if (language != null) {
@@ -414,9 +413,8 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
               .add_basic_details_product_name_change_main_language_text(
                 Languages().getNameInEnglish(widget.productName.language),
               ),
-          textStyle: Theme.of(
-            context,
-          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+          textStyle: Theme.of(context).textTheme.bodyLarge
+              ?.copyWith(fontWeight: FontWeight.w600),
         ),
       ),
       prefixIcons: <Widget>[
@@ -512,11 +510,10 @@ class _ProductNameCollapsedSection extends StatelessWidget {
                       const icons.DoubleChevron.down(),
                       const SizedBox(width: SMALL_SPACE),
                       Text(
-                        AppLocalizations.of(
-                          context,
-                        ).add_basic_details_product_name_other_translations(
-                          count,
-                        ),
+                        AppLocalizations.of(context)
+                            .add_basic_details_product_name_other_translations(
+                              count,
+                            ),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15.0,
@@ -684,9 +681,8 @@ class _ProductNameNewTranslationWarningState
                           child: Material(
                             type: MaterialType.transparency,
                             child: Tooltip(
-                              message: MaterialLocalizations.of(
-                                context,
-                              ).closeButtonTooltip,
+                              message: MaterialLocalizations.of(context)
+                                  .closeButtonTooltip,
                               child: InkWell(
                                 customBorder: const CircleBorder(),
                                 onTap: _startAnimation,
@@ -855,10 +851,7 @@ class ProductNameEditorProvider
     OpenFoodFactsLanguage? productLanguage,
     OpenFoodFactsLanguage? userLanguage,
   ) {
-    productNames.sort((
-      _EditingProductName a,
-      _EditingProductName b,
-    ) {
+    productNames.sort((_EditingProductName a, _EditingProductName b) {
       // Product language is always first
       if (a.language == productLanguage) {
         return -1;

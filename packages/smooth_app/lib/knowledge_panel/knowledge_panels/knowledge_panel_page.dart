@@ -70,9 +70,8 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     refreshUpToDate();
 
-    final bool hasPendingOperations = UpToDateChanges(
-      localDatabase,
-    ).hasNotTerminatedOperations(upToDateProduct.barcode!);
+    final bool hasPendingOperations = UpToDateChanges(localDatabase)
+        .hasNotTerminatedOperations(upToDateProduct.barcode!);
 
     return Provider<Product>.value(
       value: upToDateProduct,
@@ -211,9 +210,9 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
       return <Widget>[
         _KnowledgePanelPageEditAction(
           tooltip: AppLocalizations.of(context).origins_editing_title,
-          onPressed: () async => ProductFieldSimpleEditor(
-            SimpleInputPageOriginHelper(),
-          ).edit(context: context, product: upToDateProduct),
+          onPressed: () async =>
+              ProductFieldSimpleEditor(SimpleInputPageOriginHelper())
+                  .edit(context: context, product: upToDateProduct),
         ),
       ];
     } else if (widget.panelId == 'environmental_score_packaging') {

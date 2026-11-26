@@ -60,9 +60,8 @@ class _KnowledgePanelPageTemplateState
   }
 
   Future<void> _init() async {
-    _product = await OnboardingDataProduct.forProduct(
-      widget.localDatabase,
-    ).getData(rootBundle);
+    _product = await OnboardingDataProduct.forProduct(widget.localDatabase)
+        .getData(rootBundle);
   }
 
   @override
@@ -116,9 +115,10 @@ class _KnowledgePanelPageTemplateState
                             ),
                             child: Text(
                               widget.headerTitle,
-                              style: Theme.of(
-                                context,
-                              ).textTheme.displayMedium?.wellSpaced,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayMedium
+                                  ?.wellSpaced,
                             ),
                           ),
                           if (children.isNotEmpty)

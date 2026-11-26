@@ -16,10 +16,7 @@ import 'package:smooth_app/database/local_database.dart';
 @optionalTypeArgs
 mixin UpToDateMixin<T extends StatefulWidget> on State<T> {
   /// To be used in the `initState` method, just after `super.initState();`.
-  void initUpToDate(
-    Product initialProduct,
-    LocalDatabase localDatabase,
-  ) {
+  void initUpToDate(Product initialProduct, LocalDatabase localDatabase) {
     _initialProduct = initialProduct;
     _localDatabase = localDatabase;
     _refreshUpToDate();

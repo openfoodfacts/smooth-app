@@ -201,9 +201,8 @@ class ProductRefresher {
         user: ProductQuery.getReadUser(),
       );
       if (result.product != null) {
-        await DaoProduct(
-          localDatabase,
-        ).put(result.product!, language, productType: productType);
+        await DaoProduct(localDatabase)
+            .put(result.product!, language, productType: productType);
         localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
 
         unawaited(_failSafeFolksonomyRefresh(barcode, localDatabase));
@@ -265,9 +264,8 @@ class ProductRefresher {
       if (searchResult.products == null) {
         return null;
       }
-      await DaoProduct(
-        localDatabase,
-      ).putAll(searchResult.products!, language, productType: productType);
+      await DaoProduct(localDatabase)
+          .putAll(searchResult.products!, language, productType: productType);
       localDatabase.upToDate.setLatestDownloadedProducts(
         searchResult.products!,
       );

@@ -25,10 +25,8 @@ class DaoTransientFolksonomy extends AbstractDao {
     return _getFolksonomyOperationsFromJson(value);
   }
 
-  Future<void> put(
-    String barcode,
-    List<FolksonomyOperation> operations,
-  ) => _getBox().put(barcode, _writeFolksonomyOperationsToJson(operations));
+  Future<void> put(String barcode, List<FolksonomyOperation> operations) =>
+      _getBox().put(barcode, _writeFolksonomyOperationsToJson(operations));
 
   Future<void> delete(String barcode) async => _getBox().delete(barcode);
 

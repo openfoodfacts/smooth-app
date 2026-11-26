@@ -40,9 +40,8 @@ class DonationCampaignMeter extends StatelessWidget {
                 amountFormat.format(funding.goal),
               ),
               textStyle: small,
-              boldTextStyle: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+              boldTextStyle: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
             if (months != null && months >= 1 && months <= 12)
               Text(

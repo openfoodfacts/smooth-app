@@ -233,9 +233,8 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
                   onTap: onClose,
                   customBorder: const CircleBorder(),
                   child: Tooltip(
-                    message: MaterialLocalizations.of(
-                      context,
-                    ).closeButtonTooltip,
+                    message: MaterialLocalizations.of(context)
+                        .closeButtonTooltip,
                     child: Padding(
                       padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
                       child: icons.Close.bold(

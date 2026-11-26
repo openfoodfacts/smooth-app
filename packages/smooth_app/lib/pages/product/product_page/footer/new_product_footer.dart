@@ -46,9 +46,8 @@ class ProductFooter extends StatelessWidget {
         color: Theme.of(context).scaffoldBackgroundColor,
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Theme.of(
-              context,
-            ).shadowColor.withValues(alpha: context.lightTheme() ? 0.25 : 0.6),
+            color: Theme.of(context).shadowColor
+                .withValues(alpha: context.lightTheme() ? 0.25 : 0.6),
             blurRadius: 10.0,
           ),
         ],

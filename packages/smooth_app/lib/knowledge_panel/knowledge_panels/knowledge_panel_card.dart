@@ -71,9 +71,8 @@ class KnowledgePanelCard extends StatelessWidget {
                 context,
                 MaterialPageRoute<Widget>(
                   builder: (BuildContext context) => SmoothBrightnessOverride(
-                    brightness: SmoothBrightnessOverride.of(
-                      context,
-                    )?.brightness,
+                    brightness: SmoothBrightnessOverride.of(context)
+                        ?.brightness,
                     child: KnowledgePanelPage(
                       panelId: panelId,
                       product: product,

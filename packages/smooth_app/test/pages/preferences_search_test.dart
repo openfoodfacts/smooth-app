@@ -252,9 +252,8 @@ void main() {
     'developer settings stay hidden until developer mode is enabled',
     (WidgetTester tester) async {
       await pumpPage(tester);
-      final String title = localizations(
-        tester,
-      ).dev_preferences_reset_onboarding_title;
+      final String title = localizations(tester)
+          .dev_preferences_reset_onboarding_title;
       await search(tester, title);
       expect(tileWithTitle(title), findsNothing);
       await userPreferences.setDevMode(1);

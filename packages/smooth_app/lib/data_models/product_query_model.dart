@@ -62,10 +62,7 @@ class ProductQueryModel with ChangeNotifier {
     return _asyncLoad(fromScratch: true);
   }
 
-  Future<void> _process(
-    List<String> barcodes,
-    bool fromScratch,
-  ) async {
+  Future<void> _process(List<String> barcodes, bool fromScratch) async {
     if (fromScratch) {
       await supplier.clearBeyondTopPage();
       displayBarcodes.clear();

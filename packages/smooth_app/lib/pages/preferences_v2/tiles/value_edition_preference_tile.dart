@@ -65,9 +65,8 @@ class ValueEditionPreferenceTile extends PreferenceTile {
                       hintText: hint,
                       suffix: Semantics(
                         button: true,
-                        label: MaterialLocalizations.of(
-                          context,
-                        ).deleteButtonTooltip,
+                        label: MaterialLocalizations.of(context)
+                            .deleteButtonTooltip,
                         excludeSemantics: true,
                         child: InkWell(
                           onTap: () => controller.clear(),

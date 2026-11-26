@@ -65,9 +65,9 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
           product: widget.product,
         ),
         backgroundColor: context.lightTheme()
-            ? Theme.of(
-                context,
-              ).extension<SmoothColorsThemeExtension>()!.primaryLight
+            ? Theme.of(context)
+                  .extension<SmoothColorsThemeExtension>()!
+                  .primaryLight
             : null,
         body: Form(
           key: _formKey,

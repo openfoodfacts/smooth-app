@@ -142,9 +142,8 @@ class _SmoothSelectorScreenSearchBarDelegate
     double shrinkOffset,
     bool overlapsContent,
   ) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
     final bool darkMode = context.darkTheme();
 
     return ColoredBox(
@@ -332,9 +331,8 @@ class _SmoothSelectorScreenListItem<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(context)
+        .extension<SmoothColorsThemeExtension>()!;
     final PreferencesSelectorProvider<T> provider = context
         .watch<PreferencesSelectorProvider<T>>();
 

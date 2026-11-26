@@ -44,9 +44,8 @@ abstract class ProductListSupplier {
     PagedProductQuery productQuery,
     LocalDatabase localDatabase,
   ) async {
-    final int? timestamp = await DaoProductList(
-      localDatabase,
-    ).getTimestamp(productQuery.getProductList());
+    final int? timestamp = await DaoProductList(localDatabase)
+        .getTimestamp(productQuery.getProductList());
     return timestamp == null
         ? QueryProductListSupplier(productQuery, localDatabase)
         : DatabaseProductListSupplier(productQuery, localDatabase, timestamp);

@@ -84,9 +84,8 @@ void main() {
 
     test('refuses amounts that are not all positive', () {
       expect(
-        DonationOffer.fromNews(
-          _newsItem(donationAmounts: <int>[3, 0, 10]),
-        ).amounts,
+        DonationOffer.fromNews(_newsItem(donationAmounts: <int>[3, 0, 10]))
+            .amounts,
         <int>[3, 5, 10],
       );
       expect(
@@ -104,9 +103,8 @@ void main() {
 
     test('sorts and deduplicates the ladder', () {
       expect(
-        DonationOffer.fromNews(
-          _newsItem(donationAmounts: <int>[10, 3, 5, 10]),
-        ).amounts,
+        DonationOffer.fromNews(_newsItem(donationAmounts: <int>[10, 3, 5, 10]))
+            .amounts,
         <int>[3, 5, 10],
       );
     });
@@ -131,9 +129,8 @@ void main() {
         <int>[3, 5, 10],
       );
       expect(
-        DonationOffer.fromNews(
-          _newsItem(donationScansPerUnit: double.nan),
-        ).scansPerUnit,
+        DonationOffer.fromNews(_newsItem(donationScansPerUnit: double.nan))
+            .scansPerUnit,
         270,
       );
     });
@@ -143,9 +140,8 @@ void main() {
     test('falls back to 10 for every unusable value', () {
       for (final num? value in <num?>[null, 0, -3, 0.5, double.infinity]) {
         expect(
-          DonationOffer.fromNews(
-            _newsItem(donationReminderEvery: value),
-          ).reminderEvery,
+          DonationOffer.fromNews(_newsItem(donationReminderEvery: value))
+              .reminderEvery,
           10,
           reason: '$value',
         );
@@ -154,15 +150,13 @@ void main() {
 
     test('takes what the feed declares, whole or as a whole-number double', () {
       expect(
-        DonationOffer.fromNews(
-          _newsItem(donationReminderEvery: 15),
-        ).reminderEvery,
+        DonationOffer.fromNews(_newsItem(donationReminderEvery: 15))
+            .reminderEvery,
         15,
       );
       expect(
-        DonationOffer.fromNews(
-          _newsItem(donationReminderEvery: 15.0),
-        ).reminderEvery,
+        DonationOffer.fromNews(_newsItem(donationReminderEvery: 15.0))
+            .reminderEvery,
         15,
       );
     });
@@ -191,9 +185,8 @@ void main() {
     test('falls back to 14 for every unusable value', () {
       for (final num? value in <num?>[null, 0, -3, 0.5, 366, double.infinity]) {
         expect(
-          DonationOffer.fromNews(
-            _newsItem(donationStripHideDays: value),
-          ).stripHideDays,
+          DonationOffer.fromNews(_newsItem(donationStripHideDays: value))
+              .stripHideDays,
           14,
           reason: '$value',
         );
@@ -202,9 +195,8 @@ void main() {
 
     test('takes what the feed declares', () {
       expect(
-        DonationOffer.fromNews(
-          _newsItem(donationStripHideDays: 7),
-        ).stripHideDays,
+        DonationOffer.fromNews(_newsItem(donationStripHideDays: 7))
+            .stripHideDays,
         7,
       );
     });
@@ -333,9 +325,9 @@ void main() {
 
     test('follows the anchor the feed declares', () {
       expect(
-        DonationOffer.fromNews(
-          _newsItem(donationScansPerUnit: 200),
-        ).tier(10).scans,
+        DonationOffer.fromNews(_newsItem(donationScansPerUnit: 200))
+            .tier(10)
+            .scans,
         2000,
       );
     });
@@ -409,9 +401,9 @@ void main() {
 
     test('rides along as utm_content on a tier URL', () {
       expect(
-        DonationOffer.fromNews(
-          null,
-        ).tier(3).url(source: DonationSource.settings),
+        DonationOffer.fromNews(null)
+            .tier(3)
+            .url(source: DonationSource.settings),
         '$_campaign?amount=3&default_interval=m&currency=eur'
         '$_utm&utm_content=donation-screen-settings',
       );
@@ -426,9 +418,9 @@ void main() {
 
     test('the reminder source rides along on both URL shapes', () {
       expect(
-        DonationOffer.fromNews(
-          null,
-        ).tier(3).url(source: DonationSource.reminder),
+        DonationOffer.fromNews(null)
+            .tier(3)
+            .url(source: DonationSource.reminder),
         '$_campaign?amount=3&default_interval=m&currency=eur'
         '$_utm&utm_content=donation-screen-reminder',
       );

@@ -62,17 +62,14 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
                 children: <Widget>[
                   Text(
                     _appLocalizations.error_occurred,
-                    style: Theme.of(context).textTheme.bodyMedium?.apply(
-                      fontWeightDelta: 500,
-                      color: Colors.red,
-                    ),
+                    style: Theme.of(context).textTheme.bodyMedium
+                        ?.apply(fontWeightDelta: 500, color: Colors.red),
                   ),
                   const SizedBox(height: VERY_LARGE_SPACE),
                   Text(
                     widget.errorMessage,
-                    style: Theme.of(
-                      context,
-                    ).textTheme.bodyMedium?.apply(fontWeightDelta: 500),
+                    style: Theme.of(context).textTheme.bodyMedium
+                        ?.apply(fontWeightDelta: 500),
                   ).selectable(),
                 ],
               ),

@@ -52,10 +52,8 @@ class PriceMetaProduct {
     unawaited(_search(localDatabase, priceModel));
   }
 
-  static String _getTag(
-    String name,
-    OpenFoodFactsLanguage language,
-  ) => '${language.offTag}:$name';
+  static String _getTag(String name, OpenFoodFactsLanguage language) =>
+      '${language.offTag}:$name';
 
   static List<String> _getTags(
     List<String> names,

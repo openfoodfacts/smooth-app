@@ -149,10 +149,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     );
   }
 
-  String _getMessage(
-    String? status,
-    AppLocalizations appLocalizations,
-  ) {
+  String _getMessage(String? status, AppLocalizations appLocalizations) {
     switch (status) {
       case null:
         return appLocalizations.background_task_run_not_started;

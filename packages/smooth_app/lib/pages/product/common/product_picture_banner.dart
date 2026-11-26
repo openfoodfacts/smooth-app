@@ -238,9 +238,8 @@ class _PhotoRowBannerState extends State<_PhotoRowBanner> {
                   children: <Widget>[
                     Expanded(
                       child: Text(
-                        AppLocalizations.of(
-                          context,
-                        ).product_image_details_label,
+                        AppLocalizations.of(context)
+                            .product_image_details_label,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 17.0,
@@ -252,9 +251,8 @@ class _PhotoRowBannerState extends State<_PhotoRowBanner> {
                       Padding(
                         padding: const EdgeInsetsDirectional.only(end: 9.0),
                         child: Semantics(
-                          value: MaterialLocalizations.of(
-                            context,
-                          ).expandedIconTapHint,
+                          value: MaterialLocalizations.of(context)
+                              .expandedIconTapHint,
                           excludeSemantics: true,
                           child: const icons.Chevron.down(
                             size: 18.0,
@@ -397,9 +395,8 @@ class _PhotoRowDate extends StatelessWidget {
         children: <Widget>[
           Text(
             transientFile.uploadedDate != null
-                ? MaterialLocalizations.of(
-                    context,
-                  ).formatCompactDate(transientFile.uploadedDate!)
+                ? MaterialLocalizations.of(context)
+                      .formatCompactDate(transientFile.uploadedDate!)
                 : appLocalizations.product_image_details_date_unknown,
           ),
           if (outdated)

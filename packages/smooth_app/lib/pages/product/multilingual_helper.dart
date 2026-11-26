@@ -39,11 +39,9 @@ class MultilingualHelper extends ChangeNotifier {
     ImageField? imageField,
     OpenFoodFactsLanguage? productLanguage,
   }) {
-    void setMultilingualText(
-      OpenFoodFactsLanguage language,
-      String text,
-    ) => _initialMultilingualTexts[language] =
-        _currentMultilingualTexts[language] = text;
+    void setMultilingualText(OpenFoodFactsLanguage language, String text) =>
+        _initialMultilingualTexts[language] =
+            _currentMultilingualTexts[language] = text;
 
     _initialMonolingualText = monolingualText;
 

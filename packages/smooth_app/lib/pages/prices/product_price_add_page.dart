@@ -111,9 +111,9 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                   actions: <Widget>[
                     IconButton(
                       icon: const icons.Info(),
-                      onPressed: () async => PriceAddHelper(
-                        context,
-                      ).doesAcceptWarning(justInfo: true),
+                      onPressed: () async =>
+                          PriceAddHelper(context)
+                              .doesAcceptWarning(justInfo: true),
                     ),
                   ],
                 ),
@@ -140,9 +140,8 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                             const SizedBox(height: LARGE_SPACE),
                             PriceLocationCard(
                               onLocationChanged: (OsmLocation location) =>
-                                  PriceAddHelper(
-                                    context,
-                                  ).updateCurrency(location, model),
+                                  PriceAddHelper(context)
+                                      .updateCurrency(location, model),
                             ),
 
                             if (model.existingPrices != null) ...<Widget>[
@@ -231,9 +230,8 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
       final bool? pleaseSave = await MayExitPageHelper()
           .openSaveBeforeLeavingDialog(
             context,
-            title: AppLocalizations.of(
-              context,
-            ).prices_add_n_prices(model.length),
+            title: AppLocalizations.of(context)
+                .prices_add_n_prices(model.length),
           );
       if (pleaseSave == null) {
         return false;

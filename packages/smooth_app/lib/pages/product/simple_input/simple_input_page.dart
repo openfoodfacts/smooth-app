@@ -106,9 +106,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
             product: widget.product,
           ),
           backgroundColor: context.lightTheme()
-              ? Theme.of(
-                  context,
-                ).extension<SmoothColorsThemeExtension>()!.primaryLight
+              ? Theme.of(context)
+                    .extension<SmoothColorsThemeExtension>()!
+                    .primaryLight
               : null,
           body: Scrollbar(
             child: ListView(

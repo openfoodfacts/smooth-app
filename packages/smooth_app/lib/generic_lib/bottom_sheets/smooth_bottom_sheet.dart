@@ -283,9 +283,8 @@ Future<T?> showSmoothAlertModalSheet<T>({
           vertical: MEDIUM_SPACE,
         ),
         child: DefaultTextStyle.merge(
-          style: Theme.of(
-            context,
-          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+          style: Theme.of(context).textTheme.bodyLarge
+              ?.copyWith(fontWeight: FontWeight.w600),
           child: message,
         ),
       ),
@@ -344,9 +343,10 @@ Future<T?> showSmoothListOfItemsModalSheet<T>({
       final bool lightTheme = lContext.lightTheme();
       // A TextStyle given to a ListTileTheme does not inherit the font of the
       // theme.
-      final String? fontFamily = Theme.of(
-        lContext,
-      ).textTheme.bodyLarge?.fontFamily;
+      final String? fontFamily = Theme.of(lContext)
+          .textTheme
+          .bodyLarge
+          ?.fontFamily;
 
       return ListTileTheme.merge(
         titleTextStyle: TextStyle(

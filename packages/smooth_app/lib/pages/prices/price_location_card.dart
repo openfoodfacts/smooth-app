@@ -86,9 +86,8 @@ class PriceLocationCard extends StatelessWidget {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<SearchLocationPreloadedItem> preloadedList =
         <SearchLocationPreloadedItem>[];
-    final List<OsmLocation> locations = await DaoOsmLocation(
-      localDatabase,
-    ).getAll();
+    final List<OsmLocation> locations = await DaoOsmLocation(localDatabase)
+        .getAll();
     if (!context.mounted) {
       return;
     }

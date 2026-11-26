@@ -42,9 +42,8 @@ class SmoothSimpleButton extends StatelessWidget {
           overlayColor: context.read<ThemeProvider>().isAmoledTheme
               ? WidgetStateProperty.resolveWith((Set<WidgetState> states) {
                   return states.contains(WidgetState.pressed)
-                      ? Theme.of(
-                          context,
-                        ).colorScheme.primary.withValues(alpha: 0.3)
+                      ? Theme.of(context).colorScheme.primary
+                            .withValues(alpha: 0.3)
                       : null;
                 })
               : null,

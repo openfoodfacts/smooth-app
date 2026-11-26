@@ -143,9 +143,8 @@ class _ProductLoaderNotFoundState extends StatelessWidget {
             leadingIcon: const Icon(Icons.add),
             padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
             onPressed: () {
-              AppNavigator.of(
-                context,
-              ).pushReplacement(AppRoutes.PRODUCT_CREATOR(barcode));
+              AppNavigator.of(context)
+                  .pushReplacement(AppRoutes.PRODUCT_CREATOR(barcode));
             },
           ),
         ],
