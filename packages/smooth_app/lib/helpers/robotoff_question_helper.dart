@@ -16,10 +16,5 @@ class RobotoffQuestionsEquality implements Equality<RobotoffQuestion> {
   int hash(RobotoffQuestion e) => e.insightId.hashCode;
 
   @override
-  bool isValidKey(Object? o) {
-    if (o is RobotoffQuestion) {
-      return true;
-    }
-    throw UnimplementedError();
-  }
+  bool isValidKey(Object? o) => o is RobotoffQuestion;
 }
