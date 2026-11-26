@@ -51,6 +51,7 @@ class _EditNewPackagingsComponentState
               iconColor: null,
               decimal: false,
               numberFormat: widget.helper.unitNumberFormat,
+              hint: appLocalizations.edit_packagings_element_hint_units,
             ),
             _EditTextLine(
               title: appLocalizations.edit_packagings_element_field_shape,
@@ -58,6 +59,7 @@ class _EditNewPackagingsComponentState
               tagType: TagType.PACKAGING_SHAPES,
               iconName: 'shape',
               iconColor: iconColor,
+              hint: appLocalizations.edit_packagings_element_hint_shape,
               minLengthForSuggestions: 0,
               categories: widget.categories,
               productType: widget.productType,
@@ -80,6 +82,7 @@ class _EditNewPackagingsComponentState
               tagType: TagType.PACKAGING_RECYCLING,
               iconName: 'recycling',
               iconColor: iconColor,
+              hint: appLocalizations.edit_packagings_element_hint_recycling,
               productType: widget.productType,
             ),
             _EditTextLine(
@@ -87,6 +90,7 @@ class _EditNewPackagingsComponentState
               controller: widget.helper.controllerQuantity,
               iconName: 'quantity',
               iconColor: iconColor,
+              hint: appLocalizations.edit_packagings_element_hint_quantity,
               productType: widget.productType,
             ),
             _EditNumberLine(
