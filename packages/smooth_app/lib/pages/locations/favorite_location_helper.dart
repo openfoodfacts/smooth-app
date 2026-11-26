@@ -1,3 +1,4 @@
+import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
@@ -22,10 +23,41 @@ class FavoriteLocationHelper {
   ) async {
     final DaoStringList daoStringList = DaoStringList(localDatabase);
     final String locationKey = _locationToString(location);
-    await daoStringList.remove(_key, locationKey);
-    if (isFavorite) {
-      await daoStringList.add(_key, locationKey);
+    if (!isFavorite) {
+      await removeFavorite(localDatabase, locationKey);
+      return;
     }
+    // Search results can be favorited without first selecting the location.
+    await DaoOsmLocation(localDatabase).put(location);
+    if (!daoStringList.getAll(_key).contains(locationKey)) {
+      await daoStringList.add(_key, locationKey);
+    } else {
+      localDatabase.notifyListeners();
+    }
+  }
+
+  /// Returns favorites in saved order, including keys without cached details.
+  Future<Map<String, OsmLocation?>> getFavorites(
+    final LocalDatabase localDatabase,
+  ) async {
+    final List<OsmLocation> locations = await DaoOsmLocation(
+      localDatabase,
+    ).getAll();
+    final Map<String, OsmLocation> byKey = <String, OsmLocation>{
+      for (final OsmLocation location in locations)
+        _locationToString(location): location,
+    };
+    return <String, OsmLocation?>{
+      for (final String key in DaoStringList(localDatabase).getAll(_key))
+        key: byKey[key],
+    };
+  }
+
+  Future<void> removeFavorite(
+    final LocalDatabase localDatabase,
+    final String locationKey,
+  ) async {
+    await DaoStringList(localDatabase).remove(_key, locationKey);
   }
 
   /// Returns true if a store was flagged as favorite.
