@@ -58,6 +58,8 @@ class AppNewsItem {
     this.donationScansPerUnit,
     this.count,
     this.donationReminderEvery,
+    this.donationAbNewPercent,
+    this.donationStripHideDays,
     this.donationWhereItGoes,
   });
 
@@ -81,6 +83,8 @@ class AppNewsItem {
   final num? donationScansPerUnit;
   final num? count;
   final num? donationReminderEvery;
+  final num? donationAbNewPercent;
+  final num? donationStripHideDays;
   final List<String>? donationWhereItGoes;
 
   AppNewsFunding? get funding => AppNewsFunding.tryFrom(raised, goal, currency);
@@ -120,6 +124,8 @@ class AppNewsItem {
         ',donationScansPerUnit:$donationScansPerUnit'
         ',count:$count'
         ',donationReminderEvery:$donationReminderEvery'
+        ',donationAbNewPercent:$donationAbNewPercent'
+        ',donationStripHideDays:$donationStripHideDays'
         ',donationWhereItGoes:$donationWhereItGoes)';
   }
 }

@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -98,7 +98,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
           title: appLocalizations.edit_product_form_item_photos_title,
           product: upToDateProduct,
           bottom: ProductImageGalleryTabBar(
-            onTabChanged: (final OpenFoodFactsLanguage language) => onNextFrame(
+            onTabChanged: (OpenFoodFactsLanguage language) => onNextFrame(
               () => setState(() {
                 _language = language;
                 _scrollController.animateTo(

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -26,7 +26,9 @@ class SmoothProductCardTemplate extends StatelessWidget {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
     final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
-    final Color itemColor = isDarkMode ? PRIMARY_GREY_COLOR : LIGHT_GREY_COLOR;
+    final Color itemColor = isDarkMode
+        ? extension.greyUltraDark
+        : extension.greySemiLight;
 
     final Widget textWidget = SizedBox(
       width: double.infinity,

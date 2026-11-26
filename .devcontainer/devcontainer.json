@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/cirruslabs/flutter:3.44.8",
+  "image": "ghcr.io/adrianjagielak/flutter:3.50.0@sha256:df307034ac2efd6542589c5074ddbef8c79c6ad43e33b5c98075b4ce6490a50b",
   "forwardPorts": [
     3000
   ],

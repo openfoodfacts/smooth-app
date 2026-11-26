@@ -26,7 +26,7 @@ import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class LocalDatabase extends ChangeNotifier {
-  LocalDatabase._(final Database database) : _database = database {
+  LocalDatabase._(Database database) : _database = database {
     _upToDateProductProvider = UpToDateProductProvider(this);
     _upToDateProductListProvider = UpToDateProductListProvider(this);
   }
@@ -51,14 +51,13 @@ class LocalDatabase extends ChangeNotifier {
   /// Returns all the pending background task ids.
   ///
   /// Ugly solution to be able to mock hive data.
-  List<String> getAllTaskIds(final String key) =>
-      DaoStringList(this).getAll(key);
+  List<String> getAllTaskIds(String key) => DaoStringList(this).getAll(key);
 
   /// Ugly solution to be able to mock hive data.
-  int? daoIntGet(final String key) => DaoInt(this).get(key);
+  int? daoIntGet(String key) => DaoInt(this).get(key);
 
   /// Ugly solution to be able to mock hive data.
-  Future<void> daoIntPut(final String key, final int? value) =>
+  Future<void> daoIntPut(String key, int? value) =>
       DaoInt(this).put(key, value);
 
   static Future<LocalDatabase> getLocalDatabase() async {
@@ -116,9 +115,9 @@ class LocalDatabase extends ChangeNotifier {
   /// we don't use onCreate and onUpgrade, we use only onUpgrade instead.
   /// checked: from scratch, onUpgrade is called with oldVersion = 0.
   static FutureOr<void> _onUpgrade(
-    final Database db,
-    final int oldVersion,
-    final int newVersion,
+    Database db,
+    int oldVersion,
+    int newVersion,
   ) async {
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
     await DaoWorkBarcode.onUpgrade(db, oldVersion, newVersion);

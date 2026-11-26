@@ -8,7 +8,7 @@ class HomePageSnapScrollPhysics extends ClampingScrollPhysics {
   HomePageSnapScrollPhysics({
     required List<double> steps,
     this.lastStepBlocking = true,
-    final ScrollPhysics? parent,
+    ScrollPhysics? parent,
   }) : steps = steps.toList()..sort(),
        ignoreNextScroll = false,
        super(parent: parent ?? const BouncingScrollPhysics());

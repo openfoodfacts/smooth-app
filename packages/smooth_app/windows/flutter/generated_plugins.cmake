@@ -10,8 +10,8 @@ list(APPEND FLUTTER_PLUGIN_LIST
   permission_handler_windows
   rive_native
   sentry_flutter
-  share_plus
   url_launcher_windows
+  share_plus
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

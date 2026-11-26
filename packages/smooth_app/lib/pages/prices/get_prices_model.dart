@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
@@ -23,8 +23,8 @@ class GetPricesModel {
 
   /// Gets latest prices for a product.
   factory GetPricesModel.product({
-    required final PriceMetaProduct product,
-    required final BuildContext context,
+    required PriceMetaProduct product,
+    required BuildContext context,
   }) => GetPricesModel(
     parameters: getStandardPricesParameters()..productCode = product.barcode,
     displayEachProduct: false,

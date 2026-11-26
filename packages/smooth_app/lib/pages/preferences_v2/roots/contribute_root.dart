@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/helpers/contribute_ui_helper.dart';
@@ -13,6 +13,9 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class ContributeRoot extends PreferencesRoot {
   const ContributeRoot({required super.title});
+
+  @override
+  String get actionName => 'Opened contribute_page';
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {
@@ -58,8 +61,7 @@ class ContributeRoot extends PreferencesRoot {
       leading: const icons.Student(),
       title: appLocalizations.contribute_join_skill_pool,
       subtitleText: appLocalizations.preferences_contribute_skill_pool_subtitle,
-      url:
-          'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
+      url: 'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
     );
   }
 

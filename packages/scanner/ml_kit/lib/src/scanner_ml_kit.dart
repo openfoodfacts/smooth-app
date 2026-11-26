@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_ml_kit/src/mobile_scanner_controller.dart';
@@ -162,7 +162,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
       value: _cameraController,
       child: VisibilityDetector(
         key: _visibilityKey,
-        onVisibilityChanged: (final VisibilityInfo info) async {
+        onVisibilityChanged: (VisibilityInfo info) async {
           _screenVisible = info.visibleFraction > 0;
           _onScreenVisibilityChanged(_screenVisible);
         },
@@ -172,7 +172,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
               controller: _cameraController.controller,
               fit: BoxFit.cover,
               errorBuilder: (_, _) => SCANNER_EMPTY_WIDGET,
-              onDetect: (final BarcodeCapture capture) async {
+              onDetect: (BarcodeCapture capture) async {
                 for (final Barcode barcode in capture.barcodes) {
                   final String? string = barcode.displayValue;
                   if (string != null) {

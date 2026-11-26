@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:rive/rive.dart';
 import 'package:smooth_app/generic_lib/animations/rive_animation.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';

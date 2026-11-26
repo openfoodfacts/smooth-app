@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -11,9 +11,9 @@ class NutritionPageLoader {
 
   /// Shows the nutrition page after loading the ordered nutrient list.
   static Future<void> showNutritionPage({
-    required final Product product,
-    required final bool isLoggedInMandatory,
-    required final BuildContext context,
+    required Product product,
+    required bool isLoggedInMandatory,
+    required BuildContext context,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,

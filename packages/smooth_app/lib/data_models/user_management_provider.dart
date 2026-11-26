@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/login_result.dart';
@@ -20,8 +20,8 @@ class UserManagementProvider with ChangeNotifier {
 
   /// Checks credentials and conditionally saves them.
   Future<LoginResult> login(
-    final User user,
-    final UserPreferences preferences,
+    User user,
+    UserPreferences preferences,
   ) async {
     final LoginResult loginResult = await LoginResult.getLoginResult(
       user,
@@ -109,7 +109,7 @@ class UserManagementProvider with ChangeNotifier {
   /// Returns true on success; installs a marker [User] so the app shows the
   /// signed-in state, and resumes auth-blocked background tasks.
   /// A user-cancelled browser flow returns false (no error).
-  Future<bool> loginWithKeycloak(final LocalDatabase localDatabase) async {
+  Future<bool> loginWithKeycloak(LocalDatabase localDatabase) async {
     try {
       if (!await KeycloakAuthService.instance.login()) {
         return false;

@@ -85,7 +85,7 @@ class KeycloakAuthService {
   /// ProductOpener instance. Callers should also drop a Keycloak-managed
   /// app user on change (see `UserManagementProvider`).
   /// A custom issuer additionally namespaces its own token set.
-  Future<bool> syncEnvironment(final UserPreferences userPreferences) async {
+  Future<bool> syncEnvironment(UserPreferences userPreferences) async {
     final bool newUseProd =
         userPreferences.getFlag(
           UserPreferencesDevMode.userPreferencesFlagProd,
@@ -113,7 +113,7 @@ class KeycloakAuthService {
 
   /// Normalizes a user-entered issuer: trims, drops trailing slashes, and
   /// defaults to https (local `http://…` issuers work for Android dev builds).
-  static String? _normalizeIssuer(final String? value) {
+  static String? _normalizeIssuer(String? value) {
     final String trimmed = (value ?? '').trim().replaceAll(RegExp(r'/+$'), '');
     if (trimmed.isEmpty) {
       return null;
@@ -158,12 +158,12 @@ class KeycloakAuthService {
   String get _expiryKey => _key(_expirySuffix);
   String get _idTokenKey => _key(_idTokenSuffix);
 
-  String _key(final String suffix) => 'keycloak_${_scope}_$suffix';
+  String _key(String suffix) => 'keycloak_${_scope}_$suffix';
 
   /// Token namespace: prod, test, or the sanitized custom issuer.
   String get _scope => _scopeFor(_useProd, _customIssuer);
 
-  static String _scopeFor(final bool useProd, final String? customIssuer) {
+  static String _scopeFor(bool useProd, String? customIssuer) {
     if (useProd) {
       return 'prod';
     }
@@ -181,7 +181,7 @@ class KeycloakAuthService {
   bool _initialized = false;
 
   /// Deletes all stored tokens of the given namespace scope.
-  Future<void> _purgeScope(final String scope) async {
+  Future<void> _purgeScope(String scope) async {
     for (final String suffix in <String>[
       _accessTokenSuffix,
       _refreshTokenSuffix,
@@ -302,11 +302,9 @@ class KeycloakAuthService {
       if (parts.length != 3) {
         return null;
       }
-      final Map<String, dynamic> payload =
-          jsonDecode(
-                utf8.decode(base64Url.decode(base64Url.normalize(parts[1]))),
-              )
-              as Map<String, dynamic>;
+      final Map<String, dynamic> payload = jsonDecode(
+        utf8.decode(base64Url.decode(base64Url.normalize(parts[1]))),
+      ) as Map<String, dynamic>;
       final dynamic name =
           payload['preferred_username'] ??
           payload['name'] ??

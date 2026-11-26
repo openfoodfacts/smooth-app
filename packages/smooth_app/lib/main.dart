@@ -3,9 +3,9 @@ import 'dart:io';
 
 import 'package:app_store_shared/app_store_shared.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -24,6 +24,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/animations/rive_animation.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/app_localizations_delegates.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
@@ -50,6 +51,9 @@ void main() {
   debugPrint(' - flutter run -t lib/entrypoints/android/main_google_play.dart');
   debugPrint(' - flutter run -t lib/entrypoints/ios/main_ios.dart');
   debugPrint(
+    ' - flutter run -t lib/entrypoints/dev/main_dev.dart (fast development / desktop)',
+  );
+  debugPrint(
     'More information here: https://github.com/openfoodfacts/smooth-app#how-to-run-the-project',
   );
   debugPrint('--------');
@@ -68,7 +72,7 @@ Future<void> launchSmoothApp({
   required AppStore appStore,
   required StoreLabel storeLabel,
   required ScannerLabel scannerLabel,
-  final bool screenshots = false,
+  bool screenshots = false,
 }) async {
   _screenshots = screenshots;
 
@@ -306,7 +310,7 @@ class _SmoothAppState extends State<SmoothApp> {
       child: SentryScreenshotWidget(
         child: MaterialApp.router(
           locale: languageCode != null ? Locale(languageCode) : null,
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          localizationsDelegates: appLocalizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
           theme: SmoothTheme.getThemeData(

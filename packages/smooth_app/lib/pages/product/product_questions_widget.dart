@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
@@ -193,7 +193,7 @@ class _ProductQuestionBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool darkTheme = context.darkTheme();
-    final Color contentColor = darkTheme ? Colors.black : WHITE_COLOR;
+    final Color contentColor = darkTheme ? Colors.black : Colors.white;
 
     // We need to differentiate with / without a Shimmer, because
     // [Shimmer] doesn't support [Ink]

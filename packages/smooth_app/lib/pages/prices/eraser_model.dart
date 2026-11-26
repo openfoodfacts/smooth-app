@@ -4,7 +4,7 @@ import 'package:smooth_app/pages/crop_helper.dart';
 
 /// Model about the eraser tool: coordinate computations.
 class EraserModel {
-  EraserModel({this.rotation = CropRotation.up, final List<Offset>? offsets})
+  EraserModel({this.rotation = CropRotation.up, List<Offset>? offsets})
     : offsets = offsets ?? <Offset>[];
 
   CropRotation rotation;
@@ -17,7 +17,7 @@ class EraserModel {
   late double _imageHeight;
 
   // Canvas size.
-  set size(final Size value) {
+  set size(Size value) {
     _imageWidth = value.width;
     _imageHeight = value.height;
   }
@@ -26,7 +26,7 @@ class EraserModel {
   late double _fullWidth;
   late double _fullHeight;
 
-  set _boxConstraints(final BoxConstraints value) {
+  set _boxConstraints(BoxConstraints value) {
     _fullWidth = value.maxWidth;
     _fullHeight = value.maxHeight;
   }
@@ -43,7 +43,7 @@ class EraserModel {
   int get length => offsets.length ~/ 2;
 
   // From full image [0,1] to possibly cropped
-  Offset _fromPct(final Offset offset) {
+  Offset _fromPct(Offset offset) {
     final Rect rect = cropRect ?? CropHelper.fullImageCropRect;
     return switch (rotation) {
       CropRotation.down => Offset(
@@ -66,7 +66,7 @@ class EraserModel {
   }
 
   // From screen offset to full image [0,1] offset
-  Offset _toPct(final Offset offset) => switch (rotation) {
+  Offset _toPct(Offset offset) => switch (rotation) {
     CropRotation.down => Offset(
       (_imageWidth - (offset.dx - _deltaX)) / _imageWidth,
       (_imageHeight - (offset.dy - _deltaY)) / _imageHeight,
@@ -85,9 +85,9 @@ class EraserModel {
     ),
   };
 
-  Offset getStart(final int index) => _fromPct(offsets[2 * index]);
+  Offset getStart(int index) => _fromPct(offsets[2 * index]);
 
-  Offset getEnd(final int index) => _fromPct(offsets[2 * index + 1]);
+  Offset getEnd(int index) => _fromPct(offsets[2 * index + 1]);
 
   Offset? getCurrentStart() =>
       _latestStart == null ? null : _fromPct(_latestStart!);
@@ -95,12 +95,12 @@ class EraserModel {
   Offset? getCurrentEnd() =>
       _latestUpdate == null ? null : _fromPct(_latestUpdate!);
 
-  void panStart(final Offset offset, final BoxConstraints constraints) {
+  void panStart(Offset offset, BoxConstraints constraints) {
     _boxConstraints = constraints;
     _latestStart = _latestUpdate = _toPct(offset);
   }
 
-  void panUpdate(final Offset offset, final BoxConstraints constraints) {
+  void panUpdate(Offset offset, BoxConstraints constraints) {
     _boxConstraints = constraints;
     _latestUpdate = _toPct(offset);
   }

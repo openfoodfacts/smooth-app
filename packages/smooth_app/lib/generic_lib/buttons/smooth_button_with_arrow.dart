@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -50,14 +50,16 @@ class SmoothButtonWithArrow extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsetsDirectional.only(bottom: 3.0),
-              child: Text(
-                text,
-                style: TextStyle(
-                  color: textColor ?? Colors.white,
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.bold,
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(bottom: 3.0),
+                child: Text(
+                  text,
+                  style: TextStyle(
+                    color: textColor ?? Colors.white,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -28,9 +28,11 @@ class NutritionServingSize extends StatelessWidget {
           child: SmoothCardWithRoundedHeader(
             title: appLocalizations.nutrition_page_serving_size,
             leading: Consumer<TextEditingController>(
-              builder:
-                  (BuildContext context, TextEditingController controller, _) =>
-                      ScaleAnimation(animated: controller.text.isNotEmpty),
+              builder: (
+                BuildContext context,
+                TextEditingController controller,
+                _,
+              ) => ScaleAnimation(animated: controller.text.isNotEmpty),
             ),
             leadingIconSize: 21.0,
             leadingPadding: const EdgeInsetsDirectional.only(

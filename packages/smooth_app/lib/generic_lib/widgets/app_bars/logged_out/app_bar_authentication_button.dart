@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_app_bar_content.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:async/async.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +11,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dar
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/hunger_games/congrats.dart';
@@ -184,6 +185,14 @@ class _QuestionsPageState extends State<QuestionsPage>
         question: question,
         initialProduct: widget.product,
         onAnswer: (InsightAnnotation answer) async {
+          AnalyticsHelper.trackEvent(
+            AnalyticsEvent.questionAnswered,
+            action: switch (answer) {
+              InsightAnnotation.YES => 'yes',
+              InsightAnnotation.NO => 'no',
+              InsightAnnotation.MAYBE => 'skip',
+            },
+          );
           await _saveAnswer(question, answer);
           setState(() {
             _lastAnswer = answer;
@@ -208,8 +217,8 @@ class _QuestionsPageState extends State<QuestionsPage>
   }
 
   Future<void> _saveAnswer(
-    final RobotoffQuestion question,
-    final InsightAnnotation insightAnnotation,
+    RobotoffQuestion question,
+    InsightAnnotation insightAnnotation,
   ) async {
     final String? barcode = question.barcode;
     final String? insightId = question.insightId;

@@ -47,13 +47,13 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
   static const OperationType _operationType = OperationType.offlineProducts;
 
   static Future<void> addTask({
-    required final LocalDatabase localDatabase,
-    required final String work,
-    required final int pageSize,
-    required final int totalSize,
-    required final int soFarSize,
-    required final int downloadFlag,
-    required final ProductType productType,
+    required LocalDatabase localDatabase,
+    required String work,
+    required int pageSize,
+    required int totalSize,
+    required int soFarSize,
+    required int downloadFlag,
+    required ProductType productType,
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
@@ -75,16 +75,16 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-    final AppLocalizations appLocalizations,
+    AppLocalizations appLocalizations,
   ) => null;
 
   static BackgroundTask _getNewTask(
-    final String uniqueId,
-    final String work,
-    final int pageSize,
-    final int totalSize,
-    final int downloadFlag,
-    final ProductType productType,
+    String uniqueId,
+    String work,
+    int pageSize,
+    int totalSize,
+    int downloadFlag,
+    ProductType productType,
   ) => BackgroundTaskDownloadProducts._(
     processName: _operationType.processName,
     uniqueId: uniqueId,
@@ -97,13 +97,13 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
   );
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {}
+  Future<void> preExecute(LocalDatabase localDatabase) async {}
 
   @override
   bool hasImmediateNextTask = false;
 
   @override
-  Future<void> execute(final LocalDatabase localDatabase) async {
+  Future<void> execute(LocalDatabase localDatabase) async {
     final DaoWorkBarcode daoWorkBarcode = DaoWorkBarcode(localDatabase);
     final List<String> barcodes = await daoWorkBarcode.getNextPage(
       work,
@@ -182,8 +182,8 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
   /// * the product we already have locally does not have populated knowledge
   /// panel fields (therefore we won't "erase" any local Knowledge Panels data)
   static Future<bool> _shouldBeUpdated(
-    final DaoProduct daoProduct,
-    final String barcode,
+    DaoProduct daoProduct,
+    String barcode,
   ) async {
     final Product? product = await daoProduct.get(barcode);
     return product == null || product.knowledgePanels == null;

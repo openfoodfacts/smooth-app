@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/empty_screen_layout.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
@@ -11,7 +11,7 @@ import 'package:smooth_app/query/product_query.dart';
 abstract class InfiniteScrollManager<T> {
   /// Creates an [InfiniteScrollManager] with optional initial state.
   InfiniteScrollManager({
-    final List<T>? initialItems,
+    List<T>? initialItems,
     this._totalItems,
     this._totalPages,
   }) : _items = List<T>.from(initialItems ?? <T>[]),
@@ -57,7 +57,7 @@ abstract class InfiniteScrollManager<T> {
   String emptyListExplanation(AppLocalizations appLocalizations);
 
   @protected
-  Future<void> fetchInit(final BuildContext context) async {}
+  Future<void> fetchInit(BuildContext context) async {}
 
   /// Fetches data for a specific page
   @protected

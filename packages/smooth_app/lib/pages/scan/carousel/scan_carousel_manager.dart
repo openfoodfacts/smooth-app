@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 
 /// Allow to control the [ScanPageCarousel] from outside
