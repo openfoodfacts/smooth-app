@@ -74,6 +74,8 @@ class UserPreferences extends ChangeNotifier {
   static const int _PREFS_CURRENT_VERSION = 4;
   static const String _TAG_APP_LAUNCHES = 'appLaunches';
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
+  static const String _TAG_FOOD_PREFERENCES_WIZARD_COMPLETED =
+      'preferences_wizard_completed_food';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
   static const String _TAG_CURRENT_CONTRAST_MODE = 'contrastMode';
@@ -261,6 +263,23 @@ class UserPreferences extends ChangeNotifier {
       }
     }
     return false;
+  }
+
+  /// Whether the food preference wizard has been validated
+  bool get hasCompletedFoodPreferencesWizard =>
+      _sharedPreferences.getBool(
+        _TAG_FOOD_PREFERENCES_WIZARD_COMPLETED,
+      ) ??
+      // Earlier versions saved project preferences only when validating
+      arePreferencesSetForProject(PreferencesPageProjects.food);
+
+  Future<void> setFoodPreferencesWizardCompleted({
+    required bool completed,
+  }) async {
+    await _sharedPreferences.setBool(
+      _TAG_FOOD_PREFERENCES_WIZARD_COMPLETED,
+      completed,
+    );
   }
 
   Future<void> setTheme(String theme) async {

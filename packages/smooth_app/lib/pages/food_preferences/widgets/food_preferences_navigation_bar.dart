@@ -23,12 +23,15 @@ class FoodPreferencesNavigationBar extends StatelessWidget {
   final VoidCallback onFinish;
   final VoidCallback onLater;
 
+  static const Key positiveButtonKey = Key('food-preferences-next');
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SmoothButtonsBar2(
       positiveButton: SmoothActionButton2(
+        key: positiveButtonKey,
         text: _getPositiveButtonText(appLocalizations),
         onPressed: _getPositiveButtonAction(),
       ),

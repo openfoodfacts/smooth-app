@@ -7,8 +7,10 @@ class FoodPreferencesController extends ChangeNotifier {
     required this._attributeGroups,
     this.showIntroduction = true,
     this.showSummary = true,
-  }) {
-    _pageController = PageController();
+    bool startAtSummary = false,
+  }) : assert(!startAtSummary || showSummary) {
+    _currentPageIndex = startAtSummary ? pageCount - 1 : 0;
+    _pageController = PageController(initialPage: _currentPageIndex);
   }
 
   late final PageController _pageController;
@@ -104,13 +106,17 @@ class FoodPreferencesController extends ChangeNotifier {
     }
   }
 
-  void goToPage(int index) {
+  void goToPage(int index, {bool animate = true}) {
     if (index >= 0 && index < pageCount) {
-      _pageController.animateToPage(
-        index,
-        duration: SmoothAnimationsDuration.medium,
-        curve: Curves.easeInOut,
-      );
+      if (animate) {
+        _pageController.animateToPage(
+          index,
+          duration: SmoothAnimationsDuration.medium,
+          curve: Curves.easeInOut,
+        );
+      } else {
+        _pageController.jumpToPage(index);
+      }
     }
   }
 
