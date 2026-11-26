@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_custom_tabs/flutter_custom_tabs.dart' as tabs;
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path/path.dart' as path_lib;
 import 'package:smooth_app/generic_lib/duration_constants.dart';

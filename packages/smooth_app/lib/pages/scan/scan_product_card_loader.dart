@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
@@ -22,19 +22,18 @@ class ScanProductCardLoader extends StatelessWidget {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     return FutureBuilder<Product?>(
       future: DaoProduct(localDatabase).get(barcode),
-      builder:
-          (final BuildContext context, final AsyncSnapshot<Product?> snapshot) {
-            if (snapshot.data != null) {
-              return ScanProductCardFound(
-                product: snapshot.data!,
-                onRemoveProduct: onRemoveProduct,
-              );
-            }
-            return ScanProductCardLoading(
-              barcode: barcode,
-              onRemoveProduct: onRemoveProduct,
-            );
-          },
+      builder: (BuildContext context, AsyncSnapshot<Product?> snapshot) {
+        if (snapshot.data != null) {
+          return ScanProductCardFound(
+            product: snapshot.data!,
+            onRemoveProduct: onRemoveProduct,
+          );
+        }
+        return ScanProductCardLoading(
+          barcode: barcode,
+          onRemoveProduct: onRemoveProduct,
+        );
+      },
     );
   }
 }

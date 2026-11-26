@@ -10,40 +10,40 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 /// OCR Helper for ingredients.
 class OcrIngredientsHelper extends OcrHelper {
   @override
-  String? getMonolingualText(final Product product) => product.ingredientsText;
+  String? getMonolingualText(Product product) => product.ingredientsText;
 
   @override
-  void setMonolingualText(final Product product, final String text) =>
+  void setMonolingualText(Product product, String text) =>
       product.ingredientsText = text;
 
   @override
   Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
-    final Product product,
+    Product product,
   ) => product.ingredientsTextInLanguages;
 
   @override
   void setMultilingualTexts(
-    final Product product,
-    final Map<OpenFoodFactsLanguage, String> texts,
+    Product product,
+    Map<OpenFoodFactsLanguage, String> texts,
   ) => product.ingredientsTextInLanguages = texts;
 
   @override
-  String? getImageUrl(final Product product) => product.imageIngredientsUrl;
+  String? getImageUrl(Product product) => product.imageIngredientsUrl;
 
   @override
-  String getImageError(final AppLocalizations appLocalizations) =>
+  String getImageError(AppLocalizations appLocalizations) =>
       appLocalizations.ingredients_editing_image_error;
 
   @override
-  String getError(final AppLocalizations appLocalizations) =>
+  String getError(AppLocalizations appLocalizations) =>
       appLocalizations.ingredients_editing_error;
 
   @override
-  String getActionExtractText(final AppLocalizations appLocalizations) =>
+  String getActionExtractText(AppLocalizations appLocalizations) =>
       appLocalizations.edit_ingredients_extract_ingredients_btn_text;
 
   @override
-  String getActionExtractShortText(final AppLocalizations appLocalizations) =>
+  String getActionExtractShortText(AppLocalizations appLocalizations) =>
       appLocalizations.edit_ingredients_extract_ingredients_btn_text_short;
 
   @override
@@ -63,31 +63,31 @@ class OcrIngredientsHelper extends OcrHelper {
       appLocalizations.edit_ingredients_loading_photo_help_dialog_body;
 
   @override
-  String getActionRefreshPhoto(final AppLocalizations appLocalizations) =>
+  String getActionRefreshPhoto(AppLocalizations appLocalizations) =>
       appLocalizations.edit_ingredients_refresh_photo_btn_text;
 
   @override
-  String getInstructions(final AppLocalizations appLocalizations) =>
+  String getInstructions(AppLocalizations appLocalizations) =>
       appLocalizations.ingredients_editing_instructions;
 
   @override
-  String getTitle(final AppLocalizations appLocalizations) =>
+  String getTitle(AppLocalizations appLocalizations) =>
       appLocalizations.ingredients_editing_title;
 
   @override
-  String getType(final AppLocalizations appLocalizations) =>
+  String getType(AppLocalizations appLocalizations) =>
       appLocalizations.ingredients;
 
   @override
-  String getEditableContentTitle(final AppLocalizations appLocalizations) =>
+  String getEditableContentTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_ingredients_list_title;
 
   @override
-  String getPhotoTitle(final AppLocalizations appLocalizations) =>
+  String getPhotoTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_ingredients_photo_title;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+  String getAddButtonLabel(AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_ingredients;
 
   @override
@@ -95,16 +95,16 @@ class OcrIngredientsHelper extends OcrHelper {
 
   @override
   bool isOwnerField(
-    final Product product,
-    final OpenFoodFactsLanguage language,
+    Product product,
+    OpenFoodFactsLanguage language,
   ) =>
       product.ownerFields?.containsKey('ingredients_text_${language.offTag}') ??
       false;
 
   @override
   Future<String?> getExtractedText(
-    final Product product,
-    final OpenFoodFactsLanguage language,
+    Product product,
+    OpenFoodFactsLanguage language,
   ) async {
     final OcrIngredientsResult result =
         await OpenFoodAPIClient.extractIngredients(

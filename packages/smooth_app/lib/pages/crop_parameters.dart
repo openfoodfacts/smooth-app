@@ -17,9 +17,9 @@ class CropParameters {
        y2 = cropRect.bottom.floor();
 
   factory CropParameters.withoutFullFile({
-    required final File preCroppedFile,
-    required final int rotation,
-    required final Rect cropRect,
+    required File preCroppedFile,
+    required int rotation,
+    required Rect cropRect,
   }) => CropParameters._(
     fullFile: null,
     preCroppedFile: preCroppedFile,
@@ -27,7 +27,7 @@ class CropParameters {
     cropRect: cropRect,
   );
 
-  factory CropParameters.asIs(final File file) => CropParameters._(
+  factory CropParameters.asIs(File file) => CropParameters._(
     fullFile: file,
     preCroppedFile: file,
     rotation: CropRotation.up.degrees,

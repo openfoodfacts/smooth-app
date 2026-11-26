@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/food_preferences/food_preferences_page.dart';
+import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -45,6 +48,48 @@ class GuidesComingSoonLabel extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Clickable preference tile in a guide linking to a project's preferences.
+class GuidesProjectPreferences extends StatelessWidget {
+  const GuidesProjectPreferences({required this.project, super.key});
+
+  final PreferencesPageProjects project;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData theme = Theme.of(context);
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(
+        horizontal: VERY_LARGE_SPACE,
+      ),
+      child: ClipRRect(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            border: Border.all(color: theme.colorScheme.primary),
+          ),
+          child: PreferenceTile(
+            leading: project.getLeadingIcon(context.lightTheme()),
+            title: project.getTitle(appLocalizations),
+            subtitleText: project.getSubtitle(appLocalizations),
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            onTap: () {
+              Navigator.of(context, rootNavigator: true).push(
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) =>
+                      FoodPreferencesPage(project: project),
+                ),
+              );
+            },
           ),
         ),
       ),

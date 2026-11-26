@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart' as off;
 
 part 'app_food_icons.dart';
@@ -1142,6 +1142,72 @@ class Debug extends AppIcon {
   }) : super._(_IconsFont.debug);
 }
 
+class Discount extends AppIcon {
+  const Discount.loyalty({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_loyalty);
+
+  const Discount.other({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_other);
+
+  const Discount.pickIt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_pick_it);
+
+  const Discount.quantity({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_quantity);
+
+  const Discount.sale({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_sale);
+
+  const Discount.seasonal({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_seasonal);
+
+  const Discount.secondHand({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_second_hand);
+
+  const Discount.soon({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.discount_soon);
+}
+
 class Discover extends AppIcon {
   const Discover({
     super.color,
@@ -1855,6 +1921,14 @@ class Map extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.map);
+
+  const Map.marker({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.map_marker);
 }
 
 class MagicWand extends AppIcon {
@@ -2618,6 +2692,14 @@ class Search extends AppIcon {
     super.key,
   }) : super._(_IconsFont.database_search);
 
+  const Search.history({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.search_history);
+
   const Search.off({
     super.color,
     super.size,
@@ -2837,6 +2919,22 @@ class Street extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.street);
+
+  const Street.path({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.path);
+
+  const Street.road({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.road);
 }
 
 class Strength extends AppIcon {
@@ -3094,6 +3192,14 @@ class User extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.user_edit);
+
+  const User.location({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.user_location);
 
   const User.question({
     super.color,

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -63,7 +63,7 @@ class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
   static const int _pageSize = 20;
 
   @override
-  Future<void> fetchData(final int pageNumber) async {
+  Future<void> fetchData(int pageNumber) async {
     final GetUsersParameters parameters = GetUsersParameters()
       ..orderBy = <OrderBy<GetUsersOrderField>>[
         const OrderBy<GetUsersOrderField>(

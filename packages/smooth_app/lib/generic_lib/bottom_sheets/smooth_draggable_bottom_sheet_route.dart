@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_sheet.dart';
 
 /// Code freely inspired from [https://github.com/surfstudio/flutter-bottom-sheet]

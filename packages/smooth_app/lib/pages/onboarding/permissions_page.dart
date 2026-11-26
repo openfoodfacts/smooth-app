@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart' hide Listener;
+import 'package:material_ui/material_ui.dart' hide Listener;
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';

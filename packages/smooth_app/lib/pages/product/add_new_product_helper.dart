@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -16,13 +16,13 @@ class AnalyticsProductTracker {
     required this.analyticsEvent,
     required this.barcode,
     required this.check,
-  });
+  }) : _already = check();
 
   final AnalyticsEvent analyticsEvent;
   final String barcode;
   final bool Function() check;
 
-  bool _already = false;
+  bool _already;
 
   void track() {
     if (_already) {
@@ -168,12 +168,12 @@ class AddNewProductScoreIcon extends StatelessWidget {
 /// Helper for the "Add new product" page.
 class AddNewProductHelper {
   bool isMainImagePopulated(
-    final ProductImageData productImageData,
-    final Product product,
+    ProductImageData productImageData,
+    Product product,
   ) =>
       getProductImageLanguages(product, productImageData.imageField).isNotEmpty;
 
-  bool isOneMainImagePopulated(final Product product) {
+  bool isOneMainImagePopulated(Product product) {
     final List<ProductImageData> productImagesData = getProductMainImagesData(
       product,
       // TODO(monsieurtanuki): check somehow with all languages
@@ -192,6 +192,7 @@ class AddNewProductHelper {
 enum EditProductAction {
   openPage,
   leaveEmpty,
+  leave,
   ingredients,
   category,
   nutritionFacts,

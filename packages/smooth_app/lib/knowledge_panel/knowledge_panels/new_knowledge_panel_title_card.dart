@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';

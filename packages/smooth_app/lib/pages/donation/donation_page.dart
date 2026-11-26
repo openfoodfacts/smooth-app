@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -41,6 +41,7 @@ class _DonationPageState extends State<DonationPage> {
   /// Read once: a feed arriving mid-visit would move the ladder under the
   /// donor's current selection.
   late final DonationOffer _offer;
+  late final DonationTestArm _arm;
 
   int? _selectedAmount;
   int? _customAmount;
@@ -54,9 +55,12 @@ class _DonationPageState extends State<DonationPage> {
       news is AppNewsStateLoaded ? news.content.donation : null,
     );
 
+    _arm = _offer.arm(context.read<UserPreferences>().getDonationTestBucket());
+
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationPageOpened,
       eventValue: widget.source?.analyticsValue,
+      action: _arm.action(widget.source),
     );
   }
 
@@ -103,7 +107,12 @@ class _DonationPageState extends State<DonationPage> {
                   onSelected: _select,
                   onCustomAmount: _setCustomAmount,
                 ),
-                _Ctas(offer: _offer, amount: amount, source: widget.source),
+                _Ctas(
+                  offer: _offer,
+                  amount: amount,
+                  source: widget.source,
+                  arm: _arm,
+                ),
               ],
             ),
           ),
@@ -325,40 +334,48 @@ class _CustomAmountField extends StatelessWidget {
 
     return DonationLadderOutline(
       active: active,
-      child: Theme(
-        data: theme.copyWith(
-          inputDecorationTheme: theme.inputDecorationTheme.copyWith(
-            fillColor: Colors.transparent,
-            focusedBorder: blank,
-            errorBorder: blank,
-            focusedErrorBorder: blank,
-          ),
-        ),
-        child: SmoothTextFormField(
-          type: TextFieldTypes.PLAIN_TEXT,
-          controller: controller,
-          hintText: appLocalizations.donation_custom_amount_hint,
-          textInputType: TextInputType.number,
-          maxLines: 1,
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          validator: (String? value) =>
-              value == null ||
-                  value.isEmpty ||
-                  _amountOf(numberFormat, value) != null
-              ? null
-              : appLocalizations.donation_custom_amount_error,
-          suffixIcon: Center(
-            widthFactor: 1.0,
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
-              child: Text(
-                appLocalizations.donation_tier_amount_monthly(currencySymbol),
+      child: Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: <Widget>[
+          IntrinsicWidth(
+            child: Theme(
+              data: theme.copyWith(
+                inputDecorationTheme: theme.inputDecorationTheme.copyWith(
+                  fillColor: Colors.transparent,
+                  focusedBorder: blank,
+                  errorBorder: blank,
+                  focusedErrorBorder: blank,
+                ),
+              ),
+              child: SmoothTextFormField(
+                type: TextFieldTypes.PLAIN_TEXT,
+                controller: controller,
+                hintText: appLocalizations.donation_custom_amount_hint,
+                textInputType: TextInputType.number,
+                maxLines: 1,
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                validator: (String? value) =>
+                    value == null ||
+                        value.isEmpty ||
+                        _amountOf(numberFormat, value) != null
+                    ? null
+                    : appLocalizations.donation_custom_amount_error,
+                onChanged: (String? value) =>
+                    onCustomAmount(_amountOf(numberFormat, value ?? '')),
               ),
             ),
           ),
-          onChanged: (String? value) =>
-              onCustomAmount(_amountOf(numberFormat, value ?? '')),
-        ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: LARGE_SPACE,
+              vertical: SMALL_SPACE,
+            ),
+            child: Text(
+              appLocalizations.donation_tier_amount_monthly(currencySymbol),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -379,11 +396,13 @@ class _Ctas extends StatelessWidget {
     required this.offer,
     required this.amount,
     required this.source,
+    required this.arm,
   });
 
   final DonationOffer offer;
   final int amount;
   final DonationSource? source;
+  final DonationTestArm arm;
 
   @override
   Widget build(BuildContext context) {
@@ -395,10 +414,10 @@ class _Ctas extends StatelessWidget {
           text: appLocalizations.donation_cta_monthly,
           leadingIcon: const icons.Donate(),
           onPressed: () =>
-              _open(offer.tier(amount).url(source: source), amount),
+              _open(offer.tier(amount).url(source: source, arm: arm), amount),
         ),
         TextButton(
-          onPressed: () => _open(offer.oneOffUrl(source: source), 0),
+          onPressed: () => _open(offer.oneOffUrl(source: source, arm: arm), 0),
           style: TextButton.styleFrom(
             minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
           ),
@@ -419,6 +438,7 @@ class _Ctas extends StatelessWidget {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationAlreadyDonated,
       eventValue: source?.analyticsValue,
+      action: arm.action(source),
     );
     await context.read<UserPreferences>().muteDonationAsks(
       const Duration(days: 365),
@@ -438,6 +458,7 @@ class _Ctas extends StatelessWidget {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationHandoff,
       eventValue: monthlyAmount,
+      action: arm.action(source),
     );
 
     return LaunchUrlHelper.launchURLInBrowserView(url);

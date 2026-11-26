@@ -1,11 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/food_preferences/food_preferences_controller.dart';
 import 'package:smooth_app/pages/food_preferences/models/pending_preferences.dart';
@@ -257,6 +258,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
 
   Future<void> _onFinish() async {
     await _pendingPreferences.saveAll();
+    AnalyticsHelper.trackEvent(AnalyticsEvent.foodPreferenceSaved);
     if (mounted) {
       Navigator.of(context).pop();
     }

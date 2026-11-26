@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -16,6 +16,9 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class AccountRoot extends PreferencesRoot {
   const AccountRoot({required super.title});
+
+  @override
+  String get actionName => 'Opened account_page';
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {

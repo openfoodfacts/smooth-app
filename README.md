@@ -111,15 +111,15 @@ Full list of features on the wiki: https://wiki.openfoodfacts.org/Mobile_App/Fea
 
 - Make sure you have installed Flutter and all the requirements
     - [Official Flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently, the app uses the following version of Flutter: **3.44.8**.
+- Currently, the app uses the following version of Flutter: **3.50.0**.
 - **Setting Up Your Environment with FVM**
     - To manage Flutter versions easily, download and install **FVM (Flutter Version Management)**:
         - Install FVM by following
           the [official FVM installation guide](https://fvm.app/documentation/getting-started/installation).
-        - Once FVM is installed, run the following commands to set Flutter to version 3.44.8:
+        - Once FVM is installed, run the following commands to set Flutter to version 3.50.0:
           ```bash
-          fvm install 3.44.8
-          fvm use 3.44.8
+          fvm install 3.50.0
+          fvm use 3.50.0
           ```
         - Verify the Flutter version with:
           ```bash
@@ -131,6 +131,7 @@ In order to run the application, make sure you are in the `packages/smooth_app` 
 these commands:
 
 - `flutter pub get .`
+- Fast Development / Desktop ⚡: `flutter run -t lib/entrypoints/dev/main_dev.dart` (or `-d macos` / `-d linux` / `-d windows` for instant desktop execution without emulators)
 - On Android 🤖: `flutter run -t lib/entrypoints/android/main_google_play.dart`
 - On iOS/macOS 🍎: `flutter run -t lib/entrypoints/ios/main_ios.dart`
 - Troubleshooting : If you get an error like
@@ -139,6 +140,20 @@ these commands:
     - `flutter pub cache clean` or manually delete the
     - `C:\Users\~\AppData\Local\Pub\Cache`  file.
       Then redo the above procedure to run the app.
+
+#### Dev variant (mocked scanner)
+
+`lib/entrypoints/dev/main_dev.dart` is a lightweight variant meant for development only. It uses
+`MockedScanner` and `URIAppStore`, so it needs no camera, no ML Kit/ZXing and no Google Play or
+App Store SDK. It starts faster and runs on desktop (macOS, Linux, Windows) as well as on
+simulators and devices.
+
+Since there is no camera, the scan screens show a text field where you can type a barcode, plus a
+few sample barcodes to tap. Do not use it to test the real scanner: use the Android or iOS
+variants for that.
+
+Run configurations named "Dev (mocked scanner)" (Android Studio / IntelliJ) and
+"Dev - Mocked scanner" (Visual Studio Code) are available.
 
 - [Contributing Guidelines](https://github.com/openfoodfacts/smooth-app/blob/develop/CONTRIBUTING.md)
 

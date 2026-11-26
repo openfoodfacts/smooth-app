@@ -15,9 +15,9 @@ class DaoInt extends AbstractDao {
 
   Box<int> _getBox() => Hive.box<int>(_hiveBoxName);
 
-  int? get(final String key) => _getBox().get(key);
+  int? get(String key) => _getBox().get(key);
 
-  Future<void> put(final String key, final int? value) async =>
+  Future<void> put(String key, int? value) async =>
       value == null ? _getBox().delete(key) : _getBox().put(key, value);
 
   /// Returns a progressive number each time it is invoked for a given [key].
@@ -26,7 +26,7 @@ class DaoInt extends AbstractDao {
   /// The [key] is a string that is used to identify the sequence.
   ///
   /// The progressive number is saved in the database, so that it is persistent.
-  Future<int> getNextSequenceNumber(final String key) async {
+  Future<int> getNextSequenceNumber(String key) async {
     int? result = get(key);
     if (result == null) {
       result = 1;

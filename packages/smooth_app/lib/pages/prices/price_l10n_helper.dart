@@ -26,7 +26,7 @@ class PriceL10nHelper {
 
   List<String>? getOrigins() => _originsNames ?? _originsTags;
 
-  void localizeTags(final Price price, final VoidCallback refresh) {
+  void localizeTags(Price price, VoidCallback refresh) {
     _categoryTag = price.categoryTag;
     _originsTags = price.originsTags;
     _labelsTags = price.labelsTags;
@@ -50,21 +50,21 @@ class PriceL10nHelper {
     }
   }
 
-  Future<void> _loadCategoryName(final VoidCallback refresh) async {
+  Future<void> _loadCategoryName(VoidCallback refresh) async {
     _categoryName = await _categoryRepository.getDownloadedName(_categoryTag!);
     if (_categoryName != null) {
       refresh.call();
     }
   }
 
-  Future<void> _loadOriginsNames(final VoidCallback refresh) async {
+  Future<void> _loadOriginsNames(VoidCallback refresh) async {
     _originsNames = await _originRepository.getDownloadedNames(_originsTags!);
     if (_originsNames != null) {
       refresh.call();
     }
   }
 
-  Future<void> _loadLabelsNames(final VoidCallback refresh) async {
+  Future<void> _loadLabelsNames(VoidCallback refresh) async {
     _labelsNames = await _labelRepository.getDownloadedNames(_labelsTags!);
     if (_labelsNames != null) {
       refresh.call();
