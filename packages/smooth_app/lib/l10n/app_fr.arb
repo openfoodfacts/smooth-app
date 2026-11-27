@@ -649,7 +649,7 @@
   "@search_location_favorite_add": {
     "description": "Tooltip of the heart of a location in the search history, when it is not a favorite"
   },
-  "search_location_favorite_remove": "Retirer des favoris",
+  "search_location_favorite_remove": "Supprimer des favoris",
   "@search_location_favorite_remove": {
     "description": "Tooltip of the heart of a location in the search history, when it is a favorite"
   },
@@ -4740,7 +4740,7 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Green-Score inconnu",
+  "environmental_score_unknown_new": "Green Score inconnu",
   "environmental_score_not_applicable_new": "Green-Score non applicable",
   "nova_group_generic_new": "Aliments ultra-transformés - Groupes NOVA",
   "nova_group_1": "Groupe NOVA 1",

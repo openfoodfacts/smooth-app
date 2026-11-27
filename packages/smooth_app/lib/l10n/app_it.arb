@@ -2870,14 +2870,14 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
-  "prices_discount_type": "Tipo di sconto",
+  "prices_discount_type": "Discount type",
   "prices_discount_type_quantity": "Sconto quantità",
-  "prices_discount_type_sale": "Saldi",
-  "prices_discount_type_seasonal": "Stagionale",
-  "prices_discount_type_loyalty_program": "Programma fedeltà",
-  "prices_discount_type_expires_soon": "In scadenza",
-  "prices_discount_type_pick_it_yourself": "Raccoglilo tu stesso",
-  "prices_discount_type_second_hand": "Di seconda mano",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
   "prices_discount_type_other": "Altro",
   "prices_discount_type_quantity_subtitle": "Tiered pricing, bundles, 2nd at -50%",
   "@prices_discount_type_quantity_subtitle": {
@@ -5694,7 +5694,7 @@
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Importazione negozio",
+  "prices_stats_shop_import": "Shop import",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
@@ -5710,7 +5710,7 @@
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Anni",
+  "prices_stats_years": "Years",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
@@ -6686,7 +6686,7 @@
   "@donation_cta_one_off": {
     "description": "Secondary link of the donation page, opens the donation form for a single gift"
   },
-  "donation_already_donated": "I already donated",
+  "donation_already_donated": "Ho già donato",
   "@donation_already_donated": {
     "description": "Quiet link under the donation buttons; tapping it stops the app asking for a donation for a year"
   },
@@ -6704,7 +6704,7 @@
       }
     }
   },
-  "donation_reminder_title_generic": "Join the people keeping Open Food Facts free.",
+  "donation_reminder_title_generic": "Unisciti alle persone che mantengono gratuito Open Food Facts.",
   "@donation_reminder_title_generic": {
     "description": "Headline of the donation reminder sheet when the feed carries no usable donor count"
   },
@@ -6712,7 +6712,7 @@
   "@donation_reminder_body": {
     "description": "Body line of the donation reminder sheet"
   },
-  "donation_reminder_not_now": "Not now",
+  "donation_reminder_not_now": "Non ora",
   "@donation_reminder_not_now": {
     "description": "Quiet button on the donation reminder sheet that closes it without changing anything"
   },

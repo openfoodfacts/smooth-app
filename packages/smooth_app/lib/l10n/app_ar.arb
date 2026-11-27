@@ -4799,12 +4799,12 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "مشاركة",
-  "guide_nutriscore_v2_title": "Nutri-Score في تطور: تفسيرات!",
+  "guide_nutriscore_v2_title": "الدرجة الغذائية في تطور: تفسيرات!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "ما هو مؤشر التغذية (Nutri-Score)؟",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score هو شعار يهدف إلى إعلامك **بالجودة الغذائية للأطعمة**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "الدرجة الغذائية هو شعار يهدف إلى إعلامك **بالجودة الغذائية للأطعمة**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4833,8 +4833,8 @@
   "guide_nutriscore_v2_where_paragraph2": "لدى المصنعين مهلة لا تتجاوز **سنتين** بعد توقيع المرسوم **لاستبدال** الحساب القديم بالحساب الجديد.",
   "guide_nutriscore_v2_where_paragraph3": "ستجدون **في تطبيق OpenFoodFacts** الحساب الجديد، بما في ذلك ما إذا كان المصنعون لم يقوموا بتحديث النتيجة أم لا، دون انتظار.",
   "guide_nutriscore_v2_unchanged_title": "ما الذي لا يتغير",
-  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score هو مؤشر مصمم لقياس الجودة الغذائية. وهو مكمل لمجموعة NOVA الخاصة بالأطعمة فائقة المعالجة (الموجودة أيضاً في التطبيق).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "بالنسبة للمصنعين، يظل عرض Nutri-Score اختياريًا.",
+  "guide_nutriscore_v2_unchanged_paragraph1": "مؤشر التغذية هو مؤشر مصمم لقياس الجودة الغذائية. وهو مكمل لمجموعة NOVA الخاصة بالأطعمة فائقة المعالجة (الموجودة أيضاً في التطبيق).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "بالنسبة للمصنعين، يظل عرض مؤشر التغذية اختياريًا.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"

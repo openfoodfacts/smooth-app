@@ -574,7 +574,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Общност",
+  "profile_navbar_label": "Community",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -1898,7 +1898,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Нутри-Скор, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2870,14 +2870,14 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
-  "prices_discount_type": "Тип отстъпка",
+  "prices_discount_type": "Discount type",
   "prices_discount_type_quantity": "Количествена отстъпка",
-  "prices_discount_type_sale": "Разпродажба",
-  "prices_discount_type_seasonal": "Сезонна",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
   "prices_discount_type_loyalty_program": "Програма за лоялност",
   "prices_discount_type_expires_soon": "Изтича скоро",
-  "prices_discount_type_pick_it_yourself": "Набери си сам",
-  "prices_discount_type_second_hand": "Втора употреба",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
   "prices_discount_type_other": "Друго",
   "prices_discount_type_quantity_subtitle": "Tiered pricing, bundles, 2nd at -50%",
   "@prices_discount_type_quantity_subtitle": {
@@ -3048,7 +3048,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Предизвикателства",
+  "prices_challenges_page": "Challenges",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4794,7 +4794,7 @@
       }
     }
   },
-  "guide_title": "Ръководство",
+  "guide_title": "Guide",
   "@guide_title": {
     "description": "A title for a guide"
   },
@@ -4824,7 +4824,7 @@
   "guide_nutriscore_v2_why_v2_arg4_title": "Йерархия в маслата и рибите",
   "guide_nutriscore_v2_why_v2_arg4_text": "Рейтингът на някои **тлъсти риби** и **масла, богати на добри мазнини**, ще се подобри.",
   "guide_nutriscore_v2_why_v2_arg5_title": "Ограничете червеното месо",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Консумацията на **червено месо трябва да бъде ограничена**. Ето защо **птичето месо ще бъде сравнително по-добре класирано**.",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
   "guide_nutriscore_v2_new_logo_title": "Как да разграничим старото и новото изчисление на Nutri-Score?",
   "guide_nutriscore_v2_new_logo_text": "Отсега нататък логото може да показва надпис „**Ново изчисление**“, за да се уточни, че това наистина е новото изчисление.",
   "guide_nutriscore_v2_new_logo_image_caption": "Логото на новия Nutri-Score",
@@ -4832,9 +4832,9 @@
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score се прилага в 7 страни: Франция, Германия, Белгия, Испания, Люксембург, Нидерландия и Швейцария.",
   "guide_nutriscore_v2_where_paragraph2": "Производителите имат най-много **2 години** след подписването на указа, за да заменят** старото изчисление с новото.",
   "guide_nutriscore_v2_where_paragraph3": "Без да чакате, **вече ще намерите в приложението OpenFoodFacts** новото изчисление, включително ако производителите не са актуализирали резултата.",
-  "guide_nutriscore_v2_unchanged_title": "Какво не се променя",
-  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score е оценка, предназначена да **измерва хранителното качество**. Тя е **допълнение към групата NOVA** относно **ултра-преработените храни** (също присъстващи в приложението).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "За производителите показването на Nutri-Score **остава по желание**.",
+  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
+  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5586,7 +5586,7 @@
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
-  "prices_discount": "Отстъпка",
+  "prices_discount": "Discount",
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
@@ -5610,7 +5610,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Доказателства",
+  "prices_stats_proofs_section": "Proofs",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -5618,7 +5618,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Експерименти",
+  "prices_stats_experiments_section": "Experiments",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -5630,19 +5630,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "С баркод",
+  "prices_stats_with_barcode": "With a barcode",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "С категория",
+  "prices_stats_with_category": "With a category",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "С отстъпка",
+  "prices_stats_with_discount": "With a discount",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Общност",
+  "prices_stats_community": "Community",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -5658,7 +5658,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Красота",
+  "prices_stats_beauty": "Beauty",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -5674,7 +5674,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "Онлайн",
+  "prices_stats_online": "Online",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -5690,31 +5690,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR заявка",
+  "prices_stats_gdpr_request": "GDPR request",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Импорт от магазин",
+  "prices_stats_shop_import": "Shop import",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Предизвикателства",
+  "prices_stats_challenges": "Challenges",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Цени, свързани с етикет с цена",
+  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Валути",
+  "prices_stats_currencies": "Currencies",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Години",
+  "prices_stats_years": "Years",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Цени и доказателства по източник",
+  "prices_stats_by_source_title": "Prices and proofs per source",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -5722,7 +5722,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Мобилно приложение",
+  "prices_stats_mobile_app": "Mobile app",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -5822,7 +5822,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Добавени цени",
+  "preferences_app_bar_prices_added": "Prices added",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -5926,7 +5926,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Добавяне на цени",
+  "preferences_add_prices": "Add prices",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -6531,7 +6531,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Отворени лаборатории за факти за храните",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
